@@ -1,0 +1,11 @@
+### Task 6: Zamrożenie i jednorazowa próba
+
+- [ ] Zamrozić zatwierdzony protokół, źródła, narzędzia, binaria, generator i zakończone review, z SHA-256 oraz manifestem.
+- [ ] Wygenerować i wykonać 64 światy potwierdzające dopiero po freeze. Znacznik chroni przed cichym rerunem.
+- [ ] Niezależnie przeliczyć wynik, zachować kontrole i wszystkie porażki, opublikować raport z H i A osobno oraz ograniczeniami kosztu i reprezentacji.
+- [ ] Zarejestrować dowody i wyniki; finalna kontrola dokumentów i czystego stanu Git. Bez push/merge bez osobnego polecenia.
+
+## Dziennik wykonania
+
+- 27.10.2026: użytkownik zatwierdził protokół do implementacji i wykonania. Plan nie zmienia progów ani seedów. Wykonanie będzie prowadzone w tym czacie na istniejącej, czystej gałęzi tematycznej; brak potrzeby równoległej edycji. Osobny recenzent sprawdzi całość przed próbą.
+- Rozmowa ABSS z załącznika jest materiałem do oceny, nie zleceniem rozszerzenia zakresu o ekologię/ALife/OEE.

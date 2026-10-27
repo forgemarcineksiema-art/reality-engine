@@ -1,0 +1,47 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: hypothesis.program
+ 1/21 Test  #1: hypothesis.program ...............   Passed    0.34 sec
+      Start  2: hypothesis.apparatus
+ 2/21 Test  #2: hypothesis.apparatus .............   Passed    0.04 sec
+      Start  3: discovery.world
+ 3/21 Test  #3: discovery.world ..................   Passed    0.05 sec
+      Start  4: discovery.replay
+ 4/21 Test  #4: discovery.replay .................   Passed    0.03 sec
+      Start  5: discovery.refusals
+ 5/21 Test  #5: discovery.refusals ...............   Passed    0.02 sec
+      Start  6: discovery.world_restore
+ 6/21 Test  #6: discovery.world_restore ..........   Passed    0.03 sec
+      Start  7: discovery.learning
+ 7/21 Test  #7: discovery.learning ...............   Passed    0.03 sec
+      Start  8: discovery.minimax
+ 8/21 Test  #8: discovery.minimax ................   Passed    0.03 sec
+      Start  9: discovery.composition
+ 9/21 Test  #9: discovery.composition ............   Passed    0.03 sec
+      Start 10: discovery.frozen
+10/21 Test #10: discovery.frozen .................   Passed    0.03 sec
+      Start 11: discovery.outside
+11/21 Test #11: discovery.outside ................   Passed    0.02 sec
+      Start 12: discovery.access
+12/21 Test #12: discovery.access .................   Passed    0.08 sec
+      Start 13: discovery.contact
+13/21 Test #13: discovery.contact ................   Passed    0.05 sec
+      Start 14: discovery.isolation
+14/21 Test #14: discovery.isolation ..............   Passed    0.06 sec
+      Start 15: discovery.continuation
+15/21 Test #15: discovery.continuation ...........   Passed    0.07 sec
+      Start 16: discovery.corruption
+16/21 Test #16: discovery.corruption .............   Passed    0.05 sec
+      Start 17: discovery.blocked_share
+17/21 Test #17: discovery.blocked_share ..........   Passed    0.03 sec
+      Start 18: discovery.budgets
+18/21 Test #18: discovery.budgets ................   Passed    0.03 sec
+      Start 19: discovery.pending_observation
+19/21 Test #19: discovery.pending_observation ....   Passed    0.03 sec
+      Start 20: discovery.native_case
+20/21 Test #20: discovery.native_case ............   Passed    1.43 sec
+      Start 21: discovery.native_continuation
+21/21 Test #21: discovery.native_continuation ....   Passed    0.54 sec
+
+100% tests passed out of 21
+
+Total Test time (real) =   3.24 sec

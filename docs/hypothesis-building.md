@@ -1,6 +1,6 @@
 # Laboratorium budowania wyjaśnień — stan API
 
-**Status: zaimplementowane programy, agent, sesja, runner i niezależny sędzia. Pełna weryfikacja i wyniki pozostają w realizacji.** Protokół [hypothesis-v1](work-items/hypothesis-building-experiment.md) jest zatwierdzony do implementacji i wykonania. [Plan](work-items/hypothesis-building-implementation.md) rozdziela wykonane zadania i dalsze prace. To osobny konsument badawczy, bez nowego odbioru M04/3D.
+**Status: zaimplementowane i zweryfikowane programy, agent, sesja, runner i niezależny sędzia; próba wykonana.** [Raport](verification/hypothesis-building-experiment.md) zachowuje wyniki, niespełnione kryteria H/A i ograniczenia. Protokół [hypothesis-v1](work-items/hypothesis-building-experiment.md) pozostaje właścicielem metody. [Plan](work-items/hypothesis-building-implementation.md) wskazuje wykonanie. To osobny konsument badawczy, bez nowego odbioru M04/3D.
 
 ## Własność i granica informacji
 
@@ -31,7 +31,7 @@ python tools/run_hypothesis_experiment.py run build/hypothesis-development-NEW
 python tools/run_hypothesis_experiment.py analyze build/hypothesis-development-NEW
 ```
 
-`--fixture` tworzy osiem rzeczywistych checkpointów: dwa sterowniki, przed/po pierwszej sprzeczności oraz konfigurację/impuls w toku. Integracja uruchamia nowy proces dla każdego checkpointu i porównuje pełny końcowy stan z nieprzerwanym wykonaniem. Osobna integracja przypadku sprawdza surowe deklaracje, wybory prób, koszty i bilanse niezależnym kodem Pythona oraz odrzuca zmieniony pomiar. Bieżąca kontrola Debug: 8/8 PASS; pełne profile, review i wynik eksperymentu nie zostały jeszcze wykonane dla tego przyrostu.
+`--fixture` tworzy osiem rzeczywistych checkpointów: dwa sterowniki, przed/po pierwszej sprzeczności oraz konfigurację/impuls w toku. `--continue` wykonuje kontynuację tego fixture'a. Ogólne ładowanie stanu zapewnia API sesji. Integracja uruchamia nowy proces dla każdego checkpointu i porównuje pełny końcowy stan z nieprzerwanym wykonaniem. Osobna integracja przypadku sprawdza surowe deklaracje, wybory prób, koszty i bilanse niezależnym kodem Pythona oraz odrzuca zmieniony pomiar. Dziesięć nowych przypadków, pełne profile oraz wynik z danymi opisuje [raport](verification/hypothesis-building-experiment.md).
 
 Runner wymaga nowego katalogu, kopiuje binarium i zamrożone źródła z SHA-256 przed generowaniem przypadków, a `run` zapisuje znacznik jednorazowego wykonania. `analyze` odtwarza wyniki z pomiarów, sprawdza generowanie przypadków i dokładne progi, manifesty oraz związanie freeze z markerem. Zmieniony później skrypt lub jego dwie lokalne zależności odmawiają analizy dawnych danych; można uruchomić kopię `frozen-source/tools/run_hypothesis_experiment.py` z danej próby. Czytnik nie tworzy bytecode cache w zamrożonym pakiecie. Tryb potwierdzający wymaga strukturalnego rekordu review JSON przez `--review PATH`: dokładny `status: READY`, protokół, commit review i zgodny komplet hashy zweryfikowanych źródeł. Wymaga także poprawnego rozwojowego dowodu końcowego kodu przez `--development DIRECTORY` i czystych zapisanych źródeł. Freeze zawiera konfigurację, kompilator MSVC, CMake, MSBuild, architekturę i flagę ASan z rzeczywistego buildu. Wynik negatywny nie jest błędem infrastruktury.
 

@@ -1,0 +1,25 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: hypothesis.program
+ 1/10 Test  #1: hypothesis.program ...............   Passed    0.28 sec
+      Start  2: hypothesis.apparatus
+ 2/10 Test  #2: hypothesis.apparatus .............   Passed    0.03 sec
+      Start  3: hypothesis.learning
+ 3/10 Test  #3: hypothesis.learning ..............   Passed    0.33 sec
+      Start  4: hypothesis.limits
+ 4/10 Test  #4: hypothesis.limits ................   Passed    0.03 sec
+      Start  5: hypothesis.session
+ 5/10 Test  #5: hypothesis.session ...............   Passed    0.03 sec
+      Start  6: hypothesis.continuation
+ 6/10 Test  #6: hypothesis.continuation ..........   Passed    1.86 sec
+      Start  7: hypothesis.capacity
+ 7/10 Test  #7: hypothesis.capacity ..............   Passed    0.20 sec
+      Start  8: hypothesis.interrupted
+ 8/10 Test  #8: hypothesis.interrupted ...........   Passed    0.09 sec
+      Start  9: hypothesis.native_continuation
+ 9/10 Test  #9: hypothesis.native_continuation ...   Passed    6.26 sec
+      Start 10: hypothesis.native_case
+10/10 Test #10: hypothesis.native_case ...........   Passed    2.69 sec
+
+100% tests passed out of 10
+
+Total Test time (real) =  11.86 sec

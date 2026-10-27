@@ -4,6 +4,8 @@
 
 **Goal:** Wykonać zatwierdzony eksperyment budowania wyjaśnień, zachowując prawdziwe pomiary i wszystkie wyniki.
 
+**Status: wykonano.** [Raport](../verification/hypothesis-building-experiment.md) zachowuje niespełnione kryteria H/A, pełne kontrole, dane i historyczne porażki. Techniczna gotowość nie zastępuje wyniku naukowego.
+
 **Architecture:** Mały generator programów i agent nie mają dostępu do świata. Sesja wiąże wnioskowanie z rzeczywistym aparatem oraz istniejącym dostępem przestrzennym. Oddzielny Python przygotowuje przypadki i niezależnie ocenia surowe deklaracje/pomiary.
 
 **Tech Stack:** C++20, MSVC/CMake, Python 3.11+ standard library, istniejące TraversalSession i DiscoveryWorld.
@@ -85,12 +87,13 @@
 
 ### Task 6: Zamrożenie i jednorazowa próba
 
-- [ ] Zamrozić zatwierdzony protokół, źródła, narzędzia, binaria, generator i zakończone review, z SHA-256 oraz manifestem.
-- [ ] Wygenerować i wykonać 64 światy potwierdzające dopiero po freeze. Znacznik chroni przed cichym rerunem.
-- [ ] Niezależnie przeliczyć wynik, zachować kontrole i wszystkie porażki, opublikować raport z H i A osobno oraz ograniczeniami kosztu i reprezentacji.
-- [ ] Zarejestrować dowody i wyniki; finalna kontrola dokumentów i czystego stanu Git. Bez push/merge bez osobnego polecenia.
+- [x] Zamrozić zatwierdzony protokół, źródła, narzędzia, binaria, generator i zakończone review, z SHA-256 oraz manifestem.
+- [x] Wygenerować i wykonać 64 światy potwierdzające dopiero po freeze. Znacznik chroni przed cichym rerunem.
+- [x] Niezależnie przeliczyć wynik, zachować kontrole i wszystkie porażki, opublikować raport z H i A osobno oraz ograniczeniami kosztu i reprezentacji.
+- [x] Zarejestrować dowody i wyniki; finalna kontrola dokumentów i czystego stanu Git. Bez push/merge bez osobnego polecenia.
 
 ## Dziennik wykonania
 
 - 27.10.2026: użytkownik zatwierdził protokół do implementacji i wykonania. Plan nie zmienia progów ani seedów. Wykonanie będzie prowadzone w tym czacie na istniejącej, czystej gałęzi tematycznej; brak potrzeby równoległej edycji. Osobny recenzent sprawdzi całość przed próbą.
 - Rozmowa ABSS z załącznika jest materiałem do oceny, nie zleceniem rozszerzenia zakresu o ekologię/ALife/OEE.
+- Wykonanie: końcowe Debug/Release 324/324, ASan 326/326 i Python 47/47 PASS. Potwierdzenie zamrożone z d017f5b wykonało raz 64 światy główne i 32 kontrole, bez zmiany metody. H/A nie spełniły kryteriów; dane i obie serie rozwojowe zachowano. Analiza rozpakowanej kopii potwierdzenia oraz osiem natywnych kontynuacji PASS. Szczegóły, koszty i diagnozę niejednoznaczności posiada raport.

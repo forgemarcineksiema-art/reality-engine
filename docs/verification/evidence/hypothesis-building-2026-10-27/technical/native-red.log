@@ -1,0 +1,13 @@
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (1.1s)
+CMake Error at CMakeLists.txt:81 (add_executable):
+  Cannot find source file:
+
+    src/headless/hypothesis_main.cpp
+
+
+CMake Error at CMakeLists.txt:81 (add_executable):
+  No SOURCES given to target: reality_hypothesis
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

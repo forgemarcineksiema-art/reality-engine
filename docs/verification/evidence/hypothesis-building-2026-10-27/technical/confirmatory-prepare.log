@@ -1,0 +1,2 @@
+PASS independent analysis {"A": false, "D": {"FA": "0", "SA": "343/384", "SR": "55/64"}, "G": {"FA": "0", "SA": "1", "SR": "1"}, "H": false, "curve": {"FA": "571/8448", "SA": "925/1056", "SR": "3499/4224"}, "gain_A": "67/1408", "gain_D": "343/384", "gain_G": "1", "n": 16, "novel": "1", "p_A": "9/256", "p_D": "1/65536", "p_G": "1/65536", "sign_counts": {"D": {"losses": 0, "ties": 0, "wins": 16}, "G": {"losses": 0, "ties": 0, "wins": 16}}}
+PREPARED confirmatory: 96 cases after freeze; C:\Users\Marcin\Documents\new\build\hypothesis-confirmatory-01

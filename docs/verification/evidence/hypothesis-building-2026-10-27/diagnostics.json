@@ -1,0 +1,306 @@
+{
+  "A_sign_counts": {
+    "losses": 11,
+    "ties": 30,
+    "wins": 23
+  },
+  "SA_no_synthesis": [
+    {
+      "D": 10,
+      "G": 6,
+      "seed": 1213796353
+    },
+    {
+      "D": 24,
+      "G": 20,
+      "seed": 1213796356
+    },
+    {
+      "D": 24,
+      "G": 20,
+      "seed": 1213796402
+    }
+  ],
+  "controls": {
+    "flat": {
+      "SA_empty_final": 0,
+      "count": 16
+    },
+    "outside": {
+      "SA_empty_final": 16,
+      "count": 16
+    }
+  },
+  "distinct_main_laws": 61,
+  "kind": "descriptive post-run diagnostics; primary H/A unchanged",
+  "max_cumulative_native_process_peak_bytes": 8925184,
+  "primary": {
+    "flat": {
+      "A": false,
+      "D": {
+        "FA": "1",
+        "SA": "1",
+        "SR": "1"
+      },
+      "G": {
+        "FA": "1",
+        "SA": "1",
+        "SR": "1"
+      },
+      "H": false,
+      "curve": {
+        "FA": "8411/8448",
+        "SA": "8411/8448",
+        "SR": "8359/8448"
+      },
+      "gain_A": "13/2112",
+      "gain_D": "0",
+      "gain_G": "0",
+      "n": 16,
+      "novel": "0",
+      "p_A": "1/4",
+      "p_D": "1",
+      "p_G": "1",
+      "sign_counts": {
+        "D": {
+          "losses": 0,
+          "ties": 16,
+          "wins": 0
+        },
+        "G": {
+          "losses": 0,
+          "ties": 16,
+          "wins": 0
+        }
+      }
+    },
+    "main": {
+      "A": false,
+      "D": {
+        "FA": "29/768",
+        "SA": "623/768",
+        "SR": "311/384"
+      },
+      "G": {
+        "FA": "23/640",
+        "SA": "309/320",
+        "SR": "619/640"
+      },
+      "H": false,
+      "curve": {
+        "FA": "899/8448",
+        "SA": "9121/11264",
+        "SR": "9029/11264"
+      },
+      "gain_A": "23/2816",
+      "gain_D": "99/128",
+      "gain_G": "119/128",
+      "n": 64,
+      "novel": "61/64",
+      "p_A": "123722273/4294967296",
+      "p_D": "1/2305843009213693952",
+      "p_G": "1/2305843009213693952",
+      "sign_counts": {
+        "D": {
+          "losses": 0,
+          "ties": 3,
+          "wins": 61
+        },
+        "G": {
+          "losses": 0,
+          "ties": 3,
+          "wins": 61
+        }
+      }
+    },
+    "outside": {
+      "A": false,
+      "D": {
+        "FA": "0",
+        "SA": "0",
+        "SR": "0"
+      },
+      "G": {
+        "FA": "0",
+        "SA": "0",
+        "SR": "0"
+      },
+      "H": false,
+      "curve": {
+        "FA": "0",
+        "SA": "0",
+        "SR": "0"
+      },
+      "gain_A": "0",
+      "gain_D": "0",
+      "gain_G": "0",
+      "n": 16,
+      "novel": "3/4",
+      "p_A": "1",
+      "p_D": "1",
+      "p_G": "1",
+      "sign_counts": {
+        "D": {
+          "losses": 0,
+          "ties": 16,
+          "wins": 0
+        },
+        "G": {
+          "losses": 0,
+          "ties": 16,
+          "wins": 0
+        }
+      }
+    }
+  },
+  "variants": {
+    "FA": {
+      "D": 58,
+      "G": 46,
+      "costs": {
+        "cpu_ms": {
+          "max": 31.25,
+          "mean": 18.798828125,
+          "min": 0
+        },
+        "evaluation_spent": {
+          "max": 2128,
+          "mean": 94.5,
+          "min": 0
+        },
+        "primitives": {
+          "max": 13158,
+          "mean": 13158
+        },
+        "reads": {
+          "max": 1454,
+          "mean": 223.609375
+        },
+        "spent": {
+          "max": 917,
+          "mean": 799.25,
+          "min": 685
+        },
+        "wall_ms": {
+          "max": 37.4934,
+          "mean": 18.440471875,
+          "min": 13.9915
+        }
+      },
+      "counts": {
+        "composed": 42,
+        "correct_unanimous": 58,
+        "covered": 58,
+        "direct": 16,
+        "issued": 72,
+        "nonzero": 58,
+        "unanimous": 72,
+        "zero": 0,
+        "zero_total": 269
+      },
+      "exhausted": 0,
+      "novel": 0,
+      "range_width_max": 0,
+      "range_width_mean": 0
+    },
+    "SA": {
+      "D": 1246,
+      "G": 1236,
+      "costs": {
+        "cpu_ms": {
+          "max": 93.75,
+          "mean": 50.537109375,
+          "min": 15.625
+        },
+        "evaluation_spent": {
+          "max": 2656,
+          "mean": 2412.75,
+          "min": 1904
+        },
+        "primitives": {
+          "max": 7835202,
+          "mean": 7468543.6875
+        },
+        "reads": {
+          "max": 32315,
+          "mean": 11850.984375
+        },
+        "spent": {
+          "max": 953,
+          "mean": 798.25,
+          "min": 679
+        },
+        "wall_ms": {
+          "max": 97.4403,
+          "mean": 52.084321875,
+          "min": 22.757
+        }
+      },
+      "counts": {
+        "composed": 906,
+        "correct_unanimous": 1169,
+        "covered": 1522,
+        "direct": 340,
+        "issued": 1536,
+        "nonzero": 978,
+        "unanimous": 1183,
+        "zero": 268,
+        "zero_total": 269
+      },
+      "exhausted": 0,
+      "novel": 61,
+      "range_width_max": 112,
+      "range_width_mean": 5.783854166666667
+    },
+    "SR": {
+      "D": 1244,
+      "G": 1238,
+      "costs": {
+        "cpu_ms": {
+          "max": 93.75,
+          "mean": 52.490234375,
+          "min": 15.625
+        },
+        "evaluation_spent": {
+          "max": 2656,
+          "mean": 2412.75,
+          "min": 1904
+        },
+        "primitives": {
+          "max": 7835202,
+          "mean": 7468543.6875
+        },
+        "reads": {
+          "max": 29936,
+          "mean": 10255.359375
+        },
+        "spent": {
+          "max": 917,
+          "mean": 799.25,
+          "min": 685
+        },
+        "wall_ms": {
+          "max": 96.7268,
+          "mean": 52.9988390625,
+          "min": 23.5363
+        }
+      },
+      "counts": {
+        "composed": 903,
+        "correct_unanimous": 1160,
+        "covered": 1522,
+        "direct": 341,
+        "issued": 1536,
+        "nonzero": 979,
+        "unanimous": 1174,
+        "zero": 265,
+        "zero_total": 269
+      },
+      "exhausted": 0,
+      "novel": 61,
+      "range_width_max": 112,
+      "range_width_mean": 5.817708333333333
+    }
+  },
+  "worlds": 64
+}

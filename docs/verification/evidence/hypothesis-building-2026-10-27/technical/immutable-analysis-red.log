@@ -1,0 +1,21 @@
+.F.....
+======================================================================
+FAIL: test_archive_tool_does_not_create_unmanifested_cache (test_hypothesis_experiment.HypothesisTests.test_archive_tool_does_not_create_unmanifested_cache)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_hypothesis_experiment.py", line 88, in test_archive_tool_does_not_create_unmanifested_cache
+    self.assertEqual(list(root.rglob('*.pyc')), [])
+AssertionError: Lists differ: [WindowsPath('C:/Users/Marcin/AppData/Loca[177 chars]yc')] != []
+
+First list contains 2 additional elements.
+First extra element 0:
+WindowsPath('C:/Users/Marcin/AppData/Local/Temp/tmp1a52hnm7/__pycache__/hypothesis_model.cpython-311.pyc')
+
++ []
+- [WindowsPath('C:/Users/Marcin/AppData/Local/Temp/tmp1a52hnm7/__pycache__/hypothesis_model.cpython-311.pyc'),
+-  WindowsPath('C:/Users/Marcin/AppData/Local/Temp/tmp1a52hnm7/__pycache__/run_discovery_experiment.cpython-311.pyc')]
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.665s
+
+FAILED (failures=1)

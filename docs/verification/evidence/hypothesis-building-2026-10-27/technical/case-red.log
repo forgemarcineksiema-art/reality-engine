@@ -1,0 +1,9 @@
+FAIL unknown hypothesis mode
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tests\hypothesis_integration.py", line 44, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tests\hypothesis_integration.py", line 22, in main
+    subprocess.run([args.exe, '--case', str(root / 'case.txt'), '--output', str(root / 'raw')], check=True)
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['build/msvc/Debug/reality_hypothesis.exe', '--case', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\hypothesis-bsop84f8\\case.txt', '--output', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\hypothesis-bsop84f8\\raw']' returned non-zero exit status 1.

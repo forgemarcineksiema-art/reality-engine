@@ -1,0 +1,17 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: hypothesis.program
+1/6 Test #1: hypothesis.program ...............   Passed    0.76 sec
+    Start 2: hypothesis.apparatus
+2/6 Test #2: hypothesis.apparatus .............   Passed    0.05 sec
+    Start 3: hypothesis.learning
+3/6 Test #3: hypothesis.learning ..............   Passed    0.55 sec
+    Start 4: hypothesis.limits
+4/6 Test #4: hypothesis.limits ................   Passed    0.06 sec
+    Start 5: hypothesis.session
+5/6 Test #5: hypothesis.session ...............   Passed    0.04 sec
+    Start 6: hypothesis.continuation
+6/6 Test #6: hypothesis.continuation ..........   Passed    3.40 sec
+
+100% tests passed out of 6
+
+Total Test time (real) =   5.03 sec

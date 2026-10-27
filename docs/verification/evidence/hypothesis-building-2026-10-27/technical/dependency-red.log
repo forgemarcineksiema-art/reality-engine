@@ -1,0 +1,14 @@
+E.....
+======================================================================
+ERROR: test_analysis_checks_all_imported_frozen_code (test_hypothesis_experiment.HypothesisTests.test_analysis_checks_all_imported_frozen_code)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_hypothesis_experiment.py", line 75, in test_analysis_checks_all_imported_frozen_code
+    experiment.verify_analysis_code(root)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'run_hypothesis_experiment' has no attribute 'verify_analysis_code'
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.734s
+
+FAILED (errors=1)

@@ -1,0 +1,23 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: hypothesis.program
+1/6 Test #1: hypothesis.program ...............   Passed    0.49 sec
+    Start 2: hypothesis.apparatus
+2/6 Test #2: hypothesis.apparatus .............   Passed    0.06 sec
+    Start 3: hypothesis.learning
+3/6 Test #3: hypothesis.learning ..............   Passed    0.77 sec
+    Start 4: hypothesis.limits
+4/6 Test #4: hypothesis.limits ................   Passed    0.12 sec
+    Start 5: hypothesis.session
+5/6 Test #5: hypothesis.session ...............   Passed    0.08 sec
+    Start 6: hypothesis.continuation
+6/6 Test #6: hypothesis.continuation ..........***Failed    0.22 sec
+FAIL hypothesis input phase
+
+
+83% tests passed, 1 tests failed out of 6
+
+Total Test time (real) =   1.91 sec
+
+The following tests FAILED:
+	  6 - hypothesis.continuation (Failed)
+Errors while running CTest

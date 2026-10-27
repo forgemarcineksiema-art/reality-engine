@@ -1,0 +1,2877 @@
+# Review package: ae8808f..HEAD
+
+## Commits
+2330bf6 Dodaj jednorazowy runner i niezależną ocenę hipotez
+c6026db Połącz hipotezy z fizycznymi pomiarami i kontynuacją sesji
+2523572 Dodaj syntezę hipotez i wybór prób z jawnymi limitami
+9815fbb Dodaj składane prawa i wspólną aparaturę z bilansem
+937f70e Zapisz zatwierdzenie i plan implementacji hypothesis-v1
+
+## Files changed
+ CMakeLists.txt                                     |  29 ++
+ docs/development.md                                |   2 +
+ docs/documentation-map.json                        |   2 +
+ docs/hypothesis-building.md                        |  36 ++
+ docs/research-agenda.md                            |   4 +-
+ docs/work-items/hypothesis-building-experiment.md  |   2 +-
+ .../hypothesis-building-implementation.md          |  96 +++++
+ src/headless/hypothesis_main.cpp                   |  81 ++++
+ src/research/discovery_world.cpp                   |  49 ++-
+ src/research/discovery_world.hpp                   |   5 +-
+ src/research/hypothesis_agent.cpp                  | 222 +++++++++++
+ src/research/hypothesis_agent.hpp                  |  51 +++
+ src/research/hypothesis_codec.cpp                  | 168 +++++++++
+ src/research/hypothesis_program.cpp                | 111 ++++++
+ src/research/hypothesis_program.hpp                |  26 ++
+ src/research/hypothesis_protocol.cpp               | 242 ++++++++++++
+ src/research/hypothesis_protocol.hpp               |   6 +
+ src/research/hypothesis_session.cpp                | 207 +++++++++++
+ src/research/hypothesis_session.hpp                |  65 ++++
+ tests/hypothesis_integration.py                    |  44 +++
+ tests/hypothesis_tests.cpp                         | 227 +++++++++++
+ tools/hypothesis_model.py                          | 200 ++++++++++
+ tools/run_hypothesis_experiment.py                 | 414 +++++++++++++++++++++
+ tools/tests/test_hypothesis_experiment.py          |  92 +++++
+ 24 files changed, 2368 insertions(+), 13 deletions(-)
+
+## Diff
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index dc82279..54ec9f8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -68,33 +68,50 @@ add_library(reality_lab_model STATIC src/lab/lab_session.cpp src/graphics/lab_sc
+     src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/lab/traversal_law.cpp src/lab/traversal_passages.cpp src/graphics/traversal_scene.cpp)
+ target_link_libraries(reality_lab_model PUBLIC reality_core)
+ 
+ add_library(reality_discovery_model STATIC src/research/discovery_world.cpp src/research/discovery_agent.cpp
+     src/research/discovery_session.cpp src/research/discovery_codec.cpp src/research/discovery_protocol.cpp)
+ target_link_libraries(reality_discovery_model PUBLIC reality_lab_model)
+ target_link_libraries(reality_discovery_model PRIVATE psapi)
+ add_executable(reality_discovery src/headless/discovery_main.cpp)
+ target_link_libraries(reality_discovery PRIVATE reality_discovery_model)
+ reality_deploy_diagnostics(reality_discovery)
++add_library(reality_hypothesis_model STATIC src/research/hypothesis_program.cpp src/research/hypothesis_agent.cpp
++    src/research/hypothesis_session.cpp src/research/hypothesis_codec.cpp src/research/hypothesis_protocol.cpp)
++target_link_libraries(reality_hypothesis_model PUBLIC reality_discovery_model)
++add_executable(reality_hypothesis src/headless/hypothesis_main.cpp)
++target_link_libraries(reality_hypothesis PRIVATE reality_hypothesis_model)
++reality_deploy_diagnostics(reality_hypothesis)
+ 
+ add_library(reality_graphics STATIC src/graphics/d3d11_renderer.cpp)
+ target_link_libraries(reality_graphics PUBLIC reality_lab_model d3d11 dxgi d3dcompiler windowscodecs ole32)
+ target_compile_definitions(reality_graphics PUBLIC WIN32_LEAN_AND_MEAN NOMINMAX UNICODE _UNICODE)
+ 
+ add_executable(reality_lab WIN32 src/platform/lab_main.cpp)
+ target_link_libraries(reality_lab PRIVATE reality_graphics user32 gdi32 shell32)
+ reality_deploy_diagnostics(reality_lab)
+ add_executable(reality_traversal WIN32 src/platform/traversal_main.cpp)
+ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 shell32 psapi)
+ reality_deploy_diagnostics(reality_traversal)
+ 
+ set(reality_cpp_files
++    src/research/hypothesis_protocol.hpp
++    src/research/hypothesis_protocol.cpp
++    src/headless/hypothesis_main.cpp
++    src/research/hypothesis_session.hpp
++    src/research/hypothesis_session.cpp
++    src/research/hypothesis_codec.cpp
++    src/research/hypothesis_agent.hpp
++    src/research/hypothesis_agent.cpp
++    src/research/hypothesis_program.hpp
++    src/research/hypothesis_program.cpp
++    tests/hypothesis_tests.cpp
+     src/research/discovery_world.hpp
+     src/research/discovery_world.cpp
+     src/research/discovery_agent.hpp
+     src/research/discovery_agent.cpp
+     src/research/discovery_random.hpp
+     src/research/discovery_session.hpp
+     src/research/discovery_session.cpp
+     src/research/discovery_codec.cpp
+     src/research/discovery_protocol.hpp
+     src/research/discovery_protocol.cpp
+@@ -171,20 +188,32 @@ set(reality_cpp_files
+ list(TRANSFORM reality_cpp_files PREPEND "${CMAKE_CURRENT_SOURCE_DIR}/")
+ find_program(REALITY_CLANG_FORMAT NAMES clang-format
+     HINTS "${CMAKE_GENERATOR_INSTANCE}/VC/Tools/Llvm/bin" REQUIRED
+ )
+ add_custom_target(format-check
+     COMMAND "${REALITY_CLANG_FORMAT}" --dry-run --Werror ${reality_cpp_files}
+     VERBATIM
+ )
+ 
+ if(BUILD_TESTING)
++    add_executable(reality_hypothesis_tests tests/hypothesis_tests.cpp)
++    target_link_libraries(reality_hypothesis_tests PRIVATE reality_hypothesis_model)
++    reality_deploy_diagnostics(reality_hypothesis_tests)
++    foreach(case IN ITEMS program apparatus learning limits session continuation)
++        add_test(NAME hypothesis.${case} COMMAND reality_hypothesis_tests ${case})
++    endforeach()
++    add_test(NAME hypothesis.native_continuation
++        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/hypothesis_integration.py"
++                --exe "$<TARGET_FILE:reality_hypothesis>")
++    add_test(NAME hypothesis.native_case
++        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/hypothesis_integration.py"
++                --exe "$<TARGET_FILE:reality_hypothesis>" --mode case)
+     add_executable(reality_discovery_tests tests/discovery_tests.cpp)
+     target_link_libraries(reality_discovery_tests PRIVATE reality_discovery_model)
+     reality_deploy_diagnostics(reality_discovery_tests)
+     foreach(case IN ITEMS world replay refusals world_restore learning minimax composition frozen outside access contact isolation continuation corruption blocked_share budgets pending_observation)
+         add_test(NAME discovery.${case} COMMAND reality_discovery_tests ${case})
+     endforeach()
+     foreach(mode IN ITEMS case continuation)
+         add_test(NAME discovery.native_${mode}
+             COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/discovery_integration.py"
+                     --exe "$<TARGET_FILE:reality_discovery>" --mode ${mode})
+diff --git a/docs/development.md b/docs/development.md
+index 9771ef9..c1e80c9 100644
+--- a/docs/development.md
++++ b/docs/development.md
+@@ -9,20 +9,22 @@ Zaliczono M00–M04 w opisanym zakresie: kinematykę 2,5D, kolizje, A*, przejśc
+ Osobna scena dostawy jest w realizacji i uruchamia się poleceniem `build/msvc/Debug/reality_traversal.exe --delivery`. Po przejęciu postaci przez F2 klawisz F4 pobiera lub odkłada materiał na pobliskim dostępnym stanowisku. Testy wybranego przyrostu: `ctest --preset windows-debug -R "^(transfer|delivery)[.]" --output-on-failure`. Status i granice są w [planie przyrostu](work-items/material-delivery.md).
+ 
+ Sześć oryginalnych dokumentów zachowano bajtowo; lista i SHA-256 znajdują się w [manifeście archiwum](archive/manifest.json). Do wykonania M00 nie instalowano nowych pakietów ani bibliotek gry.
+ 
+ ## Odczytane narzędzia
+ 
+ 25.10.2026 użyto CMake 4.4.4, MSVC 19.44.35226.0, Windows SDK 10.0.26100.0 i clang-format 19.1.5 z Visual Studio Build Tools 2022. Polecenie `python` wskazuje Python 3.11.9, a CMake wykrył także Python 3.13.1 i użył go do kontroli uruchamianych przez CTest. Obie ścieżki narzędziowe sprawdzono. Ninja jest dostępna, ale obecne presety używają generatora Visual Studio.
+ 
+ ## Budowanie i testy C++
+ 
++Laboratorium budowania wyjaśnień dodaje `reality_hypothesis` oraz testy `hypothesis.*`. Istniejące polecenia fixture/continue, stan implementacji i nowy format opisuje [API](hypothesis-building.md); [zatwierdzony protokół](work-items/hypothesis-building-experiment.md) pozostaje właścicielem przyszłej próby H/A.
++
+ Eksperyment odkrywania ma osobny konsument konsolowy. Po zbudowaniu `reality_discovery`:
+ 
+ ```powershell
+ ctest --preset windows-debug -R '^discovery' --output-on-failure
+ python tools/run_discovery_experiment.py prepare --mode development --exe build/msvc/RelWithDebInfo/reality_discovery.exe --output build/discovery-development-NEW
+ python tools/run_discovery_experiment.py run build/discovery-development-NEW
+ python tools/run_discovery_experiment.py analyze build/discovery-development-NEW
+ ```
+ 
+ Każdy katalog próby musi być nowy. Przygotowanie zapisuje manifest i freeze przed przebiegami; `run` odmawia restartu tej samej próby. Tryb confirmatory wymaga dodatkowo pliku ukończonego review przez `--review PATH` i jest przeznaczony do jednorazowej próby dopiero po kontrolach. Bezpośredni runner: `reality_discovery.exe --case PATH --output NEW_DIRECTORY`; kontrola kontynuacji: `--fixture --output NEW_DIRECTORY` oraz `--continue CHECKPOINT --output NEW_DIRECTORY`. [API i granice](discovery-learning.md), [kryteria](work-items/discovery-learning-experiment.md) i [wyniki](verification/discovery-learning-experiment.md) mają oddzielne odpowiedzialności.
+diff --git a/docs/documentation-map.json b/docs/documentation-map.json
+index 89dcf8a..3512a9f 100644
+--- a/docs/documentation-map.json
++++ b/docs/documentation-map.json
+@@ -1,13 +1,15 @@
+ {
+   "version": 1,
+   "documents": [
++    {"path": "docs/hypothesis-building.md", "role": "current-state", "topic": "hypothesis-building-api"},
++    {"path": "docs/work-items/hypothesis-building-implementation.md", "role": "planned", "topic": "hypothesis-building-implementation"},
+     {"path": "docs/verification/hypothesis-building-design.md", "role": "verification", "topic": "hypothesis-building-design-review"},
+     {"path": "docs/work-items/hypothesis-building-experiment.md", "role": "research", "topic": "hypothesis-building-experiment-protocol"},
+     {"path": "docs/verification/evidence/discovery-learning-2026-10-27/review.md", "role": "verification", "topic": "discovery-learning-code-review"},
+     {"path": "docs/discovery-learning.md", "role": "current-state", "topic": "discovery-learning-api"},
+     {"path": "docs/verification/discovery-learning-experiment.md", "role": "verification", "topic": "discovery-learning-experiment-results"},
+     {"path": "docs/work-items/discovery-learning-implementation.md", "role": "planned", "topic": "discovery-learning-implementation"},
+     {"path": "docs/verification/discovery-learning-design.md", "role": "verification", "topic": "discovery-learning-design-review"},
+     {"path": "docs/work-items/discovery-learning-experiment.md", "role": "research", "topic": "discovery-learning-experiment-protocol"},
+     {"path": "docs/verification/evidence/m04-acceptance-2026-10-27/review.md", "role": "verification", "topic": "m04-acceptance-review"},
+     {"path": "docs/work-items/m04-acceptance.md", "role": "current-state", "topic": "m04-acceptance-plan"},
+diff --git a/docs/hypothesis-building.md b/docs/hypothesis-building.md
+new file mode 100644
+index 0000000..c51f1cb
+--- /dev/null
++++ b/docs/hypothesis-building.md
+@@ -0,0 +1,36 @@
++# Laboratorium budowania wyjaśnień — stan API
++
++**Status: zaimplementowane programy, agent, sesja, runner i niezależny sędzia. Pełna weryfikacja i wyniki pozostają w realizacji.** Protokół [hypothesis-v1](work-items/hypothesis-building-experiment.md) jest zatwierdzony do implementacji i wykonania. [Plan](work-items/hypothesis-building-implementation.md) rozdziela wykonane zadania i dalsze prace. To osobny konsument badawczy, bez nowego odbioru M04/3D.
++
++## Własność i granica informacji
++
++`HypothesisLaw` opisuje prawdę aparatu. `HypothesisProgram` jest ciągiem operacji, `HypothesisTable` ma 129 wyjść dla wejść 0–128. Programy matematyczne pozostają abstrakcyjnym modelem pasywnego przepływu, bez tezy o elektromagnetyzmie.
++
++`HypothesisAgent` przyjmuje wyłącznie własne `DiscoveryEvidence` ze źródłem i czasem. Nie posiada świata ani seedu. Początkowy F, generowanie po jego sprzeczności, kanoniczne klasy, minimaks oraz wszystkie limity mają semantykę z protokołu. `state()` jest diagnostycznym, kanonicznym stanem wnioskowania, nie kanałem obserwacji świata. Budżet wyczerpany w trakcie selekcji wraca do pierwotnego wejścia permutacji; częściowo przefiltrowane modele nie uszkadzają wcześniejszych zapisów programów.
++
++`HypothesisSession` jest jedynym wykonawcą czasu, faz i RNG. Własny `TraversalSession` zachowuje ciało i sprawdza fizyczny dostęp do stołu. Pomiar pochodzi z zakończonego impulsu `DiscoveryWorld`, a nie z wywołania tabeli przez agenta. Dwa kroki oznaczają konfigurację i impuls; na starcie impulsu energia jest chroniona, po zakończeniu rozliczona dokładnie raz. Uczenie przyjmuje pojedynczy u i różne wejścia 1–64. Ocena wymaga zamrożenia i jawnej nowej sesji `evaluation_copy()`, z zachowaniem archiwalnej aparatury oraz wiedzy i skumulowanych liczników obliczeń. Nie jest to doładowanie starego świata.
++
++## Formaty i kontynuacja
++
++Nowy konstruktor tabelaryczny `DiscoveryWorld` używa `DWORLD 2`. Tablice są pasywne, impulsy przyjmują 1–128. Komendy, odmowy, ID, bilans i zapis historii mają jedną implementację wspólną z poprzednim aparatem. Konstruktor dawnych rodzin nadal zapisuje `DWORLD 1` identycznie; nie reinterpretujemy historycznych danych.
++
++`GENESIS_HYPOTHESIS 1` jest osobną otoczką, bez zmiany `GENESIS_DISCOVERY 1` i `GENESIS_TRAVERSAL`. Zawiera prywatne prawo, seed, limity, początkowy świat, dziennik publicznych operacji i kanoniczny stan końcowy: aparat/archiwum, ruch, wiedzę, modele, fazę impulsu, ID, koszty i permutację z licznikiem RNG 41. Ładowanie odtwarza prywatnego kandydata, sprawdza wyniki deklaracji i zgodność całego stanu, a następnie publikuje kandydata. Poprawny checksum nie zastępuje walidacji semantycznej. Błędny odczyt zachowuje dotychczasowy stan. Odtwarzanie historii kosztuje CPU; nie jest darmowym obliczeniem ani dowodem skalowalności zapisu.
++
++Strumienie generatora przypadków 40/42/43 należą do eksperymentatora i manifestu próby; zapis przypadku zachowuje ich liczniki, plan oceny i historię odrzuceń. Nie są kanałem wiedzy mieszkańca. Zegar świata nie zależy od czasu CPU zużytego na wnioskowanie.
++
++## Istniejące polecenia
++
++```powershell
++cmake --build --preset windows-debug --target reality_hypothesis reality_hypothesis_tests
++ctest --preset windows-debug -R '^hypothesis[.]' --output-on-failure
++build/msvc/Debug/reality_hypothesis.exe --fixture --output NEW_DIRECTORY
++build/msvc/Debug/reality_hypothesis.exe --continue CHECKPOINT --output NEW_DIRECTORY
++build/msvc/Debug/reality_hypothesis.exe --case CASE_FILE --output NEW_DIRECTORY
++python tools/run_hypothesis_experiment.py prepare --mode development --exe build/msvc/RelWithDebInfo/reality_hypothesis.exe --output build/hypothesis-development-NEW
++python tools/run_hypothesis_experiment.py run build/hypothesis-development-NEW
++python tools/run_hypothesis_experiment.py analyze build/hypothesis-development-NEW
++```
++
++`--fixture` tworzy osiem rzeczywistych checkpointów: dwa sterowniki, przed/po pierwszej sprzeczności oraz konfigurację/impuls w toku. Integracja uruchamia nowy proces dla każdego checkpointu i porównuje pełny końcowy stan z nieprzerwanym wykonaniem. Osobna integracja przypadku sprawdza surowe deklaracje, wybory prób, koszty i bilanse niezależnym kodem Pythona oraz odrzuca zmieniony pomiar. Bieżąca kontrola Debug: 8/8 PASS; pełne profile, review i wynik eksperymentu nie zostały jeszcze wykonane dla tego przyrostu.
++
++Runner wymaga nowego katalogu, kopiuje binarium i zamrożone źródła z SHA-256 przed generowaniem przypadków, a `run` zapisuje znacznik jednorazowego wykonania. `analyze` odtwarza wyniki z pomiarów, sprawdza generowanie przypadków i dokładne progi, manifesty oraz związanie freeze z markerem. Zmieniony później skrypt odmawia analizy dawnych danych; można uruchomić kopię `frozen-source/tools/run_hypothesis_experiment.py` z danej próby. Tryb potwierdzający wymaga zakończonego review przez `--review PATH`, poprawnego rozwojowego dowodu przez `--development DIRECTORY` i czystych zapisanych źródeł. Wynik negatywny nie jest błędem infrastruktury.
+diff --git a/docs/research-agenda.md b/docs/research-agenda.md
+index 982f025..ebeb75a 100644
+--- a/docs/research-agenda.md
++++ b/docs/research-agenda.md
+@@ -3,36 +3,38 @@
+ **Status:** przegląd, hipotezy i wykonany pierwszy eksperyment odkrywania. [Raport](verification/discovery-learning-experiment.md) zachowuje wynik 64 przypadków według wcześniej zatwierdzonego protokołu, dane, porównania i granice. Podstawą części źródłowej jest przegląd z wcześniejszej rozmowy z 24–25.10.2026; to nie wyczerpujący przegląd stanu nauki. Techniczny odbiór społeczności M04 pozostaje odrębnym wynikiem.
+ 
+ ## Pierwszy eksperyment zlecony przez użytkownika
+ 
+ 27.10.2026 użytkownik zlecił rozpoczęcie badania: czy agent odkryje użyteczną zależność przez własne doświadczenie, wykorzysta ją w nowych warunkach i przekaże drugiemu agentowi. Zaakceptował również wartość wyniku negatywnego. W tej rozmowie laboratorium i jego systemy otrzymały pierwszeństwo jako przedmiot badań, a gra może być sposobem późniejszego uczestnictwa w świecie. Nie jest to wynik o świadomości ani automatyczne rozszerzenie zakresu ukończonych etapów.
+ 
+ [Protokół odkrywania i przekazu](work-items/discovery-learning-experiment.md) jest jednym właścicielem szczegółowej metody: opisuje wyposażenie, nieznane parametry, kanał obserwacji, kontrole, budżety, seedy i kryteria zapisane przed próbą. Użytkownik zatwierdził go do implementacji i wykonania. [API](discovery-learning.md) opisuje nowy konsument headless; bieżące kontrole i wyniki wskazuje [raport](verification/discovery-learning-experiment.md). Odkrywanie reguł podłoża, replikacja i świadomość pozostają oddzielnymi pytaniami, bez automatycznego rozpoczęcia ich implementacji.
+ 
+ ## Następny kierunek: budowanie wyjaśnień
+ 
+-27.10.2026 użytkownik zatwierdził kierunek drugiego eksperymentu: po wykryciu nieadekwatności dotychczasowego katalogu agent buduje i sprawdza nowe wyjaśnienia. [Projekt protokołu](work-items/hypothesis-building-experiment.md) proponuje ograniczony język składania programów, porównanie z katalogiem i losowym wyborem prób, kontrolę praw spoza języka oraz kryteria zapisane przed wykonaniem. Szczegóły pozostają projektem do zatwierdzenia; nie ma implementacji ani wyników tego drugiego badania. Wyniki pierwszej próby pozostają odrębnym, zachowanym dowodem.
++27.10.2026 użytkownik zatwierdził [protokół drugiego eksperymentu](work-items/hypothesis-building-experiment.md) do implementacji i wykonania: po wykryciu nieadekwatności dotychczasowego katalogu agent buduje i sprawdza nowe wyjaśnienia. Protokół określa ograniczony język składania programów, porównanie z katalogiem i losowym wyborem prób, kontrolę praw spoza języka oraz kryteria zapisane przed wykonaniem. [Plan implementacji](work-items/hypothesis-building-implementation.md) śledzi bieżące prace; nie ma jeszcze wyników tego drugiego badania. Wyniki pierwszej próby pozostają odrębnym, zachowanym dowodem.
+ 
+ ## Co badać po fundamentach
+ 
+ | Pytanie | Dowód potrzebny | Co nie wystarcza |
+ | --- | --- | --- |
+ | Czy społeczność adaptuje się? | Wykonany plan po zmianie warunków i koszt wobec prostszej rutyny | Sama wypowiedź o nowym planie |
+ | Czy wiedza się przenosi? | Kanał przekazu i późniejsza zmiana działania odbiorcy | Wspólny globalny prompt |
+ | Czy praktyka trwa bez założyciela? | Zachowanie nowych uczestników i ciągłość reguł | Nowa nazwa organizacji |
+ | Czy powstaje wynalazek? | Działająca konfiguracja, niezależna próba i transfer | Etykieta „nowa technologia” albo błąd silnika |
+ | Czy większa skala pomaga grze? | Różne możliwości i doświadczenia przy znanym koszcie | Sama liczba agentów lub dialogów |
+ 
+ Każdy eksperyment korzysta z [szablonu](templates/experiment-record.md), punktu odniesienia i zapisanych niepowodzeń. Wynik modelu generatywnego ocenia się w stanie świata; nie tylko za pomocą etykiety przyznanej przez inny model.
+ 
+ ## Ograniczenia interpretacji
+ 
++Rozmowa o ABSS dostarczona przez użytkownika 27.10.2026 jest inspiracją szerszego świata, nie nową klasyfikacją ani zatwierdzeniem wszystkich subsystemów. ABSS i sztuczne społeczeństwa częściowo opisują ten sam obszar: [praca Davidssona](https://www.jasss.org/5/1/7.html) określa ABSS przez związek agentów, nauk społecznych i symulacji, a [model sztucznego społeczeństwa](https://jasss.org/3/1/2.html) również używa agentów i lokalnych reguł. [Przegląd ISAL](https://alife.org/encyclopedia/introduction/artificial-life/) pokazuje ALife jako szeroki, przecinający inne dziedziny obszar. To osie badań, nie obowiązkowe szczeble. Zintegrowany świat jest tu kierunkiem architektury. Otwartość ewolucji wymaga odróżniania trwałej/adaptacyjnej nowości od szumu; [opis OEE i pomiarów ISAL](https://alife.org/encyclopedia/introduction/open-ended-evolution/) omawia m.in. przebiegi kontrolne i trwałość linii. Szerszy zakres symulacji sam nie dowodzi większej autonomii, życia lub świadomości. Zatwierdzone hypothesis-v1 bada skończony język hipotez i nie staje się przez to próbą OEE.
++
+ Model wytrenowany na ludzkiej wiedzy może zastosować znaną instytucję. To nie dowodzi jej powstania od zera. Syntetyczne reguły i nowe konfiguracje pomagają badać adaptację, lecz nie usuwają automatycznie całego wpływu wcześniejszej wiedzy.
+ 
+ Kombinatoryka nie gwarantuje niekończącej się znaczącej nowości. Fizyczne i społeczne możliwości są ograniczone językiem reprezentacji silnika. Użyteczna nowość powinna zmieniać działanie i możliwości.
+ 
+ Przekonujące zachowanie, autonomia, reprodukcja, ewolucja i świadomość to odrębne twierdzenia. Deklaracja NPC o własnej świadomości nie rozstrzyga przeżyć. Stworzenie przekonującej symulacji nie dowodzi, że nasz świat jest symulowany.
+ 
+ ## Źródła pierwotne z wcześniejszego przeglądu
+ 
+ - [Dwarf Fortress — opis funkcji](https://bay12games.com/dwarves/features.html): trwały świat, historia i cywilizacje. To przykład projektu, nie specyfikacja Genesis.
+ - [Generative Agents](https://arxiv.org/abs/2304.03442): pamięć, refleksja i planowanie w małym środowisku agentów. Nie dowodzi pełnej cywilizacji ani świadomości.
+diff --git a/docs/work-items/hypothesis-building-experiment.md b/docs/work-items/hypothesis-building-experiment.md
+index 847c64d..3d6e650 100644
+--- a/docs/work-items/hypothesis-building-experiment.md
++++ b/docs/work-items/hypothesis-building-experiment.md
+@@ -1,13 +1,13 @@
+ # Budowanie i sprawdzanie wyjaśnień — projekt drugiego eksperymentu
+ 
+-**Status: projekt do zatwierdzenia; bez implementacji i wyników.** 27.10.2026 użytkownik zatwierdził kierunek: agent wykrywa niewystarczalność dotychczasowych wyjaśnień, buduje nowe i sprawdza ich przewidywania. Poniższe szczegóły są propozycją autora. Identyfikator proponowanego protokołu: `hypothesis-v1`.
++**Status: protokół ZATWIERDZONY do implementacji i wykonania; bez wyników.** 27.10.2026 użytkownik napisał: „Tak, zatwierdzam ten protokół do implementacji i wykonania”. Szczegóły poniżej są zatwierdzonymi wyborami autora, a nie wynikami. Identyfikator protokołu: `hypothesis-v1`. [Plan implementacji](hypothesis-building-implementation.md) śledzi wykonanie bez zmiany kryteriów.
+ 
+ Dokument jest właścicielem proponowanej metody. [Program badań](../research-agenda.md) wskazuje kontekst, [pierwszy protokół](discovery-learning-experiment.md) pozostaje zamrożony, a jego [raport](../verification/discovery-learning-experiment.md) zachowuje wyniki i ograniczenia. [Przegląd projektu](../verification/hypothesis-building-design.md) zapisuje pytania recenzenta i rozstrzygnięcia autora. To osobny przyrost badawczy, bez zmiany odbioru M04 i bez otwierania całego M05/M06.
+ 
+ ## Pytanie i możliwe odpowiedzi
+ 
+ Czy po obaleniu dostarczonego katalogu prostych reguł agent skonstruuje z prostszych operacji trafne wyjaśnienie, wybierze próby odróżniające konkurencyjne wyjaśnienia i wykorzysta model w nowych konfiguracjach?
+ 
+ Rozdzielamy **H** — korzyść z budowania wyrażeń oraz **A** — korzyść z aktywnego wyboru prób. H może otrzymać wsparcie przy braku wsparcia dla A. Sam pusty katalog nie jest odkryciem. Wygenerowany zapis matematyczny, który nie przewiduje nowych wyników, również nim nie jest.
+ 
+ Wynik dotyczy syntezy ograniczonych programów z doświadczenia. To nadal dostarczony język i algorytm poszukiwania, o skończonych możliwościach. Nie badamy powstania nowych operatorów, własnych celów, świadomości ani samorzutnego odkrycia praw naszego świata. Wyczerpujące generowanie krótkich programów jest celowo prostym punktem odniesienia; nie nazywamy go nieograniczoną autonomią.
+diff --git a/docs/work-items/hypothesis-building-implementation.md b/docs/work-items/hypothesis-building-implementation.md
+new file mode 100644
+index 0000000..dab9e22
+--- /dev/null
++++ b/docs/work-items/hypothesis-building-implementation.md
+@@ -0,0 +1,96 @@
++# Implementacja hypothesis-v1
++
++> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
++
++**Goal:** Wykonać zatwierdzony eksperyment budowania wyjaśnień, zachowując prawdziwe pomiary i wszystkie wyniki.
++
++**Architecture:** Mały generator programów i agent nie mają dostępu do świata. Sesja wiąże wnioskowanie z rzeczywistym aparatem oraz istniejącym dostępem przestrzennym. Oddzielny Python przygotowuje przypadki i niezależnie ocenia surowe deklaracje/pomiary.
++
++**Tech Stack:** C++20, MSVC/CMake, Python 3.11+ standard library, istniejące TraversalSession i DiscoveryWorld.
++
++**Spec:** [Zatwierdzony protokół hypothesis-v1](hypothesis-building-experiment.md).
++
++## Global Constraints
++
++- 24 pomiary, wejścia 1–64, limit 1536 eu / 1000 kroków, sesja 8192 eu, krok 50 ms.
++- Gramatyka: 27 operacji, długość 0–3, 20440 zapisów; dziedzina 0–128.
++- Limit 100000 kandydatów prawdy na seed, 10 milionów zastosowań prymitywu i 300 milionów odczytów modeli na wariant.
++- Bez dodatkowych zależności; jeden właściciel stanu; stare formaty i historyczne dowody zachowane.
++- Progi H/A i seedy z protokołu nie zmieniają się pod wynik. Ocena nie aktualizuje wiedzy.
++
++## Review Focus
++
++1. Semantycznie błędny snapshot z poprawnym checksumem — odrzucenie transakcyjne; zadanie 3.
++2. Limit w środku listy prognoz — zachowane wcześniejsze deklaracje, dalsze odmowy; zadania 2/4.
++3. Równoważne drzewa i pozaobszarowa niejednoznaczność — klasy zamiast głosowania powielonymi zapisami; zadanie 1/2.
++4. Niedozwolony dostęp i uczenie przy ocenie — odmowa bez skutku; zadanie 3.
++5. Analiza przestawionych/nadpisanych danych — niezależne obliczenia, manifesty i jednorazowy run; zadanie 4.
++
++## Pliki i granice
++
++- `src/research/hypothesis_program.hpp/.cpp`: operacje, kanoniczne modele, gramatyka i interpretacja praw.
++- `src/research/hypothesis_agent.hpp/.cpp`: lokalne obserwacje, filtrowanie/synteza, wybór prób, prognozy, budżety.
++- `src/research/discovery_world.hpp/.cpp`: rzeczywisty konsument tabel pasywnych praw w osobnym DWORLD 2; historyczny DWORLD 1 zachowuje bajty i zachowanie.
++- `src/research/hypothesis_session.hpp/.cpp`: ciało, impulsy, fazy, RNG, zapis i odczyt.
++- `src/research/hypothesis_protocol.hpp/.cpp`, `src/headless/hypothesis_main.cpp`: uruchomienie przypadku i zapis surowych wyników.
++- `tests/hypothesis_tests.cpp`, `tests/hypothesis_integration.py`: regresje domeny i kontynuacja w nowym procesie.
++- `tools/run_hypothesis_experiment.py`, `tools/tests/test_hypothesis_experiment.py`: generator, freeze, runner, niezależny sędzia i analiza.
++- CMake, bieżące API, raport, mapa dokumentacji i agenda: konsumenci oraz rzeczywisty stan.
++
++### Task 1: Programy oraz rzeczywista aparatura
++
++**Interfaces:** `HypothesisOp {kind, parameter}`, `HypothesisProgram = vector<HypothesisOp>`, `HypothesisTable = array<uint16_t,129>`; `hypothesis_apply(program,input)`, `hypothesis_grammar()`, `hypothesis_flat_models()`; `DiscoveryWorld(array<HypothesisTable,3>)` wykonuje i rozlicza nowe prawo, bez udostępnienia praw agentowi.
++
++- [x] Dodać testy gramatyki, równoważności przykładu 96→40, 20440 zapisów, poza-językowych kwadratów, pasywności i księgi aparatu. Dodać CTest `hypothesis.program` / `hypothesis.apparatus`.
++- [x] Build/test wykazuje brak implementacji; zachować log RED.
++- [x] Zaimplementować programy i tablice. W aparaturze zachować wspólne ID, dwie fazy, rezerwację energii i chronologię. DWORLD 2 zawiera tablice; DWORLD 1 pozostaje niezmieniony.
++- [x] CTest nowych przypadków i wszystkich discovery PASS; historyczna kontynuacja i ponowienie komendy bez podwójnego skutku.
++- [x] Commit źródeł/testów i rzeczywistego wyniku w dzienniku poniżej.
++
++### Task 2: Synteza i wybór prób
++
++**Interfaces:** `HypothesisMode {FlatActive,SynthesisRandom,SynthesisActive}`; `HypothesisAgent(EntityId,HypothesisMode,HypothesisLimits={})`; `observe(DiscoveryEvidence)`, `choose_input(span<const unsigned>)`, `predict(DiscoveryChain,unsigned)`, `choose_chain(unsigned,unsigned)`, `freeze()`, `state()`.
++
++- [x] Testy RED: obalenie F, zgodna nowa klasa, niejednoznaczność i zakres prognoz, wybór minimaksowy, SR bez ukrytego aktywnego selektora, trwały limit przed przekroczeniem i odmowy po freeze.
++- [x] Zaimplementować kanoniczny zbiór F oraz generowanie po jego obaleniu. Porządek i liczniki są deterministyczne; żadnych światów ani seedów w agencie.
++- [x] Testować także limit podczas prognoz i wyboru konfiguracji, brak odświeżenia budżetu przy fazie oceny oraz 25 dopuszczonych konfiguracji.
++- [x] Uruchomić przypadki PASS i commit.
++
++### Task 3: Sesja i kontynuacja
++
++**Interfaces:** `HypothesisSession(law,mode,seed,scene=make_discovery_scene(),limits={})`; `begin_probe(chain,input,learning)`, `advance(ticks)`, `choose_input()`, `predict(...)`, `choose_chain(...)`, `freeze()`, `evaluation_copy()`, `serialize()`, `restore(bytes)`, `save(path)`, `load(path)`.
++
++- [x] Testy RED: konfiguracja/impuls/obserwacja wyłącznie na miejscu, limit 24 i 1536, 1–64 w uczeniu, zakaz oceny bez freeze i nauki po freeze, ciągłość ID i bilans.
++- [x] Implementacja: TraversalSession jest jedynym właścicielem położenia i czasu; DiscoveryWorld jedyną aparaturą; agent dostaje tylko zakończony własny pomiar.
++- [x] Zapis w osobnej otoczce `GENESIS_HYPOTHESIS 1`, z pełnymi generatorami i stanem obliczeń. Dopuszczalne deterministyczne odtworzenie prywatnego kandydata z historii, jeśli odczyt sprawdza kanoniczny stan i nie publikuje skutków przed walidacją.
++- [x] Testy przed/po sprzeczności, konfiguracji i impulsu, niezerowego RNG oraz modyfikacji semantyki przy poprawnym checksumie. Po nieudanym odczycie stary stan jest identyczny.
++- [x] Nowy proces kontynuuje rzeczywisty zapis do identycznego wyniku; PASS i commit.
++
++### Task 4: Przypadki, niezależny sędzia i surowe dowody
++
++**Interfaces:** `run_hypothesis_case(path,output)`, fixture/continue w `reality_hypothesis`; Python `prepare`, `run`, `analyze`, z nowym katalogiem próby i freeze/marker. Native plik przypadku zawiera prawdę dostępną tylko sesji oraz plan oceny; agent dostaje plan prognoz i cele wyłącznie w dozwolonych fazach.
++
++- [x] Testy RED generatora i sędziego: zgodność wszystkich wejść z C++, liczności, seedy/odrzucenia, brak zmian kryteriów, dokładne granice progów, manifest i odmowa powtórnego uruchomienia.
++- [x] Oddzielić strumienie 40/41/42/43, zachować ich końcowe liczniki i historię odrzuceń. Modele prawdy i zadania potwierdzające dopiero po freeze.
++- [x] Native zapisuje pomiary, wyjściowe deklaracje D po 3–24 próbach, rzeczywiste G po freeze, wybory aktywne i liczniki/koszty, niezależne ledgery uczenia/oceny oraz snapshoty.
++- [x] Python odtwarza działania praw, bilanse, wyniki D/G, prognozy i wybór aktywny bez zaufania podsumowaniom C++. Weryfikuje też dane/manifest/freeze przy `analyze`.
++- [x] Test manipulacji dowodem musi dać błąd, wynik naukowo negatywny poprawny exit 0. PASS i commit.
++
++### Task 5: Weryfikacja techniczna i review
++
++- [ ] Rozwój: 16 światów, wszystkie kontrole; zachować porażki i pomiar kosztu. Bez oglądania praw potwierdzających.
++- [ ] `cmake --preset windows-msvc`, build Debug/Release, pełne CTest obu profili, ASan build i pełne CTest, `format-check`, dokumentacja i testy Pythona.
++- [ ] Nowe API i raport odróżniają odtwarzanie stanu, koszt wnioskowania oraz koszty fizycznych prób. Brak nowego odbioru 3D.
++- [ ] Osobny świeży przegląd całej gałęzi przez recenzenta; każda materialna poprawka RED→GREEN oraz ponowna właściwa weryfikacja przed freeze. Zachować uwagi i ich rozstrzygnięcia.
++
++### Task 6: Zamrożenie i jednorazowa próba
++
++- [ ] Zamrozić zatwierdzony protokół, źródła, narzędzia, binaria, generator i zakończone review, z SHA-256 oraz manifestem.
++- [ ] Wygenerować i wykonać 64 światy potwierdzające dopiero po freeze. Znacznik chroni przed cichym rerunem.
++- [ ] Niezależnie przeliczyć wynik, zachować kontrole i wszystkie porażki, opublikować raport z H i A osobno oraz ograniczeniami kosztu i reprezentacji.
++- [ ] Zarejestrować dowody i wyniki; finalna kontrola dokumentów i czystego stanu Git. Bez push/merge bez osobnego polecenia.
++
++## Dziennik wykonania
++
++- 27.10.2026: użytkownik zatwierdził protokół do implementacji i wykonania. Plan nie zmienia progów ani seedów. Wykonanie będzie prowadzone w tym czacie na istniejącej, czystej gałęzi tematycznej; brak potrzeby równoległej edycji. Osobny recenzent sprawdzi całość przed próbą.
++- Rozmowa ABSS z załącznika jest materiałem do oceny, nie zleceniem rozszerzenia zakresu o ekologię/ALife/OEE.
+diff --git a/src/headless/hypothesis_main.cpp b/src/headless/hypothesis_main.cpp
+new file mode 100644
+index 0000000..8362478
+--- /dev/null
++++ b/src/headless/hypothesis_main.cpp
+@@ -0,0 +1,81 @@
++#include "research/hypothesis_protocol.hpp"
++#include "research/hypothesis_session.hpp"
++#include <iostream>
++#include <stdexcept>
++namespace {
++using namespace reality;
++void suffix(HypothesisSession& session) {
++    while (session.pending())
++        session.advance(1);
++    while (session.attempts() < 5) {
++        const auto input = session.choose_input().input;
++        if (session.begin_probe({0}, input, true) != DiscoveryOutcome::Accepted)
++            throw std::logic_error("fixture impulse refused");
++        session.advance(2);
++    }
++    session.freeze();
++    (void)session.predict({0, 1}, 96);
++    session = session.evaluation_copy();
++    const auto chain = session.choose_chain(96, 20);
++    if (chain) {
++        if (session.begin_probe(*chain, 96, false) != DiscoveryOutcome::Accepted)
++            throw std::logic_error("fixture evaluation refused");
++        session.advance(2);
++    }
++}
++void fixture(const std::filesystem::path& directory) {
++    for (const auto mode : {HypothesisMode::SynthesisRandom, HypothesisMode::SynthesisActive}) {
++        HypothesisSession session{
++            HypothesisLaw{{{HypothesisKind::Fraction, 8}, {HypothesisKind::Loss, 8}}}, mode, 124};
++        for (const auto input : {16U, 32U}) {
++            if (session.begin_probe({0}, input, true) != DiscoveryOutcome::Accepted)
++                throw std::logic_error("fixture initialization");
++            session.advance(2);
++        }
++        for (unsigned stage = 0; stage < 4; ++stage) {
++            const auto name =
++                std::to_string(static_cast<unsigned>(mode)) + "-" + std::to_string(stage);
++            session.save(directory / (name + ".state"));
++            auto uninterrupted = session;
++            suffix(uninterrupted);
++            uninterrupted.save(directory / (name + ".expected"));
++            if (stage == 0) {
++                if (session.begin_probe({0}, 64, true) != DiscoveryOutcome::Accepted)
++                    throw std::logic_error("fixture third probe");
++            } else if (stage < 3)
++                session.advance(1);
++        }
++    }
++}
++} // namespace
++int wmain(int argc, wchar_t* argv[]) {
++    try {
++        if (argc < 4)
++            throw std::invalid_argument(
++                "--fixture --output NEW_DIR; --continue PATH --output NEW_DIR");
++        const std::wstring_view mode{argv[1]};
++        const bool make_fixture = mode == L"--fixture";
++        const auto output_arg = make_fixture ? 2 : 3;
++        if (argc != output_arg + 2 || std::wstring_view{argv[output_arg]} != L"--output")
++            throw std::invalid_argument("output required");
++        const std::filesystem::path directory{argv[output_arg + 1]};
++        if (!std::filesystem::create_directory(directory))
++            throw std::invalid_argument("output directory must be new");
++        if (make_fixture)
++            fixture(directory);
++        else if (mode == L"--continue") {
++            HypothesisSession session{HypothesisLaw{}, HypothesisMode::FlatActive, 0};
++            session.load(argv[2]);
++            suffix(session);
++            session.save(directory / "final.state");
++        } else if (mode == L"--case")
++            run_hypothesis_case(argv[2], directory);
++        else
++            throw std::invalid_argument("unknown hypothesis mode");
++        std::cout << "PASS hypothesis runner integrity\n";
++        return 0;
++    } catch (const std::exception& e) {
++        std::cerr << "FAIL " << e.what() << '\n';
++        return 1;
++    }
++}
+diff --git a/src/research/discovery_world.cpp b/src/research/discovery_world.cpp
+index a05e8bc..871c76e 100644
+--- a/src/research/discovery_world.cpp
++++ b/src/research/discovery_world.cpp
+@@ -38,20 +38,25 @@ DiscoveryEnergy discovery_apply(DiscoveryRule rule, DiscoveryEnergy input) {
+     throw std::invalid_argument("unknown discovery family");
+ }
+ bool discovery_chain_valid(const DiscoveryChain& chain) noexcept {
+     return !chain.empty() && chain.size() <= 3 &&
+            std::all_of(chain.begin(), chain.end(), [](auto symbol) { return symbol < 3; });
+ }
+ DiscoveryWorld::DiscoveryWorld(std::array<DiscoveryRule, 3> rules) : rules_(rules) {
+     for (const auto rule : rules_)
+         check(valid_rule(rule), "invalid apparatus rule");
+ }
++DiscoveryWorld::DiscoveryWorld(std::array<DiscoveryTable, 3> tables) : tables_(std::move(tables)) {
++    for (const auto& table : *tables_)
++        for (unsigned e = 0; e <= 128; ++e)
++            check(table[e] <= e, "nonpassive apparatus table");
++}
+ std::optional<DiscoveryOutcome> DiscoveryWorld::replay(const Command& request) const {
+     for (const auto& previous : commands_)
+         if (previous.id == request.id)
+             return previous.actor == request.actor && previous.apparatus == request.apparatus &&
+                            previous.pulse == request.pulse && previous.chain == request.chain &&
+                            previous.input == request.input
+                        ? DiscoveryOutcome::Accepted
+                        : DiscoveryOutcome::Conflict;
+     return {};
+ }
+@@ -71,22 +76,23 @@ DiscoveryOutcome DiscoveryWorld::configure(std::uint64_t command, EntityId actor
+     next.ready_at = tick_ + 1;
+     commands_.push_back(request);
+     device = std::move(next);
+     return DiscoveryOutcome::Accepted;
+ }
+ DiscoveryOutcome DiscoveryWorld::pulse(std::uint64_t command, EntityId actor, unsigned apparatus,
+                                        DiscoveryEnergy input) {
+     const Command request{command, tick_, actor, apparatus, true, {}, input};
+     if (const auto previous = replay(request))
+         return *previous;
+-    if (!command || !actor.value || apparatus >= 2 || input == 0 || input > 8192 ||
+-        commands_.size() >= record_limit || tick_ == std::numeric_limits<std::uint64_t>::max())
++    if (!command || !actor.value || apparatus >= 2 || input == 0 ||
++        input > (tables_ ? 128U : 8192U) || commands_.size() >= record_limit ||
++        tick_ == std::numeric_limits<std::uint64_t>::max())
+         return DiscoveryOutcome::Invalid;
+     auto& device = devices_[apparatus];
+     if (device.pending || device.chain.empty() || tick_ < device.ready_at)
+         return DiscoveryOutcome::Busy;
+     if (device.source < input)
+         return DiscoveryOutcome::NoEnergy;
+     commands_.push_back(request);
+     device.pending = commands_.size() - 1;
+     return DiscoveryOutcome::Accepted;
+ }
+@@ -95,21 +101,22 @@ void DiscoveryWorld::advance(std::uint64_t tick) {
+     std::vector<DiscoveryMeasurement> completed;
+     for (unsigned bench = 0; bench < 2; ++bench) {
+         const auto& device = devices_[bench];
+         if (!device.pending)
+             continue;
+         const auto& command = commands_.at(*device.pending);
+         if (tick <= command.tick)
+             continue;
+         auto output = command.input;
+         for (const auto symbol : device.chain)
+-            output = discovery_apply(rules_[symbol], output);
++            output =
++                tables_ ? (*tables_)[symbol].at(output) : discovery_apply(rules_[symbol], output);
+         completed.push_back({0, command.id, bench, command.actor, command.tick + 1, device.chain,
+                              command.input, output});
+     }
+     std::sort(completed.begin(), completed.end(), [](const auto& a, const auto& b) {
+         return a.observed_tick != b.observed_tick ? a.observed_tick < b.observed_tick
+                                                   : a.command < b.command;
+     });
+     measurements_.reserve(measurements_.size() + completed.size());
+     for (auto& measurement : completed) {
+         measurement.id = measurement.command;
+@@ -121,23 +128,25 @@ void DiscoveryWorld::advance(std::uint64_t tick) {
+         measurements_.push_back(std::move(measurement));
+     }
+     tick_ = tick;
+     validate();
+ }
+ const std::array<DiscoveryDevice, 2>& DiscoveryWorld::devices() const noexcept { return devices_; }
+ const std::vector<DiscoveryMeasurement>& DiscoveryWorld::measurements() const noexcept {
+     return measurements_;
+ }
+ std::uint64_t DiscoveryWorld::tick() const noexcept { return tick_; }
+-DiscoveryWorld DiscoveryWorld::fresh() const { return DiscoveryWorld{rules_}; }
++DiscoveryWorld DiscoveryWorld::fresh() const {
++    return tables_ ? DiscoveryWorld{*tables_} : DiscoveryWorld{rules_};
++}
+ bool DiscoveryWorld::same_rules(const DiscoveryWorld& other) const noexcept {
+-    return rules_ == other.rules_;
++    return rules_ == other.rules_ && tables_ == other.tables_;
+ }
+ std::optional<DiscoveryPulseView> DiscoveryWorld::pending_pulse(unsigned apparatus) const {
+     const auto& device = devices_.at(apparatus);
+     if (!device.pending)
+         return {};
+     const auto& c = commands_.at(*device.pending);
+     return DiscoveryPulseView{c.id, c.tick, c.actor, c.input};
+ }
+ void DiscoveryWorld::validate() const {
+     check(commands_.size() <= record_limit && measurements_.size() <= commands_.size(),
+@@ -149,49 +158,69 @@ void DiscoveryWorld::validate() const {
+         if (d.pending) {
+             const auto& c = commands_.at(*d.pending);
+             check(c.pulse && c.apparatus == bench && c.input <= d.source && c.tick == tick_,
+                   "invalid pending pulse");
+         }
+     }
+ }
+ std::string DiscoveryWorld::serialize() const {
+     validate();
+     std::ostringstream out;
+-    out << "DWORLD 1 " << tick_;
+-    for (const auto rule : rules_)
+-        out << ' ' << static_cast<unsigned>(rule.family) << ' ' << rule.parameter;
++    out << "DWORLD " << (tables_ ? 2 : 1) << ' ' << tick_;
++    if (tables_) {
++        for (const auto& table : *tables_)
++            for (const auto value : table)
++                out << ' ' << value;
++    } else {
++        for (const auto rule : rules_)
++            out << ' ' << static_cast<unsigned>(rule.family) << ' ' << rule.parameter;
++    }
+     out << ' ' << commands_.size() << '\n';
+     for (const auto& c : commands_) {
+         out << c.id << ' ' << c.tick << ' ' << c.actor.value << ' ' << c.apparatus << ' ' << c.pulse
+             << ' ' << c.input << ' ' << c.chain.size();
+         for (const auto symbol : c.chain)
+             out << ' ' << static_cast<unsigned>(symbol);
+         out << '\n';
+     }
+     return out.str();
+ }
+ DiscoveryWorld DiscoveryWorld::deserialize(std::string_view bytes) {
+     check(bytes.size() < 4 * 1024 * 1024, "apparatus snapshot too large");
+     std::istringstream in{std::string(bytes)};
+     std::string magic;
+     unsigned version = 0;
+     std::uint64_t tick = 0;
+-    check(static_cast<bool>(in >> magic >> version >> tick) && magic == "DWORLD" && version == 1,
++    check(static_cast<bool>(in >> magic >> version >> tick) && magic == "DWORLD" &&
++              (version == 1 || version == 2),
+           "invalid apparatus header");
+     std::array<DiscoveryRule, 3> rules;
+     for (auto& rule : rules) {
++        if (version == 2)
++            break;
+         unsigned family = 0;
+         check(static_cast<bool>(in >> family >> rule.parameter) && family <= 3,
+               "invalid rule snapshot");
+         rule.family = static_cast<DiscoveryFamily>(family);
+     }
+-    DiscoveryWorld result{rules};
++    DiscoveryWorld result = [&] {
++        if (version == 1)
++            return DiscoveryWorld{rules};
++        std::array<DiscoveryTable, 3> tables{};
++        for (auto& table : tables)
++            for (auto& value : table) {
++                unsigned parsed = 0;
++                check(static_cast<bool>(in >> parsed) && parsed <= 128, "apparatus table value");
++                value = static_cast<std::uint16_t>(parsed);
++            }
++        return DiscoveryWorld{tables};
++    }();
+     std::size_t count = 0;
+     check(static_cast<bool>(in >> count) && count <= record_limit, "apparatus command count");
+     for (std::size_t n = 0; n < count; ++n) {
+         Command c;
+         unsigned pulse = 0, length = 0;
+         check(static_cast<bool>(in >> c.id >> c.tick >> c.actor.value >> c.apparatus >> pulse >>
+                                 c.input >> length) &&
+                   pulse <= 1 && length <= 3 && c.tick <= tick,
+               "invalid apparatus command");
+         c.pulse = pulse != 0;
+diff --git a/src/research/discovery_world.hpp b/src/research/discovery_world.hpp
+index b3edd35..778ec12 100644
+--- a/src/research/discovery_world.hpp
++++ b/src/research/discovery_world.hpp
+@@ -2,20 +2,21 @@
+ #include "core/entity_registry.hpp"
+ #include <array>
+ #include <cstdint>
+ #include <optional>
+ #include <string>
+ #include <string_view>
+ #include <vector>
+ namespace reality {
+ using DiscoveryEnergy = std::uint32_t;
+ using DiscoveryChain = std::vector<std::uint8_t>;
++using DiscoveryTable = std::array<std::uint16_t, 129>;
+ enum class DiscoveryFamily : unsigned { Fraction, Loss, Cap, Outside };
+ struct DiscoveryRule {
+     DiscoveryFamily family = DiscoveryFamily::Fraction;
+     unsigned parameter = 3;
+     bool operator==(const DiscoveryRule&) const = default;
+ };
+ [[nodiscard]] DiscoveryEnergy discovery_apply(DiscoveryRule rule, DiscoveryEnergy input);
+ [[nodiscard]] bool discovery_chain_valid(const DiscoveryChain& chain) noexcept;
+ struct DiscoveryMeasurement {
+     std::uint64_t id = 0, command = 0;
+@@ -34,20 +35,21 @@ struct DiscoveryDevice {
+     std::optional<std::size_t> pending;
+ };
+ struct DiscoveryPulseView {
+     std::uint64_t command = 0, started_tick = 0;
+     EntityId actor;
+     DiscoveryEnergy input = 0;
+ };
+ class DiscoveryWorld final {
+   public:
+     explicit DiscoveryWorld(std::array<DiscoveryRule, 3> rules);
++    explicit DiscoveryWorld(std::array<DiscoveryTable, 3> tables);
+     [[nodiscard]] DiscoveryOutcome configure(std::uint64_t command, EntityId actor,
+                                              unsigned apparatus, DiscoveryChain chain);
+     [[nodiscard]] DiscoveryOutcome pulse(std::uint64_t command, EntityId actor, unsigned apparatus,
+                                          DiscoveryEnergy input);
+     void advance(std::uint64_t tick);
+     [[nodiscard]] const std::array<DiscoveryDevice, 2>& devices() const noexcept;
+     [[nodiscard]] const std::vector<DiscoveryMeasurement>& measurements() const noexcept;
+     [[nodiscard]] std::uint64_t tick() const noexcept;
+     [[nodiscard]] DiscoveryWorld fresh() const;
+     [[nodiscard]] bool same_rules(const DiscoveryWorld& other) const noexcept;
+@@ -58,18 +60,19 @@ class DiscoveryWorld final {
+ 
+   private:
+     struct Command {
+         std::uint64_t id = 0, tick = 0;
+         EntityId actor;
+         unsigned apparatus = 0;
+         bool pulse = false;
+         DiscoveryChain chain;
+         DiscoveryEnergy input = 0;
+     };
+-    std::array<DiscoveryRule, 3> rules_;
++    std::array<DiscoveryRule, 3> rules_{};
++    std::optional<std::array<DiscoveryTable, 3>> tables_;
+     std::array<DiscoveryDevice, 2> devices_;
+     std::vector<Command> commands_;
+     std::vector<DiscoveryMeasurement> measurements_;
+     std::uint64_t tick_ = 0;
+     [[nodiscard]] std::optional<DiscoveryOutcome> replay(const Command& request) const;
+ };
+ } // namespace reality
+diff --git a/src/research/hypothesis_agent.cpp b/src/research/hypothesis_agent.cpp
+new file mode 100644
+index 0000000..5f3b198
+--- /dev/null
++++ b/src/research/hypothesis_agent.cpp
+@@ -0,0 +1,222 @@
++#include "research/hypothesis_agent.hpp"
++#include <algorithm>
++#include <set>
++#include <sstream>
++#include <stdexcept>
++namespace reality {
++HypothesisAgent::HypothesisAgent(EntityId actor, HypothesisMode mode, HypothesisLimits limits)
++    : actor_(actor), mode_(mode), limits_(limits) {
++    if (!actor.value || static_cast<unsigned>(mode) > 2 || limits.primitives > 10000000 ||
++        limits.reads > 300000000)
++        throw std::invalid_argument("hypothesis agent parameters");
++    build(hypothesis_flat_programs(), false);
++}
++bool HypothesisAgent::charge(std::uint64_t count, bool primitive) {
++    auto& spent = primitive ? cost_.primitives : cost_.reads;
++    const auto limit = primitive ? limits_.primitives : limits_.reads;
++    if (exhausted_)
++        return false;
++    if (count > limit - spent) {
++        exhausted_ = true;
++        return false;
++    }
++    spent += count;
++    return true;
++}
++void HypothesisAgent::build(std::vector<HypothesisProgram> programs, bool filter) {
++    std::sort(programs.begin(), programs.end(), [](const auto& a, const auto& b) {
++        return a.size() != b.size() ? a.size() < b.size() : a < b;
++    });
++    std::set<HypothesisTable> seen;
++    models_.clear();
++    for (auto& program : programs) {
++        if (!charge(program.size() * 129, true))
++            return;
++        auto table = hypothesis_table(program);
++        if (!seen.insert(table).second)
++            continue;
++        bool matches = true;
++        if (filter)
++            for (const auto& e : evidence_) {
++                if (!charge(1))
++                    return;
++                if (table[e.measurement.input] != e.measurement.output) {
++                    matches = false;
++                    break;
++                }
++            }
++        if (matches)
++            models_.push_back({std::move(program), table});
++    }
++}
++bool HypothesisAgent::observe(const DiscoveryEvidence& evidence) {
++    if (frozen_)
++        return false;
++    const auto& m = evidence.measurement;
++    if (!m.id || m.id != m.command || m.source_actor != actor_ || evidence.via_actor != actor_ ||
++        m.input < 1 || m.input > 64 || m.output > m.input || m.chain != DiscoveryChain{0} ||
++        !m.observed_tick || evidence.learned_tick != m.observed_tick || m.apparatus != 0)
++        throw std::invalid_argument("hypothesis observation source/range");
++    for (const auto& previous : evidence_) {
++        if (previous.measurement.id == m.id) {
++            if (previous != evidence)
++                throw std::invalid_argument("conflicting hypothesis evidence");
++            return false;
++        }
++        if (previous.measurement.input == m.input ||
++            previous.measurement.observed_tick >= m.observed_tick)
++            throw std::invalid_argument("hypothesis repeated or nonchronological input");
++    }
++    if (evidence_.size() >= 24)
++        throw std::invalid_argument("hypothesis observation limit");
++    evidence_.push_back(evidence);
++    if (exhausted_)
++        return true;
++    std::vector<HypothesisModel> remaining;
++    for (auto& model : models_) {
++        if (!charge(1))
++            return true;
++        if (model.table[m.input] == m.output)
++            remaining.push_back(model);
++    }
++    models_ = std::move(remaining);
++    if (models_.empty() && !contradiction_tick_) {
++        contradiction_tick_ = m.observed_tick;
++        if (mode_ != HypothesisMode::FlatActive) {
++            synthesized_ = true;
++            auto programs = hypothesis_grammar();
++            cost_.generated = programs.size();
++            auto flat = hypothesis_flat_programs();
++            programs.insert(programs.end(), flat.begin(), flat.end());
++            build(std::move(programs), true);
++        }
++    }
++    return true;
++}
++HypothesisChoice HypothesisAgent::choose_input(std::span<const unsigned> permutation) {
++    HypothesisChoice choice;
++    std::array<bool, 65> used{};
++    for (const auto& e : evidence_)
++        used[e.measurement.input] = true;
++    for (const auto e : permutation) {
++        if (e < 1 || e > 64)
++            throw std::invalid_argument("hypothesis permutation input");
++        if (!used[e] && !choice.input)
++            choice.input = e;
++    }
++    if (!choice.input || exhausted_ || models_.size() < 2 ||
++        mode_ == HypothesisMode::SynthesisRandom)
++        return choice;
++    const auto fallback = choice.input;
++    auto best = models_.size();
++    for (unsigned e = 1; e <= 64; ++e) {
++        if (used[e])
++            continue;
++        std::array<std::uint64_t, 129> groups{};
++        for (const auto& model : models_) {
++            if (!charge(1))
++                return HypothesisChoice{fallback, false, {}, {}};
++            ++groups[model.table[e]];
++        }
++        const auto worst = *std::max_element(groups.begin(), groups.end());
++        choice.worst[e] = worst;
++        if (worst < best) {
++            best = static_cast<std::size_t>(worst);
++            choice.input = e;
++            choice.partition = groups;
++            choice.active = true;
++        }
++    }
++    return choice;
++}
++std::optional<unsigned> HypothesisAgent::output(const HypothesisModel& model,
++                                                const DiscoveryChain& chain, unsigned input) {
++    for (const auto symbol : chain) {
++        if (symbol == 0) {
++            if (!charge(1))
++                return {};
++            input = model.table[input];
++        } else if (symbol == 1)
++            input /= 2;
++        else
++            input = std::min(input, 48U);
++    }
++    return input;
++}
++std::optional<DiscoveryPrediction> HypothesisAgent::predict(const DiscoveryChain& chain,
++                                                            unsigned input) {
++    if (!discovery_chain_valid(chain) || input > 128)
++        throw std::invalid_argument("hypothesis prediction input");
++    if (exhausted_ || models_.empty())
++        return {};
++    std::vector<unsigned> values;
++    for (const auto& model : models_) {
++        const auto value = output(model, chain, input);
++        if (!value)
++            return {};
++        values.push_back(*value);
++    }
++    std::sort(values.begin(), values.end());
++    return DiscoveryPrediction{values[(values.size() - 1) / 2], values.front(), values.back(),
++                               values.size()};
++}
++std::optional<DiscoveryChain> HypothesisAgent::choose_chain(unsigned input, unsigned target) {
++    if (input > 128 || target > 128)
++        throw std::invalid_argument("hypothesis target input");
++    if (exhausted_ || models_.empty())
++        return {};
++    std::optional<DiscoveryChain> best;
++    std::uint64_t best_hits = 0;
++    unsigned best_spread = 129;
++    for (const auto& chain : hypothesis_chains()) {
++        std::uint64_t hits = 0;
++        unsigned minimum = 129, maximum = 0;
++        for (const auto& model : models_) {
++            const auto value = output(model, chain, input);
++            if (!value)
++                return {};
++            hits += *value == target;
++            minimum = std::min(minimum, *value);
++            maximum = std::max(maximum, *value);
++        }
++        const auto spread = maximum - minimum;
++        if (!best || hits > best_hits ||
++            (hits == best_hits &&
++             (spread < best_spread ||
++              (spread == best_spread && (chain.size() < best->size() ||
++                                         (chain.size() == best->size() && chain < *best)))))) {
++            best = chain;
++            best_hits = hits;
++            best_spread = spread;
++        }
++    }
++    return best;
++}
++void HypothesisAgent::freeze() noexcept { frozen_ = true; }
++bool HypothesisAgent::frozen() const noexcept { return frozen_; }
++bool HypothesisAgent::exhausted() const noexcept { return exhausted_; }
++bool HypothesisAgent::synthesized() const noexcept { return synthesized_; }
++std::uint64_t HypothesisAgent::contradiction_tick() const noexcept { return contradiction_tick_; }
++const HypothesisCost& HypothesisAgent::cost() const noexcept { return cost_; }
++const std::vector<HypothesisModel>& HypothesisAgent::models() const noexcept { return models_; }
++const std::vector<DiscoveryEvidence>& HypothesisAgent::evidence() const noexcept {
++    return evidence_;
++}
++std::string HypothesisAgent::state() const {
++    std::ostringstream out;
++    out << actor_.value << ' ' << static_cast<unsigned>(mode_) << ' ' << limits_.primitives << ' '
++        << limits_.reads << ' ' << cost_.primitives << ' ' << cost_.reads << ' ' << cost_.generated
++        << ' ' << synthesized_ << ' ' << exhausted_ << ' ' << frozen_ << ' ' << contradiction_tick_
++        << ' ' << models_.size() << '\n';
++    for (const auto& model : models_) {
++        out << model.program.size();
++        for (const auto op : model.program)
++            out << ' ' << static_cast<unsigned>(op.kind) << ' ' << op.parameter;
++        out << '\n';
++    }
++    for (const auto& e : evidence_)
++        out << e.measurement.id << ' ' << e.measurement.observed_tick << ' ' << e.measurement.input
++            << ' ' << e.measurement.output << '\n';
++    return out.str();
++}
++} // namespace reality
+diff --git a/src/research/hypothesis_agent.hpp b/src/research/hypothesis_agent.hpp
+new file mode 100644
+index 0000000..973d163
+--- /dev/null
++++ b/src/research/hypothesis_agent.hpp
+@@ -0,0 +1,51 @@
++#pragma once
++#include "research/discovery_agent.hpp"
++#include "research/hypothesis_program.hpp"
++#include <span>
++namespace reality {
++enum class HypothesisMode : unsigned { FlatActive, SynthesisRandom, SynthesisActive };
++struct HypothesisLimits {
++    std::uint64_t primitives = 10000000, reads = 300000000;
++};
++struct HypothesisCost {
++    std::uint64_t primitives = 0, reads = 0, generated = 0;
++};
++struct HypothesisChoice {
++    unsigned input = 0;
++    bool active = false;
++    std::array<std::uint64_t, 65> worst{};
++    std::array<std::uint64_t, 129> partition{};
++};
++class HypothesisAgent final {
++  public:
++    HypothesisAgent(EntityId actor, HypothesisMode mode, HypothesisLimits limits = {});
++    [[nodiscard]] bool observe(const DiscoveryEvidence& evidence);
++    [[nodiscard]] HypothesisChoice choose_input(std::span<const unsigned> permutation);
++    [[nodiscard]] std::optional<DiscoveryPrediction> predict(const DiscoveryChain& chain,
++                                                             unsigned input);
++    [[nodiscard]] std::optional<DiscoveryChain> choose_chain(unsigned input, unsigned target);
++    void freeze() noexcept;
++    [[nodiscard]] bool frozen() const noexcept;
++    [[nodiscard]] bool exhausted() const noexcept;
++    [[nodiscard]] bool synthesized() const noexcept;
++    [[nodiscard]] std::uint64_t contradiction_tick() const noexcept;
++    [[nodiscard]] const HypothesisCost& cost() const noexcept;
++    [[nodiscard]] const std::vector<HypothesisModel>& models() const noexcept;
++    [[nodiscard]] const std::vector<DiscoveryEvidence>& evidence() const noexcept;
++    [[nodiscard]] std::string state() const;
++
++  private:
++    EntityId actor_;
++    HypothesisMode mode_;
++    HypothesisLimits limits_;
++    HypothesisCost cost_;
++    bool synthesized_ = false, exhausted_ = false, frozen_ = false;
++    std::uint64_t contradiction_tick_ = 0;
++    std::vector<HypothesisModel> models_;
++    std::vector<DiscoveryEvidence> evidence_;
++    void build(std::vector<HypothesisProgram> programs, bool filter);
++    [[nodiscard]] bool charge(std::uint64_t count, bool primitive = false);
++    [[nodiscard]] std::optional<unsigned> output(const HypothesisModel& model,
++                                                 const DiscoveryChain& chain, unsigned input);
++};
++} // namespace reality
+diff --git a/src/research/hypothesis_codec.cpp b/src/research/hypothesis_codec.cpp
+new file mode 100644
+index 0000000..39271ba
+--- /dev/null
++++ b/src/research/hypothesis_codec.cpp
+@@ -0,0 +1,168 @@
++#include "research/hypothesis_session.hpp"
++#include <charconv>
++#include <iomanip>
++#include <sstream>
++#include <stdexcept>
++namespace reality {
++namespace {
++std::uint64_t number(std::istream& in, std::uint64_t max = UINT64_MAX) {
++    std::string token;
++    if (!(in >> token))
++        throw std::invalid_argument("missing hypothesis number");
++    std::uint64_t value = 0;
++    const auto parsed = std::from_chars(token.data(), token.data() + token.size(), value);
++    if (parsed.ec != std::errc{} || parsed.ptr != token.data() + token.size() || value > max)
++        throw std::invalid_argument("invalid hypothesis number");
++    return value;
++}
++std::string quoted(std::istream& in) {
++    std::string text;
++    if (!(in >> std::quoted(text)))
++        throw std::invalid_argument("missing hypothesis section");
++    return text;
++}
++DiscoveryChain chain_in(std::istream& in) {
++    DiscoveryChain chain;
++    const auto n = number(in, 3);
++    if (!n)
++        throw std::invalid_argument("empty hypothesis chain");
++    for (unsigned i = 0; i < n; ++i)
++        chain.push_back(static_cast<std::uint8_t>(number(in, 2)));
++    return chain;
++}
++} // namespace
++std::string HypothesisSession::canonical_state() const {
++    std::ostringstream out;
++    out << next_command_ << ' ' << random_counter_ << ' ' << attempts_ << ' ' << spent_ << ' '
++        << learning_start_.has_value() << ' ' << learning_start_.value_or(0) << '\n';
++    out << pending_.has_value();
++    if (pending_)
++        out << ' ' << pending_->stage << ' ' << pending_->input << ' ' << pending_->command << ' '
++            << pending_->learning;
++    out << '\n'
++        << std::quoted(traversal_.serialize()) << '\n'
++        << std::quoted(apparatus_.serialize()) << '\n'
++        << archive_.has_value() << '\n';
++    if (archive_)
++        out << std::quoted(archive_->serialize()) << '\n';
++    out << std::quoted(agent_.state()) << '\n';
++    for (const auto input : permutation_)
++        out << input << ' ';
++    out << '\n';
++    return out.str();
++}
++std::string HypothesisSession::serialize() const {
++    std::ostringstream out;
++    out << seed_ << ' ' << static_cast<unsigned>(mode_) << ' ' << limits_.primitives << ' '
++        << limits_.reads << ' ' << law_.square_divisor << ' ' << law_.program.size();
++    for (const auto op : law_.program)
++        out << ' ' << static_cast<unsigned>(op.kind) << ' ' << op.parameter;
++    out << '\n' << std::quoted(initial_) << '\n' << events_.size() << '\n';
++    for (const auto& event : events_)
++        out << std::quoted(event) << '\n';
++    out << std::quoted(canonical_state()) << '\n';
++    const auto body = out.str();
++    if (body.size() + 64 >= snapshot_byte_limit)
++        throw std::invalid_argument("hypothesis snapshot limit");
++    return "GENESIS_HYPOTHESIS 1 " + std::to_string(hypothesis_checksum(body)) + "\n" + body;
++}
++HypothesisSession HypothesisSession::deserialize(std::string_view bytes) {
++    if (bytes.size() >= snapshot_byte_limit)
++        throw std::invalid_argument("hypothesis snapshot limit");
++    const auto newline = bytes.find('\n');
++    if (newline == std::string_view::npos)
++        throw std::invalid_argument("hypothesis header missing");
++    std::istringstream header{std::string(bytes.substr(0, newline))};
++    std::string magic;
++    header >> magic;
++    if (magic != "GENESIS_HYPOTHESIS" || number(header, 1) != 1)
++        throw std::invalid_argument("hypothesis version");
++    const auto checksum = number(header);
++    header >> std::ws;
++    const auto body = bytes.substr(newline + 1);
++    if (!header.eof() || checksum != hypothesis_checksum(body))
++        throw std::invalid_argument("hypothesis checksum");
++    std::istringstream in{std::string(body)};
++    const auto seed = static_cast<std::uint32_t>(number(in, UINT32_MAX));
++    const auto mode = static_cast<HypothesisMode>(number(in, 2));
++    HypothesisLimits limits{number(in, 10000000), number(in, 300000000)};
++    HypothesisLaw law;
++    law.square_divisor = static_cast<unsigned>(number(in, 256));
++    const auto n = number(in, 3);
++    for (unsigned i = 0; i < n; ++i)
++        law.program.push_back(
++            {static_cast<HypothesisKind>(number(in, 3)), static_cast<unsigned>(number(in, 64))});
++    HypothesisSession result{law, mode, seed, make_discovery_scene(), limits};
++    result.initial_ = quoted(in);
++    result.traversal_.restore(result.initial_);
++    if (result.traversal_.actors().size() != 2 || result.tick() != 0)
++        throw std::invalid_argument("hypothesis initial scene");
++    result.agent_ = HypothesisAgent{result.traversal_.actors()[0].id, mode, limits};
++    const auto count = number(in, record_limit);
++    for (unsigned i = 0; i < count; ++i) {
++        const auto event = quoted(in);
++        std::istringstream args{event};
++        char op = 0;
++        args >> op;
++        switch (op) {
++        case 'b': {
++            const bool learning = number(args, 1) != 0;
++            const auto input = static_cast<unsigned>(number(args, 128));
++            if (result.begin_probe(chain_in(args), input, learning) != DiscoveryOutcome::Accepted)
++                throw std::invalid_argument("impossible hypothesis impulse");
++            break;
++        }
++        case 'a':
++            result.advance(number(args, 10000));
++            break;
++        case 'i':
++            (void)result.choose_input();
++            break;
++        case 'p': {
++            const auto input = static_cast<unsigned>(number(args, 128));
++            (void)result.predict(chain_in(args), input);
++            break;
++        }
++        case 'c': {
++            const auto input = static_cast<unsigned>(number(args, 128));
++            const auto target = static_cast<unsigned>(number(args, 128));
++            (void)result.choose_chain(input, target);
++            break;
++        }
++        case 'f':
++            result.freeze();
++            break;
++        case 'e':
++            result.enter_evaluation();
++            break;
++        case 'g': {
++            SurfaceLocation goal;
++            goal.surface = static_cast<std::uint32_t>(number(args, UINT32_MAX));
++            if (!(args >> goal.local.x_m >> goal.local.z_m))
++                throw std::invalid_argument("hypothesis goal");
++            result.set_goal(goal);
++            break;
++        }
++        default:
++            throw std::invalid_argument("hypothesis event kind");
++        }
++        if (result.events_.back() != event)
++            throw std::invalid_argument("noncanonical hypothesis event");
++    }
++    const auto state = quoted(in);
++    in >> std::ws;
++    if (!in.eof() || result.canonical_state() != state || result.serialize() != bytes)
++        throw std::invalid_argument("hypothesis semantic mismatch");
++    return result;
++}
++void HypothesisSession::restore(std::string_view bytes) {
++    auto candidate = deserialize(bytes);
++    *this = std::move(candidate);
++}
++void HypothesisSession::save(const std::filesystem::path& path) const {
++    write_snapshot_atomic(serialize(), path);
++}
++void HypothesisSession::load(const std::filesystem::path& path) {
++    restore(read_snapshot_bytes(path));
++}
++} // namespace reality
+diff --git a/src/research/hypothesis_program.cpp b/src/research/hypothesis_program.cpp
+new file mode 100644
+index 0000000..ea5a92c
+--- /dev/null
++++ b/src/research/hypothesis_program.cpp
+@@ -0,0 +1,111 @@
++#include "research/hypothesis_program.hpp"
++#include "research/discovery_agent.hpp"
++#include <algorithm>
++#include <set>
++#include <stdexcept>
++namespace reality {
++unsigned hypothesis_apply(const HypothesisProgram& program, unsigned input) {
++    if (input > 128 || program.size() > 3)
++        throw std::invalid_argument("hypothesis expression range");
++    auto value = input;
++    for (const auto& op : program) {
++        if (op.parameter == 0 || op.parameter > 64)
++            throw std::invalid_argument("hypothesis constant range");
++        switch (op.kind) {
++        case HypothesisKind::Loss:
++            value = value > op.parameter ? value - op.parameter : 0;
++            break;
++        case HypothesisKind::Cap:
++            value = std::min(value, op.parameter);
++            break;
++        case HypothesisKind::Fraction:
++            if (op.parameter > 16)
++                throw std::invalid_argument("hypothesis fraction range");
++            value = value * op.parameter / 16;
++            break;
++        case HypothesisKind::Gate:
++            value = value >= op.parameter ? value : 0;
++            break;
++        default:
++            throw std::invalid_argument("hypothesis operator");
++        }
++    }
++    return value;
++}
++HypothesisTable hypothesis_table(const HypothesisProgram& program) {
++    HypothesisTable table{};
++    for (unsigned e = 0; e <= 128; ++e)
++        table[e] = static_cast<std::uint16_t>(hypothesis_apply(program, e));
++    return table;
++}
++const std::vector<HypothesisOp>& hypothesis_primitives() {
++    static const auto ops = [] {
++        std::vector<HypothesisOp> result;
++        for (const auto kind : {HypothesisKind::Loss, HypothesisKind::Cap, HypothesisKind::Fraction,
++                                HypothesisKind::Gate}) {
++            if (kind == HypothesisKind::Fraction) {
++                for (const auto q : {4U, 8U, 12U})
++                    result.push_back({kind, q});
++            } else {
++                for (const auto c : {4U, 8U, 12U, 16U, 24U, 32U, 48U, 64U})
++                    result.push_back({kind, c});
++            }
++        }
++        return result;
++    }();
++    return ops;
++}
++std::vector<HypothesisProgram> hypothesis_grammar() {
++    std::vector<HypothesisProgram> result(1);
++    std::size_t start = 0, end = 1;
++    for (unsigned depth = 0; depth < 3; ++depth) {
++        for (auto i = start; i < end; ++i)
++            for (const auto op : hypothesis_primitives()) {
++                auto expression = result[i];
++                expression.push_back(op);
++                result.push_back(std::move(expression));
++            }
++        start = end;
++        end = result.size();
++    }
++    return result;
++}
++std::vector<HypothesisModel> hypothesis_canonical(std::vector<HypothesisProgram> programs) {
++    std::sort(programs.begin(), programs.end(), [](const auto& a, const auto& b) {
++        return a.size() != b.size() ? a.size() < b.size() : a < b;
++    });
++    std::set<HypothesisTable> seen;
++    std::vector<HypothesisModel> models;
++    for (auto& expression : programs) {
++        auto table = hypothesis_table(expression);
++        if (seen.insert(table).second)
++            models.push_back({std::move(expression), table});
++    }
++    return models;
++}
++std::vector<HypothesisProgram> hypothesis_flat_programs() {
++    std::vector<HypothesisProgram> programs(1);
++    for (const auto op : hypothesis_primitives())
++        programs.push_back({op});
++    for (unsigned q = 3; q <= 12; ++q)
++        programs.push_back({{HypothesisKind::Fraction, q}});
++    for (unsigned d = 1; d <= 24; ++d)
++        programs.push_back({{HypothesisKind::Loss, d}});
++    for (unsigned c = 8; c <= 48; ++c)
++        programs.push_back({{HypothesisKind::Cap, c}});
++    return programs;
++}
++std::vector<HypothesisModel> hypothesis_flat_models() {
++    return hypothesis_canonical(hypothesis_flat_programs());
++}
++const std::vector<DiscoveryChain>& hypothesis_chains() {
++    static const auto chains = [] {
++        std::vector<DiscoveryChain> result;
++        for (const auto& chain : discovery_chains())
++            if (std::find(chain.begin(), chain.end(), 0) != chain.end())
++                result.push_back(chain);
++        return result;
++    }();
++    return chains;
++}
++} // namespace reality
+diff --git a/src/research/hypothesis_program.hpp b/src/research/hypothesis_program.hpp
+new file mode 100644
+index 0000000..0a717a3
+--- /dev/null
++++ b/src/research/hypothesis_program.hpp
+@@ -0,0 +1,26 @@
++#pragma once
++#include "research/discovery_world.hpp"
++#include <compare>
++namespace reality {
++enum class HypothesisKind : unsigned { Loss, Cap, Fraction, Gate };
++struct HypothesisOp {
++    HypothesisKind kind;
++    unsigned parameter;
++    auto operator<=>(const HypothesisOp&) const = default;
++};
++using HypothesisProgram = std::vector<HypothesisOp>;
++using HypothesisTable = DiscoveryTable;
++struct HypothesisModel {
++    HypothesisProgram program;
++    HypothesisTable table;
++};
++[[nodiscard]] unsigned hypothesis_apply(const HypothesisProgram& program, unsigned input);
++[[nodiscard]] HypothesisTable hypothesis_table(const HypothesisProgram& program);
++[[nodiscard]] const std::vector<HypothesisOp>& hypothesis_primitives();
++[[nodiscard]] std::vector<HypothesisProgram> hypothesis_grammar();
++[[nodiscard]] std::vector<HypothesisModel> hypothesis_flat_models();
++[[nodiscard]] std::vector<HypothesisProgram> hypothesis_flat_programs();
++[[nodiscard]] std::vector<HypothesisModel>
++hypothesis_canonical(std::vector<HypothesisProgram> programs);
++[[nodiscard]] const std::vector<DiscoveryChain>& hypothesis_chains();
++} // namespace reality
+diff --git a/src/research/hypothesis_protocol.cpp b/src/research/hypothesis_protocol.cpp
+new file mode 100644
+index 0000000..634a5ee
+--- /dev/null
++++ b/src/research/hypothesis_protocol.cpp
+@@ -0,0 +1,242 @@
++#include "research/hypothesis_protocol.hpp"
++#include "research/hypothesis_session.hpp"
++#define WIN32_LEAN_AND_MEAN
++#define NOMINMAX
++#include <Windows.h>
++
++#include <Psapi.h>
++#include <algorithm>
++#include <charconv>
++#include <chrono>
++#include <fstream>
++#include <set>
++#include <stdexcept>
++namespace reality {
++namespace {
++void check(bool value, const char* message) {
++    if (!value)
++        throw std::runtime_error(message);
++}
++unsigned number(std::istream& in, unsigned maximum = 128) {
++    std::string token;
++    check(static_cast<bool>(in >> token), "missing hypothesis case integer");
++    unsigned value = 0;
++    const auto p = std::from_chars(token.data(), token.data() + token.size(), value);
++    check(p.ec == std::errc{} && p.ptr == token.data() + token.size() && value <= maximum,
++          "invalid hypothesis case integer");
++    return value;
++}
++DiscoveryChain chain_in(std::istream& in) {
++    DiscoveryChain chain;
++    const auto size = number(in, 3);
++    check(size > 0, "empty case chain");
++    for (unsigned n = 0; n < size; ++n)
++        chain.push_back(static_cast<std::uint8_t>(number(in, 2)));
++    check(std::find(chain.begin(), chain.end(), 0) != chain.end(), "case bypasses unknown element");
++    return chain;
++}
++struct Forecast {
++    unsigned input;
++    DiscoveryChain chain;
++};
++struct Goal {
++    unsigned input, target;
++};
++struct Case {
++    std::uint32_t seed;
++    HypothesisLaw law;
++    std::array<Forecast, 24> forecasts;
++    std::array<Goal, 20> goals;
++    std::vector<Goal> zeros;
++    std::array<unsigned, 3> counters;
++};
++bool evaluation_input(unsigned input) {
++    return input == 80 || input == 96 || input == 112 || input == 128;
++}
++Case read_case(const std::filesystem::path& path) {
++    check(std::filesystem::file_size(path) < 65536, "hypothesis case size");
++    std::ifstream in{path};
++    std::string magic;
++    in >> magic;
++    check(magic == "HCASE" && number(in, 1) == 1, "hypothesis case header");
++    Case c{};
++    c.seed = number(in, UINT32_MAX);
++    c.law.square_divisor = number(in, 256);
++    const auto size = number(in, 3);
++    for (unsigned n = 0; n < size; ++n)
++        c.law.program.push_back({static_cast<HypothesisKind>(number(in, 3)), number(in, 64)});
++    (void)c.law.table();
++    std::set<std::pair<unsigned, DiscoveryChain>> distinct;
++    for (unsigned n = 0; n < 24; ++n) {
++        auto& forecast = c.forecasts[n];
++        forecast.input = number(in);
++        forecast.chain = chain_in(in);
++        check(n < 8 ? (forecast.input == 72 + 8 * n && forecast.chain == DiscoveryChain{0})
++                    : (evaluation_input(forecast.input) && forecast.chain.size() > 1),
++              "hypothesis forecast plan");
++        check(distinct.insert({forecast.input, forecast.chain}).second, "duplicate forecast");
++    }
++    for (auto& goal : c.goals) {
++        goal = {number(in), number(in)};
++        check(evaluation_input(goal.input) && goal.target > 0 && goal.target <= goal.input,
++              "hypothesis goal plan");
++    }
++    const auto zeros = number(in, 4);
++    std::set<unsigned> zero_inputs;
++    for (unsigned n = 0; n < zeros; ++n) {
++        const Goal g{number(in), number(in, 0)};
++        check(evaluation_input(g.input) && zero_inputs.insert(g.input).second,
++              "hypothesis zero plan");
++        c.zeros.push_back(g);
++    }
++    for (auto& counter : c.counters)
++        counter = number(in, (1U << 24) - 1);
++    in >> std::ws;
++    check(in.eof(), "trailing hypothesis case");
++    return c;
++}
++template <class Range> void numbers(std::ostream& out, const Range& values) {
++    out << '[';
++    bool comma = false;
++    for (const auto value : values) {
++        if (comma)
++            out << ',';
++        comma = true;
++        out << static_cast<std::uint64_t>(value);
++    }
++    out << ']';
++}
++void measurement(std::ostream& out, const DiscoveryMeasurement& m) {
++    out << "{\"id\":" << m.id << ",\"command\":" << m.command << ",\"tick\":" << m.observed_tick
++        << ",\"actor\":" << m.source_actor.value << ",\"apparatus\":" << m.apparatus
++        << ",\"input\":" << m.input << ",\"output\":" << m.output << ",\"chain\":";
++    numbers(out, m.chain);
++    out << '}';
++}
++void state(std::ostream& out, const HypothesisAgent& agent) {
++    const auto& cost = agent.cost();
++    out << "{\"models\":" << agent.models().size() << ",\"synthesized\":" << agent.synthesized()
++        << ",\"contradiction_tick\":" << agent.contradiction_tick()
++        << ",\"exhausted\":" << agent.exhausted() << ",\"primitives\":" << cost.primitives
++        << ",\"reads\":" << cost.reads << ",\"generated\":" << cost.generated << '}';
++}
++void ledger(std::ostream& out, const DiscoveryWorld& world) {
++    const auto& d = world.devices()[0];
++    out << "{\"source\":" << d.source << ",\"output\":" << d.output << ",\"loss\":" << d.loss
++        << '}';
++}
++double cpu_ms() {
++    FILETIME created{}, exited{}, kernel{}, user{};
++    check(GetProcessTimes(GetCurrentProcess(), &created, &exited, &kernel, &user) != 0,
++          "CPU measurement unavailable");
++    const auto value = [](FILETIME t) {
++        return (static_cast<std::uint64_t>(t.dwHighDateTime) << 32) | t.dwLowDateTime;
++    };
++    return static_cast<double>(value(kernel) + value(user)) / 10000.;
++}
++void goals(std::ostream& out, HypothesisSession& session, std::span<const Goal> tasks) {
++    out << '[';
++    bool comma = false;
++    for (const auto goal : tasks) {
++        if (comma)
++            out << ',';
++        comma = true;
++        const auto chain = session.choose_chain(goal.input, goal.target);
++        out << "{\"input\":" << goal.input << ",\"target\":" << goal.target << ",\"chain\":";
++        if (chain)
++            numbers(out, *chain);
++        else
++            out << "null";
++        out << ",\"measurement\":";
++        if (chain) {
++            check(session.begin_probe(*chain, goal.input, false) == DiscoveryOutcome::Accepted,
++                  "goal physical impulse refused");
++            session.advance(2);
++            measurement(out, session.apparatus().measurements().back());
++        } else
++            out << "null";
++        out << '}';
++    }
++    out << ']';
++}
++void variant(std::ostream& out, const Case& c, HypothesisMode mode,
++             const std::filesystem::path& directory, const char* name) {
++    const auto started = std::chrono::steady_clock::now();
++    const auto cpu_start = cpu_ms();
++    HypothesisSession session{c.law, mode, c.seed};
++    out << "{\"steps\":[";
++    for (unsigned n = 0; n < 24; ++n) {
++        if (n)
++            out << ',';
++        const auto choice = session.choose_input();
++        out << "{\"choice\":{\"input\":" << choice.input << ",\"active\":" << choice.active
++            << ",\"worst\":";
++        numbers(out, choice.worst);
++        out << ",\"partition\":";
++        numbers(out, choice.partition);
++        out << "},\"measurement\":";
++        check(session.begin_probe({0}, choice.input, true) == DiscoveryOutcome::Accepted,
++              "training physical impulse refused");
++        session.advance(2);
++        measurement(out, session.apparatus().measurements().back());
++        out << ",\"predictions\":[";
++        if (n >= 2)
++            for (unsigned i = 0; i < 24; ++i) {
++                if (i)
++                    out << ',';
++                const auto prediction = session.predict(c.forecasts[i].chain, c.forecasts[i].input);
++                if (prediction)
++                    out << '[' << prediction->median << ',' << prediction->minimum << ','
++                        << prediction->maximum << ',' << prediction->combinations << ']';
++                else
++                    out << "null";
++            }
++        out << "],\"state\":";
++        state(out, session.agent());
++        out << '}';
++    }
++    session.freeze();
++    session.save(directory / (std::string(name) + "-learning.state"));
++    out << "],\"learning_ledger\":";
++    ledger(out, session.apparatus());
++    auto evaluation = session.evaluation_copy();
++    out << ",\"goals\":";
++    goals(out, evaluation, c.goals);
++    out << ",\"zero_goals\":";
++    goals(out, evaluation, c.zeros);
++    check(evaluation.agent().evidence() == session.agent().evidence(),
++          "evaluation learned from outcomes");
++    evaluation.save(directory / (std::string(name) + "-evaluation.state"));
++    out << ",\"evaluation_ledger\":";
++    ledger(out, evaluation.apparatus());
++    out << ",\"final_state\":";
++    state(out, evaluation.agent());
++    PROCESS_MEMORY_COUNTERS memory{};
++    memory.cb = sizeof(memory);
++    check(GetProcessMemoryInfo(GetCurrentProcess(), &memory, sizeof(memory)) != 0,
++          "memory measurement unavailable");
++    const auto elapsed =
++        std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - started)
++            .count();
++    out << ",\"final_tick\":" << evaluation.tick() << ",\"wall_ms\":" << elapsed
++        << ",\"cpu_ms\":" << cpu_ms() - cpu_start
++        << ",\"peak_process_bytes\":" << memory.PeakWorkingSetSize << '}';
++}
++} // namespace
++void run_hypothesis_case(const std::filesystem::path& input,
++                         const std::filesystem::path& directory) {
++    const auto c = read_case(input);
++    std::ofstream out{directory / "raw.json", std::ios::binary};
++    out.exceptions(std::ios::badbit | std::ios::failbit);
++    out << std::boolalpha;
++    out << "{\"seed\":" << c.seed << ",\"law_table\":";
++    numbers(out, c.law.table());
++    out << ",\"variants\":{\"FA\":";
++    variant(out, c, HypothesisMode::FlatActive, directory, "FA");
++    out << ",\"SR\":";
++    variant(out, c, HypothesisMode::SynthesisRandom, directory, "SR");
++    out << ",\"SA\":";
++    variant(out, c, HypothesisMode::SynthesisActive, directory, "SA");
++    out << "}}\n";
++}
++} // namespace reality
+diff --git a/src/research/hypothesis_protocol.hpp b/src/research/hypothesis_protocol.hpp
+new file mode 100644
+index 0000000..2c0eb9b
+--- /dev/null
++++ b/src/research/hypothesis_protocol.hpp
+@@ -0,0 +1,6 @@
++#pragma once
++#include <filesystem>
++namespace reality {
++void run_hypothesis_case(const std::filesystem::path& input,
++                         const std::filesystem::path& directory);
++}
+diff --git a/src/research/hypothesis_session.cpp b/src/research/hypothesis_session.cpp
+new file mode 100644
+index 0000000..0fea270
+--- /dev/null
++++ b/src/research/hypothesis_session.cpp
+@@ -0,0 +1,207 @@
++#include "research/hypothesis_session.hpp"
++#include "research/discovery_random.hpp"
++#include <algorithm>
++#include <iomanip>
++#include <numeric>
++#include <sstream>
++#include <stdexcept>
++namespace reality {
++namespace {
++std::array<HypothesisTable, 3> law_tables(const HypothesisLaw& law) {
++    return {law.table(), hypothesis_table({{HypothesisKind::Fraction, 8}}),
++            hypothesis_table({{HypothesisKind::Cap, 48}})};
++}
++void chain_out(std::ostream& out, const DiscoveryChain& chain) {
++    out << ' ' << chain.size();
++    for (const auto symbol : chain)
++        out << ' ' << static_cast<unsigned>(symbol);
++}
++} // namespace
++HypothesisTable HypothesisLaw::table() const {
++    if (!square_divisor)
++        return hypothesis_table(program);
++    if (!program.empty() || (square_divisor != 128 && square_divisor != 160 &&
++                             square_divisor != 192 && square_divisor != 256))
++        throw std::invalid_argument("hypothesis square control");
++    HypothesisTable result{};
++    for (unsigned e = 0; e <= 128; ++e)
++        result[e] = static_cast<std::uint16_t>(e * e / square_divisor);
++    return result;
++}
++HypothesisSession::HypothesisSession(HypothesisLaw law, HypothesisMode mode, std::uint32_t seed,
++                                     TraversalScene scene, HypothesisLimits limits)
++    : law_(std::move(law)), mode_(mode), seed_(seed), limits_(limits), traversal_(std::move(scene)),
++      apparatus_(law_tables(law_)), agent_(traversal_.actors().at(0).id, mode, limits) {
++    if (traversal_.actors().size() != 2)
++        throw std::invalid_argument("hypothesis requires two actors");
++    initial_ = traversal_.serialize();
++    permutation_.resize(64);
++    std::iota(permutation_.begin(), permutation_.end(), 1U);
++    for (std::size_t n = 64; n > 1; --n) {
++        const auto index = discovery_draw(seed_, 41, random_counter_) % n;
++        std::swap(permutation_[n - 1], permutation_[static_cast<std::size_t>(index)]);
++    }
++}
++bool HypothesisSession::at_bench() const {
++    const auto& actor = traversal_.actors()[0];
++    return traversal_.can_interact_at(0, {1, {-4, 0}}) && actor.transfer == TransferStage::None &&
++           !actor.action.value &&
++           (actor.state == TraversalState::Idle || actor.state == TraversalState::Arrived);
++}
++void HypothesisSession::check_log() const {
++    if (events_.size() >= record_limit)
++        throw std::invalid_argument("hypothesis event limit");
++}
++DiscoveryOutcome HypothesisSession::begin_probe(DiscoveryChain chain, unsigned input,
++                                                bool learning) {
++    check_log();
++    if (!discovery_chain_valid(chain) || !input || input > 128)
++        return DiscoveryOutcome::Invalid;
++    if (pending_)
++        return DiscoveryOutcome::Busy;
++    if (learning && agent_.frozen())
++        return DiscoveryOutcome::Frozen;
++    if (learning == archive_.has_value() || (!learning && !agent_.frozen()))
++        return DiscoveryOutcome::Invalid;
++    if (!at_bench())
++        return DiscoveryOutcome::OutOfReach;
++    if (learning &&
++        (chain != DiscoveryChain{0} || input > 64 || attempts_ >= 24 || spent_ + input > 1536 ||
++         (learning_start_ && tick() - *learning_start_ + 2 > 1000)))
++        return DiscoveryOutcome::Invalid;
++    if (learning)
++        for (const auto& e : agent_.evidence())
++            if (e.measurement.input == input)
++                return DiscoveryOutcome::Invalid;
++    if (apparatus_.devices()[0].source < input)
++        return DiscoveryOutcome::NoEnergy;
++    if (next_command_ > UINT64_MAX - 2 || tick() > UINT64_MAX - 2)
++        return DiscoveryOutcome::Invalid;
++    const auto status = apparatus_.configure(next_command_, traversal_.actors()[0].id, 0, chain);
++    if (status != DiscoveryOutcome::Accepted)
++        return status;
++    pending_ = Pending{0, input, next_command_ + 1, learning};
++    next_command_ += 2;
++    if (learning) {
++        ++attempts_;
++        spent_ += input;
++        if (!learning_start_)
++            learning_start_ = tick();
++    }
++    std::ostringstream event;
++    event << "b " << learning << ' ' << input;
++    chain_out(event, chain);
++    events_.push_back(event.str());
++    return status;
++}
++void HypothesisSession::advance(std::uint64_t ticks) {
++    check_log();
++    if (ticks > 10000 || ticks > UINT64_MAX - tick())
++        throw std::invalid_argument("hypothesis advance bound");
++    for (std::uint64_t n = 0; n < ticks; ++n) {
++        traversal_.advance(1);
++        apparatus_.advance(tick());
++        if (pending_) {
++            if (!at_bench())
++                throw std::logic_error("hypothesis observer left bench");
++            if (pending_->stage == 0) {
++                if (apparatus_.pulse(pending_->command, traversal_.actors()[0].id, 0,
++                                     pending_->input) != DiscoveryOutcome::Accepted)
++                    throw std::logic_error("hypothesis reserved pulse refused");
++                pending_->stage = 1;
++            } else {
++                const auto& m = apparatus_.measurements().back();
++                if (m.command != pending_->command)
++                    throw std::logic_error("hypothesis observation mismatch");
++                if (pending_->learning && !agent_.observe({m, m.source_actor, m.observed_tick}))
++                    throw std::logic_error("hypothesis observation refused");
++                pending_.reset();
++            }
++        }
++    }
++    events_.push_back("a " + std::to_string(ticks));
++}
++void HypothesisSession::set_goal(SurfaceLocation goal) {
++    check_log();
++    if (pending_)
++        throw std::invalid_argument("hypothesis active probe cannot move");
++    traversal_.set_goal(0, goal);
++    std::ostringstream event;
++    event << std::setprecision(17) << "g " << goal.surface << ' ' << goal.local.x_m << ' '
++          << goal.local.z_m;
++    events_.push_back(event.str());
++}
++HypothesisChoice HypothesisSession::choose_input() {
++    check_log();
++    if (pending_ || agent_.frozen() || archive_ || attempts_ >= 24)
++        throw std::invalid_argument("hypothesis input phase");
++    HypothesisChoice choice;
++    if (attempts_ < 3)
++        choice.input = std::array{16U, 32U, 64U}[attempts_];
++    else
++        choice = agent_.choose_input(permutation_);
++    std::ostringstream event;
++    event << "i " << choice.input << ' ' << choice.active;
++    for (const auto value : choice.worst)
++        event << ' ' << value;
++    for (const auto value : choice.partition)
++        event << ' ' << value;
++    events_.push_back(event.str());
++    return choice;
++}
++std::optional<DiscoveryPrediction> HypothesisSession::predict(const DiscoveryChain& chain,
++                                                              unsigned input) {
++    check_log();
++    const auto result = agent_.predict(chain, input);
++    std::ostringstream event;
++    event << "p " << input;
++    chain_out(event, chain);
++    event << ' ' << result.has_value();
++    if (result)
++        event << ' ' << result->median << ' ' << result->minimum << ' ' << result->maximum << ' '
++              << result->combinations;
++    events_.push_back(event.str());
++    return result;
++}
++std::optional<DiscoveryChain> HypothesisSession::choose_chain(unsigned input, unsigned target) {
++    check_log();
++    if (!agent_.frozen() || pending_)
++        throw std::invalid_argument("hypothesis planning before freeze");
++    const auto chain = agent_.choose_chain(input, target);
++    std::ostringstream event;
++    event << "c " << input << ' ' << target << ' ' << chain.has_value();
++    if (chain)
++        chain_out(event, *chain);
++    events_.push_back(event.str());
++    return chain;
++}
++void HypothesisSession::freeze() {
++    check_log();
++    if (pending_)
++        throw std::invalid_argument("hypothesis freeze during impulse");
++    agent_.freeze();
++    events_.push_back("f");
++}
++void HypothesisSession::enter_evaluation() {
++    check_log();
++    if (!agent_.frozen() || pending_ || archive_)
++        throw std::invalid_argument("hypothesis evaluation phase");
++    archive_ = apparatus_;
++    apparatus_ = apparatus_.fresh();
++    apparatus_.advance(tick());
++    events_.push_back("e");
++}
++HypothesisSession HypothesisSession::evaluation_copy() const {
++    auto result = *this;
++    result.enter_evaluation();
++    return result;
++}
++const HypothesisAgent& HypothesisSession::agent() const noexcept { return agent_; }
++const DiscoveryWorld& HypothesisSession::apparatus() const noexcept { return apparatus_; }
++const TraversalSession& HypothesisSession::traversal() const noexcept { return traversal_; }
++std::uint64_t HypothesisSession::tick() const noexcept {
++    return traversal_.world().clock().tick_count();
++}
++unsigned HypothesisSession::attempts() const noexcept { return attempts_; }
++bool HypothesisSession::pending() const noexcept { return pending_.has_value(); }
++} // namespace reality
+diff --git a/src/research/hypothesis_session.hpp b/src/research/hypothesis_session.hpp
+new file mode 100644
+index 0000000..b204ef2
+--- /dev/null
++++ b/src/research/hypothesis_session.hpp
+@@ -0,0 +1,65 @@
++#pragma once
++#include "research/discovery_session.hpp"
++#include "research/hypothesis_agent.hpp"
++namespace reality {
++struct HypothesisLaw {
++    HypothesisProgram program;
++    unsigned square_divisor = 0;
++    [[nodiscard]] HypothesisTable table() const;
++};
++[[nodiscard]] inline std::uint64_t hypothesis_checksum(std::string_view bytes) noexcept {
++    return snapshot_checksum(bytes);
++}
++class HypothesisSession final {
++  public:
++    HypothesisSession(HypothesisLaw law, HypothesisMode mode, std::uint32_t seed,
++                      TraversalScene scene = make_discovery_scene(), HypothesisLimits limits = {});
++    [[nodiscard]] DiscoveryOutcome begin_probe(DiscoveryChain chain, unsigned input,
++                                               bool learning = true);
++    void advance(std::uint64_t ticks);
++    void set_goal(SurfaceLocation goal);
++    [[nodiscard]] HypothesisChoice choose_input();
++    [[nodiscard]] std::optional<DiscoveryPrediction> predict(const DiscoveryChain& chain,
++                                                             unsigned input);
++    [[nodiscard]] std::optional<DiscoveryChain> choose_chain(unsigned input, unsigned target);
++    void freeze();
++    [[nodiscard]] HypothesisSession evaluation_copy() const;
++    [[nodiscard]] const HypothesisAgent& agent() const noexcept;
++    [[nodiscard]] const DiscoveryWorld& apparatus() const noexcept;
++    [[nodiscard]] const TraversalSession& traversal() const noexcept;
++    [[nodiscard]] std::uint64_t tick() const noexcept;
++    [[nodiscard]] unsigned attempts() const noexcept;
++    [[nodiscard]] bool pending() const noexcept;
++    [[nodiscard]] std::string serialize() const;
++    void restore(std::string_view bytes);
++    void save(const std::filesystem::path& path) const;
++    void load(const std::filesystem::path& path);
++
++  private:
++    struct Pending {
++        unsigned stage, input;
++        std::uint64_t command;
++        bool learning;
++    };
++    HypothesisLaw law_;
++    HypothesisMode mode_;
++    std::uint32_t seed_, random_counter_ = 0;
++    HypothesisLimits limits_;
++    TraversalSession traversal_;
++    DiscoveryWorld apparatus_;
++    HypothesisAgent agent_;
++    std::vector<unsigned> permutation_;
++    std::vector<std::string> events_;
++    std::string initial_;
++    std::optional<DiscoveryWorld> archive_;
++    std::optional<Pending> pending_;
++    unsigned attempts_ = 0, spent_ = 0;
++    std::uint64_t next_command_ = 1;
++    std::optional<std::uint64_t> learning_start_;
++    [[nodiscard]] bool at_bench() const;
++    void check_log() const;
++    void enter_evaluation();
++    [[nodiscard]] std::string canonical_state() const;
++    [[nodiscard]] static HypothesisSession deserialize(std::string_view bytes);
++};
++} // namespace reality
+diff --git a/tests/hypothesis_integration.py b/tests/hypothesis_integration.py
+new file mode 100644
+index 0000000..e9fd786
+--- /dev/null
++++ b/tests/hypothesis_integration.py
+@@ -0,0 +1,44 @@
++"""Continue real hypothesis snapshots in fresh native processes."""
++import argparse
++from pathlib import Path
++import subprocess
++import tempfile
++import sys
++import json
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument('--exe', required=True)
++    parser.add_argument('--mode', choices=('case', 'continuation'), default='continuation')
++    args = parser.parse_args()
++    with tempfile.TemporaryDirectory(prefix='hypothesis-') as directory:
++        root = Path(directory)
++        if args.mode == 'case':
++            sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
++            import run_hypothesis_experiment as experiment
++            case = experiment.make_case(0x48590000, set())
++            experiment.write_case(root / 'case.txt', case)
++            subprocess.run([args.exe, '--case', str(root / 'case.txt'), '--output', str(root / 'raw')], check=True)
++            raw = json.loads((root / 'raw/raw.json').read_text(encoding='utf-8'))
++            result = experiment.judge(case, raw)
++            assert set(result) == {'FA', 'SR', 'SA'}
++            raw['variants']['SA']['steps'][0]['measurement']['output'] += 1
++            try:
++                experiment.judge(case, raw)
++            except ValueError:
++                print('PASS native declarations, interpreter, budgets and tamper rejection')
++                return
++            raise AssertionError('changed measurement accepted')
++        subprocess.run([args.exe, '--fixture', '--output', str(root / 'fixture')], check=True)
++        snapshots = sorted((root / 'fixture').glob('*.state'))
++        assert len(snapshots) == 8, 'missing phase/controller fixtures'
++        for n, snapshot in enumerate(snapshots):
++            target = root / f'continue-{n}'
++            subprocess.run([args.exe, '--continue', str(snapshot), '--output', str(target)], check=True)
++            assert (target / 'final.state').read_bytes() == snapshot.with_suffix('.expected').read_bytes()
++    print('PASS eight fresh-process continuations')
++
++
++if __name__ == '__main__':
++    main()
+diff --git a/tests/hypothesis_tests.cpp b/tests/hypothesis_tests.cpp
+new file mode 100644
+index 0000000..667714c
+--- /dev/null
++++ b/tests/hypothesis_tests.cpp
+@@ -0,0 +1,227 @@
++#include "research/discovery_world.hpp"
++#include "research/hypothesis_agent.hpp"
++#include "research/hypothesis_program.hpp"
++#include "research/hypothesis_session.hpp"
++#include <iostream>
++#include <set>
++#include <stdexcept>
++#include <string>
++using namespace reality;
++namespace {
++void require(bool value, const char* message) {
++    if (!value)
++        throw std::runtime_error(message);
++}
++HypothesisProgram example() { return {{HypothesisKind::Fraction, 8}, {HypothesisKind::Loss, 8}}; }
++void program_case() {
++    const HypothesisProgram equivalent{{HypothesisKind::Loss, 16}, {HypothesisKind::Fraction, 8}};
++    require(hypothesis_apply(example(), 96) == 40, "novel expression prediction");
++    require(hypothesis_table(example()) == hypothesis_table(equivalent), "semantic equivalence");
++    const auto grammar = hypothesis_grammar();
++    require(grammar.size() == 20440, "grammar must contain all syntax");
++    std::set<HypothesisTable> tables;
++    for (const auto& p : grammar) {
++        const auto table = hypothesis_table(p);
++        for (unsigned e = 0; e <= 128; ++e)
++            require(table[e] <= e, "active law violates passivity");
++        tables.insert(table);
++    }
++    const auto flat = hypothesis_flat_models();
++    for (const auto& p : flat)
++        require(p.table != hypothesis_table(example()), "example already flat");
++    for (const unsigned d : {128U, 160U, 192U, 256U}) {
++        HypothesisTable square{};
++        for (unsigned e = 0; e <= 128; ++e)
++            square[e] = static_cast<std::uint16_t>(e * e / d);
++        require(!tables.contains(square), "outside control inside grammar");
++        for (const auto& p : flat)
++            require(p.table != square, "outside control inside F");
++    }
++}
++void apparatus_case() {
++    std::array<HypothesisTable, 3> tables{hypothesis_table(example()),
++                                          hypothesis_table({{HypothesisKind::Fraction, 8}}),
++                                          hypothesis_table({{HypothesisKind::Cap, 48}})};
++    DiscoveryWorld world{tables};
++    require(world.configure(1, {1}, 0, {0, 1}) == DiscoveryOutcome::Accepted, "configure");
++    world.advance(1);
++    require(world.pulse(2, {1}, 0, 96) == DiscoveryOutcome::Accepted, "pulse");
++    require(world.devices()[0].source == 8192 && world.measurements().empty(), "premature spend");
++    const auto saved = world.serialize();
++    auto loaded = DiscoveryWorld::deserialize(saved);
++    loaded.advance(2);
++    world.advance(2);
++    require(world.serialize() == loaded.serialize(), "pending world continuation");
++    require(world.measurements().back().output == 20, "physical composed result");
++    require(world.devices()[0].source == 8096 && world.devices()[0].loss == 76, "physical ledger");
++    const auto done = world.serialize();
++    require(world.pulse(2, {1}, 0, 96) == DiscoveryOutcome::Accepted && world.serialize() == done,
++            "idempotency");
++    require(world.pulse(3, {1}, 0, 129) == DiscoveryOutcome::Invalid, "table input range");
++    tables[0][1] = 2;
++    bool rejected = false;
++    try {
++        DiscoveryWorld invalid{tables};
++    } catch (const std::exception&) {
++        rejected = true;
++    }
++    require(rejected, "nonpassive table accepted");
++}
++DiscoveryEvidence evidence(unsigned id, unsigned input, unsigned output) {
++    return {{id, id, 0, {1}, id * 2, {0}, input, output}, {1}, id * 2};
++}
++void learning_case() {
++    HypothesisAgent agent{{1}, HypothesisMode::SynthesisActive};
++    HypothesisAgent flat{{1}, HypothesisMode::FlatActive};
++    for (unsigned n = 1; n <= 3; ++n) {
++        const auto input = std::array{16U, 32U, 64U}[n - 1];
++        const auto e = evidence(n, input, hypothesis_apply(example(), input));
++        require(agent.observe(e) && flat.observe(e), "observation refused");
++    }
++    require(agent.synthesized() && agent.contradiction_tick() != 0 && !agent.models().empty(),
++            "no novel synthesis");
++    require(flat.models().empty() && !flat.synthesized(), "flat invented a model");
++    bool present = false;
++    for (const auto& model : agent.models())
++        present |= model.table == hypothesis_table(example());
++    require(present, "true model eliminated");
++    std::vector<unsigned> order;
++    for (unsigned e = 1; e <= 64; ++e)
++        order.push_back(e);
++    const auto choice = agent.choose_input(order);
++    require(choice.input != 16 && choice.input != 32 && choice.input != 64,
++            "repeated intervention");
++    require(choice.active && choice.worst[choice.input] > 0, "missing active decision");
++    for (unsigned e = 1; e <= 64; ++e)
++        if (choice.worst[e])
++            require(choice.worst[choice.input] <= choice.worst[e], "not minimax");
++    const auto prediction = agent.predict({0}, 96);
++    require(prediction && prediction->minimum <= 40 && prediction->maximum >= 40,
++            "lost true prediction");
++    const auto state = agent.state();
++    require(!agent.observe(evidence(1, 16, 0)) && agent.state() == state,
++            "duplicate changed knowledge");
++    agent.freeze();
++    require(!agent.observe(evidence(4, 1, 0)), "frozen learned");
++    require(hypothesis_chains().size() == 25, "configuration space changed");
++}
++void limits_case() {
++    HypothesisLimits limits;
++    limits.reads = 1;
++    HypothesisAgent agent{{1}, HypothesisMode::SynthesisActive, limits};
++    require(!agent.predict({0}, 96) && agent.exhausted(), "read limit not permanent");
++    const auto count = agent.cost().reads;
++    require(!agent.predict({0}, 96) && agent.cost().reads == count, "budget reset");
++    require(agent.observe(evidence(1, 16, 0)), "exhaustion dropped physical observation");
++    std::vector<unsigned> order{7, 16, 32, 64};
++    require(agent.choose_input(order).input == 7, "exhaustion must use permutation");
++    agent.freeze();
++    require(!agent.choose_chain(96, 20), "exhausted planning accepted");
++    HypothesisAgent random{{1}, HypothesisMode::SynthesisRandom};
++    require(random.choose_input(order).input == 7 && random.cost().reads == 0,
++            "random uses active selector");
++    limits.reads = 2;
++    HypothesisAgent filtering{{1}, HypothesisMode::SynthesisActive, limits};
++    require(filtering.observe(evidence(1, 1, 0)) && filtering.exhausted(), "filter budget");
++    for (const auto& m : filtering.models())
++        require(m.table == hypothesis_table(m.program), "partial filter damaged program");
++    limits.reads = hypothesis_flat_models().size() + 1;
++    HypothesisAgent during{{1}, HypothesisMode::SynthesisActive, limits};
++    require(during.choose_input(order).input == 7 && during.exhausted(),
++            "partial active choice escaped exhausted selector");
++}
++void session_case() {
++    HypothesisSession session{HypothesisLaw{example()}, HypothesisMode::SynthesisActive, 123};
++    require(session.begin_probe({0}, 96, true) == DiscoveryOutcome::Invalid, "training range");
++    require(session.begin_probe({0}, 16, false) == DiscoveryOutcome::Invalid,
++            "evaluation before freeze");
++    require(session.begin_probe({0}, 16, true) == DiscoveryOutcome::Accepted, "begin");
++    require(session.agent().evidence().empty() && session.apparatus().devices()[0].source == 8192,
++            "early evidence");
++    session.advance(1);
++    require(session.agent().evidence().empty(), "pulse observed before completion");
++    session.advance(1);
++    require(session.agent().evidence().size() == 1 && session.tick() == 2, "physical observation");
++    require(session.begin_probe({0}, 16, true) == DiscoveryOutcome::Invalid, "repeated input");
++    auto distant = make_discovery_scene();
++    distant.spawns[0].location.local = {-7, 0};
++    HypothesisSession far{HypothesisLaw{example()}, HypothesisMode::SynthesisActive, 123, distant};
++    require(far.begin_probe({0}, 16, true) == DiscoveryOutcome::OutOfReach, "remote observation");
++    session.freeze();
++    require(session.begin_probe({0}, 32, true) == DiscoveryOutcome::Frozen, "learned after freeze");
++    auto evaluation = session.evaluation_copy();
++    const auto knowledge = evaluation.agent().evidence().size();
++    require(evaluation.begin_probe({0, 1}, 96, false) == DiscoveryOutcome::Accepted,
++            "physical evaluation");
++    evaluation.advance(2);
++    require(evaluation.apparatus().measurements().back().output == 20 &&
++                evaluation.agent().evidence().size() == knowledge,
++            "evaluation learned");
++}
++void continuation_case() {
++    HypothesisSession session{HypothesisLaw{example()}, HypothesisMode::SynthesisActive, 124};
++    for (const auto input : {16U, 32U}) {
++        require(session.begin_probe({0}, input, true) == DiscoveryOutcome::Accepted, "probe");
++        session.advance(2);
++    }
++    for (unsigned stage = 0; stage < 3; ++stage) {
++        const auto snapshot = session.serialize();
++        HypothesisSession loaded{HypothesisLaw{example()}, HypothesisMode::FlatActive, 1};
++        loaded.restore(snapshot);
++        require(loaded.serialize() == snapshot, "canonical session restore");
++        auto uninterrupted = session;
++        while (loaded.pending()) {
++            loaded.advance(1);
++            uninterrupted.advance(1);
++        }
++        require(loaded.choose_input().input == uninterrupted.choose_input().input,
++                "RNG/choice continuation");
++        require(loaded.serialize() == uninterrupted.serialize(), "budget continuation");
++        if (stage == 0)
++            require(session.begin_probe({0}, 64, true) == DiscoveryOutcome::Accepted,
++                    "third configure");
++        else
++            session.advance(1);
++    }
++    const auto snapshot = session.serialize();
++    const auto split = snapshot.find('\n');
++    auto body = snapshot.substr(split + 1);
++    const auto state_start = body.find("DWORLD");
++    require(state_start != std::string::npos, "snapshot physical state absent");
++    body[state_start + 9] = body[state_start + 9] == '1' ? '2' : '1';
++    const auto corrupt =
++        "GENESIS_HYPOTHESIS 1 " + std::to_string(hypothesis_checksum(body)) + "\n" + body;
++    bool rejected = false;
++    try {
++        session.restore(corrupt);
++    } catch (const std::exception&) {
++        rejected = true;
++    }
++    require(rejected && session.serialize() == snapshot, "semantic corruption changed session");
++}
++} // namespace
++int main(int argc, char* argv[]) {
++    try {
++        require(argc == 2, "case required");
++        const std::string name{argv[1]};
++        if (name == "program")
++            program_case();
++        else if (name == "session")
++            session_case();
++        else if (name == "continuation")
++            continuation_case();
++        else if (name == "learning")
++            learning_case();
++        else if (name == "limits")
++            limits_case();
++        else if (name == "apparatus")
++            apparatus_case();
++        else
++            throw std::invalid_argument("unknown case");
++        std::cout << "PASS " << name << '\n';
++        return 0;
++    } catch (const std::exception& e) {
++        std::cerr << "FAIL " << e.what() << '\n';
++        return 1;
++    }
++}
+diff --git a/tools/hypothesis_model.py b/tools/hypothesis_model.py
+new file mode 100644
+index 0000000..ab9ace0
+--- /dev/null
++++ b/tools/hypothesis_model.py
+@@ -0,0 +1,200 @@
++"""Independent integer interpreter and replay judge for hypothesis-v1.
++
++No native bindings. This is experimenter code, never an agent information channel.
++"""
++from functools import lru_cache
++from itertools import product
++from run_discovery_experiment import RandomDomain
++
++C = (4, 8, 12, 16, 24, 32, 48, 64)
++OPS = tuple((kind, value) for kind in range(4)
++            for value in ((4, 8, 12) if kind == 2 else C))
++CHAINS = tuple(c for n in range(1, 4) for c in product(range(3), repeat=n) if 0 in c)
++
++
++@lru_cache(None)
++def _table(program):
++    def apply(value):
++        for kind, parameter in program:
++            if kind == 0:
++                value = max(0, value - parameter)
++            elif kind == 1:
++                value = min(value, parameter)
++            elif kind == 2:
++                value = value * parameter // 16
++            elif kind == 3:
++                value = value if value >= parameter else 0
++            else:
++                raise ValueError('unknown operator')
++        return value
++    return tuple(apply(e) for e in range(129))
++
++
++def table(program):
++    return _table(tuple(map(tuple, program)))
++
++
++@lru_cache(None)
++def syntax():
++    return tuple(p for n in range(4) for p in product(OPS, repeat=n))
++
++
++@lru_cache(None)
++def flat_syntax():
++    return ((),) + tuple((op,) for op in OPS) + tuple(((2, q),) for q in range(3, 13)) + tuple(
++        ((0, d),) for d in range(1, 25)) + tuple(((1, c),) for c in range(8, 49))
++
++
++def canonical(programs):
++    result = {}
++    for p in sorted(programs, key=lambda p: (len(p), p)):
++        result.setdefault(table(p), p)
++    return result
++
++
++@lru_cache(None)
++def flat_models():
++    return canonical(flat_syntax())
++
++
++@lru_cache(None)
++def models():
++    return canonical(syntax() + flat_syntax())
++
++
++def output(values, chain, energy):
++    for symbol in chain:
++        energy = values[energy] if symbol == 0 else energy // 2 if symbol == 1 else min(energy, 48)
++    return energy
++
++
++def shuffle(values, random):
++    values = list(values)
++    for n in range(len(values), 1, -1):
++        j = random.draw() % n
++        values[n - 1], values[j] = values[j], values[n - 1]
++    return values
++
++
++class ReplayAgent:
++    """Recomputes native declarations from measurements, including operation costs."""
++    def __init__(self, mode, seed):
++        self.mode = mode
++        self.primitives = self.reads = self.generated = 0
++        self.exhausted = self.synthesized = False
++        self.contradiction_tick = 0
++        self.evidence = []
++        self.current = []
++        self.build(flat_syntax())
++        self.permutation = shuffle(range(1, 65), RandomDomain(seed, 41))
++
++    def charge(self, count, primitive=False):
++        field, limit = ('primitives', 10000000) if primitive else ('reads', 300000000)
++        if self.exhausted:
++            return False
++        value = getattr(self, field)
++        if value + count > limit:
++            self.exhausted = True
++            return False
++        setattr(self, field, value + count)
++        return True
++
++    def build(self, programs, filtering=False):
++        self.current = []
++        seen = set()
++        for p in sorted(programs, key=lambda p: (len(p), p)):
++            if not self.charge(len(p) * 129, True):
++                return
++            values = table(p)
++            if values in seen:
++                continue
++            seen.add(values)
++            keep = True
++            if filtering:
++                for energy, measured in self.evidence:
++                    if not self.charge(1):
++                        return
++                    if values[energy] != measured:
++                        keep = False
++                        break
++            if keep:
++                self.current.append(values)
++
++    def observe(self, energy, measured, tick):
++        self.evidence.append((energy, measured))
++        if self.exhausted:
++            return
++        remaining = []
++        for values in self.current:
++            if not self.charge(1):
++                return
++            if values[energy] == measured:
++                remaining.append(values)
++        self.current = remaining
++        if not remaining and not self.contradiction_tick:
++            self.contradiction_tick = tick
++            if self.mode != 'FA':
++                self.synthesized = True
++                self.generated = 20440
++                self.build(syntax() + flat_syntax(), True)
++
++    def choice(self, attempt):
++        answer = {'input': 0, 'active': False, 'worst': [0] * 65, 'partition': [0] * 129}
++        if attempt < 3:
++            answer['input'] = (16, 32, 64)[attempt]
++            return answer
++        used = {e for e, _ in self.evidence}
++        fallback = next(e for e in self.permutation if e not in used)
++        answer['input'] = fallback
++        if self.exhausted or len(self.current) < 2 or self.mode == 'SR':
++            return answer
++        best = len(self.current)
++        for e in range(1, 65):
++            if e in used:
++                continue
++            groups = [0] * 129
++            for values in self.current:
++                if not self.charge(1):
++                    return {'input': fallback, 'active': False, 'worst': [0] * 65, 'partition': [0] * 129}
++                groups[values[e]] += 1
++            worst = max(groups)
++            answer['worst'][e] = worst
++            if worst < best:
++                best = worst
++                answer.update(input=e, partition=groups, active=True)
++        return answer
++
++    def evaluate(self, values, chain, energy):
++        for symbol in chain:
++            if symbol == 0:
++                if not self.charge(1):
++                    return None
++                energy = values[energy]
++            else:
++                energy = energy // 2 if symbol == 1 else min(energy, 48)
++        return energy
++
++    def predict(self, chain, energy):
++        if self.exhausted or not self.current:
++            return None
++        values = [self.evaluate(v, chain, energy) for v in self.current]
++        if None in values:
++            return None
++        values.sort()
++        return [values[(len(values) - 1) // 2], values[0], values[-1], len(values)]
++
++    def choose_chain(self, energy, target):
++        if self.exhausted or not self.current:
++            return None
++        candidates = []
++        for chain in CHAINS:
++            values = [self.evaluate(v, chain, energy) for v in self.current]
++            if None in values:
++                return None
++            candidates.append((-values.count(target), max(values) - min(values), len(chain), chain))
++        return list(min(candidates)[3])
++
++    def state(self):
++        return {'models': len(self.current), 'synthesized': self.synthesized,
++                'contradiction_tick': self.contradiction_tick, 'exhausted': self.exhausted,
++                'primitives': self.primitives, 'reads': self.reads, 'generated': self.generated}
+diff --git a/tools/run_hypothesis_experiment.py b/tools/run_hypothesis_experiment.py
+new file mode 100644
+index 0000000..afe05d3
+--- /dev/null
++++ b/tools/run_hypothesis_experiment.py
+@@ -0,0 +1,414 @@
++"""Prepare/freeze, run once, and independently judge hypothesis-v1.
++
++Scientific failure is exit 0. Broken infrastructure or evidence is nonzero.
++"""
++from fractions import Fraction
++from pathlib import Path
++import argparse
++import hashlib
++import json
++import math
++import platform
++import shutil
++import subprocess
++import sys
++import time
++
++sys.dont_write_bytecode = True
++
++from hypothesis_model import (OPS, CHAINS, RandomDomain, ReplayAgent, flat_models,
++                              models, output, shuffle, syntax, table)
++
++ROOT = Path(__file__).resolve().parents[1]
++PROTOCOL = ROOT / 'docs/work-items/hypothesis-building-experiment.md'
++EXAMPLE = table(((2, 8), (0, 8)))
++
++
++def sha256(path):
++    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++
++def verify_hashes(root, hashes):
++    for name, digest in hashes.items():
++        path = (root / name).resolve()
++        if not path.is_relative_to(root.resolve()) or sha256(path) != digest:
++            raise ValueError(f'changed or outside evidence: {name}')
++
++
++def verify_analysis_code(root):
++    paths = (__file__, sys.modules[ReplayAgent.__module__].__file__,
++             sys.modules[RandomDomain.__module__].__file__)
++    for path in paths:
++        frozen = root / 'frozen-source/tools' / Path(path).name
++        if sha256(path) != sha256(frozen):
++            raise ValueError(f'analysis dependency differs from frozen code: {Path(path).name}')
++
++
++def write_json(path, value):
++    with path.open('x', encoding='utf-8', newline='\n') as out:
++        json.dump(value, out, sort_keys=True, indent=2)
++        out.write('\n')
++
++
++def make_case(seed, excluded, program=None, divisor=0):
++    random = RandomDomain(seed, 40)
++    rejected = []
++    if program is None and not divisor:
++        for _ in range(100000):
++            length = 2 + random.draw() % 2
++            candidate = tuple(OPS[random.draw() % 27] for _ in range(length))
++            values = table(candidate)
++            reason = None
++            if values in flat_models():
++                reason = 'flat'
++            elif any(all(v[e] == values[e] for e in range(1, 65)) for v in flat_models()):
++                reason = 'flat-on-probes'
++            elif not any(output(values, c, e) > 0 for c in CHAINS for e in (80, 96, 112, 128)):
++                reason = 'no-positive-goal'
++            elif values == EXAMPLE or values in excluded:
++                reason = 'excluded-table'
++            if reason:
++                rejected.append({'program': candidate, 'reason': reason})
++            else:
++                program = candidate
++                break
++        else:
++            raise ValueError(f'candidate budget exhausted for {seed}')
++    if divisor:
++        program = ()
++    program = tuple(map(tuple, program))
++    values = tuple(e * e // divisor for e in range(129)) if divisor else table(program)
++    predictions = [{'input': e, 'chain': [0]} for e in (72, 80, 88, 96, 104, 112, 120, 128)]
++    forecast_random = RandomDomain(seed, 42)
++    extra = shuffle([(e, c) for e in (80, 96, 112, 128) for c in CHAINS if len(c) > 1], forecast_random)
++    predictions.extend({'input': e, 'chain': list(c)} for e, c in extra[:16])
++    pool = sorted({(e, output(values, c, e)) for e in (80, 96, 112, 128) for c in CHAINS
++                   if output(values, c, e) > 0})
++    if not pool:
++        raise ValueError('no useful goal')
++    goal_random = RandomDomain(seed, 43)
++    goals = []
++    for _ in range(20):
++        energy, target = pool[goal_random.draw() % len(pool)]
++        goals.append({'input': energy, 'target': target})
++    zero_goals = [{'input': e, 'target': 0} for e in (80, 96, 112, 128)
++                  if any(output(values, c, e) == 0 for c in CHAINS)]
++    return {'seed': seed, 'program': [list(p) for p in program], 'divisor': divisor,
++            'predictions': predictions, 'goals': goals, 'zero_goals': zero_goals,
++            'goal_pool_size': len(pool), 'distinct_goals': len({(g['input'], g['target']) for g in goals}),
++            'rejected': rejected, 'counters': {'40': random.counter, '42': forecast_random.counter,
++                                             '43': goal_random.counter}}
++
++
++def write_case(path, case):
++    lines = [f"HCASE 1 {case['seed']} {case['divisor']} {len(case['program'])} " +
++             ' '.join(str(v) for op in case['program'] for v in op)]
++    for prediction in case['predictions']:
++        chain = prediction['chain']
++        lines.append(f"{prediction['input']} {len(chain)} " + ' '.join(map(str, chain)))
++    lines.extend(f"{g['input']} {g['target']}" for g in case['goals'])
++    lines.append(str(len(case['zero_goals'])))
++    lines.extend(f"{g['input']} {g['target']}" for g in case['zero_goals'])
++    lines.append(' '.join(str(case['counters'][tag]) for tag in ('40', '42', '43')))
++    with path.open('x', encoding='utf-8', newline='\n') as out:
++        out.write('\n'.join(lines) + '\n')
++
++
++def sign_test(differences):
++    wins, losses = sum(d > 0 for d in differences), sum(d < 0 for d in differences)
++    n = wins + losses
++    return Fraction(sum(math.comb(n, k) for k in range(wins, n + 1)), 2 ** n)
++
++
++def summarize(rows):
++    n = len(rows)
++    if not n:
++        raise ValueError('empty cohort')
++    mean = lambda mode, key, denominator: Fraction(sum(r[mode][key] for r in rows), n * denominator)
++    differences = lambda key: [r['SA'][key] - r['FA'][key] for r in rows]
++    gain_d = mean('SA', 'D', 24) - mean('FA', 'D', 24)
++    gain_g = mean('SA', 'G', 20) - mean('FA', 'G', 20)
++    gain_a = mean('SA', 'curve', 528) - mean('SR', 'curve', 528)
++    p_d, p_g = sign_test(differences('D')), sign_test(differences('G'))
++    p_a = sign_test([r['SA']['curve'] - r['SR']['curve'] for r in rows])
++    novel = Fraction(sum(bool(r['SA']['novel']) for r in rows), n)
++    h = (novel >= Fraction(9, 10) and mean('SA', 'D', 24) >= Fraction(9, 10) and
++         mean('SA', 'G', 20) >= Fraction(4, 5) and min(gain_d, gain_g) >= Fraction(1, 5) and
++         max(p_d, p_g) <= Fraction(1, 60))
++    return {'n': n, 'H': h, 'A': gain_a >= Fraction(1, 20) and p_a <= Fraction(1, 60),
++            'D': {m: str(mean(m, 'D', 24)) for m in ('FA', 'SR', 'SA')},
++            'G': {m: str(mean(m, 'G', 20)) for m in ('FA', 'SR', 'SA')},
++            'curve': {m: str(mean(m, 'curve', 528)) for m in ('FA', 'SR', 'SA')},
++            'gain_D': str(gain_d), 'gain_G': str(gain_g), 'gain_A': str(gain_a),
++            'p_D': str(p_d), 'p_G': str(p_g), 'p_A': str(p_a), 'novel': str(novel),
++            'sign_counts': {key: {'wins': sum(d > 0 for d in differences(key)),
++                                  'losses': sum(d < 0 for d in differences(key)),
++                                  'ties': sum(d == 0 for d in differences(key))} for key in ('D', 'G')}}
++
++
++def claim_run(root):
++    record = {'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
++    for name in ('freeze.json', 'case-manifest.json'):
++        if (root / name).exists():
++            record[name] = sha256(root / name)
++    write_json(root / 'RUN.started.json', record)
++
++
++def judge(case, raw):
++    if raw['seed'] != case['seed'] or set(raw['variants']) != {'FA', 'SR', 'SA'}:
++        raise ValueError('native case identity')
++    truth = tuple(e * e // case['divisor'] for e in range(129)) if case['divisor'] else table(case['program'])
++    if raw['law_table'] != list(truth):
++        raise ValueError('native/Python interpreter mismatch')
++    result = {}
++    for mode in ('FA', 'SR', 'SA'):
++        agent = ReplayAgent(mode, case['seed'])
++        variant = raw['variants'][mode]
++        if len(variant['steps']) != 24 or len(variant['goals']) != 20:
++            raise ValueError('missing native trials')
++        curve = spent = received = 0
++        novel = False
++        for index, step in enumerate(variant['steps']):
++            choice = agent.choice(index)
++            if step['choice'] != choice:
++                raise ValueError(f'{mode} invalid intervention choice at {index}')
++            energy = choice['input']
++            measured = truth[energy]
++            expected = {'id': 2 * index + 2, 'command': 2 * index + 2, 'tick': 2 * index + 2,
++                        'actor': 1, 'apparatus': 0, 'input': energy, 'output': measured, 'chain': [0]}
++            if step['measurement'] != expected:
++                raise ValueError('nonphysical or wrong training observation')
++            spent += energy
++            received += measured
++            agent.observe(energy, measured, expected['tick'])
++            predictions = [agent.predict(p['chain'], p['input']) for p in case['predictions']] if index >= 2 else []
++            if step['predictions'] != predictions or step['state'] != agent.state():
++                raise ValueError(f'{mode} invalid prediction/state/cost at {index}')
++            correct = sum(p is not None and p[0] == output(truth, task['chain'], task['input'])
++                          for p, task in zip(predictions, case['predictions']))
++            curve += correct
++            novel |= agent.synthesized and bool(agent.current) and bool(agent.contradiction_tick)
++        if variant['learning_ledger'] != {'source': 8192 - spent, 'output': received, 'loss': spent - received}:
++            raise ValueError('learning energy imbalance')
++        d = correct
++        successes = zero_successes = eval_spent = eval_received = 0
++        command = tick = 48
++        if len(variant['zero_goals']) != len(case['zero_goals']):
++            raise ValueError('missing zero diagnostics')
++        for zero, tasks, records in ((False, case['goals'], variant['goals']),
++                                     (True, case['zero_goals'], variant['zero_goals'])):
++            for task, record in zip(tasks, records):
++                chain = agent.choose_chain(task['input'], task['target'])
++                measurement = None
++                if chain is not None:
++                    command += 2
++                    tick += 2
++                    value = output(truth, chain, task['input'])
++                    measurement = {'id': command, 'command': command, 'tick': tick, 'actor': 1,
++                                   'apparatus': 0, 'input': task['input'], 'output': value, 'chain': chain}
++                    eval_spent += task['input']
++                    eval_received += value
++                    hit = value == task['target']
++                    if zero:
++                        zero_successes += hit
++                    else:
++                        successes += hit
++                if record != {'input': task['input'], 'target': task['target'], 'chain': chain,
++                              'measurement': measurement}:
++                    raise ValueError('invalid physical goal result')
++        if variant['evaluation_ledger'] != {'source': 8192 - eval_spent, 'output': eval_received,
++                                            'loss': eval_spent - eval_received}:
++            raise ValueError('evaluation energy imbalance')
++        if variant['final_state'] != agent.state() or variant['final_tick'] != tick:
++            raise ValueError('final state/cost mismatch')
++        result[mode] = {'D': d, 'G': successes, 'curve': curve, 'novel': novel, 'zero_G': zero_successes,
++                        'spent': spent, 'evaluation_spent': eval_spent, 'final_state': agent.state(),
++                        'wall_ms': variant['wall_ms'], 'cpu_ms': variant['cpu_ms'],
++                        'peak_process_bytes': variant['peak_process_bytes']}
++    return result
++
++
++def build_cases(mode, excluded):
++    start, count = (0x48591000, 64) if mode == 'confirmatory' else (0x48590000, 16)
++    cases = []
++    for seed in range(start, start + count):
++        case = make_case(seed, excluded)
++        case['cohort'] = 'main'
++        cases.append(case)
++    control_random = RandomDomain(0x48592000, 40)
++    controls = shuffle(list(flat_models().values()), control_random)[:16]
++    for index, program in enumerate(controls):
++        case = make_case(0x48592000 + index, set(), program=program)
++        case['cohort'] = 'flat'
++        case['control_source'] = {'seed': 0x48592000, 'counter': control_random.counter, 'index': index}
++        cases.append(case)
++    for index in range(16):
++        case = make_case(0x48593000 + index, set(), divisor=(128, 160, 192, 256)[index // 4])
++        case['cohort'] = 'outside'
++        cases.append(case)
++    return cases
++
++
++def source_files():
++    files = [ROOT / name for name in ('CMakeLists.txt', 'CMakePresets.json', '.clang-format')]
++    files.append(PROTOCOL)
++    for folder in ('src', 'tests', 'tools'):
++        files.extend(p for p in (ROOT / folder).rglob('*')
++                     if p.suffix in ('.hpp', '.cpp', '.py') and '__pycache__' not in p.parts)
++    return sorted(files)
++
++
++def prepare(args):
++    excluded = set()
++    if args.mode == 'confirmatory':
++        if not args.review or not args.development:
++            raise ValueError('confirmatory requires completed review and development evidence')
++        review = args.review.read_text(encoding='utf-8')
++        if 'READY' not in review:
++            raise ValueError('review has no READY conclusion')
++        analyze(args.development)
++        development = json.loads((args.development / 'cases.json').read_text(encoding='utf-8'))
++        excluded = {table(c['program']) for c in development if c['cohort'] == 'main'}
++        if subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip():
++            raise ValueError('confirmatory freeze requires clean committed source')
++    root = args.output.resolve()
++    root.mkdir(parents=True, exist_ok=False)
++    (root / 'engine').mkdir()
++    shutil.copy2(args.exe, root / 'engine/reality_hypothesis.exe')
++    hashes = {'engine/reality_hypothesis.exe': sha256(root / 'engine/reality_hypothesis.exe')}
++    for source in source_files():
++        name = 'frozen-source/' + source.relative_to(ROOT).as_posix()
++        target = root / name
++        target.parent.mkdir(parents=True, exist_ok=True)
++        shutil.copy2(source, target)
++        hashes[name] = sha256(target)
++    if args.review:
++        shutil.copy2(args.review, root / 'review.txt')
++        hashes['review.txt'] = sha256(root / 'review.txt')
++    freeze = {'protocol': 'hypothesis-v1', 'mode': args.mode, 'files': hashes,
++              'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
++              'commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
++              'dirty': bool(subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip()),
++              'python': sys.version, 'platform': platform.platform(),
++              'excluded_development_tables': sorted(map(list, excluded))}
++    if args.development:
++        freeze['development_manifest_sha256'] = sha256(args.development / 'result-manifest.json')
++    # This immutable snapshot exists BEFORE any confirmatory law or goal is generated.
++    write_json(root / 'freeze.json', freeze)
++    cases = build_cases(args.mode, excluded)
++    (root / 'cases').mkdir()
++    case_hashes = {}
++    for case in cases:
++        name = f"cases/{case['seed']:08x}"
++        write_json(root / (name + '.json'), case)
++        write_case(root / (name + '.txt'), case)
++        for suffix in ('.json', '.txt'):
++            case_hashes[name + suffix] = sha256(root / (name + suffix))
++    write_json(root / 'cases.json', cases)
++    case_hashes['cases.json'] = sha256(root / 'cases.json')
++    write_json(root / 'case-manifest.json', case_hashes)
++    print(f"PREPARED {args.mode}: {len(cases)} cases after freeze; {root}")
++
++
++def verify_prepared(root):
++    freeze = json.loads((root / 'freeze.json').read_text(encoding='utf-8'))
++    if freeze['protocol'] != 'hypothesis-v1':
++        raise ValueError('wrong protocol')
++    verify_hashes(root, freeze['files'])
++    verify_analysis_code(root)
++    case_hashes = json.loads((root / 'case-manifest.json').read_text(encoding='utf-8'))
++    verify_hashes(root, case_hashes)
++    cases = json.loads((root / 'cases.json').read_text(encoding='utf-8'))
++    expected = build_cases(freeze['mode'], {tuple(t) for t in freeze['excluded_development_tables']})
++    # Compare JSON forms: tuples in the generator become arrays on disk.
++    if cases != json.loads(json.dumps(expected)):
++        raise ValueError('case list differs from frozen seeds, generator or protocol')
++    return freeze, cases
++
++
++def run(root):
++    _, cases = verify_prepared(root)
++    claim_run(root)
++    (root / 'raw').mkdir()
++    rows = []
++    for index, case in enumerate(cases):
++        name = f"{case['seed']:08x}"
++        directory = root / 'raw' / name
++        completed = subprocess.run([str(root / 'engine/reality_hypothesis.exe'), '--case',
++                                    str(root / f'cases/{name}.txt'), '--output', str(directory)],
++                                   capture_output=True, text=True, timeout=180)
++        (root / 'raw' / (name + '.stdout.txt')).write_text(completed.stdout, encoding='utf-8')
++        (root / 'raw' / (name + '.stderr.txt')).write_text(completed.stderr, encoding='utf-8')
++        if completed.returncode:
++            raise RuntimeError(f'native infrastructure failure: {name}, exit {completed.returncode}')
++        raw = json.loads((directory / 'raw.json').read_text(encoding='utf-8'))
++        metrics = judge(case, raw)
++        rows.append({'seed': case['seed'], 'cohort': case['cohort'], **metrics})
++        print(f"JUDGED {index+1}/{len(cases)} {name} {case['cohort']}", flush=True)
++    write_json(root / 'rows.json', rows)
++    summary = {cohort: summarize([r for r in rows if r['cohort'] == cohort])
++               for cohort in ('main', 'flat', 'outside')}
++    write_json(root / 'summary.json', summary)
++    write_json(root / 'RUN.completed.json', {'cases': len(cases), 'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
++    hashes = {p.relative_to(root).as_posix(): sha256(p) for p in root.rglob('*') if p.is_file()}
++    write_json(root / 'result-manifest.json', hashes)
++    print(json.dumps(summary['main'], sort_keys=True))
++
++
++def analyze(root):
++    root = root.resolve()
++    manifest = json.loads((root / 'result-manifest.json').read_text(encoding='utf-8'))
++    verify_hashes(root, manifest)
++    expected_files = {p.relative_to(root).as_posix() for p in root.rglob('*')
++                      if p.is_file() and p.name != 'result-manifest.json'}
++    if expected_files != set(manifest):
++        raise ValueError('evidence manifest set mismatch')
++    _, cases = verify_prepared(root)
++    marker = json.loads((root / 'RUN.started.json').read_text(encoding='utf-8'))
++    if any(marker[name] != sha256(root / name) for name in ('freeze.json', 'case-manifest.json')):
++        raise ValueError('run identity changed')
++    completion = json.loads((root / 'RUN.completed.json').read_text(encoding='utf-8'))
++    if completion['cases'] != len(cases):
++        raise ValueError('incomplete native run')
++    rows = []
++    for case in cases:
++        raw = json.loads((root / f"raw/{case['seed']:08x}/raw.json").read_text(encoding='utf-8'))
++        rows.append({'seed': case['seed'], 'cohort': case['cohort'], **judge(case, raw)})
++    summary = {cohort: summarize([r for r in rows if r['cohort'] == cohort])
++               for cohort in ('main', 'flat', 'outside')}
++    if rows != json.loads((root / 'rows.json').read_text(encoding='utf-8')):
++        raise ValueError('stored row metrics differ from independently judged evidence')
++    if summary != json.loads((root / 'summary.json').read_text(encoding='utf-8')):
++        raise ValueError('stored summary differs from exact recomputation')
++    print('PASS independent analysis ' + json.dumps(summary['main'], sort_keys=True))
++    return summary
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    subs = parser.add_subparsers(dest='command', required=True)
++    prep = subs.add_parser('prepare')
++    prep.add_argument('--mode', choices=('development', 'confirmatory'), required=True)
++    prep.add_argument('--exe', type=Path, required=True)
++    prep.add_argument('--output', type=Path, required=True)
++    prep.add_argument('--review', type=Path)
++    prep.add_argument('--development', type=Path)
++    for name in ('run', 'analyze'):
++        sub = subs.add_parser(name)
++        sub.add_argument('directory', type=Path)
++    args = parser.parse_args()
++    try:
++        if args.command == 'prepare':
++            prepare(args)
++        elif args.command == 'run':
++            run(args.directory.resolve())
++        else:
++            analyze(args.directory)
++    except Exception as error:
++        print(f'FAIL hypothesis infrastructure: {error}', file=sys.stderr)
++        return 1
++    return 0
++
++
++if __name__ == '__main__':
++    raise SystemExit(main())
+diff --git a/tools/tests/test_hypothesis_experiment.py b/tools/tests/test_hypothesis_experiment.py
+new file mode 100644
+index 0000000..af45eae
+--- /dev/null
++++ b/tools/tests/test_hypothesis_experiment.py
+@@ -0,0 +1,92 @@
++"""Protocol boundaries, independent interpreter and evidence integrity."""
++from fractions import Fraction
++from pathlib import Path
++import sys
++import tempfile
++import unittest
++import shutil
++import subprocess
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++import run_hypothesis_experiment as experiment
++
++
++class HypothesisTests(unittest.TestCase):
++    def test_grammar_and_outside(self):
++        self.assertEqual(len(experiment.syntax()), 20440)
++        table = experiment.table([[2, 8], [0, 8]])
++        self.assertEqual(table[96], 40)
++        self.assertEqual(table, experiment.table([[0, 16], [2, 8]]))
++        self.assertNotIn(table, experiment.flat_models())
++        models = experiment.models()
++        for divisor in (128, 160, 192, 256):
++            square = tuple(e * e // divisor for e in range(129))
++            self.assertNotIn(square, models)
++            self.assertNotIn(square, experiment.flat_models())
++
++    def test_development_case_has_heldout_inputs_and_goals(self):
++        case = experiment.make_case(0x48590000, set())
++        self.assertEqual(len(case['predictions']), 24)
++        self.assertEqual(len({(x['input'], tuple(x['chain'])) for x in case['predictions']}), 24)
++        self.assertTrue(all(p['input'] > 64 and 0 in p['chain'] for p in case['predictions']))
++        self.assertEqual(len(case['goals']), 20)
++        self.assertTrue(all(g['target'] > 0 for g in case['goals']))
++        self.assertGreater(case['counters']['40'], 0)
++        self.assertGreater(case['counters']['42'], 0)
++        self.assertGreater(case['counters']['43'], 0)
++        self.assertEqual(case, experiment.make_case(0x48590000, set()))
++
++    def test_run_marker_is_exclusive(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path = Path(directory)
++            experiment.claim_run(path)
++            with self.assertRaises(FileExistsError):
++                experiment.claim_run(path)
++
++    def test_exact_gain_boundary_and_separate_active_hypothesis(self):
++        rows = []
++        for _ in range(64):
++            rows.append({'FA': {'D': 0, 'G': 16, 'curve': 0, 'novel': False},
++                         'SR': {'D': 24, 'G': 20, 'curve': 528, 'novel': True},
++                         'SA': {'D': 24, 'G': 20, 'curve': 528, 'novel': True}})
++        result = experiment.summarize(rows)
++        self.assertTrue(result['H'])
++        self.assertFalse(result['A'])
++        self.assertEqual(result['gain_G'], str(Fraction(1, 5)))
++        rows[0]['SA']['G'] = 19
++        self.assertFalse(experiment.summarize(rows)['H'])
++
++    def test_digest_detects_changed_evidence(self):
++        with tempfile.TemporaryDirectory() as directory:
++            root = Path(directory)
++            evidence = root / 'raw.json'
++            evidence.write_text('original', encoding='utf-8')
++            digest = experiment.sha256(evidence)
++            evidence.write_text('changed', encoding='utf-8')
++            with self.assertRaises(ValueError):
++                experiment.verify_hashes(root, {'raw.json': digest})
++
++    def test_analysis_checks_all_imported_frozen_code(self):
++        with tempfile.TemporaryDirectory() as directory:
++            root = Path(directory)
++            target = root / 'frozen-source/tools'
++            target.mkdir(parents=True)
++            for name in ('run_hypothesis_experiment.py', 'hypothesis_model.py', 'run_discovery_experiment.py'):
++                shutil.copy2(Path(experiment.__file__).parent / name, target / name)
++            experiment.verify_analysis_code(root)
++            (target / 'hypothesis_model.py').write_text('changed dependency', encoding='utf-8')
++            with self.assertRaises(ValueError):
++                experiment.verify_analysis_code(root)
++
++    def test_archive_tool_does_not_create_unmanifested_cache(self):
++        with tempfile.TemporaryDirectory() as directory:
++            root = Path(directory)
++            for name in ('run_hypothesis_experiment.py', 'hypothesis_model.py', 'run_discovery_experiment.py'):
++                shutil.copy2(Path(experiment.__file__).parent / name, root / name)
++            subprocess.run([sys.executable, str(root / 'run_hypothesis_experiment.py'), '--help'],
++                           check=True, capture_output=True)
++            self.assertEqual(list(root.rglob('*.pyc')), [])
++
++
++if __name__ == '__main__':
++    unittest.main()

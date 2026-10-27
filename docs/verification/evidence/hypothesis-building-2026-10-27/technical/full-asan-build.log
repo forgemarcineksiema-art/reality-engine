@@ -1,0 +1,82 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_asan_probe.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_asan_probe.exe
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_tests.exe
+  reality_headless.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_headless.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_transfer_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_transfer_tests.exe
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_demo.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_work_demo.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_motion_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_motion_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_law_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_law_tests.exe
+  reality_work_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_work_tests.exe
+  reality_lab_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_lab_tests.exe
+  reality_passage_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_passage_tests.exe
+  reality_spatial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_spatial_tests.exe
+  reality_traversal_audit_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal_audit_tests.exe
+  reality_traversal_diagnostics_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal_diagnostics_tests.exe
+  reality_traversal_needs_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal_needs_tests.exe
+  reality_knowledge_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_knowledge_tests.exe
+  reality_traversal_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal_tests.exe
+  reality_adversarial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_adversarial_tests.exe
+  reality_graphics.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_graphics.lib
+  reality_delivery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_delivery_tests.exe
+  discovery_agent.cpp
+  reality_community_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_community_tests.exe
+  reality_clearance_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_clearance_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_traversal.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal.exe
+  reality_lab.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_lab.exe
+  discovery_codec.cpp
+  discovery_protocol.cpp
+  discovery_session.cpp
+  discovery_world.cpp
+  Generowanie kodu...
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  discovery_main.cpp
+  hypothesis_program.cpp
+  discovery_tests.cpp
+  hypothesis_agent.cpp
+  hypothesis_session.cpp
+  hypothesis_codec.cpp
+  reality_discovery.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_discovery.exe
+  reality_discovery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_discovery_tests.exe
+  hypothesis_protocol.cpp
+  Generowanie kodu...
+  reality_hypothesis_model.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_hypothesis_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  hypothesis_main.cpp
+  hypothesis_tests.cpp
+  reality_hypothesis_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_hypothesis_tests.exe
+  reality_hypothesis.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_hypothesis.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
