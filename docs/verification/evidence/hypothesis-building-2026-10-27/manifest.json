@@ -339,6 +339,10 @@
       "bytes": 971,
       "sha256": "09374fe6079f31e509c4fd40f062de495ae21f5a364bbfddb22b9c4e93010b6b"
     },
+    "technical/scoped-whitespace.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
     "technical/sdd/plan-path": {
       "bytes": 54,
       "sha256": "5f467857499cf2794eae13b285df1aedc642cc50ae1b223aa7036b7ffa6fee84"

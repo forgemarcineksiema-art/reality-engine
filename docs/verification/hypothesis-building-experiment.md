@@ -101,6 +101,8 @@ Pierwszy analizator kopii freeze utworzył dwa pliki bytecode cache i ścisły m
 
 Nowe zapisy używają odrębnego `GENESIS_HYPOTHESIS 1` i `DWORLD 2`; stare formaty nadal mają regresje. [Osiem zatrzymanych przebiegów i ich kontynuacje](evidence/hypothesis-building-2026-10-27/continuation.zip) pochodzi z rzeczywistych nowych procesów, uruchomionych zamrożonym binarium. Obejmują dwa sterowniki i cztery momenty przed/po sprzeczności oraz konfiguracji/impulsu. `--continue` jest tu konsumentem suffixu fixture'a; ogólne ładowanie stanów, także końcowej oceny, zapewnia API sesji. Odtwarzanie historii przy odczycie zużywa CPU i nie jest dowodem skalowalności formatu. Nowy widok 3D i ludzki odbiór gry nie były częścią tego przyrostu.
 
+Końcowe `git diff --check` obejmujące również bajtowo zachowane dowody zgłosiło ich CRLF oraz treść historycznych diffów. Nie zmieniano logów, CSV ani snapshotów dla wyciszenia tej kontroli. Oddzielna kontrola źródeł i bieżącej dokumentacji przeszła; integralność surowych dowodów sprawdzono kompletem hashy. Kontrola formatu C++ i testy pozostają bez osłabiania reguł.
+
 ## Odtworzenie dowodu
 
 Zachowano kompletne, przenośne pakiety: [rozwój początkowy](evidence/hypothesis-building-2026-10-27/development-initial.zip), [rozwój końcowy](evidence/hypothesis-building-2026-10-27/development-final.zip), [potwierdzenie](evidence/hypothesis-building-2026-10-27/confirmatory.zip). Zawierają binarium Windows x64, zamrożone źródła, przypadki, fizyczne stany, surowe wyniki, manifesty i jednorazowe markery. ZIP chroni historyczne kopie Markdown przed traktowaniem ich jako nowych dokumentów normatywnych projektu. Hashe ZIP/logów/wykresów wskazuje [manifest](evidence/hypothesis-building-2026-10-27/manifest.json).
