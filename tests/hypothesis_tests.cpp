@@ -1,4 +1,5 @@
 #include "research/discovery_world.hpp"
+#include "research/hypothesis_agent.hpp"
 #include "research/hypothesis_program.hpp"
 #include <iostream>
 #include <set>
@@ -65,6 +66,69 @@ void apparatus_case() {
     }
     require(rejected, "nonpassive table accepted");
 }
+DiscoveryEvidence evidence(unsigned id, unsigned input, unsigned output) {
+    return {{id, id, 0, {1}, id * 2, {0}, input, output}, {1}, id * 2};
+}
+void learning_case() {
+    HypothesisAgent agent{{1}, HypothesisMode::SynthesisActive};
+    HypothesisAgent flat{{1}, HypothesisMode::FlatActive};
+    for (unsigned n = 1; n <= 3; ++n) {
+        const auto input = std::array{16U, 32U, 64U}[n - 1];
+        const auto e = evidence(n, input, hypothesis_apply(example(), input));
+        require(agent.observe(e) && flat.observe(e), "observation refused");
+    }
+    require(agent.synthesized() && agent.contradiction_tick() != 0 && !agent.models().empty(),
+            "no novel synthesis");
+    require(flat.models().empty() && !flat.synthesized(), "flat invented a model");
+    bool present = false;
+    for (const auto& model : agent.models())
+        present |= model.table == hypothesis_table(example());
+    require(present, "true model eliminated");
+    std::vector<unsigned> order;
+    for (unsigned e = 1; e <= 64; ++e)
+        order.push_back(e);
+    const auto choice = agent.choose_input(order);
+    require(choice.input != 16 && choice.input != 32 && choice.input != 64,
+            "repeated intervention");
+    require(choice.active && choice.worst[choice.input] > 0, "missing active decision");
+    for (unsigned e = 1; e <= 64; ++e)
+        if (choice.worst[e])
+            require(choice.worst[choice.input] <= choice.worst[e], "not minimax");
+    const auto prediction = agent.predict({0}, 96);
+    require(prediction && prediction->minimum <= 40 && prediction->maximum >= 40,
+            "lost true prediction");
+    const auto state = agent.state();
+    require(!agent.observe(evidence(1, 16, 0)) && agent.state() == state,
+            "duplicate changed knowledge");
+    agent.freeze();
+    require(!agent.observe(evidence(4, 1, 0)), "frozen learned");
+    require(hypothesis_chains().size() == 25, "configuration space changed");
+}
+void limits_case() {
+    HypothesisLimits limits;
+    limits.reads = 1;
+    HypothesisAgent agent{{1}, HypothesisMode::SynthesisActive, limits};
+    require(!agent.predict({0}, 96) && agent.exhausted(), "read limit not permanent");
+    const auto count = agent.cost().reads;
+    require(!agent.predict({0}, 96) && agent.cost().reads == count, "budget reset");
+    require(agent.observe(evidence(1, 16, 0)), "exhaustion dropped physical observation");
+    std::vector<unsigned> order{7, 16, 32, 64};
+    require(agent.choose_input(order).input == 7, "exhaustion must use permutation");
+    agent.freeze();
+    require(!agent.choose_chain(96, 20), "exhausted planning accepted");
+    HypothesisAgent random{{1}, HypothesisMode::SynthesisRandom};
+    require(random.choose_input(order).input == 7 && random.cost().reads == 0,
+            "random uses active selector");
+    limits.reads = 2;
+    HypothesisAgent filtering{{1}, HypothesisMode::SynthesisActive, limits};
+    require(filtering.observe(evidence(1, 1, 0)) && filtering.exhausted(), "filter budget");
+    for (const auto& m : filtering.models())
+        require(m.table == hypothesis_table(m.program), "partial filter damaged program");
+    limits.reads = hypothesis_flat_models().size() + 1;
+    HypothesisAgent during{{1}, HypothesisMode::SynthesisActive, limits};
+    require(during.choose_input(order).input == 7 && during.exhausted(),
+            "partial active choice escaped exhausted selector");
+}
 } // namespace
 int main(int argc, char* argv[]) {
     try {
@@ -72,6 +136,10 @@ int main(int argc, char* argv[]) {
         const std::string name{argv[1]};
         if (name == "program")
             program_case();
+        else if (name == "learning")
+            learning_case();
+        else if (name == "limits")
+            limits_case();
         else if (name == "apparatus")
             apparatus_case();
         else

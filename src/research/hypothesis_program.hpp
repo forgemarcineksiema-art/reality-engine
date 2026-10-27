@@ -19,6 +19,7 @@ struct HypothesisModel {
 [[nodiscard]] const std::vector<HypothesisOp>& hypothesis_primitives();
 [[nodiscard]] std::vector<HypothesisProgram> hypothesis_grammar();
 [[nodiscard]] std::vector<HypothesisModel> hypothesis_flat_models();
+[[nodiscard]] std::vector<HypothesisProgram> hypothesis_flat_programs();
 [[nodiscard]] std::vector<HypothesisModel>
 hypothesis_canonical(std::vector<HypothesisProgram> programs);
 [[nodiscard]] const std::vector<DiscoveryChain>& hypothesis_chains();

@@ -83,7 +83,7 @@ std::vector<HypothesisModel> hypothesis_canonical(std::vector<HypothesisProgram>
     }
     return models;
 }
-std::vector<HypothesisModel> hypothesis_flat_models() {
+std::vector<HypothesisProgram> hypothesis_flat_programs() {
     std::vector<HypothesisProgram> programs(1);
     for (const auto op : hypothesis_primitives())
         programs.push_back({op});
@@ -93,7 +93,10 @@ std::vector<HypothesisModel> hypothesis_flat_models() {
         programs.push_back({{HypothesisKind::Loss, d}});
     for (unsigned c = 8; c <= 48; ++c)
         programs.push_back({{HypothesisKind::Cap, c}});
-    return hypothesis_canonical(std::move(programs));
+    return programs;
+}
+std::vector<HypothesisModel> hypothesis_flat_models() {
+    return hypothesis_canonical(hypothesis_flat_programs());
 }
 const std::vector<DiscoveryChain>& hypothesis_chains() {
     static const auto chains = [] {

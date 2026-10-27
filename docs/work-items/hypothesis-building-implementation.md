@@ -1,6 +1,6 @@
 # Implementacja hypothesis-v1
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Wykonać zatwierdzony eksperyment budowania wyjaśnień, zachowując prawdziwe pomiary i wszystkie wyniki.
 
@@ -41,20 +41,20 @@
 
 **Interfaces:** `HypothesisOp {kind, parameter}`, `HypothesisProgram = vector<HypothesisOp>`, `HypothesisTable = array<uint16_t,129>`; `hypothesis_apply(program,input)`, `hypothesis_grammar()`, `hypothesis_flat_models()`; `DiscoveryWorld(array<HypothesisTable,3>)` wykonuje i rozlicza nowe prawo, bez udostępnienia praw agentowi.
 
-- [ ] Dodać testy gramatyki, równoważności przykładu 96→40, 20440 zapisów, poza-językowych kwadratów, pasywności i księgi aparatu. Dodać CTest `hypothesis.program` / `hypothesis.apparatus`.
-- [ ] Build/test wykazuje brak implementacji; zachować log RED.
-- [ ] Zaimplementować programy i tablice. W aparaturze zachować wspólne ID, dwie fazy, rezerwację energii i chronologię. DWORLD 2 zawiera tablice; DWORLD 1 pozostaje niezmieniony.
-- [ ] CTest nowych przypadków i wszystkich discovery PASS; historyczna kontynuacja i ponowienie komendy bez podwójnego skutku.
-- [ ] Commit źródeł/testów i rzeczywistego wyniku w dzienniku poniżej.
+- [x] Dodać testy gramatyki, równoważności przykładu 96→40, 20440 zapisów, poza-językowych kwadratów, pasywności i księgi aparatu. Dodać CTest `hypothesis.program` / `hypothesis.apparatus`.
+- [x] Build/test wykazuje brak implementacji; zachować log RED.
+- [x] Zaimplementować programy i tablice. W aparaturze zachować wspólne ID, dwie fazy, rezerwację energii i chronologię. DWORLD 2 zawiera tablice; DWORLD 1 pozostaje niezmieniony.
+- [x] CTest nowych przypadków i wszystkich discovery PASS; historyczna kontynuacja i ponowienie komendy bez podwójnego skutku.
+- [x] Commit źródeł/testów i rzeczywistego wyniku w dzienniku poniżej.
 
 ### Task 2: Synteza i wybór prób
 
 **Interfaces:** `HypothesisMode {FlatActive,SynthesisRandom,SynthesisActive}`; `HypothesisAgent(EntityId,HypothesisMode,HypothesisLimits={})`; `observe(DiscoveryEvidence)`, `choose_input(span<const unsigned>)`, `predict(DiscoveryChain,unsigned)`, `choose_chain(unsigned,unsigned)`, `freeze()`, `state()`.
 
-- [ ] Testy RED: obalenie F, zgodna nowa klasa, niejednoznaczność i zakres prognoz, wybór minimaksowy, SR bez ukrytego aktywnego selektora, trwały limit przed przekroczeniem i odmowy po freeze.
-- [ ] Zaimplementować kanoniczny zbiór F oraz generowanie po jego obaleniu. Porządek i liczniki są deterministyczne; żadnych światów ani seedów w agencie.
-- [ ] Testować także limit podczas prognoz i wyboru konfiguracji, brak odświeżenia budżetu przy fazie oceny oraz 25 dopuszczonych konfiguracji.
-- [ ] Uruchomić przypadki PASS i commit.
+- [x] Testy RED: obalenie F, zgodna nowa klasa, niejednoznaczność i zakres prognoz, wybór minimaksowy, SR bez ukrytego aktywnego selektora, trwały limit przed przekroczeniem i odmowy po freeze.
+- [x] Zaimplementować kanoniczny zbiór F oraz generowanie po jego obaleniu. Porządek i liczniki są deterministyczne; żadnych światów ani seedów w agencie.
+- [x] Testować także limit podczas prognoz i wyboru konfiguracji, brak odświeżenia budżetu przy fazie oceny oraz 25 dopuszczonych konfiguracji.
+- [x] Uruchomić przypadki PASS i commit.
 
 ### Task 3: Sesja i kontynuacja
 
