@@ -122,6 +122,7 @@ void TraversalSession::decide(std::size_t index) {
                 }
                 if (actor.task == TraversalTask::Maintain) {
                     station.wear = station.wear > 250 ? station.wear - 250 : 0;
+                    repair_passages(index, actor.station);
                 }
             }
             observe_station(index, actor.station);
@@ -189,33 +190,7 @@ void TraversalSession::decide(std::size_t index) {
             actor.task = TraversalTask::None;
             return;
         }
-        check(next_command_.value < std::numeric_limits<std::uint64_t>::max(),
-              "command space exhausted");
-        const auto duration = station.kind == TraversalTask::Eat    ? 40ULL
-                              : station.kind == TraversalTask::Rest ? 60ULL
-                                                                    : 80ULL;
-        const auto request =
-            world_.reserve({next_command_, actor.id, station.lot, Quantity{1},
-                            Quantity{station.kind == TraversalTask::Rest ? 0ULL : 1ULL}, duration});
-        ++next_command_.value;
-        if (request.status == RequestStatus::Accepted) {
-            actor.action = request.action;
-            check(world_.begin(actor.action) == Transition::Changed,
-                  "autonomous action failed to begin");
-            actor.goal.reset();
-            actor.route = {};
-            actor.leg = 0;
-            actor.state = TraversalState::Idle;
-        } else {
-            actor.station_retry[actor.station] = now + 100;
-            actor.goal.reset();
-            actor.route = {};
-            actor.leg = 0;
-            actor.task = TraversalTask::None;
-            actor.state = TraversalState::Waiting;
-            actor.retry_at = now + 10;
-        }
-        observe_station(index, actor.station);
+        static_cast<void>(start_station_action(index));
         return;
     }
     if (actor.goal &&
@@ -230,14 +205,11 @@ void TraversalSession::decide(std::size_t index) {
                       [](const auto& task) { return task.task == TraversalTask::Rest; });
     if (actor.hunger < 250 && actor.energy > 300 && plan_delivery(index))
         return;
-    // An unavailable urgent need must not suppress another actionable urgent need.
-    // Stock is still learned on arrival; this chooser uses known places and cooldowns.
     for (const auto wanted : {TraversalTask::Eat, TraversalTask::Rest, TraversalTask::Maintain}) {
         if ((wanted == TraversalTask::Eat && actor.hunger < 250) ||
             (wanted == TraversalTask::Rest && actor.energy > 300) ||
-            (wanted == TraversalTask::Maintain && (actor.hunger >= 250 || actor.energy <= 300))) {
+            (wanted == TraversalTask::Maintain && (actor.hunger >= 250 || actor.energy <= 300)))
             continue;
-        }
         std::optional<std::size_t> preferred;
         for (const auto& paused : actor.suspended)
             if (paused.task == wanted)
@@ -252,5 +224,40 @@ void TraversalSession::decide(std::size_t index) {
     actor.task = TraversalTask::None;
     actor.state = TraversalState::NoPath;
     actor.retry_at = now + 40;
+}
+bool TraversalSession::start_station_action(std::size_t index) {
+    auto& actor = actors_[index];
+    auto& station = scene_.stations.at(actor.station);
+    const auto now = world_.clock().tick_count();
+    check(interaction_accessible(index, station.location, actor.feet),
+          "station action requires physical access");
+    check(next_command_.value < std::numeric_limits<std::uint64_t>::max(),
+          "command space exhausted");
+    const auto duration = station.kind == TraversalTask::Eat    ? 40ULL
+                          : station.kind == TraversalTask::Rest ? 60ULL
+                                                                : 80ULL;
+    const auto request =
+        world_.reserve({next_command_, actor.id, station.lot, Quantity{1},
+                        Quantity{station.kind == TraversalTask::Rest ? 0ULL : 1ULL}, duration});
+    ++next_command_.value;
+    if (request.status == RequestStatus::Accepted) {
+        actor.action = request.action;
+        check(world_.begin(actor.action) == Transition::Changed,
+              "autonomous action failed to begin");
+        actor.goal.reset();
+        actor.route = {};
+        actor.leg = 0;
+        actor.state = TraversalState::Idle;
+    } else {
+        actor.station_retry[actor.station] = now + 100;
+        actor.goal.reset();
+        actor.route = {};
+        actor.leg = 0;
+        actor.task = TraversalTask::None;
+        actor.state = TraversalState::Waiting;
+        actor.retry_at = now + 10;
+    }
+    observe_station(index, actor.station);
+    return request.status == RequestStatus::Accepted;
 }
 } // namespace reality

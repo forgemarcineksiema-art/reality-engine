@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 10: passage.observation_ring
+1/1 Test #10: passage.observation_ring .........***Failed    0.09 sec
+FAIL unaware actor froze outside observation range instead of approaching and discovering closure
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.23 sec
+
+The following tests FAILED:
+	 10 - passage.observation_ring (Failed)
+Errors while running CTest

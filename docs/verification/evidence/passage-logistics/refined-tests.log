@@ -1,0 +1,43 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: passage.discovery
+ 1/16 Test  #1: passage.discovery ................   Passed    0.48 sec
+      Start  2: passage.witness
+ 2/16 Test  #2: passage.witness ..................   Passed    0.02 sec
+      Start  3: passage.repair
+ 3/16 Test  #3: passage.repair ...................   Passed    0.23 sec
+      Start  4: passage.occupied
+ 4/16 Test  #4: passage.occupied .................   Passed    0.02 sec
+      Start  5: passage.step_refusal
+ 5/16 Test  #5: passage.step_refusal .............   Passed    0.05 sec
+      Start  6: passage.local_manual
+ 6/16 Test  #6: passage.local_manual .............   Passed    0.20 sec
+      Start  7: passage.community
+ 7/16 Test  #7: passage.community ................   Passed    1.81 sec
+      Start  8: passage.persistence
+ 8/16 Test  #8: passage.persistence ..............   Passed    2.08 sec
+      Start  9: passage.corruption
+ 9/16 Test  #9: passage.corruption ...............   Passed    0.05 sec
+      Start 10: passage.observation_ring
+10/16 Test #10: passage.observation_ring .........   Passed    0.05 sec
+      Start 11: passage.wear_and_queue
+11/16 Test #11: passage.wear_and_queue ...........   Passed    0.15 sec
+      Start 12: passage.manual_barrier
+12/16 Test #12: passage.manual_barrier ...........   Passed    0.18 sec
+      Start 13: passage.no_path_scout
+13/16 Test #13: passage.no_path_scout ............   Passed    0.26 sec
+      Start 14: passage.protected_ride
+14/16 Test #14: passage.protected_ride ...........***Failed    0.31 sec
+FAIL rider did not physically exit and apply deferred local knowledge
+
+      Start 15: passage.protected_step
+15/16 Test #15: passage.protected_step ...........   Passed    0.04 sec
+      Start 16: passage.long_detour
+16/16 Test #16: passage.long_detour ..............   Passed    0.81 sec
+
+94% tests passed, 1 tests failed out of 16
+
+Total Test time (real) =   6.82 sec
+
+The following tests FAILED:
+	 14 - passage.protected_ride (Failed)
+Errors while running CTest

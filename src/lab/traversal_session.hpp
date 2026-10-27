@@ -54,6 +54,18 @@ struct PassageState {
     std::uint32_t surface = 0;
     EntityId owner;
     std::vector<EntityId> queue;
+    bool open = true;
+    std::optional<std::uint32_t> maintenance;
+};
+enum class PassageOutcome {
+    Changed,
+    Unchanged,
+    Controlled,
+    Busy,
+    Occupied,
+    OutOfReach,
+    Worn,
+    Unavailable
 };
 struct SuspendedTraversalTask {
     TraversalTask task = TraversalTask::None;
@@ -87,6 +99,11 @@ struct ClearanceMove {
 // Historical free quantity and wear, never a live view of WorkWorld.
 struct StationBelief {
     std::uint64_t available = 0, wear = 0;
+    std::uint64_t observed_tick = 0, learned_tick = 0;
+    EntityId source_actor, via_actor;
+};
+struct PassageBelief {
+    bool open = true;
     std::uint64_t observed_tick = 0, learned_tick = 0;
     EntityId source_actor, via_actor;
 };
@@ -130,6 +147,8 @@ struct TraversalActor {
     std::optional<DeliveryState> delivery;
     std::array<std::optional<StationBelief>, 16> beliefs{};
     std::uint64_t share_until = 0, share_retry_at = 0;
+    std::array<std::optional<PassageBelief>, 16> passage_beliefs{};
+    std::uint32_t planned_closed_passages = 0;
 };
 struct TraversalScene {
     SpatialGeometry geometry;
@@ -144,6 +163,7 @@ struct TraversalScene {
         bool autonomous = false;
         std::uint64_t hunger = 0;
         std::uint64_t energy = 1000;
+        std::optional<std::uint32_t> known_stations;
     };
     std::vector<Spawn> spawns;
     struct DeliverySeed {
@@ -155,6 +175,7 @@ struct TraversalScene {
 };
 [[nodiscard]] TraversalScene make_traversal_course();
 [[nodiscard]] TraversalScene make_delivery_course();
+[[nodiscard]] TraversalScene make_crossing_course();
 struct TraversalPose {
     SpatialPoint feet;
     double heading = 0;
@@ -180,6 +201,11 @@ class TraversalSession final {
     [[nodiscard]] const std::vector<TraversalActor>& actors() const noexcept;
     [[nodiscard]] const std::vector<PlatformState>& platforms() const noexcept;
     [[nodiscard]] const std::vector<TraversalStation>& stations() const noexcept;
+    [[nodiscard]] const std::vector<PassageState>& passages() const noexcept;
+    [[nodiscard]] PassageOutcome interact_passage(std::size_t actor, std::uint32_t passage,
+                                                  bool open);
+    [[nodiscard]] bool observe_passage(std::size_t actor, std::uint32_t passage);
+    [[nodiscard]] bool begin_maintenance(std::size_t actor, std::size_t station);
     [[nodiscard]] TraversalNavigationView navigation_view(std::size_t actor) const;
     [[nodiscard]] std::vector<TraversalPose> presentation(double fraction) const;
     [[nodiscard]] SpatialGeometry presentation_geometry(double fraction) const;
@@ -247,6 +273,19 @@ class TraversalSession final {
     void observe_station(std::size_t actor, std::size_t station);
     void update_knowledge();
     void validate_knowledge() const;
+    [[nodiscard]] bool protected_operation(const TraversalActor& actor) const;
+    [[nodiscard]] std::uint32_t closed_passage_mask(const TraversalActor& actor) const;
+    [[nodiscard]] std::vector<SurfaceConnection>
+    known_connections(const TraversalActor& actor) const;
+    [[nodiscard]] bool passage_busy(const PassageState& passage) const;
+    [[nodiscard]] bool passage_contact(std::size_t actor, const PassageState& passage) const;
+    [[nodiscard]] bool passage_motion_clear(SpatialPoint from, SpatialPoint to,
+                                            CapsuleSize size) const;
+    void update_passages();
+    void repair_passages(std::size_t actor, std::size_t station);
+    void change_passage(std::size_t passage, bool open);
+    void validate_passages() const;
+    [[nodiscard]] bool start_station_action(std::size_t actor);
     [[nodiscard]] bool belief_unavailable(const TraversalActor& actor, std::size_t station) const;
     void reconsider_belief(std::size_t actor);
     [[nodiscard]] bool approach_point_free(std::size_t actor, SpatialPoint feet) const;

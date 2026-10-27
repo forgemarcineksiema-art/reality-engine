@@ -1,0 +1,116 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=844x781
+passage_interaction=0
+capture=crossing.png.closed.png colored_pixels=67794
+maintenance_started=1
+passage_shortcut=pass
+maintenance_shortcut=pass
+crossing_delivery=pass
+passage_inspector=pass
+capture=crossing.png colored_pixels=68581
+tick=366 actors=4
+actor=1 surface=1 feet=-3.000,0.000,-3.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=366 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=16 wear=500 source_actor=2 via_actor=2 observed_tick=1 learned_tick=37
+  belief_unknown_station=1
+  belief_station=2 available=22 wear=330 source_actor=1 via_actor=1 observed_tick=80 learned_tick=80
+  passage_belief=1 open=1 source_actor=1 via_actor=1 observed_tick=366 learned_tick=366
+actor=2 surface=2 feet=2.285,0.000,-1.941 speed=1.037 accel=-6.000 yaw=-2.175 state=1 auto=1 task=1 hunger=366 energy=759 plans=6 leg=0/5 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  cargo_lot=8 cargo_quantity=0 cargo_capacity=4
+  delivery_phase=2 source=0 destination=1 delivered=4/8
+  belief_station=0 available=16 wear=500 source_actor=2 via_actor=2 observed_tick=1 learned_tick=1
+  belief_station=1 available=3 wear=500 source_actor=3 via_actor=3 observed_tick=326 learned_tick=334
+  belief_unknown_station=2
+  passage_belief=1 open=1 source_actor=2 via_actor=2 observed_tick=366 learned_tick=366
+  goal_surface=1 local=-0.376,0.360 reach=0.900
+  route=found retry_at=370
+actor=3 surface=2 feet=5.987,0.000,0.723 speed=0.000 accel=0.000 yaw=1.574 state=0 auto=1 task=0 hunger=0 energy=984 plans=5 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=16 wear=500 source_actor=2 via_actor=2 observed_tick=1 learned_tick=325
+  belief_station=1 available=3 wear=500 source_actor=3 via_actor=3 observed_tick=366 learned_tick=366
+  passage_belief=1 open=0 source_actor=2 via_actor=2 observed_tick=57 learned_tick=325
+actor=4 surface=1 feet=-4.924,0.000,-0.644 speed=2.116 accel=4.000 yaw=2.427 state=1 auto=1 task=3 hunger=32 energy=950 plans=7 leg=0/1 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=15 wear=500 source_actor=4 via_actor=4 observed_tick=334 learned_tick=334
+  belief_station=2 available=21 wear=0 source_actor=4 via_actor=4 observed_tick=206 learned_tick=206
+  passage_belief=1 open=0 source_actor=2 via_actor=2 observed_tick=57 learned_tick=57
+  goal_surface=1 local=1.376,-1.640 reach=0.900
+  route=found retry_at=389
+platform=4 phase=27 dock=-1 blocked=0
+station=5 kind=1 stock=15 completed=1 wear=500
+station=6 kind=1 stock=3 completed=1 wear=500
+station=7 kind=3 stock=21 completed=3 wear=160
+passage=1 surface=3 owner=2 queue=1 open=1 maintenance_station=2
+service=1 owner=0 queue=0
+TRAVERSAL SMOKE PASS
+navigation_observations=4
+navigation_actor=1 observed_tick=0 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=0 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=3 observed_tick=0 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=4 observed_tick=0 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+frame_samples=2
+frame_min_ms=2.5592
+frame_p50_ms=2.5592
+frame_p95_ms=22.6793
+frame_p99_ms=22.6793
+frame_max_ms=22.6793
+frame_mean_ms=12.6193
+simulation_samples=2
+simulation_min_ms=0.0001
+simulation_p50_ms=0.0001
+simulation_p95_ms=0.0001
+simulation_p99_ms=0.0001
+simulation_max_ms=0.0001
+simulation_mean_ms=0.0001
+backlog_samples=2
+backlog_min_ms=0.0000
+backlog_p50_ms=0.0000
+backlog_p95_ms=0.0000
+backlog_p99_ms=0.0000
+backlog_max_ms=0.0000
+backlog_mean_ms=0.0000
+measurement_finished=0
+measurement_interventions=0
+measurement_minimizations=0
+measurement_resizes=0
+occluded_frames=0
+simulation_errors=0
+measured_ticks=0
+measured_wall_ms=25.2385
+viewport=844x781
+working_set_first_bytes=51666944
+working_set_last_bytes=51666944
+working_set_peak_sampled_bytes=51666944
+private_peak_sampled_bytes=92700672
+tick=366 actors=4
+actor=1 surface=1 feet=-3.000,0.000,-3.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=366 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=16 wear=500 source_actor=2 via_actor=2 observed_tick=1 learned_tick=37
+  belief_unknown_station=1
+  belief_station=2 available=22 wear=330 source_actor=1 via_actor=1 observed_tick=80 learned_tick=80
+  passage_belief=1 open=1 source_actor=1 via_actor=1 observed_tick=366 learned_tick=366
+actor=2 surface=2 feet=2.285,0.000,-1.941 speed=1.037 accel=-6.000 yaw=-2.175 state=1 auto=1 task=1 hunger=366 energy=759 plans=6 leg=0/5 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  cargo_lot=8 cargo_quantity=0 cargo_capacity=4
+  delivery_phase=2 source=0 destination=1 delivered=4/8
+  belief_station=0 available=16 wear=500 source_actor=2 via_actor=2 observed_tick=1 learned_tick=1
+  belief_station=1 available=3 wear=500 source_actor=3 via_actor=3 observed_tick=326 learned_tick=334
+  belief_unknown_station=2
+  passage_belief=1 open=1 source_actor=2 via_actor=2 observed_tick=366 learned_tick=366
+  goal_surface=1 local=-0.376,0.360 reach=0.900
+  route=found retry_at=370
+actor=3 surface=2 feet=5.987,0.000,0.723 speed=0.000 accel=0.000 yaw=1.574 state=0 auto=1 task=0 hunger=0 energy=984 plans=5 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=16 wear=500 source_actor=2 via_actor=2 observed_tick=1 learned_tick=325
+  belief_station=1 available=3 wear=500 source_actor=3 via_actor=3 observed_tick=366 learned_tick=366
+  passage_belief=1 open=0 source_actor=2 via_actor=2 observed_tick=57 learned_tick=325
+actor=4 surface=1 feet=-4.924,0.000,-0.644 speed=2.116 accel=4.000 yaw=2.427 state=1 auto=1 task=3 hunger=32 energy=950 plans=7 leg=0/1 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=15 wear=500 source_actor=4 via_actor=4 observed_tick=334 learned_tick=334
+  belief_station=2 available=21 wear=0 source_actor=4 via_actor=4 observed_tick=206 learned_tick=206
+  passage_belief=1 open=0 source_actor=2 via_actor=2 observed_tick=57 learned_tick=57
+  goal_surface=1 local=1.376,-1.640 reach=0.900
+  route=found retry_at=389
+platform=4 phase=27 dock=-1 blocked=0
+station=5 kind=1 stock=15 completed=1 wear=500
+station=6 kind=1 stock=3 completed=1 wear=500
+station=7 kind=3 stock=21 completed=3 wear=160
+passage=1 surface=3 owner=2 queue=1 open=1 maintenance_station=2
+service=1 owner=0 queue=0
+normal_shutdown=1

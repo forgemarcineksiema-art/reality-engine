@@ -1,0 +1,9 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 15: passage.protected_step
+1/2 Test #15: passage.protected_step ...........   Passed    0.08 sec
+    Start 16: passage.long_detour
+2/2 Test #16: passage.long_detour ..............   Passed    0.61 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =   0.77 sec

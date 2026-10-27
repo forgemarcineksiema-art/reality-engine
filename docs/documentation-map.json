@@ -1,6 +1,8 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/work-items/passage-logistics.md", "role": "current-state", "topic": "passage-logistics-plan"},
+    {"path": "docs/verification/passage-logistics.md", "role": "verification", "topic": "passage-logistics-evidence"},
     {"path": "docs/work-items/local-station-knowledge.md", "role": "current-state", "topic": "local-station-knowledge-plan"},
     {"path": "docs/verification/local-station-knowledge.md", "role": "verification", "topic": "local-station-knowledge-evidence"},
     {"path": "README.md", "role": "entry", "topic": "project-entry"},

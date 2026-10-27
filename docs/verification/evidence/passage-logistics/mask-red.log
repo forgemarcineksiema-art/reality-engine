@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 9: passage.corruption
+1/1 Test #9: passage.corruption ...............***Failed    0.12 sec
+FAIL corrupt passage structure replaced world
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.20 sec
+
+The following tests FAILED:
+	  9 - passage.corruption (Failed)
+Errors while running CTest

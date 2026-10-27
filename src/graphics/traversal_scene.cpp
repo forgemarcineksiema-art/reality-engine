@@ -97,7 +97,11 @@ std::vector<SceneTriangle> build_traversal_scene(const TraversalSession& session
         const auto moving =
             std::any_of(session.platforms().begin(), session.platforms().end(),
                         [&](const auto& p) { return p.definition.body == body.id; });
-        const auto color = moving                                     ? Vec3{.8F, .53F, .23F}
+        const auto closed =
+            std::any_of(session.passages().begin(), session.passages().end(),
+                        [&](const auto& p) { return p.surface == body.id && !p.open; });
+        const auto color = closed                                     ? Vec3{.75F, .15F, .12F}
+                           : moving                                   ? Vec3{.8F, .53F, .23F}
                            : !body.walkable                           ? Vec3{.49F, .48F, .52F}
                            : (body.slope_x != 0 || body.slope_z != 0) ? Vec3{.55F, .48F, .3F}
                            : body.origin.y > .1                       ? Vec3{.27F, .43F, .46F}

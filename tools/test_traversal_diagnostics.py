@@ -34,10 +34,12 @@ def check(exe: pathlib.Path, output: pathlib.Path, delivery_only: bool = False) 
             raise AssertionError("native delivery scene did not expose its actual courier state")
         delivery_snapshots = list(delivery_diagnostics.glob("*/world.save"))
         if len(delivery_snapshots) != 1 or not delivery_snapshots[0].read_bytes().startswith(
-                b"GENESIS_TRAVERSAL 5\n"):
-            raise AssertionError("native delivery diagnostic did not save the observed version 5 world")
+                b"GENESIS_TRAVERSAL 6\n"):
+            raise AssertionError("native delivery diagnostic did not save the observed version 6 world")
         if b"\nBELIEF " not in delivery_snapshots[0].read_bytes():
             raise AssertionError("native delivery diagnostic lost station observations")
+        if b"\nPASSAGE_BELIEF " not in delivery_snapshots[0].read_bytes():
+            raise AssertionError("native delivery diagnostic lost local passage observations")
         delivery_before = delivery_snapshots[0].read_bytes()
         delivery_resume = output / "delivery-resume.log"
         run(["--resume-smoke", "--report", str(delivery_resume),

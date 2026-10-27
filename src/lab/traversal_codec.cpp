@@ -78,11 +78,20 @@ std::string TraversalSession::serialize() const {
     out.imbue(std::locale::classic());
     out << std::setprecision(17);
     const auto work = serialize_world(world_);
-    const auto knowledgeable = std::any_of(actors_.begin(), actors_.end(), [](const auto& actor) {
-        return actor.share_until != 0 || actor.share_retry_at != 0 ||
-               std::any_of(actor.beliefs.begin(), actor.beliefs.end(),
-                           [](const auto& belief) { return belief.has_value(); });
-    });
+    const auto passage_state =
+        std::any_of(scene_.passages.begin(), scene_.passages.end(),
+                    [](const auto& p) { return !p.open || p.maintenance.has_value(); }) ||
+        std::any_of(actors_.begin(), actors_.end(), [](const auto& a) {
+            return a.planned_closed_passages != 0 ||
+                   std::any_of(a.passage_beliefs.begin(), a.passage_beliefs.end(),
+                               [](const auto& b) { return b.has_value(); });
+        });
+    const auto knowledgeable =
+        passage_state || std::any_of(actors_.begin(), actors_.end(), [](const auto& actor) {
+            return actor.share_until != 0 || actor.share_retry_at != 0 ||
+                   std::any_of(actor.beliefs.begin(), actor.beliefs.end(),
+                               [](const auto& belief) { return belief.has_value(); });
+        });
     const auto inventory =
         knowledgeable || std::any_of(actors_.begin(), actors_.end(), [](const auto& actor) {
             return actor.cargo.value != 0 || actor.delivery.has_value();
@@ -97,11 +106,12 @@ std::string TraversalSession::serialize() const {
                    actor.finish_grace_until != 0;
         });
     out << "GENESIS_TRAVERSAL "
-        << (knowledgeable ? 5
-            : inventory   ? 4
-            : cooperative ? 3
-            : extended    ? 2
-                          : 1)
+        << (passage_state   ? 6
+            : knowledgeable ? 5
+            : inventory     ? 4
+            : cooperative   ? 3
+            : extended      ? 2
+                            : 1)
         << "\nWORLD " << work.size() << '\n'
         << work;
     out << "TUNING " << next_command_.value << ' ' << tuning_.maximum_speed << ' '
@@ -147,6 +157,12 @@ std::string TraversalSession::serialize() const {
         out << p.id << ' ' << p.surface << ' ' << p.owner.value;
         queue(out, p.queue);
         out << '\n';
+        if (passage_state) {
+            out << "PASSAGE_STATE " << p.id << ' ' << p.open << ' ' << p.maintenance.has_value();
+            if (p.maintenance)
+                out << ' ' << *p.maintenance;
+            out << '\n';
+        }
     }
     out << "STATIONS " << scene_.stations.size() << '\n';
     for (const auto& s : scene_.stations) {
@@ -223,6 +239,18 @@ std::string TraversalSession::serialize() const {
                     << ' ' << b.via_actor.value << '\n';
             }
         }
+        if (passage_state) {
+            const auto count = std::count_if(a.passage_beliefs.begin(), a.passage_beliefs.end(),
+                                             [](const auto& b) { return b.has_value(); });
+            out << "PASSAGE_MEMORY " << a.planned_closed_passages << ' ' << count << '\n';
+            for (std::size_t i = 0; i < a.passage_beliefs.size(); ++i)
+                if (a.passage_beliefs[i]) {
+                    const auto& b = *a.passage_beliefs[i];
+                    out << "PASSAGE_BELIEF " << scene_.passages[i].id << ' ' << b.open << ' '
+                        << b.observed_tick << ' ' << b.learned_tick << ' ' << b.source_actor.value
+                        << ' ' << b.via_actor.value << '\n';
+                }
+        }
         out << "ROUTE " << static_cast<unsigned>(a.route.status) << ' ' << a.route.geometry_version
             << ' ' << a.route.cost_m << ' ' << a.route.expanded << ' ' << a.route.visibility_queries
             << ' ' << a.route.legs.size() << '\n';
@@ -250,8 +278,8 @@ void TraversalSession::restore(std::string_view bytes) {
     std::istringstream input{std::string{bytes.substr(0, checksum)}};
     input.imbue(std::locale::classic());
     tag(input, "GENESIS_TRAVERSAL");
-    const auto version = integer(input, 5);
-    require(version >= 1 && version <= 5, "unsupported traversal version");
+    const auto version = integer(input, 6);
+    require(version >= 1 && version <= 6, "unsupported traversal version");
     tag(input, "WORLD");
     const auto work_size = integer(input, snapshot_byte_limit);
     require(input.get() == '\n', "invalid traversal world framing");
@@ -331,6 +359,13 @@ void TraversalSession::restore(std::string_view bytes) {
         p.surface = static_cast<std::uint32_t>(integer(input, UINT32_MAX));
         p.owner = {integer(input)};
         p.queue = queue(input);
+        if (version >= 6) {
+            tag(input, "PASSAGE_STATE");
+            require(integer(input, UINT32_MAX) == p.id, "passage state identity mismatch");
+            p.open = integer(input, 1) != 0;
+            if (integer(input, 1) != 0)
+                p.maintenance = static_cast<std::uint32_t>(integer(input, 15));
+        }
         candidate.scene_.passages.push_back(std::move(p));
     }
     tag(input, "STATIONS");
@@ -442,6 +477,28 @@ void TraversalSession::restore(std::string_view bytes) {
                 belief.source_actor = {integer(input)};
                 belief.via_actor = {integer(input)};
                 a.beliefs[station] = belief;
+            }
+        }
+        if (version >= 6) {
+            tag(input, "PASSAGE_MEMORY");
+            a.planned_closed_passages = static_cast<std::uint32_t>(integer(input, UINT32_MAX));
+            const auto count = integer(input, 16);
+            for (std::uint64_t n = 0; n < count; ++n) {
+                tag(input, "PASSAGE_BELIEF");
+                const auto id = integer(input, UINT32_MAX);
+                const auto p =
+                    std::find_if(candidate.scene_.passages.begin(), candidate.scene_.passages.end(),
+                                 [&](const auto& value) { return value.id == id; });
+                require(p != candidate.scene_.passages.end(), "unknown passage belief identity");
+                const auto slot = static_cast<std::size_t>(p - candidate.scene_.passages.begin());
+                require(!a.passage_beliefs[slot], "duplicate passage belief");
+                PassageBelief b;
+                b.open = integer(input, 1) != 0;
+                b.observed_tick = integer(input);
+                b.learned_tick = integer(input);
+                b.source_actor = {integer(input)};
+                b.via_actor = {integer(input)};
+                a.passage_beliefs[slot] = b;
             }
         }
         tag(input, "ROUTE");

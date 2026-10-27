@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 16: passage.long_detour
+1/1 Test #16: passage.long_detour ..............***Failed    0.72 sec
+FAIL uncertainty expiry repeatedly cancelled a viable long detour
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.78 sec
+
+The following tests FAILED:
+	 16 - passage.long_detour (Failed)
+Errors while running CTest

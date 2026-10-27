@@ -1,0 +1,31 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (1.0s)
+-- Generating done (1.1s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/msvc
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_session.cpp
+C:\Users\Marcin\Documents\new\src\lab\traversal_session.cpp(1316,19): error C2065: "out": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_lab_model.vcxproj]
+  traversal_course.cpp
+  traversal_codec.cpp
+C:\Users\Marcin\Documents\new\src\lab\traversal_codec.cpp(475,28): error C2220: następujące ostrzeżenie jest traktowane jako błąd [C:\Users\Marcin\Documents\new\build\msvc\reality_lab_model.vcxproj]
+C:\Users\Marcin\Documents\new\src\lab\traversal_codec.cpp(475,28): warning C4456: deklaracja „i” powoduje ukrycie poprzedniej deklaracji lokalnej [C:\Users\Marcin\Documents\new\build\msvc\reality_lab_model.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_codec.cpp(371,24):
+      zobacz deklarację „i”
+  
+  traversal_diagnostics.cpp
+  traversal_needs.cpp
+  traversal_clearance.cpp
+  traversal_delivery.cpp
+  traversal_knowledge.cpp
+  traversal_passages.cpp
+  traversal_scene.cpp
+  Generowanie kodu...

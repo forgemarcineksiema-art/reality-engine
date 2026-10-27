@@ -1,0 +1,29 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: passage.discovery
+1/9 Test #1: passage.discovery ................   Passed    0.50 sec
+    Start 2: passage.witness
+2/9 Test #2: passage.witness ..................   Passed    0.03 sec
+    Start 3: passage.repair
+3/9 Test #3: passage.repair ...................   Passed    0.25 sec
+    Start 4: passage.occupied
+4/9 Test #4: passage.occupied .................   Passed    0.02 sec
+    Start 5: passage.step_refusal
+5/9 Test #5: passage.step_refusal .............***Failed    0.02 sec
+FAIL traversal actors overlap
+
+    Start 6: passage.local_manual
+6/9 Test #6: passage.local_manual .............   Passed    0.22 sec
+    Start 7: passage.community
+7/9 Test #7: passage.community ................   Passed    2.29 sec
+    Start 8: passage.persistence
+8/9 Test #8: passage.persistence ..............   Passed    1.74 sec
+    Start 9: passage.corruption
+9/9 Test #9: passage.corruption ...............   Passed    0.04 sec
+
+89% tests passed, 1 tests failed out of 9
+
+Total Test time (real) =   5.26 sec
+
+The following tests FAILED:
+	  5 - passage.step_refusal (Failed)
+Errors while running CTest

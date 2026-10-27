@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 26: passage.open_observation
+1/1 Test #26: passage.open_observation .........***Failed    0.08 sec
+FAIL nearby actor did not record open passage without a maintenance link
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.19 sec
+
+The following tests FAILED:
+	 26 - passage.open_observation (Failed)
+Errors while running CTest

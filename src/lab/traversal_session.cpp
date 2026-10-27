@@ -189,8 +189,8 @@ TraversalSession::TraversalSession(TraversalScene scene)
         actor.support = seed.location;
         actor.size = seed.size;
         actor.feet = feet_at(geometry_, actor.support, actor);
-        actor.known_stations =
-            scene_.stations.empty() ? 0 : ((std::uint32_t{1} << scene_.stations.size()) - 1);
+        actor.known_stations = seed.known_stations.value_or(
+            scene_.stations.empty() ? 0 : ((std::uint32_t{1} << scene_.stations.size()) - 1));
         actor.hunger = seed.hunger;
         actor.energy = seed.energy;
         actor.autonomous = seed.autonomous;
@@ -327,7 +327,9 @@ void TraversalSession::plan(std::size_t index, bool avoid_neighbours) {
     }
     const auto blockers =
         avoid_neighbours ? stationary_neighbours(index) : std::vector<SurfaceBlocker>{};
-    actor.route = find_surface_route(geometry_, scene_.connections, location(geometry_, actor),
+    actor.planned_closed_passages = closed_passage_mask(actor);
+    const auto connections = known_connections(actor);
+    actor.route = find_surface_route(geometry_, connections, location(geometry_, actor),
                                      *actor.goal, limits(actor), 512, 32768, blockers);
     actor.leg = 0;
     actor.step_point = 0;
@@ -706,7 +708,8 @@ bool TraversalSession::choose_approach(std::size_t index, SurfaceLocation destin
             break;
         }
         const auto blockers = stationary_neighbours(index);
-        auto route = find_surface_route(geometry_, scene_.connections, location(geometry_, actor),
+        const auto connections = known_connections(actor);
+        auto route = find_surface_route(geometry_, connections, location(geometry_, actor),
                                         candidate, limits(actor), 512, 32768, blockers);
         ++actor.plans;
         if (route.status != RouteStatus::Found) {
@@ -716,6 +719,7 @@ bool TraversalSession::choose_approach(std::size_t index, SurfaceLocation destin
         actor.requested_reach = reach;
         actor.goal = candidate;
         actor.route = std::move(route);
+        actor.planned_closed_passages = closed_passage_mask(actor);
         actor.leg = 0;
         actor.step_point = 0;
         actor.state = actor.route.legs.empty() ? TraversalState::Arrived : TraversalState::Moving;
@@ -834,6 +838,14 @@ SpatialPoint TraversalSession::target(TraversalActor& actor) {
         const auto found = std::find_if(scene_.passages.begin(), scene_.passages.end(),
                                         [&](const auto& p) { return p.id == entry->passage; });
         check(found != scene_.passages.end(), "missing passage state");
+        if (!found->open) {
+            const auto observed =
+                observe_passage(static_cast<std::size_t>(&actor - actors_.data()), found->id);
+            if (!observed && leg.kind == SurfaceLegKind::Walk)
+                return feet_at(geometry_, leg.to, actor);
+            actor.state = TraversalState::Waiting;
+            return actor.feet;
+        }
         if (entry->to.surface == found->surface && entry->from.surface != found->surface) {
             if (std::find(found->queue.begin(), found->queue.end(), actor.id) ==
                 found->queue.end()) {
@@ -1293,6 +1305,7 @@ void TraversalSession::move(std::size_t index, double dt, const SpatialGeometry&
                 legal = false;
         }
     }
+    legal = legal && passage_motion_clear(old_feet, accepted, inflated);
     actor.feet = legal ? accepted : carried;
     if (legal)
         actor.support = support;
@@ -1343,7 +1356,9 @@ void TraversalSession::tick() {
     }
     const auto now = world_.clock().tick_count();
     update_clearance();
+    update_passages();
     update_knowledge();
+    update_passages();
     for (std::size_t i = 0; i < actors_.size(); ++i) {
         auto& actor = actors_[i];
         actor.hunger = std::min(std::uint64_t{1000}, actor.hunger + 1);
@@ -1574,6 +1589,7 @@ void TraversalSession::tick() {
     }
     // Close agreements at the same authoritative boundary as their physical Step.
     update_clearance();
+    update_passages();
     inputs_ = held;
     for (auto& input : queued_inputs_) {
         input = {};
@@ -1586,6 +1602,7 @@ void TraversalSession::validate() const {
     validate_clearance();
     validate_delivery();
     validate_knowledge();
+    validate_passages();
     tuning_.validate();
     check(!actors_.empty() && actors_.size() <= 32 && scene_.stations.size() <= 16 &&
               scene_.platforms.size() <= 16 && scene_.services.size() <= 16 &&
@@ -1865,6 +1882,14 @@ std::string TraversalSession::inspect() const {
                 << " observed_tick=" << belief->observed_tick
                 << " learned_tick=" << belief->learned_tick << '\n';
         }
+        for (std::size_t p = 0; p < scene_.passages.size(); ++p) {
+            const auto& b = actor.passage_beliefs[p];
+            if (b)
+                out << "  passage_belief=" << scene_.passages[p].id << " open=" << b->open
+                    << " source_actor=" << b->source_actor.value
+                    << " via_actor=" << b->via_actor.value << " observed_tick=" << b->observed_tick
+                    << " learned_tick=" << b->learned_tick << '\n';
+        }
         if (actor.goal) {
             out << "  goal_surface=" << actor.goal->surface << " local=" << actor.goal->local.x_m
                 << ',' << actor.goal->local.z_m << " reach=" << actor.requested_reach << '\n';
@@ -1907,7 +1932,10 @@ std::string TraversalSession::inspect() const {
     }
     for (const auto& p : scene_.passages) {
         out << "passage=" << p.id << " surface=" << p.surface << " owner=" << p.owner.value
-            << " queue=" << p.queue.size() << '\n';
+            << " queue=" << p.queue.size() << " open=" << p.open;
+        if (p.maintenance)
+            out << " maintenance_station=" << *p.maintenance;
+        out << '\n';
     }
     for (const auto& s : scene_.services) {
         out << "service=" << s.id << " owner=" << s.owner.value << " queue=" << s.queue.size()

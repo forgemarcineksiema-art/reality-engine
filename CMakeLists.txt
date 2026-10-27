@@ -65,7 +65,7 @@ add_library(reality_lab_model STATIC src/lab/lab_session.cpp src/graphics/lab_sc
     src/physics/spatial_geometry.cpp src/navigation/surface_navigation.cpp src/physics/locomotion.cpp
     src/physics/platform_motion.cpp src/lab/traversal_session.cpp src/lab/traversal_course.cpp
     src/lab/traversal_codec.cpp src/lab/traversal_diagnostics.cpp src/lab/traversal_needs.cpp
-    src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/graphics/traversal_scene.cpp)
+    src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/lab/traversal_passages.cpp src/graphics/traversal_scene.cpp)
 target_link_libraries(reality_lab_model PUBLIC reality_core)
 
 add_library(reality_graphics STATIC src/graphics/d3d11_renderer.cpp)
@@ -92,6 +92,8 @@ set(reality_cpp_files
     src/lab/traversal_clearance.cpp
     src/lab/traversal_delivery.cpp
     src/lab/traversal_knowledge.cpp
+    src/lab/traversal_passages.cpp
+    tests/passage_tests.cpp
     tests/knowledge_tests.cpp
     tests/delivery_tests.cpp
     tests/clearance_tests.cpp
@@ -153,6 +155,12 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_passage_tests tests/passage_tests.cpp)
+    target_link_libraries(reality_passage_tests PRIVATE reality_lab_model)
+    reality_deploy_diagnostics(reality_passage_tests)
+    foreach(case IN ITEMS discovery witness repair occupied step_refusal local_manual community persistence corruption observation_ring wear_and_queue manual_barrier no_path_scout protected_ride protected_step long_detour protected_boarding protected_exiting opening_report queue_cancel repair_resume unlabelled_bank action_report clearance_refusal delivery_cost open_observation)
+        add_test(NAME passage.${case} COMMAND reality_passage_tests ${case})
+    endforeach()
     add_executable(reality_knowledge_tests tests/knowledge_tests.cpp)
     target_link_libraries(reality_knowledge_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_knowledge_tests)
@@ -207,6 +215,9 @@ if(BUILD_TESTING)
     add_test(NAME delivery.native_diagnostics
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
                 --exe "$<TARGET_FILE:reality_traversal>" --delivery-only)
+    add_test(NAME passage.native_diagnostics
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_crossing_native.py"
+                --exe "$<TARGET_FILE:reality_traversal>")
     add_executable(reality_traversal_audit_tests tests/traversal_audit_tests.cpp)
     target_link_libraries(reality_traversal_audit_tests PRIVATE reality_lab_model)
     target_compile_definitions(reality_traversal_audit_tests PRIVATE

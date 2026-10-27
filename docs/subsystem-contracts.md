@@ -70,6 +70,8 @@ Przejście lokalny/daleki zachowuje chronione własności: ID, zasoby, rezerwacj
 
 Zmiana konstrukcji musi powiadomić zależne kolizje, przejścia, instalacje, plany i prezentację. Zmiana flagi przejezdności nie jest dowodem symulacji fizycznego rozpadu. Odbudowa jawnie zużywa pracę i materiał.
 
+Ograniczony kontrakt `TraversalSession` łączy `PassageState.open` z opcjonalnym stanowiskiem Maintain i typem materiału 2. Zmiana zwiększa wersję geometrii/topologii, zwalnia nieprzydzieloną kolejkę, zmienia widok i fizyczną wykonalność ruchu. Odmowa na osobie, rozpoczętym Step lub związanym clearance nie zmienia sesji. Przy zużyciu 1000 próba jest ponawiana do bezpiecznej granicy. Otwarcie po naprawie wymaga ukończonej czynności WorkWorld i zużytego materiału, a nie samej wiadomości. NPC planuje według lokalnej pamięci; rzeczywista blokada jest sprawdzana niezależnie od przekonań. API, bezpieczne ponowienia i format 6 określa [model autonomii](traversal-autonomy.md#przejście-konstrukcja-i-lokalna-wiedza).
+
 ### INV-15 — Historia zgodna ze światem
 
 Scena nie wymaga rozmowy z martwą osobą ani przedmiotu, którego nie da się uzyskać, bez określonego rozwiązania lub zakończenia. Nie tworzy dowodów i nie wskrzesza uczestników, by przywrócić założony przebieg.

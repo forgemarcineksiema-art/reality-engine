@@ -1,0 +1,49 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start   1: passage.discovery
+ 1/22 Test   #1: passage.discovery ................   Passed    1.51 sec
+      Start   2: passage.witness
+ 2/22 Test   #2: passage.witness ..................   Passed    0.03 sec
+      Start   3: passage.repair
+ 3/22 Test   #3: passage.repair ...................   Passed    0.47 sec
+      Start   4: passage.occupied
+ 4/22 Test   #4: passage.occupied .................   Passed    0.02 sec
+      Start   5: passage.step_refusal
+ 5/22 Test   #5: passage.step_refusal .............   Passed    0.08 sec
+      Start   6: passage.local_manual
+ 6/22 Test   #6: passage.local_manual .............   Passed    0.26 sec
+      Start   7: passage.community
+ 7/22 Test   #7: passage.community ................   Passed    2.81 sec
+      Start   8: passage.persistence
+ 8/22 Test   #8: passage.persistence ..............   Passed    4.14 sec
+      Start   9: passage.corruption
+ 9/22 Test   #9: passage.corruption ...............   Passed    0.08 sec
+      Start  10: passage.observation_ring
+10/22 Test  #10: passage.observation_ring .........   Passed    0.06 sec
+      Start  11: passage.wear_and_queue
+11/22 Test  #11: passage.wear_and_queue ...........   Passed    0.21 sec
+      Start  12: passage.manual_barrier
+12/22 Test  #12: passage.manual_barrier ...........   Passed    0.28 sec
+      Start  13: passage.no_path_scout
+13/22 Test  #13: passage.no_path_scout ............   Passed    0.29 sec
+      Start  14: passage.protected_ride
+14/22 Test  #14: passage.protected_ride ...........   Passed    0.58 sec
+      Start  15: passage.protected_step
+15/22 Test  #15: passage.protected_step ...........   Passed    0.07 sec
+      Start  16: passage.long_detour
+16/22 Test  #16: passage.long_detour ..............   Passed    0.96 sec
+      Start  17: passage.protected_boarding
+17/22 Test  #17: passage.protected_boarding .......   Passed    0.35 sec
+      Start  18: passage.protected_exiting
+18/22 Test  #18: passage.protected_exiting ........   Passed    0.36 sec
+      Start  19: passage.opening_report
+19/22 Test  #19: passage.opening_report ...........   Passed    0.03 sec
+      Start  20: passage.queue_cancel
+20/22 Test  #20: passage.queue_cancel .............   Passed    0.03 sec
+      Start  21: passage.repair_resume
+21/22 Test  #21: passage.repair_resume ............   Passed    0.48 sec
+      Start 114: passage.native_diagnostics
+22/22 Test #114: passage.native_diagnostics .......   Passed    1.89 sec
+
+100% tests passed out of 22
+
+Total Test time (real) =  15.45 sec

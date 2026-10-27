@@ -78,6 +78,17 @@ KnowledgeOutcome TraversalSession::share_knowledge(std::size_t sender, std::size
         }
         changed = true;
     }
+    for (std::size_t i = 0; i < scene_.passages.size(); ++i) {
+        const auto& incoming = from.passage_beliefs[i];
+        auto& current = to.passage_beliefs[i];
+        if (!incoming || (current && incoming->observed_tick <= current->observed_tick))
+            continue;
+        current = *incoming;
+        current->learned_tick = now;
+        current->via_actor = from.id;
+        to.retry_at = now;
+        changed = true;
+    }
     return changed ? KnowledgeOutcome::Shared : KnowledgeOutcome::NoNews;
 }
 void TraversalSession::update_knowledge() {

@@ -1,0 +1,139 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  passage_tests.cpp
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(22,18): error C3861: "make_crossing_course": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(36,15): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(36,48): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(36,64): error C2065: "Changed": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(37,67): error C2039: „passage_beliefs”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(94,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(39,53): error C2039: „passage_beliefs”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(94,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(44,15): error C2039: „passage_beliefs”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(94,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(44,40): error C2039: „passage_beliefs”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(94,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(46,23): error C2039: „passage_beliefs”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(94,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(49,40): error C2039: „passages”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(59,15): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(59,48): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(59,64): error C2065: "Changed": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(61,15): error C2039: „observe_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(62,37): error C2039: „passage_beliefs”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(94,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(62,16): error C2737: „time”: obiekt const musi być zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(64,36): error C2039: „passage_beliefs”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(94,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(64,19): error C2530: "b": odwołania muszą być zainicjowane [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(65,14): error C3536: "b" : nie można użyć, zanim zostanie zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(65,116): error C3536: "time" : nie można użyć, zanim zostanie zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(73,23): error C2039: „open”: nie jest składową elementu „reality::PassageState” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(52,8):
+      zobacz deklarację „reality::PassageState”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(75,15): error C2039: „observe_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(78,15): error C2039: „begin_maintenance”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(80,20): error C2039: „passages”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(81,29): error C2039: „passages”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(83,15): error C2039: „passages”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(85,82): error C2039: „passage_beliefs”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(94,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(98,15): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(98,48): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(98,64): error C2065: "Occupied": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(107,15): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(107,48): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(107,64): error C2065: "Occupied": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(112,15): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(112,48): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(112,64): error C2065: "Controlled": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(116,15): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(116,48): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(116,64): error C2065: "OutOfReach": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(118,15): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(118,48): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(118,64): error C2065: "Changed": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(125,28): error C3861: "make_crossing_course": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(126,34): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(126,67): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(126,83): error C2065: "Changed": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(135,15): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(135,48): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(135,64): error C2065: "Changed": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(149,45): error C2039: „interact_passage”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(175,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(149,76): error C2653: "PassageOutcome": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\passage_tests.cpp(149,92): error C2065: "Changed": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_passage_tests.vcxproj]

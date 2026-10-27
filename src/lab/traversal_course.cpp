@@ -49,4 +49,31 @@ TraversalScene make_delivery_course() {
     scene.initial_deliveries = {{1, 0, 1, 12}};
     return scene;
 }
+TraversalScene make_crossing_course() {
+    TraversalScene s;
+    s.geometry.bodies = {{1, {-5, 0, 0}, 0, 3, 4, .3, 0, 0, true},
+                         {2, {5, 0, 0}, 0, 3, 4, .3, 0, 0, true},
+                         {3, {0, 0, -2}, 0, 2, .65, .3, 0, 0, true},
+                         {4, {-1, 0, 2}, 0, 1, 1, .25, 0, 0, true}};
+    s.platforms = {{{4, {2, 0, 0}, 0, 40, 15, 0}, 0, false}};
+    s.connections = {{{1, {2.8, -2}}, {3, {-1.8, 0}}, SurfaceLegKind::Step, 1},
+                     {{3, {1.8, 0}}, {2, {-2.8, -2}}, SurfaceLegKind::Step, 1},
+                     {{1, {2.8, 2}}, {2, {-2.8, 2}}, SurfaceLegKind::Transport, 0, 1, 12}};
+    s.services = {{1, 4, {{{1, {2.8, 2}}, {2, {-2.8, 2}}}}, {{{-.8, 0}, {.8, 0}}}, {}, {}}};
+    s.passages = {{1, 3, {}, {}, true, 2}};
+    s.stations = {{{1, {-1, 0}}, TraversalTask::Eat, 20},
+                  {{2, {1, 0}}, TraversalTask::Eat, 0},
+                  {{1, {2, -2}}, TraversalTask::Maintain, 24}};
+    s.stations[0].initial_material = {1};
+    s.stations[1].initial_material = {1};
+    s.stations[2].initial_material = {2};
+    s.spawns = {{{1, {2, -3}}, {}, false},
+                {{1, {-1, 0}}, {}, true},
+                {{2, {1, 1.5}}, {}, true, 300},
+                {{1, {1, -2}}, {}, true}};
+    s.spawns[2].known_stations = 2;
+    s.spawns[3].known_stations = 4;
+    s.initial_deliveries = {{1, 0, 1, 8}};
+    return s;
+}
 } // namespace reality

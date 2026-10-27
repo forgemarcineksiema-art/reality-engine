@@ -4,7 +4,7 @@
 
 ## Stan projektu
 
-Zaliczono M00–M03 w opisanym zakresie: kinematykę 2,5D, kolizje, A*, przejścia i zapis podróży w oknie Win32/D3D11 na MX330. Istnieją również zegar, ID, czynności, rezerwacje, ograniczona autonomia potrzeb i inspektor. [Raport M03](verification/m03-motion-navigation.md#ocena-użytkownika) wskazuje wyniki oraz akceptację obecnego sterowania przez użytkownika, z zachowanymi uwagami do dalszego dopracowania. Pełnej autonomii społeczności nie ma. Lokalny Git wersjonuje punkt wyjścia na gałęzi `main`, bez remote; zasady opisuje [przepływ pracy](workflow.md#repozytorium-git).
+Zaliczono M00–M03 w opisanym zakresie: kinematykę 2,5D, kolizje, A*, przejścia i zapis podróży w oknie Win32/D3D11 na MX330. Istnieją również zegar, ID, czynności, rezerwacje, ograniczona autonomia potrzeb i inspektor. [Raport M03](verification/m03-motion-navigation.md#ocena-użytkownika) wskazuje wyniki oraz akceptację obecnego sterowania przez użytkownika, z zachowanymi uwagami do dalszego dopracowania. Pełnej autonomii społeczności nie ma. Lokalny Git wersjonuje punkt wyjścia na gałęzi `main`, publikowanej w publicznym `origin`; zasady opisuje [przepływ pracy](workflow.md#repozytorium-git).
 
 Osobna scena dostawy jest w realizacji i uruchamia się poleceniem `build/msvc/Debug/reality_traversal.exe --delivery`. Po przejęciu postaci przez F2 klawisz F4 pobiera lub odkłada materiał na pobliskim dostępnym stanowisku. Testy wybranego przyrostu: `ctest --preset windows-debug -R "^(transfer|delivery)[.]" --output-on-failure`. Status i granice są w [planie przyrostu](work-items/material-delivery.md).
 
@@ -98,6 +98,8 @@ ctest --preset windows-debug -R "^work[.]partial_cancellation$"
 To inspektor i konsument [modelu domeny](work-domain.md), bez autonomii, sterowania postacią czy obrazu. Argumenty plikowe Windows obsługują Unicode. Test procesu używa odrębnych uruchomień i tymczasowego pliku, także uszkodzonego. Test `work.save_replacement` blokuje podmianę poprawnego pliku rzeczywistym uchwytem Windows i sprawdza jego zachowanie. Test `work.event_capacity` sprawdza brak częściowej zmiany po wyczerpaniu dziennika.
 
 ## Dalszy zakres
+
+Scena przeprawy: `build/msvc/Debug/reality_traversal.exe --crossing`. F8 zamyka/otwiera najbliższe przejście po fizycznym dojściu ręcznie sterowanej postaci; R rozpoczyna konserwację przy pobliskim stanowisku, F7 przekazuje obserwacje przejść i stanowisk. Czerwony kolor kładki oznacza faktyczne zamknięcie; przekonania są w inspektorze. Testy: `ctest --preset windows-debug -R '^passage[.]' --output-on-failure`. Próba dwóch procesów: `python tools/test_crossing_native.py --exe ./build/msvc/RelWithDebInfo/reality_traversal.exe --output ./build/crossing-native-probe` (nowy katalog). Wymaga D3D11, GPU i diagnostyki. [Model](traversal-autonomy.md#przejście-konstrukcja-i-lokalna-wiedza) opisuje API/format 6, [raport](verification/passage-logistics.md) wykonane dowody; dawna scena `--delivery` pozostaje osobna.
 
 Lokalna wiedza: `ctest --preset windows-debug -R '^knowledge[.]' --output-on-failure`. F7 w `reality_traversal` przekazuje obserwacje wybranej postaci najbliższej osobie w zasięgu kontaktu. Inspektor odróżnia przekonania `belief` od faktycznych `station`. Model, format 5 i zgodność 1–4 opisuje [autonomia](traversal-autonomy.md#lokalna-wiedza-i-przekaz), wyniki [raport](verification/local-station-knowledge.md).
 

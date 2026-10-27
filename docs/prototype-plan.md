@@ -38,6 +38,8 @@ Warstwa gry: wczesna próba osobistego ruchu, kamery i dojścia do interakcji z 
 
 ### M04 — Mała społeczność w grze i laboratorium
 
+[Kontrolowany przyrost przeprawy](verification/passage-logistics.md) wiąże dostępność kładki, zużycie i materialną naprawę, lokalną wiedzę, rzeczywisty objazd oraz dostawę umożliwiającą posiłek. W scenie `--crossing` gracz działa na miejscu przez F8/R i przekazuje obserwacje F7. Raport oddziela sprawdzenia SC-10 i części SC-14 od nadal otwartego odbioru całej społeczności, komfortu człowieka i długiego pomiaru. Nie zmienia to kolejności M00–M06.
+
 Kolejny ograniczony przyrost [lokalnej wiedzy](verification/local-station-knowledge.md) dodaje obserwacje stanowisk, przekaz przy fizycznym kontakcie i weryfikację nieaktualnej informacji. Pokrywa część SC-05 i SC-14; nie zmienia warunków pełnego odbioru M04 ani pozostałych etapów.
 
 **Stan bieżący: NIEZAKOŃCZONE.** Dostarczono ograniczoną autonomię potrzeb, pojemność stanowisk, diagnostykę i przyrosty ruchu. Działa ograniczona [prośba o ustąpienie przy Step](verification/local-clearance.md). Nie wdrożono jeszcze szerszego obiegu wiedzy i współpracy ani pełnego dowodu ingerencji gracza oraz odbioru społeczności. Osobny [review naprawy dojścia](verification/retained-world-navigation-stall.md) nie jest odbiorem M04.

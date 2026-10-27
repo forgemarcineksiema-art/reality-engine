@@ -114,6 +114,8 @@ Konwój opuszcza aktywny obszar, podróżuje, a gracz wraca. Sprawdź ID, ładun
 
 ### SC-10 — Łańcuch konsekwencji
 
+[Przyrost przejścia i logistyki](verification/passage-logistics.md) ma runner `reality_passage_tests` i natywny test `passage.native_diagnostics`. Sprawdza niewiedzę o odległym zamknięciu, fizyczne odkrycie, świadka, objazd z partią i rzeczywisty posiłek, koszt czasowy obu dróg, materiał typu 2 i ukończoną naprawę, krótszą trasę po wiadomości, progi zużycia i bezpieczne odmowy, kolejkę, WASD, Step, trzy fazy promu, czynność, clearance, spokojny/zaburzony przebieg i transakcyjny zapis. Zachowuje czerwone regresje pierścienia obserwacji, długiego objazdu i przyczółka bez etykiety FIFO. Korupcja z poprawnym checksumem obejmuje maskę, ID, czasy, duplikaty, link/typ materiału i zamkniętą zajętość/kolejkę. Ochronę operacji izoluje także jawne seedowanie historycznej pamięci; nie zastępuje ono osobnego testu rzeczywistej obserwacji. To określony zakres SC-10 i części SC-14, nie pełny odbiór M04.
+
 Zmień dostępność mostu przez właściwą komendę. Uruchom rzeczywiste planowanie, transport, rezerwę zakładu i pracę. Sprawdź wersję trasy, miejsce ładunku, czas dostawy, zużycie zapasu i źródło wiedzy. Zapisz i kontynuuj. Żaden etap nie może być dopisanym oczekiwanym wynikiem. Chroni INV-06, INV-08, INV-10, INV-12, INV-14 i INV-16.
 
 ### SC-11 — Aplikacja, wejście i obraz

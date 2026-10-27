@@ -44,7 +44,7 @@ struct Options {
     std::filesystem::path report = std::filesystem::current_path() / L"traversal.log";
     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
     bool smoke = false, debug = false, resume = false, unattended = false;
-    bool delivery = false;
+    bool delivery = false, crossing = false;
     std::filesystem::path diagnostics;
     unsigned measure_seconds = 0, warmup_seconds = 30;
     int adapter = -1;
@@ -70,6 +70,8 @@ void read_options(Options& options) {
             options.unattended = true;
         } else if (arg == L"--delivery") {
             options.delivery = true;
+        } else if (arg == L"--crossing") {
+            options.crossing = true;
         } else if (arg == L"--gpu-debug") {
             options.debug = true;
         } else if (arg == L"--resume-smoke") {
@@ -142,7 +144,9 @@ class TraversalWindow final {
   public:
     TraversalWindow(HINSTANCE instance, const Options& options, std::ostream& log)
         : instance_(instance), options_(options), log_(log),
-          session_(options.delivery ? make_delivery_course() : make_traversal_course()) {
+          session_(options.crossing   ? make_crossing_course()
+                   : options.delivery ? make_delivery_course()
+                                      : make_traversal_course()) {
         WNDCLASSEXW type{};
         type.cbSize = sizeof(type);
         type.hInstance = instance_;
@@ -187,7 +191,8 @@ class TraversalWindow final {
         help_ = control(L"STATIC",
                         L"Spacja: czas | N: +1 s | X: zatrzymaj\nWASD: ruch | PPM: dokładny "
                         L"cel\nShift+PPM: podejdź w zasięg\n1–8 / Tab: postać | F2: jej "
-                        L"autonomia\nF3: poproś o przejście\nF4: pobierz / oddaj ładunek\nF7: "
+                        L"autonomia\nF3: poproś o przejście\nF4: pobierz / oddaj ładunek\nF8: "
+                        L"zamknij / otwórz przejście | R: napraw\nF7: "
                         L"przekaż wiedzę najbliższej osobie\nQ/E, "
                         L"↑/↓, +/-: kamera\nF5/F9: zapis i "
                         L"odczyt\nF6: migawka "
@@ -698,7 +703,19 @@ class TraversalWindow final {
                     if (beliefs[i] &&
                         (!newest || beliefs[i]->observed_tick > beliefs[*newest]->observed_tick))
                         newest = i;
-                if (newest) {
+                std::optional<std::size_t> passage;
+                const auto& passages = session_.actors()[sender].passage_beliefs;
+                for (std::size_t i = 0; i < session_.passages().size(); ++i)
+                    if (passages[i] && (!passage || passages[i]->observed_tick >
+                                                        passages[*passage]->observed_tick))
+                        passage = i;
+                if (passage && (!newest || passages[*passage]->observed_tick >=
+                                               beliefs[*newest]->observed_tick)) {
+                    const auto& b = *passages[*passage];
+                    message << L"\nPrzekonanie: przejście " << session_.passages()[*passage].id
+                            << (b.open ? L" otwarte" : L" zamknięte") << L"\nŚwiadek "
+                            << b.source_actor.value << L", obserwacja " << b.observed_tick;
+                } else if (newest) {
                     const auto& b = *beliefs[*newest];
                     message << L"\nPrzekonanie o " << *newest << L": wolne " << b.available
                             << L"\nŚwiadek " << b.source_actor.value << L", obserwacja "
@@ -709,6 +726,55 @@ class TraversalWindow final {
                 log_ << "knowledge_sender=" << session_.actors()[sender].id.value
                      << " recipient=" << (nearest ? session_.actors()[*nearest].id.value : 0)
                      << " outcome=" << static_cast<unsigned>(result) << '\n';
+            } else if (code == VK_F8) {
+                const auto index = static_cast<std::size_t>(selection_);
+                std::optional<std::size_t> nearest;
+                double best = 1e9;
+                for (std::size_t i = 0; i < session_.passages().size(); ++i) {
+                    const auto distance =
+                        length(session_.geometry().body(session_.passages()[i].surface).origin -
+                               session_.actors()[index].feet);
+                    if (distance < best) {
+                        best = distance;
+                        nearest = i;
+                    }
+                }
+                const auto result =
+                    nearest ? session_.interact_passage(index, session_.passages()[*nearest].id,
+                                                        !session_.passages()[*nearest].open)
+                            : PassageOutcome::Unavailable;
+                const auto label =
+                    result == PassageOutcome::Changed      ? L"stan zmieniony"
+                    : result == PassageOutcome::Unchanged  ? L"bez zmiany"
+                    : result == PassageOutcome::Controlled ? L"przejmij postać F2"
+                    : result == PassageOutcome::Busy       ? L"zatrzymaj się i dokończ czynność"
+                    : result == PassageOutcome::Occupied
+                        ? L"odmowa: postać, Step lub ustąpienie na przejściu"
+                    : result == PassageOutcome::OutOfReach ? L"podejdź do przyczółka"
+                    : result == PassageOutcome::Worn       ? L"konieczna materialna naprawa"
+                                                           : L"brak przejścia";
+                feedback(std::wstring{L"Przejście: "} + label);
+                log_ << "passage_interaction=" << static_cast<unsigned>(result) << '\n';
+            } else if (code == 'R') {
+                const auto index = static_cast<std::size_t>(selection_);
+                std::optional<std::size_t> nearest;
+                double best = 1e9;
+                for (std::size_t i = 0; i < session_.stations().size(); ++i) {
+                    const auto& station = session_.stations()[i];
+                    if (station.kind != TraversalTask::Maintain)
+                        continue;
+                    const auto feet = surface_feet(session_.geometry(), station.location,
+                                                   TraversalLimits{session_.actors()[index].size});
+                    if (feet && length(*feet - session_.actors()[index].feet) < best) {
+                        best = length(*feet - session_.actors()[index].feet);
+                        nearest = i;
+                    }
+                }
+                const auto started = nearest && session_.begin_maintenance(index, *nearest);
+                feedback(started ? L"Naprawa rozpoczęta; koszt i praca w WorkWorld."
+                                 : L"Naprawa: przejmij postać, zatrzymaj się i podejdź do "
+                                   L"stanowiska z materiałem.");
+                log_ << "maintenance_started=" << started << '\n';
             } else if (code == VK_F5) {
                 session_.save(options_.save);
                 feedback(L"Zapisano: " + options_.save.filename().wstring());
@@ -771,7 +837,61 @@ class TraversalWindow final {
             log_ << "goal_rejected=" << error.what() << '\n';
         }
     }
+    void crossing_smoke() {
+        if (options_.resume) {
+            session_.load(options_.save);
+            session_.advance(25);
+            session_.validate();
+            log_ << "passage_resume=pass\n";
+        } else {
+            const auto stock =
+                session_.world().resource(session_.stations()[2].lot)->record.quantity.value;
+            const auto version = session_.geometry().version;
+            SendMessageW(window_, WM_KEYDOWN, VK_F8, 0);
+            require(!session_.passages()[0].open && session_.geometry().version == version + 1,
+                    "F8 did not locally close bridge");
+            draw();
+            require(renderer_->capture(
+                        std::filesystem::path{options_.capture.wstring() + L".closed.png"}) > 1000,
+                    "closed crossing image empty");
+            SendMessageW(window_, WM_KEYDOWN, 'R', 0);
+            require(
+                session_.actors()[0].action.value != 0 &&
+                    session_.world().resource(session_.stations()[2].lot)->record.quantity.value ==
+                        stock - 1,
+                "R did not start material repair");
+            session_.advance(79);
+            require(!session_.passages()[0].open, "native unfinished repair opened bridge");
+            session_.advance(1);
+            require(session_.passages()[0].open && session_.stations()[2].completed == 1,
+                    "native completed repair did not open bridge");
+            log_ << "passage_shortcut=pass\nmaintenance_shortcut=pass\n";
+            session_.save(options_.save);
+            for (unsigned tick = 0; tick < 550 && session_.stations()[1].completed == 0; ++tick)
+                session_.advance(1);
+            require(session_.actors()[1].delivery->delivered > 0 &&
+                        session_.stations()[1].completed > 0,
+                    "native crossing did not deliver food and enable meal");
+            log_ << "crossing_delivery=pass\n";
+        }
+        panel();
+        std::wstring lines(static_cast<std::size_t>(GetWindowTextLengthW(inspector_)) + 1, L'\0');
+        GetWindowTextW(inspector_, lines.data(), static_cast<int>(lines.size()));
+        require(lines.find(L"passage_belief=") != std::wstring::npos &&
+                    lines.find(L"passage=1") != std::wstring::npos,
+                "native passage inspector lost truth or belief");
+        log_ << "passage_inspector=pass\n";
+        session_.validate();
+        draw();
+        require(renderer_->capture(options_.capture) > 1000, "crossing GPU image empty");
+        renderer_->check_diagnostics();
+        log_ << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
+    }
     void smoke() {
+        if (options_.crossing) {
+            crossing_smoke();
+            return;
+        }
         panel();
         std::wstring inspector_text(static_cast<std::size_t>(GetWindowTextLengthW(inspector_)) + 1,
                                     L'\0');

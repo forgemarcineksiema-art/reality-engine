@@ -15,7 +15,7 @@
 
 ## Repozytorium Git
 
-Repozytorium jest lokalne, na gałęzi `main`. Pierwszy commit zachowuje zastany kod, testy, dokumentację, konfigurację agentów i historyczne dowody; nie oznacza ponownego odbioru etapów ani ukończenia M04. Nie skonfigurowano remote i niczego nie opublikowano. Zdalna kopia wymaga osobnego wskazania miejsca docelowego; lokalna historia nie chroni przed utratą dysku.
+Repozytorium ma gałąź `main` oraz tematyczne gałęzie `codex/<temat>`. Pierwszy commit `b34c5dc` zachowuje zastany kod, testy, dokumentację, konfigurację agentów i historyczne dowody; nie oznacza ponownego odbioru etapów ani ukończenia M04. Na jawne polecenie użytkownika z 27.10.2026 skonfigurowano publiczne `origin` wskazujące na `https://github.com/forgemarcineksiema-art/reality-engine.git` i opublikowano `main`. Push nie jest dowodem wykonania testów ani odbioru technicznego; nieudany push pozostawia lokalną historię bez zmian. Zdalna kopia nie chroni przed utratą dysku lokalnego.
 
 Przed pracą sprawdź stan i historię:
 
@@ -32,6 +32,8 @@ git diff --cached --stat
 git diff --cached
 git commit -m "Opisz konkretną zmianę"
 ```
+
+Publikację wykonuje się wyłącznie na jawne polecenie użytkownika: `git push origin main`, a dla gałęzi tematycznej `git push origin codex/<temat>`. Push nie jest dowodem wykonania testów ani odbioru technicznego.
 
 `.gitignore` pomija buildy, cache, lokalne środowiska, ustawienia IDE i pliki `.env`. Nie pomija globalnie logów, zapisów świata ani obrazów: mogą być dowodami lub fixture'ami. Nowe ważne reprodukcje i wyniki umieszczaj w `docs/verification/evidence/`, a ich kontekst w odpowiednim raporcie. Nie usuwaj porażek po uzyskaniu zielonego wyniku.
 
