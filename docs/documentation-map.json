@@ -1,6 +1,10 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/verification/evidence/m04-acceptance-2026-10-27/review.md", "role": "verification", "topic": "m04-acceptance-review"},
+    {"path": "docs/work-items/m04-acceptance.md", "role": "current-state", "topic": "m04-acceptance-plan"},
+    {"path": "docs/verification/m04-acceptance.md", "role": "verification", "topic": "m04-acceptance-evidence"},
+    {"path": "docs/verification/m04-playtest.md", "role": "verification", "topic": "m04-human-acceptance"},
     {"path": "docs/verification/evidence/witness-property-law-2026-10-27/review.md", "role": "verification", "topic": "witness-property-law-review"},
     {"path": "docs/work-items/witness-property-law.md", "role": "current-state", "topic": "witness-property-law-plan"},
     {"path": "docs/verification/witness-property-law.md", "role": "verification", "topic": "witness-property-law-evidence"},

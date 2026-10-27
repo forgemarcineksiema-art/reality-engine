@@ -94,6 +94,7 @@ set(reality_cpp_files
     src/lab/traversal_knowledge.cpp
     src/lab/traversal_law.cpp
     tests/law_tests.cpp
+    tests/community_tests.cpp
     src/lab/traversal_passages.cpp
     tests/passage_tests.cpp
     tests/knowledge_tests.cpp
@@ -157,6 +158,15 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_community_tests tests/community_tests.cpp)
+    target_link_libraries(reality_community_tests PRIVATE reality_lab_model)
+    reality_deploy_diagnostics(reality_community_tests)
+    foreach(case IN ITEMS scene calm disturbed law continuation adaptive_calm adaptive_disturbed fixed_calm fixed_disturbed)
+        add_test(NAME community.${case} COMMAND reality_community_tests ${case})
+    endforeach()
+    add_test(NAME community.native_diagnostics
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_community_native.py"
+                --exe "$<TARGET_FILE:reality_traversal>")
     add_executable(reality_law_tests tests/law_tests.cpp)
     target_link_libraries(reality_law_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_law_tests)

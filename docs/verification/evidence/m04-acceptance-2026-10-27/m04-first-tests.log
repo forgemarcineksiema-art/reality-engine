@@ -1,0 +1,132 @@
+UpdateCTestConfiguration  from :C:/Users/Marcin/Documents/new/DartConfiguration.tcl
+Test project C:/Users/Marcin/Documents/new/build/msvc
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: community.scene
+
+1: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "scene"
+1: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+1: Environment variables: 
+1:  ASAN_OPTIONS=halt_on_error=1
+1:  ASAN_VCASAN_DEBUGGING=0
+1: Test timeout computed to be: 20
+1: PASS scene
+1/9 Test #1: community.scene ..................   Passed    0.05 sec
+test 2
+    Start 2: community.calm
+
+2: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "calm"
+2: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+2: Environment variables: 
+2:  ASAN_OPTIONS=halt_on_error=1
+2:  ASAN_VCASAN_DEBUGGING=0
+2: Test timeout computed to be: 20
+2: mode=calm ticks=600 delivered=8 meals_left=6 meals_right=4 rests=1 repairs=4 closed_seen=0
+2: PASS calm
+2/9 Test #2: community.calm ...................   Passed    1.19 sec
+test 3
+    Start 3: community.disturbed
+
+3: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "disturbed"
+3: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+3: Environment variables: 
+3:  ASAN_OPTIONS=halt_on_error=1
+3:  ASAN_VCASAN_DEBUGGING=0
+3: Test timeout computed to be: 20
+3: mode=disturbed ticks=600 delivered=4 meals_left=6 meals_right=2 rests=1 repairs=4 closed_seen=1
+3: PASS disturbed
+3/9 Test #3: community.disturbed ..............   Passed    1.19 sec
+test 4
+    Start 4: community.law
+
+4: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "law"
+4: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+4: Environment variables: 
+4:  ASAN_OPTIONS=halt_on_error=1
+4:  ASAN_VCASAN_DEBUGGING=0
+4: Test timeout computed to be: 20
+4: PASS law
+4/9 Test #4: community.law ....................   Passed    0.18 sec
+test 5
+    Start 5: community.continuation
+
+5: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "continuation"
+5: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+5: Environment variables: 
+5:  ASAN_OPTIONS=halt_on_error=1
+5:  ASAN_VCASAN_DEBUGGING=0
+5: Test timeout computed to be: 20
+5: PASS continuation
+5/9 Test #5: community.continuation ...........   Passed    2.25 sec
+test 6
+    Start 6: community.adaptive_calm
+
+6: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "adaptive_calm"
+6: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+6: Environment variables: 
+6:  ASAN_OPTIONS=halt_on_error=1
+6:  ASAN_VCASAN_DEBUGGING=0
+6: Test timeout computed to be: 20
+6: controller=adaptive disturbed=0 ticks=240 first_delivery=172 delivered=4 meals_right=2 ferry=0 state=1 cargo=0
+6: PASS adaptive_calm
+6/9 Test #6: community.adaptive_calm ..........   Passed    0.42 sec
+test 7
+    Start 7: community.adaptive_disturbed
+
+7: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "adaptive_disturbed"
+7: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+7: Environment variables: 
+7:  ASAN_OPTIONS=halt_on_error=1
+7:  ASAN_VCASAN_DEBUGGING=0
+7: Test timeout computed to be: 20
+7: controller=adaptive disturbed=1 ticks=240 first_delivery=0 delivered=0 meals_right=0 ferry=1 state=3 cargo=4
+7: PASS adaptive_disturbed
+7/9 Test #7: community.adaptive_disturbed .....   Passed    0.44 sec
+test 8
+    Start 8: community.fixed_calm
+
+8: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "fixed_calm"
+8: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+8: Environment variables: 
+8:  ASAN_OPTIONS=halt_on_error=1
+8:  ASAN_VCASAN_DEBUGGING=0
+8: Test timeout computed to be: 20
+8: FAIL reference/adaptive courier failed calm delivery
+8/9 Test #8: community.fixed_calm .............***Failed    0.39 sec
+FAIL reference/adaptive courier failed calm delivery
+
+test 9
+    Start 9: community.fixed_disturbed
+
+9: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "fixed_disturbed"
+9: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+9: Environment variables: 
+9:  ASAN_OPTIONS=halt_on_error=1
+9:  ASAN_VCASAN_DEBUGGING=0
+9: Test timeout computed to be: 20
+9: controller=fixed_bridge disturbed=1 ticks=240 first_delivery=0 delivered=0 meals_right=0 ferry=0 state=1 cargo=4
+9: PASS fixed_disturbed
+9/9 Test #9: community.fixed_disturbed ........   Passed    0.40 sec
+
+The following tests passed:
+	community.scene
+	community.calm
+	community.disturbed
+	community.law
+	community.continuation
+	community.adaptive_calm
+	community.adaptive_disturbed
+	community.fixed_disturbed
+
+89% tests passed, 1 tests failed out of 9
+
+Total Test time (real) =   6.60 sec
+
+The following tests FAILED:
+	  8 - community.fixed_calm (Failed)
+Errors while running CTest

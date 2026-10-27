@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-27",
+  "base_commit": "e665fbc",
+  "branch": "codex/m04-acceptance",
+  "commits_created": false,
+  "files": [
+    {
+      "path": "launcher/scene.png",
+      "bytes": 10650,
+      "sha256": "90843bfc651badc17ff7524f1adb9c7012906a670353c72debb157c3abe393bf"
+    },
+    {
+      "path": "launcher/session.log",
+      "bytes": 12543,
+      "sha256": "f116ba9122d221b0db5978c839365a1fbd101ccdfc9f849e44014e517713e02e"
+    },
+    {
+      "path": "launcher/world.save",
+      "bytes": 6112,
+      "sha256": "2322e9652d0399fe8d39193684aae69bad4b67f84eddb98ee5d65adf5568269e"
+    },
+    {
+      "path": "launcher/world.save.expected.save",
+      "bytes": 8416,
+      "sha256": "06337969ff544268ba86e07659ef739192f7cb9a6ce545aadb53d14f689e7b9b"
+    },
+    {
+      "path": "m04-asan-configure.log",
+      "bytes": 211,
+      "sha256": "96ec328f2eaae78d0c23df0c9d90de608d8850fb9115f04ac79e6fc3d86894f5"
+    },
+    {
+      "path": "m04-configure.log",
+      "bytes": 211,
+      "sha256": "49a14b9cd447d6d2929b46836400b9d25f7d1509613b7fff6bb2f43dd0373d80"
+    },
+    {
+      "path": "m04-configure2.log",
+      "bytes": 211,
+      "sha256": "2e6a4861b6a5a0f2681e55712b59332dd1c0d2faf28d6546535c00a3a3d88f45"
+    },
+    {
+      "path": "m04-docs-check.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "m04-docs-first.log",
+      "bytes": 114,
+      "sha256": "7baf0609364676c1c0716edbf84020605d1fbcda8e561303233f410e6a53c067"
+    },
+    {
+      "path": "m04-final-asan-build.log",
+      "bytes": 5360,
+      "sha256": "5402d525d85037183c328dedd4e1adec502ed68cfbdbda7ea28fc81cad4afd1f"
+    },
+    {
+      "path": "m04-final-asan-ctest.log",
+      "bytes": 38527,
+      "sha256": "672cbfe76d7fd7bb2bdf78577dbb00b6cf63e949f0dd40b7a78195c45ec30adb"
+    },
+    {
+      "path": "m04-final-debug-build.log",
+      "bytes": 4621,
+      "sha256": "6d73bde1d993720b23a399c33f01683dbf1627c2d8c845d017a74cf0661b2343"
+    },
+    {
+      "path": "m04-final-debug-ctest.log",
+      "bytes": 38255,
+      "sha256": "5a1ff815e68ca6108e1e6a20199dc068c64b27e49de86446ddeb1735a280b50b"
+    },
+    {
+      "path": "m04-final-docs.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "m04-final-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "path": "m04-final-python-tests.log",
+      "bytes": 133,
+      "sha256": "4b2247f35c0380cf551b2add1a947c1e5513de8b0c86f1f4032ed6fae8a25a26"
+    },
+    {
+      "path": "m04-final-release-build.log",
+      "bytes": 5179,
+      "sha256": "7db62d54f6545aeb8dae6061272f9d56c7993d776dcecf4d057a5008610c53cb"
+    },
+    {
+      "path": "m04-final-release-ctest.log",
+      "bytes": 38255,
+      "sha256": "918fae3bcfb174f80434f90c20fc912ee85deac71a8ab841acf3ba445ae6d5bc"
+    },
+    {
+      "path": "m04-first-build.log",
+      "bytes": 924,
+      "sha256": "f980409f09879b76e2220fa11a3e64e83b53cf8fbde88c5cc50802c3911b601a"
+    },
+    {
+      "path": "m04-first-tests.log",
+      "bytes": 5266,
+      "sha256": "45be8db7baed804b2133b47bf1aa5feb06d6546291c2efc47a22249fc4cf2ba1"
+    },
+    {
+      "path": "m04-format-first.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "path": "m04-launcher-smoke.log",
+      "bytes": 187,
+      "sha256": "52a028f791be8993f3f9d6d79fd4b384546f6598ef5e086d3266a46eed43f3fd"
+    },
+    {
+      "path": "m04-native-build.log",
+      "bytes": 1386,
+      "sha256": "ca21eb204e15fb6f7cef542153703b05f60910592b5bd46cc2530f95f14d307b"
+    },
+    {
+      "path": "m04-native-final.log",
+      "bytes": 97,
+      "sha256": "df6f4556d08ea0ed1364e7392a4c1a3da6f7636d2d8859d12bf15b16e84658e0"
+    },
+    {
+      "path": "m04-native-red.log",
+      "bytes": 658,
+      "sha256": "f7bbdaa56feb6895efd2bc1f6fde37e7a515e081d30babdd665241e4da61aafd"
+    },
+    {
+      "path": "m04-native-tests.log",
+      "bytes": 5944,
+      "sha256": "765f01207514d5be502ad89c3d4a7a693d2f5c0e526cabfbdff0f7d58603818d"
+    },
+    {
+      "path": "m04-panel-green-build.log",
+      "bytes": 782,
+      "sha256": "62292ea9ab96516342a41d4b75e63932cfe980acd7a56ccbbe8244c72e1d4651"
+    },
+    {
+      "path": "m04-panel-green.log",
+      "bytes": 239,
+      "sha256": "0ed246966433eed32a19e70c56887c2926e0ea4103a4f49d734fdf776fe81297"
+    },
+    {
+      "path": "m04-panel-red-build.log",
+      "bytes": 782,
+      "sha256": "62292ea9ab96516342a41d4b75e63932cfe980acd7a56ccbbe8244c72e1d4651"
+    },
+    {
+      "path": "m04-panel-red.log",
+      "bytes": 2246,
+      "sha256": "8dcde01a51de8624039e32de2a77e676598ccdc3740d37bbafa75b38f2765811"
+    },
+    {
+      "path": "m04-python-tests.log",
+      "bytes": 133,
+      "sha256": "32fd633c73be070be5938237992d631278f2989eeba6aa87a857eb602c7dd260"
+    },
+    {
+      "path": "m04-red-build.log",
+      "bytes": 1560,
+      "sha256": "84051ed153bacfa4ec18c688909485b037e01f8edf09da3a0ce8092f81dbc06e"
+    },
+    {
+      "path": "m04-reference-build.log",
+      "bytes": 627,
+      "sha256": "50444da7c046d4b5ecf500bfab8d7d72dfc8b4f590765f6c827753129f67c84e"
+    },
+    {
+      "path": "m04-reference-diagnostic-build.log",
+      "bytes": 627,
+      "sha256": "50444da7c046d4b5ecf500bfab8d7d72dfc8b4f590765f6c827753129f67c84e"
+    },
+    {
+      "path": "m04-reference-diagnostic.log",
+      "bytes": 1151,
+      "sha256": "0fe7eff6ea27c52c6b44334c2c222c357511f54c11befe2a8a3de15e86ac0fe5"
+    },
+    {
+      "path": "m04-reference-tests.log",
+      "bytes": 5203,
+      "sha256": "e3f46eaffbdbaa3863992c2eabf255b156c30578a106d141526f8aee63b62fc7"
+    },
+    {
+      "path": "native/community.log",
+      "bytes": 12547,
+      "sha256": "b4fe4f1f4b7154e5ed8937d22b50e1b4cac85ca2f487f04dcb56c1a6e76891a7"
+    },
+    {
+      "path": "native/community.png",
+      "bytes": 10650,
+      "sha256": "90843bfc651badc17ff7524f1adb9c7012906a670353c72debb157c3abe393bf"
+    },
+    {
+      "path": "native/community.save",
+      "bytes": 6112,
+      "sha256": "2322e9652d0399fe8d39193684aae69bad4b67f84eddb98ee5d65adf5568269e"
+    },
+    {
+      "path": "native/community.save.expected.save",
+      "bytes": 8416,
+      "sha256": "06337969ff544268ba86e07659ef739192f7cb9a6ce545aadb53d14f689e7b9b"
+    },
+    {
+      "path": "native/resume.log",
+      "bytes": 17108,
+      "sha256": "db37e312582275fd8fcb24a563f77921a9d5b89d06c80f65c9998263c96713d0"
+    },
+    {
+      "path": "native/resume.png",
+      "bytes": 10405,
+      "sha256": "bb86e1104e36a56c7a09876339533c6337ba8e40fa68632836f1754e9f4d540f"
+    },
+    {
+      "path": "review.md",
+      "bytes": 1822,
+      "sha256": "0884a40e3069eb30e10b78154547e78bd7396c8c5c825d550b0e4db91088a1c0"
+    }
+  ],
+  "source_hashes": {
+    "CMakeLists.txt": "eb470a5a5e39d10c523ae561da7875aaadf7a04ec8738a40588898101b590f38",
+    "src/lab/traversal_course.cpp": "c4939a353c58d430d69e66f59bc0d1f21aedc019d71105695f0d2cd697499635",
+    "src/lab/traversal_session.hpp": "09b71ded0265dcf34956f9ef16ee3380ceab7d6455349dbaf4fad771da603ea8",
+    "src/platform/traversal_main.cpp": "9e7daa4bc5c05b0ca8ef0cd57928f051a2b2677d14305b12eb487bb29095b731",
+    "tests/community_tests.cpp": "9ece07ee1eb44ed658c7dbc2150f7ebfd43c25bd6172040a6b8a86bed2a8fbd3",
+    "tools/test_community_native.py": "c5aa8d85a460eb84251d6c38f972ccffb2e09c144a73a923b8636f25f91add5d",
+    "tools/start_m04_playtest.py": "e4b36be04de368e936b10b8ffae41ad5a6385a9e59bdd17c3aad2c3b6f28e364"
+  }
+}

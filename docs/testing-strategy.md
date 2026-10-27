@@ -1,8 +1,10 @@
 # Strategia testów i odbioru
 
-**Status:** normatywne wymagania oraz katalog rozwoju. M00 obejmuje zegar, CLI, narzędzia i początkowy zakres SC-15. M01 pokrywa SC-01 i SC-02 dla modelu wykonawca/partia/czynność oraz ograniczone części SC-03, SC-04 i SC-08 opisane niżej. M02 dodaje aplikację, a M03 geometrię, ruch, trasy i kontynuację podróży w opisanym zakresie. Pozostałe części są planem. Rzeczywiste komendy wskazuje [środowisko pracy](development.md).
+**Status:** normatywne wymagania oraz katalog rozwoju. M00 obejmuje zegar, CLI, narzędzia i początkowy zakres SC-15. M01 pokrywa SC-01 i SC-02 dla modelu wykonawca/partia/czynność oraz ograniczone części SC-03, SC-04 i SC-08 opisane niżej. M02 dodaje aplikację, a M03 geometrię, ruch, trasy i kontynuację podróży w opisanym zakresie. Aktualny odbiór ograniczonego M04 opisuje [audyt](verification/m04-acceptance.md); dalsze części katalogu pozostają planem. Rzeczywiste komendy wskazuje [środowisko pracy](development.md).
 
 ## Obecny zakres domenowy
+
+Poniższa tabela zachowuje zakres fundamentu M01; późniejsze podróże, wiedza i integracja mają własne dowody niżej oraz w aktualnym audycie M04.
 
 [Testy C++](../tests/work_world_tests.cpp) i [integracja procesu](../tests/work_demo_integration.py) sprawdzają [model czynności](work-domain.md). [Raport M01](verification/m01-identity-actions-reservations.md) zawiera wykonane konfiguracje i dowody.
 
@@ -133,6 +135,8 @@ Uruchom ustalony scenariusz i konfigurację przez okres określony przed próbą
 Przed uruchomieniem sceny usuń uczestnika, zniszcz miejsce albo przenieś przedmiot. Scena przechodzi do określonego wariantu, odmowy lub zakończenia. Nie wymaga niemożliwej rozmowy i nie przywraca świata do oczekiwanego scenariusza. Chroni INV-15.
 
 ### SC-14 — Społeczność bez gracza
+
+[Wspólny odbiór M04](verification/m04-acceptance.md) uruchamia community.*: osiem osób, 600 kroków spokojnych/zaburzonych z bilansem na każdej granicy, prawo w tym samym świecie, zapis podczas pracy/podróży/incydentu, oraz cztery warianty porównania240 kroków z prostą rutyną. Wynik porównania pozostaje jawny, bez wymagania zwycięstwa adaptacji. Dwa procesy natywne sprawdzają controls i zgodność expected.save; nie zastępują [oceny użytkownika](verification/m04-playtest.md).
 
 Uruchom model bez interwencji gracza, potem wprowadź kontrolowane zaburzenie. Sprawdź wykonane działania, przyczyny porażek i zakres stabilności. Porównaj z prostszą rutyną; zachowaj także nieudane przebiegi. Deklaracja planu nie jest jego realizacją. Chroni INV-03, INV-06, INV-08 i INV-16.
 

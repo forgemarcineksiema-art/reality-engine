@@ -91,4 +91,16 @@ TraversalScene make_law_course() {
     scene.property_rules = {{0, 2, {3}, 3}};
     return scene;
 }
+TraversalScene make_community_course() {
+    auto s = make_crossing_course();
+    s.stations.push_back({{1, {-2, 2}}, TraversalTask::Rest, 2});
+    s.stations.push_back({{2, {2, 2}}, TraversalTask::Rest, 2});
+    s.spawns[3].known_stations = 13;
+    s.spawns.push_back({{1, {-.4, -2}}, {}, true, 0, 1000, 9});
+    s.spawns.push_back({{1, {-2, 1}}, {}, true, 180, 1000, 9});
+    s.spawns.push_back({{2, {2, -.5}}, {}, true, 350, 1000, 18});
+    s.spawns.push_back({{1, {0, 3}}, {}, true, 20, 200, 9});
+    s.property_rules = {{2, 4, {3}, {}}};
+    return s;
+}
 } // namespace reality

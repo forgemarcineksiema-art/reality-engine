@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_community_native.py", line 54, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tools\test_community_native.py", line 47, in main
+    check(args.exe.resolve(), args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_community_native.py", line 27, in check
+    first = run("community")
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\test_community_native.py", line 20, in run
+    raise AssertionError(f"native community {name} failed: {result.returncode}")
+AssertionError: native community community failed: 1

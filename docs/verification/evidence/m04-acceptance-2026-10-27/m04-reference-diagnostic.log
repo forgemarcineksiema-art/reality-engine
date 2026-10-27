@@ -1,0 +1,31 @@
+UpdateCTestConfiguration  from :C:/Users/Marcin/Documents/new/DartConfiguration.tcl
+Test project C:/Users/Marcin/Documents/new/build/msvc
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 8
+    Start 8: community.fixed_calm
+
+8: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe "fixed_calm"
+8: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+8: Environment variables: 
+8:  ASAN_OPTIONS=halt_on_error=1
+8:  ASAN_VCASAN_DEBUGGING=0
+8: Test timeout computed to be: 20
+8: fixed_stage=4 feet=3.20034,-1.91113 state=1
+8: FAIL reference/adaptive courier failed calm delivery
+1/1 Test #8: community.fixed_calm .............***Failed    0.45 sec
+fixed_stage=4 feet=3.20034,-1.91113 state=1
+FAIL reference/adaptive courier failed calm delivery
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.52 sec
+
+The following tests FAILED:
+	  8 - community.fixed_calm (Failed)
+Errors while running CTest

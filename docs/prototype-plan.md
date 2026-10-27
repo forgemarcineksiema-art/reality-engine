@@ -1,6 +1,6 @@
 # Jeden plan pierwszego prototypu
 
-**Status: M00–M03 zaliczone w opisanym zakresie; M04–M06 są planem.** Użytkownik zaakceptował obecne sterowanie M03 z uwagami rozwojowymi dotyczącymi reakcji na cel, płynności trasy, szybkości i naturalności ruchu. Nie ma harmonogramu tygodniowego. Zakres produktu wynika z [karty](project-charter.md), a parametry z [budżetów](performance-budget.md).
+**Status: M00–M04 zaliczone w opisanym zakresie; M05–M06 pozostają planem.** Użytkownik zaakceptował obecne sterowanie M03 z uwagami rozwojowymi dotyczącymi reakcji na cel, płynności trasy, szybkości i naturalności ruchu. Nie ma harmonogramu tygodniowego. Zakres produktu wynika z [karty](project-charter.md), a parametry z [budżetów](performance-budget.md).
 
 Etapy są uporządkowane zależnościami. Nie tworzymy drugiego równoległego backlogu E/P ani nie traktujemy większej populacji jako automatycznego następnego zadania. Dopuszczalne są niezależne małe próby, ale zaliczenie etapu wymaga pełnego wskazanego dowodu.
 
@@ -38,31 +38,15 @@ Warstwa gry: wczesna próba osobistego ruchu, kamery i dojścia do interakcji z 
 
 ### M04 — Mała społeczność w grze i laboratorium
 
-Ograniczony przyrost [świadka i prawa](verification/witness-property-law.md) łączy fizyczne przejęcie cargo, lokalne świadectwa, przekaz i odmowę legalnej obsługi przez poinformowanego opiekuna oraz fizyczne uregulowanie. To wybrany zakres SC-05/INV-07, bez zakończenia M04.
+**Stan bieżący: ZALICZONE w opisanym zakresie, z akceptacją użytkownika 27.10.2026.** [Audyt aktualnego M04](verification/m04-acceptance.md) wiąże kryteria z istniejącym kodem, wspólną sceną ośmiu osób, spokojną autonomią, zaburzeniem gracza, porównaniem z prostą rutyną i kontynuacją. Stan sprawdzeń technicznych podaje raport. [Próba użytkownika](verification/m04-playtest.md) zawiera bezpośrednią akceptację etapu; nie została zastąpiona wynikiem automatu.
 
-[Kontrolowany przyrost przeprawy](verification/passage-logistics.md) wiąże dostępność kładki, zużycie i materialną naprawę, lokalną wiedzę, rzeczywisty objazd oraz dostawę umożliwiającą posiłek. W scenie `--crossing` gracz działa na miejscu przez F8/R i przekazuje obserwacje F7. Raport oddziela sprawdzenia SC-10 i części SC-14 od nadal otwartego odbioru całej społeczności, komfortu człowieka i długiego pomiaru. Nie zmienia to kolejności M00–M06.
+Wymaga M01 i M03. Wspólne reguły potrzeb, pracy, zasobów, transportu i wiedzy działają w aplikacji i runnerze. Gracz ingeruje w ten sam świat. Dowód: SC-04, SC-05, SC-08, SC-10 i SC-14 w ograniczonym zakresie opisanym w raporcie. Propozycje większej populacji w budżetach pozostają propozycjami.
 
-Kolejny ograniczony przyrost [lokalnej wiedzy](verification/local-station-knowledge.md) dodaje obserwacje stanowisk, przekaz przy fizycznym kontakcie i weryfikację nieaktualnej informacji. Pokrywa część SC-05 i SC-14; nie zmienia warunków pełnego odbioru M04 ani pozostałych etapów.
+Wdrożone fundamenty mają wcześniejsze raporty: [potrzeby](verification/autonomy-need-fallback.md), [pojemność](verification/reusable-capacity.md), [dostawa i zwrot](verification/material-delivery.md), [lokalne ustąpienie](verification/local-clearance.md), [wiedza o stanowiskach](verification/local-station-knowledge.md), [przeprawa i logistyka](verification/passage-logistics.md) oraz [świadek i prawo](verification/witness-property-law.md). Dawne opisy braku tych systemów były stanem historycznym i nie są aktualnym zadaniem. Raporty historyczne zachowują własne wyniki i ograniczenia.
 
-**Stan bieżący: NIEZAKOŃCZONE.** Dostarczono ograniczoną autonomię potrzeb, pojemność stanowisk, diagnostykę i przyrosty ruchu. Działa ograniczona [prośba o ustąpienie przy Step](verification/local-clearance.md). Nie wdrożono jeszcze szerszego obiegu wiedzy i współpracy ani pełnego dowodu ingerencji gracza oraz odbioru społeczności. Osobny [review naprawy dojścia](verification/retained-world-navigation-stall.md) nie jest odbiorem M04.
+Kierunek wejścia w M04 z 26.10.2026 obejmował istniejący ruch, prawdziwą dostawę, minimalną współpracę i ingerencję gracza. Bieżący odbiór łączy te elementy; nie rozszerza zakresu na pełne instytucje, nowe solverowe bryły, nieskończoną gospodarkę lub całe M06. M03 zachowuje wcześniejszą ocenę użytkownika i jej uwagi do reakcji na cel, płynności oraz naturalności; automat nie potwierdza nowego komfortu.
 
-Aktualizacja: ograniczony zakres [transferu i pierwszej dostawy](verification/material-delivery.md) został zaimplementowany i sprawdzony; wcześniejsze opisy braku dotyczą stanu przed tym przyrostem. Szerszy obieg wiedzy, pełny dowód ingerencji gracza i odbiór społeczności pozostają otwarte.
-
-26.10.2026 użytkownik zatwierdził [kierunek wejścia w M04](work-items/m04-entry-design.md): skończony odbiór ruchu, prawdziwa dostawa, lokalna współpraca i ingerencja gracza. Pierwszy realizowany [przyrost diagnostyki i pomiaru](work-items/m04-entry-observability.md) przygotowuje ten kierunek. Nie oznacza implementacji transferu materiału, dostaw ani negocjacji. Kolejne przyrosty zależą od jego wyników; nie zmieniają kolejności ani kryteriów całego M04.
-
-Przed tym etapem użytkownik zatwierdził mały [przyrost prowadzenia do celu](work-items/navigation-polish.md). Bezpośrednie odcinki, krótsza łamana, stabilne ponowienie celu i czytelny wynik mają [odrębny raport](verification/navigation-polish.md). To dopracowanie M03 w tym samym planie; nie wdraża autonomii ani nie zmienia prędkości postaci. Ocena nowego odczucia pozostaje osobną próbą użytkownika.
-
-Następnie użytkownik zlecił [audyt praktycznych przypadków](work-items/motion-adversarial-audit.md) przed M04. Przyłącza przy ścianach, obejście osoby i interpolacja rzeczywistej drogi kroku mają [osobny odbiór](verification/motion-adversarial-audit.md). To nadal wzmacnianie fundamentu ruchu; nie jest rozpoczęciem społeczności M04 ani automatyczną akceptacją odczuć.
-
-Wymaga M01 i M03. Wspólne reguły potrzeb, pracy, zasobów, transportu i wiedzy działają w aplikacji i runnerze. Parametry początkowej populacji wskazują budżety. Gracz ingeruje w ten sam świat. Dowód: SC-04, SC-05, SC-08, SC-10 i SC-14.
-
-Przyrosty [potrzeb](verification/autonomy-need-fallback.md) i [pojemności stanowisk](verification/reusable-capacity.md) przygotowały ten etap. Późniejsze dostawy i lokalna wiedza mają odrębne raporty wskazane powyżej; nadal nie stanowią pełnego odbioru M04 ani pełnego łańcucha skutków działania społeczności. Trwa dopracowanie [rozszerzenia fundamentu](work-items/advanced-traversal.md), z osobnymi granicami weryfikacji.
-
-[Praktyczny audyt wielu postaci](verification/traversal-multi-actor.md) jest odbiorem technicznym wybranego zakresu tego rozszerzenia: kolejek, ruchu, podparcia i kontynuacji. Nowa ocena komfortu przez użytkownika i kontrolowany pomiar dłuższego działania są odrębnymi dowodami. Nie uznajemy ich automatycznie za zaliczone na podstawie testów.
-
-Domyślna społeczność potrafi działać bez gracza w określonym zakresie parametrów. Nie wstawiamy gotowej udanej reakcji, by zaliczyć autonomię.
-
-Warstwa gry: gracz osobiście wpływa na dostawę albo pracę i potrafi odczytać skutek. Sprawdzamy również spokojny wariant bez katastrofy: mieszkańcy pracują i współpracują bez rozkazów. Nie uznajemy samej liczby NPC za wartość gry.
+Warstwa gry: gracz osobiście wpływa na dostawę albo pracę i potrafi odczytać skutek. Sprawdzamy również spokojny wariant bez katastrofy: mieszkańcy pracują i współpracują bez rozkazów. Nie uznajemy samej liczby NPC za wartość gry. Odbiór M04 został potwierdzony przez użytkownika; szersze badanie graczy i pomiar długiego obciążenia pozostają w M06.
 
 ### M05 — Ciągłość, przejście i historia
 

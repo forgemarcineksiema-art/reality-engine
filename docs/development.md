@@ -4,7 +4,7 @@
 
 ## Stan projektu
 
-Zaliczono M00–M03 w opisanym zakresie: kinematykę 2,5D, kolizje, A*, przejścia i zapis podróży w oknie Win32/D3D11 na MX330. Istnieją również zegar, ID, czynności, rezerwacje, ograniczona autonomia potrzeb i inspektor. [Raport M03](verification/m03-motion-navigation.md#ocena-użytkownika) wskazuje wyniki oraz akceptację obecnego sterowania przez użytkownika, z zachowanymi uwagami do dalszego dopracowania. Pełnej autonomii społeczności nie ma. Lokalny Git wersjonuje punkt wyjścia na gałęzi `main`, publikowanej w publicznym `origin`; zasady opisuje [przepływ pracy](workflow.md#repozytorium-git).
+Zaliczono M00–M04 w opisanym zakresie: kinematykę 2,5D, kolizje, A*, przejścia i zapis podróży w oknie Win32/D3D11 na MX330. Istnieją również zegar, ID, czynności, rezerwacje, ograniczona autonomia potrzeb i inspektor. [Raport M03](verification/m03-motion-navigation.md#ocena-użytkownika) wskazuje wyniki oraz akceptację obecnego sterowania przez użytkownika, z zachowanymi uwagami do dalszego dopracowania. Ograniczona wspólna społeczność ma [odbiór M04](verification/m04-acceptance.md), potwierdzony przez użytkownika 27.10.2026; nie jest to pełna docelowa autonomia cywilizacji. Lokalny Git wersjonuje punkt wyjścia na gałęzi `main`, publikowanej w publicznym `origin`; zasady opisuje [przepływ pracy](workflow.md#repozytorium-git).
 
 Osobna scena dostawy jest w realizacji i uruchamia się poleceniem `build/msvc/Debug/reality_traversal.exe --delivery`. Po przejęciu postaci przez F2 klawisz F4 pobiera lub odkłada materiał na pobliskim dostępnym stanowisku. Testy wybranego przyrostu: `ctest --preset windows-debug -R "^(transfer|delivery)[.]" --output-on-failure`. Status i granice są w [planie przyrostu](work-items/material-delivery.md).
 
@@ -221,3 +221,8 @@ F3 w `reality_traversal` prosi blokującego rozpoczęty Step o zrobienie miejsca
 ### Świadek i prawo
 
 `./build/msvc/Debug/reality_traversal.exe --law` uruchamia osobny przyrost opisany w [modelu](traversal-autonomy.md#świadek-własność-i-legalna-obsługa). F4 fizycznie pobiera/oddaje, F7 przekazuje lokalną wiedzę, R korzysta z legalnej obsługi. `ctest --preset windows-debug -R '^law[.]' --output-on-failure` sprawdza reguły oraz natywną próbę D3D11. `python tools/test_law_native.py --exe ./build/msvc/RelWithDebInfo/reality_traversal.exe --output ./build/law-native` zachowuje dwa procesy, logi, zapis wersji 7 i obrazy; wymaga nowego katalogu wyjściowego, GPU oraz warstwy diagnostycznej. Nie jest pomiarem FPS ani oceną człowieka.
+
+
+### Wspólny odbiór M04
+
+`python tools/start_m04_playtest.py` uruchamia świeże Release `--community`, tworząc nowy katalog pod build na zapis/log/diagnostykę. [Instrukcja](verification/m04-playtest.md) określa próbę człowieka; [audyt](verification/m04-acceptance.md) zawiera macierz kryteriów i fakty. `ctest --preset windows-debug -R '^community[.]' --output-on-failure` uruchamia integrację, a `python tools/test_community_native.py --exe ./build/msvc/RelWithDebInfo/reality_traversal.exe --output ./build/m04-native` zachowuje dwa procesy i expected.save. Katalog wyjściowy musi być nowy. Nowy test ma limit subprocess18s i CTest20s; nie zmieniono dawnych limitów. Wczytanie F9 innego poprawnego świata przełącza panel na ogólny widok zamiast zakładać strukturę community.

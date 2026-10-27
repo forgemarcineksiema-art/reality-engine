@@ -44,7 +44,7 @@ struct Options {
     std::filesystem::path report = std::filesystem::current_path() / L"traversal.log";
     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
     bool smoke = false, debug = false, resume = false, unattended = false;
-    bool delivery = false, crossing = false, law = false;
+    bool delivery = false, crossing = false, law = false, community = false;
     std::filesystem::path diagnostics;
     unsigned measure_seconds = 0, warmup_seconds = 30;
     int adapter = -1;
@@ -72,6 +72,8 @@ void read_options(Options& options) {
             options.delivery = true;
         } else if (arg == L"--crossing") {
             options.crossing = true;
+        } else if (arg == L"--community") {
+            options.community = true;
         } else if (arg == L"--law") {
             options.law = true;
         } else if (arg == L"--gpu-debug") {
@@ -146,7 +148,8 @@ class TraversalWindow final {
   public:
     TraversalWindow(HINSTANCE instance, const Options& options, std::ostream& log)
         : instance_(instance), options_(options), log_(log),
-          session_(options.law        ? make_law_course()
+          session_(options.community  ? make_community_course()
+                   : options.law      ? make_law_course()
                    : options.crossing ? make_crossing_course()
                    : options.delivery ? make_delivery_course()
                                       : make_traversal_course()) {
@@ -453,7 +456,7 @@ class TraversalWindow final {
             y += h + 8;
         };
         place(title_, 25);
-        place(status_, 88);
+        place(status_, options_.community ? 155 : 88);
         place(help_, 245);
         for (const auto button : buttons_) {
             place(button, 28);
@@ -472,6 +475,12 @@ class TraversalWindow final {
         scene_ = build_traversal_scene(session_, selection_, camera_, aspect(), fraction());
         renderer_->draw(scene_);
     }
+    bool community_panel() const {
+        return options_.community && session_.actors().size() == 8 &&
+               session_.stations().size() == 5 && session_.passages().size() == 1 &&
+               session_.actors()[1].delivery && session_.actors()[1].delivery->source == 0 &&
+               session_.actors()[1].delivery->destination == 1;
+    }
     void panel() {
         const auto& actor = session_.actors().at(static_cast<std::size_t>(selection_));
         std::wostringstream text;
@@ -489,6 +498,19 @@ class TraversalWindow final {
              << L"Krok: " << session_.world().clock().tick_count() << L" | "
              << (pacer_.running() ? L"czas płynie" : L"pauza") << L"\nGPU: "
              << renderer_->adapter_name();
+        if (community_panel()) {
+            constexpr const wchar_t* roles[] = {L"podróżny",    L"kurier",         L"odbiorca",
+                                                L"konserwator", L"opiekun części", L"mieszkaniec",
+                                                L"odbiorca",    L"odpoczywający"};
+            text << L"\nM04 | " << roles[selection_] << L"\nDostawa: "
+                 << session_.actors()[1].delivery->delivered << L"/8 | Posiłki: "
+                 << session_.stations()[1].completed << L"\nNaprawy: "
+                 << session_.stations()[2].completed << L" | Odpoczynek: "
+                 << session_.stations()[3].completed + session_.stations()[4].completed
+                 << L"\nMost: " << (session_.passages()[0].open ? L"otwarty" : L"zamknięty")
+                 << L" | Obsługa podróżnego: "
+                 << (session_.legal_service_allowed(0, 2) ? L"tak" : L"odmowa");
+        }
         SetWindowTextW(status_, text.str().c_str());
         SetWindowTextW(buttons_[0], pacer_.running() ? L"Pauza [Spacja]" : L"Odtwarzaj [Spacja]");
         const auto inspect = session_.inspect() + diagnostics_.report();
@@ -890,6 +912,87 @@ class TraversalWindow final {
         renderer_->check_diagnostics();
         log_ << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
+    void community_smoke() {
+        if (!options_.resume) {
+            const auto initial = session_;
+            TraversalSession other{make_law_course()};
+            other.save(options_.save);
+            SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+            require(session_.actors().size() == 4, "foreign save fixture did not load through F9");
+            panel();
+            session_ = initial;
+            panel();
+            log_ << "community_foreign_save=pass\n";
+        }
+        if (options_.resume) {
+            session_.load(options_.save);
+            TraversalSession copy;
+            copy.restore(session_.serialize());
+            for (unsigned t = 0; t < 200; ++t) {
+                session_.advance(1);
+                copy.advance(1);
+                session_.validate();
+                copy.validate();
+                require(session_.serialize() == copy.serialize(),
+                        "community fresh-process continuation differs");
+            }
+            require(session_.serialize() == read_snapshot_bytes(std::filesystem::path{
+                                                options_.save.wstring() + L".expected.save"}),
+                    "fresh community process differs from original continuation");
+            require(session_.actors()[1].delivery->delivered > 0 &&
+                        session_.stations()[1].completed > 0,
+                    "integrated continuation did not deliver food and feed residents");
+            log_ << "community_resume=pass\n";
+        } else {
+            session_.advance(12);
+            SendMessageW(window_, WM_KEYDOWN, VK_F8, 0);
+            require(!session_.passages()[0].open && !session_.actors()[1].passage_beliefs[0],
+                    "community closure leaked truth");
+            log_ << "community_passage=pass\n";
+            SendMessageW(window_, WM_KEYDOWN, VK_F4, 0);
+            require(session_.incidents().size() == 1 && session_.actors()[4].testimonies.empty(),
+                    "community physical theft lost witness separation");
+            SendMessageW(window_, WM_KEYDOWN, VK_F7, 0);
+            require(session_.actors()[3].beliefs[2] &&
+                        session_.actors()[3].beliefs[2]->source_actor == session_.actors()[0].id,
+                    "community F7 did not physically share stock observation");
+            log_ << "community_share=pass\n";
+            session_.advance(1);
+            require(!session_.legal_service_allowed(0, 2),
+                    "community custodian did not receive local report");
+            SendMessageW(window_, WM_KEYDOWN, 'R', 0);
+            require(session_.actors()[0].action.value == 0, "community legal refusal failed");
+            SendMessageW(window_, WM_KEYDOWN, VK_F4, 0);
+            session_.advance(1);
+            require(session_.incidents()[0].returned == 4 && session_.legal_service_allowed(0, 2),
+                    "community restitution did not reach custodian");
+            log_ << "community_law=pass\n";
+            SendMessageW(window_, WM_KEYDOWN, 'R', 0);
+            require(session_.actors()[0].action.value != 0,
+                    "community settled player could not help");
+            session_.advance(226);
+            session_.validate();
+            require(session_.stations()[2].completed >= 2 && session_.stations()[3].completed > 0,
+                    "community did not complete work and rest");
+            session_.save(options_.save);
+            auto expected = session_;
+            expected.advance(200);
+            expected.validate();
+            expected.save(std::filesystem::path{options_.save.wstring() + L".expected.save"});
+            log_ << "community_work=pass\n";
+        }
+        panel();
+        std::wstring status(static_cast<std::size_t>(GetWindowTextLengthW(status_)) + 1, L'\0');
+        GetWindowTextW(status_, status.data(), static_cast<int>(status.size()));
+        require(status.find(L"M04") != std::wstring::npos &&
+                    status.find(L"Posiłki:") != std::wstring::npos &&
+                    status.find(L"Obsługa podróżnego:") != std::wstring::npos,
+                "community panel lost visible consequences");
+        draw();
+        require(renderer_->capture(options_.capture) > 1000, "community GPU image empty");
+        renderer_->check_diagnostics();
+        log_ << "community_panel=pass\n" << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
+    }
     void law_smoke() {
         if (options_.resume) {
             session_.load(options_.save);
@@ -949,6 +1052,10 @@ class TraversalWindow final {
         log_ << "law_inspector=pass\n" << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
     void smoke() {
+        if (options_.community) {
+            community_smoke();
+            return;
+        }
         if (options_.law) {
             law_smoke();
             return;

@@ -1,0 +1,34 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 10: community.native_diagnostics
+1/1 Test #10: community.native_diagnostics .....***Failed   18.39 sec
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_community_native.py", line 54, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tools\test_community_native.py", line 50, in main
+    check(args.exe.resolve(), pathlib.Path(directory))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\test_community_native.py", line 27, in check
+    first = run("community")
+  File "C:\Users\Marcin\Documents\new\tools\test_community_native.py", line 18, in run
+    result = subprocess.run(command, startupinfo=startup, timeout=18, check=False)
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1238, in communicate
+    sts = self.wait(timeout=self._remaining_time(endtime))
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1274, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1603, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\Debug\\reality_traversal.exe', '--community', '--smoke-test', '--gpu-debug', '--report', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-community-auqw7yta\\community.log', '--save', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-community-auqw7yta\\community.save', '--capture', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-community-auqw7yta\\community.png']' timed out after 17.9999955999956 seconds
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =  18.41 sec
+
+The following tests FAILED:
+	 10 - community.native_diagnostics (Failed)
+Errors while running CTest
