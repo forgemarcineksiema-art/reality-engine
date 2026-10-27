@@ -1,0 +1,32 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: delivery.actual
+1/9 Test #1: delivery.actual ..................   Passed    1.01 sec
+    Start 2: delivery.completed
+2/9 Test #2: delivery.completed ...............   Passed    0.04 sec
+    Start 3: delivery.local_and_cancel
+3/9 Test #3: delivery.local_and_cancel ........   Passed    0.02 sec
+    Start 4: delivery.persistence
+4/9 Test #4: delivery.persistence .............   Passed    0.07 sec
+    Start 5: delivery.needs
+5/9 Test #5: delivery.needs ...................   Passed    0.04 sec
+    Start 6: delivery.manual
+6/9 Test #6: delivery.manual ..................   Passed    0.03 sec
+    Start 7: delivery.no_recycling
+7/9 Test #7: delivery.no_recycling ............***Failed    0.03 sec
+FAIL courier can recycle destination stock as newly sourced delivery
+
+    Start 8: delivery.wrong_station
+8/9 Test #8: delivery.wrong_station ...........***Failed    0.02 sec
+FAIL active order loaded from an unassigned origin
+
+    Start 9: delivery.corruption
+9/9 Test #9: delivery.corruption ..............   Passed    0.02 sec
+
+78% tests passed, 2 tests failed out of 9
+
+Total Test time (real) =   1.38 sec
+
+The following tests FAILED:
+	  7 - delivery.no_recycling (Failed)
+	  8 - delivery.wrong_station (Failed)
+Errors while running CTest

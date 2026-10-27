@@ -1,0 +1,19 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: traversal.diagnostics_progress
+1/7 Test #1: traversal.diagnostics_progress .........   Passed    0.04 sec
+    Start 2: traversal.diagnostics_waiting
+2/7 Test #2: traversal.diagnostics_waiting ..........   Passed    0.26 sec
+    Start 3: traversal.diagnostics_reset
+3/7 Test #3: traversal.diagnostics_reset ............   Passed    0.02 sec
+    Start 4: traversal.diagnostics_snapshot
+4/7 Test #4: traversal.diagnostics_snapshot .........   Passed    0.05 sec
+    Start 5: traversal.diagnostics_timings
+5/7 Test #5: traversal.diagnostics_timings ..........   Passed    0.01 sec
+    Start 6: traversal.diagnostics_invalid_sample
+6/7 Test #6: traversal.diagnostics_invalid_sample ...   Passed    0.01 sec
+    Start 7: traversal.native_diagnostics
+7/7 Test #7: traversal.native_diagnostics ...........   Passed    5.29 sec
+
+100% tests passed out of 7
+
+Total Test time (real) =   5.74 sec

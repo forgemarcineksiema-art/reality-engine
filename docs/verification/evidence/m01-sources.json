@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "date": "2026-10-25",
+  "milestone": "M01",
+  "files": [
+    {
+      "path": ".clang-format",
+      "sha256": "281a2c66a5cc300ec0d50a69fccd4c24bd3f63e59160d790ee8b814c45f5e34c"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "383426e4a588982057474d39eb42bfaf9ea025d34865853dec048864a58ecf15"
+    },
+    {
+      "path": "CMakePresets.json",
+      "sha256": "3a4446992afc196d994525e4db71eb46f3ad973558fb3594f7234d29bc05ff53"
+    },
+    {
+      "path": "src/core/entity_registry.cpp",
+      "sha256": "7b34fc68ba9b3e9c2da4d76eb2d3ba9ef7b43b17e1aa89be517a2d30074000ae"
+    },
+    {
+      "path": "src/core/entity_registry.hpp",
+      "sha256": "6e97182fe992a3f08aa8bf903e90f321bebcc3e165b155d77efce057ab776cd6"
+    },
+    {
+      "path": "src/core/simulation_clock.cpp",
+      "sha256": "ea6a901ea82673ea0ec566e87fd4d167f27a6d6ddf2075e60ff4dbe063072b1b"
+    },
+    {
+      "path": "src/core/simulation_clock.hpp",
+      "sha256": "716612178b078902c6faff469c22babb4cb3d4c8b1ee4152fc914962e5ee9945"
+    },
+    {
+      "path": "src/headless/main.cpp",
+      "sha256": "ec5308f683057984413282d21b4ebcb3b7f6188196b3859485e51970879b7203"
+    },
+    {
+      "path": "src/headless/work_demo.cpp",
+      "sha256": "84d6554724f1f00cf635c5fffe34ae1457893f2d7f576f07e947cf775c9fe9cf"
+    },
+    {
+      "path": "src/persistence/world_snapshot.cpp",
+      "sha256": "c4b000157a20a4358b1abaebf97f0986df17942bec959e439d48f080af04a9c5"
+    },
+    {
+      "path": "src/persistence/world_snapshot.hpp",
+      "sha256": "2ad8d840b66e8c08825e76cdb5e99ef3dc892f5f91ee0e91a7efa4d7354574e1"
+    },
+    {
+      "path": "src/simulation/work_world.cpp",
+      "sha256": "eb51e939e6b0b8d384325cf003f4cfad9f16875652138d040e20310f728f2136"
+    },
+    {
+      "path": "src/simulation/work_world.hpp",
+      "sha256": "89765ed1e36f5f5c766c1907e16fd581006c2be4dc00bf54a479d42a8fbe0c74"
+    },
+    {
+      "path": "tests/clock_tests.cpp",
+      "sha256": "d6e94874bd9d2674c65d049997b5cf9df48cd995a32dca17c83a51a5e4af06f3"
+    },
+    {
+      "path": "tests/diagnostics/asan_probe.cpp",
+      "sha256": "ce2490b6cf65df6e8e9c31dce142453774c6a3529e08009d39dbd4fd69ab8887"
+    },
+    {
+      "path": "tests/work_demo_integration.py",
+      "sha256": "0fe25cd8a9846ad47a6e13c4c97cf5a776ebe57d93810aa95ddab0c2bd9b9c3a"
+    },
+    {
+      "path": "tests/work_world_tests.cpp",
+      "sha256": "ca01b229d5801b0257fc33d23710ae63ae77933a392129ca9f01b5540559d10d"
+    },
+    {
+      "path": "tools/check_docs.py",
+      "sha256": "3edaeff7b287ab8360c995fe9d882b17bd755240c688f38cbd07e55c5df28385"
+    },
+    {
+      "path": "tools/expect_process.py",
+      "sha256": "96f52b68e49e174a4e05323b595c18a37ce3f449f8c1fa598a71b6edc9f18fe7"
+    },
+    {
+      "path": "tools/tests/test_check_docs.py",
+      "sha256": "7c74005aa04573c0afaa961b9d03e5e05705270610cd0466ea4267d06141cbbe"
+    },
+    {
+      "path": "tools/tests/test_expect_process.py",
+      "sha256": "fc3a0af60c0b7e74bdc06203ad5ab19126db5e389fa971f261f8850bf05e8787"
+    }
+  ]
+}

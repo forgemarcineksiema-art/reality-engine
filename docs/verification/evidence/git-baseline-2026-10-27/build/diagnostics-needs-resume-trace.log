@@ -1,0 +1,18 @@
+task_change tick=1700 task=0 x=0.72375 hunger=0 energy=0
+task_change tick=1711 task=2 x=0.723125 hunger=11 energy=0
+task_change tick=1799 task=0 x=0.363508 hunger=99 energy=1000
+task_change tick=1810 task=3 x=0.363508 hunger=110 energy=1000
+task_change tick=2450 task=1 x=94.1742 hunger=750 energy=367
+task_change tick=3375 task=0 x=0.72375 hunger=0 energy=0
+task_change tick=3386 task=2 x=0.723125 hunger=11 energy=0
+task_change tick=3474 task=0 x=0.363511 hunger=99 energy=1000
+task_change tick=3485 task=3 x=0.363511 hunger=110 energy=1000
+task_change tick=4125 task=1 x=94.1743 hunger=750 energy=367
+tick=4780 actors=1
+actor=1 surface=1 feet=22.606,0.000,0.824 speed=1.950 accel=-0.000 yaw=-1.563 state=1 auto=1 task=1 hunger=1000 energy=0 plans=10 leg=0/1 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=1 local=0.720,1.000 reach=0.900
+  route=found retry_at=3529
+station=2 kind=3 stock=80 completed=0 wear=1000
+station=3 kind=1 stock=78 completed=2 wear=500
+station=4 kind=2 capacity=1 occupied=0 available=1 completed=2 wear=500
+FAIL interrupted maintenance failed to resume and complete after actual need satisfaction

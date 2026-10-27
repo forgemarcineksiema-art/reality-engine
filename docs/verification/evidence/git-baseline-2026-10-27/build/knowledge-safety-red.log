@@ -1,0 +1,13 @@
+tick=138 actors=2
+actor=1 surface=1 feet=-1.800,0.000,1.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=138 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_station=1 available=0 wear=530 source_actor=1 via_actor=1 observed_tick=30 learned_tick=30
+actor=2 surface=2 feet=3.211,0.000,-0.000 speed=0.254 accel=3.901 yaw=1.571 state=1 auto=1 task=1 hunger=438 energy=917 plans=1 leg=2/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=1 available=0 wear=530 source_actor=1 via_actor=1 observed_tick=30 learned_tick=30
+  goal_surface=2 local=9.280,0.000 reach=0.900
+  route=found retry_at=0
+platform=3 phase=32 dock=1 blocked=0
+station=3 kind=3 stock=0 completed=0 wear=638
+station=4 kind=1 stock=5 completed=0 wear=500
+service=1 owner=0 queue=0
+FAIL empty report was lost after protected motion completed

@@ -1,0 +1,31 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: traversal.course
+1/7 Test #1: traversal.course .................   Passed    4.55 sec
+    Start 2: traversal.walk
+2/7 Test #2: traversal.walk ...................   Passed    1.17 sec
+    Start 3: traversal.ramp
+3/7 Test #3: traversal.ramp ...................***Failed    0.34 sec
+FAIL slope exceeds physical speed limit
+
+    Start 4: traversal.step
+4/7 Test #4: traversal.step ...................   Passed    2.61 sec
+    Start 5: traversal.rider
+5/7 Test #5: traversal.rider ..................   Passed    0.38 sec
+    Start 6: traversal.autonomy
+6/7 Test #6: traversal.autonomy ...............   Passed    1.34 sec
+    Start 7: traversal.occupied_goal
+7/7 Test #7: traversal.occupied_goal ..........***Failed    3.69 sec
+tick=360 actors=2
+actor=1 surface=1 feet=2.583,0.000,0.697 speed=0.101 accel=-1.629 yaw=0.008 state=1 auto=0 task=0 hunger=360 energy=733 plans=2 leg=0/1 transfer=0 action=0
+actor=2 surface=1 feet=3.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=360 energy=1000 plans=0 leg=0/0 transfer=0 action=0
+FAIL explicit approach failed
+
+
+71% tests passed, 2 tests failed out of 7
+
+Total Test time (real) =  14.22 sec
+
+The following tests FAILED:
+	  3 - traversal.ramp (Failed)
+	  7 - traversal.occupied_goal (Failed)
+Errors while running CTest

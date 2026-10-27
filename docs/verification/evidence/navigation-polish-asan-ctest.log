@@ -1,0 +1,139 @@
+Test project C:/Users/Marcin/Documents/new/build/asan
+      Start  1: motion.sweep
+ 1/67 Test  #1: motion.sweep ...........................   Passed    0.18 sec
+      Start  2: motion.corners
+ 2/67 Test  #2: motion.corners .........................   Passed    0.10 sec
+      Start  3: motion.size_height
+ 3/67 Test  #3: motion.size_height .....................   Passed    0.10 sec
+      Start  4: motion.invalid_data
+ 4/67 Test  #4: motion.invalid_data ....................   Passed    0.10 sec
+      Start  5: motion.route_oracle
+ 5/67 Test  #5: motion.route_oracle ....................   Passed    0.12 sec
+      Start  6: motion.route_failures
+ 6/67 Test  #6: motion.route_failures ..................   Passed    0.13 sec
+      Start  7: motion.route_stamps
+ 7/67 Test  #7: motion.route_stamps ....................   Passed    0.11 sec
+      Start  8: motion.detour_wait
+ 8/67 Test  #8: motion.detour_wait .....................   Passed    0.16 sec
+      Start  9: motion.gate_occupancy
+ 9/67 Test  #9: motion.gate_occupancy ..................   Passed    0.11 sec
+      Start 10: motion.input_collision
+10/67 Test #10: motion.input_collision .................   Passed    0.13 sec
+      Start 11: motion.persistence
+11/67 Test #11: motion.persistence .....................   Passed    0.14 sec
+      Start 12: motion.partition
+12/67 Test #12: motion.partition .......................   Passed    0.13 sec
+      Start 13: motion.waiting_continuation
+13/67 Test #13: motion.waiting_continuation ............   Passed    0.12 sec
+      Start 14: motion.direct_goal
+14/67 Test #14: motion.direct_goal .....................   Passed    0.11 sec
+      Start 15: motion.retarget
+15/67 Test #15: motion.retarget ........................   Passed    0.11 sec
+      Start 16: motion.replan_forward
+16/67 Test #16: motion.replan_forward ..................   Passed    0.09 sec
+      Start 17: motion.arrival_stability
+17/67 Test #17: motion.arrival_stability ...............   Passed    0.11 sec
+      Start 18: motion.shortcut_geometry
+18/67 Test #18: motion.shortcut_geometry ...............   Passed    0.10 sec
+      Start 19: motion.retarget_continuation
+19/67 Test #19: motion.retarget_continuation ...........   Passed    0.12 sec
+      Start 20: motion.hardware_gpu_continuation
+20/67 Test #20: motion.hardware_gpu_continuation .......   Passed    8.03 sec
+      Start 21: lab.model_and_presentation
+21/67 Test #21: lab.model_and_presentation .............   Passed    0.19 sec
+      Start 22: lab.hardware_gpu_integration
+22/67 Test #22: lab.hardware_gpu_integration ...........   Passed    2.97 sec
+      Start 23: lab.hardware_gpu_standard
+23/67 Test #23: lab.hardware_gpu_standard ..............   Passed    2.82 sec
+      Start 24: work.stale_handle
+24/67 Test #24: work.stale_handle ......................   Passed    0.13 sec
+      Start 25: work.registry_exhaustion
+25/67 Test #25: work.registry_exhaustion ...............   Passed    0.11 sec
+      Start 26: work.registry_validation
+26/67 Test #26: work.registry_validation ...............   Passed    0.10 sec
+      Start 27: work.reservation_contention
+27/67 Test #27: work.reservation_contention ............   Passed    0.13 sec
+      Start 28: work.command_retries
+28/67 Test #28: work.command_retries ...................   Passed    0.12 sec
+      Start 29: work.cancel_before_start
+29/67 Test #29: work.cancel_before_start ...............   Passed    0.10 sec
+      Start 30: work.partial_cancellation
+30/67 Test #30: work.partial_cancellation ..............   Passed    0.10 sec
+      Start 31: work.completion_once
+31/67 Test #31: work.completion_once ...................   Passed    0.10 sec
+      Start 32: work.participant_removal
+32/67 Test #32: work.participant_removal ...............   Passed    0.10 sec
+      Start 33: work.invalid_requests
+33/67 Test #33: work.invalid_requests ..................   Passed    0.11 sec
+      Start 34: work.time_overflow
+34/67 Test #34: work.time_overflow .....................   Passed    0.12 sec
+      Start 35: work.snapshot_continuation
+35/67 Test #35: work.snapshot_continuation .............   Passed    0.12 sec
+      Start 36: work.snapshot_history
+36/67 Test #36: work.snapshot_history ..................   Passed    0.10 sec
+      Start 37: work.snapshot_rejection
+37/67 Test #37: work.snapshot_rejection ................   Passed    0.11 sec
+      Start 38: work.snapshot_semantics
+38/67 Test #38: work.snapshot_semantics ................   Passed    0.12 sec
+      Start 39: work.snapshot_journal
+39/67 Test #39: work.snapshot_journal ..................   Passed    0.11 sec
+      Start 40: work.save_replacement
+40/67 Test #40: work.save_replacement ..................   Passed    0.14 sec
+      Start 41: work.record_limit
+41/67 Test #41: work.record_limit ......................   Passed    0.46 sec
+      Start 42: work.event_capacity
+42/67 Test #42: work.event_capacity ....................   Passed    2.55 sec
+      Start 43: work.batch_ordering
+43/67 Test #43: work.batch_ordering ....................   Passed    0.09 sec
+      Start 44: work.operation_sequence
+44/67 Test #44: work.operation_sequence ................   Passed    2.94 sec
+      Start 45: work.fresh_process_continuation
+45/67 Test #45: work.fresh_process_continuation ........   Passed    1.04 sec
+      Start 46: clock.initial_state
+46/67 Test #46: clock.initial_state ....................   Passed    0.10 sec
+      Start 47: clock.reject_zero_step
+47/67 Test #47: clock.reject_zero_step .................   Passed    0.09 sec
+      Start 48: clock.reject_negative_step
+48/67 Test #48: clock.reject_negative_step .............   Passed    0.10 sec
+      Start 49: clock.exact_elapsed_time
+49/67 Test #49: clock.exact_elapsed_time ...............   Passed    0.09 sec
+      Start 50: clock.batch_equivalence
+50/67 Test #50: clock.batch_equivalence ................   Passed    0.09 sec
+      Start 51: clock.zero_batch
+51/67 Test #51: clock.zero_batch .......................   Passed    0.10 sec
+      Start 52: clock.overflow_preserves_state
+52/67 Test #52: clock.overflow_preserves_state .........   Passed    0.11 sec
+      Start 53: clock.reject_large_batch
+53/67 Test #53: clock.reject_large_batch ...............   Passed    0.10 sec
+      Start 54: work_runner.rejects_failed_assertion
+54/67 Test #54: work_runner.rejects_failed_assertion ...   Passed    0.42 sec
+      Start 55: work_runner.rejects_unknown_case
+55/67 Test #55: work_runner.rejects_unknown_case .......   Passed    0.41 sec
+      Start 56: runner.rejects_failed_assertion
+56/67 Test #56: runner.rejects_failed_assertion ........   Passed    0.41 sec
+      Start 57: runner.rejects_unknown_case
+57/67 Test #57: runner.rejects_unknown_case ............   Passed    0.51 sec
+      Start 58: runner.rejects_empty_suite
+58/67 Test #58: runner.rejects_empty_suite .............   Passed    0.63 sec
+      Start 59: headless.default
+59/67 Test #59: headless.default .......................   Passed    0.72 sec
+      Start 60: headless.zero_steps
+60/67 Test #60: headless.zero_steps ....................   Passed    0.64 sec
+      Start 61: headless.rejects_zero_step
+61/67 Test #61: headless.rejects_zero_step .............   Passed    0.60 sec
+      Start 62: headless.rejects_malformed_steps
+62/67 Test #62: headless.rejects_malformed_steps .......   Passed    0.60 sec
+      Start 63: headless.rejects_overflow
+63/67 Test #63: headless.rejects_overflow ..............   Passed    0.46 sec
+      Start 64: documentation.registry
+64/67 Test #64: documentation.registry .................   Passed    1.07 sec
+      Start 65: tooling.tests
+65/67 Test #65: tooling.tests ..........................   Passed    4.81 sec
+      Start 66: diagnostics.clean_fixture
+66/67 Test #66: diagnostics.clean_fixture ..............   Passed    0.31 sec
+      Start 67: diagnostics.detects_heap_overflow
+67/67 Test #67: diagnostics.detects_heap_overflow ......   Passed    0.43 sec
+
+100% tests passed out of 67
+
+Total Test time (real) =  38.47 sec

@@ -1,0 +1,235 @@
+Test project C:/Users/Marcin/Documents/new/build/asan
+      Start  1: adversarial.wall_retarget
+ 1/80 Test  #1: adversarial.wall_retarget ..............   Passed    0.13 sec
+      Start  2: adversarial.wall_goal
+ 2/80 Test  #2: adversarial.wall_goal ..................   Passed    0.07 sec
+      Start  3: adversarial.stationary_blocker
+ 3/80 Test  #3: adversarial.stationary_blocker .........   Passed    0.08 sec
+      Start  4: adversarial.extreme_span
+ 4/80 Test  #4: adversarial.extreme_span ...............   Passed    0.07 sec
+      Start  5: adversarial.interpolation
+ 5/80 Test  #5: adversarial.interpolation ..............   Passed    0.07 sec
+      Start  6: adversarial.corner_image
+ 6/80 Test  #6: adversarial.corner_image ...............   Passed    0.08 sec
+      Start  7: adversarial.rapid_targets
+ 7/80 Test  #7: adversarial.rapid_targets ..............   Passed    0.61 sec
+      Start  8: adversarial.passing
+ 8/80 Test  #8: adversarial.passing ....................   Passed    1.59 sec
+      Start  9: adversarial.goal_swap
+ 9/80 Test  #9: adversarial.goal_swap ..................   Passed    2.16 sec
+      Start 10: adversarial.collision_sequences
+10/80 Test #10: adversarial.collision_sequences ........   Passed    0.29 sec
+      Start 11: adversarial.input_limits
+11/80 Test #11: adversarial.input_limits ...............   Passed    0.13 sec
+      Start 12: adversarial.legacy_endpoint
+12/80 Test #12: adversarial.legacy_endpoint ............   Passed    0.24 sec
+      Start 13: adversarial.contact_rounding
+13/80 Test #13: adversarial.contact_rounding ...........   Passed    0.27 sec
+      Start 14: motion.sweep
+14/80 Test #14: motion.sweep ...........................   Passed    0.47 sec
+      Start 15: motion.corners
+15/80 Test #15: motion.corners .........................   Passed    0.42 sec
+      Start 16: motion.size_height
+16/80 Test #16: motion.size_height .....................   Passed    0.13 sec
+      Start 17: motion.invalid_data
+17/80 Test #17: motion.invalid_data ....................   Passed    0.12 sec
+      Start 18: motion.route_oracle
+18/80 Test #18: motion.route_oracle ....................   Passed    0.23 sec
+      Start 19: motion.route_failures
+19/80 Test #19: motion.route_failures ..................   Passed    0.24 sec
+      Start 20: motion.route_stamps
+20/80 Test #20: motion.route_stamps ....................   Passed    0.22 sec
+      Start 21: motion.detour_wait
+21/80 Test #21: motion.detour_wait .....................   Passed    0.25 sec
+      Start 22: motion.gate_occupancy
+22/80 Test #22: motion.gate_occupancy ..................   Passed    0.20 sec
+      Start 23: motion.input_collision
+23/80 Test #23: motion.input_collision .................   Passed    0.26 sec
+      Start 24: motion.persistence
+24/80 Test #24: motion.persistence .....................   Passed    0.37 sec
+      Start 25: motion.partition
+25/80 Test #25: motion.partition .......................   Passed    0.36 sec
+      Start 26: motion.waiting_continuation
+26/80 Test #26: motion.waiting_continuation ............   Passed    0.36 sec
+      Start 27: motion.direct_goal
+27/80 Test #27: motion.direct_goal .....................   Passed    0.13 sec
+      Start 28: motion.retarget
+28/80 Test #28: motion.retarget ........................   Passed    0.13 sec
+      Start 29: motion.replan_forward
+29/80 Test #29: motion.replan_forward ..................   Passed    0.20 sec
+      Start 30: motion.arrival_stability
+30/80 Test #30: motion.arrival_stability ...............   Passed    0.25 sec
+      Start 31: motion.shortcut_geometry
+31/80 Test #31: motion.shortcut_geometry ...............   Passed    0.24 sec
+      Start 32: motion.retarget_continuation
+32/80 Test #32: motion.retarget_continuation ...........   Passed    0.26 sec
+      Start 33: motion.hardware_gpu_continuation
+33/80 Test #33: motion.hardware_gpu_continuation .......***Timeout  20.12 sec
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=784x761
+capture=motion.png.before.png colored_pixels=162908
+scene_selection=1
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Rezerwacja: accepted
+feedback=Wykonano zmianę czynności.
+feedback=Cel: Ruch do celu.
+capture=motion.png.interpolated.png colored_pixels=162908
+interpolation_sample previous_x=-2.97862 halfway_x=-2.9044 current_x=-2.83018
+feedback=Zmieniono geometrię; trasy wymagają aktualizacji.
+feedback=Zapisano świat: podróż.save
+feedback=Wczytano świat. Symulacja zatrzymana.
+continuation_checksum=8654590736095958524
+resize=624x721
+minimized=1 tick=370
+restored=1 tick=370
+capture=motion.png colored_pixels=143764
+geometry=2 main=1 detour=0
+actor=1 x=7.00 z=0.00 arrived waypoint=4/4 plans=2
+actor=2 x=-7.00 z=-4.00 idle waypoint=0/0 plans=0
+MOTION SMOKE PASS
+normal_shutdown=1
+
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=784x761
+capture=resume.png.before.png colored_pixels=162908
+continuation_checksum=8654590736095958524
+resize=624x721
+minimized=1 tick=370
+restored=1 tick=370
+capture=resume.png colored_pixels=143764
+geometry=2 main=1 detour=0
+actor=1 x=7.00 z=0.00 arrived waypoint=4/4 plans=2
+actor=2 x=-7.00 z=-4.00 idle waypoint=0/0 plans=0
+MOTION SMOKE PASS
+normal_shutdown=1
+
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=784x761
+capture=legacy.png.before.png colored_pixels=162908
+continuation_checksum=2521746865868298419
+resize=624x721
+minimized=1 tick=370
+restored=1 tick=370
+capture=legacy.png colored_pixels=143764
+geometry=2 main=1 detour=0
+actor=1 x=7.00 z=0.00 arrived waypoint=4/4 plans=2
+actor=2 x=-7.00 z=-4.00 idle waypoint=0/0 plans=0
+MOTION SMOKE PASS
+normal_shutdown=1
+
+PASS hardware motion, native keys/picking/focus, resize, fresh-process travel and work
+PASS pre-polish version-1 in-flight snapshot, identities, clock and completed work
+
+      Start 34: lab.model_and_presentation
+34/80 Test #34: lab.model_and_presentation .............   Passed    0.58 sec
+      Start 35: lab.hardware_gpu_integration
+35/80 Test #35: lab.hardware_gpu_integration ...........   Passed    8.07 sec
+      Start 36: lab.hardware_gpu_standard
+36/80 Test #36: lab.hardware_gpu_standard ..............   Passed    6.47 sec
+      Start 37: work.stale_handle
+37/80 Test #37: work.stale_handle ......................   Passed    0.20 sec
+      Start 38: work.registry_exhaustion
+38/80 Test #38: work.registry_exhaustion ...............   Passed    0.16 sec
+      Start 39: work.registry_validation
+39/80 Test #39: work.registry_validation ...............   Passed    0.21 sec
+      Start 40: work.reservation_contention
+40/80 Test #40: work.reservation_contention ............   Passed    0.23 sec
+      Start 41: work.command_retries
+41/80 Test #41: work.command_retries ...................   Passed    0.17 sec
+      Start 42: work.cancel_before_start
+42/80 Test #42: work.cancel_before_start ...............   Passed    0.24 sec
+      Start 43: work.partial_cancellation
+43/80 Test #43: work.partial_cancellation ..............   Passed    0.22 sec
+      Start 44: work.completion_once
+44/80 Test #44: work.completion_once ...................   Passed    0.15 sec
+      Start 45: work.participant_removal
+45/80 Test #45: work.participant_removal ...............   Passed    0.19 sec
+      Start 46: work.invalid_requests
+46/80 Test #46: work.invalid_requests ..................   Passed    0.24 sec
+      Start 47: work.time_overflow
+47/80 Test #47: work.time_overflow .....................   Passed    0.27 sec
+      Start 48: work.snapshot_continuation
+48/80 Test #48: work.snapshot_continuation .............   Passed    0.29 sec
+      Start 49: work.snapshot_history
+49/80 Test #49: work.snapshot_history ..................   Passed    0.19 sec
+      Start 50: work.snapshot_rejection
+50/80 Test #50: work.snapshot_rejection ................   Passed    0.19 sec
+      Start 51: work.snapshot_semantics
+51/80 Test #51: work.snapshot_semantics ................   Passed    0.26 sec
+      Start 52: work.snapshot_journal
+52/80 Test #52: work.snapshot_journal ..................   Passed    0.23 sec
+      Start 53: work.save_replacement
+53/80 Test #53: work.save_replacement ..................   Passed    0.19 sec
+      Start 54: work.record_limit
+54/80 Test #54: work.record_limit ......................   Passed    0.95 sec
+      Start 55: work.event_capacity
+55/80 Test #55: work.event_capacity ....................   Passed    5.73 sec
+      Start 56: work.batch_ordering
+56/80 Test #56: work.batch_ordering ....................   Passed    0.21 sec
+      Start 57: work.operation_sequence
+57/80 Test #57: work.operation_sequence ................   Passed    7.40 sec
+      Start 58: work.fresh_process_continuation
+58/80 Test #58: work.fresh_process_continuation ........   Passed    2.17 sec
+      Start 59: clock.initial_state
+59/80 Test #59: clock.initial_state ....................   Passed    0.53 sec
+      Start 60: clock.reject_zero_step
+60/80 Test #60: clock.reject_zero_step .................   Passed    0.41 sec
+      Start 61: clock.reject_negative_step
+61/80 Test #61: clock.reject_negative_step .............   Passed    0.11 sec
+      Start 62: clock.exact_elapsed_time
+62/80 Test #62: clock.exact_elapsed_time ...............   Passed    0.08 sec
+      Start 63: clock.batch_equivalence
+63/80 Test #63: clock.batch_equivalence ................   Passed    0.10 sec
+      Start 64: clock.zero_batch
+64/80 Test #64: clock.zero_batch .......................   Passed    0.11 sec
+      Start 65: clock.overflow_preserves_state
+65/80 Test #65: clock.overflow_preserves_state .........   Passed    0.15 sec
+      Start 66: clock.reject_large_batch
+66/80 Test #66: clock.reject_large_batch ...............   Passed    0.21 sec
+      Start 67: work_runner.rejects_failed_assertion
+67/80 Test #67: work_runner.rejects_failed_assertion ...   Passed    1.03 sec
+      Start 68: work_runner.rejects_unknown_case
+68/80 Test #68: work_runner.rejects_unknown_case .......   Passed    1.52 sec
+      Start 69: runner.rejects_failed_assertion
+69/80 Test #69: runner.rejects_failed_assertion ........   Passed    0.89 sec
+      Start 70: runner.rejects_unknown_case
+70/80 Test #70: runner.rejects_unknown_case ............   Passed    0.62 sec
+      Start 71: runner.rejects_empty_suite
+71/80 Test #71: runner.rejects_empty_suite .............   Passed    1.75 sec
+      Start 72: headless.default
+72/80 Test #72: headless.default .......................   Passed    0.61 sec
+      Start 73: headless.zero_steps
+73/80 Test #73: headless.zero_steps ....................   Passed    0.95 sec
+      Start 74: headless.rejects_zero_step
+74/80 Test #74: headless.rejects_zero_step .............   Passed    1.72 sec
+      Start 75: headless.rejects_malformed_steps
+75/80 Test #75: headless.rejects_malformed_steps .......   Passed    0.99 sec
+      Start 76: headless.rejects_overflow
+76/80 Test #76: headless.rejects_overflow ..............   Passed    0.92 sec
+      Start 77: documentation.registry
+77/80 Test #77: documentation.registry .................   Passed    2.47 sec
+      Start 78: tooling.tests
+78/80 Test #78: tooling.tests ..........................   Passed   13.30 sec
+      Start 79: diagnostics.clean_fixture
+79/80 Test #79: diagnostics.clean_fixture ..............   Passed    0.87 sec
+      Start 80: diagnostics.detects_heap_overflow
+80/80 Test #80: diagnostics.detects_heap_overflow ......   Passed    0.75 sec
+
+99% tests passed, 1 tests failed out of 80
+
+Total Test time (real) =  96.91 sec
+
+The following tests FAILED:
+	 33 - motion.hardware_gpu_continuation (Timeout)
+Errors while running CTest

@@ -1,0 +1,17 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start  1: traversal.narrow_bridge_opposite
+1/6 Test  #1: traversal.narrow_bridge_opposite ...   Passed    2.60 sec
+    Start  2: traversal.ferry_exchange
+2/6 Test  #2: traversal.ferry_exchange ...........   Passed    2.33 sec
+    Start  7: traversal.crowd_passing
+3/6 Test  #7: traversal.crowd_passing ............   Passed    1.00 sec
+    Start 12: traversal.collinear_rest
+4/6 Test #12: traversal.collinear_rest ...........   Passed    0.38 sec
+    Start 18: traversal.blocked_route_settling
+5/6 Test #18: traversal.blocked_route_settling ...   Passed    0.71 sec
+    Start 19: traversal.occupied_queue_parking
+6/6 Test #19: traversal.occupied_queue_parking ...   Passed    1.86 sec
+
+100% tests passed out of 6
+
+Total Test time (real) =   8.96 sec

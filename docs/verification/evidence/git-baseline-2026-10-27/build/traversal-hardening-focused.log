@@ -1,0 +1,65 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.course
+ 1/30 Test  #1: traversal.course ......................   Passed    0.35 sec
+      Start  2: traversal.walk
+ 2/30 Test  #2: traversal.walk ........................   Passed    0.13 sec
+      Start  3: traversal.ramp
+ 3/30 Test  #3: traversal.ramp ........................   Passed    0.13 sec
+      Start  4: traversal.step
+ 4/30 Test  #4: traversal.step ........................   Passed    0.20 sec
+      Start  5: traversal.rider
+ 5/30 Test  #5: traversal.rider .......................   Passed    0.08 sec
+      Start  6: traversal.autonomy
+ 6/30 Test  #6: traversal.autonomy ....................   Passed    0.19 sec
+      Start  7: traversal.occupied_goal
+ 7/30 Test  #7: traversal.occupied_goal ...............   Passed    0.32 sec
+      Start  8: traversal.transport
+ 8/30 Test  #8: traversal.transport ...................   Passed    0.57 sec
+      Start  9: traversal.supersede_pending_goal
+ 9/30 Test  #9: traversal.supersede_pending_goal ......   Passed    0.10 sec
+      Start 10: traversal.supersede_pending_stop
+10/30 Test #10: traversal.supersede_pending_stop ......   Passed    0.06 sec
+      Start 11: traversal.release_passage_ownership
+11/30 Test #11: traversal.release_passage_ownership ...   Passed    0.62 sec
+      Start 12: traversal.manual_touching_departure
+12/30 Test #12: traversal.manual_touching_departure ...   Passed    0.15 sec
+      Start 13: traversal.command_roundtrip
+13/30 Test #13: traversal.command_roundtrip ...........   Passed   10.17 sec
+      Start 14: traversal.support_coverage
+14/30 Test #14: traversal.support_coverage ............   Passed    0.17 sec
+      Start 15: spatial.ramp
+15/30 Test #15: spatial.ramp ..........................   Passed    0.15 sec
+      Start 16: spatial.rotated_sweep
+16/30 Test #16: spatial.rotated_sweep .................   Passed    0.06 sec
+      Start 17: spatial.levels
+17/30 Test #17: spatial.levels ........................   Passed    0.05 sec
+      Start 18: spatial.platform_volume
+18/30 Test #18: spatial.platform_volume ...............   Passed    0.05 sec
+      Start 19: spatial.solid_sat
+19/30 Test #19: spatial.solid_sat .....................   Passed    0.04 sec
+      Start 20: spatial.invalid_data
+20/30 Test #20: spatial.invalid_data ..................   Passed    0.04 sec
+      Start 21: spatial.surface_narrow
+21/30 Test #21: spatial.surface_narrow ................   Passed    0.04 sec
+      Start 22: spatial.surface_metric
+22/30 Test #22: spatial.surface_metric ................   Passed    0.11 sec
+      Start 23: spatial.surface_step
+23/30 Test #23: spatial.surface_step ..................   Passed    0.13 sec
+      Start 24: spatial.surface_budgets
+24/30 Test #24: spatial.surface_budgets ...............   Passed    0.11 sec
+      Start 25: spatial.sphere_sweep
+25/30 Test #25: spatial.sphere_sweep ..................   Passed    0.09 sec
+      Start 26: spatial.locomotion_envelopes
+26/30 Test #26: spatial.locomotion_envelopes ..........   Passed    0.06 sec
+      Start 27: spatial.locomotion_arrival
+27/30 Test #27: spatial.locomotion_arrival ............   Passed    0.12 sec
+      Start 28: spatial.locomotion_turn
+28/30 Test #28: spatial.locomotion_turn ...............   Passed    0.10 sec
+      Start 29: spatial.pair_paths
+29/30 Test #29: spatial.pair_paths ....................   Passed    0.09 sec
+      Start 30: spatial.unequal_capsules
+30/30 Test #30: spatial.unequal_capsules ..............   Passed    0.08 sec
+
+100% tests passed out of 30
+
+Total Test time (real) =  14.89 sec

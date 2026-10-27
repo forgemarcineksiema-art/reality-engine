@@ -1,0 +1,21 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: knowledge.no_global
+1/8 Test #1: knowledge.no_global ..............   Passed    0.19 sec
+    Start 2: knowledge.witness
+2/8 Test #2: knowledge.witness ................   Passed    0.05 sec
+    Start 3: knowledge.delivery
+3/8 Test #3: knowledge.delivery ...............   Passed    0.17 sec
+    Start 4: knowledge.persistence
+4/8 Test #4: knowledge.persistence ............   Passed    0.73 sec
+    Start 5: knowledge.stale
+5/8 Test #5: knowledge.stale ..................   Passed    0.20 sec
+    Start 6: knowledge.contact
+6/8 Test #6: knowledge.contact ................   Passed    0.05 sec
+    Start 7: knowledge.corruption
+7/8 Test #7: knowledge.corruption .............   Passed    0.10 sec
+    Start 8: knowledge.relay
+8/8 Test #8: knowledge.relay ..................   Passed    0.05 sec
+
+100% tests passed out of 8
+
+Total Test time (real) =   1.73 sec

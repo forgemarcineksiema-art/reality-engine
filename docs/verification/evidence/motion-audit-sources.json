@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "created_utc": "2026-10-25T18:49:41.5383273Z",
+  "files": [
+    {
+      "path": ".clang-format",
+      "sha256": "281a2c66a5cc300ec0d50a69fccd4c24bd3f63e59160d790ee8b814c45f5e34c"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "ad43cc2ac7434b076e733d0e9509f0fa25cec423afeae2e37a18a60af10f9404"
+    },
+    {
+      "path": "CMakePresets.json",
+      "sha256": "3a4446992afc196d994525e4db71eb46f3ad973558fb3594f7234d29bc05ff53"
+    },
+    {
+      "path": "src/core/entity_registry.cpp",
+      "sha256": "7b34fc68ba9b3e9c2da4d76eb2d3ba9ef7b43b17e1aa89be517a2d30074000ae"
+    },
+    {
+      "path": "src/core/entity_registry.hpp",
+      "sha256": "6e97182fe992a3f08aa8bf903e90f321bebcc3e165b155d77efce057ab776cd6"
+    },
+    {
+      "path": "src/core/simulation_clock.cpp",
+      "sha256": "ea6a901ea82673ea0ec566e87fd4d167f27a6d6ddf2075e60ff4dbe063072b1b"
+    },
+    {
+      "path": "src/core/simulation_clock.hpp",
+      "sha256": "716612178b078902c6faff469c22babb4cb3d4c8b1ee4152fc914962e5ee9945"
+    },
+    {
+      "path": "src/graphics/d3d11_renderer.cpp",
+      "sha256": "3299a784112c105dc0aa63d518982337dbdbbb104155a239ad41ebaa4b9c8c3d"
+    },
+    {
+      "path": "src/graphics/d3d11_renderer.hpp",
+      "sha256": "6d12040fe98fdd1e2e5a356ed5f64415088c5fa99d705c13b53181a6e15b09c0"
+    },
+    {
+      "path": "src/graphics/lab_scene.cpp",
+      "sha256": "77a284734d9d5a618e3fcadf234f3cd97ff2ade4b9da0ed2d7f25a08173ae9c2"
+    },
+    {
+      "path": "src/graphics/lab_scene.hpp",
+      "sha256": "313c8073deae645edc08b1ed3ab2c17ea2f25dd614f5c8280b87de325c4cbbe4"
+    },
+    {
+      "path": "src/headless/main.cpp",
+      "sha256": "ec5308f683057984413282d21b4ebcb3b7f6188196b3859485e51970879b7203"
+    },
+    {
+      "path": "src/headless/work_demo.cpp",
+      "sha256": "84d6554724f1f00cf635c5fffe34ae1457893f2d7f576f07e947cf775c9fe9cf"
+    },
+    {
+      "path": "src/lab/lab_session.cpp",
+      "sha256": "bccf01bcc80021ec4db03002a83232c376fb72bd6862bdf980012f8ae8a021d0"
+    },
+    {
+      "path": "src/lab/lab_session.hpp",
+      "sha256": "8e69353350ab19094ecaca43655dda13092e373f0b703fb52b4ab7454b44ab3e"
+    },
+    {
+      "path": "src/lab/motion_session.cpp",
+      "sha256": "3db1861fb91c5560d3c36b4769f7e06b721df8f5cd3de835bfa975e5ef7ce98a"
+    },
+    {
+      "path": "src/lab/motion_session.hpp",
+      "sha256": "27a243815e2dc69c3192293ad72b0109db7d4424cee766ee7456394e6e307bb8"
+    },
+    {
+      "path": "src/navigation/grid_navigation.cpp",
+      "sha256": "ca4b35b7958b591ab18e7a1e15f88346f1985509bd494a8c36d90081d5735488"
+    },
+    {
+      "path": "src/navigation/grid_navigation.hpp",
+      "sha256": "51757ff032fe6cf8150596f5e182d3c58e86ff1f7152983304bdfe32062e1a0f"
+    },
+    {
+      "path": "src/persistence/world_snapshot.cpp",
+      "sha256": "42fe48456277339c7035955209e21c8a2520b3a313394c7af5e2f5764fea46a8"
+    },
+    {
+      "path": "src/persistence/world_snapshot.hpp",
+      "sha256": "623726b95aaeaa3338f911819c0abf3602d76e1ae77f9f23d8aa03442c1494a0"
+    },
+    {
+      "path": "src/physics/kinematic.cpp",
+      "sha256": "2e59a1a982730c1c7a71ae13dc345da4a4812ef9fde3bd4ec7f3a7acc08e2e28"
+    },
+    {
+      "path": "src/physics/kinematic.hpp",
+      "sha256": "3789c955953317e4d5d02d1b0b60e5ca3b0c9be778ba7bf374ca2b927ed99e17"
+    },
+    {
+      "path": "src/platform/lab_main.cpp",
+      "sha256": "9abe7a6b2efb20fe5c5c66f66a3f5d7ad91b9056f4bd359f4b5c31fc32c44ce4"
+    },
+    {
+      "path": "src/simulation/work_world.cpp",
+      "sha256": "d236edc378a2d116d9d27c22d572a07d108191a3f71554bc1884ac8d18ecf2d3"
+    },
+    {
+      "path": "src/simulation/work_world.hpp",
+      "sha256": "76d12fa4df5da451cec77066db5b92e0ac5a74fb5e3c9eb0c65ac2ec375e861b"
+    },
+    {
+      "path": "tests/clock_tests.cpp",
+      "sha256": "d6e94874bd9d2674c65d049997b5cf9df48cd995a32dca17c83a51a5e4af06f3"
+    },
+    {
+      "path": "tests/data/m03-v1-inflight.save",
+      "sha256": "564495c65638d8a9099c8da7ea926e398b5bafd63989d560543c5b7de5486e3a"
+    },
+    {
+      "path": "tests/diagnostics/asan_probe.cpp",
+      "sha256": "ce2490b6cf65df6e8e9c31dce142453774c6a3529e08009d39dbd4fd69ab8887"
+    },
+    {
+      "path": "tests/lab_gpu_integration.py",
+      "sha256": "6842a0b7d403aaf683db4ebb58469a40c12e7f2281ec9b364db515f0648bdd11"
+    },
+    {
+      "path": "tests/lab_tests.cpp",
+      "sha256": "7290bab5aa278bd8f8d43c97c5aacf59b12800316a68e0ce9e554ac5affff4af"
+    },
+    {
+      "path": "tests/motion_adversarial_tests.cpp",
+      "sha256": "7186ff46a13ef6b6e92aba5abadcb2f969a5430046e3b73a9f8bcb5fccbd0c7d"
+    },
+    {
+      "path": "tests/motion_gpu_integration.py",
+      "sha256": "ced424d58e5945410176dee901dca2dabb2b8193a995a840e5c5682cf3a752c6"
+    },
+    {
+      "path": "tests/motion_tests.cpp",
+      "sha256": "7e5b889609ead09becd60fcfe67aeedb5d86177a2c4165bed781e61c655c0168"
+    },
+    {
+      "path": "tests/work_demo_integration.py",
+      "sha256": "0fe25cd8a9846ad47a6e13c4c97cf5a776ebe57d93810aa95ddab0c2bd9b9c3a"
+    },
+    {
+      "path": "tests/work_world_tests.cpp",
+      "sha256": "ca01b229d5801b0257fc33d23710ae63ae77933a392129ca9f01b5540559d10d"
+    },
+    {
+      "path": "tools/check_docs.py",
+      "sha256": "4a61d857a4f3782093c03feaf9623df69a1de47c2ed92624fc9f132ecac8fda9"
+    },
+    {
+      "path": "tools/expect_process.py",
+      "sha256": "96f52b68e49e174a4e05323b595c18a37ce3f449f8c1fa598a71b6edc9f18fe7"
+    },
+    {
+      "path": "tools/install_graphics_tools.ps1",
+      "sha256": "94a272da27a40df329a75001e1a7dfe7f4c8caf2f049557d4f68051debfd4f09"
+    },
+    {
+      "path": "tools/tests/test_check_docs.py",
+      "sha256": "4d005f674f80840d3c942bd107ab9c57e2cc79bee44091fd6b4f6250b6b7b2ab"
+    },
+    {
+      "path": "tools/tests/test_expect_process.py",
+      "sha256": "fc3a0af60c0b7e74bdc06203ad5ab19126db5e389fa971f261f8850bf05e8787"
+    }
+  ]
+}

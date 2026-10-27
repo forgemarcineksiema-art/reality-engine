@@ -1,0 +1,84 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/asan/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/asan/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (2.5s)
+-- Generating done (4.6s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/asan
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_asan_probe.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_asan_probe.exe
+  work_world.cpp
+  material_transfer.cpp
+  world_snapshot.cpp
+  Generowanie kodu...
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  work_world_tests.cpp
+  work_demo.cpp
+  lab_session.cpp
+  lab_scene.cpp
+  reality_work_demo.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_work_demo.exe
+  transfer_tests.cpp
+  reality_work_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_work_tests.exe
+  reality_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_tests.exe
+  reality_headless.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_headless.exe
+  motion_session.cpp
+  reality_transfer_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_transfer_tests.exe
+  traversal_session.cpp
+  traversal_course.cpp
+  traversal_codec.cpp
+  traversal_diagnostics.cpp
+  traversal_needs.cpp
+  traversal_clearance.cpp
+  traversal_delivery.cpp
+  traversal_scene.cpp
+  Generowanie kodu...
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_diagnostics_tests.cpp
+  delivery_tests.cpp
+  motion_adversarial_tests.cpp
+  reality_adversarial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_adversarial_tests.exe
+  motion_tests.cpp
+  reality_traversal_diagnostics_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal_diagnostics_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_tests.cpp
+  reality_delivery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_delivery_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_needs_tests.cpp
+  reality_motion_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_motion_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  clearance_tests.cpp
+  traversal_audit_tests.cpp
+  reality_traversal_needs_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal_needs_tests.exe
+  reality_traversal_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_spatial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_spatial_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  lab_tests.cpp
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_graphics.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_graphics.lib
+  reality_clearance_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_clearance_tests.exe
+  reality_traversal_audit_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal_audit_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_lab_tests.exe
+  traversal_main.cpp
+  lab_main.cpp
+  reality_lab.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_lab.exe
+  reality_traversal.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_traversal.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt

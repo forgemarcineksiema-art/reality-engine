@@ -1,0 +1,46 @@
+resume_at=6938
+resumed_ticks=1000
+tick=7938 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=1000 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+actor=2 surface=5 feet=-0.856,1.500,2.663 speed=0.000 accel=0.000 yaw=2.513 state=3 auto=1 task=3 hunger=391 energy=353 plans=99 leg=5/8 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=0.140,0.624 reach=0.900
+  route=found retry_at=7602
+  waiting_for_transport=1 owner=6
+actor=3 surface=5 feet=-1.607,1.500,2.649 speed=0.000 accel=0.000 yaw=2.174 state=3 auto=1 task=3 hunger=383 energy=277 plans=60 leg=4/7 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+  route=found retry_at=7698
+  waiting_for_transport=1 owner=6
+actor=4 surface=4 feet=-3.215,1.440,3.500 speed=0.274 accel=-4.054 yaw=1.569 state=1 auto=1 task=3 hunger=159 energy=253 plans=68 leg=2/7 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=0.500,0.000 reach=0.900
+  route=found retry_at=7884
+actor=5 surface=5 feet=-0.250,1.500,3.192 speed=0.040 accel=-1.555 yaw=-2.886 state=3 auto=1 task=3 hunger=398 energy=696 plans=61 leg=6/9 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=0.140,-0.624 reach=0.900
+  route=found retry_at=7751
+  waiting_for_transport=1 owner=6
+actor=6 surface=7 feet=4.000,1.500,3.500 speed=0.000 accel=0.000 yaw=-1.571 state=3 auto=1 task=1 hunger=1000 energy=539 plans=41 leg=1/14 transfer=3 action=0 blocked=1 step_point=0 need_retry_at=0 finish_grace_until=0
+  clearance_to=2 response=completed at=6938 retry_at=6978
+  goal_surface=2 local=1.640,2.124 reach=0.900
+  route=found retry_at=7611
+actor=7 surface=1 feet=-7.200,0.095,3.500 speed=0.014 accel=0.901 yaw=0.071 state=1 auto=1 task=3 hunger=59 energy=918 plans=36 leg=1/7 transfer=0 action=0 blocked=0 step_point=2 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=0.860,-0.624 reach=0.900
+  route=found retry_at=7889
+actor=8 surface=1 feet=-8.054,0.000,-0.941 speed=0.796 accel=-5.906 yaw=2.017 state=1 auto=1 task=2 hunger=75 energy=0 plans=75 leg=2/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=1 local=-2.000,-0.980 reach=0.900
+  route=found retry_at=7873
+platform=7 phase=217 dock=1 blocked=0
+platform=8 phase=338 dock=-1 blocked=0
+station=9 kind=1 stock=65 completed=15 wear=500
+station=10 kind=1 stock=72 completed=8 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=6 wear=500
+station=12 kind=3 stock=72 completed=8 wear=1000
+passage=1 surface=3 owner=0 queue=0
+service=1 owner=6 queue=4
+navigation_observations=8
+navigation_actor=1 observed_tick=7938 activity=inactive last_progress_tick=6938 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=7938 activity=waiting last_progress_tick=7938 distance_m=0.0142 stagnant_ticks=0 resource=1 transport=1 blocker=6 queue_position=1 resource_progress=217 externally_blocked=0
+navigation_actor=3 observed_tick=7938 activity=waiting last_progress_tick=7938 distance_m=0.0065 stagnant_ticks=0 resource=1 transport=1 blocker=6 queue_position=2 resource_progress=217 externally_blocked=0
+navigation_actor=4 observed_tick=7938 activity=travelling last_progress_tick=7936 distance_m=0.0161 stagnant_ticks=2 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=5 observed_tick=7938 activity=parking last_progress_tick=7934 distance_m=2.1688 stagnant_ticks=4 resource=1 transport=1 blocker=6 queue_position=3 resource_progress=217 externally_blocked=0
+navigation_actor=6 observed_tick=7938 activity=riding last_progress_tick=7938 distance_m=0.0000 stagnant_ticks=0 resource=1 transport=1 blocker=0 queue_position=0 resource_progress=217 externally_blocked=0
+navigation_actor=7 observed_tick=7938 activity=precision last_progress_tick=7938 distance_m=0.3999 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=18 externally_blocked=0
+navigation_actor=8 observed_tick=7938 activity=travelling last_progress_tick=7938 distance_m=0.0667 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0

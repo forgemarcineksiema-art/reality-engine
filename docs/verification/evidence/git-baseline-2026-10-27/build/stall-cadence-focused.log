@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 43: traversal.approach_blocked_recovery
+1/4 Test #43: traversal.approach_blocked_recovery ....   Passed    0.09 sec
+    Start 44: traversal.approach_recovery_detour
+2/4 Test #44: traversal.approach_recovery_detour .....   Passed    0.05 sec
+    Start 45: traversal.retained_ramp_recovery
+3/4 Test #45: traversal.retained_ramp_recovery .......   Passed    2.05 sec
+    Start 46: traversal.approach_alternative_retry
+4/4 Test #46: traversal.approach_alternative_retry ...   Passed    0.05 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =   2.32 sec

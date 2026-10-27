@@ -1,0 +1,4 @@
+Task 1: completed; native CRLF/scroll, per-ID alarm, route churn and actual service views verified.
+Task 2: completed; 11 needs cases, protected stages, queue release, historical v1 and v2 continuation verified.
+Task 3: completed; Debug 163/163, Release 163/163, ASan 165/165, final ASan observation, style/docs/tools, real UI F5/F6/F9 and fresh v2 process.
+Open navigation finding: docs/work-items/retained-world-navigation-stall.md. Reproduction retained; not fixed by this scope, resolve before delivery. No new five-minute performance acceptance.

@@ -1,0 +1,42 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 5: traversal.diagnostics_timings
+1/3 Test #5: traversal.diagnostics_timings ..........***Failed    0.05 sec
+FAIL finite timing samples overflow their mean
+
+    Start 6: traversal.diagnostics_invalid_sample
+2/3 Test #6: traversal.diagnostics_invalid_sample ...***Failed    0.02 sec
+FAIL rejected navigation intent partially changed progress checkpoint
+
+    Start 7: traversal.native_diagnostics
+3/3 Test #7: traversal.native_diagnostics ...........***Failed    7.16 sec
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 69, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 65, in main
+    check(args.exe.resolve(), pathlib.Path(directory))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 49, in check
+    invalid = subprocess.run([str(exe), *bad], timeout=3, startupinfo=startup, check=False)
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1238, in communicate
+    sts = self.wait(timeout=self._remaining_time(endtime))
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1274, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1603, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\Debug\\reality_traversal.exe', '--smoke-test', '--measure-seconds', '0']' timed out after 2.999993600009475 seconds
+
+
+0% tests passed, 3 tests failed out of 3
+
+Total Test time (real) =   7.34 sec
+
+The following tests FAILED:
+	  5 - traversal.diagnostics_timings (Failed)
+	  6 - traversal.diagnostics_invalid_sample (Failed)
+	  7 - traversal.native_diagnostics (Failed)
+Errors while running CTest

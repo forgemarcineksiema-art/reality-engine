@@ -1,0 +1,43 @@
+GENESIS_TRAVERSAL_DIAGNOSTIC 1
+reason=retained_world_observation
+world_checksum=3038694537306593515
+navigation_observations=8
+navigation_actor=1 observed_tick=7567 activity=inactive last_progress_tick=6599 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=7567 activity=suspected_stall last_progress_tick=6785 distance_m=0.3905 stagnant_ticks=782 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=3 observed_tick=7567 activity=travelling last_progress_tick=7562 distance_m=0.6393 stagnant_ticks=5 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=4 observed_tick=7567 activity=no_path last_progress_tick=7367 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=5 observed_tick=7567 activity=no_path last_progress_tick=7436 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=6 observed_tick=7567 activity=suspected_stall last_progress_tick=7467 distance_m=0.1874 stagnant_ticks=100 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=18 externally_blocked=0
+navigation_actor=7 observed_tick=7567 activity=suspected_stall last_progress_tick=6838 distance_m=0.7642 stagnant_ticks=729 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=8 observed_tick=7567 activity=travelling last_progress_tick=7515 distance_m=1.0019 stagnant_ticks=52 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+tick=7567 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=1000 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+actor=2 surface=4 feet=-6.439,0.231,3.561 speed=0.293 accel=4.000 yaw=2.785 state=1 auto=1 task=1 hunger=1000 energy=578 plans=108 leg=0/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+  goal_surface=1 local=-1.640,1.924 reach=0.900
+  route=found retry_at=7598
+actor=3 surface=4 feet=-7.045,0.000,2.917 speed=0.000 accel=0.000 yaw=-0.493 state=3 auto=1 task=1 hunger=1000 energy=306 plans=69 leg=2/5 transfer=0 action=0 blocked=14 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+  goal_surface=1 local=-1.280,1.300 reach=0.900
+  route=found retry_at=7582
+actor=4 surface=1 feet=-8.362,0.000,1.927 speed=0.000 accel=0.000 yaw=3.008 state=4 auto=1 task=0 hunger=161 energy=657 plans=83 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+actor=5 surface=1 feet=-7.637,0.000,0.674 speed=0.000 accel=0.000 yaw=-1.014 state=4 auto=1 task=0 hunger=92 energy=957 plans=58 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+actor=6 surface=1 feet=-6.987,0.092,3.500 speed=0.038 accel=1.500 yaw=1.571 state=1 auto=1 task=3 hunger=869 energy=884 plans=38 leg=1/7 transfer=0 action=0 blocked=0 step_point=2 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=0.140,-0.624 reach=0.900
+  route=found retry_at=6835
+actor=7 surface=4 feet=-6.781,0.103,4.264 speed=0.843 accel=1.000 yaw=-0.848 state=1 auto=1 task=1 hunger=1000 energy=0 plans=73 leg=2/13 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=1.280,1.500 reach=0.900
+  route=found retry_at=7560
+actor=8 surface=4 feet=-6.034,0.383,4.078 speed=0.762 accel=2.257 yaw=-0.109 state=1 auto=1 task=1 hunger=1000 energy=0 plans=31 leg=1/11 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=1.640,0.876 reach=0.900
+  route=found retry_at=7590
+platform=7 phase=33 dock=0 blocked=0
+platform=8 phase=367 dock=-1 blocked=0
+station=9 kind=1 stock=71 completed=9 wear=500
+station=10 kind=1 stock=73 completed=7 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=5 wear=500
+station=12 kind=3 stock=73 completed=7 wear=1000
+passage=1 surface=3 owner=0 queue=0
+service=1 owner=0 queue=0
+complete=1

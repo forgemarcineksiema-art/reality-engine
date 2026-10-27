@@ -1,0 +1,37 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (1.5s)
+-- Generating done (2.1s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/msvc
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  transfer_tests.cpp
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(7,105): error C2065: "MaterialTypeId": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(8,55): error C2065: "MaterialTypeId": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,23): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „r” [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,23): error C2065: "r": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,31): error C3536: "x" : nie można użyć, zanim zostanie zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,33): error C3536: "y" : nie można użyć, zanim zostanie zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,50): error C2039: „transfer”: nie jest składową elementu „reality::WorkWorld” [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\simulation\work_world.hpp(97,7):
+      zobacz deklarację „reality::WorkWorld”
+  
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,59): error C2065: "r": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,70): error C2653: "TransferStatus": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(9,86): error C2065: "Accepted": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(11,11): error C2039: „transfer”: nie jest składową elementu „reality::WorkWorld” [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\simulation\work_world.hpp(97,7):
+      zobacz deklarację „reality::WorkWorld”
+  
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(11,20): error C2065: "r": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(11,31): error C2653: "TransferStatus": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(11,47): error C2065: "Accepted": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\transfer_tests.cpp(12,25): error C2397: konwersja z „<error type>” do „uint64_t” wymaga konwersji zawężającej [C:\Users\Marcin\Documents\new\build\msvc\reality_transfer_tests.vcxproj]

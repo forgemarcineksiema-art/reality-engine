@@ -1,0 +1,25 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 22: traversal.native_diagnostics
+1/1 Test #22: traversal.native_diagnostics .....***Failed    4.05 sec
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 81, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 77, in main
+    check(args.exe.resolve(), pathlib.Path(directory))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 26, in check
+    run(["--report", str(report), "--save", str(save), "--capture", str(output / "native.png")])
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 24, in run
+    raise AssertionError(f"native process failed: {result.returncode}; {arguments}")
+AssertionError: native process failed: 1; ['--report', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-diagnostics-iubfhihs\\native.log', '--save', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-diagnostics-iubfhihs\\ordinary.save', '--capture', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-diagnostics-iubfhihs\\native.png']
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   4.16 sec
+
+The following tests FAILED:
+	 22 - traversal.native_diagnostics (Failed)
+Errors while running CTest

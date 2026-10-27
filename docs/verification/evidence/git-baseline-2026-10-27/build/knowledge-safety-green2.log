@@ -1,0 +1,17 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 10: knowledge.safe_action
+1/6 Test #10: knowledge.safe_action .............   Passed    0.06 sec
+    Start 13: knowledge.safe_step
+2/6 Test #13: knowledge.safe_step ...............   Passed    0.04 sec
+    Start 14: knowledge.safe_boarding
+3/6 Test #14: knowledge.safe_boarding ...........   Passed    0.10 sec
+    Start 15: knowledge.safe_riding
+4/6 Test #15: knowledge.safe_riding .............   Passed    0.12 sec
+    Start 16: knowledge.safe_exiting
+5/6 Test #16: knowledge.safe_exiting ............   Passed    0.11 sec
+    Start 17: knowledge.safe_boarding_expired
+6/6 Test #17: knowledge.safe_boarding_expired ...   Passed    0.09 sec
+
+100% tests passed out of 6
+
+Total Test time (real) =   0.57 sec

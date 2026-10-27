@@ -1,0 +1,47 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "2B448B0B253F5E9796AE9F095478F624FE83D3C5E744D10A6D34B453D1963ECA",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\src\\core\\runtime_metrics.hpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "82E669263CEBED026A008806271436C55A010EEB05C66DD033E80EA8972248AB",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\src\\core\\runtime_metrics.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "D213ECC39B8E6719ACCC61DA1DCC5645DF06AB3313C96F3F0EF209460B31AB4F",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\src\\lab\\traversal_diagnostics.hpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "939BAC335AED90560C218E558D5DDD0720B04B3CDA9F51BBB4442058556C1492",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\src\\lab\\traversal_diagnostics.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "67AA3DE0111167A766B54155037CC50A8FF2ACFC33BCBF8E9AEDCE9F1FA1FCE5",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\src\\platform\\traversal_main.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "866EFC7E6E01F38CC4D956BA1525E626B3243C71745DCC3EAD3F4D02953C7908",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\tests\\traversal_diagnostics_tests.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "010156FE0EB739FFF52927C39256E6B97C3E0EB6806D21BAAA1B13EBF8237C7D",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\tools\\test_traversal_diagnostics.py"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "65EA59D5D8F818682BDF7100E2D01DECC3A589D8098649BD7F8F0439329D41A3",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\CMakeLists.txt"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "3AEE622ADEAF132007F3190C50459979A964167B4BB886F453A96517E0804708",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\RelWithDebInfo\\reality_traversal.exe"
+  }
+]

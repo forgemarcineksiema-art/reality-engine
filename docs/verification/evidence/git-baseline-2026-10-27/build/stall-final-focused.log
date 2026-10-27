@@ -1,0 +1,21 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 43: traversal.approach_blocked_recovery
+1/5 Test #43: traversal.approach_blocked_recovery ....   Passed    0.32 sec
+    Start 44: traversal.approach_recovery_detour
+2/5 Test #44: traversal.approach_recovery_detour .....   Passed    0.12 sec
+    Start 45: traversal.retained_ramp_recovery
+3/5 Test #45: traversal.retained_ramp_recovery .......   Passed    2.72 sec
+    Start 46: traversal.approach_alternative_retry
+4/5 Test #46: traversal.approach_alternative_retry ...   Passed    0.04 sec
+    Start 47: traversal.approach_existing_retry
+5/5 Test #47: traversal.approach_existing_retry ......***Failed    0.08 sec
+FAIL fixture did not preserve an obstructed endpoint
+
+
+80% tests passed, 1 tests failed out of 5
+
+Total Test time (real) =   3.42 sec
+
+The following tests FAILED:
+	 47 - traversal.approach_existing_retry (Failed)
+Errors while running CTest

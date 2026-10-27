@@ -1,0 +1,156 @@
+resume_at=6938
+trace7 tick=6939 x=-6.55621 z=4.11779 speed=0.874942 yaw=-0.865366 distance=0.670419 leg=2 plans=29 blocked=0
+trace7 tick=6949 x=-6.92954 z=4.26844 speed=0.159236 yaw=-2.14417 distance=0.780791 leg=2 plans=29 blocked=0
+trace7 tick=6959 x=-6.86666 z=4.18007 speed=0.943793 yaw=2.15366 distance=0.683787 leg=2 plans=29 blocked=0
+trace7 tick=6969 x=-6.30268 z=4.23471 speed=0.604572 yaw=0.718142 distance=0.906589 leg=2 plans=29 blocked=0
+trace7 tick=6979 x=-6.33354 z=4.29939 speed=0.667508 yaw=-1.28186 distance=0.941914 leg=2 plans=29 blocked=0
+trace7 tick=6989 x=-6.90163 z=4.03682 speed=1.5615 yaw=-2.26736 distance=0.547686 leg=2 plans=29 blocked=0
+trace7 tick=6999 x=-6.92389 z=4.01752 speed=0 yaw=2.23341 distance=0.534164 leg=2 plans=33 blocked=50
+trace7 tick=7009 x=-6.8829 z=4.05276 speed=0.653 yaw=0.810009 distance=0.559804 leg=2 plans=33 blocked=0
+trace7 tick=7019 x=-6.45723 z=4.27023 speed=0.493246 yaw=1.61801 distance=0.8528 leg=2 plans=33 blocked=0
+trace7 tick=7029 x=-6.44027 z=4.22265 speed=0.568683 yaw=-2.68458 distance=0.818432 leg=2 plans=33 blocked=0
+stall_actor=2 tick=7038
+stall_actor=6 tick=7038
+trace7 tick=7039 x=-6.96907 z=4.17012 speed=1.37478 yaw=-0.956227 distance=0.69402 leg=2 plans=33 blocked=0
+trace7 tick=7049 x=-7.04862 z=4.26898 speed=0.197376 yaw=1.04317 distance=0.813535 leg=2 plans=33 blocked=0
+trace7 tick=7059 x=-6.55894 z=4.14799 speed=1.58056 yaw=2.0651 distance=0.69726 leg=2 plans=33 blocked=0
+trace7 tick=7069 x=-6.46427 z=4.08596 speed=0 yaw=-2.40624 distance=0.686957 leg=2 plans=37 blocked=43
+trace7 tick=7079 x=-6.64495 z=4.13051 speed=1.22198 yaw=-1.2882 distance=0.651889 leg=2 plans=37 blocked=0
+trace7 tick=7089 x=-7.0544 z=4.18556 speed=0 yaw=-2.0984 distance=0.737432 leg=2 plans=37 blocked=14
+trace7 tick=7099 x=-7.03795 z=4.16906 speed=0.413 yaw=2.18498 distance=0.715699 leg=2 plans=37 blocked=0
+trace7 tick=7109 x=-6.5165 z=4.30593 speed=1.29694 yaw=0.87433 distance=0.860926 leg=2 plans=37 blocked=0
+trace7 tick=7119 x=-6.42985 z=4.43559 speed=0.024 yaw=-1.04152 distance=1.01568 leg=2 plans=37 blocked=0
+trace7 tick=7129 x=-6.72554 z=4.18091 speed=1.5913 yaw=-2.64675 distance=0.685533 leg=2 plans=37 blocked=0
+trace7 tick=7139 x=-6.76724 z=4.09673 speed=0 yaw=2.03121 distance=0.597752 leg=2 plans=41 blocked=45
+trace7 tick=7149 x=-6.63318 z=4.16418 speed=0.983 yaw=1.03878 distance=0.68766 leg=2 plans=41 blocked=0
+trace7 tick=7159 x=-6.4922 z=4.31015 speed=0.00388616 yaw=-0.604007 distance=0.8743 leg=2 plans=41 blocked=0
+trace7 tick=7169 x=-6.81597 z=4.19244 speed=1.51957 yaw=-2.38627 distance=0.692651 leg=2 plans=41 blocked=0
+trace7 tick=7179 x=-6.90727 z=4.0328 speed=0 yaw=1.9197 distance=0.544974 leg=2 plans=45 blocked=38
+trace7 tick=7189 x=-6.81063 z=4.11258 speed=0.977109 yaw=0.879704 distance=0.612686 leg=2 plans=45 blocked=0
+trace7 tick=7199 x=-6.43338 z=4.26048 speed=0.0828871 yaw=2.0173 distance=0.855364 leg=2 plans=45 blocked=0
+trace7 tick=7209 x=-6.48929 z=4.15904 speed=0.888525 yaw=-2.26588 distance=0.737871 leg=2 plans=45 blocked=0
+stall_actor=7 tick=7209
+trace7 tick=7219 x=-7.05311 z=4.25216 speed=0.879614 yaw=-0.528512 distance=0.799259 leg=2 plans=45 blocked=0
+trace7 tick=7229 x=-6.97049 z=4.30141 speed=0.726198 yaw=1.47089 distance=0.821832 leg=2 plans=45 blocked=0
+trace7 tick=7239 x=-6.52619 z=4.09137 speed=0 yaw=2.72149 distance=0.659717 leg=2 plans=45 blocked=11
+trace7 tick=7249 x=-6.52619 z=4.09137 speed=0 yaw=-2.0795 distance=0.659717 leg=2 plans=49 blocked=61
+trace7 tick=7259 x=-6.6171 z=4.14571 speed=0.910951 yaw=-0.986698 distance=0.674607 leg=2 plans=49 blocked=0
+trace7 tick=7269 x=-6.98017 z=4.2792 speed=0.0673444 yaw=-1.9497 distance=0.802604 leg=2 plans=49 blocked=0
+trace7 tick=7279 x=-6.98146 z=4.27852 speed=0 yaw=2.65089 distance=0.802279 leg=2 plans=49 blocked=22
+trace7 tick=7289 x=-6.98026 z=4.27713 speed=0.0666672 yaw=2.37769 distance=0.800627 leg=2 plans=53 blocked=0
+trace7 tick=7299 x=-6.60812 z=4.35192 speed=1.36664 yaw=1.02739 distance=0.876222 leg=2 plans=53 blocked=0
+trace7 tick=7309 x=-6.40188 z=4.46195 speed=0.0297867 yaw=2.17599 distance=1.05174 leg=2 plans=53 blocked=0
+trace7 tick=7319 x=-6.51568 z=4.15574 speed=1.36605 yaw=-2.10992 distance=0.722631 leg=2 plans=53 blocked=0
+trace7 tick=7329 x=-7.0544 z=4.15169 speed=0 yaw=-1.04052 distance=0.706058 leg=2 plans=53 blocked=12
+trace7 tick=7339 x=-7.0316 z=4.17999 speed=0.503401 yaw=0.88688 distance=0.723579 leg=2 plans=57 blocked=1
+trace7 tick=7349 x=-6.90146 z=4.20216 speed=0 yaw=2.83828 distance=0.710472 leg=2 plans=57 blocked=13
+stall_actor=8 tick=7352
+trace7 tick=7359 x=-6.90218 z=4.16978 speed=0.000497454 yaw=2.98709 distance=0.67861 leg=2 plans=57 blocked=6
+trace7 tick=7369 x=-6.64878 z=4.09646 speed=1.44277 yaw=1.45685 distance=0.617942 leg=2 plans=57 blocked=0
+trace7 tick=7379 x=-6.26507 z=4.28808 speed=0.0217994 yaw=-0.046347 distance=0.973375 leg=2 plans=57 blocked=0
+trace7 tick=7389 x=-6.40478 z=4.27978 speed=1.00484 yaw=-2.00675 distance=0.886686 leg=2 plans=57 blocked=0
+trace7 tick=7399 x=-6.57849 z=4.1091 speed=0 yaw=-2.50675 distance=0.653427 leg=2 plans=61 blocked=31
+trace7 tick=7409 x=-6.66626 z=4.11367 speed=0.853 yaw=-1.50128 distance=0.630074 leg=2 plans=61 blocked=0
+trace7 tick=7419 x=-7.0544 z=4.16817 speed=0 yaw=-0.59094 distance=0.721295 leg=2 plans=61 blocked=14
+trace7 tick=7429 x=-6.94413 z=4.24047 speed=1.053 yaw=1.25576 distance=0.7563 leg=2 plans=61 blocked=0
+trace7 tick=7439 x=-6.72295 z=4.27502 speed=0 yaw=1.86231 distance=0.779375 leg=2 plans=65 blocked=34
+trace7 tick=7449 x=-6.65258 z=4.29185 speed=0.4455 yaw=1.24114 distance=0.807354 leg=2 plans=65 blocked=0
+trace7 tick=7459 x=-6.59184 z=4.32888 speed=0 yaw=-0.0773511 distance=0.85818 leg=2 plans=65 blocked=17
+trace7 tick=7469 x=-6.67657 z=4.31195 speed=0.853 yaw=-2.03895 distance=0.822577 leg=2 plans=65 blocked=0
+trace7 tick=7479 x=-6.87536 z=4.04449 speed=0 yaw=2.58383 distance=0.55041 leg=2 plans=65 blocked=22
+trace7 tick=7489 x=-6.79776 z=4.08496 speed=0.799 yaw=0.961234 distance=0.584967 leg=2 plans=69 blocked=1
+trace7 tick=7499 x=-6.54773 z=4.32032 speed=0.0350363 yaw=0.0562342 distance=0.863429 leg=2 plans=69 blocked=0
+trace7 tick=7509 x=-6.67856 z=4.32049 speed=1.06117 yaw=-1.93417 distance=0.830678 leg=2 plans=69 blocked=0
+trace7 tick=7519 x=-6.90798 z=4.0562 speed=0 yaw=2.83442 distance=0.568027 leg=2 plans=69 blocked=24
+trace7 tick=7529 x=-6.90798 z=4.0562 speed=0 yaw=2.77755 distance=0.568027 leg=2 plans=73 blocked=74
+stall_actor=6 tick=7533
+trace7 tick=7539 x=-6.90798 z=4.0562 speed=0 yaw=2.7749 distance=0.568027 leg=2 plans=73 blocked=124
+trace7 tick=7549 x=-6.85231 z=4.07089 speed=0.639 yaw=1.12027 distance=0.573614 leg=2 plans=73 blocked=1
+trace7 tick=7559 x=-6.72677 z=4.16157 speed=0 yaw=0.650274 distance=0.666178 leg=2 plans=73 blocked=12
+trace7 tick=7569 x=-6.84999 z=4.30392 speed=0.795977 yaw=-1.24833 distance=0.805691 leg=2 plans=73 blocked=0
+trace7 tick=7579 x=-6.94472 z=4.27009 speed=0.47793 yaw=3.04446 distance=0.78545 leg=2 plans=73 blocked=1
+trace7 tick=7589 x=-6.89134 z=4.14719 speed=0 yaw=2.77966 distance=0.654505 leg=2 plans=73 blocked=14
+stall_actor=7 tick=7597
+trace7 tick=7599 x=-6.84185 z=4.04859 speed=0.810905 yaw=2.43056 distance=0.550403 leg=2 plans=77 blocked=0
+trace7 tick=7609 x=-6.79332 z=4.07159 speed=0.534 yaw=1.06337 distance=0.571635 leg=2 plans=77 blocked=1
+trace7 tick=7619 x=-6.64486 z=4.12623 speed=0.144079 yaw=2.34217 distance=0.647781 leg=2 plans=77 blocked=0
+trace7 tick=7629 x=-6.70807 z=3.76255 speed=0 yaw=-2.39101 distance=0.28031 leg=2 plans=77 blocked=9
+trace7 tick=7639 x=-6.71089 z=3.76017 speed=0 yaw=-2.39501 distance=0.277031 leg=2 plans=77 blocked=19
+trace7 tick=7649 x=-6.71089 z=3.76017 speed=0 yaw=-2.80979 distance=0.277031 leg=2 plans=81 blocked=69
+trace7 tick=7659 x=-6.71064 z=3.76 speed=0.024 yaw=2.12766 distance=0.276965 leg=2 plans=81 blocked=0
+trace7 tick=7669 x=-6.60701 z=3.74628 speed=0 yaw=0.846751 distance=0.321149 leg=2 plans=81 blocked=5
+trace7 tick=7679 x=-6.63811 z=3.78666 speed=0.55313 yaw=-0.747649 distance=0.334766 leg=2 plans=81 blocked=0
+trace7 tick=7689 x=-6.84676 z=3.93806 speed=0 yaw=-1.89021 distance=0.440895 leg=2 plans=81 blocked=15
+stall_actor=2 tick=7691
+trace7 tick=7699 x=-6.84676 z=3.93806 speed=0 yaw=2.86337 distance=0.440895 leg=2 plans=85 blocked=65
+trace7 tick=7709 x=-6.84676 z=3.93806 speed=0 yaw=3.029 distance=0.440895 leg=2 plans=85 blocked=115
+trace7 tick=7719 x=-6.84676 z=3.93806 speed=0 yaw=3.03517 distance=0.440895 leg=2 plans=85 blocked=165
+stall_actor=7 tick=7728
+trace7 tick=7729 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=85 blocked=215
+trace7 tick=7739 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=89 blocked=265
+stall_actor=3 tick=7747
+stall_actor=4 tick=7748
+trace7 tick=7749 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=89 blocked=315
+trace7 tick=7759 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=89 blocked=365
+trace7 tick=7769 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=89 blocked=415
+trace7 tick=7779 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=93 blocked=465
+stall_actor=8 tick=7787
+trace7 tick=7789 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=93 blocked=515
+stall_actor=5 tick=7794
+trace7 tick=7799 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=93 blocked=565
+stall_actor=2 tick=7804
+trace7 tick=7809 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=93 blocked=615
+trace7 tick=7819 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=97 blocked=665
+trace7 tick=7829 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=97 blocked=715
+trace7 tick=7839 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=97 blocked=765
+trace7 tick=7849 x=-6.84676 z=3.93806 speed=0 yaw=3.03507 distance=0.440895 leg=2 plans=97 blocked=815
+trace7 tick=7859 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=101 blocked=865
+trace7 tick=7869 x=-6.84676 z=3.93806 speed=0 yaw=3.03525 distance=0.440895 leg=2 plans=101 blocked=915
+trace7 tick=7879 x=-6.84676 z=3.93806 speed=0 yaw=2.50665 distance=0.440895 leg=2 plans=101 blocked=965
+trace7 tick=7889 x=-6.84676 z=3.93806 speed=0 yaw=3.01812 distance=0.440895 leg=2 plans=101 blocked=1015
+trace7 tick=7899 x=-6.84252 z=3.93615 speed=0.138 yaw=1.9281 distance=0.438507 leg=2 plans=105 blocked=0
+trace7 tick=7909 x=-6.80384 z=3.93241 speed=0 yaw=1.22645 distance=0.432428 leg=2 plans=105 blocked=17
+trace7 tick=7919 x=-6.80384 z=3.93241 speed=0 yaw=2.84682 distance=0.432428 leg=2 plans=105 blocked=67
+trace7 tick=7929 x=-6.80384 z=3.93241 speed=0 yaw=-3.10139 distance=0.432428 leg=2 plans=105 blocked=117
+resumed_ticks=1000
+tick=7938 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=1000 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+actor=2 surface=4 feet=-6.194,0.323,3.973 speed=0.181 accel=3.300 yaw=2.959 state=1 auto=1 task=1 hunger=1000 energy=414 plans=125 leg=0/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+  goal_surface=1 local=-1.640,1.924 reach=0.900
+  route=found retry_at=7959
+actor=3 surface=4 feet=-5.987,0.397,2.977 speed=1.357 accel=-2.300 yaw=2.580 state=1 auto=1 task=1 hunger=1000 energy=155 plans=90 leg=0/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+  goal_surface=1 local=-1.280,1.300 reach=0.900
+  route=found retry_at=7888
+actor=4 surface=1 feet=-7.222,0.000,3.471 speed=0.021 accel=0.468 yaw=1.739 state=1 auto=1 task=3 hunger=532 energy=634 plans=120 leg=0/9 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+  route=found retry_at=7961
+actor=5 surface=1 feet=-7.283,0.000,2.770 speed=0.960 accel=-6.000 yaw=1.420 state=1 auto=1 task=3 hunger=463 energy=741 plans=75 leg=0/9 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=0.140,-0.624 reach=0.900
+  route=found retry_at=7890
+actor=6 surface=1 feet=-7.999,0.000,1.304 speed=0.000 accel=0.000 yaw=3.005 state=4 auto=1 task=0 hunger=221 energy=808 plans=63 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+actor=7 surface=4 feet=-6.804,0.094,3.932 speed=0.000 accel=0.000 yaw=3.134 state=3 auto=1 task=1 hunger=1000 energy=0 plans=109 leg=2/13 transfer=0 action=0 blocked=162 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=1.280,1.500 reach=0.900
+  route=found retry_at=7971
+actor=8 surface=4 feet=-6.681,0.140,3.137 speed=0.000 accel=0.000 yaw=-0.644 state=3 auto=1 task=1 hunger=1000 energy=0 plans=63 leg=1/11 transfer=0 action=0 blocked=179 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=1.640,0.876 reach=0.900
+  route=found retry_at=7948
+platform=7 phase=4 dock=0 blocked=0
+platform=8 phase=338 dock=-1 blocked=0
+station=9 kind=1 stock=70 completed=10 wear=500
+station=10 kind=1 stock=73 completed=7 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=5 wear=500
+station=12 kind=3 stock=73 completed=7 wear=1000
+passage=1 surface=3 owner=0 queue=0
+service=1 owner=0 queue=0
+navigation_observations=8
+navigation_actor=1 observed_tick=7938 activity=inactive last_progress_tick=6938 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=7938 activity=travelling last_progress_tick=7881 distance_m=0.8019 stagnant_ticks=57 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=3 observed_tick=7938 activity=travelling last_progress_tick=7907 distance_m=1.0131 stagnant_ticks=31 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=4 observed_tick=7938 activity=suspected_stall last_progress_tick=7648 distance_m=0.0365 stagnant_ticks=290 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=5 observed_tick=7938 activity=travelling last_progress_tick=7934 distance_m=0.7346 stagnant_ticks=4 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=6 observed_tick=7938 activity=no_path last_progress_tick=7678 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=7 observed_tick=7938 activity=suspected_stall last_progress_tick=7628 distance_m=0.4324 stagnant_ticks=310 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=8 observed_tick=7938 activity=travelling last_progress_tick=7842 distance_m=0.3842 stagnant_ticks=96 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0

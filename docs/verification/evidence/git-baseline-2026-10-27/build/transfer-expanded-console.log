@@ -1,0 +1,17 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: transfer.basic
+1/6 Test #1: transfer.basic ...................   Passed    0.05 sec
+    Start 2: transfer.reserved
+2/6 Test #2: transfer.reserved ................   Passed    0.02 sec
+    Start 3: transfer.replay
+3/6 Test #3: transfer.replay ..................   Passed    0.02 sec
+    Start 4: transfer.refusals
+4/6 Test #4: transfer.refusals ................   Passed    0.04 sec
+    Start 5: transfer.large_cycle
+5/6 Test #5: transfer.large_cycle .............   Passed    0.09 sec
+    Start 6: transfer.removed
+6/6 Test #6: transfer.removed .................   Passed    0.08 sec
+
+100% tests passed out of 6
+
+Total Test time (real) =   0.39 sec

@@ -1,0 +1,93 @@
+Test project C:/Users/Marcin/Documents/new/build/asan
+      Start  1: work.stale_handle
+ 1/44 Test  #1: work.stale_handle ......................   Passed    0.08 sec
+      Start  2: work.registry_exhaustion
+ 2/44 Test  #2: work.registry_exhaustion ...............   Passed    0.05 sec
+      Start  3: work.registry_validation
+ 3/44 Test  #3: work.registry_validation ...............   Passed    0.06 sec
+      Start  4: work.reservation_contention
+ 4/44 Test  #4: work.reservation_contention ............   Passed    0.07 sec
+      Start  5: work.command_retries
+ 5/44 Test  #5: work.command_retries ...................   Passed    0.07 sec
+      Start  6: work.cancel_before_start
+ 6/44 Test  #6: work.cancel_before_start ...............   Passed    0.07 sec
+      Start  7: work.partial_cancellation
+ 7/44 Test  #7: work.partial_cancellation ..............   Passed    0.06 sec
+      Start  8: work.completion_once
+ 8/44 Test  #8: work.completion_once ...................   Passed    0.07 sec
+      Start  9: work.participant_removal
+ 9/44 Test  #9: work.participant_removal ...............   Passed    0.06 sec
+      Start 10: work.invalid_requests
+10/44 Test #10: work.invalid_requests ..................   Passed    0.07 sec
+      Start 11: work.time_overflow
+11/44 Test #11: work.time_overflow .....................   Passed    0.07 sec
+      Start 12: work.snapshot_continuation
+12/44 Test #12: work.snapshot_continuation .............   Passed    0.07 sec
+      Start 13: work.snapshot_history
+13/44 Test #13: work.snapshot_history ..................   Passed    0.07 sec
+      Start 14: work.snapshot_rejection
+14/44 Test #14: work.snapshot_rejection ................   Passed    0.07 sec
+      Start 15: work.snapshot_semantics
+15/44 Test #15: work.snapshot_semantics ................   Passed    0.09 sec
+      Start 16: work.snapshot_journal
+16/44 Test #16: work.snapshot_journal ..................   Passed    0.08 sec
+      Start 17: work.save_replacement
+17/44 Test #17: work.save_replacement ..................   Passed    0.11 sec
+      Start 18: work.record_limit
+18/44 Test #18: work.record_limit ......................   Passed    0.24 sec
+      Start 19: work.event_capacity
+19/44 Test #19: work.event_capacity ....................   Passed    1.29 sec
+      Start 20: work.batch_ordering
+20/44 Test #20: work.batch_ordering ....................   Passed    0.05 sec
+      Start 21: work.operation_sequence
+21/44 Test #21: work.operation_sequence ................   Passed    1.60 sec
+      Start 22: work.fresh_process_continuation
+22/44 Test #22: work.fresh_process_continuation ........   Passed    0.58 sec
+      Start 23: clock.initial_state
+23/44 Test #23: clock.initial_state ....................   Passed    0.08 sec
+      Start 24: clock.reject_zero_step
+24/44 Test #24: clock.reject_zero_step .................   Passed    0.05 sec
+      Start 25: clock.reject_negative_step
+25/44 Test #25: clock.reject_negative_step .............   Passed    0.06 sec
+      Start 26: clock.exact_elapsed_time
+26/44 Test #26: clock.exact_elapsed_time ...............   Passed    0.06 sec
+      Start 27: clock.batch_equivalence
+27/44 Test #27: clock.batch_equivalence ................   Passed    0.06 sec
+      Start 28: clock.zero_batch
+28/44 Test #28: clock.zero_batch .......................   Passed    0.06 sec
+      Start 29: clock.overflow_preserves_state
+29/44 Test #29: clock.overflow_preserves_state .........   Passed    0.06 sec
+      Start 30: clock.reject_large_batch
+30/44 Test #30: clock.reject_large_batch ...............   Passed    0.05 sec
+      Start 31: work_runner.rejects_failed_assertion
+31/44 Test #31: work_runner.rejects_failed_assertion ...   Passed    0.20 sec
+      Start 32: work_runner.rejects_unknown_case
+32/44 Test #32: work_runner.rejects_unknown_case .......   Passed    0.19 sec
+      Start 33: runner.rejects_failed_assertion
+33/44 Test #33: runner.rejects_failed_assertion ........   Passed    0.19 sec
+      Start 34: runner.rejects_unknown_case
+34/44 Test #34: runner.rejects_unknown_case ............   Passed    0.19 sec
+      Start 35: runner.rejects_empty_suite
+35/44 Test #35: runner.rejects_empty_suite .............   Passed    0.19 sec
+      Start 36: headless.default
+36/44 Test #36: headless.default .......................   Passed    0.21 sec
+      Start 37: headless.zero_steps
+37/44 Test #37: headless.zero_steps ....................   Passed    0.18 sec
+      Start 38: headless.rejects_zero_step
+38/44 Test #38: headless.rejects_zero_step .............   Passed    0.18 sec
+      Start 39: headless.rejects_malformed_steps
+39/44 Test #39: headless.rejects_malformed_steps .......   Passed    0.18 sec
+      Start 40: headless.rejects_overflow
+40/44 Test #40: headless.rejects_overflow ..............   Passed    0.18 sec
+      Start 41: documentation.registry
+41/44 Test #41: documentation.registry .................   Passed    0.28 sec
+      Start 42: tooling.tests
+42/44 Test #42: tooling.tests ..........................   Passed    2.66 sec
+      Start 43: diagnostics.clean_fixture
+43/44 Test #43: diagnostics.clean_fixture ..............   Passed    0.19 sec
+      Start 44: diagnostics.detects_heap_overflow
+44/44 Test #44: diagnostics.detects_heap_overflow ......   Passed    0.21 sec
+
+100% tests passed out of 44
+
+Total Test time (real) =  10.84 sec

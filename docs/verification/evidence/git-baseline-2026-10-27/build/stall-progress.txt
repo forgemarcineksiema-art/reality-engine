@@ -1,0 +1,5 @@
+Complete: obsolete route fix, approach retry including alternative existing endpoint and pending manual approach; 5 new regression cases.
+Debug168/168, Release168/168, ASan170/170; style/docs/tools pass.
+Read-only independent agent review APPROVE after findings addressed. Reviewer did not run tests.
+Real GPU-debug UI replay6938 through7720; exact actor7 feet/yaw unchanged in three later captures. Source checksum preserved.
+Boundary: committed Step actor6 still physically obstructed. No forced yielding or social deadlock claim; M04 NOT complete.

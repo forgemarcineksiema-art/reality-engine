@@ -1,0 +1,125 @@
+Test project C:/Users/Marcin/Documents/new/build/asan
+      Start  1: delivery.actual
+ 1/60 Test  #1: delivery.actual ..................   Passed   13.32 sec
+      Start  2: delivery.completed
+ 2/60 Test  #2: delivery.completed ...............   Passed    0.57 sec
+      Start  3: delivery.local_and_cancel
+ 3/60 Test  #3: delivery.local_and_cancel ........   Passed    0.10 sec
+      Start  4: delivery.persistence
+ 4/60 Test  #4: delivery.persistence .............   Passed    0.59 sec
+      Start  5: delivery.needs
+ 5/60 Test  #5: delivery.needs ...................   Passed    0.17 sec
+      Start  6: delivery.manual
+ 6/60 Test  #6: delivery.manual ..................   Passed    0.26 sec
+      Start  7: delivery.no_recycling
+ 7/60 Test  #7: delivery.no_recycling ............   Passed    0.17 sec
+      Start  8: delivery.wrong_station
+ 8/60 Test  #8: delivery.wrong_station ...........   Passed    0.06 sec
+      Start  9: delivery.corruption
+ 9/60 Test  #9: delivery.corruption ..............   Passed    0.08 sec
+      Start 10: delivery.meals
+10/60 Test #10: delivery.meals ...................   Passed    0.17 sec
+      Start 11: delivery.blocked
+11/60 Test #11: delivery.blocked .................   Passed    0.54 sec
+      Start 12: delivery.cancel_step
+12/60 Test #12: delivery.cancel_step .............   Passed    0.20 sec
+      Start 13: delivery.return_cancelled
+13/60 Test #13: delivery.return_cancelled ........   Passed    0.21 sec
+      Start 14: delivery.return_fallback
+14/60 Test #14: delivery.return_fallback .........   Passed    0.13 sec
+      Start 15: delivery.return_hunger
+15/60 Test #15: delivery.return_hunger ...........   Passed    0.13 sec
+      Start 16: delivery.return_detour
+16/60 Test #16: delivery.return_detour ...........   Passed    0.19 sec
+      Start 17: delivery.return_step
+17/60 Test #17: delivery.return_step .............   Passed    0.16 sec
+      Start 18: delivery.return_manual
+18/60 Test #18: delivery.return_manual ...........   Passed    0.22 sec
+      Start 19: delivery.boat
+19/60 Test #19: delivery.boat ....................   Passed    3.53 sec
+      Start 20: delivery.aliased_lots
+20/60 Test #20: delivery.aliased_lots ............   Passed    0.08 sec
+      Start 21: delivery.wall
+21/60 Test #21: delivery.wall ....................   Passed    0.07 sec
+      Start 22: delivery.wall_approach
+22/60 Test #22: delivery.wall_approach ...........   Passed    0.14 sec
+      Start 23: delivery.legacy_wall_need
+23/60 Test #23: delivery.legacy_wall_need ........   Passed    0.09 sec
+      Start 24: delivery.station_kind
+24/60 Test #24: delivery.station_kind ............   Passed    0.06 sec
+      Start 25: transfer.basic
+25/60 Test #25: transfer.basic ...................   Passed    0.06 sec
+      Start 26: transfer.reserved
+26/60 Test #26: transfer.reserved ................   Passed    0.06 sec
+      Start 27: transfer.replay
+27/60 Test #27: transfer.replay ..................   Passed    0.07 sec
+      Start 28: transfer.refusals
+28/60 Test #28: transfer.refusals ................   Passed    0.06 sec
+      Start 29: transfer.large_cycle
+29/60 Test #29: transfer.large_cycle .............   Passed    0.09 sec
+      Start 30: transfer.removed
+30/60 Test #30: transfer.removed .................   Passed    0.07 sec
+      Start 31: transfer.boundaries
+31/60 Test #31: transfer.boundaries ..............   Passed    0.98 sec
+      Start 32: transfer.allocation
+32/60 Test #32: transfer.allocation ..............   Passed    0.06 sec
+      Start 33: transfer.corruption
+33/60 Test #33: transfer.corruption ..............   Passed    0.07 sec
+      Start 34: transfer.legacy
+34/60 Test #34: transfer.legacy ..................   Passed    0.06 sec
+      Start 35: clearance.step_blockade
+35/60 Test #35: clearance.step_blockade ..........   Passed    0.24 sec
+      Start 36: clearance.controlled
+36/60 Test #36: clearance.controlled .............   Passed    0.20 sec
+      Start 37: clearance.retained
+37/60 Test #37: clearance.retained ...............   Passed    0.35 sec
+      Start 38: clearance.persistence
+38/60 Test #38: clearance.persistence ............   Passed    0.43 sec
+      Start 39: clearance.no_space
+39/60 Test #39: clearance.no_space ...............   Passed    0.18 sec
+      Start 40: clearance.busy
+40/60 Test #40: clearance.busy ...................   Passed    0.07 sec
+      Start 41: clearance.manual_override
+41/60 Test #41: clearance.manual_override ........   Passed    0.19 sec
+      Start 42: clearance.same_intent_override
+42/60 Test #42: clearance.same_intent_override ...   Passed    0.10 sec
+      Start 43: clearance.invalid_restore
+43/60 Test #43: clearance.invalid_restore ........   Passed    0.30 sec
+      Start 44: clearance.reserved_targets
+44/60 Test #44: clearance.reserved_targets .......   Passed    0.09 sec
+      Start 45: clearance.expiry
+45/60 Test #45: clearance.expiry .................   Passed    0.22 sec
+      Start 46: clearance.intent_preserved
+46/60 Test #46: clearance.intent_preserved .......   Passed    0.33 sec
+      Start 47: clearance.stale_step_restore
+47/60 Test #47: clearance.stale_step_restore .....   Passed    0.13 sec
+      Start 48: needs.interruption
+48/60 Test #48: needs.interruption ...............   Passed    1.28 sec
+      Start 49: needs.exhaustion
+49/60 Test #49: needs.exhaustion .................   Passed    0.14 sec
+      Start 50: needs.safe_step
+50/60 Test #50: needs.safe_step ..................   Passed    0.10 sec
+      Start 51: needs.safe_transport
+51/60 Test #51: needs.safe_transport .............   Passed    0.66 sec
+      Start 52: needs.running_action
+52/60 Test #52: needs.running_action .............   Passed    0.10 sec
+      Start 53: needs.manual_override
+53/60 Test #53: needs.manual_override ............   Passed    0.43 sec
+      Start 54: needs.unavailable_need
+54/60 Test #54: needs.unavailable_need ...........   Passed    0.38 sec
+      Start 55: needs.persistence
+55/60 Test #55: needs.persistence ................   Passed    1.48 sec
+      Start 56: needs.finish_expiry
+56/60 Test #56: needs.finish_expiry ..............   Passed    0.11 sec
+      Start 57: needs.legacy_fixture
+57/60 Test #57: needs.legacy_fixture .............   Passed    2.96 sec
+      Start 58: needs.safe_queue
+58/60 Test #58: needs.safe_queue .................   Passed    0.09 sec
+      Start 59: traversal.diagnostics_progress
+59/60 Test #59: traversal.diagnostics_progress ...   Passed    0.05 sec
+      Start 60: traversal.diagnostics_waiting
+60/60 Test #60: traversal.diagnostics_waiting ....   Passed    0.49 sec
+
+100% tests passed out of 60
+
+Total Test time (real) =  34.15 sec

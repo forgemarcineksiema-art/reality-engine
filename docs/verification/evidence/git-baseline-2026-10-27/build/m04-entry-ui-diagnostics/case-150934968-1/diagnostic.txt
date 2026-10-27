@@ -1,0 +1,44 @@
+GENESIS_TRAVERSAL_DIAGNOSTIC 1
+reason=manual_F6
+world_checksum=12409336315042038084
+navigation_observations=8
+navigation_actor=1 observed_tick=20 activity=inactive last_progress_tick=0 distance_m=0.0000
+navigation_actor=2 observed_tick=20 activity=travelling last_progress_tick=20 distance_m=0.0540
+navigation_actor=3 observed_tick=20 activity=travelling last_progress_tick=20 distance_m=2.6134
+navigation_actor=4 observed_tick=20 activity=travelling last_progress_tick=20 distance_m=0.8968
+navigation_actor=5 observed_tick=20 activity=travelling last_progress_tick=20 distance_m=2.1654
+navigation_actor=6 observed_tick=20 activity=travelling last_progress_tick=20 distance_m=3.5935
+navigation_actor=7 observed_tick=20 activity=travelling last_progress_tick=20 distance_m=0.2009
+navigation_actor=8 observed_tick=20 activity=travelling last_progress_tick=20 distance_m=0.8569
+tick=20 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=20 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+actor=2 surface=1 feet=-7.236,0.000,3.460 speed=0.695 accel=-6.000 yaw=0.735 state=1 auto=1 task=3 hunger=65 energy=982 plans=1 leg=0/7 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+  route=found retry_at=0
+actor=3 surface=1 feet=-6.467,0.000,-0.444 speed=2.894 accel=0.560 yaw=-0.304 state=1 auto=1 task=3 hunger=110 energy=982 plans=1 leg=0/8 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.140,-0.624 reach=0.900
+  route=found retry_at=0
+actor=4 surface=1 feet=-6.458,0.000,1.692 speed=2.823 accel=-0.600 yaw=-1.229 state=1 auto=1 task=3 hunger=155 energy=982 plans=1 leg=0/8 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.140,0.624 reach=0.900
+  route=found retry_at=0
+actor=5 surface=2 feet=7.824,0.000,-0.305 speed=1.710 accel=4.000 yaw=-3.127 state=1 auto=1 task=3 hunger=200 energy=989 plans=2 leg=0/14 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.860,-0.624 reach=0.900
+  route=found retry_at=45
+actor=6 surface=2 feet=7.259,0.000,2.155 speed=2.520 accel=2.395 yaw=-2.128 state=1 auto=1 task=3 hunger=245 energy=988 plans=2 leg=0/14 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=1.220,0.000 reach=0.900
+  route=found retry_at=45
+actor=7 surface=2 feet=6.349,0.000,-1.394 speed=1.499 accel=-6.000 yaw=0.256 state=1 auto=1 task=1 hunger=290 energy=982 plans=1 leg=0/2 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=2 local=1.640,0.876 reach=0.900
+  route=found retry_at=0
+actor=8 surface=2 feet=7.223,0.000,-0.238 speed=2.568 accel=0.513 yaw=0.084 state=1 auto=1 task=1 hunger=335 energy=982 plans=1 leg=0/2 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=2 local=2.360,0.876 reach=0.900
+  route=found retry_at=0
+platform=7 phase=20 dock=0 blocked=0
+platform=8 phase=20 dock=0 blocked=0
+station=9 kind=1 stock=80 completed=0 wear=500
+station=10 kind=1 stock=80 completed=0 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=0 wear=500
+station=12 kind=3 stock=80 completed=0 wear=520
+passage=1 surface=3 owner=0 queue=0
+service=1 owner=0 queue=0
+complete=1

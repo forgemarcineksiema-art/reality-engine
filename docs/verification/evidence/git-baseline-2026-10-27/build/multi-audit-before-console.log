@@ -1,0 +1,73 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.narrow_bridge_opposite
+ 1/11 Test  #1: traversal.narrow_bridge_opposite ...***Failed    1.99 sec
+tick=700 actors=4
+actor=1 surface=1 feet=-2.068,0.000,-0.040 speed=0.000 accel=0.000 yaw=-1.275 state=1 auto=0 task=0 hunger=700 energy=948 plans=1 leg=0/5 transfer=0 action=0
+  goal_surface=2 local=0.000,-1.000 reach=0.000
+actor=2 surface=2 feet=2.053,0.000,-0.068 speed=0.000 accel=0.000 yaw=1.138 state=1 auto=0 task=0 hunger=700 energy=946 plans=1 leg=0/5 transfer=0 action=0
+  goal_surface=1 local=0.000,-1.000 reach=0.000
+actor=3 surface=1 feet=-2.628,0.000,0.208 speed=0.000 accel=0.000 yaw=2.023 state=1 auto=0 task=0 hunger=700 energy=967 plans=1 leg=0/5 transfer=0 action=0
+  goal_surface=2 local=0.000,1.000 reach=0.000
+actor=4 surface=2 feet=2.605,0.000,0.215 speed=0.000 accel=0.000 yaw=-2.058 state=1 auto=0 task=0 hunger=700 energy=964 plans=1 leg=0/5 transfer=0 action=0
+  goal_surface=1 local=0.000,1.000 reach=0.000
+FAIL actor failed to finish route
+
+      Start  2: traversal.ferry_exchange
+ 2/11 Test  #2: traversal.ferry_exchange ...........***Failed    1.40 sec
+tick=1000 actors=3
+actor=1 surface=3 feet=2.586,0.000,0.000 speed=0.000 accel=0.000 yaw=1.571 state=1 auto=0 task=0 hunger=1000 energy=898 plans=1 leg=1/3 transfer=4 action=0
+  goal_surface=2 local=1.000,0.000 reach=0.000
+actor=2 surface=2 feet=3.186,0.000,-0.011 speed=0.000 accel=0.000 yaw=0.886 state=1 auto=0 task=0 hunger=1000 energy=976 plans=1 leg=0/3 transfer=0 action=0
+  goal_surface=1 local=-1.000,-1.000 reach=0.000
+actor=3 surface=2 feet=3.690,0.000,0.321 speed=0.000 accel=0.000 yaw=-2.151 state=1 auto=0 task=0 hunger=1000 energy=985 plans=1 leg=0/3 transfer=0 action=0
+  goal_surface=1 local=-1.000,1.000 reach=0.000
+platform=3 phase=70 dock=1 blocked=0
+service=1 owner=1 queue=1
+FAIL actor failed to finish route
+
+      Start  3: traversal.rapid_retarget
+ 3/11 Test  #3: traversal.rapid_retarget ...........***Failed    0.03 sec
+FAIL repeated approach restarted navigation
+
+      Start  4: traversal.obstacle_braking
+ 4/11 Test  #4: traversal.obstacle_braking .........***Failed    0.06 sec
+FAIL manual input steered sideways near edge
+
+      Start  5: traversal.slope_maneuvers
+ 5/11 Test  #5: traversal.slope_maneuvers ..........   Passed    0.11 sec
+      Start  6: traversal.rotating_support
+ 6/11 Test  #6: traversal.rotating_support .........***Failed    0.27 sec
+tick=220 actors=1
+actor=1 surface=1 feet=-7.800,0.000,-4.000 speed=0.000 accel=0.000 yaw=0.000 state=4 auto=0 task=0 hunger=220 energy=1000 plans=6 leg=0/0 transfer=0 action=0
+  goal_surface=8 local=0.400,0.000 reach=0.000
+platform=8 phase=131 dock=-1 blocked=1
+FAIL actor failed to finish route
+
+      Start  7: traversal.crowd_passing
+ 7/11 Test  #7: traversal.crowd_passing ............   Passed    0.22 sec
+      Start  8: traversal.occupied_goal_recovery
+ 8/11 Test  #8: traversal.occupied_goal_recovery ...***Failed    0.10 sec
+FAIL occupied goal not reported as Waiting
+
+      Start  9: traversal.snapshot_corruption
+ 9/11 Test  #9: traversal.snapshot_corruption ......***Failed    0.02 sec
+FAIL semantically corrupt snapshot accepted
+
+      Start 10: traversal.long_course
+10/11 Test #10: traversal.long_course ..............   Passed    4.86 sec
+      Start 11: traversal.partition
+11/11 Test #11: traversal.partition ................   Passed    0.05 sec
+
+36% tests passed, 7 tests failed out of 11
+
+Total Test time (real) =   9.24 sec
+
+The following tests FAILED:
+	  1 - traversal.narrow_bridge_opposite (Failed)
+	  2 - traversal.ferry_exchange (Failed)
+	  3 - traversal.rapid_retarget (Failed)
+	  4 - traversal.obstacle_braking (Failed)
+	  6 - traversal.rotating_support (Failed)
+	  8 - traversal.occupied_goal_recovery (Failed)
+	  9 - traversal.snapshot_corruption (Failed)
+Errors while running CTest

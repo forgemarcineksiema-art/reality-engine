@@ -1,0 +1,5 @@
+tick=1 actors=2
+actor=1 surface=2 feet=0.500,1.284,-0.676 speed=0.000 accel=0.000 yaw=1.574 state=0 auto=0 task=0 hunger=1 energy=999 plans=0 leg=0/0 transfer=0 action=0
+actor=2 surface=2 feet=-1.040,1.296,0.640 speed=0.000 accel=0.000 yaw=0.004 state=0 auto=0 task=0 hunger=1 energy=1000 plans=0 leg=0/0 transfer=0 action=0
+platform=2 phase=41 dock=-1 blocked=0
+FAIL traversal actor penetrates geometry

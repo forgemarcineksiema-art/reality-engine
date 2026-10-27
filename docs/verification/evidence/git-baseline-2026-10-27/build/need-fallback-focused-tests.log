@@ -1,0 +1,39 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.course
+ 1/17 Test  #1: traversal.course ......................   Passed    0.17 sec
+      Start  2: traversal.walk
+ 2/17 Test  #2: traversal.walk ........................   Passed    0.09 sec
+      Start  3: traversal.ramp
+ 3/17 Test  #3: traversal.ramp ........................   Passed    0.06 sec
+      Start  4: traversal.step
+ 4/17 Test  #4: traversal.step ........................   Passed    0.08 sec
+      Start  5: traversal.rider
+ 5/17 Test  #5: traversal.rider .......................   Passed    0.06 sec
+      Start  6: traversal.autonomy
+ 6/17 Test  #6: traversal.autonomy ....................   Passed    0.07 sec
+      Start  7: traversal.occupied_goal
+ 7/17 Test  #7: traversal.occupied_goal ...............   Passed    0.14 sec
+      Start  8: traversal.transport
+ 8/17 Test  #8: traversal.transport ...................   Passed    0.32 sec
+      Start  9: traversal.supersede_pending_goal
+ 9/17 Test  #9: traversal.supersede_pending_goal ......   Passed    0.10 sec
+      Start 10: traversal.supersede_pending_stop
+10/17 Test #10: traversal.supersede_pending_stop ......   Passed    0.13 sec
+      Start 11: traversal.release_passage_ownership
+11/17 Test #11: traversal.release_passage_ownership ...   Passed    0.40 sec
+      Start 12: traversal.manual_touching_departure
+12/17 Test #12: traversal.manual_touching_departure ...   Passed    0.05 sec
+      Start 13: traversal.command_roundtrip
+13/17 Test #13: traversal.command_roundtrip ...........   Passed    7.63 sec
+      Start 14: traversal.support_coverage
+14/17 Test #14: traversal.support_coverage ............   Passed    0.04 sec
+      Start 15: traversal.need_fallback_empty
+15/17 Test #15: traversal.need_fallback_empty .........   Passed    0.29 sec
+      Start 16: traversal.need_fallback_unreachable
+16/17 Test #16: traversal.need_fallback_unreachable ...   Passed    0.24 sec
+      Start 17: traversal.last_meal
+17/17 Test #17: traversal.last_meal ...................   Passed    0.27 sec
+
+100% tests passed out of 17
+
+Total Test time (real) =  10.24 sec

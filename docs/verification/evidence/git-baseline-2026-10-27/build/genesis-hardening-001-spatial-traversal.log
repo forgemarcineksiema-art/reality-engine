@@ -1,0 +1,78 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.course
+ 1/27 Test  #1: traversal.course ......................   Passed    0.29 sec
+      Start  2: traversal.walk
+ 2/27 Test  #2: traversal.walk ........................   Passed    0.14 sec
+      Start  3: traversal.ramp
+ 3/27 Test  #3: traversal.ramp ........................   Passed    0.16 sec
+      Start  4: traversal.step
+ 4/27 Test  #4: traversal.step ........................   Passed    0.18 sec
+      Start  5: traversal.rider
+ 5/27 Test  #5: traversal.rider .......................   Passed    0.17 sec
+      Start  6: traversal.autonomy
+ 6/27 Test  #6: traversal.autonomy ....................   Passed    0.18 sec
+      Start  7: traversal.occupied_goal
+ 7/27 Test  #7: traversal.occupied_goal ...............   Passed    0.35 sec
+      Start  8: traversal.transport
+ 8/27 Test  #8: traversal.transport ...................   Passed    0.68 sec
+      Start  9: traversal.supersede_pending_goal
+ 9/27 Test  #9: traversal.supersede_pending_goal ......***Failed    0.06 sec
+FAIL reissued goal left the stale pending goal queued
+
+      Start 10: traversal.supersede_pending_stop
+10/27 Test #10: traversal.supersede_pending_stop ......***Failed    0.06 sec
+FAIL reissued goal left the pending stop queued
+
+      Start 11: traversal.release_passage_ownership
+11/27 Test #11: traversal.release_passage_ownership ...***Failed    0.23 sec
+manual_departure support=1 feet_x=-1.52882
+tick=217 actors=2
+actor=1 surface=1 feet=-2.574,0.000,1.440 speed=0.000 accel=0.000 yaw=-1.560 state=0 auto=0 task=0 hunger=217 energy=894 plans=1 leg=0/0 transfer=0 action=0
+actor=2 surface=1 feet=0.146,0.000,0.001 speed=0.000 accel=0.000 yaw=1.793 state=3 auto=0 task=0 hunger=217 energy=958 plans=1 leg=1/3 transfer=0 action=0
+  goal_surface=2 local=0.600,0.000 reach=0.000
+PASSAGES 1
+1 2 1 2 1 2
+FAIL waiter still queued after the owner left the passage
+
+      Start 12: spatial.ramp
+12/27 Test #12: spatial.ramp ..........................   Passed    0.20 sec
+      Start 13: spatial.rotated_sweep
+13/27 Test #13: spatial.rotated_sweep .................   Passed    0.03 sec
+      Start 14: spatial.levels
+14/27 Test #14: spatial.levels ........................   Passed    0.03 sec
+      Start 15: spatial.platform_volume
+15/27 Test #15: spatial.platform_volume ...............   Passed    0.03 sec
+      Start 16: spatial.solid_sat
+16/27 Test #16: spatial.solid_sat .....................   Passed    0.03 sec
+      Start 17: spatial.invalid_data
+17/27 Test #17: spatial.invalid_data ..................   Passed    0.03 sec
+      Start 18: spatial.surface_narrow
+18/27 Test #18: spatial.surface_narrow ................   Passed    0.03 sec
+      Start 19: spatial.surface_metric
+19/27 Test #19: spatial.surface_metric ................   Passed    0.03 sec
+      Start 20: spatial.surface_step
+20/27 Test #20: spatial.surface_step ..................   Passed    0.03 sec
+      Start 21: spatial.surface_budgets
+21/27 Test #21: spatial.surface_budgets ...............   Passed    0.03 sec
+      Start 22: spatial.sphere_sweep
+22/27 Test #22: spatial.sphere_sweep ..................   Passed    0.03 sec
+      Start 23: spatial.locomotion_envelopes
+23/27 Test #23: spatial.locomotion_envelopes ..........   Passed    0.03 sec
+      Start 24: spatial.locomotion_arrival
+24/27 Test #24: spatial.locomotion_arrival ............   Passed    0.03 sec
+      Start 25: spatial.locomotion_turn
+25/27 Test #25: spatial.locomotion_turn ...............   Passed    0.03 sec
+      Start 26: spatial.pair_paths
+26/27 Test #26: spatial.pair_paths ....................   Passed    0.03 sec
+      Start 27: spatial.unequal_capsules
+27/27 Test #27: spatial.unequal_capsules ..............   Passed    0.03 sec
+
+89% tests passed, 3 tests failed out of 27
+
+Total Test time (real) =   3.37 sec
+
+The following tests FAILED:
+	  9 - traversal.supersede_pending_goal (Failed)
+	 10 - traversal.supersede_pending_stop (Failed)
+	 11 - traversal.release_passage_ownership (Failed)
+Errors while running CTest

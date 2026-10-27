@@ -1,0 +1,13 @@
+tick=2 elapsed_ns=100000000
+actor=1 alive=1
+actor=2 alive=1
+lot=3 owner=1 quantity=2 reserved=2 available=0 active=1
+action=4 actor=1 lot=3 state=running consumed=1 due=5 reason=none
+command=1 result=accepted action=4
+command=2 result=insufficient_resource action=0
+event=1 tick=0 kind=actor_created subject=1 quantity=0
+event=2 tick=0 kind=actor_created subject=2 quantity=0
+event=3 tick=0 kind=resource_created subject=3 quantity=3
+event=4 tick=0 kind=reserved subject=4 quantity=3
+event=5 tick=0 kind=started subject=4 quantity=0
+event=6 tick=0 kind=consumed subject=4 quantity=1

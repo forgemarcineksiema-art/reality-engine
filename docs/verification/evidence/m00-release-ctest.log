@@ -1,0 +1,308 @@
+Start testing: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+----------------------------------------------------------
+1/18 Testing: clock.initial_state
+1/18 Test: clock.initial_state
+Command: "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "initial_state"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"clock.initial_state" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS initial_state
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"clock.initial_state" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"clock.initial_state" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/18 Testing: clock.reject_zero_step
+2/18 Test: clock.reject_zero_step
+Command: "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "reject_zero_step"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"clock.reject_zero_step" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS reject_zero_step
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"clock.reject_zero_step" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"clock.reject_zero_step" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/18 Testing: clock.reject_negative_step
+3/18 Test: clock.reject_negative_step
+Command: "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "reject_negative_step"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"clock.reject_negative_step" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS reject_negative_step
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"clock.reject_negative_step" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"clock.reject_negative_step" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/18 Testing: clock.exact_elapsed_time
+4/18 Test: clock.exact_elapsed_time
+Command: "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "exact_elapsed_time"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"clock.exact_elapsed_time" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS exact_elapsed_time
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"clock.exact_elapsed_time" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"clock.exact_elapsed_time" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/18 Testing: clock.batch_equivalence
+5/18 Test: clock.batch_equivalence
+Command: "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "batch_equivalence"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"clock.batch_equivalence" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS batch_equivalence
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"clock.batch_equivalence" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"clock.batch_equivalence" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/18 Testing: clock.zero_batch
+6/18 Test: clock.zero_batch
+Command: "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "zero_batch"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"clock.zero_batch" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS zero_batch
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"clock.zero_batch" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"clock.zero_batch" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/18 Testing: clock.overflow_preserves_state
+7/18 Test: clock.overflow_preserves_state
+Command: "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "overflow_preserves_state"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"clock.overflow_preserves_state" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS overflow_preserves_state
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"clock.overflow_preserves_state" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"clock.overflow_preserves_state" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/18 Testing: clock.reject_large_batch
+8/18 Test: clock.reject_large_batch
+Command: "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "reject_large_batch"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"clock.reject_large_batch" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS reject_large_batch
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"clock.reject_large_batch" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"clock.reject_large_batch" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/18 Testing: runner.rejects_failed_assertion
+9/18 Test: runner.rejects_failed_assertion
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "INTENTIONAL TEST FAILURE" "--" "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--self-test-failure"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"runner.rejects_failed_assertion" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+FAIL intentional_failure: INTENTIONAL TEST FAILURE
+VERIFIED: expected failure; exit=1
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"runner.rejects_failed_assertion" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"runner.rejects_failed_assertion" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/18 Testing: runner.rejects_unknown_case
+10/18 Test: runner.rejects_unknown_case
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "unknown test case" "--" "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_tests.exe" "--case" "absent"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"runner.rejects_unknown_case" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ERROR: unknown test case
+VERIFIED: expected failure; exit=2
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"runner.rejects_unknown_case" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"runner.rejects_unknown_case" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/18 Testing: runner.rejects_empty_suite
+11/18 Test: runner.rejects_empty_suite
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "No tests were found" "--" "C:/Users/Marcin/AppData/Local/Microsoft/WinGet/Packages/Kitware.CMake_Microsoft.Winget.Source_8wekyb3d8bbwe/cmake-4.4.4-windows-x86_64/bin/ctest.exe" "--test-dir" "C:/Users/Marcin/Documents/new/build/msvc/empty-suite" "--no-tests=error"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"runner.rejects_empty_suite" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+Test project C:/Users/Marcin/Documents/new/build/msvc/empty-suite
+No tests were found!!!
+Errors while running CTest
+Output from these tests are in: C:/Users/Marcin/Documents/new/build/msvc/empty-suite/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+VERIFIED: expected failure; exit=8
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Passed.
+"runner.rejects_empty_suite" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"runner.rejects_empty_suite" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/18 Testing: headless.default
+12/18 Test: headless.default
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "success" "--contains" "ticks=10 step_ns=50000000 elapsed_ns=500000000" "--" "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_headless.exe"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"headless.default" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ticks=10 step_ns=50000000 elapsed_ns=500000000
+VERIFIED: expected success; exit=0
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Passed.
+"headless.default" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"headless.default" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/18 Testing: headless.zero_steps
+13/18 Test: headless.zero_steps
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "success" "--contains" "ticks=0 step_ns=1000000 elapsed_ns=0" "--" "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_headless.exe" "--steps" "0" "--step-ms" "1"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"headless.zero_steps" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ticks=0 step_ns=1000000 elapsed_ns=0
+VERIFIED: expected success; exit=0
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"headless.zero_steps" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"headless.zero_steps" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/18 Testing: headless.rejects_zero_step
+14/18 Test: headless.rejects_zero_step
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "step-ms must be positive" "--" "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_headless.exe" "--step-ms" "0"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"headless.rejects_zero_step" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ERROR: step-ms must be positive
+VERIFIED: expected failure; exit=2
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"headless.rejects_zero_step" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"headless.rejects_zero_step" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/18 Testing: headless.rejects_malformed_steps
+15/18 Test: headless.rejects_malformed_steps
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "invalid unsigned integer" "--" "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_headless.exe" "--steps" "12junk"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"headless.rejects_malformed_steps" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ERROR: invalid unsigned integer
+VERIFIED: expected failure; exit=2
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"headless.rejects_malformed_steps" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"headless.rejects_malformed_steps" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/18 Testing: headless.rejects_overflow
+16/18 Test: headless.rejects_overflow
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "simulation time overflow" "--" "C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_headless.exe" "--steps" "18446744073709551615"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"headless.rejects_overflow" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ERROR: simulation time overflow
+VERIFIED: expected failure; exit=2
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"headless.rejects_overflow" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"headless.rejects_overflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/18 Testing: documentation.registry
+17/18 Test: documentation.registry
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/check_docs.py"
+Directory: C:/Users/Marcin/Documents/new
+"documentation.registry" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS: documentation registry, local links, IDs and archive checksums.
+External websites and engine behavior were not tested.
+<end of output>
+Test time =   0.25 sec
+----------------------------------------------------------
+Test Passed.
+"documentation.registry" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"documentation.registry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/18 Testing: tooling.tests
+18/18 Test: tooling.tests
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "-m" "unittest" "discover" "-s" "tools/tests" "-p" "test_*.py"
+Directory: C:/Users/Marcin/Documents/new
+"tooling.tests" start time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+...........................
+----------------------------------------------------------------------
+Ran 27 tests in 2.412s
+
+OK
+<end of output>
+Test time =   2.68 sec
+----------------------------------------------------------
+Test Passed.
+"tooling.tests" end time: Oct 25 09:47 Œrodkowoeuropejski czas stand.
+"tooling.tests" time elapsed: 00:00:02
+----------------------------------------------------------
+
+End testing: Oct 25 09:47 Œrodkowoeuropejski czas stand.

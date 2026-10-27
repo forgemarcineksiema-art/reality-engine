@@ -1,0 +1,390 @@
+Start testing: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+----------------------------------------------------------
+1/20 Testing: clock.initial_state
+1/20 Test: clock.initial_state
+Command: "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "initial_state"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"clock.initial_state" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS initial_state
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"clock.initial_state" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"clock.initial_state" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/20 Testing: clock.reject_zero_step
+2/20 Test: clock.reject_zero_step
+Command: "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "reject_zero_step"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"clock.reject_zero_step" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS reject_zero_step
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"clock.reject_zero_step" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"clock.reject_zero_step" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/20 Testing: clock.reject_negative_step
+3/20 Test: clock.reject_negative_step
+Command: "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "reject_negative_step"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"clock.reject_negative_step" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS reject_negative_step
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"clock.reject_negative_step" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"clock.reject_negative_step" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/20 Testing: clock.exact_elapsed_time
+4/20 Test: clock.exact_elapsed_time
+Command: "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "exact_elapsed_time"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"clock.exact_elapsed_time" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS exact_elapsed_time
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"clock.exact_elapsed_time" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"clock.exact_elapsed_time" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/20 Testing: clock.batch_equivalence
+5/20 Test: clock.batch_equivalence
+Command: "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "batch_equivalence"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"clock.batch_equivalence" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS batch_equivalence
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"clock.batch_equivalence" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"clock.batch_equivalence" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/20 Testing: clock.zero_batch
+6/20 Test: clock.zero_batch
+Command: "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "zero_batch"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"clock.zero_batch" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS zero_batch
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"clock.zero_batch" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"clock.zero_batch" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/20 Testing: clock.overflow_preserves_state
+7/20 Test: clock.overflow_preserves_state
+Command: "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "overflow_preserves_state"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"clock.overflow_preserves_state" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS overflow_preserves_state
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"clock.overflow_preserves_state" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"clock.overflow_preserves_state" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/20 Testing: clock.reject_large_batch
+8/20 Test: clock.reject_large_batch
+Command: "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "reject_large_batch"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"clock.reject_large_batch" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS reject_large_batch
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"clock.reject_large_batch" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"clock.reject_large_batch" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/20 Testing: runner.rejects_failed_assertion
+9/20 Test: runner.rejects_failed_assertion
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "INTENTIONAL TEST FAILURE" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--self-test-failure"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"runner.rejects_failed_assertion" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+FAIL intentional_failure: INTENTIONAL TEST FAILURE
+VERIFIED: expected failure; exit=1
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"runner.rejects_failed_assertion" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"runner.rejects_failed_assertion" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/20 Testing: runner.rejects_unknown_case
+10/20 Test: runner.rejects_unknown_case
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "unknown test case" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_tests.exe" "--case" "absent"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"runner.rejects_unknown_case" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ERROR: unknown test case
+VERIFIED: expected failure; exit=2
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"runner.rejects_unknown_case" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"runner.rejects_unknown_case" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/20 Testing: runner.rejects_empty_suite
+11/20 Test: runner.rejects_empty_suite
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "No tests were found" "--" "C:/Users/Marcin/AppData/Local/Microsoft/WinGet/Packages/Kitware.CMake_Microsoft.Winget.Source_8wekyb3d8bbwe/cmake-4.4.4-windows-x86_64/bin/ctest.exe" "--test-dir" "C:/Users/Marcin/Documents/new/build/asan/empty-suite" "--no-tests=error"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"runner.rejects_empty_suite" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+Test project C:/Users/Marcin/Documents/new/build/asan/empty-suite
+No tests were found!!!
+Errors while running CTest
+Output from these tests are in: C:/Users/Marcin/Documents/new/build/asan/empty-suite/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+VERIFIED: expected failure; exit=8
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"runner.rejects_empty_suite" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"runner.rejects_empty_suite" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/20 Testing: headless.default
+12/20 Test: headless.default
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "success" "--contains" "ticks=10 step_ns=50000000 elapsed_ns=500000000" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_headless.exe"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"headless.default" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ticks=10 step_ns=50000000 elapsed_ns=500000000
+VERIFIED: expected success; exit=0
+<end of output>
+Test time =   0.23 sec
+----------------------------------------------------------
+Test Passed.
+"headless.default" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"headless.default" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/20 Testing: headless.zero_steps
+13/20 Test: headless.zero_steps
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "success" "--contains" "ticks=0 step_ns=1000000 elapsed_ns=0" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_headless.exe" "--steps" "0" "--step-ms" "1"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"headless.zero_steps" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ticks=0 step_ns=1000000 elapsed_ns=0
+VERIFIED: expected success; exit=0
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Passed.
+"headless.zero_steps" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"headless.zero_steps" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/20 Testing: headless.rejects_zero_step
+14/20 Test: headless.rejects_zero_step
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "step-ms must be positive" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_headless.exe" "--step-ms" "0"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"headless.rejects_zero_step" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ERROR: step-ms must be positive
+VERIFIED: expected failure; exit=2
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"headless.rejects_zero_step" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"headless.rejects_zero_step" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/20 Testing: headless.rejects_malformed_steps
+15/20 Test: headless.rejects_malformed_steps
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "invalid unsigned integer" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_headless.exe" "--steps" "12junk"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"headless.rejects_malformed_steps" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ERROR: invalid unsigned integer
+VERIFIED: expected failure; exit=2
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"headless.rejects_malformed_steps" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"headless.rejects_malformed_steps" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/20 Testing: headless.rejects_overflow
+16/20 Test: headless.rejects_overflow
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "simulation time overflow" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_headless.exe" "--steps" "18446744073709551615"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"headless.rejects_overflow" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+ERROR: simulation time overflow
+VERIFIED: expected failure; exit=2
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"headless.rejects_overflow" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"headless.rejects_overflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/20 Testing: documentation.registry
+17/20 Test: documentation.registry
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/check_docs.py"
+Directory: C:/Users/Marcin/Documents/new
+"documentation.registry" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS: documentation registry, local links, IDs and archive checksums.
+External websites and engine behavior were not tested.
+<end of output>
+Test time =   0.26 sec
+----------------------------------------------------------
+Test Passed.
+"documentation.registry" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"documentation.registry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/20 Testing: tooling.tests
+18/20 Test: tooling.tests
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "-m" "unittest" "discover" "-s" "tools/tests" "-p" "test_*.py"
+Directory: C:/Users/Marcin/Documents/new
+"tooling.tests" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+...........................
+----------------------------------------------------------------------
+Ran 27 tests in 2.449s
+
+OK
+<end of output>
+Test time =   2.72 sec
+----------------------------------------------------------
+Test Passed.
+"tooling.tests" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"tooling.tests" time elapsed: 00:00:02
+----------------------------------------------------------
+
+19/20 Testing: diagnostics.clean_fixture
+19/20 Test: diagnostics.clean_fixture
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "success" "--contains" "CLEAN FIXTURE" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_asan_probe.exe" "clean"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"diagnostics.clean_fixture" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+CLEAN FIXTURE
+VERIFIED: expected success; exit=0
+<end of output>
+Test time =   0.23 sec
+----------------------------------------------------------
+Test Passed.
+"diagnostics.clean_fixture" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"diagnostics.clean_fixture" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/20 Testing: diagnostics.detects_heap_overflow
+20/20 Test: diagnostics.detects_heap_overflow
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tools/expect_process.py" "--expected" "failure" "--contains" "AddressSanitizer: heap-buffer-overflow" "--" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_asan_probe.exe" "heap-overflow"
+Directory: C:/Users/Marcin/Documents/new/build/asan
+"diagnostics.detects_heap_overflow" start time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+=================================================================
+==13696==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x1235b50a0040 at pc 0x7ff65b372258 bp 0x0087ec36f4a0 sp 0x0087ec36f4a8
+WRITE of size 4 at 0x1235b50a0040 thread T0
+    #0 0x7ff65b372257 in main C:\Users\Marcin\Documents\new\tests\diagnostics\asan_probe.cpp:19
+    #1 0x7ff65b37397b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #2 0x7ff843b3dda6 in BaseThreadInitThunk+0x16 (C:\WINDOWS\System32\KERNEL32.DLL+0x18002dda6)
+    #3 0x7ff843dbee4b in RtlUserThreadStart+0x2b (C:\WINDOWS\SYSTEM32\ntdll.dll+0x18007ee4b)
+
+0x1235b50a0040 is located 0 bytes after 16-byte region [0x1235b50a0030,0x1235b50a0040)
+allocated by thread T0 here:
+    #0 0x7ff65b372f3e in operator new[] D:\a\_work\1\s\src\vctools\asan\llvm\compiler-rt\lib\asan\asan_win_new_array_thunk.cpp:41
+    #1 0x7ff65b3720fd in main C:\Users\Marcin\Documents\new\tests\diagnostics\asan_probe.cpp:16
+    #2 0x7ff65b37397b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #3 0x7ff843b3dda6 in BaseThreadInitThunk+0x16 (C:\WINDOWS\System32\KERNEL32.DLL+0x18002dda6)
+    #4 0x7ff843dbee4b in RtlUserThreadStart+0x2b (C:\WINDOWS\SYSTEM32\ntdll.dll+0x18007ee4b)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow C:\Users\Marcin\Documents\new\tests\diagnostics\asan_probe.cpp:19 in main
+Shadow bytes around the buggy address:
+  0x1235b509fd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1235b509fe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1235b509fe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1235b509ff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1235b509ff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x1235b50a0000: fa fa fd fd fa fa 00 00[fa]fa fd fa fa fa fd fa
+  0x1235b50a0080: fa fa 00 00 fa fa 04 fa fa fa 04 fa fa fa fd fa
+  0x1235b50a0100: fa fa 04 fa fa fa 01 fa fa fa 01 fa fa fa 00 00
+  0x1235b50a0180: fa fa 00 04 fa fa 00 fa fa fa 04 fa fa fa 04 fa
+  0x1235b50a0200: fa fa 04 fa fa fa 04 fa fa fa 04 fa fa fa 04 fa
+  0x1235b50a0280: fa fa 04 fa fa fa 00 fa fa fa 00 fa fa fa 04 fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==13696==ABORTING
+VERIFIED: expected failure; exit=1
+<end of output>
+Test time =   0.23 sec
+----------------------------------------------------------
+Test Passed.
+"diagnostics.detects_heap_overflow" end time: Oct 25 09:45 Œrodkowoeuropejski czas stand.
+"diagnostics.detects_heap_overflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 25 09:45 Œrodkowoeuropejski czas stand.

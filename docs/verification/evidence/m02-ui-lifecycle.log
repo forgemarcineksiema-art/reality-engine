@@ -1,0 +1,9 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=0
+resize=784x681
+feedback=Zmieniono odtwarzanie czasu świata.
+minimized=1 tick=169
+restored=1 tick=169
+normal_shutdown=1

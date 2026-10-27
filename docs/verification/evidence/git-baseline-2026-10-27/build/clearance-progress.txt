@@ -1,0 +1,5 @@
+Complete: explicit local clearance for committed Step, autonomous admission/refusal, bounded same-support maneuver, preserved intention, expiry/cancellation, version3 and F3.
+13 new cases; Debug181/181 Release181/181 ASan183/183, style/docs/tools29/29.
+Independent read-only review APPROVE after three reproduced validation/reservation findings.
+Real active-v3 F9/F3/F6 replay6939 to7682: actor6 reached body6, accepted->completed; fresh-process GPU-debug smoke passed and input preserved.
+Original retained world continued1000 ticks: no stall alarms; actual need/work effects. No arbitrary crowd/social model or deliveries; M04 incomplete. No new300s FPS acceptance.

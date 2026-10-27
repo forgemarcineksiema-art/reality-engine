@@ -1,0 +1,113 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.narrow_bridge_opposite
+ 1/49 Test  #1: traversal.narrow_bridge_opposite ......   Passed    1.86 sec
+      Start  2: traversal.ferry_exchange
+ 2/49 Test  #2: traversal.ferry_exchange ..............   Passed    1.21 sec
+      Start  3: traversal.rapid_retarget
+ 3/49 Test  #3: traversal.rapid_retarget ..............   Passed    0.21 sec
+      Start  4: traversal.obstacle_braking
+ 4/49 Test  #4: traversal.obstacle_braking ............   Passed    0.16 sec
+      Start  5: traversal.slope_maneuvers
+ 5/49 Test  #5: traversal.slope_maneuvers .............   Passed    0.14 sec
+      Start  6: traversal.rotating_support
+ 6/49 Test  #6: traversal.rotating_support ............   Passed    0.51 sec
+      Start  7: traversal.crowd_passing
+ 7/49 Test  #7: traversal.crowd_passing ...............   Passed    0.47 sec
+      Start  8: traversal.occupied_goal_recovery
+ 8/49 Test  #8: traversal.occupied_goal_recovery ......   Passed    0.41 sec
+      Start  9: traversal.snapshot_corruption
+ 9/49 Test  #9: traversal.snapshot_corruption .........   Passed    0.24 sec
+      Start 10: traversal.long_course
+10/49 Test #10: traversal.long_course .................   Passed    9.74 sec
+      Start 11: traversal.partition
+11/49 Test #11: traversal.partition ...................   Passed    0.10 sec
+      Start 12: traversal.collinear_rest
+12/49 Test #12: traversal.collinear_rest ..............   Passed    0.20 sec
+      Start 13: traversal.moving_passengers
+13/49 Test #13: traversal.moving_passengers ...........   Passed    0.19 sec
+      Start 14: traversal.command_isolation
+14/49 Test #14: traversal.command_isolation ...........***Failed    0.10 sec
+tick=104 actors=2
+actor=1 surface=2 feet=2.996,0.200,0.000 speed=0.007 accel=-0.649 yaw=1.571 state=2 auto=1 task=0 hunger=104 energy=913 plans=1 leg=3/3 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=2 local=1.000,0.000 reach=0.900
+actor=2 surface=1 feet=-3.000,0.000,2.000 speed=0.000 accel=0.000 yaw=0.030 state=0 auto=0 task=0 hunger=104 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+FAIL invalid vector subscript
+
+      Start 15: traversal.support_contract
+15/49 Test #15: traversal.support_contract ............   Passed    0.37 sec
+      Start 16: traversal.course
+16/49 Test #16: traversal.course ......................   Passed    0.22 sec
+      Start 17: traversal.walk
+17/49 Test #17: traversal.walk ........................   Passed    0.10 sec
+      Start 18: traversal.ramp
+18/49 Test #18: traversal.ramp ........................   Passed    0.08 sec
+      Start 19: traversal.step
+19/49 Test #19: traversal.step ........................   Passed    0.10 sec
+      Start 20: traversal.rider
+20/49 Test #20: traversal.rider .......................   Passed    0.06 sec
+      Start 21: traversal.autonomy
+21/49 Test #21: traversal.autonomy ....................   Passed    0.09 sec
+      Start 22: traversal.occupied_goal
+22/49 Test #22: traversal.occupied_goal ...............   Passed    0.13 sec
+      Start 23: traversal.transport
+23/49 Test #23: traversal.transport ...................   Passed    0.30 sec
+      Start 24: traversal.supersede_pending_goal
+24/49 Test #24: traversal.supersede_pending_goal ......   Passed    0.07 sec
+      Start 25: traversal.supersede_pending_stop
+25/49 Test #25: traversal.supersede_pending_stop ......   Passed    0.07 sec
+      Start 26: traversal.release_passage_ownership
+26/49 Test #26: traversal.release_passage_ownership ...   Passed    0.44 sec
+      Start 27: traversal.manual_touching_departure
+27/49 Test #27: traversal.manual_touching_departure ...   Passed    0.04 sec
+      Start 28: traversal.command_roundtrip
+28/49 Test #28: traversal.command_roundtrip ...........   Passed    2.98 sec
+      Start 29: traversal.support_coverage
+29/49 Test #29: traversal.support_coverage ............   Passed    0.02 sec
+      Start 30: traversal.need_fallback_empty
+30/49 Test #30: traversal.need_fallback_empty .........   Passed    0.17 sec
+      Start 31: traversal.need_fallback_unreachable
+31/49 Test #31: traversal.need_fallback_unreachable ...   Passed    0.12 sec
+      Start 32: traversal.last_meal
+32/49 Test #32: traversal.last_meal ...................   Passed    0.16 sec
+      Start 33: traversal.reusable_rest
+33/49 Test #33: traversal.reusable_rest ...............   Passed    0.23 sec
+      Start 34: spatial.ramp
+34/49 Test #34: spatial.ramp ..........................   Passed    0.04 sec
+      Start 35: spatial.rotated_sweep
+35/49 Test #35: spatial.rotated_sweep .................   Passed    0.02 sec
+      Start 36: spatial.levels
+36/49 Test #36: spatial.levels ........................   Passed    0.01 sec
+      Start 37: spatial.platform_volume
+37/49 Test #37: spatial.platform_volume ...............   Passed    0.01 sec
+      Start 38: spatial.solid_sat
+38/49 Test #38: spatial.solid_sat .....................   Passed    0.02 sec
+      Start 39: spatial.invalid_data
+39/49 Test #39: spatial.invalid_data ..................   Passed    0.02 sec
+      Start 40: spatial.surface_narrow
+40/49 Test #40: spatial.surface_narrow ................   Passed    0.01 sec
+      Start 41: spatial.surface_metric
+41/49 Test #41: spatial.surface_metric ................   Passed    0.01 sec
+      Start 42: spatial.surface_step
+42/49 Test #42: spatial.surface_step ..................   Passed    0.02 sec
+      Start 43: spatial.surface_budgets
+43/49 Test #43: spatial.surface_budgets ...............   Passed    0.01 sec
+      Start 44: spatial.sphere_sweep
+44/49 Test #44: spatial.sphere_sweep ..................   Passed    0.02 sec
+      Start 45: spatial.locomotion_envelopes
+45/49 Test #45: spatial.locomotion_envelopes ..........   Passed    0.02 sec
+      Start 46: spatial.locomotion_arrival
+46/49 Test #46: spatial.locomotion_arrival ............   Passed    0.02 sec
+      Start 47: spatial.locomotion_turn
+47/49 Test #47: spatial.locomotion_turn ...............   Passed    0.01 sec
+      Start 48: spatial.pair_paths
+48/49 Test #48: spatial.pair_paths ....................   Passed    0.02 sec
+      Start 49: spatial.unequal_capsules
+49/49 Test #49: spatial.unequal_capsules ..............   Passed    0.01 sec
+
+98% tests passed, 1 tests failed out of 49
+
+Total Test time (real) =  21.81 sec
+
+The following tests FAILED:
+	 14 - traversal.command_isolation (Failed)
+Errors while running CTest

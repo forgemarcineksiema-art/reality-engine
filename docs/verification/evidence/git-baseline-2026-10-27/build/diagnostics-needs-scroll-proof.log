@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 81, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 74, in main
+    check(args.exe.resolve(), args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 26, in check
+    run(["--report", str(report), "--save", str(save), "--capture", str(output / "native.png")])
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 24, in run
+    raise AssertionError(f"native process failed: {result.returncode}; {arguments}")
+AssertionError: native process failed: 1; ['--report', 'C:\\Users\\Marcin\\Documents\\new\\build\\diagnostics-needs-scroll-red\\native.log', '--save', 'C:\\Users\\Marcin\\Documents\\new\\build\\diagnostics-needs-scroll-red\\ordinary.save', '--capture', 'C:\\Users\\Marcin\\Documents\\new\\build\\diagnostics-needs-scroll-red\\native.png']

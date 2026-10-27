@@ -1,0 +1,81 @@
+GENESIS_TRAVERSAL_DIAGNOSTIC 1
+reason=manual_F6
+world_checksum=18106078291628673050
+navigation_observations=8
+navigation_actor=1 observed_tick=122 activity=no_path last_progress_tick=122 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=122 activity=travelling last_progress_tick=122 distance_m=4.0540 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=3 observed_tick=122 activity=travelling last_progress_tick=122 distance_m=0.7963 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=4 observed_tick=122 activity=travelling last_progress_tick=122 distance_m=3.4667 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=5 observed_tick=122 activity=waiting last_progress_tick=122 distance_m=0.0080 stagnant_ticks=0 resource=1 transport=0 blocker=6 queue_position=1 resource_progress=0 externally_blocked=0
+navigation_actor=6 observed_tick=122 activity=precision last_progress_tick=122 distance_m=0.2299 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=33 externally_blocked=0
+navigation_actor=7 observed_tick=122 activity=travelling last_progress_tick=122 distance_m=0.1914 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=8 observed_tick=122 activity=travelling last_progress_tick=122 distance_m=1.1319 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+tick=122 actors=8
+actor=1 surface=1 feet=-7.713,0.000,3.130 speed=0.000 accel=0.000 yaw=1.338 state=4 auto=0 task=0 hunger=122 energy=947 plans=4 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=6 local=-0.029,0.011 reach=0.000
+  route=no_path retry_at=152
+actor=2 surface=1 feet=-7.559,0.000,1.093 speed=2.758 accel=1.266 yaw=2.320 state=1 auto=1 task=4 hunger=122 energy=952 plans=4 leg=0/8 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  cargo_lot=13 cargo_quantity=4 cargo_capacity=4
+  delivery_phase=1 source=0 destination=1 delivered=0/12
+  belief_station=0 available=16 wear=500 source_actor=2 via_actor=2 observed_tick=104 learned_tick=104
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=2 local=1.280,1.500 reach=0.900
+  route=found retry_at=105
+actor=3 surface=1 feet=-7.832,0.000,2.593 speed=0.000 accel=0.000 yaw=0.039 state=3 auto=1 task=3 hunger=212 energy=914 plans=3 leg=0/10 transfer=0 action=0 blocked=20 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=6 local=0.860,0.624 reach=0.900
+  route=found retry_at=158
+actor=4 surface=4 feet=-6.446,0.228,3.499 speed=1.732 accel=4.000 yaw=1.571 state=1 auto=1 task=3 hunger=257 energy=922 plans=2 leg=2/7 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=6 local=0.140,0.624 reach=0.900
+  route=found retry_at=78
+actor=5 surface=2 feet=3.952,0.000,-1.958 speed=0.000 accel=0.000 yaw=0.350 state=3 auto=1 task=3 hunger=302 energy=903 plans=2 leg=1/14 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=6 local=0.500,-0.720 reach=0.900
+  route=found retry_at=45
+  waiting_for_passage=1 owner=6
+actor=6 surface=2 feet=2.030,0.000,-2.800 speed=1.025 accel=1.025 yaw=-1.726 state=1 auto=1 task=3 hunger=347 energy=913 plans=2 leg=2/14 transfer=0 action=0 blocked=0 step_point=1 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=6 local=1.124,-0.360 reach=0.900
+  route=found retry_at=45
+actor=7 surface=2 feet=6.398,0.000,-0.676 speed=0.000 accel=0.000 yaw=-2.633 state=3 auto=1 task=1 hunger=392 energy=926 plans=4 leg=0/9 transfer=0 action=0 blocked=5 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_station=1 available=0 wear=500 source_actor=7 via_actor=7 observed_tick=66 learned_tick=66
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=1 local=-1.640,1.924 reach=0.900
+  route=found retry_at=161
+actor=8 surface=2 feet=6.975,0.000,-0.895 speed=1.013 accel=4.000 yaw=-2.892 state=1 auto=1 task=1 hunger=437 energy=903 plans=2 leg=1/8 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_station=1 available=0 wear=500 source_actor=7 via_actor=7 observed_tick=66 learned_tick=67
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=1 local=-1.376,0.940 reach=0.900
+  route=found retry_at=67
+platform=7 phase=122 dock=-1 blocked=0
+platform=8 phase=122 dock=-1 blocked=0
+station=9 kind=1 stock=16 completed=0 wear=500
+station=10 kind=1 stock=0 completed=0 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=0 wear=500
+station=12 kind=3 stock=80 completed=0 wear=622
+passage=1 surface=3 owner=6 queue=2
+service=1 owner=0 queue=0
+complete=1

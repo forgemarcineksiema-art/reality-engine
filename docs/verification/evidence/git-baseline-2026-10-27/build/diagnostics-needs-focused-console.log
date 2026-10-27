@@ -1,0 +1,27 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: needs.interruption
+ 1/11 Test  #1: needs.interruption .........................   Passed    0.65 sec
+      Start  2: needs.exhaustion
+ 2/11 Test  #2: needs.exhaustion ...........................   Passed    0.06 sec
+      Start  3: traversal.diagnostics_progress
+ 3/11 Test  #3: traversal.diagnostics_progress .............   Passed    0.03 sec
+      Start  4: traversal.diagnostics_waiting
+ 4/11 Test  #4: traversal.diagnostics_waiting ..............   Passed    0.29 sec
+      Start  5: traversal.diagnostics_reset
+ 5/11 Test  #5: traversal.diagnostics_reset ................   Passed    0.03 sec
+      Start  6: traversal.diagnostics_snapshot
+ 6/11 Test  #6: traversal.diagnostics_snapshot .............   Passed    0.27 sec
+      Start  7: traversal.diagnostics_timings
+ 7/11 Test  #7: traversal.diagnostics_timings ..............   Passed    0.02 sec
+      Start  8: traversal.diagnostics_invalid_sample
+ 8/11 Test  #8: traversal.diagnostics_invalid_sample .......   Passed    0.03 sec
+      Start  9: traversal.diagnostics_plan_churn
+ 9/11 Test  #9: traversal.diagnostics_plan_churn ...........   Passed    0.02 sec
+      Start 10: traversal.diagnostics_independent_alarms
+10/11 Test #10: traversal.diagnostics_independent_alarms ...   Passed    0.02 sec
+      Start 11: traversal.native_diagnostics
+11/11 Test #11: traversal.native_diagnostics ...............   Passed    6.78 sec
+
+100% tests passed out of 11
+
+Total Test time (real) =   8.30 sec

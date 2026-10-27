@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "archived_on": "2026-10-25",
+  "reason": "Historical design snapshots; not normative. Byte-preserved before documentation consolidation.",
+  "files": [
+    {
+      "path": "docs/archive/2026-10-25/PROJEKT_GENESIS.md",
+      "original_path": "PROJEKT_GENESIS.md",
+      "sha256": "88be2d7888bf03bd8355b8f27f92032e33a719bf0da2c89ca0dc46d5d39ce64c"
+    },
+    {
+      "path": "docs/archive/2026-10-25/GENESIS_ANALIZA_I_PROGRAM_BADAN.md",
+      "original_path": "GENESIS_ANALIZA_I_PROGRAM_BADAN.md",
+      "sha256": "d707747ff93dcd4591c376a974596344645a5b067aa57ecd5d6ef2432410df71"
+    },
+    {
+      "path": "docs/archive/2026-10-25/GENESIS_ARCHITEKTURA_TECHNICZNA.md",
+      "original_path": "GENESIS_ARCHITEKTURA_TECHNICZNA.md",
+      "sha256": "8e5f1fcf6b470d73ae49ee1167083f3e9da9b3c1dbb48cf49f631fc1a7c5c668"
+    },
+    {
+      "path": "docs/archive/2026-10-25/GENESIS_PLAN_PRAC.md",
+      "original_path": "GENESIS_PLAN_PRAC.md",
+      "sha256": "917b6580fa555fdf499841552b3866db2c73ea0ede4daf7960c0f2d939055d8a"
+    },
+    {
+      "path": "docs/archive/2026-10-25/GENESIS_DECYZJE_I_OTWARTE_PYTANIA.md",
+      "original_path": "GENESIS_DECYZJE_I_OTWARTE_PYTANIA.md",
+      "sha256": "20460d588d71abb1356be2c1a273a1c3d9fcd6ccb7f772cf89f4bf0cfad8126c"
+    },
+    {
+      "path": "docs/archive/2026-10-25/REALITY_ENGINE_WLASNY_SILNIK.md",
+      "original_path": "REALITY_ENGINE_WLASNY_SILNIK.md",
+      "sha256": "77c9b2ff9162fb884a3a4e00a531920d2ed8be8c2de7a4170a764d46df9cac78"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+tick=360 actors=2
+actor=1 surface=1 feet=-1.104,0.000,-0.468 speed=0.000 accel=0.000 yaw=0.687 state=1 auto=1 task=2 hunger=360 energy=44 plans=1 leg=0/1 transfer=0 action=0
+  goal_surface=1 local=-0.720,0.000 reach=0.900
+actor=2 surface=1 feet=-0.724,0.000,-0.000 speed=0.000 accel=0.000 yaw=1.550 state=4 auto=1 task=0 hunger=360 energy=1000 plans=1 leg=0/0 transfer=0 action=0
+station=3 kind=2 capacity=1 occupied=0 available=1 completed=1 wear=500
+FAIL collinear actors failed to share rest station

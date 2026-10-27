@@ -1,0 +1,7 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/multi-audit-baseline/CMakeLists.txt
+  traversal_audit_tests.cpp
+  audit_baseline.vcxproj -> C:\Users\Marcin\Documents\new\build\multi-audit-baseline\out\Debug\audit_baseline.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/multi-audit-baseline/CMakeLists.txt

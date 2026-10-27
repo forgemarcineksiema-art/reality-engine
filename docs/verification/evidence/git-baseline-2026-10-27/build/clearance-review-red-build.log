@@ -1,0 +1,26 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (1.0s)
+-- Generating done (1.1s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/msvc
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_scene.cpp
+  traversal_clearance.cpp
+  traversal_codec.cpp
+  traversal_course.cpp
+  traversal_diagnostics.cpp
+  traversal_needs.cpp
+  traversal_session.cpp
+  Generowanie kodu...
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  clearance_tests.cpp
+  reality_clearance_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_clearance_tests.exe

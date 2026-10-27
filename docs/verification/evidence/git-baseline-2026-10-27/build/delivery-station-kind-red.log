@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 18: delivery.station_kind
+1/1 Test #18: delivery.station_kind ............***Failed    0.08 sec
+FAIL capacity-backed rest station was accepted as a food station
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.22 sec
+
+The following tests FAILED:
+	 18 - delivery.station_kind (Failed)
+Errors while running CTest

@@ -1,0 +1,32 @@
+course_checksum=14041325238942045544
+course_task=1 completed=0
+course_task=1 completed=2
+course_task=2 completed=0
+course_task=3 completed=0
+tick=405 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=405 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+actor=2 surface=5 feet=-0.105,1.500,2.655 speed=0.000 accel=0.000 yaw=2.705 state=3 auto=1 task=3 hunger=450 energy=849 plans=1 leg=5/7 transfer=1 action=0 blocked=25 step_point=0
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+actor=3 surface=5 feet=-1.604,1.500,2.656 speed=0.000 accel=0.000 yaw=2.414 state=3 auto=1 task=3 hunger=495 energy=754 plans=3 leg=0/3 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.140,-0.624 reach=0.900
+actor=4 surface=5 feet=-0.857,1.500,2.654 speed=0.000 accel=0.000 yaw=2.138 state=3 auto=1 task=3 hunger=540 energy=816 plans=3 leg=0/3 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.140,0.624 reach=0.900
+actor=5 surface=1 feet=-7.271,0.000,1.957 speed=0.673 accel=-6.000 yaw=-0.600 state=1 auto=1 task=3 hunger=585 energy=724 plans=3 leg=5/13 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.860,-0.624 reach=0.900
+actor=6 surface=5 feet=-2.799,1.500,3.500 speed=0.054 accel=1.795 yaw=1.571 state=1 auto=1 task=3 hunger=630 energy=684 plans=2 leg=11/14 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=1.220,0.000 reach=0.900
+actor=7 surface=3 feet=1.455,0.000,-2.800 speed=1.653 accel=4.000 yaw=-1.571 state=1 auto=1 task=3 hunger=299 energy=787 plans=6 leg=2/13 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.500,0.000 reach=0.900
+actor=8 surface=2 feet=3.928,0.000,-1.942 speed=0.170 accel=-0.504 yaw=1.962 state=3 auto=1 task=3 hunger=294 energy=719 plans=4 leg=0/13 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.860,0.624 reach=0.900
+platform=7 phase=0 dock=0 blocked=0
+platform=8 phase=5 dock=0 blocked=0
+station=9 kind=1 stock=80 completed=0 wear=500
+station=10 kind=1 stock=78 completed=2 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=0 wear=500
+station=12 kind=3 stock=80 completed=0 wear=905
+passage=1 surface=3 owner=7 queue=2
+service=1 owner=0 queue=3
+SERVICES 1
+1 7 5 1.8 0 6 -1.8 0 -0.80000000000000004 0 0.80000000000000004 0 0 3 2 4 3
+PASS long_course

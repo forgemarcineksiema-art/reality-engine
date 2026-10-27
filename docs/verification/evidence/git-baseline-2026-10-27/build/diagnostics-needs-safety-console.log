@@ -1,0 +1,21 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: needs.interruption
+1/8 Test #1: needs.interruption ...............   Passed    0.60 sec
+    Start 2: needs.exhaustion
+2/8 Test #2: needs.exhaustion .................   Passed    0.06 sec
+    Start 3: needs.safe_step
+3/8 Test #3: needs.safe_step ..................   Passed    0.03 sec
+    Start 4: needs.safe_transport
+4/8 Test #4: needs.safe_transport .............   Passed    0.19 sec
+    Start 5: needs.running_action
+5/8 Test #5: needs.running_action .............   Passed    0.03 sec
+    Start 6: needs.manual_override
+6/8 Test #6: needs.manual_override ............   Passed    0.30 sec
+    Start 7: needs.unavailable_need
+7/8 Test #7: needs.unavailable_need ...........   Passed    0.25 sec
+    Start 8: needs.persistence
+8/8 Test #8: needs.persistence ................   Passed    0.82 sec
+
+100% tests passed out of 8
+
+Total Test time (real) =   2.34 sec

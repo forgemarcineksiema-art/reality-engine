@@ -1,0 +1,30 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 3: lab.hardware_gpu_standard
+1/1 Test #3: lab.hardware_gpu_standard ........***Failed    6.12 sec
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tests\lab_gpu_integration.py", line 53, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tests\lab_gpu_integration.py", line 20, in main
+    invalid = subprocess.run(
+        [sys.argv[1], "--smoke-test", "--report", str(invalid_log), "--adapter", "invalid"],
+        capture_output=True, text=True, timeout=3,
+    )
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1219, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1640, in _communicate
+    raise TimeoutExpired(self.args, orig_timeout)
+subprocess.TimeoutExpired: Command '['C:/Users/Marcin/Documents/new/build/msvc/Debug/reality_lab.exe', '--smoke-test', '--report', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-gpu-i0vzk2m9\\invalid-options.log', '--adapter', 'invalid']' timed out after 3 seconds
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   6.31 sec
+
+The following tests FAILED:
+	  3 - lab.hardware_gpu_standard (Failed)
+Errors while running CTest

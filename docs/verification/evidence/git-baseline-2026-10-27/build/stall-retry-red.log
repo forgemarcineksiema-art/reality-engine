@@ -1,0 +1,15 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 45: traversal.retained_ramp_recovery
+1/2 Test #45: traversal.retained_ramp_recovery .......   Passed    1.39 sec
+    Start 46: traversal.approach_alternative_retry
+2/2 Test #46: traversal.approach_alternative_retry ...***Failed    0.05 sec
+FAIL NoPath approach did not reconsider a newly available in-reach endpoint
+
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =   1.52 sec
+
+The following tests FAILED:
+	 46 - traversal.approach_alternative_retry (Failed)
+Errors while running CTest

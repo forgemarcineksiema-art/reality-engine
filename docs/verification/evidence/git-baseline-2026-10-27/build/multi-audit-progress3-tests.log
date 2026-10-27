@@ -1,0 +1,26 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 6: traversal.rotating_support
+1/2 Test #6: traversal.rotating_support .........***Failed    0.31 sec
+tick=570 actors=1
+actor=1 surface=1 feet=-7.700,0.000,-4.000 speed=0.000 accel=0.000 yaw=-1.571 state=3 auto=0 task=0 hunger=570 energy=922 plans=7 leg=2/3 transfer=0 action=0 blocked=910 step_point=0
+  goal_surface=1 local=-2.500,-4.000 reach=0.000
+platform=8 phase=85 dock=-1 blocked=0
+FAIL actor failed to finish route
+
+    Start 8: traversal.occupied_goal_recovery
+2/2 Test #8: traversal.occupied_goal_recovery ...***Failed    0.35 sec
+tick=240 actors=2
+actor=1 surface=1 feet=-0.724,0.000,-0.000 speed=0.000 accel=0.000 yaw=1.565 state=4 auto=1 task=0 hunger=240 energy=1000 plans=1 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+actor=2 surface=1 feet=-0.367,0.000,-0.630 speed=0.000 accel=0.000 yaw=0.663 state=0 auto=1 task=2 hunger=240 energy=52 plans=2 leg=0/0 transfer=0 action=5 blocked=0 step_point=0
+station=3 kind=2 capacity=1 occupied=1 available=0 completed=1 wear=500
+FAIL collinear actors failed to share rest station
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   0.73 sec
+
+The following tests FAILED:
+	  6 - traversal.rotating_support (Failed)
+	  8 - traversal.occupied_goal_recovery (Failed)
+Errors while running CTest

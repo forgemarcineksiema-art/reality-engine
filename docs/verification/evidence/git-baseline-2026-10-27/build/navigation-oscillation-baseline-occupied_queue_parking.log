@@ -1,0 +1,8 @@
+occupied parking baseline=-4.22958,-0.270613
+tick=301 actors=3
+actor=1 surface=1 feet=-4.154,0.000,-0.202 speed=2.114 accel=2.200 yaw=0.829 state=3 auto=0 task=0 hunger=301 energy=779 plans=3 leg=0/5 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=2 local=0.000,0.000 reach=0.000
+actor=2 surface=3 feet=0.000,0.000,0.300 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=301 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+actor=3 surface=1 feet=-3.950,0.000,-0.850 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=301 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+passage=1 surface=3 owner=2 queue=2
+FAIL occupied queue parking causes endless movement or rotation

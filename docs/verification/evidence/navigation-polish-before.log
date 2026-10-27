@@ -1,0 +1,26 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 14: motion.direct_goal
+1/4 Test #14: motion.direct_goal ...............***Failed    0.05 sec
+open_route_points=16 length_m=15.4142
+FAIL open route still visits cell centres
+
+    Start 15: motion.retarget
+2/4 Test #15: motion.retarget ..................***Failed    0.02 sec
+FAIL identical goal resets travel progress
+
+    Start 16: motion.replan_forward
+3/4 Test #16: motion.replan_forward ............***Failed    0.02 sec
+FAIL replan moved backwards to a cell centre
+
+    Start 17: motion.arrival_stability
+4/4 Test #17: motion.arrival_stability .........   Passed    0.01 sec
+
+25% tests passed, 3 tests failed out of 4
+
+Total Test time (real) =   0.16 sec
+
+The following tests FAILED:
+	 14 - motion.direct_goal (Failed)
+	 15 - motion.retarget (Failed)
+	 16 - motion.replan_forward (Failed)
+Errors while running CTest

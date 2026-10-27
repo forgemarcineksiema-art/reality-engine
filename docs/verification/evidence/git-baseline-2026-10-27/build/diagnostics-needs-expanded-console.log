@@ -1,0 +1,48 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: needs.interruption
+ 1/19 Test  #1: needs.interruption .........................   Passed    2.24 sec
+      Start  2: needs.exhaustion
+ 2/19 Test  #2: needs.exhaustion ...........................   Passed    0.27 sec
+      Start  3: needs.safe_step
+ 3/19 Test  #3: needs.safe_step ............................   Passed    0.23 sec
+      Start  4: needs.safe_transport
+ 4/19 Test  #4: needs.safe_transport .......................   Passed    0.96 sec
+      Start  5: needs.running_action
+ 5/19 Test  #5: needs.running_action .......................   Passed    0.23 sec
+      Start  6: needs.manual_override
+ 6/19 Test  #6: needs.manual_override ......................   Passed    1.61 sec
+      Start  7: needs.unavailable_need
+ 7/19 Test  #7: needs.unavailable_need .....................   Passed    1.43 sec
+      Start  8: needs.persistence
+ 8/19 Test  #8: needs.persistence ..........................   Passed    2.83 sec
+      Start  9: traversal.diagnostics_progress
+ 9/19 Test  #9: traversal.diagnostics_progress .............   Passed    0.16 sec
+      Start 10: traversal.diagnostics_waiting
+10/19 Test #10: traversal.diagnostics_waiting ..............   Passed    0.74 sec
+      Start 11: traversal.diagnostics_reset
+11/19 Test #11: traversal.diagnostics_reset ................   Passed    0.20 sec
+      Start 12: traversal.diagnostics_snapshot
+12/19 Test #12: traversal.diagnostics_snapshot .............   Passed    0.73 sec
+      Start 13: traversal.diagnostics_timings
+13/19 Test #13: traversal.diagnostics_timings ..............   Passed    0.04 sec
+      Start 14: traversal.diagnostics_invalid_sample
+14/19 Test #14: traversal.diagnostics_invalid_sample .......   Passed    0.06 sec
+      Start 15: traversal.diagnostics_plan_churn
+15/19 Test #15: traversal.diagnostics_plan_churn ...........   Passed    0.10 sec
+      Start 16: traversal.diagnostics_independent_alarms
+16/19 Test #16: traversal.diagnostics_independent_alarms ...   Passed    0.17 sec
+      Start 17: traversal.diagnostics_service_progress
+17/19 Test #17: traversal.diagnostics_service_progress .....   Passed    0.14 sec
+      Start 18: traversal.diagnostics_batch_transaction
+18/19 Test #18: traversal.diagnostics_batch_transaction ....   Passed    0.13 sec
+      Start 19: traversal.diagnostics_live_view
+19/19 Test #19: traversal.diagnostics_live_view ............***Timeout  20.02 sec
+
+
+95% tests passed, 1 tests failed out of 19
+
+Total Test time (real) =  32.83 sec
+
+The following tests FAILED:
+	 19 - traversal.diagnostics_live_view (Timeout)
+Errors while running CTest

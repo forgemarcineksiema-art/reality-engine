@@ -1,0 +1,11 @@
+# Execution ledger - docs/work-items/m04-entry-observability.md
+Authorization: execution of approved direction; current workspace; no commits or delegation.
+Task 1: complete - progress observer, isolated captures, unit and native proof.
+Task 2: complete - F6, measurement mode, strict unattended CLI, native tests and actual UI F6/F9.
+Task 3: complete - Debug 147/147, Release 147/147, ASan 149/149, format/docs PASS.
+Measurement: 30 s warmup + 300 s; exit 0; 17952 samples; 6000 measured ticks; no interventions/minimizations/resizes/occlusion/simulation errors.
+Observation: saved world advanced 1000 further ticks in Debug, Release and ASan with validation; 4 extra meals, 2 rests, 1 maintenance. No persistent transport deadlock established.
+Review: author review; no independent reviewer due retained no-delegation constraint.
+Deferred minor: multiline Win32 inspector record formatting; diagnostic text files are readable.
+Next: implement real material transfer from proposed design, then delivery with explicit urgency/interruption/cargo semantics. Not claimed implemented.
+Evidence and limitations: docs/verification/m04-entry-observability.md

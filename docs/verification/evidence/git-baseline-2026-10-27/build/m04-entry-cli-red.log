@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 79, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 72, in main
+    check(args.exe.resolve(), args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 50, in check
+    invalid = subprocess.run([str(exe), *bad], timeout=3, startupinfo=startup, check=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1228, in communicate
+    sts = self.wait(timeout=self._remaining_time(endtime))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1593, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\Debug\\reality_traversal.exe', '--measure-seconds']' timed out after 3.0 seconds

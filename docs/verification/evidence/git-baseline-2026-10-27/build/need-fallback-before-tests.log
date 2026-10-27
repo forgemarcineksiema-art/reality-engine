@@ -1,0 +1,28 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 15: traversal.need_fallback_empty
+1/3 Test #15: traversal.need_fallback_empty .........***Failed    0.09 sec
+tick=361 actors=1
+actor=1 surface=1 feet=-0.724,0.000,-0.000 speed=0.000 accel=0.000 yaw=1.550 state=4 auto=1 task=0 hunger=1000 energy=66 plans=3 leg=0/0 transfer=0 action=0
+station=2 kind=1 stock=0 completed=0 wear=500
+station=3 kind=2 stock=1 completed=0 wear=500
+FAIL unavailable food starved the necessary rest task
+
+    Start 16: traversal.need_fallback_unreachable
+2/3 Test #16: traversal.need_fallback_unreachable ...***Failed    0.11 sec
+tick=361 actors=1
+actor=1 surface=1 feet=-3.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=4 auto=1 task=0 hunger=1000 energy=100 plans=40 leg=0/0 transfer=0 action=0
+station=2 kind=1 stock=0 completed=0 wear=500
+station=3 kind=2 stock=1 completed=0 wear=500
+FAIL unavailable food starved the necessary rest task
+
+    Start 17: traversal.last_meal
+3/3 Test #17: traversal.last_meal ...................   Passed    0.13 sec
+
+33% tests passed, 2 tests failed out of 3
+
+Total Test time (real) =   0.38 sec
+
+The following tests FAILED:
+	 15 - traversal.need_fallback_empty (Failed)
+	 16 - traversal.need_fallback_unreachable (Failed)
+Errors while running CTest

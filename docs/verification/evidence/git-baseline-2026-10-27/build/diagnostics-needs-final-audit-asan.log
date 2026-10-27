@@ -1,0 +1,56 @@
+resume_at=6938
+stall_actor=2 tick=7038
+stall_actor=6 tick=7038
+stall_actor=7 tick=7209
+stall_actor=8 tick=7352
+stall_actor=6 tick=7533
+stall_actor=7 tick=7597
+stall_actor=2 tick=7691
+stall_actor=7 tick=7728
+stall_actor=3 tick=7747
+stall_actor=4 tick=7748
+stall_actor=8 tick=7787
+stall_actor=5 tick=7794
+stall_actor=2 tick=7804
+resumed_ticks=1000
+tick=7938 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=1000 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+actor=2 surface=4 feet=-6.194,0.323,3.973 speed=0.181 accel=3.300 yaw=2.959 state=1 auto=1 task=1 hunger=1000 energy=414 plans=125 leg=0/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+  goal_surface=1 local=-1.640,1.924 reach=0.900
+  route=found retry_at=7959
+actor=3 surface=4 feet=-5.987,0.397,2.977 speed=1.357 accel=-2.300 yaw=2.580 state=1 auto=1 task=1 hunger=1000 energy=155 plans=90 leg=0/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+  goal_surface=1 local=-1.280,1.300 reach=0.900
+  route=found retry_at=7888
+actor=4 surface=1 feet=-7.222,0.000,3.471 speed=0.021 accel=0.468 yaw=1.739 state=1 auto=1 task=3 hunger=532 energy=634 plans=120 leg=0/9 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+  route=found retry_at=7961
+actor=5 surface=1 feet=-7.283,0.000,2.770 speed=0.960 accel=-6.000 yaw=1.420 state=1 auto=1 task=3 hunger=463 energy=741 plans=75 leg=0/9 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=6 local=0.140,-0.624 reach=0.900
+  route=found retry_at=7890
+actor=6 surface=1 feet=-7.999,0.000,1.304 speed=0.000 accel=0.000 yaw=3.005 state=4 auto=1 task=0 hunger=221 energy=808 plans=63 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+actor=7 surface=4 feet=-6.804,0.094,3.932 speed=0.000 accel=0.000 yaw=3.134 state=3 auto=1 task=1 hunger=1000 energy=0 plans=109 leg=2/13 transfer=0 action=0 blocked=162 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=1.280,1.500 reach=0.900
+  route=found retry_at=7971
+actor=8 surface=4 feet=-6.681,0.140,3.137 speed=0.000 accel=0.000 yaw=-0.644 state=3 auto=1 task=1 hunger=1000 energy=0 plans=63 leg=1/11 transfer=0 action=0 blocked=179 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=1.640,0.876 reach=0.900
+  route=found retry_at=7948
+platform=7 phase=4 dock=0 blocked=0
+platform=8 phase=338 dock=-1 blocked=0
+station=9 kind=1 stock=70 completed=10 wear=500
+station=10 kind=1 stock=73 completed=7 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=5 wear=500
+station=12 kind=3 stock=73 completed=7 wear=1000
+passage=1 surface=3 owner=0 queue=0
+service=1 owner=0 queue=0
+navigation_observations=8
+navigation_actor=1 observed_tick=7938 activity=inactive last_progress_tick=6938 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=7938 activity=travelling last_progress_tick=7881 distance_m=0.8019 stagnant_ticks=57 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=3 observed_tick=7938 activity=travelling last_progress_tick=7907 distance_m=1.0131 stagnant_ticks=31 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=4 observed_tick=7938 activity=suspected_stall last_progress_tick=7648 distance_m=0.0365 stagnant_ticks=290 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=5 observed_tick=7938 activity=travelling last_progress_tick=7934 distance_m=0.7346 stagnant_ticks=4 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=6 observed_tick=7938 activity=no_path last_progress_tick=7678 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=7 observed_tick=7938 activity=suspected_stall last_progress_tick=7628 distance_m=0.4324 stagnant_ticks=310 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=8 observed_tick=7938 activity=travelling last_progress_tick=7842 distance_m=0.3842 stagnant_ticks=96 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0

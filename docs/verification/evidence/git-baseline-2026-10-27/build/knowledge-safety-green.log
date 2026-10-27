@@ -1,0 +1,51 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: knowledge.no_global
+ 1/17 Test  #1: knowledge.no_global ...............   Passed    0.06 sec
+      Start  2: knowledge.witness
+ 2/17 Test  #2: knowledge.witness .................   Passed    0.02 sec
+      Start  3: knowledge.delivery
+ 3/17 Test  #3: knowledge.delivery ................   Passed    0.05 sec
+      Start  4: knowledge.persistence
+ 4/17 Test  #4: knowledge.persistence .............   Passed    0.31 sec
+      Start  5: knowledge.stale
+ 5/17 Test  #5: knowledge.stale ...................   Passed    0.06 sec
+      Start  6: knowledge.contact
+ 6/17 Test  #6: knowledge.contact .................   Passed    0.02 sec
+      Start  7: knowledge.corruption
+ 7/17 Test  #7: knowledge.corruption ..............   Passed    0.04 sec
+      Start  8: knowledge.relay
+ 8/17 Test  #8: knowledge.relay ...................   Passed    0.02 sec
+      Start  9: knowledge.scout
+ 9/17 Test  #9: knowledge.scout ...................   Passed    0.05 sec
+      Start 10: knowledge.safe_action
+10/17 Test #10: knowledge.safe_action .............   Passed    0.05 sec
+      Start 11: knowledge.bounded_auto
+11/17 Test #11: knowledge.bounded_auto ............   Passed    0.04 sec
+      Start 12: knowledge.autonomous_delivery
+12/17 Test #12: knowledge.autonomous_delivery .....   Passed    0.05 sec
+      Start 13: knowledge.safe_step
+13/17 Test #13: knowledge.safe_step ...............   Passed    0.04 sec
+      Start 14: knowledge.safe_boarding
+14/17 Test #14: knowledge.safe_boarding ...........***Failed    0.01 sec
+FAIL invalid moving platform definition
+
+      Start 15: knowledge.safe_riding
+15/17 Test #15: knowledge.safe_riding .............***Failed    0.02 sec
+FAIL invalid moving platform definition
+
+      Start 16: knowledge.safe_exiting
+16/17 Test #16: knowledge.safe_exiting ............***Failed    0.02 sec
+FAIL invalid moving platform definition
+
+      Start 17: knowledge.safe_boarding_expired
+17/17 Test #17: knowledge.safe_boarding_expired ...   Passed    0.10 sec
+
+82% tests passed, 3 tests failed out of 17
+
+Total Test time (real) =   1.04 sec
+
+The following tests FAILED:
+	 14 - knowledge.safe_boarding (Failed)
+	 15 - knowledge.safe_riding (Failed)
+	 16 - knowledge.safe_exiting (Failed)
+Errors while running CTest

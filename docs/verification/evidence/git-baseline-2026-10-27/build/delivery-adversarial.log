@@ -1,0 +1,51 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: delivery.actual
+ 1/23 Test  #1: delivery.actual ..................   Passed    1.29 sec
+      Start  2: delivery.completed
+ 2/23 Test  #2: delivery.completed ...............   Passed    0.04 sec
+      Start  3: delivery.local_and_cancel
+ 3/23 Test  #3: delivery.local_and_cancel ........   Passed    0.03 sec
+      Start  4: delivery.persistence
+ 4/23 Test  #4: delivery.persistence .............   Passed    0.06 sec
+      Start  5: delivery.needs
+ 5/23 Test  #5: delivery.needs ...................   Passed    0.03 sec
+      Start  6: delivery.manual
+ 6/23 Test  #6: delivery.manual ..................   Passed    0.04 sec
+      Start  7: delivery.no_recycling
+ 7/23 Test  #7: delivery.no_recycling ............   Passed    0.03 sec
+      Start  8: delivery.wrong_station
+ 8/23 Test  #8: delivery.wrong_station ...........   Passed    0.02 sec
+      Start  9: delivery.corruption
+ 9/23 Test  #9: delivery.corruption ..............   Passed    0.02 sec
+      Start 10: delivery.meals
+10/23 Test #10: delivery.meals ...................   Passed    0.03 sec
+      Start 11: delivery.blocked
+11/23 Test #11: delivery.blocked .................   Passed    0.10 sec
+      Start 12: delivery.cancel_step
+12/23 Test #12: delivery.cancel_step .............   Passed    0.04 sec
+      Start 13: delivery.boat
+13/23 Test #13: delivery.boat ....................   Passed    0.90 sec
+      Start 14: transfer.basic
+14/23 Test #14: transfer.basic ...................   Passed    0.20 sec
+      Start 15: transfer.reserved
+15/23 Test #15: transfer.reserved ................   Passed    0.08 sec
+      Start 16: transfer.replay
+16/23 Test #16: transfer.replay ..................   Passed    0.14 sec
+      Start 17: transfer.refusals
+17/23 Test #17: transfer.refusals ................   Passed    0.09 sec
+      Start 18: transfer.large_cycle
+18/23 Test #18: transfer.large_cycle .............   Passed    0.08 sec
+      Start 19: transfer.removed
+19/23 Test #19: transfer.removed .................   Passed    0.11 sec
+      Start 20: transfer.boundaries
+20/23 Test #20: transfer.boundaries ..............   Passed    0.89 sec
+      Start 21: transfer.allocation
+21/23 Test #21: transfer.allocation ..............   Passed    0.03 sec
+      Start 22: transfer.corruption
+22/23 Test #22: transfer.corruption ..............   Passed    0.03 sec
+      Start 23: transfer.legacy
+23/23 Test #23: transfer.legacy ..................   Passed    0.03 sec
+
+100% tests passed out of 23
+
+Total Test time (real) =   4.59 sec

@@ -1,0 +1,26 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: adversarial.wall_retarget
+1/4 Test #1: adversarial.wall_retarget ........***Failed    0.06 sec
+contact_x=-0.600001 route_status=2
+FAIL valid contact position cannot attach to navigation grid
+
+    Start 2: adversarial.wall_goal
+2/4 Test #2: adversarial.wall_goal ............   Passed    0.01 sec
+    Start 3: adversarial.stationary_blocker
+3/4 Test #3: adversarial.stationary_blocker ...***Failed    0.02 sec
+FAIL open floor route setup failed
+
+    Start 4: adversarial.extreme_span
+4/4 Test #4: adversarial.extreme_span .........***Failed    0.01 sec
+FAIL invalid ground coordinate; supported range is one million metres
+
+
+25% tests passed, 3 tests failed out of 4
+
+Total Test time (real) =   0.20 sec
+
+The following tests FAILED:
+	  1 - adversarial.wall_retarget (Failed)
+	  3 - adversarial.stationary_blocker (Failed)
+	  4 - adversarial.extreme_span (Failed)
+Errors while running CTest

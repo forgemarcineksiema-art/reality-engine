@@ -1,0 +1,82 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.narrow_bridge_opposite
+ 1/29 Test  #1: traversal.narrow_bridge_opposite ......***Failed    3.10 sec
+FAIL missing passage diagnostics
+
+      Start  2: traversal.ferry_exchange
+ 2/29 Test  #2: traversal.ferry_exchange ..............   Passed    1.39 sec
+      Start  3: traversal.rapid_retarget
+ 3/29 Test  #3: traversal.rapid_retarget ..............   Passed    0.29 sec
+      Start  4: traversal.obstacle_braking
+ 4/29 Test  #4: traversal.obstacle_braking ............   Passed    0.14 sec
+      Start  5: traversal.slope_maneuvers
+ 5/29 Test  #5: traversal.slope_maneuvers .............   Passed    0.14 sec
+      Start  6: traversal.rotating_support
+ 6/29 Test  #6: traversal.rotating_support ............***Failed    0.23 sec
+tick=570 actors=1
+actor=1 surface=8 feet=-7.200,0.010,-4.001 speed=0.000 accel=-0.008 yaw=-2.639 state=3 auto=0 task=0 hunger=570 energy=936 plans=7 leg=1/3 transfer=0 action=0
+  goal_surface=1 local=-2.500,-4.000 reach=0.000
+platform=8 phase=394 dock=-1 blocked=0
+FAIL actor failed to finish route
+
+      Start  7: traversal.crowd_passing
+ 7/29 Test  #7: traversal.crowd_passing ...............   Passed    0.53 sec
+      Start  8: traversal.occupied_goal_recovery
+ 8/29 Test  #8: traversal.occupied_goal_recovery ......***Failed    0.17 sec
+FAIL occupied goal not reported as Waiting
+
+      Start  9: traversal.snapshot_corruption
+ 9/29 Test  #9: traversal.snapshot_corruption .........***Failed    0.02 sec
+FAIL semantically corrupt snapshot accepted
+
+      Start 10: traversal.long_course
+10/29 Test #10: traversal.long_course .................   Passed   11.20 sec
+      Start 11: traversal.partition
+11/29 Test #11: traversal.partition ...................   Passed    0.11 sec
+      Start 12: traversal.course
+12/29 Test #12: traversal.course ......................   Passed    0.29 sec
+      Start 13: traversal.walk
+13/29 Test #13: traversal.walk ........................   Passed    0.14 sec
+      Start 14: traversal.ramp
+14/29 Test #14: traversal.ramp ........................   Passed    0.11 sec
+      Start 15: traversal.step
+15/29 Test #15: traversal.step ........................   Passed    0.14 sec
+      Start 16: traversal.rider
+16/29 Test #16: traversal.rider .......................   Passed    0.09 sec
+      Start 17: traversal.autonomy
+17/29 Test #17: traversal.autonomy ....................   Passed    0.10 sec
+      Start 18: traversal.occupied_goal
+18/29 Test #18: traversal.occupied_goal ...............   Passed    0.24 sec
+      Start 19: traversal.transport
+19/29 Test #19: traversal.transport ...................   Passed    0.46 sec
+      Start 20: traversal.supersede_pending_goal
+20/29 Test #20: traversal.supersede_pending_goal ......   Passed    0.11 sec
+      Start 21: traversal.supersede_pending_stop
+21/29 Test #21: traversal.supersede_pending_stop ......   Passed    0.13 sec
+      Start 22: traversal.release_passage_ownership
+22/29 Test #22: traversal.release_passage_ownership ...   Passed    0.51 sec
+      Start 23: traversal.manual_touching_departure
+23/29 Test #23: traversal.manual_touching_departure ...   Passed    0.06 sec
+      Start 24: traversal.command_roundtrip
+24/29 Test #24: traversal.command_roundtrip ...........   Passed    3.34 sec
+      Start 25: traversal.support_coverage
+25/29 Test #25: traversal.support_coverage ............   Passed    0.01 sec
+      Start 26: traversal.need_fallback_empty
+26/29 Test #26: traversal.need_fallback_empty .........   Passed    0.17 sec
+      Start 27: traversal.need_fallback_unreachable
+27/29 Test #27: traversal.need_fallback_unreachable ...   Passed    0.12 sec
+      Start 28: traversal.last_meal
+28/29 Test #28: traversal.last_meal ...................   Passed    0.22 sec
+      Start 29: traversal.reusable_rest
+29/29 Test #29: traversal.reusable_rest ...............   Passed    0.24 sec
+
+86% tests passed, 4 tests failed out of 29
+
+Total Test time (real) =  23.97 sec
+
+The following tests FAILED:
+	  1 - traversal.narrow_bridge_opposite (Failed)
+	  6 - traversal.rotating_support (Failed)
+	  8 - traversal.occupied_goal_recovery (Failed)
+	  9 - traversal.snapshot_corruption (Failed)
+Errors while running CTest

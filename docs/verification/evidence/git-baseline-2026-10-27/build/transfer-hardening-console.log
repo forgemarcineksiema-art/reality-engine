@@ -1,0 +1,75 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start   1: transfer.basic
+ 1/35 Test   #1: transfer.basic ....................   Passed    0.07 sec
+      Start   2: transfer.reserved
+ 2/35 Test   #2: transfer.reserved .................   Passed    0.02 sec
+      Start   3: transfer.replay
+ 3/35 Test   #3: transfer.replay ...................   Passed    0.02 sec
+      Start   4: transfer.refusals
+ 4/35 Test   #4: transfer.refusals .................   Passed    0.02 sec
+      Start   5: transfer.large_cycle
+ 5/35 Test   #5: transfer.large_cycle ..............   Passed    0.03 sec
+      Start   6: transfer.removed
+ 6/35 Test   #6: transfer.removed ..................   Passed    0.02 sec
+      Start   7: transfer.boundaries
+ 7/35 Test   #7: transfer.boundaries ...............   Passed    0.16 sec
+      Start   8: transfer.allocation
+ 8/35 Test   #8: transfer.allocation ...............   Passed    0.02 sec
+      Start   9: transfer.corruption
+ 9/35 Test   #9: transfer.corruption ...............   Passed    0.02 sec
+      Start  10: transfer.legacy
+10/35 Test  #10: transfer.legacy ...................   Passed    0.02 sec
+      Start 147: work.stale_handle
+11/35 Test #147: work.stale_handle .................   Passed    0.04 sec
+      Start 148: work.registry_exhaustion
+12/35 Test #148: work.registry_exhaustion ..........   Passed    0.01 sec
+      Start 149: work.registry_validation
+13/35 Test #149: work.registry_validation ..........   Passed    0.02 sec
+      Start 150: work.reservation_contention
+14/35 Test #150: work.reservation_contention .......   Passed    0.02 sec
+      Start 151: work.command_retries
+15/35 Test #151: work.command_retries ..............   Passed    0.02 sec
+      Start 152: work.cancel_before_start
+16/35 Test #152: work.cancel_before_start ..........   Passed    0.03 sec
+      Start 153: work.partial_cancellation
+17/35 Test #153: work.partial_cancellation .........   Passed    0.02 sec
+      Start 154: work.completion_once
+18/35 Test #154: work.completion_once ..............   Passed    0.02 sec
+      Start 155: work.participant_removal
+19/35 Test #155: work.participant_removal ..........   Passed    0.02 sec
+      Start 156: work.invalid_requests
+20/35 Test #156: work.invalid_requests .............   Passed    0.02 sec
+      Start 157: work.time_overflow
+21/35 Test #157: work.time_overflow ................   Passed    0.02 sec
+      Start 158: work.snapshot_continuation
+22/35 Test #158: work.snapshot_continuation ........   Passed    0.02 sec
+      Start 159: work.snapshot_history
+23/35 Test #159: work.snapshot_history .............   Passed    0.02 sec
+      Start 160: work.snapshot_rejection
+24/35 Test #160: work.snapshot_rejection ...........   Passed    0.02 sec
+      Start 161: work.snapshot_semantics
+25/35 Test #161: work.snapshot_semantics ...........   Passed    0.02 sec
+      Start 162: work.snapshot_journal
+26/35 Test #162: work.snapshot_journal .............   Passed    0.02 sec
+      Start 163: work.save_replacement
+27/35 Test #163: work.save_replacement .............   Passed    0.04 sec
+      Start 164: work.record_limit
+28/35 Test #164: work.record_limit .................   Passed    0.07 sec
+      Start 165: work.event_capacity
+29/35 Test #165: work.event_capacity ...............   Passed    0.53 sec
+      Start 166: work.batch_ordering
+30/35 Test #166: work.batch_ordering ...............   Passed    0.02 sec
+      Start 167: work.operation_sequence
+31/35 Test #167: work.operation_sequence ...........   Passed    0.35 sec
+      Start 168: work.capacity_lifecycle
+32/35 Test #168: work.capacity_lifecycle ...........   Passed    0.02 sec
+      Start 169: work.capacity_removal
+33/35 Test #169: work.capacity_removal .............   Passed    0.02 sec
+      Start 170: work.capacity_snapshot
+34/35 Test #170: work.capacity_snapshot ............   Passed    0.02 sec
+      Start 171: work.fresh_process_continuation
+35/35 Test #171: work.fresh_process_continuation ...   Passed    0.53 sec
+
+100% tests passed out of 35
+
+Total Test time (real) =   2.55 sec

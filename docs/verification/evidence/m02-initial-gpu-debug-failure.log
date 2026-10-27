@@ -1,0 +1,53 @@
+Start testing: Oct 25 10:32 Œrodkowoeuropejski czas stand.
+----------------------------------------------------------
+1/44 Testing: lab.model_and_presentation
+1/44 Test: lab.model_and_presentation
+Command: "C:/Users/Marcin/Documents/new/build/msvc/Debug/reality_lab_tests.exe"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"lab.model_and_presentation" start time: Oct 25 10:32 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+PASS consumer_cycle
+PASS frame_partition
+PASS backlog_and_pause
+PASS picking_and_camera
+PASS load_protection
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"lab.model_and_presentation" end time: Oct 25 10:32 Œrodkowoeuropejski czas stand.
+"lab.model_and_presentation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/44 Testing: lab.hardware_gpu_integration
+2/44 Test: lab.hardware_gpu_integration
+Command: "C:/Users/Marcin/AppData/Local/Programs/Python/Python313/python.exe" "C:/Users/Marcin/Documents/new/tests/lab_gpu_integration.py" "C:/Users/Marcin/Documents/new/build/msvc/Debug/reality_lab.exe"
+Directory: C:/Users/Marcin/Documents/new/build/msvc
+"lab.hardware_gpu_integration" start time: Oct 25 10:32 Œrodkowoeuropejski czas stand.
+Output:
+----------------------------------------------------------
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+ERROR: D3D11CreateDevice HRESULT=0x887a002d
+
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tests\lab_gpu_integration.py", line 43, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tests\lab_gpu_integration.py", line 26, in main
+    require(result.returncode == 0, f"native GPU test exited {result.returncode}: {result.stderr}")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tests\lab_gpu_integration.py", line 12, in require
+    raise AssertionError(message)
+AssertionError: native GPU test exited 1: 
+<end of output>
+Test time =   0.57 sec
+----------------------------------------------------------
+Test Failed.
+"lab.hardware_gpu_integration" end time: Oct 25 10:32 Œrodkowoeuropejski czas stand.
+"lab.hardware_gpu_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 25 10:32 Œrodkowoeuropejski czas stand.

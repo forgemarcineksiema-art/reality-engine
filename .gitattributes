@@ -1,0 +1,10 @@
+# Consistent text in commits and checkouts, independent of core.autocrlf.
+* text=auto eol=lf
+
+# Historical archives and evidence retain their exact bytes and hashes.
+/docs/archive/** -text
+/docs/verification/evidence/** -text
+/tests/fixtures/** -text
+/tests/data/** -text
+
+*.png binary

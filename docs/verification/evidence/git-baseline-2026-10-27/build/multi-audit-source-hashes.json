@@ -1,0 +1,46 @@
+[
+  {
+    "path": "src/lab/traversal_session.cpp",
+    "sha256": "A25E74A0AB0A1F3471AD788F4D8D217BE2B220AC15C454595476A8781A6E981F"
+  },
+  {
+    "path": "src/lab/traversal_session.hpp",
+    "sha256": "75A0C6E66A81144FC0D5905F325B1FE507AF69E8C3A30ED0C58D498A4BDF83D9"
+  },
+  {
+    "path": "src/lab/traversal_course.cpp",
+    "sha256": "07682F624B9506BB5BA16B37173C567947140A0FCDDD845D15F03E58EC95E267"
+  },
+  {
+    "path": "src/navigation/surface_navigation.cpp",
+    "sha256": "DF44CC5283C9059C2497F2D93D929001838BC83F916430F9DE5581ED1B62889A"
+  },
+  {
+    "path": "src/navigation/surface_navigation.hpp",
+    "sha256": "6D3DA5662D62F8E232A83F1350B81D96AAA97792F2701E81F8766F97109C782C"
+  },
+  {
+    "path": "src/physics/spatial_geometry.cpp",
+    "sha256": "5368C14D434A232FFC06B9E2FB9DFDCD560479B2D22D52F07BCDBBF16087F975"
+  },
+  {
+    "path": "src/physics/spatial_geometry.hpp",
+    "sha256": "14FD8C883B80C1F36B7C16A67B9CAD2D486186890DC9987B45F99A91A11CEC8F"
+  },
+  {
+    "path": "src/physics/platform_motion.cpp",
+    "sha256": "AB1B8166476225E89A6B68B634A8F6E22FA6A5A7F108F9ABD5D63CE61D2DD656"
+  },
+  {
+    "path": "src/platform/traversal_main.cpp",
+    "sha256": "5F126AA5A7B862F5DCFE1681C9ECAF5AA54C1556DF3DC22FB3E3C139D549C097"
+  },
+  {
+    "path": "tests/traversal_audit_tests.cpp",
+    "sha256": "1099A1049A6E16E914D2BE852911E846480144D67B7E6A23D329C0742016BDE1"
+  },
+  {
+    "path": "CMakeLists.txt",
+    "sha256": "5298A4790B5186231DBCD397775FCBAFD910F1C92B7C58E11CA7261405A90BAD"
+  }
+]

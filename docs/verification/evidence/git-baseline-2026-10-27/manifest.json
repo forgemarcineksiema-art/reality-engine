@@ -1,0 +1,4183 @@
+{
+  "captured_on": "2026-10-27",
+  "purpose": "Historical local evidence preserved before the first Git commit; results are not rerun or reinterpreted.",
+  "selection": "Files under build with extensions .log, .save, .png, .json, .txt, .csv, excluding msvc, asan, CMakeFiles, Testing and __pycache__ directories. Compilers, binaries and CTest temporary output are excluded.",
+  "files": [
+    {
+      "source": "build/asan-direct.log",
+      "snapshot": "build/asan-direct.log",
+      "bytes": 46,
+      "sha256": "232c0c2631a7d4b38c22f09263f12e577136438301c2aa444c3915b61d0697d6"
+    },
+    {
+      "source": "build/asan-i1-60-cpu.log",
+      "snapshot": "build/asan-i1-60-cpu.log",
+      "bytes": 6653,
+      "sha256": "37f84a71bb0894b27c51671af4f590a947c36152034f0f05f7f20f99eede9f6f"
+    },
+    {
+      "source": "build/asan-i1-60-gapcheck.log",
+      "snapshot": "build/asan-i1-60-gapcheck.log",
+      "bytes": 6653,
+      "sha256": "e099269becda4012e93f68390714f181c1a2509ce7d5656bd5c55376d3b7dce6"
+    },
+    {
+      "source": "build/asan-i1-60-perf.log",
+      "snapshot": "build/asan-i1-60-perf.log",
+      "bytes": 6653,
+      "sha256": "b3e118b8112e50daef30eab5bf866d845062d1b3b801779afb075838a4d6ef45"
+    },
+    {
+      "source": "build/asan-i11-native.log",
+      "snapshot": "build/asan-i11-native.log",
+      "bytes": 217,
+      "sha256": "15871b2278f90630be69d9a078a6c42250650979e4107de001a8397d16abc5ab"
+    },
+    {
+      "source": "build/asan-r-native.log",
+      "snapshot": "build/asan-r-native.log",
+      "bytes": 217,
+      "sha256": "ef43e2d77b518400c8c72edf6fcbfdc5b509190541cddfb22e6c89604af8d21c"
+    },
+    {
+      "source": "build/asan-range-1-60-opt2.log",
+      "snapshot": "build/asan-range-1-60-opt2.log",
+      "bytes": 13564,
+      "sha256": "af32780ae5ca307420d736dc5880138d7f57c912ac4929e6dd89146c049a52ec"
+    },
+    {
+      "source": "build/asan-range-1-60.log",
+      "snapshot": "build/asan-range-1-60.log",
+      "bytes": 13564,
+      "sha256": "63b06bc55b7c7d6a1d204dff74f1b6381adc3164c42cf1c148c5154abdddd632"
+    },
+    {
+      "source": "build/asan-single-tee.log",
+      "snapshot": "build/asan-single-tee.log",
+      "bytes": 450,
+      "sha256": "ca59764c6123248be705f1f567b9b183fd6b75d28425602200143dda55d57d14"
+    },
+    {
+      "source": "build/asan-sweep-profile.log",
+      "snapshot": "build/asan-sweep-profile.log",
+      "bytes": 1016,
+      "sha256": "0a1ef37cb3073fccbc642c2b62455192affd7fe7bd04634cc3f8aa86de3b19b1"
+    },
+    {
+      "source": "build/asan-sweep-profile2.log",
+      "snapshot": "build/asan-sweep-profile2.log",
+      "bytes": 1080,
+      "sha256": "c413a81b3948dbdc2ab9a8c5d204d674e2f71b65b8a769bc3dd5fa9fd7d2844c"
+    },
+    {
+      "source": "build/capacity-asan-build.log",
+      "snapshot": "build/capacity-asan-build.log",
+      "bytes": 3758,
+      "sha256": "ceb84d8067ff4b59a4b33b06fde8ec245270ca8b01b19ba7fe508a8598b62ad3"
+    },
+    {
+      "source": "build/capacity-asan-console.log",
+      "snapshot": "build/capacity-asan-console.log",
+      "bytes": 14846,
+      "sha256": "23f6a1ab682d66adf982d972886c877072aa641dbc0d30d521e792cbf555d7c9"
+    },
+    {
+      "source": "build/capacity-asan-tests.log",
+      "snapshot": "build/capacity-asan-tests.log",
+      "bytes": 14846,
+      "sha256": "23f6a1ab682d66adf982d972886c877072aa641dbc0d30d521e792cbf555d7c9"
+    },
+    {
+      "source": "build/capacity-before-build.log",
+      "snapshot": "build/capacity-before-build.log",
+      "bytes": 1117,
+      "sha256": "db799ded9c5dd5f2a2323f6f0024057fad5a9304d86a76d84a486b34e36c8d6f"
+    },
+    {
+      "source": "build/capacity-before-tests.log",
+      "snapshot": "build/capacity-before-tests.log",
+      "bytes": 395,
+      "sha256": "69632671452d5eb14c150e1e7142b72353dd616738e9d4a5eba3df13b8cd9098"
+    },
+    {
+      "source": "build/capacity-debug-build.log",
+      "snapshot": "build/capacity-debug-build.log",
+      "bytes": 3232,
+      "sha256": "5ed6fd27833eef217f504618edd814c2a4d6617a68439f0e89f77aafafcd6e46"
+    },
+    {
+      "source": "build/capacity-debug-console.log",
+      "snapshot": "build/capacity-debug-console.log",
+      "bytes": 14582,
+      "sha256": "7c7b193410eebdddc5e45e7eeb16726976a9ef78f6a85002b0bfaeb44a967822"
+    },
+    {
+      "source": "build/capacity-debug-tests.log",
+      "snapshot": "build/capacity-debug-tests.log",
+      "bytes": 14582,
+      "sha256": "7c7b193410eebdddc5e45e7eeb16726976a9ef78f6a85002b0bfaeb44a967822"
+    },
+    {
+      "source": "build/capacity-final-docs.log",
+      "snapshot": "build/capacity-final-docs.log",
+      "bytes": 235,
+      "sha256": "293012fce7b3afaf090d7ff47e1ccc078d161d18c219c9379fb983515ab18192"
+    },
+    {
+      "source": "build/capacity-focused-console.log",
+      "snapshot": "build/capacity-focused-console.log",
+      "bytes": 4879,
+      "sha256": "03d6481d42f43428371e542bc85640667950f2078f66edf99f4ed840d3da6cdc"
+    },
+    {
+      "source": "build/capacity-focused-tests.log",
+      "snapshot": "build/capacity-focused-tests.log",
+      "bytes": 4879,
+      "sha256": "03d6481d42f43428371e542bc85640667950f2078f66edf99f4ed840d3da6cdc"
+    },
+    {
+      "source": "build/capacity-format.log",
+      "snapshot": "build/capacity-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/capacity-gpu-asan.log",
+      "snapshot": "build/capacity-gpu-asan.log",
+      "bytes": 2523,
+      "sha256": "63b1ff8dbb4fd86355fe2225e85bd0f73d164b79585194ff02257edd18fa988c"
+    },
+    {
+      "source": "build/capacity-gpu-asan.png",
+      "snapshot": "build/capacity-gpu-asan.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/capacity-gpu-asan.png.before.png",
+      "snapshot": "build/capacity-gpu-asan.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/capacity-gpu-asan.save",
+      "snapshot": "build/capacity-gpu-asan.save",
+      "bytes": 7237,
+      "sha256": "95d27f054c7e95e547044430327c050ac5e68d6af73b295b049135b32d971390"
+    },
+    {
+      "source": "build/capacity-gpu-debug.log",
+      "snapshot": "build/capacity-gpu-debug.log",
+      "bytes": 2525,
+      "sha256": "9402420bd4f251e02c4d5b643d2da40684d0e111d9a8d76a619708c11650b388"
+    },
+    {
+      "source": "build/capacity-gpu-debug.png",
+      "snapshot": "build/capacity-gpu-debug.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/capacity-gpu-debug.png.before.png",
+      "snapshot": "build/capacity-gpu-debug.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/capacity-gpu-debug.save",
+      "snapshot": "build/capacity-gpu-debug.save",
+      "bytes": 7237,
+      "sha256": "95d27f054c7e95e547044430327c050ac5e68d6af73b295b049135b32d971390"
+    },
+    {
+      "source": "build/capacity-gpu-legacy.log",
+      "snapshot": "build/capacity-gpu-legacy.log",
+      "bytes": 2418,
+      "sha256": "5b25a4027c9197cacd8fdcb981bc5a0e6603a4c9eef3cafa2331d4a2118a6dfa"
+    },
+    {
+      "source": "build/capacity-gpu-legacy.png",
+      "snapshot": "build/capacity-gpu-legacy.png",
+      "bytes": 13341,
+      "sha256": "19bf2225dc242a2d1f291e9ac7eae2f9104c0a0acf5b8149d64bea9493f1354d"
+    },
+    {
+      "source": "build/capacity-gpu-release.log",
+      "snapshot": "build/capacity-gpu-release.log",
+      "bytes": 2529,
+      "sha256": "4c2450e59a96d75028db04f75ba44dae279b02cccf252d8879a84dda4105b870"
+    },
+    {
+      "source": "build/capacity-gpu-release.png",
+      "snapshot": "build/capacity-gpu-release.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/capacity-gpu-release.png.before.png",
+      "snapshot": "build/capacity-gpu-release.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/capacity-gpu-release.save",
+      "snapshot": "build/capacity-gpu-release.save",
+      "bytes": 7237,
+      "sha256": "95d27f054c7e95e547044430327c050ac5e68d6af73b295b049135b32d971390"
+    },
+    {
+      "source": "build/capacity-release-build.log",
+      "snapshot": "build/capacity-release-build.log",
+      "bytes": 3087,
+      "sha256": "5e54a5560b7d4b4427a573985dd3f459b8be2223af673b81661bb83b56525eaa"
+    },
+    {
+      "source": "build/capacity-release-console.log",
+      "snapshot": "build/capacity-release-console.log",
+      "bytes": 14582,
+      "sha256": "ac9c76b3a1963d9e629b076a48c05957d62e85b5bc04b040a20bd0c3b27b82cb"
+    },
+    {
+      "source": "build/capacity-release-tests.log",
+      "snapshot": "build/capacity-release-tests.log",
+      "bytes": 14582,
+      "sha256": "ac9c76b3a1963d9e629b076a48c05957d62e85b5bc04b040a20bd0c3b27b82cb"
+    },
+    {
+      "source": "build/clearance-active.log",
+      "snapshot": "build/clearance-active.log",
+      "bytes": 2783,
+      "sha256": "41cafaef0d8d4f306eb126ba8794bab098783e4c5996b8173c61776b1d9ae9db"
+    },
+    {
+      "source": "build/clearance-active.save",
+      "snapshot": "build/clearance-active.save",
+      "bytes": 9964,
+      "sha256": "2277d74177660ba384d83e9e29127fff0db699fa414bf20a59c9d8f203e91a92"
+    },
+    {
+      "source": "build/clearance-build.log",
+      "snapshot": "build/clearance-build.log",
+      "bytes": 1341,
+      "sha256": "c3b598b6acdb994088c49878be1d29c96865378864c1e327956d52f50f6c59d3"
+    },
+    {
+      "source": "build/clearance-expanded-build.log",
+      "snapshot": "build/clearance-expanded-build.log",
+      "bytes": 1171,
+      "sha256": "09ad6722f21d58da54ee1e3f52ece4f1add2829ae7ac1d9c77ee2868b738aefe"
+    },
+    {
+      "source": "build/clearance-expanded-console.log",
+      "snapshot": "build/clearance-expanded-console.log",
+      "bytes": 1166,
+      "sha256": "9e9986823762137016f1b9a7caa585b12f837bae02071b78cb226c45fd7d5c6b"
+    },
+    {
+      "source": "build/clearance-expanded.log",
+      "snapshot": "build/clearance-expanded.log",
+      "bytes": 1166,
+      "sha256": "9e9986823762137016f1b9a7caa585b12f837bae02071b78cb226c45fd7d5c6b"
+    },
+    {
+      "source": "build/clearance-final-asan-build.log",
+      "snapshot": "build/clearance-final-asan-build.log",
+      "bytes": 4518,
+      "sha256": "e7fb66bfa34961b16986e72864c52530d1edb750818dd332f4dd218cd43d4424"
+    },
+    {
+      "source": "build/clearance-final-asan-console.log",
+      "snapshot": "build/clearance-final-asan-console.log",
+      "bytes": 24133,
+      "sha256": "a2d7cf7e1a4e7633a94e4723f127c0fcf37aecb501246fa1ac6b3aa1f39644a6"
+    },
+    {
+      "source": "build/clearance-final-asan.log",
+      "snapshot": "build/clearance-final-asan.log",
+      "bytes": 24133,
+      "sha256": "a2d7cf7e1a4e7633a94e4723f127c0fcf37aecb501246fa1ac6b3aa1f39644a6"
+    },
+    {
+      "source": "build/clearance-final-build.log",
+      "snapshot": "build/clearance-final-build.log",
+      "bytes": 3616,
+      "sha256": "7defe3f9f20579aebcc1b05d5c36262f20eab54c5020c69282b1dda5de4d198e"
+    },
+    {
+      "source": "build/clearance-final-debug-build.log",
+      "snapshot": "build/clearance-final-debug-build.log",
+      "bytes": 3685,
+      "sha256": "1f1a7ac93abddb4384e6663ece598ac476b60a96626ec17c88eb77dbc0bb9b03"
+    },
+    {
+      "source": "build/clearance-final-debug-console.log",
+      "snapshot": "build/clearance-final-debug-console.log",
+      "bytes": 23861,
+      "sha256": "1321d5363d0b69782c4c94df75856ce1bd5f939b5f12a553a6b67a61adeaadaf"
+    },
+    {
+      "source": "build/clearance-final-debug.log",
+      "snapshot": "build/clearance-final-debug.log",
+      "bytes": 23861,
+      "sha256": "1321d5363d0b69782c4c94df75856ce1bd5f939b5f12a553a6b67a61adeaadaf"
+    },
+    {
+      "source": "build/clearance-final-release-console.log",
+      "snapshot": "build/clearance-final-release-console.log",
+      "bytes": 23861,
+      "sha256": "f872f5580014b1a528a0622fcdb703f48c7557f1a0bdfa3a4b94b98846ab8ee9"
+    },
+    {
+      "source": "build/clearance-final-release.log",
+      "snapshot": "build/clearance-final-release.log",
+      "bytes": 23861,
+      "sha256": "f872f5580014b1a528a0622fcdb703f48c7557f1a0bdfa3a4b94b98846ab8ee9"
+    },
+    {
+      "source": "build/clearance-final-style.log",
+      "snapshot": "build/clearance-final-style.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/clearance-final-tooling.log",
+      "snapshot": "build/clearance-final-tooling.log",
+      "bytes": 134,
+      "sha256": "89d3ff245fe9b435c61f427f1daa5f6b5216955a9031369bfe825274e366785a"
+    },
+    {
+      "source": "build/clearance-first-console.log",
+      "snapshot": "build/clearance-first-console.log",
+      "bytes": 337,
+      "sha256": "aa09a0c88d2595cb12701a63b3d3a379aa8c29755f1dd7d840cd6853ff9cb207"
+    },
+    {
+      "source": "build/clearance-first.log",
+      "snapshot": "build/clearance-first.log",
+      "bytes": 337,
+      "sha256": "aa09a0c88d2595cb12701a63b3d3a379aa8c29755f1dd7d840cd6853ff9cb207"
+    },
+    {
+      "source": "build/clearance-integration-build.log",
+      "snapshot": "build/clearance-integration-build.log",
+      "bytes": 4140,
+      "sha256": "dd8108949dc3dbbdaf24b3ccc28495f5160ec9e0d1e3a79117a094b2610826d5"
+    },
+    {
+      "source": "build/clearance-integration-console.log",
+      "snapshot": "build/clearance-integration-console.log",
+      "bytes": 23926,
+      "sha256": "668a12e9b9bd9d7599946e0303031fb095875fc1c0a84b97cb5042504e9fdc69"
+    },
+    {
+      "source": "build/clearance-integration.log",
+      "snapshot": "build/clearance-integration.log",
+      "bytes": 23926,
+      "sha256": "668a12e9b9bd9d7599946e0303031fb095875fc1c0a84b97cb5042504e9fdc69"
+    },
+    {
+      "source": "build/clearance-progress.txt",
+      "snapshot": "build/clearance-progress.txt",
+      "bytes": 673,
+      "sha256": "cc23de2a7ea6bcb1aa6d68f195be37191b91f72940ef39ed913351ce1db57a34"
+    },
+    {
+      "source": "build/clearance-red-build.log",
+      "snapshot": "build/clearance-red-build.log",
+      "bytes": 1144,
+      "sha256": "2925215107ae1ed8e98f40653fece361eae7afcdbecfb634b7edb4d6e3ef426e"
+    },
+    {
+      "source": "build/clearance-red-console.log",
+      "snapshot": "build/clearance-red-console.log",
+      "bytes": 522,
+      "sha256": "21652d5918a0055451850cfeea17a923afa144c2934ef93cdb6218668ba908f7"
+    },
+    {
+      "source": "build/clearance-red.log",
+      "snapshot": "build/clearance-red.log",
+      "bytes": 522,
+      "sha256": "21652d5918a0055451850cfeea17a923afa144c2934ef93cdb6218668ba908f7"
+    },
+    {
+      "source": "build/clearance-reserved-fixture-build.log",
+      "snapshot": "build/clearance-reserved-fixture-build.log",
+      "bytes": 654,
+      "sha256": "c461cf837358933a6dee0a9939e9c693c8d85aaae1bf467790fdf5ebf0fe1130"
+    },
+    {
+      "source": "build/clearance-reserved-fixture.log",
+      "snapshot": "build/clearance-reserved-fixture.log",
+      "bytes": 1089,
+      "sha256": "05d83f171ce5deae4cb5654e016f6a12ba18b5b00debc00fab6871adcb7f5eb8"
+    },
+    {
+      "source": "build/clearance-reserved2-build.log",
+      "snapshot": "build/clearance-reserved2-build.log",
+      "bytes": 654,
+      "sha256": "c461cf837358933a6dee0a9939e9c693c8d85aaae1bf467790fdf5ebf0fe1130"
+    },
+    {
+      "source": "build/clearance-reserved2-red.log",
+      "snapshot": "build/clearance-reserved2-red.log",
+      "bytes": 1089,
+      "sha256": "44517effe651ca6a5df1b06d639183c679bcd8e1603dc2a713b0c315af465987"
+    },
+    {
+      "source": "build/clearance-reserved3-build.log",
+      "snapshot": "build/clearance-reserved3-build.log",
+      "bytes": 654,
+      "sha256": "c461cf837358933a6dee0a9939e9c693c8d85aaae1bf467790fdf5ebf0fe1130"
+    },
+    {
+      "source": "build/clearance-reserved3-red.log",
+      "snapshot": "build/clearance-reserved3-red.log",
+      "bytes": 68,
+      "sha256": "1503ddb0e2f18d86675e1928e92334387f0d3e3195bbc1c3bcffc6684bd8150f"
+    },
+    {
+      "source": "build/clearance-retained-build.log",
+      "snapshot": "build/clearance-retained-build.log",
+      "bytes": 1171,
+      "sha256": "4838fd094f0a11eaf64ca9e239f3ba08447791e54ccd8d6b7c2d054538bcd417"
+    },
+    {
+      "source": "build/clearance-retained-console.log",
+      "snapshot": "build/clearance-retained-console.log",
+      "bytes": 440,
+      "sha256": "6a59d4e7072eaf0feaa13ab3860eb9c918f217a76df01a76fa22e214bdd5709f"
+    },
+    {
+      "source": "build/clearance-retained-course.log",
+      "snapshot": "build/clearance-retained-course.log",
+      "bytes": 4569,
+      "sha256": "761ce946851c3c0895d415a6e0466878cf81a9ea0cf1f95a9084a3cf4f572d1e"
+    },
+    {
+      "source": "build/clearance-retained.log",
+      "snapshot": "build/clearance-retained.log",
+      "bytes": 440,
+      "sha256": "6a59d4e7072eaf0feaa13ab3860eb9c918f217a76df01a76fa22e214bdd5709f"
+    },
+    {
+      "source": "build/clearance-review-fix-build.log",
+      "snapshot": "build/clearance-review-fix-build.log",
+      "bytes": 681,
+      "sha256": "8f3991689604e87cde3cd0115413d5dfe21f17d1d6559a0abc9be76fd91b66fd"
+    },
+    {
+      "source": "build/clearance-review-fix-console.log",
+      "snapshot": "build/clearance-review-fix-console.log",
+      "bytes": 1255,
+      "sha256": "cbebf5082f827b317ad895a886808126e0352366a1766def2c28e706a536490b"
+    },
+    {
+      "source": "build/clearance-review-fix.log",
+      "snapshot": "build/clearance-review-fix.log",
+      "bytes": 1255,
+      "sha256": "cbebf5082f827b317ad895a886808126e0352366a1766def2c28e706a536490b"
+    },
+    {
+      "source": "build/clearance-review-red-build.log",
+      "snapshot": "build/clearance-review-red-build.log",
+      "bytes": 1341,
+      "sha256": "0e08855263656087f98c93492a668ec98e0b54e556fe069da8520b8faf592672"
+    },
+    {
+      "source": "build/clearance-review-red-console.log",
+      "snapshot": "build/clearance-review-red-console.log",
+      "bytes": 736,
+      "sha256": "c38f0e1b13f67f875644927853290482ef6fb67a7f1ff3521f8ae80ba9d9666f"
+    },
+    {
+      "source": "build/clearance-review-red.log",
+      "snapshot": "build/clearance-review-red.log",
+      "bytes": 736,
+      "sha256": "c38f0e1b13f67f875644927853290482ef6fb67a7f1ff3521f8ae80ba9d9666f"
+    },
+    {
+      "source": "build/clearance-stale-red-build.log",
+      "snapshot": "build/clearance-stale-red-build.log",
+      "bytes": 1144,
+      "sha256": "bc970f103607115a9866942d04d145b398a5b3ace8ed9cbd2922d1a7cf8e8211"
+    },
+    {
+      "source": "build/clearance-stale-red.log",
+      "snapshot": "build/clearance-stale-red.log",
+      "bytes": 63,
+      "sha256": "96e80ba871fefbafee36df2a3584aa12ed514c1376f916bd0c399b29e4dd90d6"
+    },
+    {
+      "source": "build/clearance-ui-captures/case-160885953-1/diagnostic.txt",
+      "snapshot": "build/clearance-ui-captures/case-160885953-1/diagnostic.txt",
+      "bytes": 4527,
+      "sha256": "cf3323eda4874e9df6f647c286450711b4796fb218889caf9de2c6ee0d941853"
+    },
+    {
+      "source": "build/clearance-ui-captures/case-160885953-1/world.save",
+      "snapshot": "build/clearance-ui-captures/case-160885953-1/world.save",
+      "bytes": 9964,
+      "sha256": "2277d74177660ba384d83e9e29127fff0db699fa414bf20a59c9d8f203e91a92"
+    },
+    {
+      "source": "build/clearance-ui-captures/case-160936890-2/diagnostic.txt",
+      "snapshot": "build/clearance-ui-captures/case-160936890-2/diagnostic.txt",
+      "bytes": 4438,
+      "sha256": "1607944286c1337d64d49c33dc02e524263e93ff8599230ce4eefd880f088e42"
+    },
+    {
+      "source": "build/clearance-ui-captures/case-160936890-2/world.save",
+      "snapshot": "build/clearance-ui-captures/case-160936890-2/world.save",
+      "bytes": 11147,
+      "sha256": "7156d78cb4bf7d23b0111590c152b73772fb9a0ae704575339553b8d47c03df8"
+    },
+    {
+      "source": "build/clearance-ui.log",
+      "snapshot": "build/clearance-ui.log",
+      "bytes": 563,
+      "sha256": "1a92d43e8583c167c8fc7033908eab449c35647b12318dc7cd57084d4110dcf2"
+    },
+    {
+      "source": "build/clearance-ui.save",
+      "snapshot": "build/clearance-ui.save",
+      "bytes": 9964,
+      "sha256": "2277d74177660ba384d83e9e29127fff0db699fa414bf20a59c9d8f203e91a92"
+    },
+    {
+      "source": "build/clearance-v3-native-captures/case-160960296-1/diagnostic.txt",
+      "snapshot": "build/clearance-v3-native-captures/case-160960296-1/diagnostic.txt",
+      "bytes": 4412,
+      "sha256": "4b1df9c26f38dc732223f53f79462734c21cc406cc49f847031888f2710e616c"
+    },
+    {
+      "source": "build/clearance-v3-native-captures/case-160960296-1/world.save",
+      "snapshot": "build/clearance-v3-native-captures/case-160960296-1/world.save",
+      "bytes": 9622,
+      "sha256": "ef03896aa473cb455fa8b1b88d92b12073410ad42cd49e0de7d71e60cbeecf8c"
+    },
+    {
+      "source": "build/clearance-v3-native.log",
+      "snapshot": "build/clearance-v3-native.log",
+      "bytes": 8477,
+      "sha256": "618ebab902c9442f40173f4142a19a66f2ff6ab3c53f47fcd77248aaafeba358"
+    },
+    {
+      "source": "build/clearance-v3-native.png",
+      "snapshot": "build/clearance-v3-native.png",
+      "bytes": 13396,
+      "sha256": "2b2e25f932b26ef6533111bb22141aa4cf9be82bc1cb111a086f698db8e35bbb"
+    },
+    {
+      "source": "build/cpu-samples-idle.txt",
+      "snapshot": "build/cpu-samples-idle.txt",
+      "bytes": 710,
+      "sha256": "0d569f7241306228683ed11d9c2f7560602d591b18ed794b84e2c2ccf0b58343"
+    },
+    {
+      "source": "build/delivery-adversarial-build.log",
+      "snapshot": "build/delivery-adversarial-build.log",
+      "bytes": 1613,
+      "sha256": "d069e77d600a3cb8db13cc721a41687e01fa64f7c71cd842441657f18c0aec60"
+    },
+    {
+      "source": "build/delivery-adversarial-console.log",
+      "snapshot": "build/delivery-adversarial-console.log",
+      "bytes": 2621,
+      "sha256": "e39f1e7bbb38302e13ab5b74b8ac968c363eecfbc9fdab7278c7fc111f9a005a"
+    },
+    {
+      "source": "build/delivery-adversarial.log",
+      "snapshot": "build/delivery-adversarial.log",
+      "bytes": 2621,
+      "sha256": "e39f1e7bbb38302e13ab5b74b8ac968c363eecfbc9fdab7278c7fc111f9a005a"
+    },
+    {
+      "source": "build/delivery-api-before.log",
+      "snapshot": "build/delivery-api-before.log",
+      "bytes": 2914,
+      "sha256": "b41b05ec07b4ea438ac1ff6896452ff799b92044ee59b8d6cb837991347555b9"
+    },
+    {
+      "source": "build/delivery-asan-actual-retry.log",
+      "snapshot": "build/delivery-asan-actual-retry.log",
+      "bytes": 333,
+      "sha256": "d6c04d062ed941d3509dff52ea961c76e931df5c46c1ddfeedde6c6e7f635749"
+    },
+    {
+      "source": "build/delivery-asan-profile-before.log",
+      "snapshot": "build/delivery-asan-profile-before.log",
+      "bytes": 80,
+      "sha256": "14a8b0c04fd6371a32f4aa2f293a54e376e1f5b5509f3c83231c47f69fe14fff"
+    },
+    {
+      "source": "build/delivery-asan-profile-ctest-cwd.log",
+      "snapshot": "build/delivery-asan-profile-ctest-cwd.log",
+      "bytes": 80,
+      "sha256": "42dcc7364c03dab2a26b5f6c89f2da1452352e5ddfd67fe694c9afebb34f5511"
+    },
+    {
+      "source": "build/delivery-asan-profile-ctest-env.log",
+      "snapshot": "build/delivery-asan-profile-ctest-env.log",
+      "bytes": 78,
+      "sha256": "a6fb17a58b5c0ed38fe33ba324889f056177003fa31d218feafb83d568fc3c07"
+    },
+    {
+      "source": "build/delivery-asan-profile-slow.log",
+      "snapshot": "build/delivery-asan-profile-slow.log",
+      "bytes": 1730,
+      "sha256": "abcb1839a8dfb39659ae1e4b18acfda621592a4e01bc37cb15c18bcfdca6545c"
+    },
+    {
+      "source": "build/delivery-asan-repeat.log",
+      "snapshot": "build/delivery-asan-repeat.log",
+      "bytes": 333,
+      "sha256": "f1b5b3360b8f2c526b30968bf1ff32560c9b815bb1d8569f9f10c5290eaddedf"
+    },
+    {
+      "source": "build/delivery-cpu-fullsuite.txt",
+      "snapshot": "build/delivery-cpu-fullsuite.txt",
+      "bytes": 2708,
+      "sha256": "155341ef3be091c612f825b88004dad63e5ec3836221a12d6de4272d952d1a96"
+    },
+    {
+      "source": "build/delivery-custody-build.log",
+      "snapshot": "build/delivery-custody-build.log",
+      "bytes": 874,
+      "sha256": "d09d3f140cab265c4ed04e488bc23ce953b771114104e4384ee45d244cec5512"
+    },
+    {
+      "source": "build/delivery-custody-console.log",
+      "snapshot": "build/delivery-custody-console.log",
+      "bytes": 1058,
+      "sha256": "847d1de7b2a7d31ac06eb739e179313fae669167112875a66a87eafb824f7df1"
+    },
+    {
+      "source": "build/delivery-custody.log",
+      "snapshot": "build/delivery-custody.log",
+      "bytes": 1058,
+      "sha256": "847d1de7b2a7d31ac06eb739e179313fae669167112875a66a87eafb824f7df1"
+    },
+    {
+      "source": "build/delivery-expanded-build.log",
+      "snapshot": "build/delivery-expanded-build.log",
+      "bytes": 1164,
+      "sha256": "7c61fb47d480de54959d306a79cfc10164a9d397aeaa7e51336f8213e1b608a9"
+    },
+    {
+      "source": "build/delivery-expanded-console.log",
+      "snapshot": "build/delivery-expanded-console.log",
+      "bytes": 1337,
+      "sha256": "058e1173c5b0bbcbd879f84d9b35242df96f655b8a1d034b8260237c8ddad417"
+    },
+    {
+      "source": "build/delivery-expanded.log",
+      "snapshot": "build/delivery-expanded.log",
+      "bytes": 1337,
+      "sha256": "058e1173c5b0bbcbd879f84d9b35242df96f655b8a1d034b8260237c8ddad417"
+    },
+    {
+      "source": "build/delivery-first-build.log",
+      "snapshot": "build/delivery-first-build.log",
+      "bytes": 1364,
+      "sha256": "1e3d2f3f13311ff2254c9e69d4c8bf213f20040d78e129749b78a410d9231e2a"
+    },
+    {
+      "source": "build/delivery-first-console.log",
+      "snapshot": "build/delivery-first-console.log",
+      "bytes": 224,
+      "sha256": "a98a56df58ee338fdb5a5a2d0489a155dec8bbde55febf1d6c635dc7789d9de7"
+    },
+    {
+      "source": "build/delivery-first.log",
+      "snapshot": "build/delivery-first.log",
+      "bytes": 224,
+      "sha256": "a98a56df58ee338fdb5a5a2d0489a155dec8bbde55febf1d6c635dc7789d9de7"
+    },
+    {
+      "source": "build/delivery-legacy-wall-red.log",
+      "snapshot": "build/delivery-legacy-wall-red.log",
+      "bytes": 393,
+      "sha256": "6c9b83c205b202a9bd9e8581c1ef1774f846b8efd63f785624b0d783cdd4c654"
+    },
+    {
+      "source": "build/delivery-native-diagnostics/case-176726968-1/diagnostic.txt",
+      "snapshot": "build/delivery-native-diagnostics/case-176726968-1/diagnostic.txt",
+      "bytes": 4586,
+      "sha256": "ad7427d3f1404d7b0bf6c5e643157ce5ad712e300d77e3852dca02b9a56e805b"
+    },
+    {
+      "source": "build/delivery-native-diagnostics/case-176726968-1/world.save",
+      "snapshot": "build/delivery-native-diagnostics/case-176726968-1/world.save",
+      "bytes": 8826,
+      "sha256": "556a53389b083e16a5f1027d510e29fea1348108dc9c17185df533ae2f5ae8c5"
+    },
+    {
+      "source": "build/delivery-native-regression.log",
+      "snapshot": "build/delivery-native-regression.log",
+      "bytes": 361,
+      "sha256": "9573450b8989f2503555ef03eca0b9d1d18399cfe157500da61338a6da2ee799"
+    },
+    {
+      "source": "build/delivery-native.log",
+      "snapshot": "build/delivery-native.log",
+      "bytes": 9005,
+      "sha256": "540ab449139265eab1092dd52a38931041a2ee200142a7bbc80030304d47105e"
+    },
+    {
+      "source": "build/delivery-native.png",
+      "snapshot": "build/delivery-native.png",
+      "bytes": 13649,
+      "sha256": "3d40cdfbba4fecb5313f9f6b84046581c2a8ecef153a77d0f38ce2c41a1eaf8d"
+    },
+    {
+      "source": "build/delivery-native.png.before.png",
+      "snapshot": "build/delivery-native.png.before.png",
+      "bytes": 12968,
+      "sha256": "f2831727c93a3ce6c81fea26a58b0584bdd9ad6d128cafa69395a9f565ddf7b6"
+    },
+    {
+      "source": "build/delivery-native.save",
+      "snapshot": "build/delivery-native.save",
+      "bytes": 7839,
+      "sha256": "f4f7457dea06d8139fbd8795176d5c5c5c1b03fed9203a0d0a807b6412052437"
+    },
+    {
+      "source": "build/delivery-profile-build.log",
+      "snapshot": "build/delivery-profile-build.log",
+      "bytes": 1166,
+      "sha256": "5e8b1e2646359c1a699f32a171a1f85858599176d6e5da191d5801d78a6fe67a"
+    },
+    {
+      "source": "build/delivery-profile2-build.log",
+      "snapshot": "build/delivery-profile2-build.log",
+      "bytes": 651,
+      "sha256": "833dc15b5e54d3dad8ca04dba9ea6cc34a8e70d449fc979cea687b7f5efccd60"
+    },
+    {
+      "source": "build/delivery-return-actual-single-asan.log",
+      "snapshot": "build/delivery-return-actual-single-asan.log",
+      "bytes": 60,
+      "sha256": "1cb71f6e08cd2df5c48d931c832b64a6ec0055cb96b5f90388fe473944bf918a"
+    },
+    {
+      "source": "build/delivery-return-asan-build.log",
+      "snapshot": "build/delivery-return-asan-build.log",
+      "bytes": 8420,
+      "sha256": "7aaaf1d4c50713f86c03ce10d206f40d86fcf577764946d5910e2e52c966c185"
+    },
+    {
+      "source": "build/delivery-return-asan-ctest-1.log",
+      "snapshot": "build/delivery-return-asan-ctest-1.log",
+      "bytes": 56830,
+      "sha256": "09aff0bc266e9b01b42817ec988201fe9352648cf91a13c149fde3d53becefb3"
+    },
+    {
+      "source": "build/delivery-return-asan-ctest-2.log",
+      "snapshot": "build/delivery-return-asan-ctest-2.log",
+      "bytes": 56830,
+      "sha256": "f7b2140a0349cfa2fed737cb5199ca0c9787a8fad8dbbfefbb7e3697778472f3"
+    },
+    {
+      "source": "build/delivery-return-asan-native-1.log",
+      "snapshot": "build/delivery-return-asan-native-1.log",
+      "bytes": 27975,
+      "sha256": "b4119aae9524844cfa1aab2330f0e33724701687a3ce675d416c77dc834c284b"
+    },
+    {
+      "source": "build/delivery-return-debug-build.log",
+      "snapshot": "build/delivery-return-debug-build.log",
+      "bytes": 8188,
+      "sha256": "fda253c7cf10d7602f16c488fbe9ef6c8e0149429670c95bea79d157920d6bdd"
+    },
+    {
+      "source": "build/delivery-return-debug-ctest.log",
+      "snapshot": "build/delivery-return-debug-ctest.log",
+      "bytes": 27836,
+      "sha256": "ddf657950bf94edec1727f9606984f3bdef74603d1b406ee370f2866f75fbf7f"
+    },
+    {
+      "source": "build/delivery-return-final-asan-build.log",
+      "snapshot": "build/delivery-return-final-asan-build.log",
+      "bytes": 9938,
+      "sha256": "8b86cb2fc1f592b4579be9bc4434ebc892a88c24fb64fc5d5ecff6ae21f7b3ab"
+    },
+    {
+      "source": "build/delivery-return-final-asan-ctest-1.log",
+      "snapshot": "build/delivery-return-final-asan-ctest-1.log",
+      "bytes": 28104,
+      "sha256": "e691fd90e69e94658a4a7e5e4989016e0f207eb97709fe6c32a60432bf30f474"
+    },
+    {
+      "source": "build/delivery-return-final-asan-ctest-2.log",
+      "snapshot": "build/delivery-return-final-asan-ctest-2.log",
+      "bytes": 28104,
+      "sha256": "8a9dfdd0be581af8140629a3ca2f24708ad20c53c9dc314765663396c22a7a70"
+    },
+    {
+      "source": "build/delivery-return-final-debug-ctest.log",
+      "snapshot": "build/delivery-return-final-debug-ctest.log",
+      "bytes": 28108,
+      "sha256": "9b0f6dee85da4607ec75384bd2a08b1c344a05bb83e022b039997b71708805fe"
+    },
+    {
+      "source": "build/delivery-return-final-release-build.log",
+      "snapshot": "build/delivery-return-final-release-build.log",
+      "bytes": 8648,
+      "sha256": "c1ccbac01611c71276b6b36e670704a95a48d0ba9aa5f14eb7fa560ffec00aed"
+    },
+    {
+      "source": "build/delivery-return-final-release-ctest.log",
+      "snapshot": "build/delivery-return-final-release-ctest.log",
+      "bytes": 28108,
+      "sha256": "378f65ef6fcf0069644786e2a2d2487a54d0c86bf8252f30746b54c07d5531af"
+    },
+    {
+      "source": "build/delivery-return-final2-asan-ctest-1.log",
+      "snapshot": "build/delivery-return-final2-asan-ctest-1.log",
+      "bytes": 28209,
+      "sha256": "61157f96392d5cb14ec81c84f3c6826384f0b8427f27990709a72d6a44ef8245"
+    },
+    {
+      "source": "build/delivery-return-final2-debug-ctest.log",
+      "snapshot": "build/delivery-return-final2-debug-ctest.log",
+      "bytes": 27836,
+      "sha256": "b360c953022f08655b3ad3530b51e618646e9c3c00b0ade43acc69d60d1ab671"
+    },
+    {
+      "source": "build/delivery-return-final2-release-ctest.log",
+      "snapshot": "build/delivery-return-final2-release-ctest.log",
+      "bytes": 27836,
+      "sha256": "c17fb8fc0deb2233181b17b650f7a0a57eda2653608b97f304d4ea9000961569"
+    },
+    {
+      "source": "build/delivery-return-final3-asan-ctest-1.log",
+      "snapshot": "build/delivery-return-final3-asan-ctest-1.log",
+      "bytes": 28244,
+      "sha256": "2ffc7e1a0fc054ef436e88a2076b6d3d02f9485104833e2bfde6adb1976e2d6a"
+    },
+    {
+      "source": "build/delivery-return-final3-asan-ctest-2.log",
+      "snapshot": "build/delivery-return-final3-asan-ctest-2.log",
+      "bytes": 28244,
+      "sha256": "5f5faf3f8f689d73d040e9b5bf597ba56082f868b4f0f5806ee15689231c0128"
+    },
+    {
+      "source": "build/delivery-return-final3-asan-ctest-3.log",
+      "snapshot": "build/delivery-return-final3-asan-ctest-3.log",
+      "bytes": 28244,
+      "sha256": "4bef769162a9cac0a7f42c20c29f00455fe0fbd0e0fbd39bef544d821ef1dd53"
+    },
+    {
+      "source": "build/delivery-return-final4-asan-ctest-1.log",
+      "snapshot": "build/delivery-return-final4-asan-ctest-1.log",
+      "bytes": 28244,
+      "sha256": "9a1781ef0bfa2ad4a8984fcc42fe2653c6366aa917f542ab97d1f3be000d5ad0"
+    },
+    {
+      "source": "build/delivery-return-final4-asan-ctest-2.log",
+      "snapshot": "build/delivery-return-final4-asan-ctest-2.log",
+      "bytes": 28244,
+      "sha256": "401fa3119a26bd391223b13f01449d460be214a4ba24b8505f213f2b15bccce1"
+    },
+    {
+      "source": "build/delivery-return-final4-asan-ctest-3.log",
+      "snapshot": "build/delivery-return-final4-asan-ctest-3.log",
+      "bytes": 28244,
+      "sha256": "78e050f3c3eab56afb092835aa5a6c70d285431d0c68c87fa9c9a72856882fe3"
+    },
+    {
+      "source": "build/delivery-return-final5-asan-ctest-1.log",
+      "snapshot": "build/delivery-return-final5-asan-ctest-1.log",
+      "bytes": 28376,
+      "sha256": "5b1f60e738667fc164a33e0505c6a1cb4e8d9846adab8e9123493fccde61fe96"
+    },
+    {
+      "source": "build/delivery-return-final5-asan-ctest-2.log",
+      "snapshot": "build/delivery-return-final5-asan-ctest-2.log",
+      "bytes": 28376,
+      "sha256": "8019037970caca2cabca4583130a964afa5afb9e65506ec807fa7dd99e1ed4d6"
+    },
+    {
+      "source": "build/delivery-return-final5-asan-ctest-3.log",
+      "snapshot": "build/delivery-return-final5-asan-ctest-3.log",
+      "bytes": 28376,
+      "sha256": "f0b156e99aa756d998a02f8b95beb300c39f6b7d6d6f768d1232d072539a6cc0"
+    },
+    {
+      "source": "build/delivery-return-format-1.log",
+      "snapshot": "build/delivery-return-format-1.log",
+      "bytes": 8396,
+      "sha256": "4dc4f4cc4c7c12ce8fdb3d7c5855f9c412be5070631637f494e122b55d1212d2"
+    },
+    {
+      "source": "build/delivery-return-native-diagnostics-2/case-187804265-1/diagnostic.txt",
+      "snapshot": "build/delivery-return-native-diagnostics-2/case-187804265-1/diagnostic.txt",
+      "bytes": 4585,
+      "sha256": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4"
+    },
+    {
+      "source": "build/delivery-return-native-diagnostics-2/case-187804265-1/world.save",
+      "snapshot": "build/delivery-return-native-diagnostics-2/case-187804265-1/world.save",
+      "bytes": 8820,
+      "sha256": "473efd0b1ed0717103f9881fc03de062cf5182558f1a30def4f58499c7745a1c"
+    },
+    {
+      "source": "build/delivery-return-native-diagnostics-final/case-188814859-1/diagnostic.txt",
+      "snapshot": "build/delivery-return-native-diagnostics-final/case-188814859-1/diagnostic.txt",
+      "bytes": 4585,
+      "sha256": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4"
+    },
+    {
+      "source": "build/delivery-return-native-diagnostics-final/case-188814859-1/world.save",
+      "snapshot": "build/delivery-return-native-diagnostics-final/case-188814859-1/world.save",
+      "bytes": 8820,
+      "sha256": "473efd0b1ed0717103f9881fc03de062cf5182558f1a30def4f58499c7745a1c"
+    },
+    {
+      "source": "build/delivery-return-native-diagnostics-final2/case-189673437-1/diagnostic.txt",
+      "snapshot": "build/delivery-return-native-diagnostics-final2/case-189673437-1/diagnostic.txt",
+      "bytes": 4585,
+      "sha256": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4"
+    },
+    {
+      "source": "build/delivery-return-native-diagnostics-final2/case-189673437-1/world.save",
+      "snapshot": "build/delivery-return-native-diagnostics-final2/case-189673437-1/world.save",
+      "bytes": 8820,
+      "sha256": "473efd0b1ed0717103f9881fc03de062cf5182558f1a30def4f58499c7745a1c"
+    },
+    {
+      "source": "build/delivery-return-native-final.log",
+      "snapshot": "build/delivery-return-native-final.log",
+      "bytes": 9035,
+      "sha256": "7b2784db09bbd1d8e8077490551ae5040d513941096968a5b97611e90df207da"
+    },
+    {
+      "source": "build/delivery-return-native-final.png",
+      "snapshot": "build/delivery-return-native-final.png",
+      "bytes": 13470,
+      "sha256": "ae628341d23964cb73fecbc9b54861201c1edeb239f796021a0db8d0909f80d2"
+    },
+    {
+      "source": "build/delivery-return-native-final.png.before.png",
+      "snapshot": "build/delivery-return-native-final.png.before.png",
+      "bytes": 12816,
+      "sha256": "f68f3190f45bfcc0ccff3bd49e240188495ec01e0a0de670bcec0dfc395045d0"
+    },
+    {
+      "source": "build/delivery-return-native-final.save",
+      "snapshot": "build/delivery-return-native-final.save",
+      "bytes": 7833,
+      "sha256": "526ae9c0affe3f3c2bd1e13367268f0ffb8aed499ae8b60561a5b54f4cd31bb6"
+    },
+    {
+      "source": "build/delivery-return-native-final2.log",
+      "snapshot": "build/delivery-return-native-final2.log",
+      "bytes": 9039,
+      "sha256": "7ea0a78e8df28375c0e25809aa51dd4389dbc5b600ccbc89bb487a3a2d732089"
+    },
+    {
+      "source": "build/delivery-return-native-final2.png",
+      "snapshot": "build/delivery-return-native-final2.png",
+      "bytes": 13470,
+      "sha256": "ae628341d23964cb73fecbc9b54861201c1edeb239f796021a0db8d0909f80d2"
+    },
+    {
+      "source": "build/delivery-return-native-final2.png.before.png",
+      "snapshot": "build/delivery-return-native-final2.png.before.png",
+      "bytes": 12816,
+      "sha256": "f68f3190f45bfcc0ccff3bd49e240188495ec01e0a0de670bcec0dfc395045d0"
+    },
+    {
+      "source": "build/delivery-return-native-final2.save",
+      "snapshot": "build/delivery-return-native-final2.save",
+      "bytes": 7833,
+      "sha256": "526ae9c0affe3f3c2bd1e13367268f0ffb8aed499ae8b60561a5b54f4cd31bb6"
+    },
+    {
+      "source": "build/delivery-return-native.log",
+      "snapshot": "build/delivery-return-native.log",
+      "bytes": 9021,
+      "sha256": "38487328c1c962519bb0aabb8d0a37ccb6b93d679af9292d84a8414b9259c2bd"
+    },
+    {
+      "source": "build/delivery-return-native.png",
+      "snapshot": "build/delivery-return-native.png",
+      "bytes": 13470,
+      "sha256": "ae628341d23964cb73fecbc9b54861201c1edeb239f796021a0db8d0909f80d2"
+    },
+    {
+      "source": "build/delivery-return-native.png.before.png",
+      "snapshot": "build/delivery-return-native.png.before.png",
+      "bytes": 12816,
+      "sha256": "f68f3190f45bfcc0ccff3bd49e240188495ec01e0a0de670bcec0dfc395045d0"
+    },
+    {
+      "source": "build/delivery-return-native.save",
+      "snapshot": "build/delivery-return-native.save",
+      "bytes": 7833,
+      "sha256": "526ae9c0affe3f3c2bd1e13367268f0ffb8aed499ae8b60561a5b54f4cd31bb6"
+    },
+    {
+      "source": "build/delivery-return-profile-before-asan.log",
+      "snapshot": "build/delivery-return-profile-before-asan.log",
+      "bytes": 456,
+      "sha256": "366521ceb42e45e8965ba109f220be4926a9ea8b20a2085ad5e191498f13263d"
+    },
+    {
+      "source": "build/delivery-return-profile-before-asan2.log",
+      "snapshot": "build/delivery-return-profile-before-asan2.log",
+      "bytes": 2424,
+      "sha256": "8de93e558c9285b7e19751fd280c212a327db3cbab2635be9520449c3824c9b8"
+    },
+    {
+      "source": "build/delivery-return-profile-before-debug.log",
+      "snapshot": "build/delivery-return-profile-before-debug.log",
+      "bytes": 454,
+      "sha256": "05ea955a161c2a1d6ea52aa4c49ddfb60f369537434c1feb58701c9e638e892f"
+    },
+    {
+      "source": "build/delivery-return-profile-before-debug2.log",
+      "snapshot": "build/delivery-return-profile-before-debug2.log",
+      "bytes": 2422,
+      "sha256": "b21e2caf4a46c2c484c0d0336a940cfef596c67e3e26df419c7cb78b1f2c2504"
+    },
+    {
+      "source": "build/delivery-return-profile-broadphase-debug.log",
+      "snapshot": "build/delivery-return-profile-broadphase-debug.log",
+      "bytes": 2424,
+      "sha256": "1bd82126db2dc46c093732b0c06e2e8ddf6b4e8929d97d4e675f2eb97bc79253"
+    },
+    {
+      "source": "build/delivery-return-profile-counters-debug.log",
+      "snapshot": "build/delivery-return-profile-counters-debug.log",
+      "bytes": 2574,
+      "sha256": "c192b3c128c2ed79a6bd8afa7b7e9e05adec79f681e56a0325cd5563ea9e50d6"
+    },
+    {
+      "source": "build/delivery-return-profile-functions-debug.log",
+      "snapshot": "build/delivery-return-profile-functions-debug.log",
+      "bytes": 2804,
+      "sha256": "34835fa913c7b5cbd6691cac599d9c7ef81ba2d6e49a4e168301e4ac05b76d11"
+    },
+    {
+      "source": "build/delivery-return-profile-opt1-debug.log",
+      "snapshot": "build/delivery-return-profile-opt1-debug.log",
+      "bytes": 2808,
+      "sha256": "40d81a4d270f79377d8dcb9c771c085c34526ca65ce55f3ba102c1ea43ab4f84"
+    },
+    {
+      "source": "build/delivery-return-profile-opt2-asan.log",
+      "snapshot": "build/delivery-return-profile-opt2-asan.log",
+      "bytes": 2804,
+      "sha256": "ca96ce35934f294bc84204049a7d39b9946986eb8ab3cbe4adf2d5480280aeac"
+    },
+    {
+      "source": "build/delivery-return-profile-opt2-debug.log",
+      "snapshot": "build/delivery-return-profile-opt2-debug.log",
+      "bytes": 2808,
+      "sha256": "f3845b0c1580e17f60c2171cf65977c08af3f12386aabe3f25f7151fcec1a875"
+    },
+    {
+      "source": "build/delivery-return-profile-sections-debug.log",
+      "snapshot": "build/delivery-return-profile-sections-debug.log",
+      "bytes": 2120,
+      "sha256": "8a29758a027ecdb9dbd4ff8bd9e4f9bbb7203889744b47abb2950d51644bdd64"
+    },
+    {
+      "source": "build/delivery-return-release-build.log",
+      "snapshot": "build/delivery-return-release-build.log",
+      "bytes": 8648,
+      "sha256": "a3abdaaf712f29c5f4f30d2e96419a28299a904587f132ee61ed57be0e864edd"
+    },
+    {
+      "source": "build/delivery-return-release-ctest.log",
+      "snapshot": "build/delivery-return-release-ctest.log",
+      "bytes": 56286,
+      "sha256": "dba6a81d45a07c69f15bb40bc48f8736cc19de1660301d0eae07d1a797165364"
+    },
+    {
+      "source": "build/delivery-return-snapshot-after-asan.log",
+      "snapshot": "build/delivery-return-snapshot-after-asan.log",
+      "bytes": 484,
+      "sha256": "413190ed88f3c9498977a44012968f46b8f6216ec2b42b5e290d7e110e33f5a1"
+    },
+    {
+      "source": "build/delivery-return-snapshot-after-debug.log",
+      "snapshot": "build/delivery-return-snapshot-after-debug.log",
+      "bytes": 484,
+      "sha256": "413190ed88f3c9498977a44012968f46b8f6216ec2b42b5e290d7e110e33f5a1"
+    },
+    {
+      "source": "build/delivery-return-snapshot-final-debug.log",
+      "snapshot": "build/delivery-return-snapshot-final-debug.log",
+      "bytes": 410,
+      "sha256": "39f8cffcbaa393cf4dc9d345e9e3e48543c792c130de3032115878bd03dc640a"
+    },
+    {
+      "source": "build/delivery-return-snapshot-final2-asan.log",
+      "snapshot": "build/delivery-return-snapshot-final2-asan.log",
+      "bytes": 410,
+      "sha256": "39f8cffcbaa393cf4dc9d345e9e3e48543c792c130de3032115878bd03dc640a"
+    },
+    {
+      "source": "build/delivery-return-snapshot-final2-debug.log",
+      "snapshot": "build/delivery-return-snapshot-final2-debug.log",
+      "bytes": 410,
+      "sha256": "39f8cffcbaa393cf4dc9d345e9e3e48543c792c130de3032115878bd03dc640a"
+    },
+    {
+      "source": "build/delivery-return-snapshot-stationary-debug.log",
+      "snapshot": "build/delivery-return-snapshot-stationary-debug.log",
+      "bytes": 1212,
+      "sha256": "4fb106b9d30ee3988b61775a31e4199c5daca7a307f368ea2b6fc86961961a99"
+    },
+    {
+      "source": "build/delivery-return-split-asan-ctest-1.log",
+      "snapshot": "build/delivery-return-split-asan-ctest-1.log",
+      "bytes": 28244,
+      "sha256": "9d26ad7d9c497b4467eb3950ee5a2534394e7285bff8a2639360e3e0384a9893"
+    },
+    {
+      "source": "build/delivery-return-split-asan-ctest-2.log",
+      "snapshot": "build/delivery-return-split-asan-ctest-2.log",
+      "bytes": 28366,
+      "sha256": "32da39be52d6b16e0ffcfa26c28829bd8becba675ac8cfaf8c895814c0d5f81d"
+    },
+    {
+      "source": "build/delivery-return-split-debug-ctest.log",
+      "snapshot": "build/delivery-return-split-debug-ctest.log",
+      "bytes": 27976,
+      "sha256": "261dec18f2b7092711fb674e1aa0be02af5d3d29943470c2ce081994a192dfcb"
+    },
+    {
+      "source": "build/delivery-return-split-release-ctest.log",
+      "snapshot": "build/delivery-return-split-release-ctest.log",
+      "bytes": 27976,
+      "sha256": "fece50e42e7d4362b829e84bc767c8099787109fe0420ea8f884fb780a778671"
+    },
+    {
+      "source": "build/delivery-review-first-fix.log",
+      "snapshot": "build/delivery-review-first-fix.log",
+      "bytes": 441,
+      "sha256": "4f9c2ec21f9c9b3db134dd42827ef741c8e3a49fcc2799950d5758eeeca89a42"
+    },
+    {
+      "source": "build/delivery-review-green.log",
+      "snapshot": "build/delivery-review-green.log",
+      "bytes": 553,
+      "sha256": "d55e7926ae219d3f546cbc9dac8e5f783e7c5b524f2030a69492129db832554e"
+    },
+    {
+      "source": "build/delivery-review-red-build.log",
+      "snapshot": "build/delivery-review-red-build.log",
+      "bytes": 1141,
+      "sha256": "ab4a9a28d8e23b257542160b55bbafe6adf04dc913e2d774a4e6c6c2541545ea"
+    },
+    {
+      "source": "build/delivery-review-red-console.log",
+      "snapshot": "build/delivery-review-red-console.log",
+      "bytes": 830,
+      "sha256": "3b448e917d77c1231c9fd3efbb5aae474e45c789eac68b378fda134f15a2ca33"
+    },
+    {
+      "source": "build/delivery-review-red.log",
+      "snapshot": "build/delivery-review-red.log",
+      "bytes": 830,
+      "sha256": "3b448e917d77c1231c9fd3efbb5aae474e45c789eac68b378fda134f15a2ca33"
+    },
+    {
+      "source": "build/delivery-station-kind-green.log",
+      "snapshot": "build/delivery-station-kind-green.log",
+      "bytes": 232,
+      "sha256": "28ce319676f7f509a19ae68e786050394e6c280bc3a0f11c80c8c7826ae6bb40"
+    },
+    {
+      "source": "build/delivery-station-kind-red.log",
+      "snapshot": "build/delivery-station-kind-red.log",
+      "bytes": 412,
+      "sha256": "733dd1ab61edf7175d56698d9a0d05d1c1868e5ce4d777be2e79437c20b3c19a"
+    },
+    {
+      "source": "build/delivery-station-test-build.log",
+      "snapshot": "build/delivery-station-test-build.log",
+      "bytes": 1337,
+      "sha256": "b25f5c1f884e4bd3bec9f537d450527d3330cabd30dfc847c310f47afcc27337"
+    },
+    {
+      "source": "build/diagnostics-needs-asan-build.log",
+      "snapshot": "build/diagnostics-needs-asan-build.log",
+      "bytes": 4277,
+      "sha256": "57b6ba390cfaf8915c3f823f1d42c8b3a58babbe77d92b9637f0da4b0418c78d"
+    },
+    {
+      "source": "build/diagnostics-needs-asan-console.log",
+      "snapshot": "build/diagnostics-needs-asan-console.log",
+      "bytes": 21747,
+      "sha256": "cee1873b8d1d9ecde157adc5108aa55396a5f827f448f9f8b78a30222dbb49a9"
+    },
+    {
+      "source": "build/diagnostics-needs-asan.log",
+      "snapshot": "build/diagnostics-needs-asan.log",
+      "bytes": 21747,
+      "sha256": "cee1873b8d1d9ecde157adc5108aa55396a5f827f448f9f8b78a30222dbb49a9"
+    },
+    {
+      "source": "build/diagnostics-needs-baseline/CMakeLists.txt",
+      "snapshot": "build/diagnostics-needs-baseline/CMakeLists.txt",
+      "bytes": 16237,
+      "sha256": "65ea59d5d8f818682bdf7100e2d01decc3a589d8098649bd7f8f0439329d41a3"
+    },
+    {
+      "source": "build/diagnostics-needs-before-console.log",
+      "snapshot": "build/diagnostics-needs-before-console.log",
+      "bytes": 2393,
+      "sha256": "2d80786eb838e3654fd9cbee63a5822093805ff33dc9a14c6401c3fa9d19aa4b"
+    },
+    {
+      "source": "build/diagnostics-needs-before.log",
+      "snapshot": "build/diagnostics-needs-before.log",
+      "bytes": 2393,
+      "sha256": "2d80786eb838e3654fd9cbee63a5822093805ff33dc9a14c6401c3fa9d19aa4b"
+    },
+    {
+      "source": "build/diagnostics-needs-build.log",
+      "snapshot": "build/diagnostics-needs-build.log",
+      "bytes": 3664,
+      "sha256": "04f153aeb6cc686670c66f9826b09c416bde76684b0c368235e2914d9556529b"
+    },
+    {
+      "source": "build/diagnostics-needs-churn-build.log",
+      "snapshot": "build/diagnostics-needs-churn-build.log",
+      "bytes": 1153,
+      "sha256": "c39bf098686ccdf37f9aed92c9775fdc84ad4acfeb2d73ce677caba465af464a"
+    },
+    {
+      "source": "build/diagnostics-needs-churn-red.log",
+      "snapshot": "build/diagnostics-needs-churn-red.log",
+      "bytes": 72,
+      "sha256": "555a4c5e6d1b52a3a47c4447d9c614af5d9227944f07fdadecf6ba108401ce82"
+    },
+    {
+      "source": "build/diagnostics-needs-codec-build.log",
+      "snapshot": "build/diagnostics-needs-codec-build.log",
+      "bytes": 1447,
+      "sha256": "f56e85daaa80a002347059121f2ff764d50ebbdacdec708adc9f4b59ed8fd460"
+    },
+    {
+      "source": "build/diagnostics-needs-debug-console.log",
+      "snapshot": "build/diagnostics-needs-debug-console.log",
+      "bytes": 21352,
+      "sha256": "68a1027a5744551ef47db8e43c91f33d1e56041b67f99a117b6faec11bddf998"
+    },
+    {
+      "source": "build/diagnostics-needs-debug.log",
+      "snapshot": "build/diagnostics-needs-debug.log",
+      "bytes": 21352,
+      "sha256": "68a1027a5744551ef47db8e43c91f33d1e56041b67f99a117b6faec11bddf998"
+    },
+    {
+      "source": "build/diagnostics-needs-expanded-console.log",
+      "snapshot": "build/diagnostics-needs-expanded-console.log",
+      "bytes": 2680,
+      "sha256": "da8a74201984430d100a1908fb8f0b4ec307f14c7a0548410940a00a01737b36"
+    },
+    {
+      "source": "build/diagnostics-needs-expanded.log",
+      "snapshot": "build/diagnostics-needs-expanded.log",
+      "bytes": 2680,
+      "sha256": "da8a74201984430d100a1908fb8f0b4ec307f14c7a0548410940a00a01737b36"
+    },
+    {
+      "source": "build/diagnostics-needs-expanded2-console.log",
+      "snapshot": "build/diagnostics-needs-expanded2-console.log",
+      "bytes": 3085,
+      "sha256": "b8aa376b0160f538dc86ecfe2d16791a49a2cb5aaf11223db085092f54bb0402"
+    },
+    {
+      "source": "build/diagnostics-needs-expanded2.log",
+      "snapshot": "build/diagnostics-needs-expanded2.log",
+      "bytes": 3085,
+      "sha256": "b8aa376b0160f538dc86ecfe2d16791a49a2cb5aaf11223db085092f54bb0402"
+    },
+    {
+      "source": "build/diagnostics-needs-expiry-build.log",
+      "snapshot": "build/diagnostics-needs-expiry-build.log",
+      "bytes": 645,
+      "sha256": "a84329de8371f0fa925809154dd13b5385c7935415ea54078395f086f9893905"
+    },
+    {
+      "source": "build/diagnostics-needs-final-audit-asan-build.log",
+      "snapshot": "build/diagnostics-needs-final-audit-asan-build.log",
+      "bytes": 672,
+      "sha256": "adf9288ca1e15ea58dce9a618610025d95378741651c6f0bbc3f56fc42f0c852"
+    },
+    {
+      "source": "build/diagnostics-needs-final-audit-asan.log",
+      "snapshot": "build/diagnostics-needs-final-audit-asan.log",
+      "bytes": 4768,
+      "sha256": "2f1744b4741a359d178cc8f64f955654e22eacceeee15bc9928e3a34d5cb6fc1"
+    },
+    {
+      "source": "build/diagnostics-needs-final-debug-build.log",
+      "snapshot": "build/diagnostics-needs-final-debug-build.log",
+      "bytes": 3174,
+      "sha256": "3f2b032fa4167d1f9d82a9ff532242c6b113af8a0ce576f1c2f36015ae06a2bf"
+    },
+    {
+      "source": "build/diagnostics-needs-final-debug-console.log",
+      "snapshot": "build/diagnostics-needs-final-debug-console.log",
+      "bytes": 21475,
+      "sha256": "92a388a547e2098f5b1e69041e7c8a7596728f2a125497b56d50d01519c00c4c"
+    },
+    {
+      "source": "build/diagnostics-needs-final-debug.log",
+      "snapshot": "build/diagnostics-needs-final-debug.log",
+      "bytes": 21475,
+      "sha256": "92a388a547e2098f5b1e69041e7c8a7596728f2a125497b56d50d01519c00c4c"
+    },
+    {
+      "source": "build/diagnostics-needs-final-style.log",
+      "snapshot": "build/diagnostics-needs-final-style.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/diagnostics-needs-final-tooling.log",
+      "snapshot": "build/diagnostics-needs-final-tooling.log",
+      "bytes": 133,
+      "sha256": "0b538c42ab2d8d0488bd80fcfe3fa8a7881e40680d83e13a17a959f37e8caf70"
+    },
+    {
+      "source": "build/diagnostics-needs-focused-build.log",
+      "snapshot": "build/diagnostics-needs-focused-build.log",
+      "bytes": 2260,
+      "sha256": "bc36e0df41a72db12b9bcb76a3e72fe9eff34b46123f7b6797dbd6e7b233bc15"
+    },
+    {
+      "source": "build/diagnostics-needs-focused-console.log",
+      "snapshot": "build/diagnostics-needs-focused-console.log",
+      "bytes": 1551,
+      "sha256": "5846124d1e809f27a6fa153b727133e7d62eb5049a8d9899b0bf76f143eef75c"
+    },
+    {
+      "source": "build/diagnostics-needs-focused.log",
+      "snapshot": "build/diagnostics-needs-focused.log",
+      "bytes": 1551,
+      "sha256": "5846124d1e809f27a6fa153b727133e7d62eb5049a8d9899b0bf76f143eef75c"
+    },
+    {
+      "source": "build/diagnostics-needs-independent-red.log",
+      "snapshot": "build/diagnostics-needs-independent-red.log",
+      "bytes": 58,
+      "sha256": "b0a90330b3198485e29c34068cf5d30d9a0c8a31a086dba29cdb15788eff8a0f"
+    },
+    {
+      "source": "build/diagnostics-needs-needs-build.log",
+      "snapshot": "build/diagnostics-needs-needs-build.log",
+      "bytes": 2087,
+      "sha256": "56a1cc393fed430e15a33c5b340b1d9786697871b136f23766696c1920fa2dc1"
+    },
+    {
+      "source": "build/diagnostics-needs-needs-green-console.log",
+      "snapshot": "build/diagnostics-needs-needs-green-console.log",
+      "bytes": 650,
+      "sha256": "c3d1fc7d0f791fc4f5a34521c60063b502bd7abb228cf4308e59c45116d0e315"
+    },
+    {
+      "source": "build/diagnostics-needs-needs-green.log",
+      "snapshot": "build/diagnostics-needs-needs-green.log",
+      "bytes": 650,
+      "sha256": "c3d1fc7d0f791fc4f5a34521c60063b502bd7abb228cf4308e59c45116d0e315"
+    },
+    {
+      "source": "build/diagnostics-needs-observe-build.log",
+      "snapshot": "build/diagnostics-needs-observe-build.log",
+      "bytes": 672,
+      "sha256": "64996618b73f43c8b1b9abe8b22d40cae98f0313cccb97189b55d08dd263a4ef"
+    },
+    {
+      "source": "build/diagnostics-needs-progress.txt",
+      "snapshot": "build/diagnostics-needs-progress.txt",
+      "bytes": 555,
+      "sha256": "a83c9917bfe76d9f4239102c0eee7c021512a21f9c82d3c77017939d996ef2e9"
+    },
+    {
+      "source": "build/diagnostics-needs-queue-console.log",
+      "snapshot": "build/diagnostics-needs-queue-console.log",
+      "bytes": 334,
+      "sha256": "fa6659248b3db51346be63cbcd74ce60c4fda92057ada378a895d5d27018eb77"
+    },
+    {
+      "source": "build/diagnostics-needs-queue.log",
+      "snapshot": "build/diagnostics-needs-queue.log",
+      "bytes": 334,
+      "sha256": "fa6659248b3db51346be63cbcd74ce60c4fda92057ada378a895d5d27018eb77"
+    },
+    {
+      "source": "build/diagnostics-needs-red-build.log",
+      "snapshot": "build/diagnostics-needs-red-build.log",
+      "bytes": 1917,
+      "sha256": "739b1a1cfd8fd364093da9e692e4e0932e0f047c624f64dcd3562b93a166b12d"
+    },
+    {
+      "source": "build/diagnostics-needs-release-build.log",
+      "snapshot": "build/diagnostics-needs-release-build.log",
+      "bytes": 3606,
+      "sha256": "2464cbb65861b77be11dd39484eb2792276219bca8b2ee540b1b18789fa8cb1b"
+    },
+    {
+      "source": "build/diagnostics-needs-release-console.log",
+      "snapshot": "build/diagnostics-needs-release-console.log",
+      "bytes": 21475,
+      "sha256": "b76aaa75cfe48ccd8598d32d7a5ee474484dccc6644cc1083c2ee89d1da9a0cd"
+    },
+    {
+      "source": "build/diagnostics-needs-release.log",
+      "snapshot": "build/diagnostics-needs-release.log",
+      "bytes": 21475,
+      "sha256": "b76aaa75cfe48ccd8598d32d7a5ee474484dccc6644cc1083c2ee89d1da9a0cd"
+    },
+    {
+      "source": "build/diagnostics-needs-resume-build.log",
+      "snapshot": "build/diagnostics-needs-resume-build.log",
+      "bytes": 815,
+      "sha256": "b5e823713310e680886077d24c1cc115ff5ec11538dacc85df6bd4fac1e189e3"
+    },
+    {
+      "source": "build/diagnostics-needs-resume-red.log",
+      "snapshot": "build/diagnostics-needs-resume-red.log",
+      "bytes": 540,
+      "sha256": "b4c8b343d28049e7443687838128edd331691d87b42a8ca8dabd7927b353b702"
+    },
+    {
+      "source": "build/diagnostics-needs-resume-trace.log",
+      "snapshot": "build/diagnostics-needs-resume-trace.log",
+      "bytes": 1154,
+      "sha256": "854758ea2a3ad713d68907e049e9bcc5543313808a533c8da36c83f266c05ef5"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captured.log",
+      "snapshot": "build/diagnostics-needs-retained-captured.log",
+      "bytes": 4508,
+      "sha256": "821efa54f3b205ff394c71715994a2e29aeb7d2384883eaa1944e7c51b9ef0a4"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/6885-2/diagnostic.txt",
+      "snapshot": "build/diagnostics-needs-retained-captures/6885-2/diagnostic.txt",
+      "bytes": 4464,
+      "sha256": "1b06275fbfd0f5f0e01e3769b108c5cc9031650dc70eb6d622b8da25ae3b64b7"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/6885-2/world.save",
+      "snapshot": "build/diagnostics-needs-retained-captures/6885-2/world.save",
+      "bytes": 9710,
+      "sha256": "b4a750e75f518934a7e4092b380c91a46e43d443a42502f9a7c73da33a2b472a"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/6938-6/diagnostic.txt",
+      "snapshot": "build/diagnostics-needs-retained-captures/6938-6/diagnostic.txt",
+      "bytes": 4479,
+      "sha256": "301d91f6bd6518e64ef12efa81521a57f0a78c1fb546cebbc70bdeb69ddcf84b"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/6938-6/world.save",
+      "snapshot": "build/diagnostics-needs-retained-captures/6938-6/world.save",
+      "bytes": 9645,
+      "sha256": "d0767e6342de923b6f89b8a543f03c6dae5d5547e4e2cc73b32b2cd0319b0d37"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/6938-7/diagnostic.txt",
+      "snapshot": "build/diagnostics-needs-retained-captures/6938-7/diagnostic.txt",
+      "bytes": 4479,
+      "sha256": "301d91f6bd6518e64ef12efa81521a57f0a78c1fb546cebbc70bdeb69ddcf84b"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/6938-7/world.save",
+      "snapshot": "build/diagnostics-needs-retained-captures/6938-7/world.save",
+      "bytes": 9645,
+      "sha256": "d0767e6342de923b6f89b8a543f03c6dae5d5547e4e2cc73b32b2cd0319b0d37"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/7352-8/diagnostic.txt",
+      "snapshot": "build/diagnostics-needs-retained-captures/7352-8/diagnostic.txt",
+      "bytes": 4410,
+      "sha256": "45959ebd26ce20d379641dd35afabccd7b55b43bbeb35e756564f330850a5286"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/7352-8/world.save",
+      "snapshot": "build/diagnostics-needs-retained-captures/7352-8/world.save",
+      "bytes": 9616,
+      "sha256": "e796958becb5fee4406db56bfc80a67cf2dde2c32f4b0f6e7c45d12adf6338dc"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/7567-6/diagnostic.txt",
+      "snapshot": "build/diagnostics-needs-retained-captures/7567-6/diagnostic.txt",
+      "bytes": 4399,
+      "sha256": "afe567e260ab72961e61d432c2b0c92abb07db308d3312b86dbcbc3408fd0ea1"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-captures/7567-6/world.save",
+      "snapshot": "build/diagnostics-needs-retained-captures/7567-6/world.save",
+      "bytes": 9918,
+      "sha256": "3a2eb7cf061f97b8c4cc5d87e70f5595be0a61ff7bf630425b8ef68dc21397f9"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-observed.log",
+      "snapshot": "build/diagnostics-needs-retained-observed.log",
+      "bytes": 4508,
+      "sha256": "821efa54f3b205ff394c71715994a2e29aeb7d2384883eaa1944e7c51b9ef0a4"
+    },
+    {
+      "source": "build/diagnostics-needs-retained-world.log",
+      "snapshot": "build/diagnostics-needs-retained-world.log",
+      "bytes": 2683,
+      "sha256": "4ba33a4d37ed18dbe181b3b53526887237414f19e4e2f5daba5fb68e7b5de5b9"
+    },
+    {
+      "source": "build/diagnostics-needs-safety-build.log",
+      "snapshot": "build/diagnostics-needs-safety-build.log",
+      "bytes": 1135,
+      "sha256": "d2eb5d48fe3509c25058a0c8882a95e019edc78207d208212ae8fd5bd8541d7e"
+    },
+    {
+      "source": "build/diagnostics-needs-safety-console.log",
+      "snapshot": "build/diagnostics-needs-safety-console.log",
+      "bytes": 953,
+      "sha256": "8b17399e0fd276d74cde45f87de0d5c41e3ea16f6f5024dc81c08026b7a7a179"
+    },
+    {
+      "source": "build/diagnostics-needs-safety.log",
+      "snapshot": "build/diagnostics-needs-safety.log",
+      "bytes": 953,
+      "sha256": "8b17399e0fd276d74cde45f87de0d5c41e3ea16f6f5024dc81c08026b7a7a179"
+    },
+    {
+      "source": "build/diagnostics-needs-scroll-build.log",
+      "snapshot": "build/diagnostics-needs-scroll-build.log",
+      "bytes": 782,
+      "sha256": "62292ea9ab96516342a41d4b75e63932cfe980acd7a56ccbbe8244c72e1d4651"
+    },
+    {
+      "source": "build/diagnostics-needs-scroll-proof.log",
+      "snapshot": "build/diagnostics-needs-scroll-proof.log",
+      "bytes": 1006,
+      "sha256": "b746ea5d4a902baee95fa701eaa84cdd06816aff63aa180bd7bf8e3f42b90f1c"
+    },
+    {
+      "source": "build/diagnostics-needs-scroll-red/native.log",
+      "snapshot": "build/diagnostics-needs-scroll-red/native.log",
+      "bytes": 418,
+      "sha256": "7daead0589ef7b0bd1ff9f686a3ac7160fd8f950bed28a7ca1b146ed893869a0"
+    },
+    {
+      "source": "build/diagnostics-needs-scroll-red-console.log",
+      "snapshot": "build/diagnostics-needs-scroll-red-console.log",
+      "bytes": 1531,
+      "sha256": "0d055f83334f2c6e3945952df3d506ae71f627b8f0506895610e8dd92d50d13a"
+    },
+    {
+      "source": "build/diagnostics-needs-scroll-red.log",
+      "snapshot": "build/diagnostics-needs-scroll-red.log",
+      "bytes": 1531,
+      "sha256": "0d055f83334f2c6e3945952df3d506ae71f627b8f0506895610e8dd92d50d13a"
+    },
+    {
+      "source": "build/diagnostics-needs-style.log",
+      "snapshot": "build/diagnostics-needs-style.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/diagnostics-needs-trace-build.log",
+      "snapshot": "build/diagnostics-needs-trace-build.log",
+      "bytes": 1827,
+      "sha256": "09307efed82989e4ece057fcfe624c6c254cde6ec8b9932148026feb09a959f8"
+    },
+    {
+      "source": "build/diagnostics-needs-ui-captures/case-156245921-1/diagnostic.txt",
+      "snapshot": "build/diagnostics-needs-ui-captures/case-156245921-1/diagnostic.txt",
+      "bytes": 4442,
+      "sha256": "1761c59392cf9cdb7da52bd61f5b95e9ee8a7c3e30cf1c6016e6bf471bb09f7d"
+    },
+    {
+      "source": "build/diagnostics-needs-ui-captures/case-156245921-1/world.save",
+      "snapshot": "build/diagnostics-needs-ui-captures/case-156245921-1/world.save",
+      "bytes": 9653,
+      "sha256": "6d9790ad12e7e78b4b1e10faf302ca1a5014cb82eca8e951c06be0092bd78fc3"
+    },
+    {
+      "source": "build/diagnostics-needs-ui.log",
+      "snapshot": "build/diagnostics-needs-ui.log",
+      "bytes": 446,
+      "sha256": "2f6822cb5cfa767722ed2c2de545304142ed1c5a4d91ca45bc7dabe907dd8dfd"
+    },
+    {
+      "source": "build/diagnostics-needs-ui.save",
+      "snapshot": "build/diagnostics-needs-ui.save",
+      "bytes": 9653,
+      "sha256": "6d9790ad12e7e78b4b1e10faf302ca1a5014cb82eca8e951c06be0092bd78fc3"
+    },
+    {
+      "source": "build/diagnostics-needs-v2-native-captures/case-156306125-1/diagnostic.txt",
+      "snapshot": "build/diagnostics-needs-v2-native-captures/case-156306125-1/diagnostic.txt",
+      "bytes": 4438,
+      "sha256": "21f2d7943ccaa1b46a099da599a0ec8ff682b536efacb1a5a8ec6c332bb7e38f"
+    },
+    {
+      "source": "build/diagnostics-needs-v2-native-captures/case-156306125-1/world.save",
+      "snapshot": "build/diagnostics-needs-v2-native-captures/case-156306125-1/world.save",
+      "bytes": 9669,
+      "sha256": "b2a49fea48f98ea9db0adb08c81e19d92bae70b6542020330aa00e6e3305c045"
+    },
+    {
+      "source": "build/diagnostics-needs-v2-native.log",
+      "snapshot": "build/diagnostics-needs-v2-native.log",
+      "bytes": 8475,
+      "sha256": "a143ffd6e635b0d828e52f969bfdbbb2c7ee464f3b0c1f790a09e32140db795f"
+    },
+    {
+      "source": "build/diagnostics-needs-v2-native.png",
+      "snapshot": "build/diagnostics-needs-v2-native.png",
+      "bytes": 12843,
+      "sha256": "7e5069864e621662c9d907449e4da33afc69c50db367660f1f20d1c1e0e22c48"
+    },
+    {
+      "source": "build/genesis-hardening-001-before.json",
+      "snapshot": "build/genesis-hardening-001-before.json",
+      "bytes": 5611,
+      "sha256": "3d2192e820b297c86c6b781ba1b64105ab4cb20b9441d565502579772b21fdd8"
+    },
+    {
+      "source": "build/genesis-hardening-001-build-final.log",
+      "snapshot": "build/genesis-hardening-001-build-final.log",
+      "bytes": 2551,
+      "sha256": "9ff26e411850adfa0fff39325a56926c102aa12fe4235c5e8ccb9cda373ff919"
+    },
+    {
+      "source": "build/genesis-hardening-001-build-initial.log",
+      "snapshot": "build/genesis-hardening-001-build-initial.log",
+      "bytes": 3085,
+      "sha256": "9014db8fa195d258e5458ea939a5db8126ff90eda9ed8d5cd0183c3fb74eb765"
+    },
+    {
+      "source": "build/genesis-hardening-001-build.log",
+      "snapshot": "build/genesis-hardening-001-build.log",
+      "bytes": 3085,
+      "sha256": "edf0533bca0408942b35612cdc6ab27a54943adbd2dc0be62f177142f4933866"
+    },
+    {
+      "source": "build/genesis-hardening-001-passage.log",
+      "snapshot": "build/genesis-hardening-001-passage.log",
+      "bytes": 888,
+      "sha256": "39171e59da69aa33e668ae12acb30994ee44621cb0560e5ed02bb171563ad860"
+    },
+    {
+      "source": "build/genesis-hardening-001-regressions.log",
+      "snapshot": "build/genesis-hardening-001-regressions.log",
+      "bytes": 1014,
+      "sha256": "ab2580aaf9ee46f7ba933e9a9f239f946549f39c52c30622e7020100a804e94f"
+    },
+    {
+      "source": "build/genesis-hardening-001-spatial-traversal.log",
+      "snapshot": "build/genesis-hardening-001-spatial-traversal.log",
+      "bytes": 4128,
+      "sha256": "55f7cba560cfff0fc7a0bfaf4cc6d015a88042ebd3b04dd8cf5a208b15741350"
+    },
+    {
+      "source": "build/genesis-hardening-001-test-build.log",
+      "snapshot": "build/genesis-hardening-001-test-build.log",
+      "bytes": 1248,
+      "sha256": "5bcd36f1069616d061e5dddfb03df8d695df3ad4c616e546e5bd2171f7909abd"
+    },
+    {
+      "source": "build/genesis-hardening-001-unwired.log",
+      "snapshot": "build/genesis-hardening-001-unwired.log",
+      "bytes": 803,
+      "sha256": "0063a39507941a5cdfa01b489c490ed05516303b8663b99506fe8634b574e830"
+    },
+    {
+      "source": "build/graphics-tools-install.json",
+      "snapshot": "build/graphics-tools-install.json",
+      "bytes": 130,
+      "sha256": "1ca66d7a968f3843c74e425058b4396a6eb9e780e2281fc38e1f8d540874d074"
+    },
+    {
+      "source": "build/knowledge-asan-configure.log",
+      "snapshot": "build/knowledge-asan-configure.log",
+      "bytes": 211,
+      "sha256": "34b1b135c97b8aa84bffe2c03d13b567fa05d81ab67baf27b72b62fed3bbb2e8"
+    },
+    {
+      "source": "build/knowledge-complete-build.log",
+      "snapshot": "build/knowledge-complete-build.log",
+      "bytes": 1117,
+      "sha256": "8dfaa779d7f3cf10a30ae95a76f3303b6b098cf39e651e9c298f81a679bcf9c2"
+    },
+    {
+      "source": "build/knowledge-complete.log",
+      "snapshot": "build/knowledge-complete.log",
+      "bytes": 2259,
+      "sha256": "bb791ad14ef26af8fb3298520ee701cc2e69d05a2e1b0d400340084914cca4c1"
+    },
+    {
+      "source": "build/knowledge-configure.log",
+      "snapshot": "build/knowledge-configure.log",
+      "bytes": 211,
+      "sha256": "7a849d346f753a76608ad4ced615321195025c748fd41adae6e5e3eb67d3fa57"
+    },
+    {
+      "source": "build/knowledge-debug-build.log",
+      "snapshot": "build/knowledge-debug-build.log",
+      "bytes": 4592,
+      "sha256": "9eb2a9b768f1c0918fad1fbb611c6deae26a668424f51e3f554f9a7a1ab81e67"
+    },
+    {
+      "source": "build/knowledge-docs.log",
+      "snapshot": "build/knowledge-docs.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "source": "build/knowledge-extended-build.log",
+      "snapshot": "build/knowledge-extended-build.log",
+      "bytes": 1117,
+      "sha256": "971e0f63dd17ab122d1a8007384e5e7eceb3bf33b9b41bcc25a4e2c369e585f8"
+    },
+    {
+      "source": "build/knowledge-extended.log",
+      "snapshot": "build/knowledge-extended.log",
+      "bytes": 1446,
+      "sha256": "2d5767bb0b0a162c52db5014d02513b30f984a48f07421fde5f75f68819510c1"
+    },
+    {
+      "source": "build/knowledge-final-asan-build.log",
+      "snapshot": "build/knowledge-final-asan-build.log",
+      "bytes": 4695,
+      "sha256": "364a740d308003bb2787c21f6a011be918b137663369060c15aaf90c972909da"
+    },
+    {
+      "source": "build/knowledge-final-asan-ctest.log",
+      "snapshot": "build/knowledge-final-asan-ctest.log",
+      "bytes": 31240,
+      "sha256": "3b177ca73b91b93424090a21dbe009585440efa4d50375f48a0d0804acd9168a"
+    },
+    {
+      "source": "build/knowledge-final-debug-build.log",
+      "snapshot": "build/knowledge-final-debug-build.log",
+      "bytes": 4009,
+      "sha256": "7418ec4f934ec45d501a2c012795c3b35256d90a9850ba20f0bf4c360663da63"
+    },
+    {
+      "source": "build/knowledge-final-debug-ctest.log",
+      "snapshot": "build/knowledge-final-debug-ctest.log",
+      "bytes": 31948,
+      "sha256": "952fea937634e43abdafed68a4f14e349e0eecf79f19ac0ea052ac8a65f3c4ec"
+    },
+    {
+      "source": "build/knowledge-final-docs.log",
+      "snapshot": "build/knowledge-final-docs.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "source": "build/knowledge-final-format.log",
+      "snapshot": "build/knowledge-final-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/knowledge-final-python-tests.log",
+      "snapshot": "build/knowledge-final-python-tests.log",
+      "bytes": 133,
+      "sha256": "f315e41abf4875854b92599110a0a2c95848ec1cfb91a67d4efcec9768d86db8"
+    },
+    {
+      "source": "build/knowledge-final-release-build.log",
+      "snapshot": "build/knowledge-final-release-build.log",
+      "bytes": 4514,
+      "sha256": "d4c1126c8b628a8b3d450a23ddd5b6f7946c607dca26a50603a80b8312676064"
+    },
+    {
+      "source": "build/knowledge-final-release-ctest.log",
+      "snapshot": "build/knowledge-final-release-ctest.log",
+      "bytes": 30968,
+      "sha256": "f9970dd640f3efe70de601ba10bc51c8711d878ef0f8b9452ba8f2f7a6671d37"
+    },
+    {
+      "source": "build/knowledge-final2-debug-ctest.log",
+      "snapshot": "build/knowledge-final2-debug-ctest.log",
+      "bytes": 30968,
+      "sha256": "a054a041cbc4d901881519d8bfc31c87910f6b8df4bfec071521d7dc119e533f"
+    },
+    {
+      "source": "build/knowledge-first-build.log",
+      "snapshot": "build/knowledge-first-build.log",
+      "bytes": 1367,
+      "sha256": "417808aa39adaeb070d2660a67fb49d91184ff5ad43fc84ed6c7f6a48c008c1f"
+    },
+    {
+      "source": "build/knowledge-format-check.log",
+      "snapshot": "build/knowledge-format-check.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/knowledge-green-initial.log",
+      "snapshot": "build/knowledge-green-initial.log",
+      "bytes": 946,
+      "sha256": "b30f7dabb00d1380dcb3c0b22523f16cc93b297e97cad8f57ba0b8937aceb256"
+    },
+    {
+      "source": "build/knowledge-integration-build.log",
+      "snapshot": "build/knowledge-integration-build.log",
+      "bytes": 624,
+      "sha256": "2bbdd036560545c25ba688af2d428157d0239c4225203e2f66ff592ab79921ab"
+    },
+    {
+      "source": "build/knowledge-integration-green.log",
+      "snapshot": "build/knowledge-integration-green.log",
+      "bytes": 458,
+      "sha256": "562788bda0804fed71129d37cddc5417ea5123395613b775d641178c82385297"
+    },
+    {
+      "source": "build/knowledge-native-continuation/delivery-diagnostics/case-208777484-1/diagnostic.txt",
+      "snapshot": "build/knowledge-native-continuation/delivery-diagnostics/case-208777484-1/diagnostic.txt",
+      "bytes": 5597,
+      "sha256": "76d44a0aa8eefcdb8b193ae9d7a682590aa2977614f62e6237bc00319f9b0d73"
+    },
+    {
+      "source": "build/knowledge-native-continuation/delivery-diagnostics/case-208777484-1/world.save",
+      "snapshot": "build/knowledge-native-continuation/delivery-diagnostics/case-208777484-1/world.save",
+      "bytes": 9017,
+      "sha256": "8a92a0e98fb48f4932081104706b590377d412e93d99c89ea9429a3e89950751"
+    },
+    {
+      "source": "build/knowledge-native-continuation/delivery-resume/case-208778078-1/diagnostic.txt",
+      "snapshot": "build/knowledge-native-continuation/delivery-resume/case-208778078-1/diagnostic.txt",
+      "bytes": 5690,
+      "sha256": "aa62ad99aa6d7837d23c165fd8dfc426a7e6eb52f1b1df9a68adecda4d656cee"
+    },
+    {
+      "source": "build/knowledge-native-continuation/delivery-resume/case-208778078-1/world.save",
+      "snapshot": "build/knowledge-native-continuation/delivery-resume/case-208778078-1/world.save",
+      "bytes": 9355,
+      "sha256": "9e95b9fbf8727387210d9dec7a029e8fa1fd507fc98e4b532ae9f60db3c69386"
+    },
+    {
+      "source": "build/knowledge-native-continuation/delivery-resume.log",
+      "snapshot": "build/knowledge-native-continuation/delivery-resume.log",
+      "bytes": 11286,
+      "sha256": "7efb04bad04d1d3e5bacec2cf08bb8da9346dc464c20d3cfe7ea865bb6e00a3f"
+    },
+    {
+      "source": "build/knowledge-native-continuation/delivery.log",
+      "snapshot": "build/knowledge-native-continuation/delivery.log",
+      "bytes": 11215,
+      "sha256": "7624ef944126b41b877b11687811e548cdfa82ab8a51b12b584cda52925b2f63"
+    },
+    {
+      "source": "build/knowledge-native-continuation/delivery.save",
+      "snapshot": "build/knowledge-native-continuation/delivery.save",
+      "bytes": 7833,
+      "sha256": "526ae9c0affe3f3c2bd1e13367268f0ffb8aed499ae8b60561a5b54f4cd31bb6"
+    },
+    {
+      "source": "build/knowledge-native-continuation/resume-viewport-before.png",
+      "snapshot": "build/knowledge-native-continuation/resume-viewport-before.png",
+      "bytes": 12816,
+      "sha256": "f68f3190f45bfcc0ccff3bd49e240188495ec01e0a0de670bcec0dfc395045d0"
+    },
+    {
+      "source": "build/knowledge-native-continuation/resume-viewport.png",
+      "snapshot": "build/knowledge-native-continuation/resume-viewport.png",
+      "bytes": 13280,
+      "sha256": "3e639385e4f877a8ddf5c0abf9cfafe61f9ff2db3cad9a24946e70aa044ac101"
+    },
+    {
+      "source": "build/knowledge-native-continuation.log",
+      "snapshot": "build/knowledge-native-continuation.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "build/knowledge-native-diagnostics/case-208770109-1/diagnostic.txt",
+      "snapshot": "build/knowledge-native-diagnostics/case-208770109-1/diagnostic.txt",
+      "bytes": 5597,
+      "sha256": "76d44a0aa8eefcdb8b193ae9d7a682590aa2977614f62e6237bc00319f9b0d73"
+    },
+    {
+      "source": "build/knowledge-native-diagnostics/case-208770109-1/world.save",
+      "snapshot": "build/knowledge-native-diagnostics/case-208770109-1/world.save",
+      "bytes": 9017,
+      "sha256": "8a92a0e98fb48f4932081104706b590377d412e93d99c89ea9429a3e89950751"
+    },
+    {
+      "source": "build/knowledge-native.log",
+      "snapshot": "build/knowledge-native.log",
+      "bytes": 11207,
+      "sha256": "4838c42a62a0226b0a4d3aa4906eb53bd8f6e772969b84d958708a28573d84a6"
+    },
+    {
+      "source": "build/knowledge-native.png",
+      "snapshot": "build/knowledge-native.png",
+      "bytes": 13565,
+      "sha256": "2051c1fc7ce643269568de7aac45ceb233f1ea9f6ad90b80b4948a2966c523e3"
+    },
+    {
+      "source": "build/knowledge-native.png.before.png",
+      "snapshot": "build/knowledge-native.png.before.png",
+      "bytes": 12816,
+      "sha256": "f68f3190f45bfcc0ccff3bd49e240188495ec01e0a0de670bcec0dfc395045d0"
+    },
+    {
+      "source": "build/knowledge-native.save",
+      "snapshot": "build/knowledge-native.save",
+      "bytes": 7833,
+      "sha256": "526ae9c0affe3f3c2bd1e13367268f0ffb8aed499ae8b60561a5b54f4cd31bb6"
+    },
+    {
+      "source": "build/knowledge-python-tests.log",
+      "snapshot": "build/knowledge-python-tests.log",
+      "bytes": 133,
+      "sha256": "0bd6dc18040f28c636a3946f55aa238b8a2d152a7054a59c65ddc0a11e781a38"
+    },
+    {
+      "source": "build/knowledge-red-build.log",
+      "snapshot": "build/knowledge-red-build.log",
+      "bytes": 627,
+      "sha256": "4976d5e41b87facd06cc29d129aaf86436ee6ecf400f473ed15ba2e4817fa542"
+    },
+    {
+      "source": "build/knowledge-red.log",
+      "snapshot": "build/knowledge-red.log",
+      "bytes": 994,
+      "sha256": "9e50a7ba68d4d573bf8869c7486b5e27071fe1cc8b6d7bb9ea60a96f9e24ab83"
+    },
+    {
+      "source": "build/knowledge-safety-build.log",
+      "snapshot": "build/knowledge-safety-build.log",
+      "bytes": 1117,
+      "sha256": "bcb2283e8b1fa5f64a5818ed87c6288900b131ba0f61108f83a9f517954877ab"
+    },
+    {
+      "source": "build/knowledge-safety-build2.log",
+      "snapshot": "build/knowledge-safety-build2.log",
+      "bytes": 1117,
+      "sha256": "7f60d6f9c2de4fc00a87fe9301cd3e4e14a6d6a0ae9ca74d1ff70130d9fe36f6"
+    },
+    {
+      "source": "build/knowledge-safety-build3.log",
+      "snapshot": "build/knowledge-safety-build3.log",
+      "bytes": 627,
+      "sha256": "4976d5e41b87facd06cc29d129aaf86436ee6ecf400f473ed15ba2e4817fa542"
+    },
+    {
+      "source": "build/knowledge-safety-debug-build.log",
+      "snapshot": "build/knowledge-safety-debug-build.log",
+      "bytes": 627,
+      "sha256": "4976d5e41b87facd06cc29d129aaf86436ee6ecf400f473ed15ba2e4817fa542"
+    },
+    {
+      "source": "build/knowledge-safety-green.log",
+      "snapshot": "build/knowledge-safety-green.log",
+      "bytes": 2357,
+      "sha256": "010d7fde7977a576cdf3477c9bcb5dcb19c544e3483b6d485659c6ea4e9d7b73"
+    },
+    {
+      "source": "build/knowledge-safety-green2.log",
+      "snapshot": "build/knowledge-safety-green2.log",
+      "bytes": 789,
+      "sha256": "8c79a79eca3d598c1451881d397e27306dfaaa30edeb10f83628ac85b47b720f"
+    },
+    {
+      "source": "build/knowledge-safety-red.log",
+      "snapshot": "build/knowledge-safety-red.log",
+      "bytes": 978,
+      "sha256": "73403b9ea60625a69ed65c05c6cb1afbd91c0fabe5c329b4233dd994d303355c"
+    },
+    {
+      "source": "build/knowledge-safety.log",
+      "snapshot": "build/knowledge-safety.log",
+      "bytes": 843,
+      "sha256": "ec7301ef902adfa70767f8f3831f534f8c91a218802e59b3680e9440ab776c70"
+    },
+    {
+      "source": "build/m01-world.save",
+      "snapshot": "build/m01-world.save",
+      "bytes": 322,
+      "sha256": "c79248f87f8834031f9019e89883e37ddff4692ce419768209ee89219c4e9f9b"
+    },
+    {
+      "source": "build/m02-gpu-debug-proof.save",
+      "snapshot": "build/m02-gpu-debug-proof.save",
+      "bytes": 338,
+      "sha256": "49898a8d061185b9325c38805deb5fb32dc4b0dccedfff682c21b0dded969da5"
+    },
+    {
+      "source": "build/m02-proof.save",
+      "snapshot": "build/m02-proof.save",
+      "bytes": 338,
+      "sha256": "49898a8d061185b9325c38805deb5fb32dc4b0dccedfff682c21b0dded969da5"
+    },
+    {
+      "source": "build/m03-evidence.save",
+      "snapshot": "build/m03-evidence.save",
+      "bytes": 833,
+      "sha256": "802067cf4b909088e7f0eb529ce6330ffa8ab70a061d91f8a0e9e4ea828ae8d0"
+    },
+    {
+      "source": "build/m03-ui-fixed.log",
+      "snapshot": "build/m03-ui-fixed.log",
+      "bytes": 691,
+      "sha256": "2bc1d65df9b758e889e70f21c04e177b99fe3ee81c88ccbdaf84324f91e67223"
+    },
+    {
+      "source": "build/m03-ui.log",
+      "snapshot": "build/m03-ui.log",
+      "bytes": 721,
+      "sha256": "0a4518d494f30933875623aa4a735d6332817d473e47f23c3d2ac243a1dff03a"
+    },
+    {
+      "source": "build/m03-ui.save",
+      "snapshot": "build/m03-ui.save",
+      "bytes": 670,
+      "sha256": "69e7c769291a0e6ec3a6357cc9729248fbfac6973071042161798310b3c50b67"
+    },
+    {
+      "source": "build/m04-entry-asan-build.log",
+      "snapshot": "build/m04-entry-asan-build.log",
+      "bytes": 3875,
+      "sha256": "c43b8e7028978c0efdc0569dbe6c371e681fcbe18f619ba142739bcb78119782"
+    },
+    {
+      "source": "build/m04-entry-asan-console.log",
+      "snapshot": "build/m04-entry-asan-console.log",
+      "bytes": 19055,
+      "sha256": "c7f612d2a1c54d58a1f246e242ae3cef861c33c20ddd4386703e770d65d14a28"
+    },
+    {
+      "source": "build/m04-entry-asan-tests.log",
+      "snapshot": "build/m04-entry-asan-tests.log",
+      "bytes": 19055,
+      "sha256": "c7f612d2a1c54d58a1f246e242ae3cef861c33c20ddd4386703e770d65d14a28"
+    },
+    {
+      "source": "build/m04-entry-baseline/CMakeLists.txt",
+      "snapshot": "build/m04-entry-baseline/CMakeLists.txt",
+      "bytes": 15314,
+      "sha256": "dadd7ff2035b427280e52e6670ed878a397eec3e4a66f3f2a68546a126e1a091"
+    },
+    {
+      "source": "build/m04-entry-baseline-console.log",
+      "snapshot": "build/m04-entry-baseline-console.log",
+      "bytes": 17861,
+      "sha256": "11de2f97b3737baa6a1ee9a839a6aade85f4e4823804505cb2e3cc4fec6b587e"
+    },
+    {
+      "source": "build/m04-entry-baseline-tests.log",
+      "snapshot": "build/m04-entry-baseline-tests.log",
+      "bytes": 17861,
+      "sha256": "11de2f97b3737baa6a1ee9a839a6aade85f4e4823804505cb2e3cc4fec6b587e"
+    },
+    {
+      "source": "build/m04-entry-cli-red/native.log",
+      "snapshot": "build/m04-entry-cli-red/native.log",
+      "bytes": 6865,
+      "sha256": "cafd6d8fa8d8a6c306167f1561b5a4555d586e5c8dcb70228eb79ccf494af553"
+    },
+    {
+      "source": "build/m04-entry-cli-red/native.png",
+      "snapshot": "build/m04-entry-cli-red/native.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/m04-entry-cli-red/native.png.before.png",
+      "snapshot": "build/m04-entry-cli-red/native.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/m04-entry-cli-red/ordinary.save",
+      "snapshot": "build/m04-entry-cli-red/ordinary.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/m04-entry-cli-red/resume.log",
+      "snapshot": "build/m04-entry-cli-red/resume.log",
+      "bytes": 6969,
+      "sha256": "f061919e654258666bf7d905cf4febf3e21c519ed4908323efedb7ef820d69e1"
+    },
+    {
+      "source": "build/m04-entry-cli-red/resume.png",
+      "snapshot": "build/m04-entry-cli-red/resume.png",
+      "bytes": 13529,
+      "sha256": "87506b53c21a045b450ac766fe3f46507cb8362a8d20ca2d5510609fd29be4ec"
+    },
+    {
+      "source": "build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/diagnostic.txt",
+      "bytes": 3164,
+      "sha256": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa"
+    },
+    {
+      "source": "build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/traversal-diagnostics/case-150425281-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/traversal-diagnostics/case-150425281-1/diagnostic.txt",
+      "bytes": 3251,
+      "sha256": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f"
+    },
+    {
+      "source": "build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/traversal-diagnostics/case-150425281-1/world.save",
+      "snapshot": "build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/traversal-diagnostics/case-150425281-1/world.save",
+      "bytes": 7786,
+      "sha256": "0c8e013996b7df2d33ca606bb9742b898e70c5aada69e80dec67f606d0d8341f"
+    },
+    {
+      "source": "build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/world.save",
+      "snapshot": "build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/world.save",
+      "bytes": 7264,
+      "sha256": "0e184ace4764d9e9a4fdc96f13a5fe62e9062e08e06a36d5aac2885cec84fbaf"
+    },
+    {
+      "source": "build/m04-entry-cli-red.log",
+      "snapshot": "build/m04-entry-cli-red.log",
+      "bytes": 1543,
+      "sha256": "85c3a2873edab33fd80eb891b2852bb2859724d68712573b25a9f694b90940b1"
+    },
+    {
+      "source": "build/m04-entry-continuation-build.log",
+      "snapshot": "build/m04-entry-continuation-build.log",
+      "bytes": 672,
+      "sha256": "64996618b73f43c8b1b9abe8b22d40cae98f0313cccb97189b55d08dd263a4ef"
+    },
+    {
+      "source": "build/m04-entry-debug-build-2.log",
+      "snapshot": "build/m04-entry-debug-build-2.log",
+      "bytes": 3060,
+      "sha256": "69564cfaf35c196361185fd0086e46b781bcf2ead4a72c19e4822a5b28e76970"
+    },
+    {
+      "source": "build/m04-entry-debug-build-3.log",
+      "snapshot": "build/m04-entry-debug-build-3.log",
+      "bytes": 3037,
+      "sha256": "7a10509a879fdd18d022e4de7a9ca4b884db2479c9450a3d9c1ca9fdfe6e905d"
+    },
+    {
+      "source": "build/m04-entry-debug-build.log",
+      "snapshot": "build/m04-entry-debug-build.log",
+      "bytes": 3060,
+      "sha256": "af6f5ed511f2a5c1e36cdc1872405103622ac7e41218a2f0f504ee826e111f3f"
+    },
+    {
+      "source": "build/m04-entry-debug-console.log",
+      "snapshot": "build/m04-entry-debug-console.log",
+      "bytes": 18791,
+      "sha256": "4e26abbc8e6bc6a6f1c7530428b144bc515d1c4341d62c6ede5816d77fafbebd"
+    },
+    {
+      "source": "build/m04-entry-debug-tests.log",
+      "snapshot": "build/m04-entry-debug-tests.log",
+      "bytes": 18791,
+      "sha256": "4e26abbc8e6bc6a6f1c7530428b144bc515d1c4341d62c6ede5816d77fafbebd"
+    },
+    {
+      "source": "build/m04-entry-diagnostics-build.log",
+      "snapshot": "build/m04-entry-diagnostics-build.log",
+      "bytes": 1205,
+      "sha256": "9b9d74eaa4607f5d9d975d0b0db68b2a3d7fb32a68c84b0fe7a02ea0c5f4935f"
+    },
+    {
+      "source": "build/m04-entry-final-debug-build-format.log",
+      "snapshot": "build/m04-entry-final-debug-build-format.log",
+      "bytes": 943,
+      "sha256": "07ba6aa0f8e577567ec818af669d307e43e9d819dc0caf5d0b29491e4f12df43"
+    },
+    {
+      "source": "build/m04-entry-final-debug-console.log",
+      "snapshot": "build/m04-entry-final-debug-console.log",
+      "bytes": 18791,
+      "sha256": "1458daa9acc9a9c1d9270ded8fedcb00d7f9e628941d8920faa7a97203c819a7"
+    },
+    {
+      "source": "build/m04-entry-final-debug-tests.log",
+      "snapshot": "build/m04-entry-final-debug-tests.log",
+      "bytes": 18791,
+      "sha256": "1458daa9acc9a9c1d9270ded8fedcb00d7f9e628941d8920faa7a97203c819a7"
+    },
+    {
+      "source": "build/m04-entry-final-docs.log",
+      "snapshot": "build/m04-entry-final-docs.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "source": "build/m04-entry-final-format.log",
+      "snapshot": "build/m04-entry-final-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/m04-entry-focused-console-2.log",
+      "snapshot": "build/m04-entry-focused-console-2.log",
+      "bytes": 970,
+      "sha256": "6cc98872f275f98397497f181f2f7a5284dc2a99bcbd69003e8c0bca568c4b7c"
+    },
+    {
+      "source": "build/m04-entry-focused-console.log",
+      "snapshot": "build/m04-entry-focused-console.log",
+      "bytes": 807,
+      "sha256": "02de075782e56fdb2d38662deab617c61e2981ef8b08ef3bf57b5518282d3812"
+    },
+    {
+      "source": "build/m04-entry-focused-tests-2.log",
+      "snapshot": "build/m04-entry-focused-tests-2.log",
+      "bytes": 970,
+      "sha256": "6cc98872f275f98397497f181f2f7a5284dc2a99bcbd69003e8c0bca568c4b7c"
+    },
+    {
+      "source": "build/m04-entry-focused-tests.log",
+      "snapshot": "build/m04-entry-focused-tests.log",
+      "bytes": 807,
+      "sha256": "02de075782e56fdb2d38662deab617c61e2981ef8b08ef3bf57b5518282d3812"
+    },
+    {
+      "source": "build/m04-entry-hardware.json",
+      "snapshot": "build/m04-entry-hardware.json",
+      "bytes": 119,
+      "sha256": "6f8921366c102d4634b0bafbe5fc4f5efd97e9c7f0639266fa59b41797c3af37"
+    },
+    {
+      "source": "build/m04-entry-measure-300.log",
+      "snapshot": "build/m04-entry-measure-300.log",
+      "bytes": 4485,
+      "sha256": "454e882fcd0161b53a5d9a3ff4feacf4660bc91100b5b9515f58f04c1ebaa264"
+    },
+    {
+      "source": "build/m04-entry-measure-300.save",
+      "snapshot": "build/m04-entry-measure-300.save",
+      "bytes": 2979,
+      "sha256": "8e4cf148da57560f9a11b0f9f5f8408ebec94694827697574ab0bcad8f5bb108"
+    },
+    {
+      "source": "build/m04-entry-measure-300.save.final.save",
+      "snapshot": "build/m04-entry-measure-300.save.final.save",
+      "bytes": 9352,
+      "sha256": "06b75cf959b4808f7caf02f60d58d266f6edb0802bdbcec238a3fd356c22c1da"
+    },
+    {
+      "source": "build/m04-entry-measure-continuation-asan.log",
+      "snapshot": "build/m04-entry-measure-continuation-asan.log",
+      "bytes": 2595,
+      "sha256": "20ed67b797e9615a40795b2ec8ec4c059df68d278cbb734a87e5682946174fa0"
+    },
+    {
+      "source": "build/m04-entry-measure-continuation-debug.log",
+      "snapshot": "build/m04-entry-measure-continuation-debug.log",
+      "bytes": 2595,
+      "sha256": "20ed67b797e9615a40795b2ec8ec4c059df68d278cbb734a87e5682946174fa0"
+    },
+    {
+      "source": "build/m04-entry-measure-continuation.log",
+      "snapshot": "build/m04-entry-measure-continuation.log",
+      "bytes": 2595,
+      "sha256": "20ed67b797e9615a40795b2ec8ec4c059df68d278cbb734a87e5682946174fa0"
+    },
+    {
+      "source": "build/m04-entry-measure-start.txt",
+      "snapshot": "build/m04-entry-measure-start.txt",
+      "bytes": 35,
+      "sha256": "b4e6665e85c0f474abdf3efdbf044a65685f188afe70a70f158d41edef6cc313"
+    },
+    {
+      "source": "build/m04-entry-measure-summary.json",
+      "snapshot": "build/m04-entry-measure-summary.json",
+      "bytes": 1229,
+      "sha256": "a967fe254d52cb232c7d2e43eb405d62c6eac61584e2ea717a85225a1bd67ec7"
+    },
+    {
+      "source": "build/m04-entry-native-asan/measured.log",
+      "snapshot": "build/m04-entry-native-asan/measured.log",
+      "bytes": 4376,
+      "sha256": "1e86fa72aa56b0cafefc6373b72e4da707a6939732f3c99931a1ad2a907349a8"
+    },
+    {
+      "source": "build/m04-entry-native-asan/measurement.save",
+      "snapshot": "build/m04-entry-native-asan/measurement.save",
+      "bytes": 2979,
+      "sha256": "8e4cf148da57560f9a11b0f9f5f8408ebec94694827697574ab0bcad8f5bb108"
+    },
+    {
+      "source": "build/m04-entry-native-asan/measurement.save.final.save",
+      "snapshot": "build/m04-entry-native-asan/measurement.save.final.save",
+      "bytes": 6899,
+      "sha256": "f003b93ff0b9b4197c900e5470dbad2d57ef9569fd0bcea241cd2f631dddf14b"
+    },
+    {
+      "source": "build/m04-entry-native-asan/native.log",
+      "snapshot": "build/m04-entry-native-asan/native.log",
+      "bytes": 6898,
+      "sha256": "39873fc4ee55e8ad57eb5b7d68ea28b0a4b06f5aee2cd847abc5c280df4ca661"
+    },
+    {
+      "source": "build/m04-entry-native-asan/native.png",
+      "snapshot": "build/m04-entry-native-asan/native.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/m04-entry-native-asan/native.png.before.png",
+      "snapshot": "build/m04-entry-native-asan/native.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/m04-entry-native-asan/ordinary.save",
+      "snapshot": "build/m04-entry-native-asan/ordinary.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/m04-entry-native-asan/resume.log",
+      "snapshot": "build/m04-entry-native-asan/resume.log",
+      "bytes": 7005,
+      "sha256": "62f7311787db656d5a78ad48d356db62e00ee4f4d67eedc5ae696a69b014fc4f"
+    },
+    {
+      "source": "build/m04-entry-native-asan/resume.png",
+      "snapshot": "build/m04-entry-native-asan/resume.png",
+      "bytes": 13529,
+      "sha256": "87506b53c21a045b450ac766fe3f46507cb8362a8d20ca2d5510609fd29be4ec"
+    },
+    {
+      "source": "build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/diagnostic.txt",
+      "bytes": 3164,
+      "sha256": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa"
+    },
+    {
+      "source": "build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/traversal-diagnostics/case-152306031-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/traversal-diagnostics/case-152306031-1/diagnostic.txt",
+      "bytes": 3251,
+      "sha256": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f"
+    },
+    {
+      "source": "build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/traversal-diagnostics/case-152306031-1/world.save",
+      "snapshot": "build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/traversal-diagnostics/case-152306031-1/world.save",
+      "bytes": 7786,
+      "sha256": "0c8e013996b7df2d33ca606bb9742b898e70c5aada69e80dec67f606d0d8341f"
+    },
+    {
+      "source": "build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/world.save",
+      "snapshot": "build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/world.save",
+      "bytes": 7264,
+      "sha256": "0e184ace4764d9e9a4fdc96f13a5fe62e9062e08e06a36d5aac2885cec84fbaf"
+    },
+    {
+      "source": "build/m04-entry-native-asan.log",
+      "snapshot": "build/m04-entry-native-asan.log",
+      "bytes": 81,
+      "sha256": "c9330fc236c1b07146774e52950e462e328b5d83e1b9ed1f7775ba1964751aca"
+    },
+    {
+      "source": "build/m04-entry-native-debug/measured.log",
+      "snapshot": "build/m04-entry-native-debug/measured.log",
+      "bytes": 4375,
+      "sha256": "9fdbe7543053d4635317922c4b77654e56edda31283f5e6fc2693fd4f4becd67"
+    },
+    {
+      "source": "build/m04-entry-native-debug/measurement.save",
+      "snapshot": "build/m04-entry-native-debug/measurement.save",
+      "bytes": 2979,
+      "sha256": "8e4cf148da57560f9a11b0f9f5f8408ebec94694827697574ab0bcad8f5bb108"
+    },
+    {
+      "source": "build/m04-entry-native-debug/measurement.save.final.save",
+      "snapshot": "build/m04-entry-native-debug/measurement.save.final.save",
+      "bytes": 6879,
+      "sha256": "b35859e8cc3d8d785196a4e765c4d49a407d207946bbc123adbc41cb480d10ca"
+    },
+    {
+      "source": "build/m04-entry-native-debug/native.log",
+      "snapshot": "build/m04-entry-native-debug/native.log",
+      "bytes": 6892,
+      "sha256": "b99c48049eee9b4223667d10b87b7c06a2c3cbea19c07e67016a43d51d9d01ba"
+    },
+    {
+      "source": "build/m04-entry-native-debug/native.png",
+      "snapshot": "build/m04-entry-native-debug/native.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/m04-entry-native-debug/native.png.before.png",
+      "snapshot": "build/m04-entry-native-debug/native.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/m04-entry-native-debug/ordinary.save",
+      "snapshot": "build/m04-entry-native-debug/ordinary.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/m04-entry-native-debug/resume.log",
+      "snapshot": "build/m04-entry-native-debug/resume.log",
+      "bytes": 6996,
+      "sha256": "b4c7d2cc8807eed5d88b3f6567adaaffada396735bd1943fb1442495e19f3543"
+    },
+    {
+      "source": "build/m04-entry-native-debug/resume.png",
+      "snapshot": "build/m04-entry-native-debug/resume.png",
+      "bytes": 13529,
+      "sha256": "87506b53c21a045b450ac766fe3f46507cb8362a8d20ca2d5510609fd29be4ec"
+    },
+    {
+      "source": "build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/diagnostic.txt",
+      "bytes": 3164,
+      "sha256": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa"
+    },
+    {
+      "source": "build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/traversal-diagnostics/case-152279468-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/traversal-diagnostics/case-152279468-1/diagnostic.txt",
+      "bytes": 3251,
+      "sha256": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f"
+    },
+    {
+      "source": "build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/traversal-diagnostics/case-152279468-1/world.save",
+      "snapshot": "build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/traversal-diagnostics/case-152279468-1/world.save",
+      "bytes": 7786,
+      "sha256": "0c8e013996b7df2d33ca606bb9742b898e70c5aada69e80dec67f606d0d8341f"
+    },
+    {
+      "source": "build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/world.save",
+      "snapshot": "build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/world.save",
+      "bytes": 7264,
+      "sha256": "0e184ace4764d9e9a4fdc96f13a5fe62e9062e08e06a36d5aac2885cec84fbaf"
+    },
+    {
+      "source": "build/m04-entry-native-debug.log",
+      "snapshot": "build/m04-entry-native-debug.log",
+      "bytes": 81,
+      "sha256": "c9330fc236c1b07146774e52950e462e328b5d83e1b9ed1f7775ba1964751aca"
+    },
+    {
+      "source": "build/m04-entry-native-release/measured.log",
+      "snapshot": "build/m04-entry-native-release/measured.log",
+      "bytes": 4369,
+      "sha256": "9c451a37e31b7fd683509e3218c3c88389e412f166f0c238a66a5f875b0c3b7c"
+    },
+    {
+      "source": "build/m04-entry-native-release/measurement.save",
+      "snapshot": "build/m04-entry-native-release/measurement.save",
+      "bytes": 2979,
+      "sha256": "8e4cf148da57560f9a11b0f9f5f8408ebec94694827697574ab0bcad8f5bb108"
+    },
+    {
+      "source": "build/m04-entry-native-release/measurement.save.final.save",
+      "snapshot": "build/m04-entry-native-release/measurement.save.final.save",
+      "bytes": 6886,
+      "sha256": "ec27aa9859181568831208c8ef5ca749d27c4ada32846b964eebfefdd60a4beb"
+    },
+    {
+      "source": "build/m04-entry-native-release/native.log",
+      "snapshot": "build/m04-entry-native-release/native.log",
+      "bytes": 6897,
+      "sha256": "c0be1ec4a0b7f0492061a47b65a114034820162f50eb3194ed267e8c76cb5dd9"
+    },
+    {
+      "source": "build/m04-entry-native-release/native.png",
+      "snapshot": "build/m04-entry-native-release/native.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/m04-entry-native-release/native.png.before.png",
+      "snapshot": "build/m04-entry-native-release/native.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/m04-entry-native-release/ordinary.save",
+      "snapshot": "build/m04-entry-native-release/ordinary.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/m04-entry-native-release/resume.log",
+      "snapshot": "build/m04-entry-native-release/resume.log",
+      "bytes": 6998,
+      "sha256": "892567572b468644f371a80606fd58b73dfcd8d018496553dd9d8124f723cb04"
+    },
+    {
+      "source": "build/m04-entry-native-release/resume.png",
+      "snapshot": "build/m04-entry-native-release/resume.png",
+      "bytes": 13529,
+      "sha256": "87506b53c21a045b450ac766fe3f46507cb8362a8d20ca2d5510609fd29be4ec"
+    },
+    {
+      "source": "build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/diagnostic.txt",
+      "bytes": 3164,
+      "sha256": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa"
+    },
+    {
+      "source": "build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/traversal-diagnostics/case-152287421-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/traversal-diagnostics/case-152287421-1/diagnostic.txt",
+      "bytes": 3251,
+      "sha256": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f"
+    },
+    {
+      "source": "build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/traversal-diagnostics/case-152287421-1/world.save",
+      "snapshot": "build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/traversal-diagnostics/case-152287421-1/world.save",
+      "bytes": 7786,
+      "sha256": "0c8e013996b7df2d33ca606bb9742b898e70c5aada69e80dec67f606d0d8341f"
+    },
+    {
+      "source": "build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/world.save",
+      "snapshot": "build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/world.save",
+      "bytes": 7264,
+      "sha256": "0e184ace4764d9e9a4fdc96f13a5fe62e9062e08e06a36d5aac2885cec84fbaf"
+    },
+    {
+      "source": "build/m04-entry-native-release.log",
+      "snapshot": "build/m04-entry-native-release.log",
+      "bytes": 81,
+      "sha256": "c9330fc236c1b07146774e52950e462e328b5d83e1b9ed1f7775ba1964751aca"
+    },
+    {
+      "source": "build/m04-entry-observation-tool-hashes.json",
+      "snapshot": "build/m04-entry-observation-tool-hashes.json",
+      "bytes": 898,
+      "sha256": "6417530dc8883df9ef86a93add1cef9d351aa0cbf4c5df3e3347376ded1b7efa"
+    },
+    {
+      "source": "build/m04-entry-observer-windows-asan-build.log",
+      "snapshot": "build/m04-entry-observer-windows-asan-build.log",
+      "bytes": 672,
+      "sha256": "adf9288ca1e15ea58dce9a618610025d95378741651c6f0bbc3f56fc42f0c852"
+    },
+    {
+      "source": "build/m04-entry-observer-windows-debug-build.log",
+      "snapshot": "build/m04-entry-observer-windows-debug-build.log",
+      "bytes": 645,
+      "sha256": "aa25eb8abbe1dd304887dad30f268a151d98c0ffe650c4d93813ed5e75b40e0e"
+    },
+    {
+      "source": "build/m04-entry-progress.txt",
+      "snapshot": "build/m04-entry-progress.txt",
+      "bytes": 1153,
+      "sha256": "4fc1d65e1fcbca0479cf33e73c9d2d40435e93f421ffb1bbdb785e4d6021995a"
+    },
+    {
+      "source": "build/m04-entry-red-process/native.log",
+      "snapshot": "build/m04-entry-red-process/native.log",
+      "bytes": 2886,
+      "sha256": "c5985e7cf1b49c439a98f686da2b35ca501da0ce7b0edf1d96699a571f7785f9"
+    },
+    {
+      "source": "build/m04-entry-red-process/native.png",
+      "snapshot": "build/m04-entry-red-process/native.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/m04-entry-red-process/native.png.before.png",
+      "snapshot": "build/m04-entry-red-process/native.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/m04-entry-red-process/ordinary.save",
+      "snapshot": "build/m04-entry-red-process/ordinary.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/m04-entry-red-process.log",
+      "snapshot": "build/m04-entry-red-process.log",
+      "bytes": 547,
+      "sha256": "a60c371cde2455a7340ab91aa245c7c8c4d5586f6d370c77757f1828c236d0f4"
+    },
+    {
+      "source": "build/m04-entry-release-build-final.log",
+      "snapshot": "build/m04-entry-release-build-final.log",
+      "bytes": 3117,
+      "sha256": "f205964d43061e5e85b3d89d439f4f752ee809af8567f8a877dd7e10afd88e6a"
+    },
+    {
+      "source": "build/m04-entry-release-build.log",
+      "snapshot": "build/m04-entry-release-build.log",
+      "bytes": 3204,
+      "sha256": "8585368a18aa26c2e25c0cb964af6aca2e5f4a449e22abfbd6b25efa0b4069a4"
+    },
+    {
+      "source": "build/m04-entry-release-console.log",
+      "snapshot": "build/m04-entry-release-console.log",
+      "bytes": 18791,
+      "sha256": "caa4260409ba71da7ae80064467a3c2dfa4052d9eea7d7f7e5972295b44d3fa9"
+    },
+    {
+      "source": "build/m04-entry-release-tests.log",
+      "snapshot": "build/m04-entry-release-tests.log",
+      "bytes": 18791,
+      "sha256": "caa4260409ba71da7ae80064467a3c2dfa4052d9eea7d7f7e5972295b44d3fa9"
+    },
+    {
+      "source": "build/m04-entry-review-red-console.log",
+      "snapshot": "build/m04-entry-review-red-console.log",
+      "bytes": 2330,
+      "sha256": "3a3c295fc20d261f37fc749bb086bc437bb7b4bbcfdadd40cd741c9290c65ea4"
+    },
+    {
+      "source": "build/m04-entry-review-red.log",
+      "snapshot": "build/m04-entry-review-red.log",
+      "bytes": 2330,
+      "sha256": "3a3c295fc20d261f37fc749bb086bc437bb7b4bbcfdadd40cd741c9290c65ea4"
+    },
+    {
+      "source": "build/m04-entry-review-tests-build.log",
+      "snapshot": "build/m04-entry-review-tests-build.log",
+      "bytes": 1153,
+      "sha256": "6a22ffb57c625bf951b6088f1ab0033063427ad7e3995e89654f1fc5639d3ae4"
+    },
+    {
+      "source": "build/m04-entry-snapshot-build.log",
+      "snapshot": "build/m04-entry-snapshot-build.log",
+      "bytes": 663,
+      "sha256": "8ee480798183d567a1da68071b73ed07ee04a1ee54819df59e48743f19a433b5"
+    },
+    {
+      "source": "build/m04-entry-snapshot-red.log",
+      "snapshot": "build/m04-entry-snapshot-red.log",
+      "bytes": 70,
+      "sha256": "cc18aa3d25e03f16c88804c1fb9ac382d150c6224f8835aca1bef270d2424834"
+    },
+    {
+      "source": "build/m04-entry-source-hashes.json",
+      "snapshot": "build/m04-entry-source-hashes.json",
+      "bytes": 1845,
+      "sha256": "9b319647156ce5257c6faf618f29622cecc3d5fa93a997fd48e69ba49cff873c"
+    },
+    {
+      "source": "build/m04-entry-ui-diagnostics/case-150934968-1/diagnostic.txt",
+      "snapshot": "build/m04-entry-ui-diagnostics/case-150934968-1/diagnostic.txt",
+      "bytes": 3204,
+      "sha256": "953e02dcc2e552804f5d350ebd878a8736d9a0e9ef7b598cb9300fef350f9cfc"
+    },
+    {
+      "source": "build/m04-entry-ui-diagnostics/case-150934968-1/world.save",
+      "snapshot": "build/m04-entry-ui-diagnostics/case-150934968-1/world.save",
+      "bytes": 6915,
+      "sha256": "921bf9dd19bdda4f008a84461f325fc110e01af7cff3d3986e3da5f997820a79"
+    },
+    {
+      "source": "build/m04-entry-ui-final.log",
+      "snapshot": "build/m04-entry-ui-final.log",
+      "bytes": 357,
+      "sha256": "f6e86c60ec9ccacd1bc63d155be2ddd3284b937120f864173ebb1060353926ec"
+    },
+    {
+      "source": "build/m04-entry-ui.log",
+      "snapshot": "build/m04-entry-ui.log",
+      "bytes": 441,
+      "sha256": "7549edce05752db647de92e5017a692fe58277f8389df6d266b0456fecb87c98"
+    },
+    {
+      "source": "build/m04-entry-ui.save",
+      "snapshot": "build/m04-entry-ui.save",
+      "bytes": 6915,
+      "sha256": "921bf9dd19bdda4f008a84461f325fc110e01af7cff3d3986e3da5f997820a79"
+    },
+    {
+      "source": "build/material-delivery-asan-build.log",
+      "snapshot": "build/material-delivery-asan-build.log",
+      "bytes": 5238,
+      "sha256": "bca83177943c8ae1a4949e476b495ac46cda0ff30d9806d26c119457750f4785"
+    },
+    {
+      "source": "build/material-delivery-asan-ctest-rerun.log",
+      "snapshot": "build/material-delivery-asan-ctest-rerun.log",
+      "bytes": 27750,
+      "sha256": "f27bc0537bffa265ef4776ecc147fe7494214cf89f9e0696488771a423175400"
+    },
+    {
+      "source": "build/material-delivery-asan-ctest.log",
+      "snapshot": "build/material-delivery-asan-ctest.log",
+      "bytes": 29097,
+      "sha256": "b748ad60bf9a4fc767992ec1617afe95d4380be9cd25c67d9e15d98d67ed373d"
+    },
+    {
+      "source": "build/material-delivery-asan-gpu-retry.log",
+      "snapshot": "build/material-delivery-asan-gpu-retry.log",
+      "bytes": 238,
+      "sha256": "44fdb00f305c05fc3c28e216f525ccac000c1a3ae24ca0f50f3a51cfa1ab1f81"
+    },
+    {
+      "source": "build/material-delivery-debug-ctest.log",
+      "snapshot": "build/material-delivery-debug-ctest.log",
+      "bytes": 27234,
+      "sha256": "d00c3a9524b1ed1c36bbbf0831119125a65a500c693a8fae9a5f834c1f1ca01c"
+    },
+    {
+      "source": "build/material-delivery-final-asan-build.log",
+      "snapshot": "build/material-delivery-final-asan-build.log",
+      "bytes": 4070,
+      "sha256": "335036be1f55d126fa0926653bd4f2df4e19dbfbf9eb6e62a32951177bdd9834"
+    },
+    {
+      "source": "build/material-delivery-final-asan-ctest.log",
+      "snapshot": "build/material-delivery-final-asan-ctest.log",
+      "bytes": 27768,
+      "sha256": "a94c47798bd121fca9749bd49e81dffdbc31f371193527685c2ee672e4c63346"
+    },
+    {
+      "source": "build/material-delivery-final-debug-build.log",
+      "snapshot": "build/material-delivery-final-debug-build.log",
+      "bytes": 3917,
+      "sha256": "96891cb201eb7aeada6042ce0c982957e798b559969f5487f38346b9d04c2c28"
+    },
+    {
+      "source": "build/material-delivery-final-debug-ctest.log",
+      "snapshot": "build/material-delivery-final-debug-ctest.log",
+      "bytes": 27496,
+      "sha256": "e9e1b173393bb3d0a103c28245f42efeb3f22ca283f5af91ab9ebe3d65be1d6d"
+    },
+    {
+      "source": "build/material-delivery-final-release-build.log",
+      "snapshot": "build/material-delivery-final-release-build.log",
+      "bytes": 3914,
+      "sha256": "664c9ac4f5bc411c5783a9f28ebc62a035c851af78e95f61034a4833359b6bed"
+    },
+    {
+      "source": "build/material-delivery-final-release-ctest.log",
+      "snapshot": "build/material-delivery-final-release-ctest.log",
+      "bytes": 27496,
+      "sha256": "da85e3ed271efa07a42050c82cbdecc8bd60282976ee97cba7ebbe6907dd6263"
+    },
+    {
+      "source": "build/material-delivery-format.log",
+      "snapshot": "build/material-delivery-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/material-delivery-progress.txt",
+      "snapshot": "build/material-delivery-progress.txt",
+      "bytes": 1692,
+      "sha256": "4ccf06ca270b9f54d7404639ee391e4ec59f0b0fc52f4d320687b1e69328e7c2"
+    },
+    {
+      "source": "build/material-delivery-release-build.log",
+      "snapshot": "build/material-delivery-release-build.log",
+      "bytes": 5409,
+      "sha256": "14551f826067f4c335658a520ab77b0211369ce3174d4529e814e22b1ca02c4a"
+    },
+    {
+      "source": "build/material-delivery-release-ctest.log",
+      "snapshot": "build/material-delivery-release-ctest.log",
+      "bytes": 27368,
+      "sha256": "d886c9803b67db693ef9f6b409ea317bdcba57276787eec862d9b72c6ed87241"
+    },
+    {
+      "source": "build/motion-audit-contact.save",
+      "snapshot": "build/motion-audit-contact.save",
+      "bytes": 499,
+      "sha256": "caba66b76d345cc4e3c4dd759905a0934e7f0a5654cb635127d9944cc12eb2e7"
+    },
+    {
+      "source": "build/motion-audit-gpu.save",
+      "snapshot": "build/motion-audit-gpu.save",
+      "bytes": 648,
+      "sha256": "77a51430265b636c3d9de0bac9dbc8fb3be771d7422bca7488f2fa1c27e1a302"
+    },
+    {
+      "source": "build/motion-audit-interpolated-final.png",
+      "snapshot": "build/motion-audit-interpolated-final.png",
+      "bytes": 26654,
+      "sha256": "2d3696519ce3f1c88af64e7f5f6bfa65cc8052108ef49a32856930910de55f17"
+    },
+    {
+      "source": "build/motion-audit-play.log",
+      "snapshot": "build/motion-audit-play.log",
+      "bytes": 727,
+      "sha256": "f4eb6bd2e42c83ec86ae369d1b2bc835fdf6b626a3eb488e555a34f17ba96739"
+    },
+    {
+      "source": "build/motion-audit-ui.log",
+      "snapshot": "build/motion-audit-ui.log",
+      "bytes": 613,
+      "sha256": "3e60ce5b57db2063e6ed0853c9a76d7d9e20c1c231d10911d6baf1db4ed005f8"
+    },
+    {
+      "source": "build/multi-audit-asan-build.log",
+      "snapshot": "build/multi-audit-asan-build.log",
+      "bytes": 3115,
+      "sha256": "a2f73c078904e298cd27ada26c90dd4ce754776d6c92f5d69a50f218bd6099b1"
+    },
+    {
+      "source": "build/multi-audit-asan-console.log",
+      "snapshot": "build/multi-audit-asan-console.log",
+      "bytes": 16903,
+      "sha256": "d83fa44739c5d51130cdd8b98d93d28a72de2d6afe20f5125a676acdf069910c"
+    },
+    {
+      "source": "build/multi-audit-asan-tests.log",
+      "snapshot": "build/multi-audit-asan-tests.log",
+      "bytes": 16903,
+      "sha256": "d83fa44739c5d51130cdd8b98d93d28a72de2d6afe20f5125a676acdf069910c"
+    },
+    {
+      "source": "build/multi-audit-baseline/CMakeLists.txt",
+      "snapshot": "build/multi-audit-baseline/CMakeLists.txt",
+      "bytes": 670,
+      "sha256": "78e3df13c8c968f64b5b5a07bffb602635b608d22e17ff82bbf95357026dd7b6"
+    },
+    {
+      "source": "build/multi-audit-baseline/out/CMakeCache.txt",
+      "snapshot": "build/multi-audit-baseline/out/CMakeCache.txt",
+      "bytes": 14116,
+      "sha256": "26f8c99b8b7aa0c1ded57a635210062e65cc05fa35e47f615d99d2fb5eeb819c"
+    },
+    {
+      "source": "build/multi-audit-baseline-collinear_rest.log",
+      "snapshot": "build/multi-audit-baseline-collinear_rest.log",
+      "bytes": 509,
+      "sha256": "a502d132531fee4a46201f4c288d665996543e38e0ea6128703121c98a2f3d12"
+    },
+    {
+      "source": "build/multi-audit-baseline-command_isolation.log",
+      "snapshot": "build/multi-audit-baseline-command_isolation.log",
+      "bytes": 38,
+      "sha256": "162b4b95011daa9e367fa552098c57ebed7567720862daf907fa9bf66c57e003"
+    },
+    {
+      "source": "build/multi-audit-baseline-crowd_passing.log",
+      "snapshot": "build/multi-audit-baseline-crowd_passing.log",
+      "bytes": 467,
+      "sha256": "04b83006be06e4b1c8a3be0155cedf8452d1212cc1fb1a18732eb3bda67ac593"
+    },
+    {
+      "source": "build/multi-audit-baseline-moving_contact.log",
+      "snapshot": "build/multi-audit-baseline-moving_contact.log",
+      "bytes": 409,
+      "sha256": "bf01c2b36f5968104d790ab74e3c10dd0842e2b954a97b44fa4d0f9e051900bd"
+    },
+    {
+      "source": "build/multi-audit-baseline-support_contract.log",
+      "snapshot": "build/multi-audit-baseline-support_contract.log",
+      "bytes": 38,
+      "sha256": "4cd83fa6247d4ddcab6f123a7efcaadb00a0fd8a97ab3ccf878485f1bd374a1c"
+    },
+    {
+      "source": "build/multi-audit-before-build.log",
+      "snapshot": "build/multi-audit-before-build.log",
+      "bytes": 1135,
+      "sha256": "313cb24549b7d8f5d32dea2cf582645eef20022e89f6780d1efbe37215086048"
+    },
+    {
+      "source": "build/multi-audit-before-console.log",
+      "snapshot": "build/multi-audit-before-console.log",
+      "bytes": 3935,
+      "sha256": "870df070b3c3cc035561764622f20705c329ccf2ad3f1b05b2b61286259c6fea"
+    },
+    {
+      "source": "build/multi-audit-before-tests.log",
+      "snapshot": "build/multi-audit-before-tests.log",
+      "bytes": 3935,
+      "sha256": "870df070b3c3cc035561764622f20705c329ccf2ad3f1b05b2b61286259c6fea"
+    },
+    {
+      "source": "build/multi-audit-build.log",
+      "snapshot": "build/multi-audit-build.log",
+      "bytes": 763,
+      "sha256": "f079a84953e690e37e4eabecb5146044d1dc38042d9f01205ad3d758352a0f70"
+    },
+    {
+      "source": "build/multi-audit-collinear-before.log",
+      "snapshot": "build/multi-audit-collinear-before.log",
+      "bytes": 509,
+      "sha256": "a502d132531fee4a46201f4c288d665996543e38e0ea6128703121c98a2f3d12"
+    },
+    {
+      "source": "build/multi-audit-corner-build.log",
+      "snapshot": "build/multi-audit-corner-build.log",
+      "bytes": 645,
+      "sha256": "aa25eb8abbe1dd304887dad30f268a151d98c0ffe650c4d93813ed5e75b40e0e"
+    },
+    {
+      "source": "build/multi-audit-corner-tests.log",
+      "snapshot": "build/multi-audit-corner-tests.log",
+      "bytes": 520,
+      "sha256": "50b54e72c1bb6cc9ce53f5e3516d01056487d68ad8e667e08f00983944be562f"
+    },
+    {
+      "source": "build/multi-audit-course-1000.log",
+      "snapshot": "build/multi-audit-course-1000.log",
+      "bytes": 2415,
+      "sha256": "2a7f21751515ced2e0ab927c55052dbb9f883af09c4a36018b064b693bb0b0bc"
+    },
+    {
+      "source": "build/multi-audit-course-observation.log",
+      "snapshot": "build/multi-audit-course-observation.log",
+      "bytes": 2420,
+      "sha256": "b451dc6c956389ace0cd65eaef38dfb3a0d120f5bc5558372ec2c3160ac291e9"
+    },
+    {
+      "source": "build/multi-audit-debug-build.log",
+      "snapshot": "build/multi-audit-debug-build.log",
+      "bytes": 2745,
+      "sha256": "0ebfa82019ec6b143ea972f99b3122c1b23bf5a72937a41961d137f53d395821"
+    },
+    {
+      "source": "build/multi-audit-debug-console.log",
+      "snapshot": "build/multi-audit-debug-console.log",
+      "bytes": 16639,
+      "sha256": "d9598d0e7ee8da0cc21a561a23456f4d931ef673897496278c4e2d9d000dd49e"
+    },
+    {
+      "source": "build/multi-audit-debug-tests.log",
+      "snapshot": "build/multi-audit-debug-tests.log",
+      "bytes": 16639,
+      "sha256": "d9598d0e7ee8da0cc21a561a23456f4d931ef673897496278c4e2d9d000dd49e"
+    },
+    {
+      "source": "build/multi-audit-final-docs.log",
+      "snapshot": "build/multi-audit-final-docs.log",
+      "bytes": 235,
+      "sha256": "6846108c2003598d468302aea8d4d3a7842afe2d92eee115c74b78420aaf286b"
+    },
+    {
+      "source": "build/multi-audit-final-focused-build.log",
+      "snapshot": "build/multi-audit-final-focused-build.log",
+      "bytes": 1274,
+      "sha256": "dc8eab6d02a3d015deb67893aea885572a4e9bd67918653900d3eaf92191bb03"
+    },
+    {
+      "source": "build/multi-audit-final-focused-tests.log",
+      "snapshot": "build/multi-audit-final-focused-tests.log",
+      "bytes": 603,
+      "sha256": "469d847cfd535ebbbdc263a86d415fcbcc1375ceb52dcc3bc7fcc695ed44695f"
+    },
+    {
+      "source": "build/multi-audit-format.log",
+      "snapshot": "build/multi-audit-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/multi-audit-gpu-asan-resume.log",
+      "snapshot": "build/multi-audit-gpu-asan-resume.log",
+      "bytes": 2625,
+      "sha256": "c4fa9121071bbe9a066749ca197b34ea9b0cddd39cda5f559245e24dd41ada51"
+    },
+    {
+      "source": "build/multi-audit-gpu-asan-resume.png",
+      "snapshot": "build/multi-audit-gpu-asan-resume.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/multi-audit-gpu-asan.log",
+      "snapshot": "build/multi-audit-gpu-asan.log",
+      "bytes": 2727,
+      "sha256": "39f5dd80b8763e031ef05e96e6de277dcc4c6b23346a16bc93e3f605b5ed4c8d"
+    },
+    {
+      "source": "build/multi-audit-gpu-asan.png",
+      "snapshot": "build/multi-audit-gpu-asan.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/multi-audit-gpu-asan.png.before.png",
+      "snapshot": "build/multi-audit-gpu-asan.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/multi-audit-gpu-asan.save",
+      "snapshot": "build/multi-audit-gpu-asan.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/multi-audit-gpu-debug-resume.log",
+      "snapshot": "build/multi-audit-gpu-debug-resume.log",
+      "bytes": 2626,
+      "sha256": "7a5b16b3d7b533b22ba8d46ca9dca31bae56472ed82b22341afe3e6342d795da"
+    },
+    {
+      "source": "build/multi-audit-gpu-debug-resume.png",
+      "snapshot": "build/multi-audit-gpu-debug-resume.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/multi-audit-gpu-debug.log",
+      "snapshot": "build/multi-audit-gpu-debug.log",
+      "bytes": 2729,
+      "sha256": "74e69619732a76207b4cbe07a04d0c890fcead5b23a24efcc068e3e378c326cc"
+    },
+    {
+      "source": "build/multi-audit-gpu-debug.png",
+      "snapshot": "build/multi-audit-gpu-debug.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/multi-audit-gpu-debug.png.before.png",
+      "snapshot": "build/multi-audit-gpu-debug.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/multi-audit-gpu-debug.save",
+      "snapshot": "build/multi-audit-gpu-debug.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/multi-audit-gpu-release-resume.log",
+      "snapshot": "build/multi-audit-gpu-release-resume.log",
+      "bytes": 2628,
+      "sha256": "f10a864d540fd0b345c273d2eafa7f60900662d16ded1c227bb80246421f81e9"
+    },
+    {
+      "source": "build/multi-audit-gpu-release-resume.png",
+      "snapshot": "build/multi-audit-gpu-release-resume.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/multi-audit-gpu-release.log",
+      "snapshot": "build/multi-audit-gpu-release.log",
+      "bytes": 2733,
+      "sha256": "f649a03d9efd388e8270aeeea82f2528c3fd0411a726386da1ce71ae70ec4adf"
+    },
+    {
+      "source": "build/multi-audit-gpu-release.png",
+      "snapshot": "build/multi-audit-gpu-release.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/multi-audit-gpu-release.png.before.png",
+      "snapshot": "build/multi-audit-gpu-release.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/multi-audit-gpu-release.save",
+      "snapshot": "build/multi-audit-gpu-release.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/multi-audit-interactive-visible.log",
+      "snapshot": "build/multi-audit-interactive-visible.log",
+      "bytes": 357,
+      "sha256": "f6e86c60ec9ccacd1bc63d155be2ddd3284b937120f864173ebb1060353926ec"
+    },
+    {
+      "source": "build/multi-audit-interactive.log",
+      "snapshot": "build/multi-audit-interactive.log",
+      "bytes": 324,
+      "sha256": "e30430f06342a7d36f3969fafe884feeb560d84ac4936dab4887a06350770748"
+    },
+    {
+      "source": "build/multi-audit-interactive.save",
+      "snapshot": "build/multi-audit-interactive.save",
+      "bytes": 6713,
+      "sha256": "f9c10f0b18b7474af06131d06df6c73b701a398a0fc4400cac33f48339246066"
+    },
+    {
+      "source": "build/multi-audit-needs-course-1000.log",
+      "snapshot": "build/multi-audit-needs-course-1000.log",
+      "bytes": 2415,
+      "sha256": "fa6aeee55efd22af8558ee287527689a434224d7ea0cd2836b6ed18b01f82f7a"
+    },
+    {
+      "source": "build/multi-audit-observer-build.log",
+      "snapshot": "build/multi-audit-observer-build.log",
+      "bytes": 645,
+      "sha256": "aa25eb8abbe1dd304887dad30f268a151d98c0ffe650c4d93813ed5e75b40e0e"
+    },
+    {
+      "source": "build/multi-audit-progress-console.log",
+      "snapshot": "build/multi-audit-progress-console.log",
+      "bytes": 4316,
+      "sha256": "5a45094ea13720cc00861e38a536749f6492fdfd89e205aeba4d63f5ca8a67fb"
+    },
+    {
+      "source": "build/multi-audit-progress-tests.log",
+      "snapshot": "build/multi-audit-progress-tests.log",
+      "bytes": 4316,
+      "sha256": "5a45094ea13720cc00861e38a536749f6492fdfd89e205aeba4d63f5ca8a67fb"
+    },
+    {
+      "source": "build/multi-audit-progress10-tests.log",
+      "snapshot": "build/multi-audit-progress10-tests.log",
+      "bytes": 695,
+      "sha256": "a340cb5b52f5bc3f19231306df6196fe53f9d0756f5f90fef5784dfbff85f294"
+    },
+    {
+      "source": "build/multi-audit-progress2-console.log",
+      "snapshot": "build/multi-audit-progress2-console.log",
+      "bytes": 1510,
+      "sha256": "1755a9c937f3b7e40c47c9f3e5d5438e7a16c7ab312f168a2b3b8e4d27a4f69e"
+    },
+    {
+      "source": "build/multi-audit-progress2-tests.log",
+      "snapshot": "build/multi-audit-progress2-tests.log",
+      "bytes": 1510,
+      "sha256": "1755a9c937f3b7e40c47c9f3e5d5438e7a16c7ab312f168a2b3b8e4d27a4f69e"
+    },
+    {
+      "source": "build/multi-audit-progress3-tests.log",
+      "snapshot": "build/multi-audit-progress3-tests.log",
+      "bytes": 1360,
+      "sha256": "006b3acd0286abd52879e30a720c819e0f0e4e2bbe5f0ac5239075090ea6064b"
+    },
+    {
+      "source": "build/multi-audit-progress4-tests.log",
+      "snapshot": "build/multi-audit-progress4-tests.log",
+      "bytes": 473,
+      "sha256": "baeec7e2db8aea1a95f972572a767632b27cd61b9515dff01d3748949527b971"
+    },
+    {
+      "source": "build/multi-audit-progress5-console.log",
+      "snapshot": "build/multi-audit-progress5-console.log",
+      "bytes": 6553,
+      "sha256": "56ccfcb0f77556835992ddaf7b4fe6c60c90a3bb32bae180db620c618dbb47b6"
+    },
+    {
+      "source": "build/multi-audit-progress5-tests.log",
+      "snapshot": "build/multi-audit-progress5-tests.log",
+      "bytes": 6553,
+      "sha256": "56ccfcb0f77556835992ddaf7b4fe6c60c90a3bb32bae180db620c618dbb47b6"
+    },
+    {
+      "source": "build/multi-audit-progress6-console.log",
+      "snapshot": "build/multi-audit-progress6-console.log",
+      "bytes": 6249,
+      "sha256": "9724c71d8649b5eab6654d1096bb5fe6aa46dc496610c254616c8181cb58baf0"
+    },
+    {
+      "source": "build/multi-audit-progress6-tests.log",
+      "snapshot": "build/multi-audit-progress6-tests.log",
+      "bytes": 6249,
+      "sha256": "9724c71d8649b5eab6654d1096bb5fe6aa46dc496610c254616c8181cb58baf0"
+    },
+    {
+      "source": "build/multi-audit-progress7-tests.log",
+      "snapshot": "build/multi-audit-progress7-tests.log",
+      "bytes": 820,
+      "sha256": "af24719cbe9d9a83a20094a82331e82e890c715ee80b656407fab170e0dedbe7"
+    },
+    {
+      "source": "build/multi-audit-progress8-tests.log",
+      "snapshot": "build/multi-audit-progress8-tests.log",
+      "bytes": 1146,
+      "sha256": "8551e3209a09e84154dca265a2d121286e104f0dabdb84373d11ce2e1edd1b73"
+    },
+    {
+      "source": "build/multi-audit-progress9-tests.log",
+      "snapshot": "build/multi-audit-progress9-tests.log",
+      "bytes": 681,
+      "sha256": "531c5175dda40fe149a25fa4088e34fa5ae770f57007edb10ab34984de60917f"
+    },
+    {
+      "source": "build/multi-audit-release-build.log",
+      "snapshot": "build/multi-audit-release-build.log",
+      "bytes": 2934,
+      "sha256": "542bc554a3fd7162b71aaa7795de3a556bc39fcb3f5247b0746583864896409b"
+    },
+    {
+      "source": "build/multi-audit-release-console.log",
+      "snapshot": "build/multi-audit-release-console.log",
+      "bytes": 16639,
+      "sha256": "e6c3030f0d2f55f1746598ccd2eed5197ecb5778add3e01696b6a8da22222ed3"
+    },
+    {
+      "source": "build/multi-audit-release-tests.log",
+      "snapshot": "build/multi-audit-release-tests.log",
+      "bytes": 16639,
+      "sha256": "e6c3030f0d2f55f1746598ccd2eed5197ecb5778add3e01696b6a8da22222ed3"
+    },
+    {
+      "source": "build/multi-audit-replay-build.log",
+      "snapshot": "build/multi-audit-replay-build.log",
+      "bytes": 428,
+      "sha256": "b7791d833f951a164f6890b65637c304d75a47fccbace7c44f1a9b4cd1260e7c"
+    },
+    {
+      "source": "build/multi-audit-source-hashes.json",
+      "snapshot": "build/multi-audit-source-hashes.json",
+      "bytes": 1546,
+      "sha256": "cee12e4ee65f20abfbd93bc759754a67d288888c83354797ea9f4107f0bb04ce"
+    },
+    {
+      "source": "build/navigation-baseline/gpu.log",
+      "snapshot": "build/navigation-baseline/gpu.log",
+      "bytes": 1151,
+      "sha256": "345143bfffe6571e162610abf9b37d10179cf701f26f6e4de72c7a6a79d652f9"
+    },
+    {
+      "source": "build/navigation-baseline/scene.png",
+      "snapshot": "build/navigation-baseline/scene.png",
+      "bytes": 23742,
+      "sha256": "3ec6b39a54eedaab92b49521f54e62a94632b1191215e9fc2e0d80e29daca60b"
+    },
+    {
+      "source": "build/navigation-baseline/scene.png.before.png",
+      "snapshot": "build/navigation-baseline/scene.png.before.png",
+      "bytes": 26661,
+      "sha256": "92923483554c229451f0dc5c7f7a9e039b50d0cae6e3f0e4a192bb3d01de22cd"
+    },
+    {
+      "source": "build/navigation-oscillation-asan-tests.log",
+      "snapshot": "build/navigation-oscillation-asan-tests.log",
+      "bytes": 18125,
+      "sha256": "7bc6abd8e39956632b6dc2fd1cae892a852ea4a520e0be919d9cf33be58716e1"
+    },
+    {
+      "source": "build/navigation-oscillation-baseline/CMakeLists.txt",
+      "snapshot": "build/navigation-oscillation-baseline/CMakeLists.txt",
+      "bytes": 642,
+      "sha256": "145dc2790bc7254b54b49fed5d95170ba1fd7ee3c16b538afb01369fee51babf"
+    },
+    {
+      "source": "build/navigation-oscillation-baseline/out/CMakeCache.txt",
+      "snapshot": "build/navigation-oscillation-baseline/out/CMakeCache.txt",
+      "bytes": 14212,
+      "sha256": "be473d505e1861ce87b6ac6f521d54e0121fd2b51e90d2cd2e6f0a0bf3e21882"
+    },
+    {
+      "source": "build/navigation-oscillation-baseline-blocked_route_settling.log",
+      "snapshot": "build/navigation-oscillation-baseline-blocked_route_settling.log",
+      "bytes": 543,
+      "sha256": "999350e3a90a4699febf1b2a2352140a20bf32aee457e44b4940f0b203b63498"
+    },
+    {
+      "source": "build/navigation-oscillation-baseline-occupied_queue_parking.log",
+      "snapshot": "build/navigation-oscillation-baseline-occupied_queue_parking.log",
+      "bytes": 758,
+      "sha256": "40a8c5856edd80b890f63f7e5dbd0624a0a55d4cbeed4d99e30e88a9ad933ab4"
+    },
+    {
+      "source": "build/navigation-oscillation-before-matrix.log",
+      "snapshot": "build/navigation-oscillation-before-matrix.log",
+      "bytes": 1038,
+      "sha256": "7ffd93d26a9814002947bee634935ea320e4d4d11f8f1996a562acf72406e3c7"
+    },
+    {
+      "source": "build/navigation-oscillation-before-parking.log",
+      "snapshot": "build/navigation-oscillation-before-parking.log",
+      "bytes": 1844,
+      "sha256": "e4136c4c5c913c1386c0ad810f6d10cb64dc0bd40c77abd7dc9b07bf09987c1a"
+    },
+    {
+      "source": "build/navigation-oscillation-before-tests.log",
+      "snapshot": "build/navigation-oscillation-before-tests.log",
+      "bytes": 557,
+      "sha256": "5f0dc9c4e9723d75954897bf3ca9bd4bc76018fb88ffe47588f3d429249ab6a3"
+    },
+    {
+      "source": "build/navigation-oscillation-debug-tests.log",
+      "snapshot": "build/navigation-oscillation-debug-tests.log",
+      "bytes": 17861,
+      "sha256": "7163cfd74065695d180987212e14f04627782023d92133939ddce5fc6055ba00"
+    },
+    {
+      "source": "build/navigation-oscillation-final-focused.log",
+      "snapshot": "build/navigation-oscillation-final-focused.log",
+      "bytes": 1229,
+      "sha256": "b8f9a332a1be9257d4e104b7c4f083befbd87b08d457644735c1b073509366c1"
+    },
+    {
+      "source": "build/navigation-oscillation-focused-1.log",
+      "snapshot": "build/navigation-oscillation-focused-1.log",
+      "bytes": 825,
+      "sha256": "1887905179c70c45f29d43f252440d797e1a119697d3a9401c70da1e7e4402b4"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-asan-resume.log",
+      "snapshot": "build/navigation-oscillation-gpu-asan-resume.log",
+      "bytes": 2823,
+      "sha256": "b7c3ec6b672f4b5c111ebb450268579efe10a19f4d32bb12657706f2a69dadd0"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-asan-resume.png",
+      "snapshot": "build/navigation-oscillation-gpu-asan-resume.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-asan.log",
+      "snapshot": "build/navigation-oscillation-gpu-asan.log",
+      "bytes": 2936,
+      "sha256": "df6b4486f70d9edf9813b13ee68280e552a0c0493be653f23286cfe0b5dca2a9"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-asan.png",
+      "snapshot": "build/navigation-oscillation-gpu-asan.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-asan.png.before.png",
+      "snapshot": "build/navigation-oscillation-gpu-asan.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-asan.save",
+      "snapshot": "build/navigation-oscillation-gpu-asan.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-debug-resume.log",
+      "snapshot": "build/navigation-oscillation-gpu-debug-resume.log",
+      "bytes": 2824,
+      "sha256": "1a130145750a8c9de6107b7c69b66b3be98d04de902126da1656164fa7150749"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-debug-resume.png",
+      "snapshot": "build/navigation-oscillation-gpu-debug-resume.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-debug.log",
+      "snapshot": "build/navigation-oscillation-gpu-debug.log",
+      "bytes": 2938,
+      "sha256": "a618b5e7e01eab71896c1cf4c125b76b65dc14f5949b12ac360c2a2b408d235b"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-debug.png",
+      "snapshot": "build/navigation-oscillation-gpu-debug.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-debug.png.before.png",
+      "snapshot": "build/navigation-oscillation-gpu-debug.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-debug.save",
+      "snapshot": "build/navigation-oscillation-gpu-debug.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-release-resume.log",
+      "snapshot": "build/navigation-oscillation-gpu-release-resume.log",
+      "bytes": 2826,
+      "sha256": "9594f8ac24b829d8fbcdb30340c62eb38342001e50d1f0ab52a5ad6394d864cc"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-release-resume.png",
+      "snapshot": "build/navigation-oscillation-gpu-release-resume.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-release.log",
+      "snapshot": "build/navigation-oscillation-gpu-release.log",
+      "bytes": 2942,
+      "sha256": "5a422857054ff32aa11e58cf4b19fd33ef594b892e2eab9296349bd6d00d11a7"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-release.png",
+      "snapshot": "build/navigation-oscillation-gpu-release.png",
+      "bytes": 13602,
+      "sha256": "3d44d569bbd87fc9bf8dba1d63baedad063a17ef07db04db4f5c53ff59557cf5"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-release.png.before.png",
+      "snapshot": "build/navigation-oscillation-gpu-release.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/navigation-oscillation-gpu-release.save",
+      "snapshot": "build/navigation-oscillation-gpu-release.save",
+      "bytes": 7468,
+      "sha256": "67bb42955322197c226cc0c65cce18c9318322d6d84562ffa1f8b42e742e6e5d"
+    },
+    {
+      "source": "build/navigation-oscillation-interactive.log",
+      "snapshot": "build/navigation-oscillation-interactive.log",
+      "bytes": 357,
+      "sha256": "f6e86c60ec9ccacd1bc63d155be2ddd3284b937120f864173ebb1060353926ec"
+    },
+    {
+      "source": "build/navigation-oscillation-queue-reproducer.save",
+      "snapshot": "build/navigation-oscillation-queue-reproducer.save",
+      "bytes": 1477,
+      "sha256": "a9a155af737d5d90a10b3f58aef7284c6b17191505228047e2adc951293854f7"
+    },
+    {
+      "source": "build/navigation-oscillation-queue.save",
+      "snapshot": "build/navigation-oscillation-queue.save",
+      "bytes": 1771,
+      "sha256": "5d7eed395323eacc1683bf972568ef56de072ef0cb4e09fbaab0d8400e86fd4e"
+    },
+    {
+      "source": "build/navigation-oscillation-release-tests.log",
+      "snapshot": "build/navigation-oscillation-release-tests.log",
+      "bytes": 17861,
+      "sha256": "665aa0a8e2a2edea14be86c3412537e3c5ff49df48e5d7120f1bccd846a9475a"
+    },
+    {
+      "source": "build/navigation-oscillation-source-hashes.json",
+      "snapshot": "build/navigation-oscillation-source-hashes.json",
+      "bytes": 595,
+      "sha256": "cc744bf2b632e4e80da66f6a9af58b7489c371dc025cf6b38a3a9bf40bd4cd1a"
+    },
+    {
+      "source": "build/navigation-polish-ui.log",
+      "snapshot": "build/navigation-polish-ui.log",
+      "bytes": 929,
+      "sha256": "3495550c7015ad856abf5f2facd6d630c6657b06c835972611fbce88004b33f7"
+    },
+    {
+      "source": "build/navigation-polish-ui.save",
+      "snapshot": "build/navigation-polish-ui.save",
+      "bytes": 626,
+      "sha256": "96931933b2f6f07fb6989f69b68158ba7920e0d9416b4e73350a1204312e1681"
+    },
+    {
+      "source": "build/need-fallback-asan-build.log",
+      "snapshot": "build/need-fallback-asan-build.log",
+      "bytes": 3396,
+      "sha256": "377841373d96b2d2219df218b7461974a5e78ff26b6984567c58be4a7e9c3e98"
+    },
+    {
+      "source": "build/need-fallback-asan-console.log",
+      "snapshot": "build/need-fallback-asan-console.log",
+      "bytes": 14345,
+      "sha256": "30c98a619c2167302ced44098adb5528af7167f5ebb437bd1f5f36718cf80ee4"
+    },
+    {
+      "source": "build/need-fallback-asan-tests.log",
+      "snapshot": "build/need-fallback-asan-tests.log",
+      "bytes": 14345,
+      "sha256": "30c98a619c2167302ced44098adb5528af7167f5ebb437bd1f5f36718cf80ee4"
+    },
+    {
+      "source": "build/need-fallback-before-build.log",
+      "snapshot": "build/need-fallback-before-build.log",
+      "bytes": 627,
+      "sha256": "1d803ea788edfbe5e283c8d2bda4146f520ff779a6be5061ab1d14c2ec7790f2"
+    },
+    {
+      "source": "build/need-fallback-before-tests.log",
+      "snapshot": "build/need-fallback-before-tests.log",
+      "bytes": 1314,
+      "sha256": "aa3a4e37553dd90c15facca8b6df1c98366d9b0d4217e3d60cef4b2babe51342"
+    },
+    {
+      "source": "build/need-fallback-debug-build.log",
+      "snapshot": "build/need-fallback-debug-build.log",
+      "bytes": 2551,
+      "sha256": "31ac751df04e3eb7d7b89c0278192fafca51d2a16d00e786d07e5c2113e1b3b8"
+    },
+    {
+      "source": "build/need-fallback-debug-console.log",
+      "snapshot": "build/need-fallback-debug-console.log",
+      "bytes": 14081,
+      "sha256": "f87c8afbcf25ee763aa36335bd267dddece45925ff1a8a183a10d072d4cedf1c"
+    },
+    {
+      "source": "build/need-fallback-debug-tests.log",
+      "snapshot": "build/need-fallback-debug-tests.log",
+      "bytes": 14081,
+      "sha256": "f87c8afbcf25ee763aa36335bd267dddece45925ff1a8a183a10d072d4cedf1c"
+    },
+    {
+      "source": "build/need-fallback-final-docs.log",
+      "snapshot": "build/need-fallback-final-docs.log",
+      "bytes": 235,
+      "sha256": "741327ee25598d18709e17731ed02bdb98f736a306073e9fef08a5b32459a5e6"
+    },
+    {
+      "source": "build/need-fallback-focused-tests.log",
+      "snapshot": "build/need-fallback-focused-tests.log",
+      "bytes": 2160,
+      "sha256": "47afb10c66e54a63abec5b2c307c02c2539d6d77dd3d7159e8a9e65ab87c9f24"
+    },
+    {
+      "source": "build/need-fallback-format.log",
+      "snapshot": "build/need-fallback-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/need-fallback-gpu-asan.log",
+      "snapshot": "build/need-fallback-gpu-asan.log",
+      "bytes": 2506,
+      "sha256": "ec02e28afc5a07dfb23f08f50c940866d4d06fc3b73501b3b070b5d0d0101c61"
+    },
+    {
+      "source": "build/need-fallback-gpu-asan.png",
+      "snapshot": "build/need-fallback-gpu-asan.png",
+      "bytes": 13131,
+      "sha256": "75afc2c0cb6cbbab6843647f9bcb6b02510cb8e3553b0a89418456e139eec59b"
+    },
+    {
+      "source": "build/need-fallback-gpu-asan.png.before.png",
+      "snapshot": "build/need-fallback-gpu-asan.png.before.png",
+      "bytes": 12855,
+      "sha256": "f210001a6220f6e5cec3217d0f273e3f5f0f8f13021fe75fb31ac866ddc9571b"
+    },
+    {
+      "source": "build/need-fallback-gpu-asan.save",
+      "snapshot": "build/need-fallback-gpu-asan.save",
+      "bytes": 7223,
+      "sha256": "7a504830d4db9d0f2c38350347baf353ceaf47a8338b1a019f818e67b0fbda4f"
+    },
+    {
+      "source": "build/need-fallback-gpu-debug.log",
+      "snapshot": "build/need-fallback-gpu-debug.log",
+      "bytes": 2508,
+      "sha256": "f230e13ce2ad994365b37691b31e46dd5344c8e624a6349a7dca97c01ce2fd35"
+    },
+    {
+      "source": "build/need-fallback-gpu-debug.png",
+      "snapshot": "build/need-fallback-gpu-debug.png",
+      "bytes": 13131,
+      "sha256": "75afc2c0cb6cbbab6843647f9bcb6b02510cb8e3553b0a89418456e139eec59b"
+    },
+    {
+      "source": "build/need-fallback-gpu-debug.png.before.png",
+      "snapshot": "build/need-fallback-gpu-debug.png.before.png",
+      "bytes": 12855,
+      "sha256": "f210001a6220f6e5cec3217d0f273e3f5f0f8f13021fe75fb31ac866ddc9571b"
+    },
+    {
+      "source": "build/need-fallback-gpu-debug.save",
+      "snapshot": "build/need-fallback-gpu-debug.save",
+      "bytes": 7223,
+      "sha256": "7a504830d4db9d0f2c38350347baf353ceaf47a8338b1a019f818e67b0fbda4f"
+    },
+    {
+      "source": "build/need-fallback-gpu-release.log",
+      "snapshot": "build/need-fallback-gpu-release.log",
+      "bytes": 2512,
+      "sha256": "fd88d539e887de59452e12a26c00d80905bd3c5d47c2b1b76484c18aba5e2f8b"
+    },
+    {
+      "source": "build/need-fallback-gpu-release.png",
+      "snapshot": "build/need-fallback-gpu-release.png",
+      "bytes": 13131,
+      "sha256": "75afc2c0cb6cbbab6843647f9bcb6b02510cb8e3553b0a89418456e139eec59b"
+    },
+    {
+      "source": "build/need-fallback-gpu-release.png.before.png",
+      "snapshot": "build/need-fallback-gpu-release.png.before.png",
+      "bytes": 12855,
+      "sha256": "f210001a6220f6e5cec3217d0f273e3f5f0f8f13021fe75fb31ac866ddc9571b"
+    },
+    {
+      "source": "build/need-fallback-gpu-release.save",
+      "snapshot": "build/need-fallback-gpu-release.save",
+      "bytes": 7223,
+      "sha256": "7a504830d4db9d0f2c38350347baf353ceaf47a8338b1a019f818e67b0fbda4f"
+    },
+    {
+      "source": "build/need-fallback-release-build.log",
+      "snapshot": "build/need-fallback-release-build.log",
+      "bytes": 2725,
+      "sha256": "a487aef3a95d1849228ac446bd81666257cbb734d78671d4d71c54619a3df518"
+    },
+    {
+      "source": "build/need-fallback-release-console.log",
+      "snapshot": "build/need-fallback-release-console.log",
+      "bytes": 14081,
+      "sha256": "ad9f8eff1d44c37be9f50be6a45d0caa69ccb52b6210ae0ec613c8e1d2c35260"
+    },
+    {
+      "source": "build/need-fallback-release-tests.log",
+      "snapshot": "build/need-fallback-release-tests.log",
+      "bytes": 14081,
+      "sha256": "ad9f8eff1d44c37be9f50be6a45d0caa69ccb52b6210ae0ec613c8e1d2c35260"
+    },
+    {
+      "source": "build/perf-fullsuite.txt",
+      "snapshot": "build/perf-fullsuite.txt",
+      "bytes": 970,
+      "sha256": "6687516dbcf269e4ee4c77dfa5cae3852e993e44c0d8ee300a887fa96a2e3475"
+    },
+    {
+      "source": "build/perf-isolated.txt",
+      "snapshot": "build/perf-isolated.txt",
+      "bytes": 470,
+      "sha256": "6bf0fafec4c8020f9b97651ea002d481560f7039cecac8aa30a2faa3be8c7398"
+    },
+    {
+      "source": "build/play-20261026-100025.log",
+      "snapshot": "build/play-20261026-100025.log",
+      "bytes": 418,
+      "sha256": "9312109c6284fa8332b433efbed7a3d6e2b46f9057540a3f5cdb8a802119e770"
+    },
+    {
+      "source": "build/play-20261026-104226.log",
+      "snapshot": "build/play-20261026-104226.log",
+      "bytes": 969,
+      "sha256": "f5aa8f72b32b4de536cf1ed6b9628d2afb2665db2af5e7a3ca368cde011ed137"
+    },
+    {
+      "source": "build/stall-after-build.log",
+      "snapshot": "build/stall-after-build.log",
+      "bytes": 672,
+      "sha256": "64996618b73f43c8b1b9abe8b22d40cae98f0313cccb97189b55d08dd263a4ef"
+    },
+    {
+      "source": "build/stall-after-retained.log",
+      "snapshot": "build/stall-after-retained.log",
+      "bytes": 4056,
+      "sha256": "f2353ef2e60c4c9aa057144251c3e37c211e3f41b1fc37295cd5936db53e65d6"
+    },
+    {
+      "source": "build/stall-before-trace.log",
+      "snapshot": "build/stall-before-trace.log",
+      "bytes": 15373,
+      "sha256": "1365678faee89b98cd12cb8266faaca8bf39539cfeb3d6b42f6442f48ddbcd60"
+    },
+    {
+      "source": "build/stall-cadence-build.log",
+      "snapshot": "build/stall-cadence-build.log",
+      "bytes": 697,
+      "sha256": "65b63e38ddfad283d8bfc3ddbdcb05b931e78d0846d5f84d8470522b8cf5108c"
+    },
+    {
+      "source": "build/stall-cadence-focused-console.log",
+      "snapshot": "build/stall-cadence-focused-console.log",
+      "bytes": 633,
+      "sha256": "045fdda823fdcb7def96ba495af00a4a79038d479b41c4b58067e4abd82e154a"
+    },
+    {
+      "source": "build/stall-cadence-focused.log",
+      "snapshot": "build/stall-cadence-focused.log",
+      "bytes": 633,
+      "sha256": "045fdda823fdcb7def96ba495af00a4a79038d479b41c4b58067e4abd82e154a"
+    },
+    {
+      "source": "build/stall-existing-debug-build.log",
+      "snapshot": "build/stall-existing-debug-build.log",
+      "bytes": 672,
+      "sha256": "64996618b73f43c8b1b9abe8b22d40cae98f0313cccb97189b55d08dd263a4ef"
+    },
+    {
+      "source": "build/stall-existing-trace.log",
+      "snapshot": "build/stall-existing-trace.log",
+      "bytes": 1246,
+      "sha256": "594ceda3f39dd91c00522103d7d4b81f8c39b3b611d61f32e83c856ad14d252b"
+    },
+    {
+      "source": "build/stall-existing2-build.log",
+      "snapshot": "build/stall-existing2-build.log",
+      "bytes": 672,
+      "sha256": "64996618b73f43c8b1b9abe8b22d40cae98f0313cccb97189b55d08dd263a4ef"
+    },
+    {
+      "source": "build/stall-existing2-trace.log",
+      "snapshot": "build/stall-existing2-trace.log",
+      "bytes": 30,
+      "sha256": "d09cb74336b942fe49b17c457e81c2a62d73911bd3ff92afbbf57119e734798f"
+    },
+    {
+      "source": "build/stall-final-asan-build.log",
+      "snapshot": "build/stall-final-asan-build.log",
+      "bytes": 4023,
+      "sha256": "85513f1b7bde9748f510075ca17ab6d14223bb82d7339dd580af9453ba1f0474"
+    },
+    {
+      "source": "build/stall-final-asan-console.log",
+      "snapshot": "build/stall-final-asan-console.log",
+      "bytes": 22452,
+      "sha256": "8ace12d46ad76ae9c7d7d4559740616bedce085bc416814c44f36a3221a8d03d"
+    },
+    {
+      "source": "build/stall-final-asan.log",
+      "snapshot": "build/stall-final-asan.log",
+      "bytes": 22452,
+      "sha256": "8ace12d46ad76ae9c7d7d4559740616bedce085bc416814c44f36a3221a8d03d"
+    },
+    {
+      "source": "build/stall-final-debug-build.log",
+      "snapshot": "build/stall-final-debug-build.log",
+      "bytes": 3199,
+      "sha256": "6c3be788ff61486cbf6287057f197d0ef0f7cba69bbd30f48d2a3f74fe63364c"
+    },
+    {
+      "source": "build/stall-final-debug-console.log",
+      "snapshot": "build/stall-final-debug-console.log",
+      "bytes": 22180,
+      "sha256": "8194512c2bc0b7de8d9c2688aa1337606d79c1d921a8439ee778e02592e82394"
+    },
+    {
+      "source": "build/stall-final-debug.log",
+      "snapshot": "build/stall-final-debug.log",
+      "bytes": 22180,
+      "sha256": "8194512c2bc0b7de8d9c2688aa1337606d79c1d921a8439ee778e02592e82394"
+    },
+    {
+      "source": "build/stall-final-focused-build.log",
+      "snapshot": "build/stall-final-focused-build.log",
+      "bytes": 1162,
+      "sha256": "ec47487fe1b81a611cb98cefc69a4d0dbb5eef9c160a7b882a2634347cf226ea"
+    },
+    {
+      "source": "build/stall-final-focused-console.log",
+      "snapshot": "build/stall-final-focused-console.log",
+      "bytes": 940,
+      "sha256": "68242b47f5049e8fb25f2c34c92a5c074df8b47230c1dc368235d1e807be4871"
+    },
+    {
+      "source": "build/stall-final-focused.log",
+      "snapshot": "build/stall-final-focused.log",
+      "bytes": 940,
+      "sha256": "68242b47f5049e8fb25f2c34c92a5c074df8b47230c1dc368235d1e807be4871"
+    },
+    {
+      "source": "build/stall-final-release-build.log",
+      "snapshot": "build/stall-final-release-build.log",
+      "bytes": 3327,
+      "sha256": "afa2db5587806e04d6efb10af09527be944bf44c5dcc7c0b906058c2369857a7"
+    },
+    {
+      "source": "build/stall-final-release-console.log",
+      "snapshot": "build/stall-final-release-console.log",
+      "bytes": 22180,
+      "sha256": "694f298d10180be45542a4d897ac8a4ef5c76e5dcca657cf51c211c3dfe377a1"
+    },
+    {
+      "source": "build/stall-final-release.log",
+      "snapshot": "build/stall-final-release.log",
+      "bytes": 22180,
+      "sha256": "694f298d10180be45542a4d897ac8a4ef5c76e5dcca657cf51c211c3dfe377a1"
+    },
+    {
+      "source": "build/stall-final-style.log",
+      "snapshot": "build/stall-final-style.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/stall-final-tooling.log",
+      "snapshot": "build/stall-final-tooling.log",
+      "bytes": 133,
+      "sha256": "bebb43aa04e6df61f0f1407043781aab4befff68553af7db03ada0e090418144"
+    },
+    {
+      "source": "build/stall-fix-build.log",
+      "snapshot": "build/stall-fix-build.log",
+      "bytes": 668,
+      "sha256": "c7eeeb26aea4e1dacf496bdd7a6020411b6901e734e84925490e78bdb7d45a42"
+    },
+    {
+      "source": "build/stall-focused-console.log",
+      "snapshot": "build/stall-focused-console.log",
+      "bytes": 501,
+      "sha256": "8553af4971cfc355b9b0a27d0abf5e819f446591d71ead3e20704496cc52e103"
+    },
+    {
+      "source": "build/stall-focused.log",
+      "snapshot": "build/stall-focused.log",
+      "bytes": 501,
+      "sha256": "8553af4971cfc355b9b0a27d0abf5e819f446591d71ead3e20704496cc52e103"
+    },
+    {
+      "source": "build/stall-progress.txt",
+      "snapshot": "build/stall-progress.txt",
+      "bytes": 556,
+      "sha256": "0eb6cfd13a1d2376d8da33f6434752e3ae5b42f09bab26cbfc7cb39d3388597b"
+    },
+    {
+      "source": "build/stall-red-build.log",
+      "snapshot": "build/stall-red-build.log",
+      "bytes": 1162,
+      "sha256": "7426d69ac0af48d7277f8b8a968c360d58e275d940323b0681332497550a623f"
+    },
+    {
+      "source": "build/stall-red-console.log",
+      "snapshot": "build/stall-red-console.log",
+      "bytes": 812,
+      "sha256": "84f62b71bc439d68e9cf761ad8671c705e5bba57a33ed6f499d53a194f4ea2a3"
+    },
+    {
+      "source": "build/stall-red.log",
+      "snapshot": "build/stall-red.log",
+      "bytes": 812,
+      "sha256": "84f62b71bc439d68e9cf761ad8671c705e5bba57a33ed6f499d53a194f4ea2a3"
+    },
+    {
+      "source": "build/stall-retry-build.log",
+      "snapshot": "build/stall-retry-build.log",
+      "bytes": 697,
+      "sha256": "65b63e38ddfad283d8bfc3ddbdcb05b931e78d0846d5f84d8470522b8cf5108c"
+    },
+    {
+      "source": "build/stall-retry-focused-console.log",
+      "snapshot": "build/stall-retry-focused-console.log",
+      "bytes": 826,
+      "sha256": "09d5fab66370221ce27b912ec3fed70d06c05c0730b11fc9de0e3836a76737be"
+    },
+    {
+      "source": "build/stall-retry-focused.log",
+      "snapshot": "build/stall-retry-focused.log",
+      "bytes": 826,
+      "sha256": "09d5fab66370221ce27b912ec3fed70d06c05c0730b11fc9de0e3836a76737be"
+    },
+    {
+      "source": "build/stall-retry-red-build.log",
+      "snapshot": "build/stall-retry-red-build.log",
+      "bytes": 1162,
+      "sha256": "b3cf58a267b2bb6584d16072b0ae6d5338faedbc620ea3b89a44f22033cb6417"
+    },
+    {
+      "source": "build/stall-retry-red-console.log",
+      "snapshot": "build/stall-retry-red-console.log",
+      "bytes": 585,
+      "sha256": "214abf14ae9bd499e8e9d8cda084a1575c90060063c8d697e86072f0a3068ca7"
+    },
+    {
+      "source": "build/stall-retry-red.log",
+      "snapshot": "build/stall-retry-red.log",
+      "bytes": 585,
+      "sha256": "214abf14ae9bd499e8e9d8cda084a1575c90060063c8d697e86072f0a3068ca7"
+    },
+    {
+      "source": "build/stall-trace-build.log",
+      "snapshot": "build/stall-trace-build.log",
+      "bytes": 672,
+      "sha256": "64996618b73f43c8b1b9abe8b22d40cae98f0313cccb97189b55d08dd263a4ef"
+    },
+    {
+      "source": "build/stall-ui-captures/case-157948015-1/diagnostic.txt",
+      "snapshot": "build/stall-ui-captures/case-157948015-1/diagnostic.txt",
+      "bytes": 4143,
+      "sha256": "eb099e8b10959d34704b9c6ba4e12b0b70f4225358f67a1137b5b6f1c33c8cc7"
+    },
+    {
+      "source": "build/stall-ui-captures/case-157948015-1/world.save",
+      "snapshot": "build/stall-ui-captures/case-157948015-1/world.save",
+      "bytes": 7988,
+      "sha256": "d42de6bc8e2b9b81ed8e8f9f0f4c02bcea9c01076a16eae65517b231ccf2ee01"
+    },
+    {
+      "source": "build/stall-ui-captures/case-157989078-2/diagnostic.txt",
+      "snapshot": "build/stall-ui-captures/case-157989078-2/diagnostic.txt",
+      "bytes": 4057,
+      "sha256": "5ad4f191995176b9cde0714ea5862dec633fef8b5dd84f38c8d524b127040144"
+    },
+    {
+      "source": "build/stall-ui-captures/case-157989078-2/world.save",
+      "snapshot": "build/stall-ui-captures/case-157989078-2/world.save",
+      "bytes": 7899,
+      "sha256": "eeaba9aa9cca2566f84a9524a348ce57f663183f28971b7eaf639fec5ae494a5"
+    },
+    {
+      "source": "build/stall-ui-captures/case-158013765-3/diagnostic.txt",
+      "snapshot": "build/stall-ui-captures/case-158013765-3/diagnostic.txt",
+      "bytes": 4058,
+      "sha256": "297b334622a1c70986e319db39360dd0f945110dbda91fd11112c1e293a4042d"
+    },
+    {
+      "source": "build/stall-ui-captures/case-158013765-3/world.save",
+      "snapshot": "build/stall-ui-captures/case-158013765-3/world.save",
+      "bytes": 7901,
+      "sha256": "0116b1563a87cd1d5165b1a162cd5aa12ba416ee99fd249225b412dec9c06de2"
+    },
+    {
+      "source": "build/stall-ui.log",
+      "snapshot": "build/stall-ui.log",
+      "bytes": 602,
+      "sha256": "73151e8d0e83503a0b60e15561b686a0da12539ddc28e78ecc822f7f9d2b6461"
+    },
+    {
+      "source": "build/stall-ui.save",
+      "snapshot": "build/stall-ui.save",
+      "bytes": 9645,
+      "sha256": "d0767e6342de923b6f89b8a543f03c6dae5d5547e4e2cc73b32b2cd0319b0d37"
+    },
+    {
+      "source": "build/transfer-api-before.log",
+      "snapshot": "build/transfer-api-before.log",
+      "bytes": 4419,
+      "sha256": "b473a60505b40dc6fd40365cd0a369854df4d797439affa04ca979b56a928f84"
+    },
+    {
+      "source": "build/transfer-basic-build.log",
+      "snapshot": "build/transfer-basic-build.log",
+      "bytes": 1050,
+      "sha256": "38ddd0a7b828c089ded614c2648c3f29dc6d18c179e47701cb7c8a2f3a0735c8"
+    },
+    {
+      "source": "build/transfer-basic-console.log",
+      "snapshot": "build/transfer-basic-console.log",
+      "bytes": 223,
+      "sha256": "819a2ad9d4a5b865f16991deec679159f67af3d6bf488cb2a1a8e3edc916949b"
+    },
+    {
+      "source": "build/transfer-basic.log",
+      "snapshot": "build/transfer-basic.log",
+      "bytes": 223,
+      "sha256": "819a2ad9d4a5b865f16991deec679159f67af3d6bf488cb2a1a8e3edc916949b"
+    },
+    {
+      "source": "build/transfer-expanded-build.log",
+      "snapshot": "build/transfer-expanded-build.log",
+      "bytes": 962,
+      "sha256": "688259e16ab583e97d53fa04c3e2eec06a2ddf102f8a1f4f8cb04eeac4e5ecb0"
+    },
+    {
+      "source": "build/transfer-expanded-console.log",
+      "snapshot": "build/transfer-expanded-console.log",
+      "bytes": 733,
+      "sha256": "e7fbdc6cfbf00da67b9039b6f1954903032f60ba4ecfaab89b80cbfca71a4387"
+    },
+    {
+      "source": "build/transfer-expanded.log",
+      "snapshot": "build/transfer-expanded.log",
+      "bytes": 733,
+      "sha256": "e7fbdc6cfbf00da67b9039b6f1954903032f60ba4ecfaab89b80cbfca71a4387"
+    },
+    {
+      "source": "build/transfer-hardening-build.log",
+      "snapshot": "build/transfer-hardening-build.log",
+      "bytes": 1428,
+      "sha256": "e9343f63495d0fb1f6702c0176b95c522b87b365e00cd49d5f8219f74686f3a9"
+    },
+    {
+      "source": "build/transfer-hardening-console.log",
+      "snapshot": "build/transfer-hardening-console.log",
+      "bytes": 4140,
+      "sha256": "2b4b1c33c694a47c7fc6824915a3c5cdad97babbfe2c15fb3b5e1c4d76cc21a7"
+    },
+    {
+      "source": "build/transfer-hardening.log",
+      "snapshot": "build/transfer-hardening.log",
+      "bytes": 4140,
+      "sha256": "2b4b1c33c694a47c7fc6824915a3c5cdad97babbfe2c15fb3b5e1c4d76cc21a7"
+    },
+    {
+      "source": "build/traversal-first.log",
+      "snapshot": "build/traversal-first.log",
+      "bytes": 1389,
+      "sha256": "84d70003812cd7e2a74d58cb38a7d7f9a7e4e854ce81b3d215191aff2c8ae80e"
+    },
+    {
+      "source": "build/traversal-hardening-asan-build.log",
+      "snapshot": "build/traversal-hardening-asan-build.log",
+      "bytes": 3237,
+      "sha256": "c7ab19cae530ea024bf72016ba8f1cc486230b2137957bcaa041210e20a75ba1"
+    },
+    {
+      "source": "build/traversal-hardening-asan-configure.log",
+      "snapshot": "build/traversal-hardening-asan-configure.log",
+      "bytes": 211,
+      "sha256": "885b4b8c85ecb57526fcf22003550aecac4bdbed01b95a5987bb6fd3b3b4da45"
+    },
+    {
+      "source": "build/traversal-hardening-asan-console.log",
+      "snapshot": "build/traversal-hardening-asan-console.log",
+      "bytes": 13953,
+      "sha256": "98b876526a0d3dd6b60153b8deb83a50eb8d986122d494ca59d7e5afce8a8837"
+    },
+    {
+      "source": "build/traversal-hardening-asan-tests.log",
+      "snapshot": "build/traversal-hardening-asan-tests.log",
+      "bytes": 13953,
+      "sha256": "98b876526a0d3dd6b60153b8deb83a50eb8d986122d494ca59d7e5afce8a8837"
+    },
+    {
+      "source": "build/traversal-hardening-build.log",
+      "snapshot": "build/traversal-hardening-build.log",
+      "bytes": 1278,
+      "sha256": "751b043e16d60506c0156b9c8676d94fa26daf23b0cf66c0f876405be23dfdb5"
+    },
+    {
+      "source": "build/traversal-hardening-debug-build.log",
+      "snapshot": "build/traversal-hardening-debug-build.log",
+      "bytes": 2704,
+      "sha256": "47a401173bf9aa9dc54aec3073178cf6a8f32ef3ffea6f32e6a7ade5c84b97d4"
+    },
+    {
+      "source": "build/traversal-hardening-debug-console.log",
+      "snapshot": "build/traversal-hardening-debug-console.log",
+      "bytes": 13689,
+      "sha256": "45cbe6a40e532991010f216abc2396d8bcfabadc55477a190e103eaedb889699"
+    },
+    {
+      "source": "build/traversal-hardening-debug-tests.log",
+      "snapshot": "build/traversal-hardening-debug-tests.log",
+      "bytes": 13689,
+      "sha256": "45cbe6a40e532991010f216abc2396d8bcfabadc55477a190e103eaedb889699"
+    },
+    {
+      "source": "build/traversal-hardening-final-docs.log",
+      "snapshot": "build/traversal-hardening-final-docs.log",
+      "bytes": 235,
+      "sha256": "c561d093eade08b441db2e7d7087177897e80b9787edcd518cdb5454bc789dc4"
+    },
+    {
+      "source": "build/traversal-hardening-fixes-before.log",
+      "snapshot": "build/traversal-hardening-fixes-before.log",
+      "bytes": 1763,
+      "sha256": "64bdfd3f684c2a6f9885d3aa19c4566256c9da318c75c378f6859b7c511032a7"
+    },
+    {
+      "source": "build/traversal-hardening-focused.log",
+      "snapshot": "build/traversal-hardening-focused.log",
+      "bytes": 3658,
+      "sha256": "262ba348f860f5de6f6df5fbcfbda7a0f4626308b36021cbe8ef20f6885437ed"
+    },
+    {
+      "source": "build/traversal-hardening-format.log",
+      "snapshot": "build/traversal-hardening-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-asan-resume.log",
+      "snapshot": "build/traversal-hardening-gpu-asan-resume.log",
+      "bytes": 2436,
+      "sha256": "0c67618004f8f620d2647fda3ab4dec87159e9cad290de829648e6c50623cc8a"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-asan-resume.png",
+      "snapshot": "build/traversal-hardening-gpu-asan-resume.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-asan.log",
+      "snapshot": "build/traversal-hardening-gpu-asan.log",
+      "bytes": 2520,
+      "sha256": "6a7541272b02a193c3cae67e407dddd40d49a61512d9749596d2eafac5585c37"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-asan.png",
+      "snapshot": "build/traversal-hardening-gpu-asan.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-asan.png.before.png",
+      "snapshot": "build/traversal-hardening-gpu-asan.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-asan.save",
+      "snapshot": "build/traversal-hardening-gpu-asan.save",
+      "bytes": 7229,
+      "sha256": "227e81384943afb1232af433a5d33b407c21cb1ab3ba7ff02addaa2e176a98ed"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-debug-resume.log",
+      "snapshot": "build/traversal-hardening-gpu-debug-resume.log",
+      "bytes": 2437,
+      "sha256": "c471adfc3fafc1dc7c0924c78ef91fd7cc7d852e18120fa5591098b583b7600e"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-debug-resume.png",
+      "snapshot": "build/traversal-hardening-gpu-debug-resume.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-debug.log",
+      "snapshot": "build/traversal-hardening-gpu-debug.log",
+      "bytes": 2522,
+      "sha256": "10798c9dc70a0eeeb73b20daf1bcd20d393a32c156d9e43fd2d6cad2677012bb"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-debug.png",
+      "snapshot": "build/traversal-hardening-gpu-debug.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-debug.png.before.png",
+      "snapshot": "build/traversal-hardening-gpu-debug.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-debug.save",
+      "snapshot": "build/traversal-hardening-gpu-debug.save",
+      "bytes": 7229,
+      "sha256": "227e81384943afb1232af433a5d33b407c21cb1ab3ba7ff02addaa2e176a98ed"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-release-resume.log",
+      "snapshot": "build/traversal-hardening-gpu-release-resume.log",
+      "bytes": 2439,
+      "sha256": "343a25b35227664c080c248c99e57aa2349680a68534d068fdb14d4839d3d423"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-release-resume.png",
+      "snapshot": "build/traversal-hardening-gpu-release-resume.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-release.log",
+      "snapshot": "build/traversal-hardening-gpu-release.log",
+      "bytes": 2526,
+      "sha256": "1855efe3004a09954f2560b6059c3fe702351e76e19b2136ab8fa3227aeb0d0d"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-release.png",
+      "snapshot": "build/traversal-hardening-gpu-release.png",
+      "bytes": 13334,
+      "sha256": "eafcbad39612c3a1dc4e573bef628c90fd75457d58f7da3fdd8d59b49bf114cd"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-release.png.before.png",
+      "snapshot": "build/traversal-hardening-gpu-release.png.before.png",
+      "bytes": 13004,
+      "sha256": "63e9803f5c3a1996662bfd4b63fdfcc4804b7889b6bbb2caf0a7d07cc9ddf35a"
+    },
+    {
+      "source": "build/traversal-hardening-gpu-release.save",
+      "snapshot": "build/traversal-hardening-gpu-release.save",
+      "bytes": 7229,
+      "sha256": "227e81384943afb1232af433a5d33b407c21cb1ab3ba7ff02addaa2e176a98ed"
+    },
+    {
+      "source": "build/traversal-hardening-release-build.log",
+      "snapshot": "build/traversal-hardening-release-build.log",
+      "bytes": 3056,
+      "sha256": "435b76362a2bd13dcc3e73c8346ef43ffb456ac04c43bd8d53e8eb908cba4e56"
+    },
+    {
+      "source": "build/traversal-hardening-release-console.log",
+      "snapshot": "build/traversal-hardening-release-console.log",
+      "bytes": 13689,
+      "sha256": "1dc26ce00fccff63c590f7e76a0a377c413209cf0c54ece5c8dee97f70da4fc7"
+    },
+    {
+      "source": "build/traversal-hardening-release-tests.log",
+      "snapshot": "build/traversal-hardening-release-tests.log",
+      "bytes": 13689,
+      "sha256": "1dc26ce00fccff63c590f7e76a0a377c413209cf0c54ece5c8dee97f70da4fc7"
+    },
+    {
+      "source": "build/traversal-integrated-progress.log",
+      "snapshot": "build/traversal-integrated-progress.log",
+      "bytes": 2919,
+      "sha256": "00cc2e0a30b03dade563694c401896a55a0a1fb312bd76d8f45c236016ccb96f"
+    }
+  ]
+}

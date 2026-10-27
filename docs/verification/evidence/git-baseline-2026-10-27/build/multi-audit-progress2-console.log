@@ -1,0 +1,32 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start  1: traversal.narrow_bridge_opposite
+1/7 Test  #1: traversal.narrow_bridge_opposite ......   Passed    2.47 sec
+    Start  6: traversal.rotating_support
+2/7 Test  #6: traversal.rotating_support ............***Failed    0.25 sec
+tick=570 actors=1
+actor=1 surface=8 feet=-7.200,0.010,-4.001 speed=0.000 accel=-0.008 yaw=-2.639 state=3 auto=0 task=0 hunger=570 energy=936 plans=7 leg=1/3 transfer=0 action=0 blocked=563 step_point=1
+  goal_surface=1 local=-2.500,-4.000 reach=0.000
+platform=8 phase=394 dock=-1 blocked=0
+FAIL actor failed to finish route
+
+    Start  8: traversal.occupied_goal_recovery
+3/7 Test  #8: traversal.occupied_goal_recovery ......***Failed    0.36 sec
+FAIL collinear actors failed to share rest station
+
+    Start  9: traversal.snapshot_corruption
+4/7 Test  #9: traversal.snapshot_corruption .........   Passed    0.02 sec
+    Start 12: traversal.course
+5/7 Test #12: traversal.course ......................   Passed    0.21 sec
+    Start 19: traversal.transport
+6/7 Test #19: traversal.transport ...................   Passed    0.33 sec
+    Start 22: traversal.release_passage_ownership
+7/7 Test #22: traversal.release_passage_ownership ...   Passed    0.51 sec
+
+71% tests passed, 2 tests failed out of 7
+
+Total Test time (real) =   4.25 sec
+
+The following tests FAILED:
+	  6 - traversal.rotating_support (Failed)
+	  8 - traversal.occupied_goal_recovery (Failed)
+Errors while running CTest

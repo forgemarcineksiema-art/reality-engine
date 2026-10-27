@@ -1,0 +1,21 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 10: knowledge.safe_action
+1/5 Test #10: knowledge.safe_action ............   Passed    0.06 sec
+    Start 13: knowledge.safe_step
+2/5 Test #13: knowledge.safe_step ..............   Passed    0.04 sec
+    Start 14: knowledge.safe_boarding
+3/5 Test #14: knowledge.safe_boarding ..........***Failed    0.09 sec
+FAIL empty report was lost after protected motion completed
+
+    Start 15: knowledge.safe_riding
+4/5 Test #15: knowledge.safe_riding ............   Passed    0.08 sec
+    Start 16: knowledge.safe_exiting
+5/5 Test #16: knowledge.safe_exiting ...........   Passed    0.08 sec
+
+80% tests passed, 1 tests failed out of 5
+
+Total Test time (real) =   0.42 sec
+
+The following tests FAILED:
+	 14 - knowledge.safe_boarding (Failed)
+Errors while running CTest

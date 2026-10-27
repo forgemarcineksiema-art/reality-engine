@@ -1,0 +1,25 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start  9: traversal.supersede_pending_goal
+1/4 Test  #9: traversal.supersede_pending_goal ......***Failed    0.09 sec
+FAIL reissued goal left the stale pending goal queued
+
+    Start 10: traversal.supersede_pending_stop
+2/4 Test #10: traversal.supersede_pending_stop ......***Failed    0.05 sec
+FAIL reissued goal left the pending stop queued
+
+    Start 11: traversal.release_passage_ownership
+3/4 Test #11: traversal.release_passage_ownership ...***Failed    0.14 sec
+FAIL fixture: manual departure did not leave the gated plate
+
+    Start 27: spatial.unequal_capsules
+4/4 Test #27: spatial.unequal_capsules ..............   Passed    0.07 sec
+
+25% tests passed, 3 tests failed out of 4
+
+Total Test time (real) =   0.49 sec
+
+The following tests FAILED:
+	  9 - traversal.supersede_pending_goal (Failed)
+	 10 - traversal.supersede_pending_stop (Failed)
+	 11 - traversal.release_passage_ownership (Failed)
+Errors while running CTest

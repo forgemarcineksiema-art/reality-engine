@@ -1,0 +1,85 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.course
+ 1/40 Test  #1: traversal.course ......................   Passed    0.14 sec
+      Start  2: traversal.walk
+ 2/40 Test  #2: traversal.walk ........................   Passed    0.07 sec
+      Start  3: traversal.ramp
+ 3/40 Test  #3: traversal.ramp ........................   Passed    0.06 sec
+      Start  4: traversal.step
+ 4/40 Test  #4: traversal.step ........................   Passed    0.08 sec
+      Start  5: traversal.rider
+ 5/40 Test  #5: traversal.rider .......................   Passed    0.06 sec
+      Start  6: traversal.autonomy
+ 6/40 Test  #6: traversal.autonomy ....................   Passed    0.07 sec
+      Start  7: traversal.occupied_goal
+ 7/40 Test  #7: traversal.occupied_goal ...............   Passed    0.13 sec
+      Start  8: traversal.transport
+ 8/40 Test  #8: traversal.transport ...................   Passed    0.23 sec
+      Start  9: traversal.supersede_pending_goal
+ 9/40 Test  #9: traversal.supersede_pending_goal ......   Passed    0.05 sec
+      Start 10: traversal.supersede_pending_stop
+10/40 Test #10: traversal.supersede_pending_stop ......   Passed    0.05 sec
+      Start 11: traversal.release_passage_ownership
+11/40 Test #11: traversal.release_passage_ownership ...   Passed    0.35 sec
+      Start 12: traversal.manual_touching_departure
+12/40 Test #12: traversal.manual_touching_departure ...   Passed    0.04 sec
+      Start 13: traversal.command_roundtrip
+13/40 Test #13: traversal.command_roundtrip ...........   Passed    6.63 sec
+      Start 14: traversal.support_coverage
+14/40 Test #14: traversal.support_coverage ............   Passed    0.03 sec
+      Start 15: traversal.need_fallback_empty
+15/40 Test #15: traversal.need_fallback_empty .........   Passed    0.39 sec
+      Start 16: traversal.need_fallback_unreachable
+16/40 Test #16: traversal.need_fallback_unreachable ...   Passed    0.39 sec
+      Start 17: traversal.last_meal
+17/40 Test #17: traversal.last_meal ...................   Passed    0.47 sec
+      Start 18: traversal.reusable_rest
+18/40 Test #18: traversal.reusable_rest ...............   Passed    0.39 sec
+      Start 71: work.stale_handle
+19/40 Test #71: work.stale_handle .....................   Passed    0.17 sec
+      Start 72: work.registry_exhaustion
+20/40 Test #72: work.registry_exhaustion ..............   Passed    0.07 sec
+      Start 73: work.registry_validation
+21/40 Test #73: work.registry_validation ..............   Passed    0.04 sec
+      Start 74: work.reservation_contention
+22/40 Test #74: work.reservation_contention ...........   Passed    0.09 sec
+      Start 75: work.command_retries
+23/40 Test #75: work.command_retries ..................   Passed    0.08 sec
+      Start 76: work.cancel_before_start
+24/40 Test #76: work.cancel_before_start ..............   Passed    0.08 sec
+      Start 77: work.partial_cancellation
+25/40 Test #77: work.partial_cancellation .............   Passed    0.08 sec
+      Start 78: work.completion_once
+26/40 Test #78: work.completion_once ..................   Passed    0.05 sec
+      Start 79: work.participant_removal
+27/40 Test #79: work.participant_removal ..............   Passed    0.05 sec
+      Start 80: work.invalid_requests
+28/40 Test #80: work.invalid_requests .................   Passed    0.03 sec
+      Start 81: work.time_overflow
+29/40 Test #81: work.time_overflow ....................   Passed    0.03 sec
+      Start 82: work.snapshot_continuation
+30/40 Test #82: work.snapshot_continuation ............   Passed    0.03 sec
+      Start 83: work.snapshot_history
+31/40 Test #83: work.snapshot_history .................   Passed    0.06 sec
+      Start 84: work.snapshot_rejection
+32/40 Test #84: work.snapshot_rejection ...............   Passed    0.11 sec
+      Start 85: work.snapshot_semantics
+33/40 Test #85: work.snapshot_semantics ...............   Passed    0.06 sec
+      Start 86: work.snapshot_journal
+34/40 Test #86: work.snapshot_journal .................   Passed    0.08 sec
+      Start 87: work.save_replacement
+35/40 Test #87: work.save_replacement .................   Passed    0.11 sec
+      Start 88: work.record_limit
+36/40 Test #88: work.record_limit .....................   Passed    0.68 sec
+      Start 89: work.event_capacity
+37/40 Test #89: work.event_capacity ...................   Passed    3.12 sec
+      Start 90: work.batch_ordering
+38/40 Test #90: work.batch_ordering ...................   Passed    0.01 sec
+      Start 91: work.operation_sequence
+39/40 Test #91: work.operation_sequence ...............   Passed    1.95 sec
+      Start 92: work.fresh_process_continuation
+40/40 Test #92: work.fresh_process_continuation .......   Passed    0.31 sec
+
+100% tests passed out of 40
+
+Total Test time (real) =  17.23 sec

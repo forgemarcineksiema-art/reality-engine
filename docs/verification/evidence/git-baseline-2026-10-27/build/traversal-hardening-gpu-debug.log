@@ -1,0 +1,36 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=844x781
+capture=traversal-hardening-gpu-debug.png.before.png colored_pixels=128967
+picked_surface=6
+continuation_checksum=15825416920717782246
+capture=traversal-hardening-gpu-debug.png colored_pixels=129020
+resize=694x721
+tick=81 actors=8
+actor=1 surface=1 feet=-7.364,0.000,3.912 speed=0.450 accel=-5.196 yaw=1.798 state=1 auto=0 task=0 hunger=81 energy=952 plans=2 leg=0/7 transfer=0 action=0
+  goal_surface=6 local=-0.013,-0.004 reach=0.000
+actor=2 surface=4 feet=-4.176,1.079,3.179 speed=2.865 accel=-0.169 yaw=1.576 state=1 auto=1 task=3 hunger=126 energy=935 plans=1 leg=2/7 transfer=0 action=0
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+actor=3 surface=1 feet=-7.817,0.000,3.468 speed=2.289 accel=-1.491 yaw=-0.068 state=1 auto=1 task=3 hunger=171 energy=930 plans=1 leg=1/8 transfer=0 action=0
+  goal_surface=6 local=-0.124,-0.360 reach=0.900
+actor=4 surface=1 feet=-7.203,0.000,3.223 speed=0.408 accel=1.200 yaw=-0.068 state=1 auto=1 task=3 hunger=216 energy=946 plans=1 leg=1/8 transfer=0 action=0
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+actor=5 surface=2 feet=6.216,0.000,-0.376 speed=0.000 accel=0.000 yaw=-2.972 state=1 auto=1 task=3 hunger=261 energy=961 plans=1 leg=0/14 transfer=0 action=0
+  goal_surface=6 local=0.500,-0.720 reach=0.900
+actor=6 surface=2 feet=2.596,0.000,-2.029 speed=2.933 accel=-1.812 yaw=-2.668 state=1 auto=1 task=3 hunger=306 energy=931 plans=1 leg=1/14 transfer=0 action=0
+  goal_surface=6 local=0.860,-0.624 reach=0.900
+actor=7 surface=2 feet=7.977,0.000,1.856 speed=1.856 accel=0.597 yaw=-1.270 state=1 auto=1 task=1 hunger=351 energy=936 plans=1 leg=0/1 transfer=0 action=0
+  goal_surface=2 local=1.640,0.876 reach=0.900
+actor=8 surface=2 feet=7.634,0.000,0.885 speed=0.000 accel=0.000 yaw=2.428 state=0 auto=1 task=1 hunger=396 energy=959 plans=1 leg=0/0 transfer=0 action=13
+platform=7 phase=81 dock=-1 blocked=0
+platform=8 phase=81 dock=-1 blocked=0
+station=9 kind=1 stock=80 completed=0 wear=500
+station=10 kind=1 stock=79 completed=0 wear=500
+station=11 kind=2 stock=1 completed=0 wear=500
+station=12 kind=3 stock=80 completed=0 wear=581
+service=1 owner=0 queue=0
+minimized_restored_tick=81
+TRAVERSAL SMOKE PASS
+normal_shutdown=1

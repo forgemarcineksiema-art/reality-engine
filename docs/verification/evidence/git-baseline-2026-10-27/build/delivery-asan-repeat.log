@@ -1,0 +1,12 @@
+Test project C:/Users/Marcin/Documents/new/build/asan
+    Start 1: delivery.actual
+    Test #1: delivery.actual ..................***Timeout  20.01 sec
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =  20.07 sec
+
+The following tests FAILED:
+	  1 - delivery.actual (Timeout)
+Errors while running CTest

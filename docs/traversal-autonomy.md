@@ -1,0 +1,113 @@
+# Autonomia potrzeb w laboratorium przestrzennym
+
+Status: ograniczona implementacja w `TraversalSession`, rozwijana w ramach [rozszerzenia](work-items/advanced-traversal.md). Nie stanowi odbioru społeczności M04. Ten dokument opisuje aktualne reguły wyboru potrzeb; stare API ruchu M03 pozostaje w [modelu ruchu](motion-navigation.md).
+
+## Ładunek i pierwszy kurs
+
+W realizowanym [przyroście dostawy](work-items/material-delivery.md) `cargo` wskazuje prawdziwą partię `WorkWorld` należącą do postaci, maksymalnie cztery jednostki. `Deliver` zachowuje źródło, odbiorcę, żądaną ilość, faktycznie oddany materiał i fazy dojścia, pobrania, dostawy oraz powrotu. Ilość dociera do odbiorcy wyłącznie po rzeczywistym dojściu i transferze, a nie po przydzieleniu celu. Kurs może zostać przerwany pilną potrzebą; po jej zaspokojeniu zachowuje swoją fazę i fizyczny ładunek. Anulowanie nie usuwa ani nie teleportuje ładunku.
+
+Autonomiczna postać, która nie ma aktywnego kursu (`!delivery` albo faza `Completed`/`Cancelled`), ale niesie dodatnią partię, nie blokuje torby bezterminowo. Gdy głód jest mniejszy niż 250 i energia większa niż 300 (ten sam próg co wybór dostawy), wybiera znane stanowisko z materialną partią tego samego niezerowego typu: najpierw `source` anulowanego kursu, jeśli jest znane i zgodne, inaczej najbliższe znane zgodne stanowisko bez aktywnego `station_retry`. Po fizycznym dojściu, zatrzymaniu i kontroli dostępu oddaje materiał przez wspólne `interact_cargo`/`world_.transfer()`. Po opróżnieniu partii może przyjąć nowy `assign_delivery` albo wrócić do zwykłych zadań. Zwrot nie omija krytycznych progów potrzeb, rozpoczętego Step, transportu ani czynności; ręczne przejęcie i `stop()` zatrzymują ruch, lecz nie przenoszą ładunku.
+
+F4 dla ręcznie sterowanej osoby korzysta z tej samej partii i reguł transferu. Stanowiska mają różne partie; dostęp wymaga zatrzymania, zasięgu i nieprzeciętej statycznej geometrii. To konserwatywna próba kapsuły, a nie animacja rąk. Cel kursu podaje położenie stanowiska, lecz nie zdalny stan zapasu. `GENESIS_TRAVERSAL 4` zapisuje ładunek, kurs i stanowisko zwrotu; powrót mieści się w tym samym formacie, a wersje 1–3 nadal są czytane. Dostawa i ustępowanie nie rozwiązują ogólnego problemu zakleszczeń tłumu.
+
+## Stan i odpowiedzialności
+
+Sesja jest właścicielem potrzeb, zamiaru, trasy, wskazanego stanowiska, terminów ponowień i wiedzy o lokalizacjach. `WorkWorld` jest właścicielem zasobów, rezerwacji, kosztów i wykonanych czynności. Czas obu modeli pochodzi z tego samego kroku świata 50 ms. Fizyczny ruch używa wspólnej geometrii, kapsuły i wykonawcy trasy; renderer tylko odczytuje sesję.
+
+Każdy krok zwiększa głód o 1, do limitu 1000. Ruch powyżej 0,1 m/s obniża energię o 1 na krok, do zera. Przy energii poniżej 150 żądana prędkość ma mnożnik 0,65. To robocze parametry laboratorium, nie model metabolizmu, śmierci głodowej lub docelowy balans gry.
+
+## Wybór i niepowodzenie
+
+Gdy postać nie wykonuje czynności ani rozpoczętego przejazdu, nie ma aktywnej trasy i minął termin ponowienia, rozważa kolejno:
+
+1. Jedzenie, jeśli głód wynosi co najmniej 250.
+2. Odpoczynek, jeśli energia wynosi co najwyżej 300.
+3. Konserwację, wyłącznie gdy nie występuje żadna z tych pilnych potrzeb.
+
+Dla każdego rodzaju rozważa znane lokalizacje bez aktywnej przerwy w ponawianiu, od najbliższej w przestrzeni. Faktyczne koszty i wykonalność wynikają z nawigacji; porządek odległości nie gwarantuje globalnie najlepszego wyboru. Brak planu dla jednego rodzaju pozwala rozważyć następny. Nie przerywa to rozpoczętego kroku, transportu ani czynności.
+
+Lokalizacje stanowisk są publiczną wiedzą początkową tej sceny, zapisaną maską `known_stations`. Wybór nie zagląda do zdalnego zapasu ani zużycia konstrukcji. Dopiero po fizycznym dojściu, zatrzymaniu i sprawdzeniu odległości od stanowiska sesja wywołuje wspólną rezerwację `WorkWorld`. Odmowa ustala `station_retry` na 100 kroków i termin ponownego wyboru na 10 kroków. W tym czasie dostępny odpoczynek może zostać wykonany mimo nierozwiązanego głodu. Brak wszystkich odpowiednich planów pozostawia `NoPath` i ponowienie po 40 krokach. Stanowisko konserwacji bez zużycia, stwierdzone na miejscu, jest pomijane przez 200 kroków.
+
+Lokalny przekaz obserwacji opisano poniżej. Nie ma biografii, rozbudowanych zobowiązań społecznych ani pełnego modelu przekonań. Znajomość położenia stanowiska nie oznacza wiedzy o jego zapasie. Inspektor pokazuje więcej niż używa wybór postaci.
+
+## Lokalna wiedza i przekaz
+
+Każda pozycja `beliefs[station]` jest opcjonalną historyczną obserwacją: `available` (wolne jednostki po rezerwacjach), `wear`, `observed_tick`, `learned_tick`, `source_actor` (pierwotny świadek) i `via_actor` (ostatni rozmówca). Brak rekordu oznacza brak danych. Wiedza nie jest zobowiązaniem do sukcesu ani widokiem WorkWorld. Może pozostać pozytywna po cudzym zużyciu lub negatywna po dostawie, dopóki nie nastąpi obserwacja albo przekaz.
+
+`observe_station` odczytuje ilość i zużycie wyłącznie po `interaction_accessible`: przy próbie czynności, po rezerwacji/rozpoczęciu, przy jej zakończeniu oraz przed/po interakcji ładunku. Własna obserwacja zapisuje oba czasy jako bieżący krok i oba ID jako własne. Może zastąpić swój wcześniejszy odczyt także w tym samym ticku (np. po transferze). Odmowa WorkWorld jest rzeczywistą odmową, nie zastępowana prognozą wiedzy.
+
+`share_knowledge(sender, recipient)` jest kierunkowym API dla gracza i automatu. Przekaz do siebie lub odległość ponad 2 m daje `OutOfReach`; inna podpora lub nieudany obustronny sweep kapsuły daje `Blocked`. Ten konserwatywny model wymaga wspólnej powierzchni i nie modeluje słuchu, wzroku ani rozmowy między poziomami. `Shared` oznacza zmianę co najmniej jednego rekordu, `NoNews` brak ściśle nowszych obserwacji. Nieudany przekaz oraz równe/starsze czasy nie zmieniają stanu. Nowszy rekord zachowuje świadka i czas obserwacji, a odbiorca zapisuje czas otrzymania i ID rozmówcy; przekaz może także nauczyć lokalizacji dotychczas nieznanego stanowiska.
+
+Pusta obserwacja (albo brak pracy konserwacyjnej) wyklucza wybór do wieku 100 kroków. Po tym czasie dozwolony jest ponowny fizyczny zwiad, nadal z istniejącymi ograniczeniami częstotliwości planowania. Przekaz nie przedłuża wieku do `learned_tick + 100`. Nowsza dostępność znosi cooldown wcześniejszej niedostępności; przy autonomii budzi wybór i ponowienie potrzeby. Nowsza negatywna wiadomość może porzucić plan potrzeby dopiero poza rozpoczętym Step, Boarding/Riding/Exiting, czynnością i manewrem clearance. Nie porzuca zadania Deliver ani fizycznej partii. Wiadomość otrzymana podczas ochrony pozostaje w pamięci; po bezpiecznej granicy planer ocenia jej aktualny wiek. Jeśli przez długi przejazd zdążyła przekroczyć horyzont, zwiad nadal jest dozwolony.
+
+Automatyczny nadawca musi być autonomiczny i mieć aktywne `share_until`: 40 kroków po własnym stwierdzeniu zerowej dostępności albo udanym oddaniu materiału. Co 10 kroków próbuje przekazać znane obserwacje bliskim osobom tym samym API. Odbiorca może być ręcznie sterowany; sam przekaz go nie przejmuje. Odebrana wiadomość nie uruchamia okna automatu pośrednika. Nie jest to ogólne rozgłaszanie przy mijaniu, protokół zgody, kłamstwa, reputacji ani prawa.
+
+F7 przekazuje od wybranej osoby do najbliższej osoby do 2 m (remis rozstrzyga kolejność aktorów), także przy odmowie fizycznego kontaktu; nie szuka rozmówcy za blokującą ścianą w zastępstwie wybranego. Komunikat pokazuje wynik oraz najnowsze przekonanie nadawcy ze świadkiem i czasem; inspektor ma osobne `belief_station` i `belief_unknown_station`, z pełnym pochodzeniem, oraz `station` jako globalną prawdę diagnostyczną.
+
+Pierwsza obserwacja wymaga zewnętrznego `GENESIS_TRAVERSAL 5`. Po CARGO/DELIVERY każdej osoby zapis zawiera `KNOWLEDGE share_until share_retry_at count` i do 16 rekordów `BELIEF station available wear observed_tick learned_tick source_actor via_actor`. Odczyt sprawdza duplikaty, zakresy, znaną lokalizację, obecne trwałe ID aktorów, kolejność czasów, własne świadectwo oraz horyzonty automatu; zatwierdza całą sesję transakcyjnie. Ilość historyczna nie jest porównywana z bieżącym zapasem, bo może być błędna. Wersje 1–4 odczytywane są z pustą wiedzą. Bez nowych danych serializer nadal używa dawnych wersji i zachowuje ich bajty; po obserwacji może przejść do 5. Format WorkWorld i diagnostyka pozostają niezależne. [Brief](work-items/local-station-knowledge.md) i [raport](verification/local-station-knowledge.md) określają dowody i ograniczenia.
+
+## Bezpieczne przerwanie i wznowienie potrzeb
+
+Krytyczny głód od 750 przerywa podróż do konserwacji, odpoczynku, dostawy lub zwrotu ładunku na jedzenie; energia do 100 przerywa konserwację, dostawę albo zwrot ładunku na odpoczynek. Jedzenie ma pierwszeństwo i nie jest przerywane odpoczynkiem. To strojenie laboratorium, bez modelu śmierci głodowej. Przerwanie wymaga dostępnej trasy do znanego stanowiska; nieudana próba zachowuje plan i jest ponawiana najwcześniej po 40 krokach. Nie odczytuje zdalnego zapasu.
+
+Rozpoczęta czynność WorkWorld, Step oraz Boarding/Riding/Exiting są chronione do bezpiecznej granicy. Nieprzydzieloną kolejkę można opuścić; własność fizycznie zajętej kładki pozostaje do wyjścia. Ostatni Walk w odległości do 6 m albo stan Arrived otrzymuje jednorazowo 120 kroków ochrony dokończenia. Termin nie odnawia się dla tego samego zamiaru, również bez ruchu. Zapobiega to zawracaniu tuż przed stanowiskiem bez dawania nieskończonej ochrony.
+
+Sesja odkłada rodzaj i stanowisko, najwyżej dwa różne zadania Maintain/Rest. Po zaspokojeniu zwykłych potrzeb wybiera odłożone stanowisko przed pozostałymi tego rodzaju, planując od aktualnej pozycji. Nie zachowuje starej trasy. Zaspokojony już Rest jest usuwany bez fikcyjnego ukończenia. Ręczny cel, zatrzymanie i wyłączenie autonomii kasują odłożone zadania oraz terminy. Inspektor pokazuje `suspended_task`, `need_retry_at` i `finish_grace_until`.
+
+## Czynność i skutek
+
+| Rodzaj | Czas czynności | Wymagana ilość | Zużycie przy rozpoczęciu | Skutek ukończenia |
+| --- | --- | --- | --- | --- |
+| Jedzenie | 40 kroków | 1 | 1 | Głód 0, zwiększenie licznika ukończeń |
+| Odpoczynek | 60 kroków | 1 | 0 | Energia 1000, zwiększenie licznika ukończeń |
+| Konserwacja | 80 kroków | 1 | 1 | Zużycie konstrukcji mniejsze o 250, nie poniżej 0, zwiększenie licznika ukończeń |
+
+Nowe sesje tworzą zasób odpoczynku jako wielorazową pojemność `WorkWorld`. Wymagane miejsce pozostaje zajęte do ukończenia lub przerwania odpoczynku; koszt materialny wynosi zero. Przy jedzeniu i konserwacji zasób pozostaje materiałem. Nie uzupełniamy zapasów po cichu. Inspektor dla pojemności pokazuje `capacity`, `occupied` i `available`; dla materiału zachowuje `stock`. To pojemność stanowiska, bez animowanego modelu spania lub odrębnej geometrii łóżka.
+
+Historyczne zapisy wersji 1 świata mogą zawierać odpoczynek korzystający z materiału. Są kontynuowane z dawną semantyką i nie są automatycznie migrowane; inspektor nadal pokaże dla nich `stock`. Nowe światy z pojemnością zapisują zagnieżdżony `GENESIS_WORK_WORLD 2`. [Raport pojemności](verification/reusable-capacity.md) opisuje zgodność i dowody.
+
+Efekt potrzeb pochodzi wyłącznie z faktycznie ukończonej czynności. Anulowanie nie odtwarza kosztu poniesionego przy rozpoczęciu. Gracz i NPC korzystają z tego samego `WorkWorld`. Przerwanie przez `stop`, nowy dokładny cel lub ręczne prowadzenie obsługuje sesja, z zachowaniem bezpiecznego dokończenia rozpoczętego kroku/przejazdu.
+
+## Kontynuacja i granice odbioru
+
+Przygotowanie wejścia w M04 ma [zatwierdzony kierunek](work-items/m04-entry-design.md). `TraversalDiagnostics` jest tylko obserwatorem: odczytuje faktyczny cel marszu/parkowania, precyzyjne przejście i fazę platformy poprzez `navigation_view`. Każda postać ma niezależne okno przypisane do trwałego ID. Przemieszczenie względem podpory co najmniej 0,5 m, poprawa odległości do niezmiennego celu odcinka o 0,1 m albo postęp usługi potwierdzają postęp. Zmiana waypointu i chwilowe Waiting nie zerują stagnacji zamiaru. Legalne oczekiwanie nie nalicza stagnacji; jawna blokada fizyczna jest raportowana osobno. Domyślne okno to 100 aktywnych kroków, dla jazdy co najmniej czas postoju platformy plus 20. Zmiana celu, cofnięcie zegara lub luka ponad 40 kroków zaczynają nowe okno. Duże pętle przestrzenne nadal mogą dawać postęp; to podejrzenie, nie kompletny detektor zakleszczenia. Obserwator nie zmienia świata, nie trafia do zapisu i po odczycie zaczyna od nowa. [Plan domknięcia](work-items/diagnostics-needs-hardening.md) opisuje zakres.
+
+### Sterowanie i doprowadzenie do stanowiska
+
+Dokładny cel gracza pozostaje dokładnym celem; `approach` jest jawną zgodą na wybranie punktu w zasięgu. Ponowienie wykonalnego podejścia zachowuje trasę i prędkość. Ponowienie odroczonego podejścia zachowuje jego zamiar, a komenda zmienia wejście wyłącznie wskazanej postaci. Włączenie autonomii podczas rozpoczętego kroku/przejazdu pozwala go bezpiecznie dokończyć, po czym ręczna trasa nie jest traktowana jako zadanie stanowiska.
+
+Kolejki nawigacyjne są stanem sesji, oddzielnym od zasobów materiału i pojemności `WorkWorld`. Postać może być w kolejce promu jeszcze na końcowym odcinku Walk do brzegu; wyłączne posiadanie usługi dotyczy faz Boarding, Riding i Exiting. Wejście wymaga dojścia do portu, zatrzymania i wolnego profilu wejścia. Oczekujący ustępują osi wyjścia. Podobnie kładka ma właściciela, kolejkę i odsunięte punkty oczekiwania; fizyczna obecność ma pierwszeństwo przed nowym przydziałem.
+
+Ruch po trasie ma ograniczone lokalne omijanie oraz ponowne planowanie z widokiem stojących sąsiadów. `SurfaceBlocker` przekazuje do nawigacji pozycję i rozmiar kapsuły, bez przejęcia własności postaci lub geometrii. Ruch ręczny zachowuje zadany kierunek i hamuje przed utratą podparcia. Faktyczny ruch nadal podlega sprawdzeniu fizycznemu, a kroki między poziomami korzystają z jawnych połączeń. Inspektor pokazuje także kolejki przejść i liczbę blokowanych podkroków (`blocked`); pole nie jest zegarem świata. Aktualny zakres i dowody określa [raport wielu postaci](verification/traversal-multi-actor.md).
+
+Ponowienie po braku drogi ponownie obserwuje stojących sąsiadów z odległości poniżej 3 m i prędkością poniżej 0,05 m/s. Nie wraca co 40 kroków do planu ignorującego ludzi. `NoPath` oznacza brak znalezionej trasy w aktualnym ograniczonym modelu, nie matematyczny dowód niemożliwości dowolnego przejścia. Dokładny cel jest zachowany; odejście blokującego może udostępnić trasę przy następnym ponowieniu.
+
+Kandydaci na miejsce oczekiwania przy kładce lub promie muszą mieć podparcie oraz nie nakładać kapsuły oczekującego na aktualne kapsuły innych osób. Kolejność czterech kandydatów i FIFO pozostają bez zmiany. Jeśli każdy kandydat jest zajęty lub nie ma podparcia, celem oczekiwania jest aktualna pozycja postaci. Sprawdzenie punktu nie gwarantuje kompletności drogi do niego ani rezerwacji tego miejsca przez przyszłe ruchy innych osób.
+
+Inspektor uzupełnia stan o nazwę `route`, termin `retry_at` oraz `waiting_for_passage` / `waiting_for_transport` z aktualnym właścicielem. Są to odczyty sesji, bez osobnej decyzji UI. [Przyrost odzyskiwania ruchu](work-items/navigation-obstruction-recovery.md) oddziela ten zakres od przyszłej komunikacji: ogólne negocjacje i konflikty społeczne nie są zaimplementowane. Ograniczona prośba przy rozpoczętym Step działa według poniższego kontraktu.
+
+Zapis `GENESIS_TRAVERSAL 1` zachowuje dawny stan, a czytnik uzupełnia odłożone zamiary i nowe terminy zerami. Gdy postać ma odłożone zadanie, termin ponowienia pilnej potrzeby lub ochrony końcowego dojścia, zewnętrzny zapis używa `GENESIS_TRAVERSAL 2`. Po `MEMORY` każdej postaci zawiera `AUTONOMY need_retry_at finish_grace_until count kind station ...`. Maksimum dwóch odłożonych zadań z poprawnymi, znanymi stanowiskami; dopuszczone Maintain, następnie Rest, bez duplikatów i bez powtórzenia aktywnego rodzaju. Odczyt jest transakcyjny. Bez nowego stanu serializer nadal emituje wersję 1. Zagnieżdżony `WorkWorld`, starszy `MotionSession`, klawisze i przejściowa historia prezentacji zachowują dotychczasowe odpowiedzialności.
+
+[Raport przyrostu](verification/autonomy-need-fallback.md) zawiera wyniki wyboru po odmowie/braku drogi, konkurencji o jedną porcję oraz kontynuacji w trakcie czynności. Nie jest to dowód dowolnego tłumu, rozwiązywania wszystkich blokad, samowystarczalnej gospodarki lub docelowego zachowania Action RPG.
+
+
+### Nieaktualna trasa dojścia
+
+Po nieudanym odzyskiwaniu dojścia w zasięg sesja weryfikuje dawny punkt z aktualnie obserwowanymi stojącymi sąsiadami i zastępuje nieaktualną trasę rzeczywistym wynikiem. Ponowienie NoPath ponownie rozważa dozwolone alternatywy, nie tylko dawny punkt. Ręczne dojście bez początkowo wybranego punktu także jest ponawiane. Odstęp co najmniej 40 kroków obowiązuje niezależnie od wyniku; koszt do czterech kandydatów i jednej kontroli starego punktu. Nie zmienia to dokładnego celu bez zasięgu, ochrony rozpoczętych przejść ani lokalnej wiedzy potrzeb. [Raport naprawy](verification/retained-world-navigation-stall.md) odróżnia stabilny brak drogi od późniejszego przyrostu lokalnej współpracy opisanego poniżej.
+
+
+## Lokalna prośba o przejście
+
+`request_clearance(actor)` jest wspólnym API dla F3 i automatu. Dotyczy wyłącznie fizycznie rozpoczętego Step, nie dowolnej blokady w świecie. Automat próbuje po 100 zablokowanych podkrokach, z odstępem 40 kroków świata. Odczytuje pozostały profil istniejącego kroku i aktualne kapsuły do 3 m. Nie czyta zdalnych zasobów ani nie korzysta z detektora stagnacji. Najbliższy blokujący ma odpowiedzieć. Jedna aktywna zgoda przypada na proszącego i jeden manewr na odbiorcę.
+
+Odbiorca sterowany ręcznie odpowiada `controlled`. Rozpoczęta czynność, Step, transport, własność wąskiego przejścia, ruch lub inny aktywny manewr dają `busy`. Dla stojącego autonomicznego NPC szukamy do 24 punktów na tej samej nieruchomej podporze (promienie 0,8/1,2/1,6 m), najwyżej czterema zapytaniami A*. Punkt i trasa muszą być fizycznie wykonalne i poza pozostałym profilem Step. `no_space` oznacza brak rozwiązania w tym ograniczonym przeszukiwaniu, nie matematyczny dowód braku dowolnego rozwiązania.
+
+Aktywne cele manewrów są rezerwacjami protokołu. Kontrola miejsc w pobliżu kandydata obejmuje ich ogłoszone punkty niezależnie od odległości obecnej kapsuły uczestnika; dzięki temu dwie zgody nie rezerwują tego samego miejsca. To kanał uzgodnienia miejsc ruchu, bez dostępu do cudzych zapasów, planów pracy lub biografii.
+
+`accepted` zachowuje pierwotny punkt celu w `yielding`, a dotychczasowy zamiar, zadanie, stanowisko i odłożone potrzeby pozostają przy postaci. Tymczasowa trasa Walk korzysta z istniejącej lokomocji/kolizji. W czasie manewru nie uruchamiamy pracy przy zdalnym stanowisku i nie zastępujemy go nowym wyborem potrzeby. Po udostępnieniu miejsca odbiorca czeka na koniec uzgodnionego Step. Zgoda kończy się po rzeczywistym przejściu (`completed`), po 200 krokach (`expired`) albo ręcznym przejęciu (`cancelled`). Odbiorca ponownie planuje własny zamiar od aktualnej pozycji. Nie odtwarza dawnej trasy i nie teleportuje. Próba może nie usunąć całego konfliktu tłumu.
+
+Rekordy sesji mają jednego właściciela: `clearance` to ostatnia odpowiedź z ID/terminem; `yielding` to zgoda wykonawcza. Aktywna para musi wskazywać ten sam identyfikator, czas i nadal rozpoczęty Step. Koniec zgody zatwierdzamy także po fizyce w tym samym ticku, przed udostępnieniem świata do zapisu. Zwykła i końcowa aktualizacja nie omijają terminu ponowienia.
+
+Pierwsza interakcja włącza zapis `GENESIS_TRAVERSAL 3`: po `AUTONOMY` każdego aktora występują `CLEARANCE peer outcome at retry_at` i `YIELD present [requester requested_at expires_at from to original_goal]`. Lokalizacje i opcjonalny cel używają tego samego kodowania co reszta sesji. Odczyt kontroluje parę w obu kierunkach, czas, rodzaj trasy, geometrię i niepokrywające się cele zgód; odrzucenie zachowuje poprzedni świat. Wersje 1/2 pozostają czytelne z pustymi interakcjami, a bez nowego stanu ich bajty pozostają. Dalszy przebieg może już użyć nowej współpracy. WorkWorld/MotionSession bez zmian.
+
+Zakres, testy i ograniczenia podaje [plan](work-items/local-clearance.md) oraz [raport](verification/local-clearance.md).

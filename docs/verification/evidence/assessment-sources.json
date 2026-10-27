@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-25",
+  "role": "user-supplied opinion inputs; not implementation evidence",
+  "files": [
+    {
+      "path": "opinion-project-assessment.md",
+      "sha256": "8c58247397a3a0f626e1f7a76776581c5c8be71d20cdab5fed55973a8ab592c7"
+    },
+    {
+      "path": "maxing.md",
+      "sha256": "5c6b476552a015f851ed72c6793aae374ea117c00932f88c8824837d69fb7924"
+    }
+  ]
+}

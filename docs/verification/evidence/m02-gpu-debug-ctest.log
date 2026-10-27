@@ -1,0 +1,68 @@
+UpdateCTestConfiguration  from :C:/Users/Marcin/Documents/new/DartConfiguration.tcl
+Test project C:/Users/Marcin/Documents/new/build/msvc
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 2
+    Start 2: lab.hardware_gpu_integration
+
+2: Test command: C:\Users\Marcin\AppData\Local\Programs\Python\Python313\python.exe "C:/Users/Marcin/Documents/new/tests/lab_gpu_integration.py" "C:/Users/Marcin/Documents/new/build/msvc/Debug/reality_lab.exe"
+2: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+2: Environment variables: 
+2:  ASAN_OPTIONS=halt_on_error=1
+2:  ASAN_VCASAN_DEBUGGING=0
+2: Test timeout computed to be: 20
+2: adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+2: adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+2: adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+2: selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+2: resize=784x681
+2: scene_selection=1
+2: capture=scena.png.before.png colored_pixels=190473
+2: feedback=Rezerwacja: accepted
+2: feedback=Rezerwacja: insufficient_resource
+2: feedback=Wykonano zmian� czynno�ci.
+2: feedback=Wykonano 20 krok�w: +1 sekunda �wiata.
+2: feedback=Wykonano 20 krok�w: +1 sekunda �wiata.
+2: feedback=Zapisano �wiat: �wiat.save
+2: feedback=Wykonano 20 krok�w: +1 sekunda �wiata.
+2: feedback=Wczytano �wiat. Symulacja zatrzymana.
+2: feedback=Wykonano 20 krok�w: +1 sekunda �wiata.
+2: feedback=Wykonano 20 krok�w: +1 sekunda �wiata.
+2: feedback=Wykonano 20 krok�w: +1 sekunda �wiata.
+2: feedback=Czynno�� ma ju� ten stan; bez nowego skutku.
+2: feedback=Zapisano �wiat: �wiat.save
+2: resize=624x611
+2: minimized=1 tick=100
+2: restored=1 tick=100
+2: capture=scena.png colored_pixels=151898
+2: FINAL tick=100 elapsed_ns=5000000000
+2: actor=1 alive=1
+2: actor=2 alive=1
+2: lot=3 owner=1 quantity=0 reserved=0 available=0 active=1
+2: action=4 actor=1 lot=3 state=completed consumed=3 due=100 reason=none
+2: command=1 result=accepted action=4
+2: command=2 result=insufficient_resource action=0
+2: event=1 tick=0 kind=actor_created subject=1 quantity=0
+2: event=2 tick=0 kind=actor_created subject=2 quantity=0
+2: event=3 tick=0 kind=resource_created subject=3 quantity=3
+2: event=4 tick=0 kind=reserved subject=4 quantity=3
+2: event=5 tick=0 kind=started subject=4 quantity=0
+2: event=6 tick=0 kind=consumed subject=4 quantity=1
+2: event=7 tick=100 kind=consumed subject=4 quantity=2
+2: event=8 tick=100 kind=completed subject=4 quantity=0
+2: SMOKE PASS
+2: normal_shutdown=1
+2: 
+2: PASS hardware GPU, native UI messages, readback 624x611, persistence and shutdown
+1/1 Test #2: lab.hardware_gpu_integration .....   Passed    1.09 sec
+
+The following tests passed:
+	lab.hardware_gpu_integration
+
+100% tests passed out of 1
+
+Total Test time (real) =   1.11 sec

@@ -1,0 +1,371 @@
+Test project C:/Users/Marcin/Documents/new/build/asan
+        Start   1: clearance.step_blockade
+  1/183 Test   #1: clearance.step_blockade ....................   Passed    0.95 sec
+        Start   2: clearance.controlled
+  2/183 Test   #2: clearance.controlled .......................   Passed    0.59 sec
+        Start   3: clearance.retained
+  3/183 Test   #3: clearance.retained .........................   Passed    0.76 sec
+        Start   4: clearance.persistence
+  4/183 Test   #4: clearance.persistence ......................   Passed    0.65 sec
+        Start   5: clearance.no_space
+  5/183 Test   #5: clearance.no_space .........................   Passed    0.23 sec
+        Start   6: clearance.busy
+  6/183 Test   #6: clearance.busy .............................   Passed    0.11 sec
+        Start   7: clearance.manual_override
+  7/183 Test   #7: clearance.manual_override ..................   Passed    0.32 sec
+        Start   8: clearance.same_intent_override
+  8/183 Test   #8: clearance.same_intent_override .............   Passed    0.16 sec
+        Start   9: clearance.invalid_restore
+  9/183 Test   #9: clearance.invalid_restore ..................   Passed    0.28 sec
+        Start  10: clearance.reserved_targets
+ 10/183 Test  #10: clearance.reserved_targets .................   Passed    0.18 sec
+        Start  11: clearance.expiry
+ 11/183 Test  #11: clearance.expiry ...........................   Passed    0.35 sec
+        Start  12: clearance.intent_preserved
+ 12/183 Test  #12: clearance.intent_preserved .................   Passed    1.00 sec
+        Start  13: clearance.stale_step_restore
+ 13/183 Test  #13: clearance.stale_step_restore ...............   Passed    0.18 sec
+        Start  14: needs.interruption
+ 14/183 Test  #14: needs.interruption .........................   Passed    4.06 sec
+        Start  15: needs.exhaustion
+ 15/183 Test  #15: needs.exhaustion ...........................   Passed    0.39 sec
+        Start  16: needs.safe_step
+ 16/183 Test  #16: needs.safe_step ............................   Passed    0.31 sec
+        Start  17: needs.safe_transport
+ 17/183 Test  #17: needs.safe_transport .......................   Passed    2.04 sec
+        Start  18: needs.running_action
+ 18/183 Test  #18: needs.running_action .......................   Passed    0.28 sec
+        Start  19: needs.manual_override
+ 19/183 Test  #19: needs.manual_override ......................   Passed    1.38 sec
+        Start  20: needs.unavailable_need
+ 20/183 Test  #20: needs.unavailable_need .....................   Passed    1.15 sec
+        Start  21: needs.persistence
+ 21/183 Test  #21: needs.persistence ..........................   Passed    1.67 sec
+        Start  22: needs.finish_expiry
+ 22/183 Test  #22: needs.finish_expiry ........................   Passed    0.11 sec
+        Start  23: needs.legacy_fixture
+ 23/183 Test  #23: needs.legacy_fixture .......................   Passed    4.43 sec
+        Start  24: needs.safe_queue
+ 24/183 Test  #24: needs.safe_queue ...........................   Passed    0.13 sec
+        Start  25: traversal.diagnostics_progress
+ 25/183 Test  #25: traversal.diagnostics_progress .............   Passed    0.10 sec
+        Start  26: traversal.diagnostics_waiting
+ 26/183 Test  #26: traversal.diagnostics_waiting ..............   Passed    0.59 sec
+        Start  27: traversal.diagnostics_reset
+ 27/183 Test  #27: traversal.diagnostics_reset ................   Passed    0.07 sec
+        Start  28: traversal.diagnostics_snapshot
+ 28/183 Test  #28: traversal.diagnostics_snapshot .............   Passed    0.32 sec
+        Start  29: traversal.diagnostics_timings
+ 29/183 Test  #29: traversal.diagnostics_timings ..............   Passed    0.05 sec
+        Start  30: traversal.diagnostics_invalid_sample
+ 30/183 Test  #30: traversal.diagnostics_invalid_sample .......   Passed    0.05 sec
+        Start  31: traversal.diagnostics_plan_churn
+ 31/183 Test  #31: traversal.diagnostics_plan_churn ...........   Passed    0.06 sec
+        Start  32: traversal.diagnostics_independent_alarms
+ 32/183 Test  #32: traversal.diagnostics_independent_alarms ...   Passed    0.06 sec
+        Start  33: traversal.diagnostics_service_progress
+ 33/183 Test  #33: traversal.diagnostics_service_progress .....   Passed    0.06 sec
+        Start  34: traversal.diagnostics_batch_transaction
+ 34/183 Test  #34: traversal.diagnostics_batch_transaction ....   Passed    0.05 sec
+        Start  35: traversal.diagnostics_live_view
+ 35/183 Test  #35: traversal.diagnostics_live_view ............   Passed    1.63 sec
+        Start  36: traversal.native_diagnostics
+ 36/183 Test  #36: traversal.native_diagnostics ...............   Passed   16.74 sec
+        Start  37: traversal.narrow_bridge_opposite
+ 37/183 Test  #37: traversal.narrow_bridge_opposite ...........   Passed   12.37 sec
+        Start  38: traversal.ferry_exchange
+ 38/183 Test  #38: traversal.ferry_exchange ...................   Passed    5.37 sec
+        Start  39: traversal.rapid_retarget
+ 39/183 Test  #39: traversal.rapid_retarget ...................   Passed    0.59 sec
+        Start  40: traversal.obstacle_braking
+ 40/183 Test  #40: traversal.obstacle_braking .................   Passed    0.52 sec
+        Start  41: traversal.slope_maneuvers
+ 41/183 Test  #41: traversal.slope_maneuvers ..................   Passed    1.69 sec
+        Start  42: traversal.rotating_support
+ 42/183 Test  #42: traversal.rotating_support .................   Passed    1.28 sec
+        Start  43: traversal.crowd_passing
+ 43/183 Test  #43: traversal.crowd_passing ....................   Passed    0.78 sec
+        Start  44: traversal.occupied_goal_recovery
+ 44/183 Test  #44: traversal.occupied_goal_recovery ...........   Passed    0.67 sec
+        Start  45: traversal.snapshot_corruption
+ 45/183 Test  #45: traversal.snapshot_corruption ..............   Passed    0.20 sec
+        Start  46: traversal.long_course
+ 46/183 Test  #46: traversal.long_course ......................   Passed    7.86 sec
+        Start  47: traversal.partition
+ 47/183 Test  #47: traversal.partition ........................   Passed    3.94 sec
+        Start  48: traversal.collinear_rest
+ 48/183 Test  #48: traversal.collinear_rest ...................   Passed    0.30 sec
+        Start  49: traversal.moving_passengers
+ 49/183 Test  #49: traversal.moving_passengers ................   Passed    0.36 sec
+        Start  50: traversal.command_isolation
+ 50/183 Test  #50: traversal.command_isolation ................   Passed    0.24 sec
+        Start  51: traversal.support_contract
+ 51/183 Test  #51: traversal.support_contract .................   Passed    0.83 sec
+        Start  52: traversal.moving_contact
+ 52/183 Test  #52: traversal.moving_contact ...................   Passed    0.14 sec
+        Start  53: traversal.wall_neighbour_recovery
+ 53/183 Test  #53: traversal.wall_neighbour_recovery ..........   Passed    2.23 sec
+        Start  54: traversal.blocked_route_settling
+ 54/183 Test  #54: traversal.blocked_route_settling ...........   Passed    0.53 sec
+        Start  55: traversal.occupied_queue_parking
+ 55/183 Test  #55: traversal.occupied_queue_parking ...........   Passed    1.10 sec
+        Start  56: traversal.approach_blocked_recovery
+ 56/183 Test  #56: traversal.approach_blocked_recovery ........   Passed    0.99 sec
+        Start  57: traversal.approach_recovery_detour
+ 57/183 Test  #57: traversal.approach_recovery_detour .........   Passed    0.48 sec
+        Start  58: traversal.retained_ramp_recovery
+ 58/183 Test  #58: traversal.retained_ramp_recovery ...........   Passed   12.20 sec
+        Start  59: traversal.approach_alternative_retry
+ 59/183 Test  #59: traversal.approach_alternative_retry .......   Passed    0.31 sec
+        Start  60: traversal.approach_existing_retry
+ 60/183 Test  #60: traversal.approach_existing_retry ..........   Passed    0.80 sec
+        Start  61: traversal.wall_neighbour_matrix_0
+ 61/183 Test  #61: traversal.wall_neighbour_matrix_0 ..........   Passed    0.63 sec
+        Start  62: traversal.wall_neighbour_matrix_1
+ 62/183 Test  #62: traversal.wall_neighbour_matrix_1 ..........   Passed    0.86 sec
+        Start  63: traversal.wall_neighbour_matrix_2
+ 63/183 Test  #63: traversal.wall_neighbour_matrix_2 ..........   Passed    0.62 sec
+        Start  64: traversal.wall_neighbour_matrix_3
+ 64/183 Test  #64: traversal.wall_neighbour_matrix_3 ..........   Passed    0.34 sec
+        Start  65: traversal.wall_neighbour_matrix_4
+ 65/183 Test  #65: traversal.wall_neighbour_matrix_4 ..........   Passed    0.38 sec
+        Start  66: traversal.wall_neighbour_matrix_5
+ 66/183 Test  #66: traversal.wall_neighbour_matrix_5 ..........   Passed    0.62 sec
+        Start  67: traversal.course
+ 67/183 Test  #67: traversal.course ...........................   Passed    0.26 sec
+        Start  68: traversal.walk
+ 68/183 Test  #68: traversal.walk .............................   Passed    0.14 sec
+        Start  69: traversal.ramp
+ 69/183 Test  #69: traversal.ramp .............................   Passed    0.13 sec
+        Start  70: traversal.step
+ 70/183 Test  #70: traversal.step .............................   Passed    0.14 sec
+        Start  71: traversal.rider
+ 71/183 Test  #71: traversal.rider ............................   Passed    0.18 sec
+        Start  72: traversal.autonomy
+ 72/183 Test  #72: traversal.autonomy .........................   Passed    0.15 sec
+        Start  73: traversal.occupied_goal
+ 73/183 Test  #73: traversal.occupied_goal ....................   Passed    0.18 sec
+        Start  74: traversal.transport
+ 74/183 Test  #74: traversal.transport ........................   Passed    0.47 sec
+        Start  75: traversal.supersede_pending_goal
+ 75/183 Test  #75: traversal.supersede_pending_goal ...........   Passed    0.10 sec
+        Start  76: traversal.supersede_pending_stop
+ 76/183 Test  #76: traversal.supersede_pending_stop ...........   Passed    0.10 sec
+        Start  77: traversal.release_passage_ownership
+ 77/183 Test  #77: traversal.release_passage_ownership ........   Passed    0.54 sec
+        Start  78: traversal.manual_touching_departure
+ 78/183 Test  #78: traversal.manual_touching_departure ........   Passed    0.12 sec
+        Start  79: traversal.command_roundtrip
+ 79/183 Test  #79: traversal.command_roundtrip ................   Passed    4.04 sec
+        Start  80: traversal.support_coverage
+ 80/183 Test  #80: traversal.support_coverage .................   Passed    0.07 sec
+        Start  81: traversal.need_fallback_empty
+ 81/183 Test  #81: traversal.need_fallback_empty ..............   Passed    0.20 sec
+        Start  82: traversal.need_fallback_unreachable
+ 82/183 Test  #82: traversal.need_fallback_unreachable ........   Passed    0.22 sec
+        Start  83: traversal.last_meal
+ 83/183 Test  #83: traversal.last_meal ........................   Passed    0.26 sec
+        Start  84: traversal.reusable_rest
+ 84/183 Test  #84: traversal.reusable_rest ....................   Passed    0.27 sec
+        Start  85: spatial.ramp
+ 85/183 Test  #85: spatial.ramp ...............................   Passed    0.09 sec
+        Start  86: spatial.rotated_sweep
+ 86/183 Test  #86: spatial.rotated_sweep ......................   Passed    0.05 sec
+        Start  87: spatial.levels
+ 87/183 Test  #87: spatial.levels .............................   Passed    0.06 sec
+        Start  88: spatial.platform_volume
+ 88/183 Test  #88: spatial.platform_volume ....................   Passed    0.05 sec
+        Start  89: spatial.solid_sat
+ 89/183 Test  #89: spatial.solid_sat ..........................   Passed    0.06 sec
+        Start  90: spatial.invalid_data
+ 90/183 Test  #90: spatial.invalid_data .......................   Passed    0.05 sec
+        Start  91: spatial.surface_narrow
+ 91/183 Test  #91: spatial.surface_narrow .....................   Passed    0.06 sec
+        Start  92: spatial.surface_metric
+ 92/183 Test  #92: spatial.surface_metric .....................   Passed    0.05 sec
+        Start  93: spatial.surface_step
+ 93/183 Test  #93: spatial.surface_step .......................   Passed    0.05 sec
+        Start  94: spatial.surface_budgets
+ 94/183 Test  #94: spatial.surface_budgets ....................   Passed    0.06 sec
+        Start  95: spatial.sphere_sweep
+ 95/183 Test  #95: spatial.sphere_sweep .......................   Passed    0.06 sec
+        Start  96: spatial.locomotion_envelopes
+ 96/183 Test  #96: spatial.locomotion_envelopes ...............   Passed    0.05 sec
+        Start  97: spatial.locomotion_arrival
+ 97/183 Test  #97: spatial.locomotion_arrival .................   Passed    0.06 sec
+        Start  98: spatial.locomotion_turn
+ 98/183 Test  #98: spatial.locomotion_turn ....................   Passed    0.06 sec
+        Start  99: spatial.pair_paths
+ 99/183 Test  #99: spatial.pair_paths .........................   Passed    0.05 sec
+        Start 100: spatial.unequal_capsules
+100/183 Test #100: spatial.unequal_capsules ...................   Passed    0.05 sec
+        Start 101: adversarial.wall_retarget
+101/183 Test #101: adversarial.wall_retarget ..................   Passed    0.09 sec
+        Start 102: adversarial.wall_goal
+102/183 Test #102: adversarial.wall_goal ......................   Passed    0.06 sec
+        Start 103: adversarial.stationary_blocker
+103/183 Test #103: adversarial.stationary_blocker .............   Passed    0.06 sec
+        Start 104: adversarial.extreme_span
+104/183 Test #104: adversarial.extreme_span ...................   Passed    0.06 sec
+        Start 105: adversarial.interpolation
+105/183 Test #105: adversarial.interpolation ..................   Passed    0.06 sec
+        Start 106: adversarial.corner_image
+106/183 Test #106: adversarial.corner_image ...................   Passed    0.06 sec
+        Start 107: adversarial.rapid_targets
+107/183 Test #107: adversarial.rapid_targets ..................   Passed    0.43 sec
+        Start 108: adversarial.passing
+108/183 Test #108: adversarial.passing ........................   Passed    0.56 sec
+        Start 109: adversarial.goal_swap
+109/183 Test #109: adversarial.goal_swap ......................   Passed    0.50 sec
+        Start 110: adversarial.collision_sequences
+110/183 Test #110: adversarial.collision_sequences ............   Passed    0.06 sec
+        Start 111: adversarial.input_limits
+111/183 Test #111: adversarial.input_limits ...................   Passed    0.05 sec
+        Start 112: adversarial.legacy_endpoint
+112/183 Test #112: adversarial.legacy_endpoint ................   Passed    0.07 sec
+        Start 113: adversarial.contact_rounding
+113/183 Test #113: adversarial.contact_rounding ...............   Passed    0.06 sec
+        Start 114: motion.sweep
+114/183 Test #114: motion.sweep ...............................   Passed    0.10 sec
+        Start 115: motion.corners
+115/183 Test #115: motion.corners .............................   Passed    0.06 sec
+        Start 116: motion.size_height
+116/183 Test #116: motion.size_height .........................   Passed    0.06 sec
+        Start 117: motion.invalid_data
+117/183 Test #117: motion.invalid_data ........................   Passed    0.05 sec
+        Start 118: motion.route_oracle
+118/183 Test #118: motion.route_oracle ........................   Passed    0.07 sec
+        Start 119: motion.route_failures
+119/183 Test #119: motion.route_failures ......................   Passed    0.06 sec
+        Start 120: motion.route_stamps
+120/183 Test #120: motion.route_stamps ........................   Passed    0.06 sec
+        Start 121: motion.detour_wait
+121/183 Test #121: motion.detour_wait .........................   Passed    0.06 sec
+        Start 122: motion.gate_occupancy
+122/183 Test #122: motion.gate_occupancy ......................   Passed    0.06 sec
+        Start 123: motion.input_collision
+123/183 Test #123: motion.input_collision .....................   Passed    0.06 sec
+        Start 124: motion.persistence
+124/183 Test #124: motion.persistence .........................   Passed    0.08 sec
+        Start 125: motion.partition
+125/183 Test #125: motion.partition ...........................   Passed    0.06 sec
+        Start 126: motion.waiting_continuation
+126/183 Test #126: motion.waiting_continuation ................   Passed    0.06 sec
+        Start 127: motion.direct_goal
+127/183 Test #127: motion.direct_goal .........................   Passed    0.05 sec
+        Start 128: motion.retarget
+128/183 Test #128: motion.retarget ............................   Passed    0.05 sec
+        Start 129: motion.replan_forward
+129/183 Test #129: motion.replan_forward ......................   Passed    0.05 sec
+        Start 130: motion.arrival_stability
+130/183 Test #130: motion.arrival_stability ...................   Passed    0.06 sec
+        Start 131: motion.shortcut_geometry
+131/183 Test #131: motion.shortcut_geometry ...................   Passed    0.06 sec
+        Start 132: motion.retarget_continuation
+132/183 Test #132: motion.retarget_continuation ...............   Passed    0.08 sec
+        Start 133: motion.hardware_gpu_continuation
+133/183 Test #133: motion.hardware_gpu_continuation ...........   Passed    5.94 sec
+        Start 134: lab.model_and_presentation
+134/183 Test #134: lab.model_and_presentation .................   Passed    0.14 sec
+        Start 135: lab.hardware_gpu_integration
+135/183 Test #135: lab.hardware_gpu_integration ...............   Passed    1.92 sec
+        Start 136: lab.hardware_gpu_standard
+136/183 Test #136: lab.hardware_gpu_standard ..................   Passed    2.17 sec
+        Start 137: work.stale_handle
+137/183 Test #137: work.stale_handle ..........................   Passed    0.09 sec
+        Start 138: work.registry_exhaustion
+138/183 Test #138: work.registry_exhaustion ...................   Passed    0.07 sec
+        Start 139: work.registry_validation
+139/183 Test #139: work.registry_validation ...................   Passed    0.10 sec
+        Start 140: work.reservation_contention
+140/183 Test #140: work.reservation_contention ................   Passed    0.08 sec
+        Start 141: work.command_retries
+141/183 Test #141: work.command_retries .......................   Passed    0.09 sec
+        Start 142: work.cancel_before_start
+142/183 Test #142: work.cancel_before_start ...................   Passed    0.09 sec
+        Start 143: work.partial_cancellation
+143/183 Test #143: work.partial_cancellation ..................   Passed    0.07 sec
+        Start 144: work.completion_once
+144/183 Test #144: work.completion_once .......................   Passed    0.08 sec
+        Start 145: work.participant_removal
+145/183 Test #145: work.participant_removal ...................   Passed    0.07 sec
+        Start 146: work.invalid_requests
+146/183 Test #146: work.invalid_requests ......................   Passed    0.08 sec
+        Start 147: work.time_overflow
+147/183 Test #147: work.time_overflow .........................   Passed    0.08 sec
+        Start 148: work.snapshot_continuation
+148/183 Test #148: work.snapshot_continuation .................   Passed    0.08 sec
+        Start 149: work.snapshot_history
+149/183 Test #149: work.snapshot_history ......................   Passed    0.08 sec
+        Start 150: work.snapshot_rejection
+150/183 Test #150: work.snapshot_rejection ....................   Passed    0.08 sec
+        Start 151: work.snapshot_semantics
+151/183 Test #151: work.snapshot_semantics ....................   Passed    0.09 sec
+        Start 152: work.snapshot_journal
+152/183 Test #152: work.snapshot_journal ......................   Passed    0.06 sec
+        Start 153: work.save_replacement
+153/183 Test #153: work.save_replacement ......................   Passed    0.08 sec
+        Start 154: work.record_limit
+154/183 Test #154: work.record_limit ..........................   Passed    0.23 sec
+        Start 155: work.event_capacity
+155/183 Test #155: work.event_capacity ........................   Passed    1.42 sec
+        Start 156: work.batch_ordering
+156/183 Test #156: work.batch_ordering ........................   Passed    0.06 sec
+        Start 157: work.operation_sequence
+157/183 Test #157: work.operation_sequence ....................   Passed    1.61 sec
+        Start 158: work.capacity_lifecycle
+158/183 Test #158: work.capacity_lifecycle ....................   Passed    0.06 sec
+        Start 159: work.capacity_removal
+159/183 Test #159: work.capacity_removal ......................   Passed    0.05 sec
+        Start 160: work.capacity_snapshot
+160/183 Test #160: work.capacity_snapshot .....................   Passed    0.06 sec
+        Start 161: work.fresh_process_continuation
+161/183 Test #161: work.fresh_process_continuation ............   Passed    0.58 sec
+        Start 162: clock.initial_state
+162/183 Test #162: clock.initial_state ........................   Passed    0.08 sec
+        Start 163: clock.reject_zero_step
+163/183 Test #163: clock.reject_zero_step .....................   Passed    0.05 sec
+        Start 164: clock.reject_negative_step
+164/183 Test #164: clock.reject_negative_step .................   Passed    0.06 sec
+        Start 165: clock.exact_elapsed_time
+165/183 Test #165: clock.exact_elapsed_time ...................   Passed    0.05 sec
+        Start 166: clock.batch_equivalence
+166/183 Test #166: clock.batch_equivalence ....................   Passed    0.05 sec
+        Start 167: clock.zero_batch
+167/183 Test #167: clock.zero_batch ...........................   Passed    0.06 sec
+        Start 168: clock.overflow_preserves_state
+168/183 Test #168: clock.overflow_preserves_state .............   Passed    0.06 sec
+        Start 169: clock.reject_large_batch
+169/183 Test #169: clock.reject_large_batch ...................   Passed    0.05 sec
+        Start 170: work_runner.rejects_failed_assertion
+170/183 Test #170: work_runner.rejects_failed_assertion .......   Passed    0.20 sec
+        Start 171: work_runner.rejects_unknown_case
+171/183 Test #171: work_runner.rejects_unknown_case ...........   Passed    0.20 sec
+        Start 172: runner.rejects_failed_assertion
+172/183 Test #172: runner.rejects_failed_assertion ............   Passed    0.20 sec
+        Start 173: runner.rejects_unknown_case
+173/183 Test #173: runner.rejects_unknown_case ................   Passed    0.20 sec
+        Start 174: runner.rejects_empty_suite
+174/183 Test #174: runner.rejects_empty_suite .................   Passed    0.20 sec
+        Start 175: headless.default
+175/183 Test #175: headless.default ...........................   Passed    0.22 sec
+        Start 176: headless.zero_steps
+176/183 Test #176: headless.zero_steps ........................   Passed    0.20 sec
+        Start 177: headless.rejects_zero_step
+177/183 Test #177: headless.rejects_zero_step .................   Passed    0.20 sec
+        Start 178: headless.rejects_malformed_steps
+178/183 Test #178: headless.rejects_malformed_steps ...........   Passed    0.21 sec
+        Start 179: headless.rejects_overflow
+179/183 Test #179: headless.rejects_overflow ..................   Passed    0.20 sec
+        Start 180: documentation.registry
+180/183 Test #180: documentation.registry .....................   Passed    0.63 sec
+        Start 181: tooling.tests
+181/183 Test #181: tooling.tests ..............................   Passed    3.03 sec
+        Start 182: diagnostics.clean_fixture
+182/183 Test #182: diagnostics.clean_fixture ..................   Passed    0.21 sec
+        Start 183: diagnostics.detects_heap_overflow
+183/183 Test #183: diagnostics.detects_heap_overflow ..........   Passed    0.24 sec
+
+100% tests passed out of 183
+
+Total Test time (real) = 135.60 sec

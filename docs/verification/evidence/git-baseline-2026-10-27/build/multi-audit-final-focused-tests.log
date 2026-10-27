@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start  6: traversal.rotating_support
+1/4 Test  #6: traversal.rotating_support ............   Passed    0.86 sec
+    Start 15: traversal.support_contract
+2/4 Test #15: traversal.support_contract ............   Passed    0.80 sec
+    Start 16: traversal.moving_contact
+3/4 Test #16: traversal.moving_contact ..............   Passed    0.05 sec
+    Start 27: traversal.release_passage_ownership
+4/4 Test #27: traversal.release_passage_ownership ...   Passed    0.55 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =   2.42 sec

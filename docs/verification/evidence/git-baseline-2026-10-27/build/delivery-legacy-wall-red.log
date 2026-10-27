@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 17: delivery.legacy_wall_need
+1/1 Test #17: delivery.legacy_wall_need ........***Failed    0.08 sec
+FAIL route or transfer without a goal
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.18 sec
+
+The following tests FAILED:
+	 17 - delivery.legacy_wall_need (Failed)
+Errors while running CTest

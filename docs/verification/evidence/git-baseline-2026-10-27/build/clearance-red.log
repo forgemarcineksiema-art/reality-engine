@@ -1,0 +1,15 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: clearance.step_blockade
+1/2 Test #1: clearance.step_blockade ..........***Failed    0.11 sec
+FAIL blocked Step did not finish through voluntary local clearance
+
+    Start 2: clearance.controlled
+2/2 Test #2: clearance.controlled .............   Passed    0.04 sec
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =   0.28 sec
+
+The following tests FAILED:
+	  1 - clearance.step_blockade (Failed)
+Errors while running CTest

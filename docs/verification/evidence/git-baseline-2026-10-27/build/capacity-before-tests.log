@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 18: traversal.reusable_rest
+1/1 Test #18: traversal.reusable_rest ..........***Failed    0.18 sec
+FAIL rest place was not reusable after load
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.26 sec
+
+The following tests FAILED:
+	 18 - traversal.reusable_rest (Failed)
+Errors while running CTest

@@ -1,0 +1,58 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.course
+ 1/22 Test  #1: traversal.course .................   Passed    0.20 sec
+      Start  2: traversal.walk
+ 2/22 Test  #2: traversal.walk ...................   Passed    0.07 sec
+      Start  3: traversal.ramp
+ 3/22 Test  #3: traversal.ramp ...................   Passed    0.06 sec
+      Start  4: traversal.step
+ 4/22 Test  #4: traversal.step ...................***Failed    0.21 sec
+tick=300 actors=1
+actor=1 surface=1 feet=-0.000,0.200,0.000 speed=0.000 accel=0.000 yaw=1.571 state=1 auto=0 task=0 hunger=300 energy=946 plans=1 leg=1/3 transfer=0 action=0
+  goal_surface=2 local=1.000,0.000 reach=0.000
+FAIL physical step did not complete
+
+      Start  5: traversal.rider
+ 5/22 Test  #5: traversal.rider ..................   Passed    0.09 sec
+      Start  6: traversal.autonomy
+ 6/22 Test  #6: traversal.autonomy ...............   Passed    0.11 sec
+      Start  7: traversal.occupied_goal
+ 7/22 Test  #7: traversal.occupied_goal ..........   Passed    0.15 sec
+      Start  8: spatial.ramp
+ 8/22 Test  #8: spatial.ramp .....................   Passed    0.08 sec
+      Start  9: spatial.rotated_sweep
+ 9/22 Test  #9: spatial.rotated_sweep ............   Passed    0.02 sec
+      Start 10: spatial.levels
+10/22 Test #10: spatial.levels ...................   Passed    0.02 sec
+      Start 11: spatial.platform_volume
+11/22 Test #11: spatial.platform_volume ..........   Passed    0.02 sec
+      Start 12: spatial.solid_sat
+12/22 Test #12: spatial.solid_sat ................   Passed    0.02 sec
+      Start 13: spatial.invalid_data
+13/22 Test #13: spatial.invalid_data .............   Passed    0.02 sec
+      Start 14: spatial.surface_narrow
+14/22 Test #14: spatial.surface_narrow ...........   Passed    0.03 sec
+      Start 15: spatial.surface_metric
+15/22 Test #15: spatial.surface_metric ...........   Passed    0.03 sec
+      Start 16: spatial.surface_step
+16/22 Test #16: spatial.surface_step .............   Passed    0.03 sec
+      Start 17: spatial.surface_budgets
+17/22 Test #17: spatial.surface_budgets ..........   Passed    0.02 sec
+      Start 18: spatial.sphere_sweep
+18/22 Test #18: spatial.sphere_sweep .............   Passed    0.03 sec
+      Start 19: spatial.locomotion_envelopes
+19/22 Test #19: spatial.locomotion_envelopes .....   Passed    0.03 sec
+      Start 20: spatial.locomotion_arrival
+20/22 Test #20: spatial.locomotion_arrival .......   Passed    0.03 sec
+      Start 21: spatial.locomotion_turn
+21/22 Test #21: spatial.locomotion_turn ..........   Passed    0.03 sec
+      Start 22: spatial.pair_paths
+22/22 Test #22: spatial.pair_paths ...............   Passed    0.02 sec
+
+95% tests passed, 1 tests failed out of 22
+
+Total Test time (real) =   1.57 sec
+
+The following tests FAILED:
+	  4 - traversal.step (Failed)
+Errors while running CTest

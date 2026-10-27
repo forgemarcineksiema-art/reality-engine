@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 64, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 57, in main
+    check(args.exe.resolve(), args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 29, in check
+    raise AssertionError("native app does not report observed navigation progress")
+AssertionError: native app does not report observed navigation progress

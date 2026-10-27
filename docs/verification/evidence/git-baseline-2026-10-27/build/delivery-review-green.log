@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 14: delivery.aliased_lots
+1/4 Test #14: delivery.aliased_lots ............   Passed    0.10 sec
+    Start 15: delivery.wall
+2/4 Test #15: delivery.wall ....................   Passed    0.03 sec
+    Start 16: delivery.wall_approach
+3/4 Test #16: delivery.wall_approach ...........   Passed    0.21 sec
+    Start 17: delivery.legacy_wall_need
+4/4 Test #17: delivery.legacy_wall_need ........   Passed    0.10 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =   0.57 sec

@@ -1,0 +1,42 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (1.6s)
+-- Generating done (1.3s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/msvc
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_demo.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_work_demo.exe
+  reality_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_work_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_headless.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_headless.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_adversarial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_adversarial_tests.exe
+  reality_motion_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_motion_tests.exe
+  traversal_tests.cpp
+  spatial_tests.cpp
+  reality_lab_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_tests.exe
+  reality_graphics.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_graphics.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab.exe
+  reality_traversal.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal.exe
+  reality_spatial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_spatial_tests.exe
+  reality_traversal_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt

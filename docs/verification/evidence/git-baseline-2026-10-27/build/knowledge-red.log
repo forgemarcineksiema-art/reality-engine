@@ -1,0 +1,28 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: knowledge.no_global
+1/4 Test #1: knowledge.no_global ..............***Failed    0.10 sec
+FAIL arrival did not record a local empty observation
+
+    Start 2: knowledge.witness
+2/4 Test #2: knowledge.witness ................***Failed    0.02 sec
+FAIL recipient still walks to the empty station despite nearby witness
+
+    Start 3: knowledge.delivery
+3/4 Test #3: knowledge.delivery ...............***Failed    0.04 sec
+FAIL delivery information did not wake resident before old retry
+
+    Start 4: knowledge.persistence
+4/4 Test #4: knowledge.persistence ............***Failed    0.02 sec
+FAIL knowledge was not versioned
+
+
+0% tests passed, 4 tests failed out of 4
+
+Total Test time (real) =   0.25 sec
+
+The following tests FAILED:
+	  1 - knowledge.no_global (Failed)
+	  2 - knowledge.witness (Failed)
+	  3 - knowledge.delivery (Failed)
+	  4 - knowledge.persistence (Failed)
+Errors while running CTest

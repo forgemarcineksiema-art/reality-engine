@@ -1,0 +1,162 @@
+[
+  {
+    "path": "src\\simulation\\work_world.hpp",
+    "sha256": "76D12FA4DF5DA451CEC77066DB5B92E0AC5A74FB5E3C9EB0C65AC2EC375E861B"
+  },
+  {
+    "path": "src\\simulation\\work_world.cpp",
+    "sha256": "D236EDC378A2D116D9D27C22D572A07D108191A3F71554BC1884AC8D18ECF2D3"
+  },
+  {
+    "path": "src\\headless\\work_demo.cpp",
+    "sha256": "84D6554724F1F00CF635C5FFFE34AE1457893F2D7F576F07E947CF775C9FE9CF"
+  },
+  {
+    "path": "src\\headless\\main.cpp",
+    "sha256": "EC5308F683057984413282D21B4EBCB3B7F6188196B3859485E51970879B7203"
+  },
+  {
+    "path": "src\\lab\\lab_session.hpp",
+    "sha256": "8E69353350AB19094ECACA43655DDA13092E373F0B703FB52B4AB7454B44AB3E"
+  },
+  {
+    "path": "src\\lab\\lab_session.cpp",
+    "sha256": "BCCF01BCC80021EC4DB03002A83232C376FB72BD6862BDF980012F8AE8A021D0"
+  },
+  {
+    "path": "src\\lab\\motion_session.cpp",
+    "sha256": "3DB1861FB91C5560D3C36B4769F7E06B721DF8F5CD3DE835BFA975E5EF7CE98A"
+  },
+  {
+    "path": "src\\graphics\\traversal_scene.cpp",
+    "sha256": "75FA4B1E84F3B57E97D250D7B260DDFCD8ECA6CBE9CF6E06D997AC669784A93A"
+  },
+  {
+    "path": "src\\graphics\\lab_scene.hpp",
+    "sha256": "63D9BC636F1451B699A29B3E65576222BF59B8E35DE4E983B8AB8254DCE76E81"
+  },
+  {
+    "path": "src\\graphics\\lab_scene.cpp",
+    "sha256": "D6FA19BB185644866EE973EB2FB4A0DD4E3C969118959B01958BAA7B9677962C"
+  },
+  {
+    "path": "src\\graphics\\d3d11_renderer.hpp",
+    "sha256": "6D12040FE98FDD1E2E5A356ED5F64415088C5FA99D705C13B53181A6E15B09C0"
+  },
+  {
+    "path": "src\\graphics\\d3d11_renderer.cpp",
+    "sha256": "BFC0DA9A3BCB7D913ADD56C693B12CFA7BF42D0C13883851F00EF947F460DE4E"
+  },
+  {
+    "path": "src\\lab\\motion_session.hpp",
+    "sha256": "27A243815E2DC69C3192293AD72B0109DB7D4424CEE766EE7456394E6E307BB8"
+  },
+  {
+    "path": "src\\physics\\kinematic.hpp",
+    "sha256": "3789C955953317E4D5D02D1B0B60E5CA3B0C9BE778BA7BF374CA2B927ED99E17"
+  },
+  {
+    "path": "src\\physics\\kinematic.cpp",
+    "sha256": "2E59A1A982730C1C7A71AE13DC345DA4A4812EF9FDE3BD4EC7F3A7ACC08E2E28"
+  },
+  {
+    "path": "src\\physics\\locomotion.cpp",
+    "sha256": "3FAF8E086EF39B1E42D7C2BC8BA367F8CE3A8332DF37E344E629DB0F3A53FBF3"
+  },
+  {
+    "path": "src\\lab\\traversal_session.hpp",
+    "sha256": "F26DFBC63DBB89E10157C30B9077C3886E9559C96B91C5B4396C3822CD6B1BF0"
+  },
+  {
+    "path": "src\\lab\\traversal_session.cpp",
+    "sha256": "42448538867DA53C94165BC71675A8CA093615933492212C19A096B3B353538A"
+  },
+  {
+    "path": "src\\lab\\traversal_course.cpp",
+    "sha256": "AB8C57D6050DDCEC4BD3BC7532642F8B45EA4BB35AB4E45EB7E8C88DE7FF6DEB"
+  },
+  {
+    "path": "src\\lab\\traversal_codec.cpp",
+    "sha256": "E5DC43C77EFA2E5505FEDF5744B6C8F32CE585B1E436991BB85B4F42E1B4FE82"
+  },
+  {
+    "path": "src\\physics\\platform_motion.cpp",
+    "sha256": "0A6A031FD56D5E9DA72670BF640604CB4016FC8A9028A27DE6B7753EC1CF83C3"
+  },
+  {
+    "path": "src\\physics\\locomotion.hpp",
+    "sha256": "C3BEF8BBCEC22EEC73F0249D7A0677A55908EC3CD9EADD8B308FFEF21B789960"
+  },
+  {
+    "path": "src\\core\\simulation_clock.hpp",
+    "sha256": "716612178B078902C6FAFF469C22BABB4CB3D4C8B1EE4152FC914962E5EE9945"
+  },
+  {
+    "path": "src\\physics\\platform_motion.hpp",
+    "sha256": "088AEF301C8CDD1CC9BD3D3FED14636BCC824C921000A5E2BF470EFB30C6EA33"
+  },
+  {
+    "path": "src\\core\\entity_registry.hpp",
+    "sha256": "6E97182FE992A3F08AA8BF903E90F321BEBCC3E165B155D77EFCE057AB776CD6"
+  },
+  {
+    "path": "src\\core\\simulation_clock.cpp",
+    "sha256": "EA6A901EA82673EA0EC566E87FD4D167F27A6D6DDF2075E60FF4DBE063072B1B"
+  },
+  {
+    "path": "src\\core\\entity_registry.cpp",
+    "sha256": "7B34FC68BA9B3E9C2DA4D76EB2D3BA9EF7B43B17E1AA89BE517A2D30074000AE"
+  },
+  {
+    "path": "src\\physics\\spatial_geometry.hpp",
+    "sha256": "707372625159BAE364A7322C0D0E1CA3110E0EDADBA74F54CC5A8EDBDE435F01"
+  },
+  {
+    "path": "src\\physics\\spatial_geometry.cpp",
+    "sha256": "6E2BD51A04B6F153B66BF7BC5A6C2E3ACF6EFD493A914C5F971C88C7FE0495BC"
+  },
+  {
+    "path": "src\\persistence\\world_snapshot.hpp",
+    "sha256": "623726B95AAEAA3338F911819C0ABF3602D76E1AE77F9F23D8AA03442C1494A0"
+  },
+  {
+    "path": "src\\platform\\traversal_main.cpp",
+    "sha256": "9DF6C1A91D4578BB574A3F7CD94D6700B5ECFAC2C553EF484E4B0F685E475F66"
+  },
+  {
+    "path": "src\\platform\\lab_main.cpp",
+    "sha256": "9ABE7A6B2EFB20FE5C5C66F66A3F5D7AD91B9056F4BD359F4B5C31FC32C44CE4"
+  },
+  {
+    "path": "src\\persistence\\world_snapshot.cpp",
+    "sha256": "42FE48456277339C7035955209E21C8A2520B3A313394C7AF5E2F5764FEA46A8"
+  },
+  {
+    "path": "src\\navigation\\surface_navigation.hpp",
+    "sha256": "B15704E100C6CB5A0E7C8A7AF736301B6049DAAE2236F60301E6F2BB86547AAC"
+  },
+  {
+    "path": "src\\navigation\\surface_navigation.cpp",
+    "sha256": "2B4F6FDD52FB61F25A15B48A2FE1D2A29725419118EE6F9FA163DA39DD80B20B"
+  },
+  {
+    "path": "src\\navigation\\grid_navigation.hpp",
+    "sha256": "51757FF032FE6CF8150596F5E182D3C58E86FF1F7152983304BDFE32062E1A0F"
+  },
+  {
+    "path": "src\\navigation\\grid_navigation.cpp",
+    "sha256": "CA4B35B7958B591AB18E7A1E15F88346F1985509BD494A8C36D90081D5735488"
+  },
+  {
+    "path": "tests/traversal_tests.cpp",
+    "sha256": "AB24AA84984C2D0E1787CB2C69AD9B09286289F2C57214A1D6AE45DBA0AF6C40"
+  },
+  {
+    "path": "tests/spatial_tests.cpp",
+    "sha256": "542D23DCE206DDC5974C11C3D9147D536B82DA014D4325D05376AE96C9D06E10"
+  },
+  {
+    "path": "CMakeLists.txt",
+    "sha256": "852B7E658773E3D655B34D401C5DBA72659A463D5794FBA8B9C2B907B4129AB0"
+  }
+]

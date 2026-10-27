@@ -1,0 +1,19 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/asan/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/asan/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (2.9s)
+-- Generating done (3.1s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/asan
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_session.cpp
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  delivery_tests.cpp
+  reality_delivery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\asan\RelWithDebInfo\reality_delivery_tests.exe

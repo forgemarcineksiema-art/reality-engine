@@ -1,0 +1,26 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=784x761
+capture=scene.png.before.png colored_pixels=162908
+scene_selection=1
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Rezerwacja: accepted
+feedback=Wykonano zmianę czynności.
+feedback=Wyznaczono cel; trasa korzysta z bieżącej geometrii.
+feedback=Zmieniono geometrię; trasy wymagają aktualizacji.
+feedback=Zapisano świat: m03-v1-inflight.save
+feedback=Wczytano świat. Symulacja zatrzymana.
+continuation_checksum=17725397838265440714
+resize=624x721
+minimized=1 tick=370
+restored=1 tick=370
+capture=scene.png colored_pixels=143764
+geometry=2 main=1 detour=0
+actor=1 x=7.00 z=0.00 arrived waypoint=25/25 plans=2
+actor=2 x=-7.00 z=-4.00 idle waypoint=0/0 plans=0
+MOTION SMOKE PASS
+normal_shutdown=1

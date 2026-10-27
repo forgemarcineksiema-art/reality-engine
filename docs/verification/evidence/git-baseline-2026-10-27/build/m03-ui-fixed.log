@@ -1,0 +1,12 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=784x761
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Zmieniono geometrię; trasy wymagają aktualizacji.
+feedback=Wyznaczono cel; trasa korzysta z bieżącej geometrii.
+feedback=Zmieniono geometrię; trasy wymagają aktualizacji.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wczytano świat. Symulacja zatrzymana.
+normal_shutdown=1

@@ -1,0 +1,83 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=0
+resize=844x781
+measure_seconds=1
+warmup_seconds=0
+measurement_initial_checksum=13790011447747426552
+navigation_observations=8
+navigation_actor=1 observed_tick=15 activity=inactive last_progress_tick=0 distance_m=0.0000
+navigation_actor=2 observed_tick=15 activity=travelling last_progress_tick=15 distance_m=0.4080
+navigation_actor=3 observed_tick=15 activity=travelling last_progress_tick=15 distance_m=3.3083
+navigation_actor=4 observed_tick=15 activity=travelling last_progress_tick=15 distance_m=1.5790
+navigation_actor=5 observed_tick=15 activity=travelling last_progress_tick=9 distance_m=2.4061
+navigation_actor=6 observed_tick=15 activity=travelling last_progress_tick=15 distance_m=4.1122
+navigation_actor=7 observed_tick=15 activity=travelling last_progress_tick=15 distance_m=0.7269
+navigation_actor=8 observed_tick=15 activity=travelling last_progress_tick=15 distance_m=1.5025
+frame_samples=5
+frame_min_ms=145.8307
+frame_p50_ms=194.7867
+frame_p95_ms=302.7224
+frame_p99_ms=302.7224
+frame_max_ms=302.7224
+frame_mean_ms=204.2050
+simulation_samples=5
+simulation_min_ms=0.0011
+simulation_p50_ms=85.3854
+simulation_p95_ms=245.2633
+simulation_p99_ms=245.2633
+simulation_max_ms=245.2633
+simulation_mean_ms=105.9061
+backlog_samples=5
+backlog_min_ms=0.0000
+backlog_p50_ms=28.1938
+backlog_p95_ms=47.9269
+backlog_p99_ms=47.9269
+backlog_max_ms=47.9269
+backlog_mean_ms=26.7182
+measurement_finished=1
+measurement_interventions=0
+measurement_minimizations=0
+measurement_resizes=0
+occluded_frames=0
+simulation_errors=0
+measured_ticks=15
+measured_wall_ms=1021.03
+viewport=844x781
+working_set_first_bytes=50896896
+working_set_last_bytes=50896896
+working_set_peak_sampled_bytes=50896896
+private_peak_sampled_bytes=94605312
+tick=15 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=15 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+actor=2 surface=1 feet=-7.473,0.000,3.197 speed=2.004 accel=-2.614 yaw=0.727 state=1 auto=1 task=3 hunger=60 energy=987 plans=1 leg=0/7 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+  route=found retry_at=0
+actor=3 surface=1 feet=-6.260,0.000,-1.107 speed=2.603 accel=2.092 yaw=-0.303 state=1 auto=1 task=3 hunger=105 energy=987 plans=1 leg=0/8 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.140,-0.624 reach=0.900
+  route=found retry_at=0
+actor=4 surface=1 feet=-5.789,0.000,1.541 speed=2.580 accel=1.918 yaw=-1.467 state=1 auto=1 task=3 hunger=150 energy=987 plans=1 leg=0/8 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.140,0.624 reach=0.900
+  route=found retry_at=0
+actor=5 surface=2 feet=7.919,0.000,-0.025 speed=0.710 accel=4.000 yaw=-2.333 state=1 auto=1 task=3 hunger=195 energy=994 plans=2 leg=0/14 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.860,-0.624 reach=0.900
+  route=found retry_at=45
+actor=6 surface=2 feet=7.692,0.000,2.453 speed=1.616 accel=4.000 yaw=-2.096 state=1 auto=1 task=3 hunger=240 energy=993 plans=2 leg=0/14 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=1.220,0.000 reach=0.900
+  route=found retry_at=45
+actor=7 surface=2 feet=6.216,0.000,-1.903 speed=2.439 accel=-0.203 yaw=0.254 state=1 auto=1 task=1 hunger=285 energy=987 plans=1 leg=0/2 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=2 local=1.640,0.876 reach=0.900
+  route=found retry_at=0
+actor=8 surface=2 feet=7.147,0.000,-0.881 speed=2.589 accel=1.384 yaw=0.159 state=1 auto=1 task=1 hunger=330 energy=987 plans=1 leg=0/2 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=2 local=2.360,0.876 reach=0.900
+  route=found retry_at=0
+platform=7 phase=15 dock=0 blocked=0
+platform=8 phase=15 dock=0 blocked=0
+station=9 kind=1 stock=80 completed=0 wear=500
+station=10 kind=1 stock=80 completed=0 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=0 wear=500
+station=12 kind=3 stock=80 completed=0 wear=515
+passage=1 surface=3 owner=0 queue=0
+service=1 owner=0 queue=0
+normal_shutdown=1

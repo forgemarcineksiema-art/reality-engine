@@ -1,0 +1,22 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "CF6D5341DE7973290994F7B54049F1A3E9CEEF1EC434AF52FCDF9DD42D923852",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\tests\\traversal_audit_tests.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "415F3573F1CF4DA4B5D76C08012FAFE10009AB5C8C8BFCD73FF49B6A586CEA67",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\Debug\\reality_traversal_audit_tests.exe"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "E6EC552398BA8226385B0D2FE761EA127F566517FC005E99CE2472B9684EBB92",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\RelWithDebInfo\\reality_traversal_audit_tests.exe"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "609DE8CBDFD1B29750D48073C1141372FB697C664B9DF4DE4E602328591F1AF2",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\build\\asan\\RelWithDebInfo\\reality_traversal_audit_tests.exe"
+  }
+]

@@ -1,0 +1,10 @@
+tick=100 actors=4
+actor=1 surface=1 feet=-0.282,0.000,-0.305 speed=0.000 accel=0.000 yaw=-0.013 state=4 auto=0 task=0 hunger=100 energy=976 plans=3 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=0.000,-1.550 reach=0.000
+  route=no_path retry_at=120
+actor=2 surface=2 feet=0.700,0.200,0.000 speed=0.000 accel=0.000 yaw=0.000 state=4 auto=1 task=0 hunger=100 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+actor=3 surface=1 feet=-0.334,0.000,3.145 speed=0.000 accel=0.000 yaw=-0.693 state=4 auto=0 task=0 hunger=100 energy=980 plans=3 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=0.000,1.550 reach=0.000
+  route=no_path retry_at=120
+actor=4 surface=2 feet=0.700,0.200,3.100 speed=0.000 accel=0.000 yaw=0.000 state=4 auto=1 task=0 hunger=100 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+FAIL parallel Step fixture did not start

@@ -1,0 +1,9 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: clearance.step_blockade
+1/2 Test #1: clearance.step_blockade ..........   Passed    0.07 sec
+    Start 2: clearance.controlled
+2/2 Test #2: clearance.controlled .............   Passed    0.03 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =   0.20 sec

@@ -1,0 +1,42 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: needs.interruption
+1/3 Test #1: needs.interruption ...............***Failed    0.27 sec
+tick=780 actors=1
+actor=1 surface=1 feet=95.221,0.000,0.001 speed=3.000 accel=0.000 yaw=1.571 state=1 auto=1 task=3 hunger=780 energy=224 plans=1 leg=0/1 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=1 local=99.280,0.000 reach=0.900
+  route=found retry_at=0
+station=2 kind=3 stock=80 completed=0 wear=1000
+station=3 kind=1 stock=80 completed=0 wear=500
+station=4 kind=2 capacity=1 occupied=0 available=1 completed=0 wear=500
+FAIL critical hunger did not interrupt travelling to nonurgent maintenance
+
+    Start 2: needs.exhaustion
+2/3 Test #2: needs.exhaustion .................***Failed    0.11 sec
+FAIL critical exhaustion did not interrupt nonurgent maintenance
+
+    Start 9: traversal.native_diagnostics
+3/3 Test #9: traversal.native_diagnostics .....***Failed    0.79 sec
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 79, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 75, in main
+    check(args.exe.resolve(), pathlib.Path(directory))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 26, in check
+    run(["--report", str(report), "--save", str(save), "--capture", str(output / "native.png")])
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 24, in run
+    raise AssertionError(f"native process failed: {result.returncode}; {arguments}")
+AssertionError: native process failed: 1; ['--report', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-diagnostics-wdfgrs55\\native.log', '--save', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-diagnostics-wdfgrs55\\ordinary.save', '--capture', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-diagnostics-wdfgrs55\\native.png']
+
+
+0% tests passed, 3 tests failed out of 3
+
+Total Test time (real) =   1.25 sec
+
+The following tests FAILED:
+	  1 - needs.interruption (Failed)
+	  2 - needs.exhaustion (Failed)
+	  9 - traversal.native_diagnostics (Failed)
+Errors while running CTest

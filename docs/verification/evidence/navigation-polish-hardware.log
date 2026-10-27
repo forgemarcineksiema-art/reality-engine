@@ -1,0 +1,88 @@
+UpdateCTestConfiguration  from :C:/Users/Marcin/Documents/new/DartConfiguration.tcl
+Test project C:/Users/Marcin/Documents/new/build/msvc
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 20
+    Start 20: motion.hardware_gpu_continuation
+
+20: Test command: C:\Users\Marcin\AppData\Local\Programs\Python\Python313\python.exe "C:/Users/Marcin/Documents/new/tests/motion_gpu_integration.py" "C:/Users/Marcin/Documents/new/build/msvc/Debug/reality_lab.exe" "C:/Users/Marcin/Documents/new/tests/data/m03-v1-inflight.save"
+20: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+20: Environment variables: 
+20:  ASAN_OPTIONS=halt_on_error=1
+20:  ASAN_VCASAN_DEBUGGING=0
+20: Test timeout computed to be: 20
+20: adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+20: adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+20: adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+20: selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+20: resize=784x761
+20: capture=motion.png.before.png colored_pixels=162908
+20: scene_selection=1
+20: feedback=Wykonano 20 kroków: +1 sekunda świata.
+20: feedback=Wykonano 20 kroków: +1 sekunda świata.
+20: feedback=Wykonano 20 kroków: +1 sekunda świata.
+20: feedback=Rezerwacja: accepted
+20: feedback=Wykonano zmianę czynności.
+20: feedback=Cel: Ruch do celu.
+20: feedback=Zmieniono geometrię; trasy wymagają aktualizacji.
+20: feedback=Zapisano świat: podróż.save
+20: feedback=Wczytano świat. Symulacja zatrzymana.
+20: continuation_checksum=8654590736095958524
+20: resize=624x721
+20: minimized=1 tick=370
+20: restored=1 tick=370
+20: capture=motion.png colored_pixels=143764
+20: geometry=2 main=1 detour=0
+20: actor=1 x=7.00 z=0.00 arrived waypoint=4/4 plans=2
+20: actor=2 x=-7.00 z=-4.00 idle waypoint=0/0 plans=0
+20: MOTION SMOKE PASS
+20: normal_shutdown=1
+20: 
+20: adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+20: adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+20: adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+20: selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+20: resize=784x761
+20: capture=resume.png.before.png colored_pixels=162908
+20: continuation_checksum=8654590736095958524
+20: resize=624x721
+20: minimized=1 tick=370
+20: restored=1 tick=370
+20: capture=resume.png colored_pixels=143764
+20: geometry=2 main=1 detour=0
+20: actor=1 x=7.00 z=0.00 arrived waypoint=4/4 plans=2
+20: actor=2 x=-7.00 z=-4.00 idle waypoint=0/0 plans=0
+20: MOTION SMOKE PASS
+20: normal_shutdown=1
+20: 
+20: adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+20: adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+20: adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+20: selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+20: resize=784x761
+20: capture=legacy.png.before.png colored_pixels=162908
+20: continuation_checksum=2521746865868298419
+20: resize=624x721
+20: minimized=1 tick=370
+20: restored=1 tick=370
+20: capture=legacy.png colored_pixels=143764
+20: geometry=2 main=1 detour=0
+20: actor=1 x=7.00 z=0.00 arrived waypoint=4/4 plans=2
+20: actor=2 x=-7.00 z=-4.00 idle waypoint=0/0 plans=0
+20: MOTION SMOKE PASS
+20: normal_shutdown=1
+20: 
+20: PASS hardware motion, native keys/picking/focus, resize, fresh-process travel and work
+20: PASS pre-polish version-1 in-flight snapshot, identities, clock and completed work
+1/1 Test #20: motion.hardware_gpu_continuation ...   Passed    3.72 sec
+
+The following tests passed:
+	motion.hardware_gpu_continuation
+
+100% tests passed out of 1
+
+Total Test time (real) =   3.74 sec

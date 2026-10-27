@@ -1,0 +1,63 @@
+UpdateCTestConfiguration  from :C:/Users/Marcin/Documents/new/DartConfiguration.tcl
+Test project C:/Users/Marcin/Documents/new/build/msvc
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 14
+    Start 14: motion.direct_goal
+
+14: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_motion_tests.exe "--case" "direct_goal"
+14: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+14: Environment variables: 
+14:  ASAN_OPTIONS=halt_on_error=1
+14:  ASAN_VCASAN_DEBUGGING=0
+14: Test timeout computed to be: 20
+14: open_route_points=1 length_m=14
+14: PASS direct_goal
+1/4 Test #14: motion.direct_goal ...............   Passed    0.02 sec
+test 15
+    Start 15: motion.retarget
+
+15: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_motion_tests.exe "--case" "retarget"
+15: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+15: Environment variables: 
+15:  ASAN_OPTIONS=halt_on_error=1
+15:  ASAN_VCASAN_DEBUGGING=0
+15: Test timeout computed to be: 20
+15: PASS retarget
+2/4 Test #15: motion.retarget ..................   Passed    0.03 sec
+test 16
+    Start 16: motion.replan_forward
+
+16: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_motion_tests.exe "--case" "replan_forward"
+16: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+16: Environment variables: 
+16:  ASAN_OPTIONS=halt_on_error=1
+16:  ASAN_VCASAN_DEBUGGING=0
+16: Test timeout computed to be: 20
+16: PASS replan_forward
+3/4 Test #16: motion.replan_forward ............   Passed    0.02 sec
+test 17
+    Start 17: motion.arrival_stability
+
+17: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_motion_tests.exe "--case" "arrival_stability"
+17: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+17: Environment variables: 
+17:  ASAN_OPTIONS=halt_on_error=1
+17:  ASAN_VCASAN_DEBUGGING=0
+17: Test timeout computed to be: 20
+17: PASS arrival_stability
+4/4 Test #17: motion.arrival_stability .........   Passed    0.02 sec
+
+The following tests passed:
+	motion.direct_goal
+	motion.retarget
+	motion.replan_forward
+	motion.arrival_stability
+
+100% tests passed out of 4
+
+Total Test time (real) =   0.12 sec

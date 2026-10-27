@@ -1,0 +1,121 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=844x781
+inspector_records=pass
+inspector_scroll=pass
+clearance_request_actor=1 response=none
+clearance_shortcut=pass
+continuation_checksum=1175575370932982071
+diagnostic_capture=build/clearance-v3-native-captures\case-160960296-1 reason=manual_F6
+capture=clearance-v3-native.png colored_pixels=126496
+resize=694x721
+tick=6979 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=1000 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+actor=2 surface=4 feet=-5.839,0.456,3.489 speed=0.000 accel=0.000 yaw=2.600 state=4 auto=1 task=0 hunger=1000 energy=593 plans=53 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+actor=3 surface=4 feet=-7.045,0.000,2.650 speed=0.000 accel=0.000 yaw=0.356 state=4 auto=1 task=1 hunger=901 energy=661 plans=30 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+  goal_surface=1 local=-1.280,1.300 reach=0.900
+  route=no_path retry_at=6981
+actor=4 surface=1 feet=-8.362,0.000,1.927 speed=0.000 accel=0.000 yaw=3.008 state=4 auto=1 task=0 hunger=155 energy=657 plans=33 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+actor=5 surface=1 feet=-4.059,0.000,-2.405 speed=1.945 accel=0.026 yaw=-1.355 state=1 auto=1 task=2 hunger=237 energy=0 plans=19 leg=5/6 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=1 local=-1.280,-1.700 reach=0.900
+  route=found retry_at=6797
+actor=6 surface=4 feet=-6.415,0.236,3.326 speed=0.891 accel=0.888 yaw=-3.010 state=3 auto=1 task=3 hunger=281 energy=871 plans=39 leg=0/7 transfer=0 action=0 blocked=1 step_point=0 need_retry_at=0 finish_grace_until=0
+  clearance_to=2 response=completed at=6938 retry_at=6978
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+  route=found retry_at=7012
+actor=7 surface=4 feet=-6.851,0.076,3.892 speed=1.006 accel=1.111 yaw=2.990 state=1 auto=1 task=1 hunger=1000 energy=0 plans=30 leg=0/11 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=1.280,1.500 reach=0.900
+  route=found retry_at=7001
+actor=8 surface=7 feet=4.000,1.500,3.500 speed=0.000 accel=0.000 yaw=-1.571 state=3 auto=1 task=1 hunger=1000 energy=0 plans=14 leg=1/14 transfer=3 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=2.624,1.860 reach=0.900
+  route=found retry_at=6159
+platform=7 phase=281 dock=-1 blocked=0
+platform=8 phase=179 dock=-1 blocked=0
+station=9 kind=1 stock=75 completed=5 wear=500
+station=10 kind=1 stock=73 completed=7 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=4 wear=500
+station=12 kind=3 stock=73 completed=7 wear=1000
+passage=1 surface=3 owner=0 queue=0
+service=1 owner=8 queue=1
+minimized_restored_tick=6979
+TRAVERSAL SMOKE PASS
+navigation_observations=8
+navigation_actor=1 observed_tick=6979 activity=inactive last_progress_tick=6979 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=6979 activity=no_path last_progress_tick=6979 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=3 observed_tick=6979 activity=no_path last_progress_tick=6979 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=4 observed_tick=6979 activity=no_path last_progress_tick=6979 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=5 observed_tick=6979 activity=travelling last_progress_tick=6979 distance_m=3.2975 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=6 observed_tick=6979 activity=travelling last_progress_tick=6979 distance_m=0.3876 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=7 observed_tick=6979 activity=travelling last_progress_tick=6979 distance_m=0.3957 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=8 observed_tick=6979 activity=riding last_progress_tick=6979 distance_m=0.0000 stagnant_ticks=0 resource=1 transport=1 blocker=0 queue_position=0 resource_progress=281 externally_blocked=0
+frame_samples=2
+frame_min_ms=2.8281
+frame_p50_ms=2.8281
+frame_p95_ms=22.3294
+frame_p99_ms=22.3294
+frame_max_ms=22.3294
+frame_mean_ms=12.5787
+simulation_samples=2
+simulation_min_ms=0.0001
+simulation_p50_ms=0.0001
+simulation_p95_ms=0.0001
+simulation_p99_ms=0.0001
+simulation_max_ms=0.0001
+simulation_mean_ms=0.0001
+backlog_samples=2
+backlog_min_ms=0.0000
+backlog_p50_ms=0.0000
+backlog_p95_ms=0.0000
+backlog_p99_ms=0.0000
+backlog_max_ms=0.0000
+backlog_mean_ms=0.0000
+measurement_finished=0
+measurement_interventions=0
+measurement_minimizations=0
+measurement_resizes=0
+occluded_frames=0
+simulation_errors=0
+measured_ticks=0
+measured_wall_ms=25.1575
+viewport=694x721
+working_set_first_bytes=50962432
+working_set_last_bytes=50962432
+working_set_peak_sampled_bytes=50962432
+private_peak_sampled_bytes=92651520
+tick=6979 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=1000 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+actor=2 surface=4 feet=-5.839,0.456,3.489 speed=0.000 accel=0.000 yaw=2.600 state=4 auto=1 task=0 hunger=1000 energy=593 plans=53 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+actor=3 surface=4 feet=-7.045,0.000,2.650 speed=0.000 accel=0.000 yaw=0.356 state=4 auto=1 task=1 hunger=901 energy=661 plans=30 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+  goal_surface=1 local=-1.280,1.300 reach=0.900
+  route=no_path retry_at=6981
+actor=4 surface=1 feet=-8.362,0.000,1.927 speed=0.000 accel=0.000 yaw=3.008 state=4 auto=1 task=0 hunger=155 energy=657 plans=33 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  suspended_task=3 station=3
+actor=5 surface=1 feet=-4.059,0.000,-2.405 speed=1.945 accel=0.026 yaw=-1.355 state=1 auto=1 task=2 hunger=237 energy=0 plans=19 leg=5/6 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=1 local=-1.280,-1.700 reach=0.900
+  route=found retry_at=6797
+actor=6 surface=4 feet=-6.415,0.236,3.326 speed=0.891 accel=0.888 yaw=-3.010 state=3 auto=1 task=3 hunger=281 energy=871 plans=39 leg=0/7 transfer=0 action=0 blocked=1 step_point=0 need_retry_at=0 finish_grace_until=0
+  clearance_to=2 response=completed at=6938 retry_at=6978
+  goal_surface=6 local=-0.220,0.000 reach=0.900
+  route=found retry_at=7012
+actor=7 surface=4 feet=-6.851,0.076,3.892 speed=1.006 accel=1.111 yaw=2.990 state=1 auto=1 task=1 hunger=1000 energy=0 plans=30 leg=0/11 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=1.280,1.500 reach=0.900
+  route=found retry_at=7001
+actor=8 surface=7 feet=4.000,1.500,3.500 speed=0.000 accel=0.000 yaw=-1.571 state=3 auto=1 task=1 hunger=1000 energy=0 plans=14 leg=1/14 transfer=3 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  goal_surface=2 local=2.624,1.860 reach=0.900
+  route=found retry_at=6159
+platform=7 phase=281 dock=-1 blocked=0
+platform=8 phase=179 dock=-1 blocked=0
+station=9 kind=1 stock=75 completed=5 wear=500
+station=10 kind=1 stock=73 completed=7 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=4 wear=500
+station=12 kind=3 stock=73 completed=7 wear=1000
+passage=1 surface=3 owner=0 queue=0
+service=1 owner=8 queue=1
+normal_shutdown=1

@@ -1,0 +1,15 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 17: traversal.wall_neighbour_recovery
+1/2 Test #17: traversal.wall_neighbour_recovery ...   Passed    2.95 sec
+    Start 18: traversal.blocked_route_settling
+2/2 Test #18: traversal.blocked_route_settling ....***Failed    0.24 sec
+FAIL fully blocked route keeps shuffling instead of settling
+
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =   3.32 sec
+
+The following tests FAILED:
+	 18 - traversal.blocked_route_settling (Failed)
+Errors while running CTest

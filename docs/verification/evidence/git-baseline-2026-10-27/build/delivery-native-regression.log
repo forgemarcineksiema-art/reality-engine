@@ -1,0 +1,12 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 63: traversal.native_diagnostics
+1/1 Test #63: traversal.native_diagnostics .....***Timeout  20.24 sec
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =  20.35 sec
+
+The following tests FAILED:
+	 63 - traversal.native_diagnostics (Timeout)
+Errors while running CTest

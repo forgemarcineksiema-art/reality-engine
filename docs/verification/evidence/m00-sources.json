@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "date": "2026-10-25",
+  "milestone": "M00",
+  "files": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "391c04cadc11c76247fceb006e476d75b0bdbd43b75e9f426b54a64f0636b41e"
+    },
+    {
+      "path": "CMakePresets.json",
+      "sha256": "3a4446992afc196d994525e4db71eb46f3ad973558fb3594f7234d29bc05ff53"
+    },
+    {
+      "path": ".clang-format",
+      "sha256": "281a2c66a5cc300ec0d50a69fccd4c24bd3f63e59160d790ee8b814c45f5e34c"
+    },
+    {
+      "path": "src/core/simulation_clock.hpp",
+      "sha256": "716612178b078902c6faff469c22babb4cb3d4c8b1ee4152fc914962e5ee9945"
+    },
+    {
+      "path": "src/core/simulation_clock.cpp",
+      "sha256": "ea6a901ea82673ea0ec566e87fd4d167f27a6d6ddf2075e60ff4dbe063072b1b"
+    },
+    {
+      "path": "src/headless/main.cpp",
+      "sha256": "ec5308f683057984413282d21b4ebcb3b7f6188196b3859485e51970879b7203"
+    },
+    {
+      "path": "tests/clock_tests.cpp",
+      "sha256": "d6e94874bd9d2674c65d049997b5cf9df48cd995a32dca17c83a51a5e4af06f3"
+    },
+    {
+      "path": "tests/diagnostics/asan_probe.cpp",
+      "sha256": "ce2490b6cf65df6e8e9c31dce142453774c6a3529e08009d39dbd4fd69ab8887"
+    },
+    {
+      "path": "tools/expect_process.py",
+      "sha256": "96f52b68e49e174a4e05323b595c18a37ce3f449f8c1fa598a71b6edc9f18fe7"
+    },
+    {
+      "path": "tools/tests/test_expect_process.py",
+      "sha256": "fc3a0af60c0b7e74bdc06203ad5ab19126db5e389fa971f261f8850bf05e8787"
+    },
+    {
+      "path": "tools/check_docs.py",
+      "sha256": "3edaeff7b287ab8360c995fe9d882b17bd755240c688f38cbd07e55c5df28385"
+    },
+    {
+      "path": "tools/tests/test_check_docs.py",
+      "sha256": "7c74005aa04573c0afaa961b9d03e5e05705270610cd0466ea4267d06141cbbe"
+    }
+  ]
+}

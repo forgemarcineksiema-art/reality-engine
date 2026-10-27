@@ -1,0 +1,15 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start  1: traversal.narrow_bridge_opposite
+1/5 Test  #1: traversal.narrow_bridge_opposite ...   Passed    3.27 sec
+    Start  2: traversal.ferry_exchange
+2/5 Test  #2: traversal.ferry_exchange ...........   Passed    1.19 sec
+    Start  7: traversal.crowd_passing
+3/5 Test  #7: traversal.crowd_passing ............   Passed    0.49 sec
+    Start 10: traversal.long_course
+4/5 Test #10: traversal.long_course ..............   Passed    6.25 sec
+    Start 15: traversal.support_contract
+5/5 Test #15: traversal.support_contract .........   Passed    0.54 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =  11.84 sec

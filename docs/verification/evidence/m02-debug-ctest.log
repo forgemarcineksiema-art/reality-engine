@@ -1,0 +1,115 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: lab.model_and_presentation
+ 1/45 Test  #1: lab.model_and_presentation .............   Passed    0.06 sec
+      Start  2: lab.hardware_gpu_integration
+ 2/45 Test  #2: lab.hardware_gpu_integration ...........***Failed    0.99 sec
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+ERROR: D3D11CreateDevice HRESULT=0x887a002d
+
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tests\lab_gpu_integration.py", line 45, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tests\lab_gpu_integration.py", line 28, in main
+    require(result.returncode == 0, f"native GPU test exited {result.returncode}: {result.stderr}")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tests\lab_gpu_integration.py", line 12, in require
+    raise AssertionError(message)
+AssertionError: native GPU test exited 1: 
+
+      Start  3: lab.hardware_gpu_standard
+ 3/45 Test  #3: lab.hardware_gpu_standard ..............   Passed    1.57 sec
+      Start  4: work.stale_handle
+ 4/45 Test  #4: work.stale_handle ......................   Passed    0.08 sec
+      Start  5: work.registry_exhaustion
+ 5/45 Test  #5: work.registry_exhaustion ...............   Passed    0.02 sec
+      Start  6: work.registry_validation
+ 6/45 Test  #6: work.registry_validation ...............   Passed    0.02 sec
+      Start  7: work.reservation_contention
+ 7/45 Test  #7: work.reservation_contention ............   Passed    0.02 sec
+      Start  8: work.command_retries
+ 8/45 Test  #8: work.command_retries ...................   Passed    0.03 sec
+      Start  9: work.cancel_before_start
+ 9/45 Test  #9: work.cancel_before_start ...............   Passed    0.03 sec
+      Start 10: work.partial_cancellation
+10/45 Test #10: work.partial_cancellation ..............   Passed    0.02 sec
+      Start 11: work.completion_once
+11/45 Test #11: work.completion_once ...................   Passed    0.02 sec
+      Start 12: work.participant_removal
+12/45 Test #12: work.participant_removal ...............   Passed    0.02 sec
+      Start 13: work.invalid_requests
+13/45 Test #13: work.invalid_requests ..................   Passed    0.02 sec
+      Start 14: work.time_overflow
+14/45 Test #14: work.time_overflow .....................   Passed    0.03 sec
+      Start 15: work.snapshot_continuation
+15/45 Test #15: work.snapshot_continuation .............   Passed    0.03 sec
+      Start 16: work.snapshot_history
+16/45 Test #16: work.snapshot_history ..................   Passed    0.03 sec
+      Start 17: work.snapshot_rejection
+17/45 Test #17: work.snapshot_rejection ................   Passed    0.03 sec
+      Start 18: work.snapshot_semantics
+18/45 Test #18: work.snapshot_semantics ................   Passed    0.03 sec
+      Start 19: work.snapshot_journal
+19/45 Test #19: work.snapshot_journal ..................   Passed    0.03 sec
+      Start 20: work.save_replacement
+20/45 Test #20: work.save_replacement ..................   Passed    0.10 sec
+      Start 21: work.record_limit
+21/45 Test #21: work.record_limit ......................   Passed    0.56 sec
+      Start 22: work.event_capacity
+22/45 Test #22: work.event_capacity ....................   Passed    2.69 sec
+      Start 23: work.batch_ordering
+23/45 Test #23: work.batch_ordering ....................   Passed    0.02 sec
+      Start 24: work.operation_sequence
+24/45 Test #24: work.operation_sequence ................   Passed    2.38 sec
+      Start 25: work.fresh_process_continuation
+25/45 Test #25: work.fresh_process_continuation ........   Passed    0.54 sec
+      Start 26: clock.initial_state
+26/45 Test #26: clock.initial_state ....................   Passed    0.05 sec
+      Start 27: clock.reject_zero_step
+27/45 Test #27: clock.reject_zero_step .................   Passed    0.02 sec
+      Start 28: clock.reject_negative_step
+28/45 Test #28: clock.reject_negative_step .............   Passed    0.02 sec
+      Start 29: clock.exact_elapsed_time
+29/45 Test #29: clock.exact_elapsed_time ...............   Passed    0.02 sec
+      Start 30: clock.batch_equivalence
+30/45 Test #30: clock.batch_equivalence ................   Passed    0.02 sec
+      Start 31: clock.zero_batch
+31/45 Test #31: clock.zero_batch .......................   Passed    0.02 sec
+      Start 32: clock.overflow_preserves_state
+32/45 Test #32: clock.overflow_preserves_state .........   Passed    0.02 sec
+      Start 33: clock.reject_large_batch
+33/45 Test #33: clock.reject_large_batch ...............   Passed    0.02 sec
+      Start 34: work_runner.rejects_failed_assertion
+34/45 Test #34: work_runner.rejects_failed_assertion ...   Passed    0.30 sec
+      Start 35: work_runner.rejects_unknown_case
+35/45 Test #35: work_runner.rejects_unknown_case .......   Passed    0.30 sec
+      Start 36: runner.rejects_failed_assertion
+36/45 Test #36: runner.rejects_failed_assertion ........   Passed    0.22 sec
+      Start 37: runner.rejects_unknown_case
+37/45 Test #37: runner.rejects_unknown_case ............   Passed    0.20 sec
+      Start 38: runner.rejects_empty_suite
+38/45 Test #38: runner.rejects_empty_suite .............   Passed    0.33 sec
+      Start 39: headless.default
+39/45 Test #39: headless.default .......................   Passed    0.34 sec
+      Start 40: headless.zero_steps
+40/45 Test #40: headless.zero_steps ....................   Passed    0.20 sec
+      Start 41: headless.rejects_zero_step
+41/45 Test #41: headless.rejects_zero_step .............   Passed    0.20 sec
+      Start 42: headless.rejects_malformed_steps
+42/45 Test #42: headless.rejects_malformed_steps .......   Passed    0.26 sec
+      Start 43: headless.rejects_overflow
+43/45 Test #43: headless.rejects_overflow ..............   Passed    0.28 sec
+      Start 44: documentation.registry
+44/45 Test #44: documentation.registry .................   Passed    1.00 sec
+      Start 45: tooling.tests
+45/45 Test #45: tooling.tests ..........................   Passed    5.88 sec
+
+98% tests passed, 1 tests failed out of 45
+
+Total Test time (real) =  19.33 sec
+
+The following tests FAILED:
+	  2 - lab.hardware_gpu_integration (Failed)
+Errors while running CTest

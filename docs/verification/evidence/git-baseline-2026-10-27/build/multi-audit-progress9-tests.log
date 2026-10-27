@@ -1,0 +1,15 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start  2: traversal.ferry_exchange
+1/5 Test  #2: traversal.ferry_exchange .........   Passed    1.45 sec
+    Start  6: traversal.rotating_support
+2/5 Test  #6: traversal.rotating_support .......   Passed    0.56 sec
+    Start 10: traversal.long_course
+3/5 Test #10: traversal.long_course ............   Passed    9.51 sec
+    Start 13: traversal.moving_passengers
+4/5 Test #13: traversal.moving_passengers ......   Passed    0.21 sec
+    Start 16: traversal.moving_contact
+5/5 Test #16: traversal.moving_contact .........   Passed    0.03 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =  11.84 sec

@@ -1,0 +1,29 @@
+UpdateCTestConfiguration  from :C:/Users/Marcin/Documents/new/DartConfiguration.tcl
+Test project C:/Users/Marcin/Documents/new/build/msvc
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 13
+    Start 13: adversarial.contact_rounding
+
+13: Test command: C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_adversarial_tests.exe "--case" "contact_rounding"
+13: Working Directory: C:/Users/Marcin/Documents/new/build/msvc
+13: Environment variables: 
+13:  ASAN_OPTIONS=halt_on_error=1
+13:  ASAN_VCASAN_DEBUGGING=0
+13: Test timeout computed to be: 20
+13: FAIL rounding penetrated contact, seed 0x636f6e74 operation 0
+1/1 Test #13: adversarial.contact_rounding .....***Failed    0.08 sec
+FAIL rounding penetrated contact, seed 0x636f6e74 operation 0
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.21 sec
+
+The following tests FAILED:
+	 13 - adversarial.contact_rounding (Failed)
+Errors while running CTest

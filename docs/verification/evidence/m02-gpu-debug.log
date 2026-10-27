@@ -1,0 +1,41 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=784x681
+scene_selection=1
+capture=m02-gpu-debug-scene.png.before.png colored_pixels=190473
+feedback=Rezerwacja: accepted
+feedback=Rezerwacja: insufficient_resource
+feedback=Wykonano zmianę czynności.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Zapisano świat: m02-gpu-debug-proof.save
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wczytano świat. Symulacja zatrzymana.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Wykonano 20 kroków: +1 sekunda świata.
+feedback=Czynność ma już ten stan; bez nowego skutku.
+feedback=Zapisano świat: m02-gpu-debug-proof.save
+resize=624x611
+minimized=1 tick=100
+restored=1 tick=100
+capture=m02-gpu-debug-scene.png colored_pixels=151898
+FINAL tick=100 elapsed_ns=5000000000
+actor=1 alive=1
+actor=2 alive=1
+lot=3 owner=1 quantity=0 reserved=0 available=0 active=1
+action=4 actor=1 lot=3 state=completed consumed=3 due=100 reason=none
+command=1 result=accepted action=4
+command=2 result=insufficient_resource action=0
+event=1 tick=0 kind=actor_created subject=1 quantity=0
+event=2 tick=0 kind=actor_created subject=2 quantity=0
+event=3 tick=0 kind=resource_created subject=3 quantity=3
+event=4 tick=0 kind=reserved subject=4 quantity=3
+event=5 tick=0 kind=started subject=4 quantity=0
+event=6 tick=0 kind=consumed subject=4 quantity=1
+event=7 tick=100 kind=consumed subject=4 quantity=2
+event=8 tick=100 kind=completed subject=4 quantity=0
+SMOKE PASS
+normal_shutdown=1

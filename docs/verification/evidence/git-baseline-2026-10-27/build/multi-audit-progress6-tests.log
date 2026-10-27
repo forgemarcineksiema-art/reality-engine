@@ -1,0 +1,111 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: traversal.narrow_bridge_opposite
+ 1/50 Test  #1: traversal.narrow_bridge_opposite ......   Passed    3.01 sec
+      Start  2: traversal.ferry_exchange
+ 2/50 Test  #2: traversal.ferry_exchange ..............   Passed    2.24 sec
+      Start  3: traversal.rapid_retarget
+ 3/50 Test  #3: traversal.rapid_retarget ..............   Passed    0.24 sec
+      Start  4: traversal.obstacle_braking
+ 4/50 Test  #4: traversal.obstacle_braking ............   Passed    0.19 sec
+      Start  5: traversal.slope_maneuvers
+ 5/50 Test  #5: traversal.slope_maneuvers .............   Passed    2.30 sec
+      Start  6: traversal.rotating_support
+ 6/50 Test  #6: traversal.rotating_support ............   Passed    0.81 sec
+      Start  7: traversal.crowd_passing
+ 7/50 Test  #7: traversal.crowd_passing ...............   Passed    0.75 sec
+      Start  8: traversal.occupied_goal_recovery
+ 8/50 Test  #8: traversal.occupied_goal_recovery ......   Passed    0.61 sec
+      Start  9: traversal.snapshot_corruption
+ 9/50 Test  #9: traversal.snapshot_corruption .........   Passed    0.42 sec
+      Start 10: traversal.long_course
+10/50 Test #10: traversal.long_course .................   Passed   11.24 sec
+      Start 11: traversal.partition
+11/50 Test #11: traversal.partition ...................   Passed    6.26 sec
+      Start 12: traversal.collinear_rest
+12/50 Test #12: traversal.collinear_rest ..............   Passed    0.30 sec
+      Start 13: traversal.moving_passengers
+13/50 Test #13: traversal.moving_passengers ...........   Passed    0.23 sec
+      Start 14: traversal.command_isolation
+14/50 Test #14: traversal.command_isolation ...........   Passed    0.27 sec
+      Start 15: traversal.support_contract
+15/50 Test #15: traversal.support_contract ............   Passed    0.66 sec
+      Start 16: traversal.moving_contact
+16/50 Test #16: traversal.moving_contact ..............***Failed    0.02 sec
+FAIL surface target no longer usable
+
+      Start 17: traversal.course
+17/50 Test #17: traversal.course ......................   Passed    0.28 sec
+      Start 18: traversal.walk
+18/50 Test #18: traversal.walk ........................   Passed    0.09 sec
+      Start 19: traversal.ramp
+19/50 Test #19: traversal.ramp ........................   Passed    0.07 sec
+      Start 20: traversal.step
+20/50 Test #20: traversal.step ........................   Passed    0.11 sec
+      Start 21: traversal.rider
+21/50 Test #21: traversal.rider .......................   Passed    0.06 sec
+      Start 22: traversal.autonomy
+22/50 Test #22: traversal.autonomy ....................   Passed    0.10 sec
+      Start 23: traversal.occupied_goal
+23/50 Test #23: traversal.occupied_goal ...............   Passed    0.13 sec
+      Start 24: traversal.transport
+24/50 Test #24: traversal.transport ...................   Passed    0.33 sec
+      Start 25: traversal.supersede_pending_goal
+25/50 Test #25: traversal.supersede_pending_goal ......   Passed    0.10 sec
+      Start 26: traversal.supersede_pending_stop
+26/50 Test #26: traversal.supersede_pending_stop ......   Passed    0.08 sec
+      Start 27: traversal.release_passage_ownership
+27/50 Test #27: traversal.release_passage_ownership ...   Passed    0.98 sec
+      Start 28: traversal.manual_touching_departure
+28/50 Test #28: traversal.manual_touching_departure ...   Passed    0.10 sec
+      Start 29: traversal.command_roundtrip
+29/50 Test #29: traversal.command_roundtrip ...........   Passed    5.43 sec
+      Start 30: traversal.support_coverage
+30/50 Test #30: traversal.support_coverage ............   Passed    0.02 sec
+      Start 31: traversal.need_fallback_empty
+31/50 Test #31: traversal.need_fallback_empty .........   Passed    0.30 sec
+      Start 32: traversal.need_fallback_unreachable
+32/50 Test #32: traversal.need_fallback_unreachable ...   Passed    0.27 sec
+      Start 33: traversal.last_meal
+33/50 Test #33: traversal.last_meal ...................   Passed    0.26 sec
+      Start 34: traversal.reusable_rest
+34/50 Test #34: traversal.reusable_rest ...............   Passed    0.28 sec
+      Start 35: spatial.ramp
+35/50 Test #35: spatial.ramp ..........................   Passed    0.07 sec
+      Start 36: spatial.rotated_sweep
+36/50 Test #36: spatial.rotated_sweep .................   Passed    0.04 sec
+      Start 37: spatial.levels
+37/50 Test #37: spatial.levels ........................   Passed    0.02 sec
+      Start 38: spatial.platform_volume
+38/50 Test #38: spatial.platform_volume ...............   Passed    0.02 sec
+      Start 39: spatial.solid_sat
+39/50 Test #39: spatial.solid_sat .....................   Passed    0.04 sec
+      Start 40: spatial.invalid_data
+40/50 Test #40: spatial.invalid_data ..................   Passed    0.03 sec
+      Start 41: spatial.surface_narrow
+41/50 Test #41: spatial.surface_narrow ................   Passed    0.02 sec
+      Start 42: spatial.surface_metric
+42/50 Test #42: spatial.surface_metric ................   Passed    0.02 sec
+      Start 43: spatial.surface_step
+43/50 Test #43: spatial.surface_step ..................   Passed    0.03 sec
+      Start 44: spatial.surface_budgets
+44/50 Test #44: spatial.surface_budgets ...............   Passed    0.02 sec
+      Start 45: spatial.sphere_sweep
+45/50 Test #45: spatial.sphere_sweep ..................   Passed    0.03 sec
+      Start 46: spatial.locomotion_envelopes
+46/50 Test #46: spatial.locomotion_envelopes ..........   Passed    0.03 sec
+      Start 47: spatial.locomotion_arrival
+47/50 Test #47: spatial.locomotion_arrival ............   Passed    0.03 sec
+      Start 48: spatial.locomotion_turn
+48/50 Test #48: spatial.locomotion_turn ...............   Passed    0.05 sec
+      Start 49: spatial.pair_paths
+49/50 Test #49: spatial.pair_paths ....................   Passed    0.03 sec
+      Start 50: spatial.unequal_capsules
+50/50 Test #50: spatial.unequal_capsules ..............   Passed    0.02 sec
+
+98% tests passed, 1 tests failed out of 50
+
+Total Test time (real) =  39.28 sec
+
+The following tests FAILED:
+	 16 - traversal.moving_contact (Failed)
+Errors while running CTest

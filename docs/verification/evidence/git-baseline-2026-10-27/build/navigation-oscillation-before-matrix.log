@@ -1,0 +1,20 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 17: traversal.wall_neighbour_recovery
+1/2 Test #17: traversal.wall_neighbour_recovery ...   Passed   14.33 sec
+    Start 18: traversal.blocked_route_settling
+2/2 Test #18: traversal.blocked_route_settling ....***Failed    0.18 sec
+settling baseline=-0.838239,0.203478 heading=2.75366
+tick=201 actors=2
+actor=1 surface=1 feet=-0.812,0.000,0.153 speed=1.181 accel=1.300 yaw=2.564 state=1 auto=0 task=0 hunger=201 energy=931 plans=5 leg=0/1 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=1 local=3.000,0.000 reach=0.000
+actor=2 surface=1 feet=0.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=201 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+FAIL fully blocked route keeps shuffling instead of settling
+
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =  14.57 sec
+
+The following tests FAILED:
+	 18 - traversal.blocked_route_settling (Failed)
+Errors while running CTest

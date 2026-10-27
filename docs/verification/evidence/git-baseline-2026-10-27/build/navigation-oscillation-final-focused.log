@@ -1,0 +1,23 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 17: traversal.wall_neighbour_recovery
+1/9 Test #17: traversal.wall_neighbour_recovery ...   Passed    2.48 sec
+    Start 18: traversal.blocked_route_settling
+2/9 Test #18: traversal.blocked_route_settling ....   Passed    0.35 sec
+    Start 19: traversal.occupied_queue_parking
+3/9 Test #19: traversal.occupied_queue_parking ....   Passed    0.89 sec
+    Start 20: traversal.wall_neighbour_matrix_0
+4/9 Test #20: traversal.wall_neighbour_matrix_0 ...   Passed    0.65 sec
+    Start 21: traversal.wall_neighbour_matrix_1
+5/9 Test #21: traversal.wall_neighbour_matrix_1 ...   Passed    0.58 sec
+    Start 22: traversal.wall_neighbour_matrix_2
+6/9 Test #22: traversal.wall_neighbour_matrix_2 ...   Passed    0.45 sec
+    Start 23: traversal.wall_neighbour_matrix_3
+7/9 Test #23: traversal.wall_neighbour_matrix_3 ...   Passed    0.42 sec
+    Start 24: traversal.wall_neighbour_matrix_4
+8/9 Test #24: traversal.wall_neighbour_matrix_4 ...   Passed    0.39 sec
+    Start 25: traversal.wall_neighbour_matrix_5
+9/9 Test #25: traversal.wall_neighbour_matrix_5 ...   Passed    1.14 sec
+
+100% tests passed out of 9
+
+Total Test time (real) =   7.50 sec

@@ -1,0 +1,17 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "E479203ACBC35C43CC304383608BC4F08B24E00F1F1C6A10063504ABAD0BFFB9",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\src\\lab\\traversal_session.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "78DFAFD1AD2EAD0AA395D63D380AD3E00BE8E09AC58F3275EBC584A85899F2AD",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\tests\\traversal_audit_tests.cpp"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "DADD7FF2035B427280E52E6670ED878A397EEC3E4A66F3F2A68546A126E1A091",
+    "Path": "C:\\Users\\Marcin\\Documents\\new\\CMakeLists.txt"
+  }
+]

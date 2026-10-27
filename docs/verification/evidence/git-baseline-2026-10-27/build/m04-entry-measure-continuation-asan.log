@@ -1,0 +1,38 @@
+resume_at=6599
+resumed_ticks=1000
+tick=7599 actors=8
+actor=1 surface=1 feet=-8.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=1000 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0
+actor=2 surface=6 feet=6.776,1.500,3.500 speed=0.000 accel=0.000 yaw=1.571 state=3 auto=1 task=1 hunger=1000 energy=561 plans=29 leg=0/14 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=2 local=1.376,1.860 reach=0.900
+  route=found retry_at=7562
+  waiting_for_transport=1 owner=0
+actor=3 surface=5 feet=-0.929,1.500,2.688 speed=0.285 accel=-0.077 yaw=2.008 state=3 auto=1 task=3 hunger=1000 energy=561 plans=27 leg=0/3 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.140,0.624 reach=0.900
+  route=found retry_at=7600
+  waiting_for_transport=1 owner=0
+actor=4 surface=5 feet=-0.096,1.500,2.651 speed=0.000 accel=0.000 yaw=-2.146 state=3 auto=1 task=3 hunger=1000 energy=554 plans=20 leg=2/4 transfer=1 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.140,-0.624 reach=0.900
+  route=found retry_at=7491
+  waiting_for_transport=1 owner=0
+actor=5 surface=5 feet=-2.348,1.500,2.646 speed=0.000 accel=0.000 yaw=-1.009 state=3 auto=1 task=3 hunger=414 energy=747 plans=24 leg=0/3 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=6 local=0.860,0.624 reach=0.900
+  route=found retry_at=7531
+  waiting_for_transport=1 owner=0
+actor=6 surface=5 feet=-2.403,1.500,3.209 speed=0.000 accel=0.000 yaw=2.390 state=3 auto=1 task=3 hunger=901 energy=664 plans=39 leg=0/3 transfer=0 action=0 blocked=10 step_point=0
+  goal_surface=6 local=0.500,0.000 reach=0.900
+  route=found retry_at=7637
+  waiting_for_transport=1 owner=0
+actor=7 surface=1 feet=-7.428,0.000,-1.090 speed=2.324 accel=3.383 yaw=0.177 state=1 auto=1 task=1 hunger=368 energy=989 plans=24 leg=0/2 transfer=0 action=0 blocked=0 step_point=0
+  goal_surface=1 local=-1.640,0.676 reach=0.900
+  route=found retry_at=7586
+actor=8 surface=3 feet=2.147,0.000,-2.800 speed=0.691 accel=-4.596 yaw=1.571 state=1 auto=1 task=1 hunger=1000 energy=0 plans=15 leg=11/14 transfer=0 action=0 blocked=0 step_point=1
+  goal_surface=2 local=2.000,1.500 reach=0.900
+  route=found retry_at=7222
+platform=7 phase=353 dock=-1 blocked=0
+platform=8 phase=399 dock=-1 blocked=0
+station=9 kind=1 stock=75 completed=5 wear=500
+station=10 kind=1 stock=72 completed=8 wear=500
+station=11 kind=2 capacity=1 occupied=0 available=1 completed=6 wear=500
+station=12 kind=3 stock=72 completed=8 wear=797
+passage=1 surface=3 owner=8 queue=1
+service=1 owner=0 queue=5
