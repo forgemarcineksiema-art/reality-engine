@@ -60,11 +60,11 @@
 
 **Interfaces:** `HypothesisSession(law,mode,seed,scene=make_discovery_scene(),limits={})`; `begin_probe(chain,input,learning)`, `advance(ticks)`, `choose_input()`, `predict(...)`, `choose_chain(...)`, `freeze()`, `evaluation_copy()`, `serialize()`, `restore(bytes)`, `save(path)`, `load(path)`.
 
-- [ ] Testy RED: konfiguracja/impuls/obserwacja wyłącznie na miejscu, limit 24 i 1536, 1–64 w uczeniu, zakaz oceny bez freeze i nauki po freeze, ciągłość ID i bilans.
-- [ ] Implementacja: TraversalSession jest jedynym właścicielem położenia i czasu; DiscoveryWorld jedyną aparaturą; agent dostaje tylko zakończony własny pomiar.
-- [ ] Zapis w osobnej otoczce `GENESIS_HYPOTHESIS 1`, z pełnymi generatorami i stanem obliczeń. Dopuszczalne deterministyczne odtworzenie prywatnego kandydata z historii, jeśli odczyt sprawdza kanoniczny stan i nie publikuje skutków przed walidacją.
-- [ ] Testy przed/po sprzeczności, konfiguracji i impulsu, niezerowego RNG oraz modyfikacji semantyki przy poprawnym checksumie. Po nieudanym odczycie stary stan jest identyczny.
-- [ ] Nowy proces kontynuuje rzeczywisty zapis do identycznego wyniku; PASS i commit.
+- [x] Testy RED: konfiguracja/impuls/obserwacja wyłącznie na miejscu, limit 24 i 1536, 1–64 w uczeniu, zakaz oceny bez freeze i nauki po freeze, ciągłość ID i bilans.
+- [x] Implementacja: TraversalSession jest jedynym właścicielem położenia i czasu; DiscoveryWorld jedyną aparaturą; agent dostaje tylko zakończony własny pomiar.
+- [x] Zapis w osobnej otoczce `GENESIS_HYPOTHESIS 1`, z pełnymi generatorami i stanem obliczeń. Dopuszczalne deterministyczne odtworzenie prywatnego kandydata z historii, jeśli odczyt sprawdza kanoniczny stan i nie publikuje skutków przed walidacją.
+- [x] Testy przed/po sprzeczności, konfiguracji i impulsu, niezerowego RNG oraz modyfikacji semantyki przy poprawnym checksumie. Po nieudanym odczycie stary stan jest identyczny.
+- [x] Nowy proces kontynuuje rzeczywisty zapis do identycznego wyniku; PASS i commit.
 
 ### Task 4: Przypadki, niezależny sędzia i surowe dowody
 

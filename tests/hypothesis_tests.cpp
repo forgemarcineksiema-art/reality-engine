@@ -1,6 +1,7 @@
 #include "research/discovery_world.hpp"
 #include "research/hypothesis_agent.hpp"
 #include "research/hypothesis_program.hpp"
+#include "research/hypothesis_session.hpp"
 #include <iostream>
 #include <set>
 #include <stdexcept>
@@ -129,6 +130,75 @@ void limits_case() {
     require(during.choose_input(order).input == 7 && during.exhausted(),
             "partial active choice escaped exhausted selector");
 }
+void session_case() {
+    HypothesisSession session{HypothesisLaw{example()}, HypothesisMode::SynthesisActive, 123};
+    require(session.begin_probe({0}, 96, true) == DiscoveryOutcome::Invalid, "training range");
+    require(session.begin_probe({0}, 16, false) == DiscoveryOutcome::Invalid,
+            "evaluation before freeze");
+    require(session.begin_probe({0}, 16, true) == DiscoveryOutcome::Accepted, "begin");
+    require(session.agent().evidence().empty() && session.apparatus().devices()[0].source == 8192,
+            "early evidence");
+    session.advance(1);
+    require(session.agent().evidence().empty(), "pulse observed before completion");
+    session.advance(1);
+    require(session.agent().evidence().size() == 1 && session.tick() == 2, "physical observation");
+    require(session.begin_probe({0}, 16, true) == DiscoveryOutcome::Invalid, "repeated input");
+    auto distant = make_discovery_scene();
+    distant.spawns[0].location.local = {-7, 0};
+    HypothesisSession far{HypothesisLaw{example()}, HypothesisMode::SynthesisActive, 123, distant};
+    require(far.begin_probe({0}, 16, true) == DiscoveryOutcome::OutOfReach, "remote observation");
+    session.freeze();
+    require(session.begin_probe({0}, 32, true) == DiscoveryOutcome::Frozen, "learned after freeze");
+    auto evaluation = session.evaluation_copy();
+    const auto knowledge = evaluation.agent().evidence().size();
+    require(evaluation.begin_probe({0, 1}, 96, false) == DiscoveryOutcome::Accepted,
+            "physical evaluation");
+    evaluation.advance(2);
+    require(evaluation.apparatus().measurements().back().output == 20 &&
+                evaluation.agent().evidence().size() == knowledge,
+            "evaluation learned");
+}
+void continuation_case() {
+    HypothesisSession session{HypothesisLaw{example()}, HypothesisMode::SynthesisActive, 124};
+    for (const auto input : {16U, 32U}) {
+        require(session.begin_probe({0}, input, true) == DiscoveryOutcome::Accepted, "probe");
+        session.advance(2);
+    }
+    for (unsigned stage = 0; stage < 3; ++stage) {
+        const auto snapshot = session.serialize();
+        HypothesisSession loaded{HypothesisLaw{example()}, HypothesisMode::FlatActive, 1};
+        loaded.restore(snapshot);
+        require(loaded.serialize() == snapshot, "canonical session restore");
+        auto uninterrupted = session;
+        while (loaded.pending()) {
+            loaded.advance(1);
+            uninterrupted.advance(1);
+        }
+        require(loaded.choose_input().input == uninterrupted.choose_input().input,
+                "RNG/choice continuation");
+        require(loaded.serialize() == uninterrupted.serialize(), "budget continuation");
+        if (stage == 0)
+            require(session.begin_probe({0}, 64, true) == DiscoveryOutcome::Accepted,
+                    "third configure");
+        else
+            session.advance(1);
+    }
+    const auto snapshot = session.serialize();
+    const auto split = snapshot.find('\n');
+    auto body = snapshot.substr(split + 1);
+    const auto state_start = body.find("DWORLD");
+    require(state_start != std::string::npos, "snapshot physical state absent");
+    body[state_start + 9] = body[state_start + 9] == '1' ? '2' : '1';
+    const auto corrupt =
+        "GENESIS_HYPOTHESIS 1 " + std::to_string(hypothesis_checksum(body)) + "\n" + body;
+    bool rejected = false;
+    try {
+        session.restore(corrupt);
+    } catch (const std::exception&) {
+        rejected = true;
+    }
+    require(rejected && session.serialize() == snapshot, "semantic corruption changed session");
+}
 } // namespace
 int main(int argc, char* argv[]) {
     try {
@@ -136,6 +206,10 @@ int main(int argc, char* argv[]) {
         const std::string name{argv[1]};
         if (name == "program")
             program_case();
+        else if (name == "session")
+            session_case();
+        else if (name == "continuation")
+            continuation_case();
         else if (name == "learning")
             learning_case();
         else if (name == "limits")

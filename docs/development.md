@@ -16,6 +16,8 @@ Sześć oryginalnych dokumentów zachowano bajtowo; lista i SHA-256 znajdują si
 
 ## Budowanie i testy C++
 
+Laboratorium budowania wyjaśnień dodaje `reality_hypothesis` oraz testy `hypothesis.*`. Istniejące polecenia fixture/continue, stan implementacji i nowy format opisuje [API](hypothesis-building.md); [zatwierdzony protokół](work-items/hypothesis-building-experiment.md) pozostaje właścicielem przyszłej próby H/A.
+
 Eksperyment odkrywania ma osobny konsument konsolowy. Po zbudowaniu `reality_discovery`:
 
 ```powershell

@@ -1,6 +1,7 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/hypothesis-building.md", "role": "current-state", "topic": "hypothesis-building-api"},
     {"path": "docs/work-items/hypothesis-building-implementation.md", "role": "planned", "topic": "hypothesis-building-implementation"},
     {"path": "docs/verification/hypothesis-building-design.md", "role": "verification", "topic": "hypothesis-building-design-review"},
     {"path": "docs/work-items/hypothesis-building-experiment.md", "role": "research", "topic": "hypothesis-building-experiment-protocol"},
