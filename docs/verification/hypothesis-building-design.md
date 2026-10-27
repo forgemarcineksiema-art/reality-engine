@@ -1,6 +1,6 @@
 # Przegląd projektu drugiego eksperymentu
 
-**Status: przegląd projektu ukończony; protokół czeka na zatwierdzenie użytkownika.** Data: 27.10.2026. Przedmiotem jest [projekt hypothesis-v1](../work-items/hypothesis-building-experiment.md), nie implementacja ani wynik badania.
+**Status: przegląd projektu ukończony.** Data: 27.10.2026. Po tym przeglądzie użytkownik zatwierdził [protokół hypothesis-v1](../work-items/hypothesis-building-experiment.md) do implementacji i wykonania. Poniższy zapis dotyczy projektu, nie odbioru implementacji lub wyniku badania.
 
 ## Zakres przeglądu
 

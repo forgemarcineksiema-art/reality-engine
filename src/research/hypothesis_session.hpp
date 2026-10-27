@@ -57,7 +57,7 @@ class HypothesisSession final {
     std::uint64_t next_command_ = 1;
     std::optional<std::uint64_t> learning_start_;
     [[nodiscard]] bool at_bench() const;
-    void check_log() const;
+    void check_log(bool advancing = false, std::uint64_t ticks = 0) const;
     void enter_evaluation();
     [[nodiscard]] std::string canonical_state() const;
     [[nodiscard]] static HypothesisSession deserialize(std::string_view bytes);

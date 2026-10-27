@@ -199,6 +199,86 @@ void continuation_case() {
     }
     require(rejected && session.serialize() == snapshot, "semantic corruption changed session");
 }
+void capacity_case() {
+    HypothesisSession full{HypothesisLaw{example()}, HypothesisMode::FlatActive, 4};
+    for (std::size_t n = 0; n < record_limit - 2; ++n)
+        full.advance(0);
+    const auto before = full.serialize();
+    require(full.begin_probe({0}, 16, true) == DiscoveryOutcome::Invalid &&
+                full.serialize() == before,
+            "accepted probe without completion capacity");
+    HypothesisSession session{HypothesisLaw{example()}, HypothesisMode::FlatActive, 4};
+    for (std::size_t n = 0; n < record_limit - 3; ++n)
+        session.advance(0);
+    require(session.begin_probe({0}, 16, true) == DiscoveryOutcome::Accepted,
+            "reserved probe refused");
+    for (unsigned phase = 0; phase < 2; ++phase) {
+        const auto pending = session.serialize();
+        bool refused = false;
+        try {
+            (void)session.predict({0}, 96);
+        } catch (const std::exception&) {
+            refused = true;
+        }
+        require(refused && session.serialize() == pending, "prediction stole completion capacity");
+        auto restored = session;
+        restored.restore(pending);
+        restored.advance(1);
+        session.advance(1);
+        require(restored.serialize() == session.serialize(), "near-full pending continuation");
+    }
+    require(!session.pending() && session.agent().evidence().size() == 1 && session.tick() == 2,
+            "reserved probe did not finish at full log");
+    auto restored = session;
+    restored.restore(session.serialize());
+    require(restored.serialize() == session.serialize(), "full-log canonical restore");
+}
+void interrupted_case() {
+    const auto count = hypothesis_flat_models().size();
+    HypothesisLimits limits;
+    limits.reads = count + 1;
+    HypothesisSession session{HypothesisLaw{example()}, HypothesisMode::SynthesisActive, 5,
+                              make_discovery_scene(), limits};
+    const auto first = session.predict({0}, 96);
+    require(first.has_value() && !session.agent().exhausted(), "first declaration failed");
+    require(!session.predict({0}, 96) && session.agent().exhausted(),
+            "mid-list exhaustion missing");
+    const auto saved = session.serialize();
+    require(saved.find("p 96 1 0 1 ") != std::string::npos,
+            "successful earlier declaration erased");
+    auto restored = session;
+    restored.restore(saved);
+    require(restored.serialize() == saved, "interrupted declarations not persisted");
+    for (unsigned n = 0; n < 24; ++n) {
+        const auto choice = restored.choose_input();
+        require(restored.begin_probe({0}, choice.input, true) == DiscoveryOutcome::Accepted,
+                "exhausted physical trial refused");
+        restored.advance(2);
+        require(!restored.predict({0}, 96), "inference restarted after exhaustion");
+    }
+    require(restored.agent().evidence().size() == 24 && restored.attempts() == 24 &&
+                restored.agent().cost().reads == count + 1,
+            "exhaustion dropped trials or changed budget");
+    restored.freeze();
+    auto evaluation = restored.evaluation_copy();
+    require(evaluation.agent().exhausted() && !evaluation.predict({0}, 96) &&
+                evaluation.agent().cost().reads == count + 1,
+            "evaluation reset budget");
+    limits.reads = 35 * count + 1;
+    HypothesisSession planner{HypothesisLaw{example()}, HypothesisMode::SynthesisActive, 5,
+                              make_discovery_scene(), limits};
+    planner.freeze();
+    planner = planner.evaluation_copy();
+    require(planner.choose_chain(96, 20).has_value(), "first configuration failed");
+    const auto checkpoint = planner.serialize();
+    auto resumed = planner;
+    resumed.restore(checkpoint);
+    require(!planner.choose_chain(96, 20) && planner.agent().exhausted() &&
+                !resumed.choose_chain(96, 20) && resumed.serialize() == planner.serialize(),
+            "interrupted configuration search not preserved");
+    require(planner.serialize().find("c 96 20 1 ") != std::string::npos,
+            "earlier configuration erased");
+}
 } // namespace
 int main(int argc, char* argv[]) {
     try {
@@ -208,6 +288,10 @@ int main(int argc, char* argv[]) {
             program_case();
         else if (name == "session")
             session_case();
+        else if (name == "capacity")
+            capacity_case();
+        else if (name == "interrupted")
+            interrupted_case();
         else if (name == "continuation")
             continuation_case();
         else if (name == "learning")

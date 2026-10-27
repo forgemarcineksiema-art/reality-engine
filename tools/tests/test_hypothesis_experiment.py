@@ -87,6 +87,35 @@ class HypothesisTests(unittest.TestCase):
                            check=True, capture_output=True)
             self.assertEqual(list(root.rglob('*.pyc')), [])
 
+    def test_review_gate_requires_explicit_ready_and_matching_sources(self):
+        sources = {'src/example.cpp': 'a' * 64}
+        record = {'protocol': 'hypothesis-v1', 'status': 'READY', 'reviewed_head': 'b' * 40,
+                  'verified_sources': sources}
+        experiment.validate_review_record(record, sources)
+        for status in ('NOT READY', 'WITH FIXES', 'READY after fixes', 'READY\nWITH FIXES'):
+            with self.assertRaises(ValueError):
+                experiment.validate_review_record({**record, 'status': status}, sources)
+        with self.assertRaises(ValueError):
+            experiment.validate_review_record({**record, 'note': 'READY', 'status': 'WITH FIXES'}, sources)
+        with self.assertRaises(ValueError):
+            experiment.validate_review_record(record, {'src/example.cpp': 'c' * 64})
+
+    def test_native_provenance_binds_configuration_and_tool_versions(self):
+        cache = ('CMAKE_CACHE_MAJOR_VERSION:INTERNAL=4\nCMAKE_CACHE_MINOR_VERSION:INTERNAL=4\n'
+                 'CMAKE_CACHE_PATCH_VERSION:INTERNAL=4\nCMAKE_CONFIGURATION_TYPES:UNINITIALIZED=Debug;RelWithDebInfo\n'
+                 'REALITY_ENABLE_ASAN:BOOL=OFF\nCMAKE_GENERATOR:INTERNAL=Visual Studio 17 2022\n')
+        compiler = ('set(CMAKE_CXX_COMPILER "compiler.exe")\nset(CMAKE_CXX_COMPILER_ID "MSVC")\n'
+                    'set(CMAKE_CXX_COMPILER_VERSION "19.44.35226.0")\n'
+                    'set(CMAKE_CXX_COMPILER_ARCHITECTURE_ID "x64")\nset(CMAKE_CXX_SIZEOF_DATA_PTR "8")\n')
+        metadata = experiment.parse_native_metadata(cache, compiler, 'RelWithDebInfo')
+        self.assertEqual(metadata['compiler_version'], '19.44.35226.0')
+        self.assertEqual(metadata['cmake_version'], '4.4.4')
+        self.assertEqual(metadata['configuration'], 'RelWithDebInfo')
+        with self.assertRaises(ValueError):
+            experiment.parse_native_metadata(cache, compiler, 'Release')
+        with self.assertRaises(ValueError):
+            experiment.parse_native_metadata(cache, compiler.replace('"x64"', '"x86"'), 'RelWithDebInfo')
+
 
 if __name__ == '__main__':
     unittest.main()

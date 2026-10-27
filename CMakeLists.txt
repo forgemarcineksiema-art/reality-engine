@@ -198,7 +198,7 @@ if(BUILD_TESTING)
     add_executable(reality_hypothesis_tests tests/hypothesis_tests.cpp)
     target_link_libraries(reality_hypothesis_tests PRIVATE reality_hypothesis_model)
     reality_deploy_diagnostics(reality_hypothesis_tests)
-    foreach(case IN ITEMS program apparatus learning limits session continuation)
+    foreach(case IN ITEMS program apparatus learning limits session continuation capacity interrupted)
         add_test(NAME hypothesis.${case} COMMAND reality_hypothesis_tests ${case})
     endforeach()
     add_test(NAME hypothesis.native_continuation

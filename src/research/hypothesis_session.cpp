@@ -48,17 +48,22 @@ bool HypothesisSession::at_bench() const {
            !actor.action.value &&
            (actor.state == TraversalState::Idle || actor.state == TraversalState::Arrived);
 }
-void HypothesisSession::check_log() const {
-    if (events_.size() >= record_limit)
+void HypothesisSession::check_log(bool advancing, std::uint64_t ticks) const {
+    unsigned reserved = pending_ ? 2 - pending_->stage : 0;
+    if (advancing)
+        reserved = ticks >= reserved ? 0 : reserved - static_cast<unsigned>(ticks);
+    if (events_.size() >= record_limit - reserved)
         throw std::invalid_argument("hypothesis event limit");
 }
 DiscoveryOutcome HypothesisSession::begin_probe(DiscoveryChain chain, unsigned input,
                                                 bool learning) {
-    check_log();
     if (!discovery_chain_valid(chain) || !input || input > 128)
         return DiscoveryOutcome::Invalid;
     if (pending_)
         return DiscoveryOutcome::Busy;
+    if (events_.size() > record_limit - 3)
+        return DiscoveryOutcome::Invalid;
+    check_log();
     if (learning && agent_.frozen())
         return DiscoveryOutcome::Frozen;
     if (learning == archive_.has_value() || (!learning && !agent_.frozen()))
@@ -95,7 +100,7 @@ DiscoveryOutcome HypothesisSession::begin_probe(DiscoveryChain chain, unsigned i
     return status;
 }
 void HypothesisSession::advance(std::uint64_t ticks) {
-    check_log();
+    check_log(true, ticks);
     if (ticks > 10000 || ticks > UINT64_MAX - tick())
         throw std::invalid_argument("hypothesis advance bound");
     for (std::uint64_t n = 0; n < ticks; ++n) {

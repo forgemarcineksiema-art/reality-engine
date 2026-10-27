@@ -9,6 +9,7 @@ import hashlib
 import json
 import math
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -258,19 +259,66 @@ def source_files():
     return sorted(files)
 
 
+def validate_review_record(record, sources):
+    if (not isinstance(record, dict) or record.get('protocol') != 'hypothesis-v1' or
+            record.get('status') != 'READY' or not re.fullmatch('[0-9a-f]{40}', record.get('reviewed_head', '')) or
+            record.get('verified_sources') != sources):
+        raise ValueError('review must have explicit READY status and match verified source hashes')
+
+
+def cache_values(text):
+    return {line.split(':', 1)[0]: line.split('=', 1)[1] for line in text.splitlines()
+            if not line.startswith(('#', '//')) and ':' in line and '=' in line}
+
+
+def parse_native_metadata(cache, compiler, configuration):
+    values = cache_values(cache)
+    fields = dict(re.findall(r'set\((CMAKE_CXX_[A-Z_]+) "([^"\n]*)"\)', compiler))
+    if (configuration not in values.get('CMAKE_CONFIGURATION_TYPES', '').split(';') or
+            fields.get('CMAKE_CXX_COMPILER_ID') != 'MSVC' or
+            fields.get('CMAKE_CXX_COMPILER_ARCHITECTURE_ID') != 'x64' or
+            fields.get('CMAKE_CXX_SIZEOF_DATA_PTR') != '8' or not fields.get('CMAKE_CXX_COMPILER_VERSION')):
+        raise ValueError('native provenance has unsupported configuration/compiler/architecture')
+    return {'configuration': configuration, 'compiler_version': fields['CMAKE_CXX_COMPILER_VERSION'],
+            'compiler_path': fields['CMAKE_CXX_COMPILER'], 'architecture': 'x64',
+            'cmake_version': '.'.join(values[f'CMAKE_CACHE_{part}_VERSION'] for part in ('MAJOR', 'MINOR', 'PATCH')),
+            'generator': values['CMAKE_GENERATOR'], 'address_sanitizer': values['REALITY_ENABLE_ASAN']}
+
+
+def native_provenance(exe):
+    build_root = exe.resolve().parent.parent
+    cache_path = build_root / 'CMakeCache.txt'
+    cache = cache_path.read_text(encoding='utf-8')
+    values = cache_values(cache)
+    version = '.'.join(values[f'CMAKE_CACHE_{part}_VERSION'] for part in ('MAJOR', 'MINOR', 'PATCH'))
+    compiler_path = build_root / f'CMakeFiles/{version}/CMakeCXXCompiler.cmake'
+    metadata = parse_native_metadata(cache, compiler_path.read_text(encoding='utf-8'), exe.parent.name)
+    cmake = values['CMAKE_COMMAND']
+    cmake_report = subprocess.check_output([cmake, '--version'], text=True).strip()
+    if cmake_report.splitlines()[0] != f'cmake version {version}':
+        raise ValueError('CMake binary differs from configured version')
+    msbuild = Path(values['CMAKE_GENERATOR_INSTANCE']) / 'MSBuild/Current/Bin/MSBuild.exe'
+    msbuild_version = subprocess.check_output([str(msbuild), '-nologo', '-version'], text=True).strip()
+    if not re.fullmatch(r'\d+(\.\d+){2,3}', msbuild_version):
+        raise ValueError('MSBuild version unavailable')
+    return {**metadata, 'cmake_command': cmake, 'cmake_report': cmake_report,
+            'msbuild_command': str(msbuild), 'msbuild_version': msbuild_version,
+            'cache_sha256': sha256(cache_path), 'compiler_definition_sha256': sha256(compiler_path)}
+
+
 def prepare(args):
     excluded = set()
     if args.mode == 'confirmatory':
         if not args.review or not args.development:
             raise ValueError('confirmatory requires completed review and development evidence')
-        review = args.review.read_text(encoding='utf-8')
-        if 'READY' not in review:
-            raise ValueError('review has no READY conclusion')
+        review = json.loads(args.review.read_text(encoding='utf-8'))
+        validate_review_record(review, {p.relative_to(ROOT).as_posix(): sha256(p) for p in source_files()})
         analyze(args.development)
         development = json.loads((args.development / 'cases.json').read_text(encoding='utf-8'))
         excluded = {table(c['program']) for c in development if c['cohort'] == 'main'}
         if subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip():
             raise ValueError('confirmatory freeze requires clean committed source')
+    build_metadata = native_provenance(args.exe)
     root = args.output.resolve()
     root.mkdir(parents=True, exist_ok=False)
     (root / 'engine').mkdir()
@@ -289,7 +337,7 @@ def prepare(args):
               'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
               'commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
               'dirty': bool(subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip()),
-              'python': sys.version, 'platform': platform.platform(),
+              'python': sys.version, 'platform': platform.platform(), 'native_build': build_metadata,
               'excluded_development_tables': sorted(map(list, excluded))}
     if args.development:
         freeze['development_manifest_sha256'] = sha256(args.development / 'result-manifest.json')
