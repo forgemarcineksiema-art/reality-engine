@@ -1,6 +1,6 @@
 # Odkrycie zależności, generalizacja i przekaz — projekt pierwszego eksperymentu
 
-**Status: PROJEKT przed implementacją i próbą potwierdzającą.** Data: 27.10.2026. Użytkownik zlecił rozpoczęcie badania oraz określenie wyposażenia agentów, samodzielnie zdobywanej wiedzy i kryteriów przed eksperymentem. Poniższe szczegóły są propozycją inżynierską autora do zatwierdzenia, a nie uzyskanymi wynikami ani szczegółowymi wyborami przypisanymi użytkownikowi.
+**Status: protokół ZATWIERDZONY przez użytkownika; implementacja i próba potwierdzająca w przygotowaniu.** Data: 27.10.2026. Po przedstawieniu projektu użytkownik odpowiedział „Tak” na zatwierdzenie protokołu jako podstawy implementacji i wykonania próby. Poniższe szczegóły są wyborami inżynierskimi autora zatwierdzonymi do realizacji, a nie uzyskanymi wynikami. [Plan wykonania](discovery-learning-implementation.md) prowadzi do osobnego raportu wyników bez zmiany kryteriów.
 
 Dokument jest właścicielem protokołu `discovery-v1`. Kontekst i źródła posiada [program badań](../research-agenda.md), a sposób rozdzielenia planu i wyniku wskazuje [szablon eksperymentu](../templates/experiment-record.md). Nie zastępuje [planu etapów](../prototype-plan.md) ani historycznych raportów. Nie jest nową bramką zaliczonego M04. W tej wersji nie powstał nowy moduł, urządzenie, agent uczący się ani wynik badawczy.
 
