@@ -255,6 +255,8 @@ class TraversalSession final {
     void cancel_delivery(std::size_t actor);
     [[nodiscard]] CargoStatus interact_cargo(std::size_t actor, std::size_t station);
     [[nodiscard]] KnowledgeOutcome share_knowledge(std::size_t sender, std::size_t recipient);
+    [[nodiscard]] bool can_interact_at(std::size_t actor, SurfaceLocation location) const;
+    [[nodiscard]] bool can_exchange_knowledge(std::size_t sender, std::size_t recipient) const;
     [[nodiscard]] const std::vector<PropertyIncident>& incidents() const noexcept;
     [[nodiscard]] bool legal_service_allowed(std::size_t actor, std::size_t station) const;
     void advance(std::uint64_t ticks);

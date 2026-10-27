@@ -68,6 +68,14 @@ add_library(reality_lab_model STATIC src/lab/lab_session.cpp src/graphics/lab_sc
     src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/lab/traversal_law.cpp src/lab/traversal_passages.cpp src/graphics/traversal_scene.cpp)
 target_link_libraries(reality_lab_model PUBLIC reality_core)
 
+add_library(reality_discovery_model STATIC src/research/discovery_world.cpp src/research/discovery_agent.cpp
+    src/research/discovery_session.cpp src/research/discovery_codec.cpp src/research/discovery_protocol.cpp)
+target_link_libraries(reality_discovery_model PUBLIC reality_lab_model)
+target_link_libraries(reality_discovery_model PRIVATE psapi)
+add_executable(reality_discovery src/headless/discovery_main.cpp)
+target_link_libraries(reality_discovery PRIVATE reality_discovery_model)
+reality_deploy_diagnostics(reality_discovery)
+
 add_library(reality_graphics STATIC src/graphics/d3d11_renderer.cpp)
 target_link_libraries(reality_graphics PUBLIC reality_lab_model d3d11 dxgi d3dcompiler windowscodecs ole32)
 target_compile_definitions(reality_graphics PUBLIC WIN32_LEAN_AND_MEAN NOMINMAX UNICODE _UNICODE)
@@ -80,6 +88,18 @@ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 sh
 reality_deploy_diagnostics(reality_traversal)
 
 set(reality_cpp_files
+    src/research/discovery_world.hpp
+    src/research/discovery_world.cpp
+    src/research/discovery_agent.hpp
+    src/research/discovery_agent.cpp
+    src/research/discovery_random.hpp
+    src/research/discovery_session.hpp
+    src/research/discovery_session.cpp
+    src/research/discovery_codec.cpp
+    src/research/discovery_protocol.hpp
+    src/research/discovery_protocol.cpp
+    src/headless/discovery_main.cpp
+    tests/discovery_tests.cpp
     src/core/simulation_clock.hpp
     src/core/simulation_clock.cpp
     src/core/runtime_metrics.hpp
@@ -158,6 +178,17 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_discovery_tests tests/discovery_tests.cpp)
+    target_link_libraries(reality_discovery_tests PRIVATE reality_discovery_model)
+    reality_deploy_diagnostics(reality_discovery_tests)
+    foreach(case IN ITEMS world replay refusals world_restore learning minimax composition frozen outside access contact isolation continuation corruption blocked_share budgets)
+        add_test(NAME discovery.${case} COMMAND reality_discovery_tests ${case})
+    endforeach()
+    foreach(mode IN ITEMS case continuation)
+        add_test(NAME discovery.native_${mode}
+            COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/discovery_integration.py"
+                    --exe "$<TARGET_FILE:reality_discovery>" --mode ${mode})
+    endforeach()
     add_executable(reality_community_tests tests/community_tests.cpp)
     target_link_libraries(reality_community_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_community_tests)

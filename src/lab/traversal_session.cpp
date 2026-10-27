@@ -693,6 +693,13 @@ bool TraversalSession::interaction_accessible(std::size_t index, SurfaceLocation
     return target && length(*target - feet) <= 1.1 &&
            spatial_segment_clear(geometry_, feet, *target, actor.size);
 }
+bool TraversalSession::can_interact_at(std::size_t actor, SurfaceLocation location) const {
+    return actor < actors_.size() && interaction_accessible(actor, location, actors_[actor].feet);
+}
+bool TraversalSession::can_exchange_knowledge(std::size_t sender, std::size_t recipient) const {
+    return sender < actors_.size() && recipient < actors_.size() &&
+           knowledge_contact(sender, recipient);
+}
 bool TraversalSession::choose_approach(std::size_t index, SurfaceLocation destination, double reach,
                                        bool physical_access) {
     auto& actor = actors_.at(index);
