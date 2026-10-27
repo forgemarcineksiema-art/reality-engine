@@ -21,3 +21,7 @@ Autor zweryfikował ustalenia przed zmianami, zachował czerwone reprodukcje i u
 Po ponownym odczycie pięciu poprawek recenzent zwrócił **READY**, bez nowych ustaleń. Potwierdził zgodność pending, dokładną granicę 0,20 oraz wynik 0,19921875 poniżej niej, pełną kontrolę ścieżki analyze, rozliczenie 14 faz i fizyczną kontrolę negatywną. Odczytane logi zawierały 19/19 testów discovery i 9/9 nowych testów narzędzia.
 
 Werdykt dotyczy kodu i napraw. Nie zastępuje pełnych końcowych serii Debug/Release/ASan, aktualizacji dokumentacji ani zamrożenia artefaktów. Nie jest oceną D/G/S, świadomości, komfortu 3D lub wydajności większej populacji. Brak wyniku hipotezy naukowej nie został uznany za defekt, który trzeba ukryć.
+
+## Końcowa kontrola generatorów: READY
+
+Autor dodatkowo przeniósł licznik losowego doboru konfiguracji z lokalnej zmiennej runnera do sesji, aby także ten sterownik zachowywał stan po zapisie. Rodzina generatora, seed, tag 6 dla A / 7 dla B i modulo 39 pozostały bez zmian. `random-continuation-red.log` i późniejsze 19/19 dokumentują brak i dodanie API; regresja porównuje dalszy ciąg po checkpointcie. Recenzent ponownie odczytał wąską poprawkę i zwrócił **READY**, bez nowych ustaleń blokujących. Wskazał drobną możliwość wzmocnienia testu niezerowego licznika B; sama implementacja zapisuje obie wartości. Nie wykonywał przebiegów potwierdzających.

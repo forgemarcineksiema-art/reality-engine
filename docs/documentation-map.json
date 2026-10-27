@@ -6,7 +6,7 @@
     {"path": "docs/verification/discovery-learning-experiment.md", "role": "verification", "topic": "discovery-learning-experiment-results"},
     {"path": "docs/work-items/discovery-learning-implementation.md", "role": "planned", "topic": "discovery-learning-implementation"},
     {"path": "docs/verification/discovery-learning-design.md", "role": "verification", "topic": "discovery-learning-design-review"},
-    {"path": "docs/work-items/discovery-learning-experiment.md", "role": "proposal", "topic": "discovery-learning-experiment-protocol"},
+    {"path": "docs/work-items/discovery-learning-experiment.md", "role": "research", "topic": "discovery-learning-experiment-protocol"},
     {"path": "docs/verification/evidence/m04-acceptance-2026-10-27/review.md", "role": "verification", "topic": "m04-acceptance-review"},
     {"path": "docs/work-items/m04-acceptance.md", "role": "current-state", "topic": "m04-acceptance-plan"},
     {"path": "docs/verification/m04-acceptance.md", "role": "verification", "topic": "m04-acceptance-evidence"},

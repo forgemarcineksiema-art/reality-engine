@@ -37,6 +37,7 @@ class DiscoverySession final {
     probe(unsigned actor, DiscoveryChain chain, DiscoveryEnergy input, bool learning = true);
     void train(unsigned actor, bool random = false);
     void freeze(unsigned actor);
+    [[nodiscard]] DiscoveryChain random_chain(unsigned actor);
     [[nodiscard]] DiscoveryOutcome share(unsigned sender, unsigned recipient, bool message);
     [[nodiscard]] DiscoveryOutcome meet_and_share(bool message);
     [[nodiscard]] DiscoverySession evaluation_copy() const;
@@ -67,7 +68,7 @@ class DiscoverySession final {
     std::array<unsigned, 2> attempts_{};
     std::array<DiscoveryEnergy, 2> spent_{};
     std::array<std::optional<std::uint64_t>, 2> learning_start_{};
-    std::array<std::uint32_t, 2> random_counters_{};
+    std::array<std::uint32_t, 4> random_counters_{};
     std::uint32_t seed_ = 0;
     std::uint64_t next_command_ = 1;
     Phase phase_ = Phase::Learning;

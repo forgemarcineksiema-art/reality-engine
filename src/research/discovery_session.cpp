@@ -158,6 +158,13 @@ void DiscoverySession::freeze(unsigned actor) {
     check(actor < 2 && (!pending_ || pending_->actor != actor), "freeze during observation");
     agents_.at(actor).freeze();
 }
+DiscoveryChain DiscoverySession::random_chain(unsigned actor) {
+    check(actor < 2, "invalid random control actor");
+    const auto index =
+        discovery_draw(seed_, static_cast<std::uint8_t>(6 + actor), random_counters_[2 + actor]) %
+        discovery_chains().size();
+    return discovery_chains()[index];
+}
 DiscoveryOutcome DiscoverySession::share(unsigned sender, unsigned recipient, bool message) {
     if (sender >= 2 || recipient >= 2 || sender == recipient)
         return DiscoveryOutcome::Invalid;
@@ -252,7 +259,8 @@ void DiscoverySession::validate() const {
                   attempts_[actor] <= (actor == 0 ? 24U : 2U) &&
                   spent_[actor] <= (actor == 0 ? 1536U : 128U) &&
                   (!learning_start_[actor] || *learning_start_[actor] <= tick()) &&
-                  random_counters_[actor] <= (1U << 24),
+                  random_counters_[actor] <= (1U << 24) &&
+                  random_counters_[2 + actor] <= (1U << 24),
               "invalid research actor/budget");
         for (const auto& e : agents_[actor].evidence()) {
             const auto* actual = measurement(e.measurement.id);

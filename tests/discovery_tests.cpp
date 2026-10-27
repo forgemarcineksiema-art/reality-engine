@@ -255,6 +255,14 @@ void continuation_case() {
     require(eval.probe(1, {2, 2}, 80, false) && copy.probe(1, {2, 2}, 80, false) &&
                 eval.serialize() == copy.serialize(),
             "frozen/received knowledge continuation diverged");
+    auto random = session();
+    for (unsigned i = 0; i < 5; ++i)
+        static_cast<void>(random.random_chain(0));
+    copy.restore(random.serialize());
+    for (unsigned i = 0; i < 8; ++i)
+        require(random.random_chain(0) == copy.random_chain(0) &&
+                    random.random_chain(1) == copy.random_chain(1),
+                "random control stream lost across snapshot");
 }
 void corruption_case() {
     auto s = session();

@@ -45,7 +45,8 @@ DiscoveryChain chain_in(std::istream& in) {
 std::string DiscoverySession::serialize() const {
     validate();
     std::ostringstream out;
-    out << seed_ << ' ' << next_command_ << ' ' << static_cast<unsigned>(phase_) << '\n';
+    out << seed_ << ' ' << next_command_ << ' ' << static_cast<unsigned>(phase_) << ' '
+        << random_counters_[2] << ' ' << random_counters_[3] << '\n';
     out << std::quoted(traversal_.serialize()) << '\n'
         << std::quoted(apparatus_.serialize()) << '\n';
     out << archives_.size() << '\n';
@@ -99,6 +100,8 @@ DiscoverySession DiscoverySession::deserialize(std::string_view bytes) {
     result.seed_ = static_cast<std::uint32_t>(number(in, UINT32_MAX));
     result.next_command_ = number(in);
     result.phase_ = static_cast<Phase>(small(in, 2));
+    result.random_counters_[2] = small(in, 1U << 24);
+    result.random_counters_[3] = small(in, 1U << 24);
     result.traversal_.restore(text(in));
     result.apparatus_ = DiscoveryWorld::deserialize(text(in));
     const auto archive_count = small(in, 8);

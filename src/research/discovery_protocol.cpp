@@ -65,19 +65,18 @@ struct Evaluation {
 };
 Evaluation evaluate(const DiscoverySession& checkpoint, unsigned actor,
                     const std::vector<DiscoveryQuery>& queries, bool predictions,
-                    std::optional<std::uint32_t> random_seed = {}) {
+                    bool random_control = false) {
     auto s = checkpoint.evaluation_copy();
     s.freeze(actor);
     const auto start = s.tick();
     const auto cpu_start = cpu_ms();
     const auto work_start = s.agent(actor).work_units();
-    std::uint32_t counter = 0;
     unsigned hits = 0;
     for (const auto& query : queries) {
         auto chain = query.recipe;
         if (!predictions) {
-            if (random_seed)
-                chain = discovery_chains()[discovery_draw(*random_seed, 6, counter) % 39];
+            if (random_control)
+                chain = s.random_chain(actor);
             else
                 chain = s.agent(actor).choose_chain(query.input, query.target);
         }
@@ -229,7 +228,7 @@ void run_discovery_case(const DiscoveryCase& data, const std::filesystem::path& 
         before_hits += preexperience[i] == d.session.apparatus().measurements()[i].output;
     auto g = evaluate(teacher, 0, data.tasks_a, false);
     auto naive = make_session(data);
-    auto random_g = evaluate(naive, 0, data.tasks_a, false, data.seed);
+    auto random_g = evaluate(naive, 0, data.tasks_a, false, true);
     auto random_teacher = make_session(data);
     const auto random_teacher_cpu_start = cpu_ms();
     random_teacher.train(0, true);
