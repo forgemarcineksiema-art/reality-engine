@@ -1,6 +1,6 @@
 # Przegląd kodu hypothesis-v1
 
-**Niezależny werdykt: WITH FIXES. Integracja poprawek: w weryfikacji.** Data: 27.10.2026. Recenzent: osobny agent `hypothesis_final_review`, model GPT-6 Astra, świeży kontekst, wyłącznie odczyt. Zakres: `ae8808f..2330bf6`, cały nowy kod C++/Python, protokół, plan, testy, reguły i pierwsze dowody rozwojowe. Recenzent nie wykonywał buildów, testów, benchmarków ani generowania potwierdzającego. Pierwszy [przegląd projektu](../../hypothesis-building-design.md) jest odrębnym dokumentem.
+**Niezależny werdykt: WITH FIXES. Integracja poprawek przez autora: READY.** Data: 27.10.2026. Recenzent: osobny agent `hypothesis_final_review`, model GPT-6 Astra, świeży kontekst, wyłącznie odczyt. Zakres: `ae8808f..2330bf6`, cały nowy kod C++/Python, protokół, plan, testy, reguły i pierwsze dowody rozwojowe. Recenzent nie wykonywał buildów, testów, benchmarków ani generowania potwierdzającego. Pierwszy [przegląd projektu](../../hypothesis-building-design.md) jest odrębnym dokumentem.
 
 ## Ustalenia niezależnego recenzenta
 
@@ -24,4 +24,4 @@ Recenzent potwierdził czytelny rozdział prawdy aparatu, fizycznych pomiarów i
 
 ## Weryfikacja integrującego
 
-Pierwsza kontrola po poprawkach: Debug `hypothesis.*` 10/10 PASS, Python 47/47 PASS. Regresja pojemności wcześniej nie przechodziła; test przerwanych deklaracji od razu potwierdził istniejące zachowanie. Pełne końcowe profile i rekord gotowości zostaną zapisane po ich wykonaniu. Nie przeprowadzono drugiego niezależnego review; zamknięcie konkretnych uwag należy do autora i testów RED→GREEN.
+Po poprawkach: Debug `hypothesis.*` 10/10 PASS, Python 47/47 PASS. Pełny Debug 324/324 w 116,68 s, Release 324/324 w 43,89 s, ASan 326/326 w 186,87 s oraz format i dokumentacja PASS. Regresja pojemności wcześniej nie przechodziła; test przerwanych deklaracji od razu potwierdził istniejące zachowanie. [Rekord gotowości](review-record.json) wiąże źródła i hashe logów kontroli. Nie przeprowadzono drugiego niezależnego review; zamknięcie konkretnych uwag należy do autora i testów RED→GREEN. Końcowy przebieg rozwojowy oraz osobna próba potwierdzająca następują po tej weryfikacji; nie są tu przedstawiane jako wykonane.
