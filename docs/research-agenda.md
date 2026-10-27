@@ -1,6 +1,12 @@
 # Program badań i źródła
 
-**Status:** przegląd i hipotezy. Nie przeprowadzono jeszcze eksperymentów na silniku Genesis. Podstawą jest przegląd z wcześniejszej rozmowy z 24–25.10.2026; to nie wyczerpujący przegląd stanu nauki.
+**Status:** przegląd, hipotezy i projekt pierwszego eksperymentu. Nie przeprowadzono jeszcze opisanej poniżej próby odkrywania na silniku Genesis. Podstawą części źródłowej jest przegląd z wcześniejszej rozmowy z 24–25.10.2026; to nie wyczerpujący przegląd stanu nauki. Techniczny odbiór społeczności M04 pozostaje odrębnym wynikiem.
+
+## Pierwszy eksperyment zlecony przez użytkownika
+
+27.10.2026 użytkownik zlecił rozpoczęcie badania: czy agent odkryje użyteczną zależność przez własne doświadczenie, wykorzysta ją w nowych warunkach i przekaże drugiemu agentowi. Zaakceptował również wartość wyniku negatywnego. W tej rozmowie laboratorium i jego systemy otrzymały pierwszeństwo jako przedmiot badań, a gra może być sposobem późniejszego uczestnictwa w świecie. Nie jest to wynik o świadomości ani automatyczne rozszerzenie zakresu ukończonych etapów.
+
+[Projekt odkrywania i przekazu](work-items/discovery-learning-experiment.md) jest jednym właścicielem szczegółowego protokołu: opisuje wyposażenie, nieznane parametry, kanał obserwacji, kontrole, budżety, seedy i kryteria zapisane przed próbą. Stan: propozycja szczegółowej metody, bez implementacji i przebiegów potwierdzających. Odkrywanie reguł podłoża, replikacja i świadomość pozostają oddzielnymi pytaniami, bez automatycznego rozpoczęcia ich implementacji.
 
 ## Co badać po fundamentach
 
