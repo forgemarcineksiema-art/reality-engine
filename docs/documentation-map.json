@@ -1,6 +1,8 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/verification/hypothesis-building-design.md", "role": "verification", "topic": "hypothesis-building-design-review"},
+    {"path": "docs/work-items/hypothesis-building-experiment.md", "role": "research", "topic": "hypothesis-building-experiment-protocol"},
     {"path": "docs/verification/evidence/discovery-learning-2026-10-27/review.md", "role": "verification", "topic": "discovery-learning-code-review"},
     {"path": "docs/discovery-learning.md", "role": "current-state", "topic": "discovery-learning-api"},
     {"path": "docs/verification/discovery-learning-experiment.md", "role": "verification", "topic": "discovery-learning-experiment-results"},

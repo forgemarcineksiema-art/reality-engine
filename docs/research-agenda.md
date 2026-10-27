@@ -8,6 +8,10 @@
 
 [Protokół odkrywania i przekazu](work-items/discovery-learning-experiment.md) jest jednym właścicielem szczegółowej metody: opisuje wyposażenie, nieznane parametry, kanał obserwacji, kontrole, budżety, seedy i kryteria zapisane przed próbą. Użytkownik zatwierdził go do implementacji i wykonania. [API](discovery-learning.md) opisuje nowy konsument headless; bieżące kontrole i wyniki wskazuje [raport](verification/discovery-learning-experiment.md). Odkrywanie reguł podłoża, replikacja i świadomość pozostają oddzielnymi pytaniami, bez automatycznego rozpoczęcia ich implementacji.
 
+## Następny kierunek: budowanie wyjaśnień
+
+27.10.2026 użytkownik zatwierdził kierunek drugiego eksperymentu: po wykryciu nieadekwatności dotychczasowego katalogu agent buduje i sprawdza nowe wyjaśnienia. [Projekt protokołu](work-items/hypothesis-building-experiment.md) proponuje ograniczony język składania programów, porównanie z katalogiem i losowym wyborem prób, kontrolę praw spoza języka oraz kryteria zapisane przed wykonaniem. Szczegóły pozostają projektem do zatwierdzenia; nie ma implementacji ani wyników tego drugiego badania. Wyniki pierwszej próby pozostają odrębnym, zachowanym dowodem.
+
 ## Co badać po fundamentach
 
 | Pytanie | Dowód potrzebny | Co nie wystarcza |
