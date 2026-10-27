@@ -33,6 +33,11 @@ struct DiscoveryDevice {
     DiscoveryEnergy source = 8192, output = 0, loss = 0;
     std::optional<std::size_t> pending;
 };
+struct DiscoveryPulseView {
+    std::uint64_t command = 0, started_tick = 0;
+    EntityId actor;
+    DiscoveryEnergy input = 0;
+};
 class DiscoveryWorld final {
   public:
     explicit DiscoveryWorld(std::array<DiscoveryRule, 3> rules);
@@ -46,6 +51,7 @@ class DiscoveryWorld final {
     [[nodiscard]] std::uint64_t tick() const noexcept;
     [[nodiscard]] DiscoveryWorld fresh() const;
     [[nodiscard]] bool same_rules(const DiscoveryWorld& other) const noexcept;
+    [[nodiscard]] std::optional<DiscoveryPulseView> pending_pulse(unsigned apparatus) const;
     [[nodiscard]] std::string serialize() const;
     [[nodiscard]] static DiscoveryWorld deserialize(std::string_view bytes);
     void validate() const;

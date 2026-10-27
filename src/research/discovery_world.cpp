@@ -132,6 +132,13 @@ DiscoveryWorld DiscoveryWorld::fresh() const { return DiscoveryWorld{rules_}; }
 bool DiscoveryWorld::same_rules(const DiscoveryWorld& other) const noexcept {
     return rules_ == other.rules_;
 }
+std::optional<DiscoveryPulseView> DiscoveryWorld::pending_pulse(unsigned apparatus) const {
+    const auto& device = devices_.at(apparatus);
+    if (!device.pending)
+        return {};
+    const auto& c = commands_.at(*device.pending);
+    return DiscoveryPulseView{c.id, c.tick, c.actor, c.input};
+}
 void DiscoveryWorld::validate() const {
     check(commands_.size() <= record_limit && measurements_.size() <= commands_.size(),
           "apparatus record limit");

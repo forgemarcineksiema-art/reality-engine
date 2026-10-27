@@ -15,6 +15,7 @@ import shutil
 import subprocess
 import sys
 import time
+from fractions import Fraction
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "docs/work-items/discovery-learning-experiment.md"
@@ -146,13 +147,17 @@ def prepare(directory: Path, executable: Path, mode: str, review: Path | None) -
     print(f"PREPARED {mode}: {count} cases; no agent runs performed", flush=True)
 
 
-def sign_test(differences: list[float]) -> float:
+def sign_probability(differences) -> Fraction:
     nonzero = [x for x in differences if x != 0]
     n = len(nonzero)
     if n == 0:
-        return 1.0
+        return Fraction(1)
     wins = sum(x > 0 for x in nonzero)
-    return sum(math.comb(n, k) for k in range(wins, n + 1)) / 2**n
+    return Fraction(sum(math.comb(n, k) for k in range(wins, n + 1)), 2**n)
+
+
+def sign_test(differences: list[float]) -> float:
+    return float(sign_probability(differences))
 
 
 def validate_row(row: dict, case: dict) -> None:
@@ -225,23 +230,28 @@ def analyze_rows(rows: list[dict]) -> dict:
         raise ValueError("expected complete, unique 16/64-world set")
     fields = ("d_before", "d_after", "g", "g_random", "s_with", "s_without")
     for row in rows:
+        if row.get("integrity", True) is not True:
+            raise ValueError("row explicitly failed integrity")
         for name in fields:
             value = row.get(name)
             if not isinstance(value, (int, float)) or not math.isfinite(value) or not 0 <= value <= 1:
                 raise ValueError(f"invalid/missing metric: {name}")
     result = {"worlds": len(rows), "unit": "one world, not one task"}
     for name, learned, baseline, minimum in [("D", "d_after", "d_before", 0.9), ("G", "g", "g_random", 0.8), ("S", "s_with", "s_without", 0.8)]:
-        scores = [r[learned] for r in rows]
-        controls = [r[baseline] for r in rows]
+        denominator = 24 if name == "D" else 20
+        # validate_row binds real scores to integer hits. Recover those exact fractions;
+        # do not lower the registered 1/5 threshold with a floating-point epsilon.
+        scores = [Fraction(str(r[learned])).limit_denominator(denominator) for r in rows]
+        controls = [Fraction(str(r[baseline])).limit_denominator(denominator) for r in rows]
         differences = [a - b for a, b in zip(scores, controls)]
-        mean = math.fsum(scores) / len(rows)
-        control = math.fsum(controls) / len(rows)
-        gain = math.fsum(differences) / len(rows)
-        p = sign_test(differences)
-        result[name] = {"mean": mean, "control": control, "gain": gain, "p": p,
+        mean = sum(scores, Fraction()) / len(rows)
+        control = sum(controls, Fraction()) / len(rows)
+        gain = sum(differences, Fraction()) / len(rows)
+        p = sign_probability(differences)
+        result[name] = {"mean": float(mean), "control": float(control), "gain": float(gain), "p": float(p),
                         "wins": sum(x > 0 for x in differences), "ties": differences.count(0),
                         "losses": sum(x < 0 for x in differences),
-                        "supported": mean >= minimum and gain >= 0.2 and p <= 0.05 / 3}
+                        "supported": mean >= Fraction(str(minimum)) and gain >= Fraction(1, 5) and p <= Fraction(1, 60)}
     result["supported"] = all(result[name]["supported"] for name in ("D", "G", "S"))
     return result
 
@@ -254,6 +264,32 @@ def verify_freeze(directory: Path) -> dict:
     verify_hashes(freeze["artifacts"])
     verify_hashes(freeze["review"])
     return freeze
+
+
+def analyze_directory(directory: Path) -> dict:
+    freeze = verify_freeze(directory)
+    started = json.loads((directory / "RUN_STARTED.json").read_text(encoding="utf-8"))
+    if started["freeze_sha256"] != sha256(directory / "freeze.json"):
+        raise ValueError("freeze changed after attempt started")
+    hashes = json.loads((directory / "result-hashes.json").read_text(encoding="utf-8"))
+    for name in hashes:
+        if not (directory / name).resolve().is_relative_to(directory.resolve()):
+            raise ValueError("result hash path escapes attempt")
+    verify_hashes({str(directory / name): digest for name, digest in hashes.items()})
+    manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
+    rows = json.loads((directory / "rows.json").read_text(encoding="utf-8"))
+    if len(rows) != freeze["count"] or len(manifest["cases"]) != len(rows):
+        raise ValueError("incomplete attempt")
+    for row, case in zip(rows, manifest["cases"]):
+        raw_path = directory / f"world-{case['seed']:08x}" / "result.json"
+        raw = json.loads(raw_path.read_text(encoding="utf-8"))
+        if any(row.get(key) != value for key, value in raw.items()):
+            raise ValueError("rows differ from native result")
+        validate_row(row, case)
+    summary = analyze_rows(rows)
+    summary["mode"] = freeze["mode"]
+    summary["interpretation"] = "confirmatory" if freeze["mode"] == "confirmatory" else "development only, not confirmation"
+    return summary
 
 
 def run(directory: Path) -> None:
@@ -313,7 +349,7 @@ def main() -> int:
         elif args.command == "run":
             run(args.directory.resolve())
         else:
-            print(json.dumps(analyze_rows(json.loads((args.directory / "rows.json").read_text(encoding="utf-8"))), indent=2))
+            print(json.dumps(analyze_directory(args.directory.resolve()), indent=2))
         return 0
     except (ValueError, OSError, RuntimeError, KeyError, subprocess.SubprocessError) as error:
         print(f"ERROR: {error}", file=sys.stderr)

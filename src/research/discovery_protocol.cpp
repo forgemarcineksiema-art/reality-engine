@@ -2,8 +2,9 @@
 #include "research/discovery_random.hpp"
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
-#include <Psapi.h>
 #include <Windows.h>
+
+#include <Psapi.h>
 #include <algorithm>
 #include <charconv>
 #include <chrono>
@@ -45,9 +46,22 @@ std::uint64_t peak_memory() {
 DiscoverySession make_session(const DiscoveryCase& data) {
     return DiscoverySession{data.rules, make_discovery_scene(), data.seed};
 }
+struct PhaseCost {
+    std::uint64_t work = 0;
+    double cpu = 0;
+    std::uint64_t ticks = 0, energy = 0;
+};
+std::uint64_t total_work(const DiscoverySession& s) {
+    return s.agent(0).work_units() + s.agent(1).work_units();
+}
+void write_phase_cost(std::ostream& out, const PhaseCost& cost) {
+    out << "{\"work_units\":" << cost.work << ",\"cpu_ms\":" << cost.cpu
+        << ",\"ticks\":" << cost.ticks << ",\"spent_eu\":" << cost.energy << '}';
+}
 struct Evaluation {
     DiscoverySession session;
     unsigned hits = 0;
+    PhaseCost cost;
 };
 Evaluation evaluate(const DiscoverySession& checkpoint, unsigned actor,
                     const std::vector<DiscoveryQuery>& queries, bool predictions,
@@ -55,6 +69,8 @@ Evaluation evaluate(const DiscoverySession& checkpoint, unsigned actor,
     auto s = checkpoint.evaluation_copy();
     s.freeze(actor);
     const auto start = s.tick();
+    const auto cpu_start = cpu_ms();
+    const auto work_start = s.agent(actor).work_units();
     std::uint32_t counter = 0;
     unsigned hits = 0;
     for (const auto& query : queries) {
@@ -75,7 +91,9 @@ Evaluation evaluate(const DiscoverySession& checkpoint, unsigned actor,
             hits += m->output == query.target;
     }
     s.validate();
-    return {std::move(s), hits};
+    const PhaseCost cost{s.agent(actor).work_units() - work_start, cpu_ms() - cpu_start,
+                         s.tick() - start, 8192U - s.apparatus().devices()[actor].source};
+    return {std::move(s), hits, cost};
 }
 void write_chain(std::ostream& out, const DiscoveryChain& chain) {
     out << '[';
@@ -196,9 +214,14 @@ void run_discovery_case(const DiscoveryCase& data, const std::filesystem::path& 
     auto teacher = make_session(data);
     auto prior = teacher.agent(0);
     std::vector<DiscoveryEnergy> preexperience;
+    const auto prior_cpu_start = cpu_ms();
     for (const auto& query : data.predictions)
         preexperience.push_back(prior.predict(query.recipe, query.input).median);
+    const PhaseCost prior_cost{prior.work_units(), cpu_ms() - prior_cpu_start, 0, 0};
+    const auto teacher_cpu_start = cpu_ms();
     teacher.train(0);
+    const PhaseCost teacher_cost{total_work(teacher), cpu_ms() - teacher_cpu_start, teacher.tick(),
+                                 8192U - teacher.apparatus().devices()[0].source};
     teacher.save(directory / "teacher.save");
     auto d = evaluate(teacher, 0, data.predictions, true);
     unsigned before_hits = 0;
@@ -208,23 +231,46 @@ void run_discovery_case(const DiscoveryCase& data, const std::filesystem::path& 
     auto naive = make_session(data);
     auto random_g = evaluate(naive, 0, data.tasks_a, false, data.seed);
     auto random_teacher = make_session(data);
+    const auto random_teacher_cpu_start = cpu_ms();
     random_teacher.train(0, true);
+    const PhaseCost random_teacher_cost{total_work(random_teacher),
+                                        cpu_ms() - random_teacher_cpu_start, random_teacher.tick(),
+                                        8192U - random_teacher.apparatus().devices()[0].source};
     auto random_d = evaluate(random_teacher, 0, data.predictions, true);
     auto random_trained_g = evaluate(random_teacher, 0, data.tasks_a, false);
     auto with = teacher;
     auto without = teacher;
     const auto contact_start = teacher.tick();
-    check(with.meet_and_share(true) == DiscoveryOutcome::Accepted &&
-              without.meet_and_share(false) == DiscoveryOutcome::Accepted,
-          "paired contact failed");
+    const auto with_contact_cpu_start = cpu_ms();
+    check(with.meet_and_share(true) == DiscoveryOutcome::Accepted, "contact failed");
+    const PhaseCost with_contact_cost{total_work(with) - total_work(teacher),
+                                      cpu_ms() - with_contact_cpu_start,
+                                      with.tick() - contact_start, 0};
+    const auto without_contact_cpu_start = cpu_ms();
+    check(without.meet_and_share(false) == DiscoveryOutcome::Accepted, "control contact failed");
+    const PhaseCost without_contact_cost{total_work(without) - total_work(teacher),
+                                         cpu_ms() - without_contact_cpu_start,
+                                         without.tick() - contact_start, 0};
     const auto contact_ticks = with.tick() - contact_start;
     const auto control_ticks = without.tick() - contact_start;
     check(contact_ticks == control_ticks && without.agent(1).evidence().empty(),
           "contact control leaked data or changed schedule");
     const auto packet_size = with.agent(1).evidence().size();
     const auto packet = with.agent(1).evidence();
+    const auto b_with_start = cpu_ms();
+    const auto b_with_work = total_work(with);
+    const auto b_with_tick = with.tick();
     with.train(1);
+    const PhaseCost b_with_cost{total_work(with) - b_with_work, cpu_ms() - b_with_start,
+                                with.tick() - b_with_tick,
+                                8192U - with.apparatus().devices()[1].source};
+    const auto b_without_start = cpu_ms();
+    const auto b_without_work = total_work(without);
+    const auto b_without_tick = without.tick();
     without.train(1);
+    const PhaseCost b_without_cost{total_work(without) - b_without_work, cpu_ms() - b_without_start,
+                                   without.tick() - b_without_tick,
+                                   8192U - without.apparatus().devices()[1].source};
     with.save(directory / "student-with.save");
     without.save(directory / "student-without.save");
     auto s_with = evaluate(with, 1, data.tasks_b, false);
@@ -248,9 +294,37 @@ void run_discovery_case(const DiscoveryCase& data, const std::filesystem::path& 
     write_cost(out, without, 1);
     out << ",\"random_teacher\":";
     write_cost(out, random_teacher, 0);
-    out << ",\"pair_work_with\":" << with.agent(0).work_units() + with.agent(1).work_units()
-        << ",\"pair_work_without\":"
-        << without.agent(0).work_units() + without.agent(1).work_units()
+    out << ",\"phase_costs\":{";
+    const std::array<const char*, 14> phase_names{"D_prior",
+                                                  "train_A",
+                                                  "D",
+                                                  "G",
+                                                  "G_random",
+                                                  "train_A_random",
+                                                  "random_D",
+                                                  "random_G",
+                                                  "contact_with",
+                                                  "contact_without",
+                                                  "train_B_with",
+                                                  "train_B_without",
+                                                  "S_with",
+                                                  "S_without"};
+    const std::array<PhaseCost, 14> phase_costs{
+        prior_cost,        teacher_cost,         d.cost,        g.cost,
+        random_g.cost,     random_teacher_cost,  random_d.cost, random_trained_g.cost,
+        with_contact_cost, without_contact_cost, b_with_cost,   b_without_cost,
+        s_with.cost,       s_without.cost};
+    for (std::size_t i = 0; i < phase_names.size(); ++i) {
+        if (i)
+            out << ',';
+        out << '"' << phase_names[i] << "\":";
+        write_phase_cost(out, phase_costs[i]);
+    }
+    out << "},\"pair_work_with\":" << total_work(s_with.session)
+        << ",\"pair_work_without\":" << total_work(s_without.session) << ",\"pair_cpu_with_ms\":"
+        << teacher_cost.cpu + with_contact_cost.cpu + b_with_cost.cpu + s_with.cost.cpu
+        << ",\"pair_cpu_without_ms\":"
+        << teacher_cost.cpu + without_contact_cost.cpu + b_without_cost.cpu + s_without.cost.cpu
         << ",\"contact\":{\"with_ticks\":" << contact_ticks
         << ",\"without_ticks\":" << control_ticks << ",\"packet_records\":" << packet_size
         << ",\"path\":[";
@@ -327,6 +401,27 @@ void run_discovery_case(const DiscoveryCase& data, const std::filesystem::path& 
     check(static_cast<bool>(out), "result write failed");
 }
 void discovery_fixture(const std::filesystem::path& directory) {
+    DiscoverySession negative{{DiscoveryRule{DiscoveryFamily::Outside, 0},
+                               DiscoveryRule{DiscoveryFamily::Loss, 4},
+                               DiscoveryRule{DiscoveryFamily::Cap, 20}}};
+    std::vector<DiscoveryEnergy> outputs;
+    for (const auto input : {16U, 32U, 64U}) {
+        const auto m = negative.probe(0, {0}, input);
+        check(m.has_value(), "negative physical control refused");
+        outputs.push_back(m->output);
+    }
+    check(outputs == std::vector<DiscoveryEnergy>{0, 32, 64} && negative.agent(0).inadequate(),
+          "negative physical control did not reject model");
+    negative.save(directory / "negative-control.save");
+    const auto& ledger = negative.apparatus().devices()[0];
+    std::ofstream negative_out(directory / "negative-control.json", std::ios::binary);
+    negative_out << "{\"outputs\":[0,32,64],\"model_inadequate\":true,\"source\":" << ledger.source
+                 << ",\"output\":" << ledger.output << ",\"loss\":" << ledger.loss
+                 << ",\"trials\":";
+    write_trials(negative_out, negative);
+    negative_out << "}\n";
+    negative_out.close();
+    check(static_cast<bool>(negative_out), "negative control write failed");
     DiscoverySession s{{DiscoveryRule{DiscoveryFamily::Loss, 4},
                         DiscoveryRule{DiscoveryFamily::Cap, 20},
                         DiscoveryRule{DiscoveryFamily::Fraction, 8}}};

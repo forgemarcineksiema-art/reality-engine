@@ -269,6 +269,38 @@ void corruption_case() {
         rejected = true;
     }
     require(rejected && s.serialize() == before, "corrupt save replaced live session");
+    const auto alter_pending = [](const std::string& snapshot, const std::string& from,
+                                  const std::string& to) {
+        const auto header = snapshot.find('\n') + 1;
+        const auto marker = snapshot.rfind("\nCHECKSUM ");
+        auto payload = snapshot.substr(header, marker + 1 - header);
+        const auto position = payload.find(from);
+        require(position != std::string::npos, "pending fixture not found");
+        payload.replace(position, from.size(), to);
+        return snapshot.substr(0, header) + payload + "CHECKSUM " +
+               std::to_string(snapshot_checksum(payload)) + "\n";
+    };
+    auto inflight = session();
+    require(inflight.begin_probe(0, {0}, 64) == DiscoveryOutcome::Accepted, "pending fixture");
+    const auto configured = inflight.serialize();
+    rejected = false;
+    try {
+        inflight.restore(alter_pending(configured, "\n1 0 0 2 64 1\n", "\n1 0 0 2 32 1\n"));
+    } catch (const std::exception&) {
+        rejected = true;
+    }
+    require(rejected && inflight.serialize() == configured,
+            "semantic pending input corruption accepted with valid checksum");
+    inflight.advance(1);
+    const auto pulsing = inflight.serialize();
+    rejected = false;
+    try {
+        inflight.restore(alter_pending(pulsing, "\n1 0 1 2 64 1\n", "\n1 0 1 2 64 0\n"));
+    } catch (const std::exception&) {
+        rejected = true;
+    }
+    require(rejected && inflight.serialize() == pulsing,
+            "semantic observation suppression accepted with valid checksum");
 }
 void blocked_share_case() {
     auto scene = make_discovery_scene();
@@ -291,6 +323,27 @@ void blocked_share_case() {
                            scene};
     require(other.share(0, 1, true) == DiscoveryOutcome::OutOfReach,
             "teaching crossed support boundary");
+}
+void pending_observation_case() {
+    auto s = session();
+    require(s.begin_probe(0, {0}, 64) == DiscoveryOutcome::Accepted, "pending observation fixture");
+    s.advance(1);
+    const auto before = s.serialize();
+    const auto header = before.find('\n') + 1;
+    const auto marker = before.rfind("\nCHECKSUM ");
+    auto payload = before.substr(header, marker + 1 - header);
+    const auto location = payload.find("\n1 0 1 2 64 1\n");
+    require(location != std::string::npos, "pending observation fixture line");
+    payload.replace(location, std::string("\n1 0 1 2 64 1\n").size(), "\n1 0 1 2 64 0\n");
+    const auto modified = before.substr(0, header) + payload + "CHECKSUM " +
+                          std::to_string(snapshot_checksum(payload)) + "\n";
+    bool rejected = false;
+    try {
+        s.restore(modified);
+    } catch (const std::exception&) {
+        rejected = true;
+    }
+    require(rejected && s.serialize() == before, "pending learning flag corruption accepted");
 }
 void budgets_case() {
     auto s = session();
@@ -337,6 +390,8 @@ int main(int argc, char** argv) {
             blocked_share_case();
         else if (name == "budgets")
             budgets_case();
+        else if (name == "pending_observation")
+            pending_observation_case();
         else
             throw std::runtime_error("unknown case");
         std::cout << "PASS " << name << '\n';

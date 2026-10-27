@@ -6,7 +6,7 @@
 
 27.10.2026 użytkownik zlecił rozpoczęcie badania: czy agent odkryje użyteczną zależność przez własne doświadczenie, wykorzysta ją w nowych warunkach i przekaże drugiemu agentowi. Zaakceptował również wartość wyniku negatywnego. W tej rozmowie laboratorium i jego systemy otrzymały pierwszeństwo jako przedmiot badań, a gra może być sposobem późniejszego uczestnictwa w świecie. Nie jest to wynik o świadomości ani automatyczne rozszerzenie zakresu ukończonych etapów.
 
-[Projekt odkrywania i przekazu](work-items/discovery-learning-experiment.md) jest jednym właścicielem szczegółowego protokołu: opisuje wyposażenie, nieznane parametry, kanał obserwacji, kontrole, budżety, seedy i kryteria zapisane przed próbą. Stan: propozycja szczegółowej metody, bez implementacji i przebiegów potwierdzających. Odkrywanie reguł podłoża, replikacja i świadomość pozostają oddzielnymi pytaniami, bez automatycznego rozpoczęcia ich implementacji.
+[Protokół odkrywania i przekazu](work-items/discovery-learning-experiment.md) jest jednym właścicielem szczegółowej metody: opisuje wyposażenie, nieznane parametry, kanał obserwacji, kontrole, budżety, seedy i kryteria zapisane przed próbą. Użytkownik zatwierdził go do implementacji i wykonania. [API](discovery-learning.md) opisuje nowy konsument headless; bieżące kontrole i wyniki wskazuje [raport](verification/discovery-learning-experiment.md). Odkrywanie reguł podłoża, replikacja i świadomość pozostają oddzielnymi pytaniami, bez automatycznego rozpoczęcia ich implementacji.
 
 ## Co badać po fundamentach
 

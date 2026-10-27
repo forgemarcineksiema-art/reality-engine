@@ -243,7 +243,8 @@ void DiscoverySession::validate() const {
     for (const auto& archive : archives_)
         check_world(archive);
     check_world(apparatus_);
-    check(next_command_ > 0 && traces_.size() <= 256 && exchanges_.size() <= 8,
+    check(next_command_ == traces_.size() * 2 + 1 && traces_.size() <= 256 &&
+              exchanges_.size() <= 8,
           "discovery session limits");
     for (unsigned actor = 0; actor < 2; ++actor) {
         check(agents_[actor].actor() == traversal_.actors()[actor].id &&
@@ -279,6 +280,21 @@ void DiscoverySession::validate() const {
                   pending_->command + 1 == next_command_ && !traces_.empty() &&
                   traces_.back().command == pending_->command,
               "invalid session pending impulse");
+        const auto& p = *pending_;
+        const auto& trace = traces_.back();
+        const auto& device = apparatus_.devices()[p.actor];
+        check(trace.actor == p.actor && trace.input == p.input && trace.learning == p.learning &&
+                  trace.started_tick <= UINT64_MAX - 2 && tick() == trace.started_tick + p.stage &&
+                  device.chain == trace.chain && device.ready_at == trace.started_tick + 1 &&
+                  (p.learning ? !agents_[p.actor].frozen() : agents_[p.actor].frozen()),
+              "pending impulse differs from configured trace/observer");
+        const auto active = apparatus_.pending_pulse(p.actor);
+        if (p.stage == 0)
+            check(!active, "configuration stage already has a pulse");
+        else
+            check(active && active->command == p.command && active->input == p.input &&
+                      active->actor == agents_[p.actor].actor() && active->started_tick == tick(),
+                  "pending impulse differs from apparatus command");
     }
 }
 } // namespace reality

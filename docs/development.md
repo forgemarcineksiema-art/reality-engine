@@ -16,6 +16,17 @@ Sześć oryginalnych dokumentów zachowano bajtowo; lista i SHA-256 znajdują si
 
 ## Budowanie i testy C++
 
+Eksperyment odkrywania ma osobny konsument konsolowy. Po zbudowaniu `reality_discovery`:
+
+```powershell
+ctest --preset windows-debug -R '^discovery' --output-on-failure
+python tools/run_discovery_experiment.py prepare --mode development --exe build/msvc/RelWithDebInfo/reality_discovery.exe --output build/discovery-development-NEW
+python tools/run_discovery_experiment.py run build/discovery-development-NEW
+python tools/run_discovery_experiment.py analyze build/discovery-development-NEW
+```
+
+Każdy katalog próby musi być nowy. Przygotowanie zapisuje manifest i freeze przed przebiegami; `run` odmawia restartu tej samej próby. Tryb confirmatory wymaga dodatkowo pliku ukończonego review przez `--review PATH` i jest przeznaczony do jednorazowej próby dopiero po kontrolach. Bezpośredni runner: `reality_discovery.exe --case PATH --output NEW_DIRECTORY`; kontrola kontynuacji: `--fixture --output NEW_DIRECTORY` oraz `--continue CHECKPOINT --output NEW_DIRECTORY`. [API i granice](discovery-learning.md), [kryteria](work-items/discovery-learning-experiment.md) i [wyniki](verification/discovery-learning-experiment.md) mają oddzielne odpowiedzialności.
+
 Z katalogu projektu, bez ręcznego ustawiania środowiska developera:
 
 ```powershell

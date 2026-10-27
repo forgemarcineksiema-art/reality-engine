@@ -26,6 +26,8 @@ Pierwszy rezultat ma łączyć grywalny fragment i laboratorium małej autonomic
 
 ## Odbiór M04
 
+Osobny [eksperyment odkrywania i przekazu](docs/discovery-learning.md) rozwija laboratorium przez nowy konsument headless `reality_discovery`. Agent poznaje nieznane parametry z pomiarów, sprawdza nowe konfiguracje i przekazuje dane przy fizycznym kontakcie. Rodziny praw i metoda uczenia są dostarczone przez autora. [Raport](docs/verification/discovery-learning-experiment.md) oddziela kontrole techniczne od wyniku D/G/S; nie jest to świadomość ani nowy odbiór społeczności.
+
 [Aktualny audyt społeczności](docs/verification/m04-acceptance.md) łączy potrzeby, dostawę, przeprawę, wiedzę i prawo we wspólnej scenie `--community` z ośmioma osobami. `python tools/start_m04_playtest.py` uruchamia świeży świat z osobnym katalogiem zapisu i logu. Panel pokazuje role i faktyczne skutki. [Krótka próba użytkownika](docs/verification/m04-playtest.md) zawiera jego akceptację M04 z 27.10.2026, odrębną od kontroli technicznych.
 
 ## Od czego zacząć

@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import sys
 import tempfile
+import subprocess
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -76,6 +77,24 @@ class DiscoveryExperimentTests(unittest.TestCase):
         case = experiment.make_case(0xD15C0000)
         with self.assertRaises(ValueError):
             experiment.validate_row({"seed": case["seed"], "integrity": True}, case)
+
+    def test_exact_threshold_and_one_attainable_step_below(self):
+        rows = [{"seed": n, "d_before": 0.5, "d_after": 1.0, "g": 1.0,
+                 "g_random": 0.8, "s_with": 1.0, "s_without": 0.8} for n in range(64)]
+        result = experiment.analyze_rows(rows)
+        self.assertTrue(result["G"]["supported"])
+        self.assertTrue(result["S"]["supported"])
+        rows[0]["s_with"] = 19 / 20
+        self.assertFalse(experiment.analyze_rows(rows)["S"]["supported"])
+
+    def test_analyze_command_rejects_unfrozen_headers(self):
+        rows = [{"seed": n, "integrity": False, "d_before": 0, "d_after": 1,
+                 "g": 1, "g_random": 0, "s_with": 1, "s_without": 0} for n in range(64)]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "rows.json").write_text(json.dumps(rows), encoding="utf-8")
+            result = subprocess.run([sys.executable, str(Path(experiment.__file__)), "analyze", str(root)], capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
 
 
 if __name__ == "__main__":

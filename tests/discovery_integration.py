@@ -27,6 +27,9 @@ def main():
         root = Path(directory)
         if args.mode == "continuation":
             execute(args.exe, "--fixture", "--output", root / "original")
+            negative = json.loads((root / "original/negative-control.json").read_text(encoding="utf-8"))
+            assert negative["outputs"] == [0, 32, 64] and negative["model_inadequate"] is True
+            assert negative["source"] + negative["output"] + negative["loss"] == 8192
             checkpoint = root / "original/checkpoint.save"
             digest = hashlib.sha256(checkpoint.read_bytes()).digest()
             execute(args.exe, "--continue", checkpoint, "--output", root / "resumed")
@@ -55,6 +58,9 @@ def main():
             assert len(result["preexperience_predictions"]) == 24
             assert result["contact"]["path"]
             assert len(result["contact"]["packet"]) == result["contact"]["packet_records"]
+            assert result["phase_costs"]["G"]["work_units"] > 0
+            assert result["phase_costs"]["D_prior"]["work_units"] > 0
+            assert result["pair_work_with"] == result["teacher"]["work_units"] + sum(result["phase_costs"][name]["work_units"] for name in ("contact_with", "train_B_with", "S_with"))
             experiment.validate_row(result, case)
             result["g"] = 0.123456
             try:

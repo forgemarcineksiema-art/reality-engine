@@ -1,8 +1,8 @@
 # Odkrycie zależności, generalizacja i przekaz — projekt pierwszego eksperymentu
 
-**Status: protokół ZATWIERDZONY przez użytkownika; implementacja i próba potwierdzająca w przygotowaniu.** Data: 27.10.2026. Po przedstawieniu projektu użytkownik odpowiedział „Tak” na zatwierdzenie protokołu jako podstawy implementacji i wykonania próby. Poniższe szczegóły są wyborami inżynierskimi autora zatwierdzonymi do realizacji, a nie uzyskanymi wynikami. [Plan wykonania](discovery-learning-implementation.md) prowadzi do osobnego raportu wyników bez zmiany kryteriów.
+**Status: protokół ZATWIERDZONY przez użytkownika, zapisany przed implementacją i próbą.** Data zatwierdzenia: 27.10.2026. Po przedstawieniu projektu użytkownik odpowiedział „Tak” na zatwierdzenie protokołu jako podstawy implementacji i wykonania próby. Poniższe szczegóły są wyborami inżynierskimi autora zatwierdzonymi do realizacji, a nie uzyskanymi wynikami. [Plan wykonania](discovery-learning-implementation.md) i [raport](../verification/discovery-learning-experiment.md) wskazują bieżący stan bez zmiany kryteriów.
 
-Dokument jest właścicielem protokołu `discovery-v1`. Kontekst i źródła posiada [program badań](../research-agenda.md), a sposób rozdzielenia planu i wyniku wskazuje [szablon eksperymentu](../templates/experiment-record.md). Nie zastępuje [planu etapów](../prototype-plan.md) ani historycznych raportów. Nie jest nową bramką zaliczonego M04. W tej wersji nie powstał nowy moduł, urządzenie, agent uczący się ani wynik badawczy.
+Dokument jest właścicielem protokołu `discovery-v1`, zatwierdzonego przed implementacją. Kontekst i źródła posiada [program badań](../research-agenda.md), a sposób rozdzielenia planu i wyniku wskazuje [szablon eksperymentu](../templates/experiment-record.md). Nie zastępuje [planu etapów](../prototype-plan.md) ani historycznych raportów. Nie jest nową bramką zaliczonego M04. Bieżący zakres kodu opisuje [API](../discovery-learning.md), a rzeczywiste kontrole i wyniki [raport](../verification/discovery-learning-experiment.md); poniższy opis pozostaje kryteriami zapisanymi przed próbą.
 
 ## Pytanie i zakres twierdzenia
 
@@ -157,7 +157,7 @@ Obserwację nieprzewidzianą zapisujemy z seedem, pełnym śladem i hipotezą wy
 
 Odczytany stan kodu: `SimulationClock` posiada jawny stały krok; `WorkWorld` posiada materiały/rezerwacje/czynności; `TraversalSession` posiada ruch i wiedzę lokalną. Obecne `share_knowledge()` przekazuje stanowiska, przejścia i świadectwa incydentów. Nie przekazuje pomiarów aparatury, nie uczy modelu i nie jest implementacją tego eksperymentu.
 
-Proponujemy mały moduł `src/research/discovery_world.*` posiadający wyłącznie źródła, impulsy i wynik fizycznego modelu aparatury; `discovery_agent.*` posiada wiedzę i decyzje; `discovery_session.*` łączy aparaturę ze zwykłą sesją przestrzenną; osobny konsument runnera wykonuje protokół. Nazwy są projektowane, pliki nie istnieją. Nie tworzymy ogólnego frameworka świadomości lub ewolucji.
+Projekt przewidział mały moduł `src/research/discovery_world.*` posiadający wyłącznie źródła, impulsy i wynik fizycznego modelu aparatury; `discovery_agent.*` posiada wiedzę i decyzje; `discovery_session.*` łączy aparaturę ze zwykłą sesją przestrzenną; osobny konsument runnera wykonuje protokół. W chwili zatwierdzenia były to projektowane pliki; bieżącą implementację wskazuje osobny dokument API. Nie tworzymy ogólnego frameworka świadomości lub ewolucji.
 
 Sesja przestrzenna pozostaje właścicielem ID, geometrii, pozycji i jedynego zegara (50 ms z `WorkWorld`). Aparatura i kontroler używają przekazanego ticku, bez drugiego zegara rzeczywistego lub automatycznego przesuwania świata przez wnioskowanie. `DiscoveryWorld` posiada energię jako nową, jawnie odrębną wielkość aparatury; nie kopiuje jedzenia, części ani pojemności z WorkWorld i nie zamienia ich jednostek w eu. W tej próbie nie dodajemy takiej konwersji.
 
@@ -182,4 +182,4 @@ Przyszły zakres plików: małe moduły `src/research/`, konsument w `src/headle
 
 ## Stan dowodów
 
-Na etapie tego dokumentu **D, G i S są NIEWERYFIKOWANE**. Nie wykonano przebiegów agentów ani analizy mocy. Kontrola dokumentacji i [przegląd projektu](../verification/discovery-learning-design.md) mogą potwierdzić spójność opisu; nie potwierdzają hipotez. Dokładne polecenia runnera, hashe i wyniki zostaną zapisane dopiero po implementacji, bez wymyślania obecnie nieistniejącego CLI.
+W chwili zatwierdzenia projektu **D, G i S były NIEWERYFIKOWANE**; nie wykonano przebiegów ani analizy mocy. Kontrola dokumentacji i [przegląd projektu](../verification/discovery-learning-design.md) potwierdzały tylko spójność opisu. Aktualny stan, konkretne polecenia, hashe i wyniki zapisuje odrębny [raport wykonania](../verification/discovery-learning-experiment.md), bez nadpisywania kryteriów tego protokołu.

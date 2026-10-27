@@ -182,6 +182,9 @@ DiscoverySession DiscoverySession::deserialize(std::string_view bytes) {
     std::array<unsigned, 2> attempts{};
     std::array<DiscoveryEnergy, 2> spent{};
     for (const auto& trace : result.traces_) {
+        check(trace.started_tick <= UINT64_MAX - 2 && trace.command > 0 &&
+                  trace.command < result.next_command_,
+              "invalid trace time/identity");
         const auto* m = result.measurement(trace.command);
         const auto pending = result.pending_ && result.pending_->command == trace.command;
         check(m || pending, "trace without impulse");

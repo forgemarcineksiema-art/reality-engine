@@ -1,6 +1,9 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/verification/evidence/discovery-learning-2026-10-27/review.md", "role": "verification", "topic": "discovery-learning-code-review"},
+    {"path": "docs/discovery-learning.md", "role": "current-state", "topic": "discovery-learning-api"},
+    {"path": "docs/verification/discovery-learning-experiment.md", "role": "verification", "topic": "discovery-learning-experiment-results"},
     {"path": "docs/work-items/discovery-learning-implementation.md", "role": "planned", "topic": "discovery-learning-implementation"},
     {"path": "docs/verification/discovery-learning-design.md", "role": "verification", "topic": "discovery-learning-design-review"},
     {"path": "docs/work-items/discovery-learning-experiment.md", "role": "proposal", "topic": "discovery-learning-experiment-protocol"},
