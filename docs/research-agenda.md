@@ -10,7 +10,7 @@
 
 ## Następny kierunek: budowanie wyjaśnień
 
-27.10.2026 użytkownik zatwierdził kierunek drugiego eksperymentu: po wykryciu nieadekwatności dotychczasowego katalogu agent buduje i sprawdza nowe wyjaśnienia. [Projekt protokołu](work-items/hypothesis-building-experiment.md) proponuje ograniczony język składania programów, porównanie z katalogiem i losowym wyborem prób, kontrolę praw spoza języka oraz kryteria zapisane przed wykonaniem. Szczegóły pozostają projektem do zatwierdzenia; nie ma implementacji ani wyników tego drugiego badania. Wyniki pierwszej próby pozostają odrębnym, zachowanym dowodem.
+27.10.2026 użytkownik zatwierdził [protokół drugiego eksperymentu](work-items/hypothesis-building-experiment.md) do implementacji i wykonania: po wykryciu nieadekwatności dotychczasowego katalogu agent buduje i sprawdza nowe wyjaśnienia. Protokół określa ograniczony język składania programów, porównanie z katalogiem i losowym wyborem prób, kontrolę praw spoza języka oraz kryteria zapisane przed wykonaniem. [Plan implementacji](work-items/hypothesis-building-implementation.md) śledzi bieżące prace; nie ma jeszcze wyników tego drugiego badania. Wyniki pierwszej próby pozostają odrębnym, zachowanym dowodem.
 
 ## Co badać po fundamentach
 

@@ -1,6 +1,6 @@
 # Budowanie i sprawdzanie wyjaśnień — projekt drugiego eksperymentu
 
-**Status: projekt do zatwierdzenia; bez implementacji i wyników.** 27.10.2026 użytkownik zatwierdził kierunek: agent wykrywa niewystarczalność dotychczasowych wyjaśnień, buduje nowe i sprawdza ich przewidywania. Poniższe szczegóły są propozycją autora. Identyfikator proponowanego protokołu: `hypothesis-v1`.
+**Status: protokół ZATWIERDZONY do implementacji i wykonania; bez wyników.** 27.10.2026 użytkownik napisał: „Tak, zatwierdzam ten protokół do implementacji i wykonania”. Szczegóły poniżej są zatwierdzonymi wyborami autora, a nie wynikami. Identyfikator protokołu: `hypothesis-v1`. [Plan implementacji](hypothesis-building-implementation.md) śledzi wykonanie bez zmiany kryteriów.
 
 Dokument jest właścicielem proponowanej metody. [Program badań](../research-agenda.md) wskazuje kontekst, [pierwszy protokół](discovery-learning-experiment.md) pozostaje zamrożony, a jego [raport](../verification/discovery-learning-experiment.md) zachowuje wyniki i ograniczenia. [Przegląd projektu](../verification/hypothesis-building-design.md) zapisuje pytania recenzenta i rozstrzygnięcia autora. To osobny przyrost badawczy, bez zmiany odbioru M04 i bez otwierania całego M05/M06.
 
