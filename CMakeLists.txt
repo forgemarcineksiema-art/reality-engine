@@ -75,6 +75,8 @@ target_link_libraries(reality_discovery_model PRIVATE psapi)
 add_executable(reality_discovery src/headless/discovery_main.cpp)
 target_link_libraries(reality_discovery PRIVATE reality_discovery_model)
 reality_deploy_diagnostics(reality_discovery)
+add_library(reality_hypothesis_model STATIC src/research/hypothesis_program.cpp)
+target_link_libraries(reality_hypothesis_model PUBLIC reality_discovery_model)
 
 add_library(reality_graphics STATIC src/graphics/d3d11_renderer.cpp)
 target_link_libraries(reality_graphics PUBLIC reality_lab_model d3d11 dxgi d3dcompiler windowscodecs ole32)
@@ -88,6 +90,9 @@ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 sh
 reality_deploy_diagnostics(reality_traversal)
 
 set(reality_cpp_files
+    src/research/hypothesis_program.hpp
+    src/research/hypothesis_program.cpp
+    tests/hypothesis_tests.cpp
     src/research/discovery_world.hpp
     src/research/discovery_world.cpp
     src/research/discovery_agent.hpp
@@ -178,6 +183,12 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_hypothesis_tests tests/hypothesis_tests.cpp)
+    target_link_libraries(reality_hypothesis_tests PRIVATE reality_hypothesis_model)
+    reality_deploy_diagnostics(reality_hypothesis_tests)
+    foreach(case IN ITEMS program apparatus)
+        add_test(NAME hypothesis.${case} COMMAND reality_hypothesis_tests ${case})
+    endforeach()
     add_executable(reality_discovery_tests tests/discovery_tests.cpp)
     target_link_libraries(reality_discovery_tests PRIVATE reality_discovery_model)
     reality_deploy_diagnostics(reality_discovery_tests)

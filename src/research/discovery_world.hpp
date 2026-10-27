@@ -9,6 +9,7 @@
 namespace reality {
 using DiscoveryEnergy = std::uint32_t;
 using DiscoveryChain = std::vector<std::uint8_t>;
+using DiscoveryTable = std::array<std::uint16_t, 129>;
 enum class DiscoveryFamily : unsigned { Fraction, Loss, Cap, Outside };
 struct DiscoveryRule {
     DiscoveryFamily family = DiscoveryFamily::Fraction;
@@ -41,6 +42,7 @@ struct DiscoveryPulseView {
 class DiscoveryWorld final {
   public:
     explicit DiscoveryWorld(std::array<DiscoveryRule, 3> rules);
+    explicit DiscoveryWorld(std::array<DiscoveryTable, 3> tables);
     [[nodiscard]] DiscoveryOutcome configure(std::uint64_t command, EntityId actor,
                                              unsigned apparatus, DiscoveryChain chain);
     [[nodiscard]] DiscoveryOutcome pulse(std::uint64_t command, EntityId actor, unsigned apparatus,
@@ -65,7 +67,8 @@ class DiscoveryWorld final {
         DiscoveryChain chain;
         DiscoveryEnergy input = 0;
     };
-    std::array<DiscoveryRule, 3> rules_;
+    std::array<DiscoveryRule, 3> rules_{};
+    std::optional<std::array<DiscoveryTable, 3>> tables_;
     std::array<DiscoveryDevice, 2> devices_;
     std::vector<Command> commands_;
     std::vector<DiscoveryMeasurement> measurements_;

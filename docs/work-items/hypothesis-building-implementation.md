@@ -37,7 +37,7 @@
 - `tools/run_hypothesis_experiment.py`, `tools/tests/test_hypothesis_experiment.py`: generator, freeze, runner, niezależny sędzia i analiza.
 - CMake, bieżące API, raport, mapa dokumentacji i agenda: konsumenci oraz rzeczywisty stan.
 
-## Zadanie 1 — programy oraz rzeczywista aparatura
+### Task 1: Programy oraz rzeczywista aparatura
 
 **Interfaces:** `HypothesisOp {kind, parameter}`, `HypothesisProgram = vector<HypothesisOp>`, `HypothesisTable = array<uint16_t,129>`; `hypothesis_apply(program,input)`, `hypothesis_grammar()`, `hypothesis_flat_models()`; `DiscoveryWorld(array<HypothesisTable,3>)` wykonuje i rozlicza nowe prawo, bez udostępnienia praw agentowi.
 
@@ -47,7 +47,7 @@
 - [ ] CTest nowych przypadków i wszystkich discovery PASS; historyczna kontynuacja i ponowienie komendy bez podwójnego skutku.
 - [ ] Commit źródeł/testów i rzeczywistego wyniku w dzienniku poniżej.
 
-## Zadanie 2 — synteza i wybór prób
+### Task 2: Synteza i wybór prób
 
 **Interfaces:** `HypothesisMode {FlatActive,SynthesisRandom,SynthesisActive}`; `HypothesisAgent(EntityId,HypothesisMode,HypothesisLimits={})`; `observe(DiscoveryEvidence)`, `choose_input(span<const unsigned>)`, `predict(DiscoveryChain,unsigned)`, `choose_chain(unsigned,unsigned)`, `freeze()`, `state()`.
 
@@ -56,7 +56,7 @@
 - [ ] Testować także limit podczas prognoz i wyboru konfiguracji, brak odświeżenia budżetu przy fazie oceny oraz 25 dopuszczonych konfiguracji.
 - [ ] Uruchomić przypadki PASS i commit.
 
-## Zadanie 3 — sesja i kontynuacja
+### Task 3: Sesja i kontynuacja
 
 **Interfaces:** `HypothesisSession(law,mode,seed,scene=make_discovery_scene(),limits={})`; `begin_probe(chain,input,learning)`, `advance(ticks)`, `choose_input()`, `predict(...)`, `choose_chain(...)`, `freeze()`, `evaluation_copy()`, `serialize()`, `restore(bytes)`, `save(path)`, `load(path)`.
 
@@ -66,7 +66,7 @@
 - [ ] Testy przed/po sprzeczności, konfiguracji i impulsu, niezerowego RNG oraz modyfikacji semantyki przy poprawnym checksumie. Po nieudanym odczycie stary stan jest identyczny.
 - [ ] Nowy proces kontynuuje rzeczywisty zapis do identycznego wyniku; PASS i commit.
 
-## Zadanie 4 — przypadki, niezależny sędzia i surowe dowody
+### Task 4: Przypadki, niezależny sędzia i surowe dowody
 
 **Interfaces:** `run_hypothesis_case(path,output)`, fixture/continue w `reality_hypothesis`; Python `prepare`, `run`, `analyze`, z nowym katalogiem próby i freeze/marker. Native plik przypadku zawiera prawdę dostępną tylko sesji oraz plan oceny; agent dostaje plan prognoz i cele wyłącznie w dozwolonych fazach.
 
@@ -76,14 +76,14 @@
 - [ ] Python odtwarza działania praw, bilanse, wyniki D/G, prognozy i wybór aktywny bez zaufania podsumowaniom C++. Weryfikuje też dane/manifest/freeze przy `analyze`.
 - [ ] Test manipulacji dowodem musi dać błąd, wynik naukowo negatywny poprawny exit 0. PASS i commit.
 
-## Zadanie 5 — weryfikacja techniczna i review
+### Task 5: Weryfikacja techniczna i review
 
 - [ ] Rozwój: 16 światów, wszystkie kontrole; zachować porażki i pomiar kosztu. Bez oglądania praw potwierdzających.
 - [ ] `cmake --preset windows-msvc`, build Debug/Release, pełne CTest obu profili, ASan build i pełne CTest, `format-check`, dokumentacja i testy Pythona.
 - [ ] Nowe API i raport odróżniają odtwarzanie stanu, koszt wnioskowania oraz koszty fizycznych prób. Brak nowego odbioru 3D.
 - [ ] Osobny świeży przegląd całej gałęzi przez recenzenta; każda materialna poprawka RED→GREEN oraz ponowna właściwa weryfikacja przed freeze. Zachować uwagi i ich rozstrzygnięcia.
 
-## Zadanie 6 — zamrożenie i jednorazowa próba
+### Task 6: Zamrożenie i jednorazowa próba
 
 - [ ] Zamrozić zatwierdzony protokół, źródła, narzędzia, binaria, generator i zakończone review, z SHA-256 oraz manifestem.
 - [ ] Wygenerować i wykonać 64 światy potwierdzające dopiero po freeze. Znacznik chroni przed cichym rerunem.

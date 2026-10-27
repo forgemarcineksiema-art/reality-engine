@@ -45,6 +45,11 @@ DiscoveryWorld::DiscoveryWorld(std::array<DiscoveryRule, 3> rules) : rules_(rule
     for (const auto rule : rules_)
         check(valid_rule(rule), "invalid apparatus rule");
 }
+DiscoveryWorld::DiscoveryWorld(std::array<DiscoveryTable, 3> tables) : tables_(std::move(tables)) {
+    for (const auto& table : *tables_)
+        for (unsigned e = 0; e <= 128; ++e)
+            check(table[e] <= e, "nonpassive apparatus table");
+}
 std::optional<DiscoveryOutcome> DiscoveryWorld::replay(const Command& request) const {
     for (const auto& previous : commands_)
         if (previous.id == request.id)
@@ -78,8 +83,9 @@ DiscoveryOutcome DiscoveryWorld::pulse(std::uint64_t command, EntityId actor, un
     const Command request{command, tick_, actor, apparatus, true, {}, input};
     if (const auto previous = replay(request))
         return *previous;
-    if (!command || !actor.value || apparatus >= 2 || input == 0 || input > 8192 ||
-        commands_.size() >= record_limit || tick_ == std::numeric_limits<std::uint64_t>::max())
+    if (!command || !actor.value || apparatus >= 2 || input == 0 ||
+        input > (tables_ ? 128U : 8192U) || commands_.size() >= record_limit ||
+        tick_ == std::numeric_limits<std::uint64_t>::max())
         return DiscoveryOutcome::Invalid;
     auto& device = devices_[apparatus];
     if (device.pending || device.chain.empty() || tick_ < device.ready_at)
@@ -102,7 +108,8 @@ void DiscoveryWorld::advance(std::uint64_t tick) {
             continue;
         auto output = command.input;
         for (const auto symbol : device.chain)
-            output = discovery_apply(rules_[symbol], output);
+            output =
+                tables_ ? (*tables_)[symbol].at(output) : discovery_apply(rules_[symbol], output);
         completed.push_back({0, command.id, bench, command.actor, command.tick + 1, device.chain,
                              command.input, output});
     }
@@ -128,9 +135,11 @@ const std::vector<DiscoveryMeasurement>& DiscoveryWorld::measurements() const no
     return measurements_;
 }
 std::uint64_t DiscoveryWorld::tick() const noexcept { return tick_; }
-DiscoveryWorld DiscoveryWorld::fresh() const { return DiscoveryWorld{rules_}; }
+DiscoveryWorld DiscoveryWorld::fresh() const {
+    return tables_ ? DiscoveryWorld{*tables_} : DiscoveryWorld{rules_};
+}
 bool DiscoveryWorld::same_rules(const DiscoveryWorld& other) const noexcept {
-    return rules_ == other.rules_;
+    return rules_ == other.rules_ && tables_ == other.tables_;
 }
 std::optional<DiscoveryPulseView> DiscoveryWorld::pending_pulse(unsigned apparatus) const {
     const auto& device = devices_.at(apparatus);
@@ -156,9 +165,15 @@ void DiscoveryWorld::validate() const {
 std::string DiscoveryWorld::serialize() const {
     validate();
     std::ostringstream out;
-    out << "DWORLD 1 " << tick_;
-    for (const auto rule : rules_)
-        out << ' ' << static_cast<unsigned>(rule.family) << ' ' << rule.parameter;
+    out << "DWORLD " << (tables_ ? 2 : 1) << ' ' << tick_;
+    if (tables_) {
+        for (const auto& table : *tables_)
+            for (const auto value : table)
+                out << ' ' << value;
+    } else {
+        for (const auto rule : rules_)
+            out << ' ' << static_cast<unsigned>(rule.family) << ' ' << rule.parameter;
+    }
     out << ' ' << commands_.size() << '\n';
     for (const auto& c : commands_) {
         out << c.id << ' ' << c.tick << ' ' << c.actor.value << ' ' << c.apparatus << ' ' << c.pulse
@@ -175,16 +190,30 @@ DiscoveryWorld DiscoveryWorld::deserialize(std::string_view bytes) {
     std::string magic;
     unsigned version = 0;
     std::uint64_t tick = 0;
-    check(static_cast<bool>(in >> magic >> version >> tick) && magic == "DWORLD" && version == 1,
+    check(static_cast<bool>(in >> magic >> version >> tick) && magic == "DWORLD" &&
+              (version == 1 || version == 2),
           "invalid apparatus header");
     std::array<DiscoveryRule, 3> rules;
     for (auto& rule : rules) {
+        if (version == 2)
+            break;
         unsigned family = 0;
         check(static_cast<bool>(in >> family >> rule.parameter) && family <= 3,
               "invalid rule snapshot");
         rule.family = static_cast<DiscoveryFamily>(family);
     }
-    DiscoveryWorld result{rules};
+    DiscoveryWorld result = [&] {
+        if (version == 1)
+            return DiscoveryWorld{rules};
+        std::array<DiscoveryTable, 3> tables{};
+        for (auto& table : tables)
+            for (auto& value : table) {
+                unsigned parsed = 0;
+                check(static_cast<bool>(in >> parsed) && parsed <= 128, "apparatus table value");
+                value = static_cast<std::uint16_t>(parsed);
+            }
+        return DiscoveryWorld{tables};
+    }();
     std::size_t count = 0;
     check(static_cast<bool>(in >> count) && count <= record_limit, "apparatus command count");
     for (std::size_t n = 0; n < count; ++n) {
