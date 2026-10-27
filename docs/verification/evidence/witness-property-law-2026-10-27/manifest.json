@@ -1,0 +1,293 @@
+{
+  "date": "2026-10-27",
+  "base_commit": "1aa5413",
+  "branch": "codex/witness-property-law",
+  "commits_created": false,
+  "files": [
+    {
+      "path": "law-asan-configure.log",
+      "bytes": 211,
+      "sha256": "61139ff190f19477609c43f58ac0e3c1c2c9900214deceafb67e20d245a914e8"
+    },
+    {
+      "path": "law-cases-build.log",
+      "bytes": 609,
+      "sha256": "abced643aafaacdab5c261d9bf620b0fc319f9399af374877dc2fdf5b2e55873"
+    },
+    {
+      "path": "law-cases.log",
+      "bytes": 1424,
+      "sha256": "9caeb7dc578e6885098156f225a089962b6ec0188a6389810642e4b42ef3a312"
+    },
+    {
+      "path": "law-complete-build.log",
+      "bytes": 1390,
+      "sha256": "25505529e506411bf09b5132334db86631762c419dc7b8981305c769580df837"
+    },
+    {
+      "path": "law-complete.log",
+      "bytes": 2121,
+      "sha256": "7fff79f56274caa86fc34fa2bc9700b5b42708044116ac8a1f1e0ee329c27b74"
+    },
+    {
+      "path": "law-configure.log",
+      "bytes": 211,
+      "sha256": "6e229eb18640e5242248f1088e1d211b76e5c99984be19d51798ee3721a21d12"
+    },
+    {
+      "path": "law-configure2.log",
+      "bytes": 211,
+      "sha256": "49a14b9cd447d6d2929b46836400b9d25f7d1509613b7fff6bb2f43dd0373d80"
+    },
+    {
+      "path": "law-configure3.log",
+      "bytes": 211,
+      "sha256": "2f94e6bf11450513189c9f43e9695fee54fe445cddcab2527aa9aec6c74c0ec2"
+    },
+    {
+      "path": "law-configure4.log",
+      "bytes": 211,
+      "sha256": "83b8d5674bc4982464fd6cbf3342038f845c1860890bd21463349f92b990163b"
+    },
+    {
+      "path": "law-configure5.log",
+      "bytes": 211,
+      "sha256": "92ee0a1fc6e654303161ec9ad821bf6a7953f767059bf12ce51ea94c6907a233"
+    },
+    {
+      "path": "law-configure6.log",
+      "bytes": 211,
+      "sha256": "2f94e6bf11450513189c9f43e9695fee54fe445cddcab2527aa9aec6c74c0ec2"
+    },
+    {
+      "path": "law-configure7.log",
+      "bytes": 211,
+      "sha256": "9482a035ee8b4f3f06946bd3bc961a79bee021a943aa2ff825357645b3ed6f28"
+    },
+    {
+      "path": "law-configure8.log",
+      "bytes": 211,
+      "sha256": "1de3161a88ecf8765d618bdf5decd28824c153c02c7e65c5b8aded857c3e1a1e"
+    },
+    {
+      "path": "law-docs1.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "law-docs2.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "law-extra-build.log",
+      "bytes": 609,
+      "sha256": "abced643aafaacdab5c261d9bf620b0fc319f9399af374877dc2fdf5b2e55873"
+    },
+    {
+      "path": "law-extra.log",
+      "bytes": 2156,
+      "sha256": "c663b11af0a4efc897df2052b99a69a660b76f41e703f404af4724439070ed2e"
+    },
+    {
+      "path": "law-final-asan-build.log",
+      "bytes": 5146,
+      "sha256": "fe8c73f5b0b05610c8b89ef9df59bcec8ece2702ba71f49f7795da8536919fcc"
+    },
+    {
+      "path": "law-final-asan-ctest.log",
+      "bytes": 37250,
+      "sha256": "312a7b579e6d3f059a0f8aba4d66ae8c9ff759f64f05d37fed22a734b684265e"
+    },
+    {
+      "path": "law-final-debug-build.log",
+      "bytes": 4422,
+      "sha256": "6d2f05118705423da1ea327782cc62a97969d358e9459988a99cf1bd891035da"
+    },
+    {
+      "path": "law-final-debug-ctest.log",
+      "bytes": 36719,
+      "sha256": "9efde27be95d00d46f3222ad981e9b48195360d227eace53e54f14dc1e8a42b6"
+    },
+    {
+      "path": "law-final-docs.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "law-final-docs2.log",
+      "bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "law-final-format.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "path": "law-final-format2.log",
+      "bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "path": "law-final-python-tests.log",
+      "bytes": 133,
+      "sha256": "631fa7b956bdced1cf0c6c6c9bfa6390a954d63eb077fcc200a1a8a45eca9b12"
+    },
+    {
+      "path": "law-final-release-build.log",
+      "bytes": 4965,
+      "sha256": "b957c1ffea0763d0db466d245e094fc9d8bf31c8a5e9a3970cf2e0d303d6b02d"
+    },
+    {
+      "path": "law-final-release-ctest.log",
+      "bytes": 37236,
+      "sha256": "fbe0cbac615cf3256bf0282980301611b1a5204e9e147199379bfdb6c78b9ff6"
+    },
+    {
+      "path": "law-final2-debug-build.log",
+      "bytes": 4217,
+      "sha256": "3553abc8ded664b6e6a45960295b7b9f3da4411597ce83078e7ec8910c5db93d"
+    },
+    {
+      "path": "law-final2-debug-ctest.log",
+      "bytes": 36978,
+      "sha256": "d1d93700367633fce57960e01ab8be477040174dcdadc64a2429301eb3b2a305"
+    },
+    {
+      "path": "law-final2-release-ctest.log",
+      "bytes": 36978,
+      "sha256": "92895eee44f9659cbe663f4a460eb3db50a682fd93f335d63f8fa7a137bca652"
+    },
+    {
+      "path": "law-green1-build.log",
+      "bytes": 906,
+      "sha256": "5c477e833a1e1aff89996d12b6daa0d8d31f2449019bb01bdc2645ca682d806b"
+    },
+    {
+      "path": "law-green1.log",
+      "bytes": 510,
+      "sha256": "111c48259e6f74bf163409bb795fd9f72afba44b2a6d7712ca6247382f6e68dc"
+    },
+    {
+      "path": "law-integration-build.log",
+      "bytes": 1688,
+      "sha256": "d5861e8c6099180103176208ecd6e7c0623801881c27f1b70197135329bc1f60"
+    },
+    {
+      "path": "law-integration.log",
+      "bytes": 1267,
+      "sha256": "779440b36d4fd5bd584ac77ad8f5c92a24ad2775e70b5523fe8f726fde539041"
+    },
+    {
+      "path": "law-native-final.log",
+      "bytes": 80,
+      "sha256": "a0ed872cfbe1734bde9c283f190e72668373b2e02c3302b61a69d0b4d67c468f"
+    },
+    {
+      "path": "law-python-tests.log",
+      "bytes": 133,
+      "sha256": "97595d81812ace3203be1c8f6f93941bed994b56ce561f3806f653322883421a"
+    },
+    {
+      "path": "law-red-build.log",
+      "bytes": 6586,
+      "sha256": "e9587ced3044fd86e5466922759d696ad696306bca0af762b9cfc63f1dfecc76"
+    },
+    {
+      "path": "law-red-runtime-build.log",
+      "bytes": 906,
+      "sha256": "bdb2295d36e420970b079653157f7db984878f2a3bb27e1a40c4a807fc70ae10"
+    },
+    {
+      "path": "law-red.log",
+      "bytes": 872,
+      "sha256": "0730203203782a368e7ced369facb7bb9659c770b1cd0dfc2dc48e565860cf38"
+    },
+    {
+      "path": "law-review-green-build.log",
+      "bytes": 1688,
+      "sha256": "d5861e8c6099180103176208ecd6e7c0623801881c27f1b70197135329bc1f60"
+    },
+    {
+      "path": "law-review-green.log",
+      "bytes": 1590,
+      "sha256": "6435acd98b02a4c169d8a56a05ba74046013b55be05b8c64c8ab8b3370dfbea9"
+    },
+    {
+      "path": "law-review-red-build.log",
+      "bytes": 609,
+      "sha256": "abced643aafaacdab5c261d9bf620b0fc319f9399af374877dc2fdf5b2e55873"
+    },
+    {
+      "path": "law-review-red.log",
+      "bytes": 532,
+      "sha256": "1eb923b7001467d1097af72f95167df065ffe26965d81a74b170482ba7b57ce8"
+    },
+    {
+      "path": "law-unseen-return-red-build.log",
+      "bytes": 609,
+      "sha256": "abced643aafaacdab5c261d9bf620b0fc319f9399af374877dc2fdf5b2e55873"
+    },
+    {
+      "path": "law-unseen-return-red.log",
+      "bytes": 386,
+      "sha256": "c86b844472405d6f9e0d6af647a3277fb2d4d154456e6fcf212422f2c869704d"
+    },
+    {
+      "path": "law-validation-green-build.log",
+      "bytes": 630,
+      "sha256": "352c19405a3055f092bfcc13fd3d53cc771df93969f9c9858018350b75520175"
+    },
+    {
+      "path": "law-validation-green.log",
+      "bytes": 2348,
+      "sha256": "b641f37921d93946b5c07b6b1de8509f56f0a7000b1173df06fa90d43a627b3e"
+    },
+    {
+      "path": "law-validation-red-build.log",
+      "bytes": 1214,
+      "sha256": "6f638929a89954107829340cc5b87e97c32d8b9a02cc0adaaafcde7693dbbb23"
+    },
+    {
+      "path": "law-validation-red.log",
+      "bytes": 567,
+      "sha256": "446d6c9dd1a15ffcf76d145d467f999aa22a55d324754b21175f0a0108ff9fcd"
+    },
+    {
+      "path": "law-validation-red2-build.log",
+      "bytes": 609,
+      "sha256": "abced643aafaacdab5c261d9bf620b0fc319f9399af374877dc2fdf5b2e55873"
+    },
+    {
+      "path": "native/law.log",
+      "bytes": 5994,
+      "sha256": "7b14b832a4b19ac356f71c9d3bf08b6183f9e091a14b0efa69d7ecff7be916e8"
+    },
+    {
+      "path": "native/law.png",
+      "bytes": 9078,
+      "sha256": "1f997c46f968f432665c5a001ce8bfbc6d286271f632df6de39a9e73c2c58918"
+    },
+    {
+      "path": "native/law.save",
+      "bytes": 2118,
+      "sha256": "817b23e4acc059eae8fa10a08f6cce7c9c469bb2d9de3f5efa76f29e58c89446"
+    },
+    {
+      "path": "native/resume.log",
+      "bytes": 5907,
+      "sha256": "7a05a05ac3986547d7ec79155caf496f0c8c6aa626b6de46429179e251752acf"
+    },
+    {
+      "path": "native/resume.png",
+      "bytes": 8860,
+      "sha256": "e66bcbc4e2df0151994cea6cea70ac6fa422a0720bfca98e76e5106922e437a6"
+    },
+    {
+      "path": "review.md",
+      "bytes": 2400,
+      "sha256": "5e1d6cac3be1075c1b320e423541b26456f67a2d3326d5af77bf1764f8024e7a"
+    }
+  ]
+}

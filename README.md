@@ -83,3 +83,6 @@ Mapa odpowiedzialności dokumentów znajduje się w [rejestrze](docs/documentati
 [Naprawa odzyskiwania dojścia](docs/verification/retained-world-navigation-stall.md) usuwa wykonywanie starej trasy przy blokadzie i poprawia ponowienia punktów w zasięgu. Późniejszy przyrost lokalnej współpracy poniżej rozwiązuje zachowany konflikt przy Step; ogólne konflikty tłumu pozostają poza tym zakresem. M04 pozostaje nieukończone.
 
 [Lokalna prośba o ustąpienie](docs/verification/local-clearance.md) pozwala stojącemu NPC samodzielnie udostępnić miejsce przy rozpoczętym Step, zachowując własny zamiar. F3 używa tego samego API. Osoba sterowana ręcznie odmawia. To ograniczona współpraca w M04, bez pełnego modelu społecznego; dostawa jest osobnym późniejszym przyrostem.
+
+
+[Świadek i prawo](docs/verification/witness-property-law.md) rozszerzają lokalną pamięć o naruszenie własności i uregulowanie. `build/msvc/Debug/reality_traversal.exe --law` uruchamia osobną scenę: osoba 1 pobiera/oddaje F4, osoba 2 jest świadkiem, osoba 3 opiekunem, osoba 4 uprawnionym mieszkańcem/kurierem. F7 przekazuje przy fizycznym kontakcie, R próbuje legalnej konserwacji. Brak autoryzacji nie blokuje fizycznej kradzieży; reakcja opiekuna zależy od otrzymanej wiedzy. Inspektor rozdziela prawdę, pamięć i obsługę. Format 7 czyta 1–6. M04 pozostaje nieukończone.

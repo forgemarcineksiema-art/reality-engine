@@ -1,0 +1,27 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: law.unseen
+ 1/11 Test  #1: law.unseen .......................   Passed    0.04 sec
+      Start  2: law.isolated
+ 2/11 Test  #2: law.isolated .....................   Passed    0.04 sec
+      Start  3: law.relay
+ 3/11 Test  #3: law.relay ........................   Passed    0.09 sec
+      Start  4: law.restitution
+ 4/11 Test  #4: law.restitution ..................   Passed    0.10 sec
+      Start  5: law.geometry
+ 5/11 Test  #5: law.geometry .....................   Passed    0.08 sec
+      Start  6: law.authorized
+ 6/11 Test  #6: law.authorized ...................   Passed    0.09 sec
+      Start  7: law.remote_return
+ 7/11 Test  #7: law.remote_return ................   Passed    0.24 sec
+      Start  8: law.bounded_auto
+ 8/11 Test  #8: law.bounded_auto .................   Passed    0.04 sec
+      Start  9: law.multiple
+ 9/11 Test  #9: law.multiple .....................   Passed    0.24 sec
+      Start 10: law.corruption
+10/11 Test #10: law.corruption ...................   Passed    0.12 sec
+      Start 11: law.legacy
+11/11 Test #11: law.legacy .......................   Passed    0.45 sec
+
+100% tests passed out of 11
+
+Total Test time (real) =   1.58 sec

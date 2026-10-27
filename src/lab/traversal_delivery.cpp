@@ -100,6 +100,15 @@ TraversalSession::choose_return_station(const TraversalActor& actor) const {
     return nearest;
 }
 CargoStatus TraversalSession::interact_cargo(std::size_t index, std::size_t station_index) {
+    if (property_rules_.empty())
+        return interact_cargo_impl(index, station_index);
+    auto candidate = *this;
+    const auto result = candidate.interact_cargo_impl(index, station_index);
+    candidate.validate();
+    *this = std::move(candidate);
+    return result;
+}
+CargoStatus TraversalSession::interact_cargo_impl(std::size_t index, std::size_t station_index) {
     auto& actor = actors_.at(index);
     if (station_index >= scene_.stations.size())
         return CargoStatus::Unavailable;
@@ -148,6 +157,7 @@ CargoStatus TraversalSession::interact_cargo(std::size_t index, std::size_t stat
     if (!bag)
         actor.cargo =
             world_.create_resource(actor.id, {0}, ResourceKind::Material, lot->record.material);
+    const auto command = next_command_;
     const auto result = world_.transfer({next_command_,
                                          actor.id,
                                          loading ? station.lot : actor.cargo,
@@ -156,6 +166,7 @@ CargoStatus TraversalSession::interact_cargo(std::size_t index, std::size_t stat
     ++next_command_.value;
     if (result.status != TransferStatus::Accepted)
         return CargoStatus::Denied;
+    record_law_transfer(index, station_index, loading, quantity, command);
     observe_station(index, station_index);
     if (!loading) {
         actor.share_until = world_.clock().tick_count() + 40;
@@ -249,7 +260,7 @@ void TraversalSession::arrive_delivery(std::size_t index) {
         surface_feet(geometry_, scene_.stations[station].location, TraversalLimits{actor.size});
     auto success = false;
     if (point && length(*point - actor.feet) <= 1.1) {
-        const auto result = interact_cargo(index, station);
+        const auto result = interact_cargo_impl(index, station);
         success = result == CargoStatus::Transferred || result == CargoStatus::Returned;
     }
     release_navigation(index);

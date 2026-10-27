@@ -12,7 +12,7 @@ To model czynności korzystającej z jednego zasobu: zużywanego materiału albo
 
 `MaterialTypeId` jest niezmienny; zero oznacza historyczny nieokreślony materiał, który nie może być transferowany. `transfer(TransferRequest)` przenosi dodatnią ilość między różnymi aktywnymi partiami tego samego niezerowego typu, sprawdzając wolną ilość po rezerwacjach i przepełnienie. Pojemność nie jest materiałem. Wynik i komenda są zapisywane, również dla odmów; wspólna z `reserve` przestrzeń `CommandId` zapewnia identyczny wynik ponowienia i odrzuca inne dane pod zajętym ID. Dwie sąsiadujące pozycje dziennika księgują odpływ i wpływ. Chronologiczny audyt odtwarza także rezerwacje, zużycie i usunięcie bez narastającej sumy obrotu podatnej na overflow. `GENESIS_WORK_WORLD 3` dodaje typ i rejestr transferów; wersje 1 i 2 pozostają czytelne. [Zakres i obecny odbiór](work-items/material-delivery.md) są oddzielone od pełnego M04.
 
-Każdy aktywny wykonawca korzysta z tej samej ścieżki. Model nie rozróżnia gracza i NPC. Nie sprawdza prawa do cudzego materiału, odległości ani wiedzy: te obszary jeszcze nie istnieją. Inspektor jest narzędziem deweloperskim, nie obserwacją postaci.
+Każdy aktywny wykonawca korzysta z tej samej ścieżki. Model nie rozróżnia gracza i NPC. Nie sprawdza prawa do cudzego materiału, odległości ani wiedzy: fizyczny dostęp, regułę własności i lokalne świadectwa ocenia [sesja przestrzenna](traversal-autonomy.md#świadek-własność-i-legalna-obsługa). Sam nieautoryzowany transfer jest poprawnym stanem integralności. Inspektor jest narzędziem deweloperskim, nie obserwacją postaci.
 
 ## Tożsamości i uchwyty
 

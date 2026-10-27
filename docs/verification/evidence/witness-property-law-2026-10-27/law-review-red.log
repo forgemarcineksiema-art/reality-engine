@@ -1,0 +1,18 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 5: law.repeated_return
+1/2 Test #5: law.repeated_return ..............***Failed    7.68 sec
+FAIL testimony limit
+
+    Start 6: law.owner
+2/2 Test #6: law.owner ........................***Failed    0.02 sec
+FAIL protected lot owner is not its custodian
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   7.82 sec
+
+The following tests FAILED:
+	  5 - law.repeated_return (Failed)
+	  6 - law.owner (Failed)
+Errors while running CTest

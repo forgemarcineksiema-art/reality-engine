@@ -38,6 +38,8 @@ Warstwa gry: wczesna próba osobistego ruchu, kamery i dojścia do interakcji z 
 
 ### M04 — Mała społeczność w grze i laboratorium
 
+Ograniczony przyrost [świadka i prawa](verification/witness-property-law.md) łączy fizyczne przejęcie cargo, lokalne świadectwa, przekaz i odmowę legalnej obsługi przez poinformowanego opiekuna oraz fizyczne uregulowanie. To wybrany zakres SC-05/INV-07, bez zakończenia M04.
+
 [Kontrolowany przyrost przeprawy](verification/passage-logistics.md) wiąże dostępność kładki, zużycie i materialną naprawę, lokalną wiedzę, rzeczywisty objazd oraz dostawę umożliwiającą posiłek. W scenie `--crossing` gracz działa na miejscu przez F8/R i przekazuje obserwacje F7. Raport oddziela sprawdzenia SC-10 i części SC-14 od nadal otwartego odbioru całej społeczności, komfortu człowieka i długiego pomiaru. Nie zmienia to kolejności M00–M06.
 
 Kolejny ograniczony przyrost [lokalnej wiedzy](verification/local-station-knowledge.md) dodaje obserwacje stanowisk, przekaz przy fizycznym kontakcie i weryfikację nieaktualnej informacji. Pokrywa część SC-05 i SC-14; nie zmienia warunków pełnego odbioru M04 ani pozostałych etapów.

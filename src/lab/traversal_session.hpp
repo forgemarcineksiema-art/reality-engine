@@ -108,6 +108,28 @@ struct PassageBelief {
     EntityId source_actor, via_actor;
 };
 enum class KnowledgeOutcome { Shared, NoNews, OutOfReach, Blocked };
+struct PropertyRule {
+    std::uint32_t station = 0;
+    EntityId custodian;
+    std::vector<EntityId> residents;
+    EntityId courier;
+};
+struct PropertyIncident {
+    CommandId command;
+    EntityId offender, lot, cargo;
+    std::uint32_t station = 0;
+    std::uint64_t quantity = 0, tick = 0, returned = 0;
+    CommandId resolved_command;
+};
+struct ViolationTestimony {
+    CommandId incident;
+    EntityId offender, lot;
+    std::uint32_t station = 0;
+    std::uint64_t quantity = 0;
+    bool resolved = false;
+    std::uint64_t observed_tick = 0, learned_tick = 0;
+    EntityId source_actor, via_actor;
+};
 struct TraversalActor {
     EntityId id;
     SurfaceLocation support;
@@ -149,6 +171,7 @@ struct TraversalActor {
     std::uint64_t share_until = 0, share_retry_at = 0;
     std::array<std::optional<PassageBelief>, 16> passage_beliefs{};
     std::uint32_t planned_closed_passages = 0;
+    std::vector<ViolationTestimony> testimonies;
 };
 struct TraversalScene {
     SpatialGeometry geometry;
@@ -172,10 +195,18 @@ struct TraversalScene {
         std::uint64_t quantity = 0;
     };
     std::vector<DeliverySeed> initial_deliveries;
+    struct PropertySeed {
+        std::uint32_t station = 0;
+        std::size_t custodian = 0;
+        std::vector<std::size_t> residents;
+        std::optional<std::size_t> courier;
+    };
+    std::vector<PropertySeed> property_rules;
 };
 [[nodiscard]] TraversalScene make_traversal_course();
 [[nodiscard]] TraversalScene make_delivery_course();
 [[nodiscard]] TraversalScene make_crossing_course();
+[[nodiscard]] TraversalScene make_law_course();
 struct TraversalPose {
     SpatialPoint feet;
     double heading = 0;
@@ -223,6 +254,8 @@ class TraversalSession final {
     void cancel_delivery(std::size_t actor);
     [[nodiscard]] CargoStatus interact_cargo(std::size_t actor, std::size_t station);
     [[nodiscard]] KnowledgeOutcome share_knowledge(std::size_t sender, std::size_t recipient);
+    [[nodiscard]] const std::vector<PropertyIncident>& incidents() const noexcept;
+    [[nodiscard]] bool legal_service_allowed(std::size_t actor, std::size_t station) const;
     void advance(std::uint64_t ticks);
     [[nodiscard]] std::string serialize() const;
     void restore(std::string_view bytes);
@@ -233,6 +266,8 @@ class TraversalSession final {
 
   private:
     WorkWorld world_;
+    std::vector<PropertyRule> property_rules_;
+    std::vector<PropertyIncident> incidents_;
     TraversalScene scene_;
     SpatialGeometry geometry_;
     std::vector<TraversalActor> actors_;
@@ -273,6 +308,13 @@ class TraversalSession final {
     void observe_station(std::size_t actor, std::size_t station);
     void update_knowledge();
     void validate_knowledge() const;
+    [[nodiscard]] bool knowledge_contact(std::size_t from, std::size_t to) const;
+    [[nodiscard]] bool authorized_pickup(std::size_t actor, std::size_t station) const;
+    [[nodiscard]] CargoStatus interact_cargo_impl(std::size_t actor, std::size_t station);
+    void record_law_transfer(std::size_t actor, std::size_t station, bool loading,
+                             std::uint64_t quantity, CommandId command);
+    void observe_violation(const PropertyIncident& incident, bool resolved);
+    void validate_law() const;
     [[nodiscard]] bool protected_operation(const TraversalActor& actor) const;
     [[nodiscard]] std::uint32_t closed_passage_mask(const TraversalActor& actor) const;
     [[nodiscard]] std::vector<SurfaceConnection>

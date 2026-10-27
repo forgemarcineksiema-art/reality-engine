@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 14: law.unseen_return
+1/1 Test #14: law.unseen_return ................***Failed    0.07 sec
+FAIL return invented knowledge of unseen crime
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.13 sec
+
+The following tests FAILED:
+	 14 - law.unseen_return (Failed)
+Errors while running CTest

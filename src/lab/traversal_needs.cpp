@@ -233,6 +233,16 @@ bool TraversalSession::start_station_action(std::size_t index) {
           "station action requires physical access");
     check(next_command_.value < std::numeric_limits<std::uint64_t>::max(),
           "command space exhausted");
+    if (!legal_service_allowed(index, actor.station)) {
+        actor.station_retry[actor.station] = now + 100;
+        actor.goal.reset();
+        actor.route = {};
+        actor.leg = 0;
+        actor.task = TraversalTask::None;
+        actor.state = TraversalState::Waiting;
+        actor.retry_at = now + 10;
+        return false;
+    }
     const auto duration = station.kind == TraversalTask::Eat    ? 40ULL
                           : station.kind == TraversalTask::Rest ? 60ULL
                                                                 : 80ULL;

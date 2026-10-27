@@ -216,3 +216,8 @@ Obserwacja zachowanego świata z opcjonalnymi dowodami: `reality_traversal_audit
 F3 w `reality_traversal` prosi blokującego rozpoczęty Step o zrobienie miejsca. Ten sam kontrakt ma automat. Odpowiedź jest widoczna; zgoda nie oznacza już wykonanego przejścia. Szczegóły i zewnętrzny zapis wersji 3 opisuje [model autonomii](traversal-autonomy.md#lokalna-prośba-o-przejście).
 
 `reality_clearance_tests --capture-retained NOWY_PLIK` zapisuje rzeczywistą migawkę w toku zgody z zachowanego świata (wersja 3), odmawiając istniejącego celu. Można wskazać ten plik w `reality_traversal --save PATH` i wczytać F9. Nie nadpisuje źródłowego materiału dowodowego. Zestaw CTest `clearance.*` obejmuje 13 scenariuszy tego przyrostu. Natywne smoke sprawdza też `clearance_shortcut=pass` dla niepotrzebnej prośby, która nie może mutować świata.
+
+
+### Świadek i prawo
+
+`./build/msvc/Debug/reality_traversal.exe --law` uruchamia osobny przyrost opisany w [modelu](traversal-autonomy.md#świadek-własność-i-legalna-obsługa). F4 fizycznie pobiera/oddaje, F7 przekazuje lokalną wiedzę, R korzysta z legalnej obsługi. `ctest --preset windows-debug -R '^law[.]' --output-on-failure` sprawdza reguły oraz natywną próbę D3D11. `python tools/test_law_native.py --exe ./build/msvc/RelWithDebInfo/reality_traversal.exe --output ./build/law-native` zachowuje dwa procesy, logi, zapis wersji 7 i obrazy; wymaga nowego katalogu wyjściowego, GPU oraz warstwy diagnostycznej. Nie jest pomiarem FPS ani oceną człowieka.

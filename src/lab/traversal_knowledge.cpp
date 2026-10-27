@@ -47,12 +47,32 @@ KnowledgeOutcome TraversalSession::share_knowledge(std::size_t sender, std::size
     auto& to = actors_.at(recipient);
     if (sender == recipient || length(from.feet - to.feet) > 2)
         return KnowledgeOutcome::OutOfReach;
-    if (from.support.surface != to.support.surface ||
-        !spatial_segment_clear(geometry_, from.feet, to.feet, from.size) ||
-        !spatial_segment_clear(geometry_, to.feet, from.feet, to.size))
+    if (!knowledge_contact(sender, recipient))
         return KnowledgeOutcome::Blocked;
     const auto now = world_.clock().tick_count();
+    // Allocate before mutating any kind of knowledge.
+    std::size_t new_reports = 0;
+    const auto has_report = [&](const auto& b) {
+        return std::any_of(to.testimonies.begin(), to.testimonies.end(), [&](const auto& c) {
+            return c.incident == b.incident && c.resolved == b.resolved;
+        });
+    };
+    for (const auto& b : from.testimonies)
+        if (!has_report(b))
+            ++new_reports;
+    if (to.testimonies.size() + new_reports > 512)
+        throw std::length_error("testimony limit");
+    to.testimonies.reserve(to.testimonies.size() + new_reports);
     auto changed = false;
+    for (const auto& b : from.testimonies) {
+        if (has_report(b))
+            continue;
+        auto report = b;
+        report.learned_tick = now;
+        report.via_actor = from.id;
+        to.testimonies.push_back(report);
+        changed = true;
+    }
     for (std::size_t station = 0; station < scene_.stations.size(); ++station) {
         const auto& incoming = from.beliefs[station];
         auto& current = to.beliefs[station];

@@ -76,4 +76,19 @@ TraversalScene make_crossing_course() {
     s.initial_deliveries = {{1, 0, 1, 8}};
     return s;
 }
+TraversalScene make_law_course() {
+    TraversalScene scene;
+    scene.geometry.bodies = {{1, {}, 0, 10, 6, .3, 0, 0, true},
+                             {2, {4, 2, 3}, 0, .2, 1, 2, 0, 0, false}};
+    scene.stations = {{{1, {0, 0}}, TraversalTask::Maintain, 12},
+                      {{1, {7, 0}}, TraversalTask::Maintain, 0}};
+    for (auto& station : scene.stations)
+        station.initial_material = {2};
+    scene.spawns = {{{1, {0, -.8}}, {}, false},
+                    {{1, {1.2, -.8}}, {}, false},
+                    {{1, {-5, 0}}, {}, false},
+                    {{1, {3, 3}}, {}, false}};
+    scene.property_rules = {{0, 2, {3}, 3}};
+    return scene;
+}
 } // namespace reality

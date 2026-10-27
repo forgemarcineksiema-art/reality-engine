@@ -1,0 +1,50 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  reality_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_transfer_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_transfer_tests.exe
+  reality_headless.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_headless.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_demo.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_work_demo.exe
+  reality_clearance_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_clearance_tests.exe
+  reality_spatial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_spatial_tests.exe
+  reality_traversal_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_tests.exe
+  reality_motion_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_motion_tests.exe
+  reality_law_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_law_tests.exe
+  reality_traversal_needs_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_needs_tests.exe
+  reality_lab_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_tests.exe
+  reality_knowledge_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_knowledge_tests.exe
+  reality_graphics.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_graphics.lib
+  reality_traversal_diagnostics_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_diagnostics_tests.exe
+  reality_delivery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_delivery_tests.exe
+  reality_traversal_audit_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_audit_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab.exe
+  reality_traversal.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_work_tests.exe
+  reality_passage_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_passage_tests.exe
+  reality_adversarial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_adversarial_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt

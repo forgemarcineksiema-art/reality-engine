@@ -78,7 +78,9 @@ std::string TraversalSession::serialize() const {
     out.imbue(std::locale::classic());
     out << std::setprecision(17);
     const auto work = serialize_world(world_);
+    const auto lawful = !property_rules_.empty() || !incidents_.empty();
     const auto passage_state =
+        lawful ||
         std::any_of(scene_.passages.begin(), scene_.passages.end(),
                     [](const auto& p) { return !p.open || p.maintenance.has_value(); }) ||
         std::any_of(actors_.begin(), actors_.end(), [](const auto& a) {
@@ -106,7 +108,8 @@ std::string TraversalSession::serialize() const {
                    actor.finish_grace_until != 0;
         });
     out << "GENESIS_TRAVERSAL "
-        << (passage_state   ? 6
+        << (lawful          ? 7
+            : passage_state ? 6
             : knowledgeable ? 5
             : inventory     ? 4
             : cooperative   ? 3
@@ -169,6 +172,19 @@ std::string TraversalSession::serialize() const {
         location(out, s.location);
         out << ' ' << static_cast<unsigned>(s.kind) << ' ' << s.initial_stock << ' ' << s.lot.value
             << ' ' << s.wear << ' ' << s.completed << '\n';
+    }
+    if (lawful) {
+        out << "PROPERTY_RULES " << property_rules_.size() << '\n';
+        for (const auto& r : property_rules_) {
+            out << "PROPERTY " << r.station << ' ' << r.custodian.value << ' ' << r.courier.value;
+            queue(out, r.residents);
+            out << '\n';
+        }
+        out << "INCIDENTS " << incidents_.size() << '\n';
+        for (const auto& v : incidents_)
+            out << "INCIDENT " << v.command.value << ' ' << v.offender.value << ' ' << v.lot.value
+                << ' ' << v.cargo.value << ' ' << v.station << ' ' << v.quantity << ' ' << v.tick
+                << ' ' << v.returned << ' ' << v.resolved_command.value << '\n';
     }
     out << "ACTORS " << actors_.size() << '\n';
     for (const auto& a : actors_) {
@@ -251,6 +267,14 @@ std::string TraversalSession::serialize() const {
                         << ' ' << b.via_actor.value << '\n';
                 }
         }
+        if (lawful) {
+            out << "TESTIMONIES " << a.testimonies.size() << '\n';
+            for (const auto& b : a.testimonies)
+                out << "TESTIMONY " << b.incident.value << ' ' << b.offender.value << ' '
+                    << b.lot.value << ' ' << b.station << ' ' << b.quantity << ' ' << b.resolved
+                    << ' ' << b.observed_tick << ' ' << b.learned_tick << ' '
+                    << b.source_actor.value << ' ' << b.via_actor.value << '\n';
+        }
         out << "ROUTE " << static_cast<unsigned>(a.route.status) << ' ' << a.route.geometry_version
             << ' ' << a.route.cost_m << ' ' << a.route.expanded << ' ' << a.route.visibility_queries
             << ' ' << a.route.legs.size() << '\n';
@@ -278,8 +302,8 @@ void TraversalSession::restore(std::string_view bytes) {
     std::istringstream input{std::string{bytes.substr(0, checksum)}};
     input.imbue(std::locale::classic());
     tag(input, "GENESIS_TRAVERSAL");
-    const auto version = integer(input, 6);
-    require(version >= 1 && version <= 6, "unsupported traversal version");
+    const auto version = integer(input, 7);
+    require(version >= 1 && version <= 7, "unsupported traversal version");
     tag(input, "WORLD");
     const auto work_size = integer(input, snapshot_byte_limit);
     require(input.get() == '\n', "invalid traversal world framing");
@@ -290,6 +314,8 @@ void TraversalSession::restore(std::string_view bytes) {
     candidate.world_ = deserialize_world(work);
     candidate.scene_ = {};
     candidate.actors_.clear();
+    candidate.property_rules_.clear();
+    candidate.incidents_.clear();
     tag(input, "TUNING");
     candidate.next_command_ = {integer(input)};
     candidate.tuning_ = {real(input), real(input), real(input), real(input),
@@ -379,6 +405,35 @@ void TraversalSession::restore(std::string_view bytes) {
         s.wear = integer(input, 1000);
         s.completed = integer(input);
         candidate.scene_.stations.push_back(s);
+    }
+    if (version >= 7) {
+        tag(input, "PROPERTY_RULES");
+        const auto count = integer(input, 16);
+        for (std::uint64_t i = 0; i < count; ++i) {
+            tag(input, "PROPERTY");
+            PropertyRule r;
+            r.station = static_cast<std::uint32_t>(integer(input, 15));
+            r.custodian = {integer(input)};
+            r.courier = {integer(input)};
+            r.residents = queue(input);
+            candidate.property_rules_.push_back(std::move(r));
+        }
+        tag(input, "INCIDENTS");
+        const auto incidents = integer(input, 256);
+        for (std::uint64_t i = 0; i < incidents; ++i) {
+            tag(input, "INCIDENT");
+            PropertyIncident v;
+            v.command = {integer(input)};
+            v.offender = {integer(input)};
+            v.lot = {integer(input)};
+            v.cargo = {integer(input)};
+            v.station = static_cast<std::uint32_t>(integer(input, 15));
+            v.quantity = integer(input, 4);
+            v.tick = integer(input);
+            v.returned = integer(input, 4);
+            v.resolved_command = {integer(input)};
+            candidate.incidents_.push_back(v);
+        }
     }
     tag(input, "ACTORS");
     const auto actor_count = integer(input, 32);
@@ -499,6 +554,25 @@ void TraversalSession::restore(std::string_view bytes) {
                 b.source_actor = {integer(input)};
                 b.via_actor = {integer(input)};
                 a.passage_beliefs[slot] = b;
+            }
+        }
+        if (version >= 7) {
+            tag(input, "TESTIMONIES");
+            const auto count = integer(input, 512);
+            for (std::uint64_t n = 0; n < count; ++n) {
+                tag(input, "TESTIMONY");
+                ViolationTestimony b;
+                b.incident = {integer(input)};
+                b.offender = {integer(input)};
+                b.lot = {integer(input)};
+                b.station = static_cast<std::uint32_t>(integer(input, 15));
+                b.quantity = integer(input, 4);
+                b.resolved = integer(input, 1) != 0;
+                b.observed_tick = integer(input);
+                b.learned_tick = integer(input);
+                b.source_actor = {integer(input)};
+                b.via_actor = {integer(input)};
+                a.testimonies.push_back(b);
             }
         }
         tag(input, "ROUTE");

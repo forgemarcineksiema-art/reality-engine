@@ -38,7 +38,7 @@ Transfer zachowuje ilość oraz jednoznaczną własność i położenie. Produkc
 
 ### INV-07 — Fizyczna możliwość i prawo
 
-Techniczne uprawnienie do wykonania komendy, fizyczna możliwość i legalność w fikcyjnym świecie są odrębnymi ocenami. Kradzież może się wydarzyć, a jej ujawnienie zależy od dowodów i kanałów wiedzy.
+Techniczne uprawnienie do wykonania komendy, fizyczna możliwość i legalność w fikcyjnym świecie są odrębnymi ocenami. Kradzież może się wydarzyć, a jej ujawnienie zależy od dowodów i kanałów wiedzy. Ograniczony [model sesji](traversal-autonomy.md#świadek-własność-i-legalna-obsługa) wykonuje ten sam transfer cargo mimo braku autoryzacji; legalna obsługa zależy wyłącznie od świadectw w pamięci opiekuna. Fizyczny zwrot i wiedza o uregulowaniu są odrębne.
 
 ### INV-08 — Prawda i przekonania
 

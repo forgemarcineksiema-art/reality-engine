@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: law.unseen
+1/4 Test #1: law.unseen .......................   Passed    0.04 sec
+    Start 2: law.isolated
+2/4 Test #2: law.isolated .....................   Passed    0.04 sec
+    Start 3: law.relay
+3/4 Test #3: law.relay ........................   Passed    0.10 sec
+    Start 4: law.restitution
+4/4 Test #4: law.restitution ..................   Passed    0.12 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =   0.37 sec

@@ -1,0 +1,80 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_scene.cpp
+  traversal_clearance.cpp
+  traversal_codec.cpp
+  traversal_course.cpp
+  traversal_delivery.cpp
+  traversal_diagnostics.cpp
+  traversal_knowledge.cpp
+  traversal_needs.cpp
+  traversal_passages.cpp
+  traversal_session.cpp
+  Generowanie kodu...
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  law_tests.cpp
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(16,7): error C2039: „property_rules”: nie jest składową elementu „reality::TraversalScene” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(153,8):
+      zobacz deklarację „reality::TraversalScene”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(38,15): error C2039: „incidents”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(196,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(39,48): error C2039: „testimonies”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(111,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(40,15): error C2039: „legal_service_allowed”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(196,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(45,27): error C2039: „testimonies”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(111,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(46,27): error C2039: „testimonies”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(111,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(46,52): error C2039: „legal_service_allowed”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(196,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(49,27): error C2039: „testimonies”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(111,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(54,41): error C2039: „testimonies”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(111,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(54,16): error C2737: „original”: obiekt const musi być zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(57,35): error C2039: „testimonies”: nie jest składową elementu „reality::TraversalActor” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(111,8):
+      zobacz deklarację „reality::TraversalActor”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(57,19): error C2530: "b": odwołania muszą być zainicjowane [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(58,13): error C3536: "b" : nie można użyć, zanim zostanie zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(59,32): error C3536: "original" : nie można użyć, zanim zostanie zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(61,16): error C2039: „legal_service_allowed”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(196,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(67,16): error C2039: „legal_service_allowed”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(196,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(74,15): error C2039: „incidents”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(196,7):
+      zobacz deklarację „reality::TraversalSession”
+  
+C:\Users\Marcin\Documents\new\tests\law_tests.cpp(74,49): error C2039: „legal_service_allowed”: nie jest składową elementu „reality::TraversalSession” [C:\Users\Marcin\Documents\new\build\msvc\reality_law_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\lab\traversal_session.hpp(196,7):
+      zobacz deklarację „reality::TraversalSession”
+  

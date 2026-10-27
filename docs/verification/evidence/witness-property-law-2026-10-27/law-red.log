@@ -1,0 +1,28 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: law.unseen
+1/4 Test #1: law.unseen .......................***Failed    0.06 sec
+FAIL unseen violation was not recorded as physical fact
+
+    Start 2: law.isolated
+2/4 Test #2: law.isolated .....................***Failed    0.02 sec
+FAIL eyewitness has no testimony
+
+    Start 3: law.relay
+3/4 Test #3: law.relay ........................***Failed    0.02 sec
+FAIL invalid vector subscript
+
+    Start 4: law.restitution
+4/4 Test #4: law.restitution ..................***Failed    0.04 sec
+FAIL custodian eyewitness did not react
+
+
+0% tests passed, 4 tests failed out of 4
+
+Total Test time (real) =   0.26 sec
+
+The following tests FAILED:
+	  1 - law.unseen (Failed)
+	  2 - law.isolated (Failed)
+	  3 - law.relay (Failed)
+	  4 - law.restitution (Failed)
+Errors while running CTest

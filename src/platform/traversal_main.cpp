@@ -44,7 +44,7 @@ struct Options {
     std::filesystem::path report = std::filesystem::current_path() / L"traversal.log";
     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
     bool smoke = false, debug = false, resume = false, unattended = false;
-    bool delivery = false, crossing = false;
+    bool delivery = false, crossing = false, law = false;
     std::filesystem::path diagnostics;
     unsigned measure_seconds = 0, warmup_seconds = 30;
     int adapter = -1;
@@ -72,6 +72,8 @@ void read_options(Options& options) {
             options.delivery = true;
         } else if (arg == L"--crossing") {
             options.crossing = true;
+        } else if (arg == L"--law") {
+            options.law = true;
         } else if (arg == L"--gpu-debug") {
             options.debug = true;
         } else if (arg == L"--resume-smoke") {
@@ -144,7 +146,8 @@ class TraversalWindow final {
   public:
     TraversalWindow(HINSTANCE instance, const Options& options, std::ostream& log)
         : instance_(instance), options_(options), log_(log),
-          session_(options.crossing   ? make_crossing_course()
+          session_(options.law        ? make_law_course()
+                   : options.crossing ? make_crossing_course()
                    : options.delivery ? make_delivery_course()
                                       : make_traversal_course()) {
         WNDCLASSEXW type{};
@@ -887,7 +890,69 @@ class TraversalWindow final {
         renderer_->check_diagnostics();
         log_ << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
+    void law_smoke() {
+        if (options_.resume) {
+            session_.load(options_.save);
+            require(!session_.legal_service_allowed(0, 0), "loaded institution forgot testimony");
+            TraversalSession copy;
+            copy.restore(session_.serialize());
+            for (unsigned t = 0; t < 20; ++t) {
+                session_.advance(1);
+                copy.advance(1);
+                require(session_.serialize() == copy.serialize(),
+                        "native law continuation differs");
+            }
+            require(session_.interact_cargo(0, 0) == CargoStatus::Transferred,
+                    "native physical return failed");
+            require(!session_.legal_service_allowed(0, 0), "native remote closure leaked");
+            session_.set_goal(1, {1, {1.2, -.8}});
+            for (unsigned t = 0;
+                 t < 200 && (session_.actors()[1].state != TraversalState::Arrived ||
+                             session_.actors()[1].motion.speed > .01);
+                 ++t)
+                session_.advance(1);
+            require(session_.actors()[1].testimonies.size() == 1,
+                    "late witness saw historical return");
+            log_ << "law_resume=pass\n";
+        } else {
+            selection_ = 0;
+            SendMessageW(window_, WM_KEYDOWN, VK_F4, 0);
+            require(session_.incidents().size() == 1 &&
+                        session_.actors()[1].testimonies.size() == 1 &&
+                        session_.actors()[2].testimonies.empty() &&
+                        session_.legal_service_allowed(0, 0),
+                    "F4 theft bypassed witness model");
+            session_.set_goal(1, {1, {-3.5, 0}});
+            for (unsigned t = 0;
+                 t < 200 && (session_.actors()[1].state != TraversalState::Arrived ||
+                             session_.actors()[1].motion.speed > .01);
+                 ++t)
+                session_.advance(1);
+            selection_ = 1;
+            SendMessageW(window_, WM_KEYDOWN, VK_F7, 0);
+            require(!session_.legal_service_allowed(0, 0) && !session_.begin_maintenance(0, 0),
+                    "native F7 did not cause service refusal");
+            session_.save(options_.save);
+            log_ << "law_pickup=pass\nlaw_exchange=pass\nlaw_refusal=pass\n";
+        }
+        panel();
+        std::wstring lines(static_cast<std::size_t>(GetWindowTextLengthW(inspector_)) + 1, L'\0');
+        GetWindowTextW(inspector_, lines.data(), static_cast<int>(lines.size()));
+        require(lines.find(L"testimony_incident=") != std::wstring::npos &&
+                    lines.find(L"incident_truth=") != std::wstring::npos &&
+                    lines.find(L"allowed=0") != std::wstring::npos,
+                "native law inspector lost truth, memory or reaction");
+        session_.validate();
+        draw();
+        require(renderer_->capture(options_.capture) > 1000, "law GPU image empty");
+        renderer_->check_diagnostics();
+        log_ << "law_inspector=pass\n" << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
+    }
     void smoke() {
+        if (options_.law) {
+            law_smoke();
+            return;
+        }
         if (options_.crossing) {
             crossing_smoke();
             return;

@@ -1,0 +1,17 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 14: law.empty_corruption
+1/2 Test #14: law.empty_corruption .............***Failed    8.88 sec
+
+    Start 15: law.settlement_chronology
+2/2 Test #15: law.settlement_chronology ........***Failed    0.11 sec
+FAIL settlement witness learned crime after observing its return
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   9.13 sec
+
+The following tests FAILED:
+	 14 - law.empty_corruption (Failed)
+	 15 - law.settlement_chronology (Failed)
+Errors while running CTest

@@ -196,14 +196,29 @@ TraversalSession::TraversalSession(TraversalScene scene)
         actor.autonomous = seed.autonomous;
         actors_.push_back(actor);
     }
-    for (auto& station : scene_.stations) {
+    for (std::size_t index = 0; index < scene_.stations.size(); ++index) {
+        auto& station = scene_.stations[index];
+        auto owner = actors_.front().id;
+        for (const auto& rule : scene_.property_rules)
+            if (rule.station == index)
+                owner = actors_.at(rule.custodian).id;
         station.lot = world_.create_resource(
-            actors_.front().id, Quantity{station.initial_stock},
+            owner, Quantity{station.initial_stock},
             station.kind == TraversalTask::Rest ? ResourceKind::Capacity : ResourceKind::Material,
             station.initial_material);
     }
     for (const auto& job : scene_.initial_deliveries)
         assign_delivery(job.actor, job.source, job.destination, job.quantity);
+    for (const auto& seed : scene_.property_rules) {
+        PropertyRule rule;
+        rule.station = seed.station;
+        rule.custodian = actors_.at(seed.custodian).id;
+        for (const auto resident : seed.residents)
+            rule.residents.push_back(actors_.at(resident).id);
+        if (seed.courier)
+            rule.courier = actors_.at(*seed.courier).id;
+        property_rules_.push_back(std::move(rule));
+    }
     inputs_.resize(actors_.size());
     queued_inputs_.resize(actors_.size());
     synchronize_presentation();
@@ -1602,6 +1617,7 @@ void TraversalSession::validate() const {
     validate_clearance();
     validate_delivery();
     validate_knowledge();
+    validate_law();
     validate_passages();
     tuning_.validate();
     check(!actors_.empty() && actors_.size() <= 32 && scene_.stations.size() <= 16 &&
@@ -1890,6 +1906,12 @@ std::string TraversalSession::inspect() const {
                     << " via_actor=" << b->via_actor.value << " observed_tick=" << b->observed_tick
                     << " learned_tick=" << b->learned_tick << '\n';
         }
+        for (const auto& b : actor.testimonies)
+            out << "  testimony_incident=" << b.incident.value << " offender=" << b.offender.value
+                << " station=" << b.station << " lot=" << b.lot.value << " quantity=" << b.quantity
+                << " resolved=" << b.resolved << " observed_tick=" << b.observed_tick
+                << " learned_tick=" << b.learned_tick << " source_actor=" << b.source_actor.value
+                << " via_actor=" << b.via_actor.value << '\n';
         if (actor.goal) {
             out << "  goal_surface=" << actor.goal->surface << " local=" << actor.goal->local.x_m
                 << ',' << actor.goal->local.z_m << " reach=" << actor.requested_reach << '\n';
@@ -1940,6 +1962,17 @@ std::string TraversalSession::inspect() const {
     for (const auto& s : scene_.services) {
         out << "service=" << s.id << " owner=" << s.owner.value << " queue=" << s.queue.size()
             << '\n';
+    }
+    for (const auto& v : incidents_)
+        out << "incident_truth=" << v.command.value << " offender=" << v.offender.value
+            << " station=" << v.station << " lot=" << v.lot.value << " cargo=" << v.cargo.value
+            << " quantity=" << v.quantity << " returned=" << v.returned
+            << " resolved_command=" << v.resolved_command.value << '\n';
+    for (const auto& r : property_rules_) {
+        out << "property_station=" << r.station << " custodian=" << r.custodian.value << '\n';
+        for (std::size_t i = 0; i < actors_.size(); ++i)
+            out << "  legal_service_actor=" << actors_[i].id.value
+                << " allowed=" << legal_service_allowed(i, r.station) << '\n';
     }
     return out.str();
 }

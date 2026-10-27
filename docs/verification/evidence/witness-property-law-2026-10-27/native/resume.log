@@ -1,0 +1,101 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=844x781
+law_resume=pass
+capture=resume.png colored_pixels=147190
+law_inspector=pass
+tick=211 actors=4
+actor=1 surface=1 feet=0.000,0.000,-0.800 speed=0.000 accel=0.000 yaw=0.000 state=3 auto=0 task=0 hunger=211 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  cargo_lot=7 cargo_quantity=0 cargo_capacity=4
+  belief_station=0 available=12 wear=592 source_actor=1 via_actor=1 observed_tick=92 learned_tick=92
+  belief_unknown_station=1
+actor=2 surface=1 feet=1.188,0.000,-0.806 speed=0.007 accel=-0.651 yaw=2.070 state=2 auto=0 task=0 hunger=211 energy=860 plans=3 leg=3/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  testimony_incident=1 offender=1 station=0 lot=5 quantity=4 resolved=0 observed_tick=0 learned_tick=0 source_actor=2 via_actor=2
+  goal_surface=1 local=1.200,-0.800 reach=0.000
+  route=found retry_at=177
+actor=3 surface=1 feet=-5.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=211 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  testimony_incident=1 offender=1 station=0 lot=5 quantity=4 resolved=0 observed_tick=0 learned_tick=72 source_actor=2 via_actor=2
+actor=4 surface=1 feet=3.000,0.000,3.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=211 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+station=5 kind=3 stock=12 completed=0 wear=711
+station=6 kind=3 stock=0 completed=0 wear=711
+incident_truth=1 offender=1 station=0 lot=5 cargo=7 quantity=4 returned=4 resolved_command=2
+property_station=0 custodian=3
+  legal_service_actor=1 allowed=0
+  legal_service_actor=2 allowed=1
+  legal_service_actor=3 allowed=1
+  legal_service_actor=4 allowed=1
+TRAVERSAL SMOKE PASS
+navigation_observations=4
+navigation_actor=1 observed_tick=0 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=0 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=3 observed_tick=0 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=4 observed_tick=0 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+frame_samples=2
+frame_min_ms=3.3600
+frame_p50_ms=3.3600
+frame_p95_ms=27.5645
+frame_p99_ms=27.5645
+frame_max_ms=27.5645
+frame_mean_ms=15.4622
+simulation_samples=2
+simulation_min_ms=0.0001
+simulation_p50_ms=0.0001
+simulation_p95_ms=0.0002
+simulation_p99_ms=0.0002
+simulation_max_ms=0.0002
+simulation_mean_ms=0.0002
+backlog_samples=2
+backlog_min_ms=0.0000
+backlog_p50_ms=0.0000
+backlog_p95_ms=0.0000
+backlog_p99_ms=0.0000
+backlog_max_ms=0.0000
+backlog_mean_ms=0.0000
+measurement_finished=0
+measurement_interventions=0
+measurement_minimizations=0
+measurement_resizes=0
+occluded_frames=0
+simulation_errors=0
+measured_ticks=0
+measured_wall_ms=30.9245
+viewport=844x781
+working_set_first_bytes=50622464
+working_set_last_bytes=50622464
+working_set_peak_sampled_bytes=50622464
+private_peak_sampled_bytes=95629312
+tick=211 actors=4
+actor=1 surface=1 feet=0.000,0.000,-0.800 speed=0.000 accel=0.000 yaw=0.000 state=3 auto=0 task=0 hunger=211 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  cargo_lot=7 cargo_quantity=0 cargo_capacity=4
+  belief_station=0 available=12 wear=592 source_actor=1 via_actor=1 observed_tick=92 learned_tick=92
+  belief_unknown_station=1
+actor=2 surface=1 feet=1.188,0.000,-0.806 speed=0.007 accel=-0.651 yaw=2.070 state=2 auto=0 task=0 hunger=211 energy=860 plans=3 leg=3/3 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  testimony_incident=1 offender=1 station=0 lot=5 quantity=4 resolved=0 observed_tick=0 learned_tick=0 source_actor=2 via_actor=2
+  goal_surface=1 local=1.200,-0.800 reach=0.000
+  route=found retry_at=177
+actor=3 surface=1 feet=-5.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=211 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  testimony_incident=1 offender=1 station=0 lot=5 quantity=4 resolved=0 observed_tick=0 learned_tick=72 source_actor=2 via_actor=2
+actor=4 surface=1 feet=3.000,0.000,3.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=211 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+station=5 kind=3 stock=12 completed=0 wear=711
+station=6 kind=3 stock=0 completed=0 wear=711
+incident_truth=1 offender=1 station=0 lot=5 cargo=7 quantity=4 returned=4 resolved_command=2
+property_station=0 custodian=3
+  legal_service_actor=1 allowed=0
+  legal_service_actor=2 allowed=1
+  legal_service_actor=3 allowed=1
+  legal_service_actor=4 allowed=1
+normal_shutdown=1

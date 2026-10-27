@@ -1,0 +1,47 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: law.unseen
+ 1/18 Test  #1: law.unseen .......................   Passed    0.05 sec
+      Start  2: law.isolated
+ 2/18 Test  #2: law.isolated .....................   Passed    0.06 sec
+      Start  3: law.relay
+ 3/18 Test  #3: law.relay ........................   Passed    0.19 sec
+      Start  4: law.restitution
+ 4/18 Test  #4: law.restitution ..................   Passed    0.18 sec
+      Start  5: law.repeated_return
+ 5/18 Test  #5: law.repeated_return ..............   Passed    1.41 sec
+      Start  6: law.owner
+ 6/18 Test  #6: law.owner ........................   Passed    0.03 sec
+      Start  7: law.geometry
+ 7/18 Test  #7: law.geometry .....................   Passed    0.23 sec
+      Start  8: law.authorized
+ 8/18 Test  #8: law.authorized ...................   Passed    0.19 sec
+      Start  9: law.remote_return
+ 9/18 Test  #9: law.remote_return ................   Passed    0.31 sec
+      Start 10: law.bounded_auto
+10/18 Test #10: law.bounded_auto .................   Passed    0.04 sec
+      Start 11: law.multiple
+11/18 Test #11: law.multiple .....................   Passed    0.22 sec
+      Start 12: law.corruption
+12/18 Test #12: law.corruption ...................   Passed    0.11 sec
+      Start 13: law.legacy
+13/18 Test #13: law.legacy .......................   Passed    0.38 sec
+      Start 14: law.multi_relay
+14/18 Test #14: law.multi_relay ..................   Passed    0.24 sec
+      Start 15: law.safe_action
+15/18 Test #15: law.safe_action ..................***Failed    0.12 sec
+FAIL fixture missed running work
+
+      Start 16: law.limits
+16/18 Test #16: law.limits .......................   Passed    2.49 sec
+      Start 17: law.legacy_sections
+17/18 Test #17: law.legacy_sections ..............   Passed    0.04 sec
+      Start 18: law.native_diagnostics
+18/18 Test #18: law.native_diagnostics ...........   Passed    1.48 sec
+
+94% tests passed, 1 tests failed out of 18
+
+Total Test time (real) =   7.87 sec
+
+The following tests FAILED:
+	 15 - law.safe_action (Failed)
+Errors while running CTest

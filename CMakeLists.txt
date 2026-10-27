@@ -65,7 +65,7 @@ add_library(reality_lab_model STATIC src/lab/lab_session.cpp src/graphics/lab_sc
     src/physics/spatial_geometry.cpp src/navigation/surface_navigation.cpp src/physics/locomotion.cpp
     src/physics/platform_motion.cpp src/lab/traversal_session.cpp src/lab/traversal_course.cpp
     src/lab/traversal_codec.cpp src/lab/traversal_diagnostics.cpp src/lab/traversal_needs.cpp
-    src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/lab/traversal_passages.cpp src/graphics/traversal_scene.cpp)
+    src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/lab/traversal_law.cpp src/lab/traversal_passages.cpp src/graphics/traversal_scene.cpp)
 target_link_libraries(reality_lab_model PUBLIC reality_core)
 
 add_library(reality_graphics STATIC src/graphics/d3d11_renderer.cpp)
@@ -92,6 +92,8 @@ set(reality_cpp_files
     src/lab/traversal_clearance.cpp
     src/lab/traversal_delivery.cpp
     src/lab/traversal_knowledge.cpp
+    src/lab/traversal_law.cpp
+    tests/law_tests.cpp
     src/lab/traversal_passages.cpp
     tests/passage_tests.cpp
     tests/knowledge_tests.cpp
@@ -155,6 +157,15 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_law_tests tests/law_tests.cpp)
+    target_link_libraries(reality_law_tests PRIVATE reality_lab_model)
+    reality_deploy_diagnostics(reality_law_tests)
+    foreach(case IN ITEMS unseen isolated relay restitution repeated_return owner geometry authorized remote_return bounded_auto multiple corruption legacy empty_corruption settlement_chronology unseen_return multi_relay safe_action limits legacy_sections)
+        add_test(NAME law.${case} COMMAND reality_law_tests ${case})
+    endforeach()
+    add_test(NAME law.native_diagnostics
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_law_native.py"
+                --exe "$<TARGET_FILE:reality_traversal>")
     add_executable(reality_passage_tests tests/passage_tests.cpp)
     target_link_libraries(reality_passage_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_passage_tests)

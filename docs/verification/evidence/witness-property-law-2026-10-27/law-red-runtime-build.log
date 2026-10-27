@@ -1,0 +1,22 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_session.cpp
+  traversal_course.cpp
+  traversal_codec.cpp
+  traversal_diagnostics.cpp
+  traversal_needs.cpp
+  traversal_clearance.cpp
+  traversal_delivery.cpp
+  traversal_knowledge.cpp
+  traversal_law.cpp
+  traversal_passages.cpp
+  traversal_scene.cpp
+  Generowanie kodu...
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  law_tests.cpp
+  reality_law_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_law_tests.exe
