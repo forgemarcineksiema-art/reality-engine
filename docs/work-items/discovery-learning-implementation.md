@@ -38,7 +38,7 @@
 
 - [ ] Napisać przypadki `world`, `replay`, `refusals`, `world_restore`: ręczne wyniki trzech rodzin, kolejność łańcucha, bilans, rezerwacja, konflikt komendy, odmowy bez mutacji, zapis w trakcie impulsu.
 - [ ] Skonfigurować test i zachować czerwony build braku implementacji.
-- [ ] Zaimplementować konkretne komendy i walidację; zachować zielone wyniki `ctest --preset windows-debug -R '^discovery[.](world|replay|refusals|world_restore)$'`.
+- [ ] Zaimplementować konkretne komendy i walidację; zachować zielone wyniki `ctest --preset windows-debug -R '^discovery'` dla czterech zarejestrowanych przypadków aparatury.
 - [ ] Przejrzeć źródła i zapisać mały commit.
 
 ### Task 2: Wiedza i decyzje
