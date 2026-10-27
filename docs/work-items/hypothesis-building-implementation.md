@@ -78,10 +78,10 @@
 
 ### Task 5: Weryfikacja techniczna i review
 
-- [ ] Rozwój: 16 światów, wszystkie kontrole; zachować porażki i pomiar kosztu. Bez oglądania praw potwierdzających.
-- [ ] `cmake --preset windows-msvc`, build Debug/Release, pełne CTest obu profili, ASan build i pełne CTest, `format-check`, dokumentacja i testy Pythona.
-- [ ] Nowe API i raport odróżniają odtwarzanie stanu, koszt wnioskowania oraz koszty fizycznych prób. Brak nowego odbioru 3D.
-- [ ] Osobny świeży przegląd całej gałęzi przez recenzenta; każda materialna poprawka RED→GREEN oraz ponowna właściwa weryfikacja przed freeze. Zachować uwagi i ich rozstrzygnięcia.
+- [x] Rozwój: 16 światów, wszystkie kontrole; zachować porażki i pomiar kosztu. Bez oglądania praw potwierdzających.
+- [x] `cmake --preset windows-msvc`, build Debug/Release, pełne CTest obu profili, ASan build i pełne CTest, `format-check`, dokumentacja i testy Pythona.
+- [x] Nowe API i raport odróżniają odtwarzanie stanu, koszt wnioskowania oraz koszty fizycznych prób. Brak nowego odbioru 3D.
+- [x] Osobny świeży przegląd całej gałęzi przez recenzenta; każda materialna poprawka RED→GREEN oraz ponowna właściwa weryfikacja przed freeze. Zachować uwagi i ich rozstrzygnięcia.
 
 ### Task 6: Zamrożenie i jednorazowa próba
 
