@@ -70,11 +70,11 @@
 
 **Interfaces:** `run_hypothesis_case(path,output)`, fixture/continue w `reality_hypothesis`; Python `prepare`, `run`, `analyze`, z nowym katalogiem próby i freeze/marker. Native plik przypadku zawiera prawdę dostępną tylko sesji oraz plan oceny; agent dostaje plan prognoz i cele wyłącznie w dozwolonych fazach.
 
-- [ ] Testy RED generatora i sędziego: zgodność wszystkich wejść z C++, liczności, seedy/odrzucenia, brak zmian kryteriów, dokładne granice progów, manifest i odmowa powtórnego uruchomienia.
-- [ ] Oddzielić strumienie 40/41/42/43, zachować ich końcowe liczniki i historię odrzuceń. Modele prawdy i zadania potwierdzające dopiero po freeze.
-- [ ] Native zapisuje pomiary, wyjściowe deklaracje D po 3–24 próbach, rzeczywiste G po freeze, wybory aktywne i liczniki/koszty, niezależne ledgery uczenia/oceny oraz snapshoty.
-- [ ] Python odtwarza działania praw, bilanse, wyniki D/G, prognozy i wybór aktywny bez zaufania podsumowaniom C++. Weryfikuje też dane/manifest/freeze przy `analyze`.
-- [ ] Test manipulacji dowodem musi dać błąd, wynik naukowo negatywny poprawny exit 0. PASS i commit.
+- [x] Testy RED generatora i sędziego: zgodność wszystkich wejść z C++, liczności, seedy/odrzucenia, brak zmian kryteriów, dokładne granice progów, manifest i odmowa powtórnego uruchomienia.
+- [x] Oddzielić strumienie 40/41/42/43, zachować ich końcowe liczniki i historię odrzuceń. Modele prawdy i zadania potwierdzające dopiero po freeze.
+- [x] Native zapisuje pomiary, wyjściowe deklaracje D po 3–24 próbach, rzeczywiste G po freeze, wybory aktywne i liczniki/koszty, niezależne ledgery uczenia/oceny oraz snapshoty.
+- [x] Python odtwarza działania praw, bilanse, wyniki D/G, prognozy i wybór aktywny bez zaufania podsumowaniom C++. Weryfikuje też dane/manifest/freeze przy `analyze`.
+- [x] Test manipulacji dowodem musi dać błąd, wynik naukowo negatywny poprawny exit 0. PASS i commit.
 
 ### Task 5: Weryfikacja techniczna i review
 

@@ -76,7 +76,7 @@ add_executable(reality_discovery src/headless/discovery_main.cpp)
 target_link_libraries(reality_discovery PRIVATE reality_discovery_model)
 reality_deploy_diagnostics(reality_discovery)
 add_library(reality_hypothesis_model STATIC src/research/hypothesis_program.cpp src/research/hypothesis_agent.cpp
-    src/research/hypothesis_session.cpp src/research/hypothesis_codec.cpp)
+    src/research/hypothesis_session.cpp src/research/hypothesis_codec.cpp src/research/hypothesis_protocol.cpp)
 target_link_libraries(reality_hypothesis_model PUBLIC reality_discovery_model)
 add_executable(reality_hypothesis src/headless/hypothesis_main.cpp)
 target_link_libraries(reality_hypothesis PRIVATE reality_hypothesis_model)
@@ -94,6 +94,8 @@ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 sh
 reality_deploy_diagnostics(reality_traversal)
 
 set(reality_cpp_files
+    src/research/hypothesis_protocol.hpp
+    src/research/hypothesis_protocol.cpp
     src/headless/hypothesis_main.cpp
     src/research/hypothesis_session.hpp
     src/research/hypothesis_session.cpp
@@ -202,6 +204,9 @@ if(BUILD_TESTING)
     add_test(NAME hypothesis.native_continuation
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/hypothesis_integration.py"
                 --exe "$<TARGET_FILE:reality_hypothesis>")
+    add_test(NAME hypothesis.native_case
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/hypothesis_integration.py"
+                --exe "$<TARGET_FILE:reality_hypothesis>" --mode case)
     add_executable(reality_discovery_tests tests/discovery_tests.cpp)
     target_link_libraries(reality_discovery_tests PRIVATE reality_discovery_model)
     reality_deploy_diagnostics(reality_discovery_tests)

@@ -26,6 +26,8 @@ Każdy eksperyment korzysta z [szablonu](templates/experiment-record.md), punktu
 
 ## Ograniczenia interpretacji
 
+Rozmowa o ABSS dostarczona przez użytkownika 27.10.2026 jest inspiracją szerszego świata, nie nową klasyfikacją ani zatwierdzeniem wszystkich subsystemów. ABSS i sztuczne społeczeństwa częściowo opisują ten sam obszar: [praca Davidssona](https://www.jasss.org/5/1/7.html) określa ABSS przez związek agentów, nauk społecznych i symulacji, a [model sztucznego społeczeństwa](https://jasss.org/3/1/2.html) również używa agentów i lokalnych reguł. [Przegląd ISAL](https://alife.org/encyclopedia/introduction/artificial-life/) pokazuje ALife jako szeroki, przecinający inne dziedziny obszar. To osie badań, nie obowiązkowe szczeble. Zintegrowany świat jest tu kierunkiem architektury. Otwartość ewolucji wymaga odróżniania trwałej/adaptacyjnej nowości od szumu; [opis OEE i pomiarów ISAL](https://alife.org/encyclopedia/introduction/open-ended-evolution/) omawia m.in. przebiegi kontrolne i trwałość linii. Szerszy zakres symulacji sam nie dowodzi większej autonomii, życia lub świadomości. Zatwierdzone hypothesis-v1 bada skończony język hipotez i nie staje się przez to próbą OEE.
+
 Model wytrenowany na ludzkiej wiedzy może zastosować znaną instytucję. To nie dowodzi jej powstania od zera. Syntetyczne reguły i nowe konfiguracje pomagają badać adaptację, lecz nie usuwają automatycznie całego wpływu wcześniejszej wiedzy.
 
 Kombinatoryka nie gwarantuje niekończącej się znaczącej nowości. Fizyczne i społeczne możliwości są ograniczone językiem reprezentacji silnika. Użyteczna nowość powinna zmieniać działanie i możliwości.

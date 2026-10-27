@@ -1,6 +1,6 @@
 # Laboratorium budowania wyjaśnień — stan API
 
-**Status: zaimplementowane programy, agent, sesja oraz natywne fixture'y kontynuacji. Runner całego eksperymentu i wyniki pozostają w realizacji.** Protokół [hypothesis-v1](work-items/hypothesis-building-experiment.md) jest zatwierdzony do implementacji i wykonania. [Plan](work-items/hypothesis-building-implementation.md) rozdziela wykonane zadania i dalsze prace. To osobny konsument badawczy, bez nowego odbioru M04/3D.
+**Status: zaimplementowane programy, agent, sesja, runner i niezależny sędzia. Pełna weryfikacja i wyniki pozostają w realizacji.** Protokół [hypothesis-v1](work-items/hypothesis-building-experiment.md) jest zatwierdzony do implementacji i wykonania. [Plan](work-items/hypothesis-building-implementation.md) rozdziela wykonane zadania i dalsze prace. To osobny konsument badawczy, bez nowego odbioru M04/3D.
 
 ## Własność i granica informacji
 
@@ -16,7 +16,7 @@ Nowy konstruktor tabelaryczny `DiscoveryWorld` używa `DWORLD 2`. Tablice są pa
 
 `GENESIS_HYPOTHESIS 1` jest osobną otoczką, bez zmiany `GENESIS_DISCOVERY 1` i `GENESIS_TRAVERSAL`. Zawiera prywatne prawo, seed, limity, początkowy świat, dziennik publicznych operacji i kanoniczny stan końcowy: aparat/archiwum, ruch, wiedzę, modele, fazę impulsu, ID, koszty i permutację z licznikiem RNG 41. Ładowanie odtwarza prywatnego kandydata, sprawdza wyniki deklaracji i zgodność całego stanu, a następnie publikuje kandydata. Poprawny checksum nie zastępuje walidacji semantycznej. Błędny odczyt zachowuje dotychczasowy stan. Odtwarzanie historii kosztuje CPU; nie jest darmowym obliczeniem ani dowodem skalowalności zapisu.
 
-Strumienie generatora przypadków 40/42/43 mają należeć do eksperymentatora i manifestu próby; nie są kanałem wiedzy mieszkańca. Ich runner pozostaje w realizacji. Zegar świata nie zależy od czasu CPU zużytego na wnioskowanie.
+Strumienie generatora przypadków 40/42/43 należą do eksperymentatora i manifestu próby; zapis przypadku zachowuje ich liczniki, plan oceny i historię odrzuceń. Nie są kanałem wiedzy mieszkańca. Zegar świata nie zależy od czasu CPU zużytego na wnioskowanie.
 
 ## Istniejące polecenia
 
@@ -25,6 +25,12 @@ cmake --build --preset windows-debug --target reality_hypothesis reality_hypothe
 ctest --preset windows-debug -R '^hypothesis[.]' --output-on-failure
 build/msvc/Debug/reality_hypothesis.exe --fixture --output NEW_DIRECTORY
 build/msvc/Debug/reality_hypothesis.exe --continue CHECKPOINT --output NEW_DIRECTORY
+build/msvc/Debug/reality_hypothesis.exe --case CASE_FILE --output NEW_DIRECTORY
+python tools/run_hypothesis_experiment.py prepare --mode development --exe build/msvc/RelWithDebInfo/reality_hypothesis.exe --output build/hypothesis-development-NEW
+python tools/run_hypothesis_experiment.py run build/hypothesis-development-NEW
+python tools/run_hypothesis_experiment.py analyze build/hypothesis-development-NEW
 ```
 
-`--fixture` tworzy osiem rzeczywistych checkpointów: dwa sterowniki, przed/po pierwszej sprzeczności oraz konfigurację/impuls w toku. Integracja uruchamia nowy proces dla każdego checkpointu i porównuje pełny końcowy stan z nieprzerwanym wykonaniem. To techniczny dowód kontynuacji, nie próba potwierdzająca H/A. Bieżąca pierwsza kontrola Debug: 7/7 PASS; pełne profile, review i wynik eksperymentu nie zostały jeszcze wykonane dla tego przyrostu.
+`--fixture` tworzy osiem rzeczywistych checkpointów: dwa sterowniki, przed/po pierwszej sprzeczności oraz konfigurację/impuls w toku. Integracja uruchamia nowy proces dla każdego checkpointu i porównuje pełny końcowy stan z nieprzerwanym wykonaniem. Osobna integracja przypadku sprawdza surowe deklaracje, wybory prób, koszty i bilanse niezależnym kodem Pythona oraz odrzuca zmieniony pomiar. Bieżąca kontrola Debug: 8/8 PASS; pełne profile, review i wynik eksperymentu nie zostały jeszcze wykonane dla tego przyrostu.
+
+Runner wymaga nowego katalogu, kopiuje binarium i zamrożone źródła z SHA-256 przed generowaniem przypadków, a `run` zapisuje znacznik jednorazowego wykonania. `analyze` odtwarza wyniki z pomiarów, sprawdza generowanie przypadków i dokładne progi, manifesty oraz związanie freeze z markerem. Zmieniony później skrypt odmawia analizy dawnych danych; można uruchomić kopię `frozen-source/tools/run_hypothesis_experiment.py` z danej próby. Tryb potwierdzający wymaga zakończonego review przez `--review PATH`, poprawnego rozwojowego dowodu przez `--development DIRECTORY` i czystych zapisanych źródeł. Wynik negatywny nie jest błędem infrastruktury.

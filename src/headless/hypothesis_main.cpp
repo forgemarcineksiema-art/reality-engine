@@ -1,3 +1,4 @@
+#include "research/hypothesis_protocol.hpp"
 #include "research/hypothesis_session.hpp"
 #include <iostream>
 #include <stdexcept>
@@ -67,7 +68,9 @@ int wmain(int argc, wchar_t* argv[]) {
             session.load(argv[2]);
             suffix(session);
             session.save(directory / "final.state");
-        } else
+        } else if (mode == L"--case")
+            run_hypothesis_case(argv[2], directory);
+        else
             throw std::invalid_argument("unknown hypothesis mode");
         std::cout << "PASS hypothesis runner integrity\n";
         return 0;
