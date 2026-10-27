@@ -1,0 +1,20 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (0.9s)
+-- Generating done (1.3s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/msvc
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  discovery_tests.cpp
+C:\Users\Marcin\Documents\new\tests\discovery_tests.cpp(2,10): error C1083: Nie można otworzyć pliku dołącz: 'research/discovery_agent.hpp': No such file or directory [C:\Users\Marcin\Documents\new\build\msvc\reality_discovery_tests.vcxproj]

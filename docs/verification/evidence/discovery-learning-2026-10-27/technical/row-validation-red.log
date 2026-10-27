@@ -1,0 +1,14 @@
+.....E.
+======================================================================
+ERROR: test_runner_evidence_requires_raw_trials (test_discovery_experiment.DiscoveryExperimentTests.test_runner_evidence_requires_raw_trials)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_discovery_experiment.py", line 78, in test_runner_evidence_requires_raw_trials
+    experiment.validate_row({"seed": case["seed"], "integrity": True}, case)
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'run_discovery_experiment' has no attribute 'validate_row'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.015s
+
+FAILED (errors=1)

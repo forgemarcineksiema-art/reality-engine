@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tests\discovery_integration.py", line 59, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tests\discovery_integration.py", line 29, in main
+    execute(args.exe, "--fixture", "--output", root / "original")
+  File "C:\Users\Marcin\Documents\new\tests\discovery_integration.py", line 15, in execute
+    result = subprocess.run([str(exe), *map(str, args)], capture_output=True, text=True, timeout=timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Nie mo�na odnale�� okre�lonego pliku

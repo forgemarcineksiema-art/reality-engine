@@ -1,0 +1,22 @@
+# SDD ledger — plan: docs/work-items/discovery-learning-implementation.md
+Spec: docs/work-items/discovery-learning-experiment.md; approval: user Tak.
+Pre-flight: Task 1 -> Task 2 shared measurement/chain types; Task 2 -> Task 3 observation/freeze; Task 3 -> Task 4 session checkpoint and no seed in controller.
+Ruling: execute natively in existing topic branch; use build/discovery-implementation for ledger and logs per repository convention.
+Ruling: write and execute plan without another approval gate; user has approved implementation and execution of concrete protocol.
+Task 1: complete — world-red-build.log missing API then world-green.log 4/4.
+Task 2: complete — agent-red-build.log then agent-green.log 9/9.
+Task 3: complete — session-red-build.log then 15/16 first fixture runtime; wall origin was below floor, corrected top from y=0 to y=2; session-green.log 16/16.
+Task 4 in progress — tooling-red.log and native-red.log then evidence-first-tests.log 18/18, fresh-process continuation, independent Python judge and 7 tooling tests.
+Ruling: evaluation resets resources only in explicit independent fixture branches; old apparatus histories retained for evidence provenance.
+Ruling: movement path is diagnostic-only and not persisted; physical positions and contact proof are persisted.
+Debug full build failed after include sorting: Psapi.h was moved before Windows.h. Preserve dependency include groups; keep full-debug-build.log. CTest started after that build is not final verification and its log is retained as historical only.
+Review: five findings (pending consistency, exact threshold, analyze integrity, phase costs, physical negative control); all reproduced in pending-semantic-red.log, review-tooling-red.log, review-evidence-red.log and fixed.
+Review follow-up READY; independent reviewer did not generate/run confirmatory seeds.
+Full Debug rebuild succeeded; verified-debug-tests.log 314/314, 97.66s. Python 38/38. Release/ASan running sequentially.
+Pre-final full controls: Debug314/31497.66s,Release314/31435.91s,ASan316/316157.37s.
+Ruling: persist random-action control domains6/7 in DiscoverySession rather than runner-local variable; same sequence/protocol, explicit snapshot regression. random-continuation-red.log then random-continuation-green.log19/19. Re-run final suites for final sources.
+Final full verification: Debug314/31491.37s,Release314/31430.88s,ASan316/316153.43s,format PASS,Python38/38,docs PASS.
+Task 4: complete — development16 then frozen confirmatory64 once, independent analysis PASS. D1.0 versus.03125,G1.0 versus.18203125,S1.0 versus.725,8ties. All registered criteria supported.
+No source or criterion changes after freeze. Repeat run refused before agents. Raw evidence and history versioned; frozen executables remain in build.
+Ruling: keep topic branch without merge/push; no authorization to publish was requested.
+Core Tasks1-3 were committed together with coherent interfaces in c907872; corrections da2d486/cf8c751; no partial production stubs.

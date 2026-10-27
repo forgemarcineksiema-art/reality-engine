@@ -1,0 +1,23 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: discovery.world
+1/9 Test #1: discovery.world ..................   Passed    0.05 sec
+    Start 2: discovery.replay
+2/9 Test #2: discovery.replay .................   Passed    0.01 sec
+    Start 3: discovery.refusals
+3/9 Test #3: discovery.refusals ...............   Passed    0.02 sec
+    Start 4: discovery.world_restore
+4/9 Test #4: discovery.world_restore ..........   Passed    0.02 sec
+    Start 5: discovery.learning
+5/9 Test #5: discovery.learning ...............   Passed    0.01 sec
+    Start 6: discovery.minimax
+6/9 Test #6: discovery.minimax ................   Passed    0.02 sec
+    Start 7: discovery.composition
+7/9 Test #7: discovery.composition ............   Passed    0.02 sec
+    Start 8: discovery.frozen
+8/9 Test #8: discovery.frozen .................   Passed    0.01 sec
+    Start 9: discovery.outside
+9/9 Test #9: discovery.outside ................   Passed    0.01 sec
+
+100% tests passed out of 9
+
+Total Test time (real) =   0.28 sec

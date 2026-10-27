@@ -1,0 +1,9077 @@
+{
+  "cases": [
+    {
+      "predictions": [
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 17
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 36
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 11
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 10
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 47
+        }
+      ],
+      "rules": [
+        [
+          1,
+          22
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          2,
+          47
+        ]
+      ],
+      "seed": 3512467456,
+      "tasks_a": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 36
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 14
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 13
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 11
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 36
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 68
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 68
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 5
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 4
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 35
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 0
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 7
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 11
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 11
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 24
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 12
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 11
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 1
+        }
+      ],
+      "rules": [
+        [
+          1,
+          12
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          21
+        ]
+      ],
+      "seed": 3512467457,
+      "tasks_a": [
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 17
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 4
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 23
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 23
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 7
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 11
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 23
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 7
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 13
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 13
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 6
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 31
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 7
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 13
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 17
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 1
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 16
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 16
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 7
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 16
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        }
+      ],
+      "rules": [
+        [
+          2,
+          37
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "seed": 3512467458,
+      "tasks_a": [
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 16
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 3
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 37
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 37
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 37
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 45
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 73
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 53
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 91
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 58
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 78
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 23
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 54
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 34
+        }
+      ],
+      "rules": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          34
+        ],
+        [
+          0,
+          12
+        ]
+      ],
+      "seed": 3512467459,
+      "tasks_a": [
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 70
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 70
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 73
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 53
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 45
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 47
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 98
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 47
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 22
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 39
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 49
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 29
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 66
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 37
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 37
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 56
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 37
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 19
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 56
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 4
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 16
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 52
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 37
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 23
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 27
+        }
+      ],
+      "rules": [
+        [
+          0,
+          9
+        ],
+        [
+          2,
+          48
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "seed": 3512467460,
+      "tasks_a": [
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 16
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 31
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 58
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 58
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 32
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 35
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 24
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 45
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 37
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 52
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 45
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 37
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 11
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 58
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 37
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 90
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 52
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 62
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 25
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 15
+        }
+      ],
+      "rules": [
+        [
+          2,
+          27
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "seed": 3512467461,
+      "tasks_a": [
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 110
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 14
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 14
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 62
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 62
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 24
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 24
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 78
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 26
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 44
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 62
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 109
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 19
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 15
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 27
+        }
+      ],
+      "rules": [
+        [
+          2,
+          21
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          2,
+          27
+        ]
+      ],
+      "seed": 3512467462,
+      "tasks_a": [
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 64
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 24
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 24
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 21
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 3
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 22
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 10
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 11
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 11
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 22
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        }
+      ],
+      "rules": [
+        [
+          1,
+          20
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "seed": 3512467463,
+      "tasks_a": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 52
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 2
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 22
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 9
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 10
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 3
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 9
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 29
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 11
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 17
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 23
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 13
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 35
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 12
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 26
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 38
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 24
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 16
+        }
+      ],
+      "rules": [
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "seed": 3512467464,
+      "tasks_a": [
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 12
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 23
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 37
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 26
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 13
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 16
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 11
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 27
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 26
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 37
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 16
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 35
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 28
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 10
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 43
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 12
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 16
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 18
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 23
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 10
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 35
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 38
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 17
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 17
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 35
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 43
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 48
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 5
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 35
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 9
+        }
+      ],
+      "rules": [
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          2,
+          17
+        ]
+      ],
+      "seed": 3512467465,
+      "tasks_a": [
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 5
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 19
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 14
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 35
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 19
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 8
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 14
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 19
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 15
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 25
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 15
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 17
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 35
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 36
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 68
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 10
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 14
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 18
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 74
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 14
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 84
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 10
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 18
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 44
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 44
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 28
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 78
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 54
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 16
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 12
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 64
+        }
+      ],
+      "rules": [
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          14
+        ]
+      ],
+      "seed": 3512467466,
+      "tasks_a": [
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 42
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 72
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 4
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 78
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 36
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 54
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 78
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 22
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 4
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 44
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 36
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 42
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 12
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 74
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 22
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 46
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 84
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 40
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 40
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 74
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 16
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 78
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 12
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 42
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 22
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 28
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 36
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 64
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 28
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 76
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 6
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 4
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 84
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 36
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 84
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 36
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 6
+        }
+      ],
+      "rules": [
+        [
+          2,
+          42
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          22
+        ]
+      ],
+      "seed": 3512467467,
+      "tasks_a": [
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 52
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 36
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 4
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 36
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 4
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 76
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 14
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 54
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 54
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 42
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 6
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 6
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 76
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 43
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 19
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 30
+        }
+      ],
+      "rules": [
+        [
+          0,
+          10
+        ],
+        [
+          2,
+          30
+        ],
+        [
+          2,
+          33
+        ]
+      ],
+      "seed": 3512467468,
+      "tasks_a": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 31
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 31
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 19
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 18
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 30
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 11
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 18
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 18
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 30
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 31
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 33
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 2
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 17
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 4
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 8
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 28
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 12
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 2
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 9
+        }
+      ],
+      "rules": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          33
+        ]
+      ],
+      "seed": 3512467469,
+      "tasks_a": [
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 1
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 16
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 88
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            1
+          ],
+          "target": 76
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 56
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 25
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 5
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 22
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            0
+          ],
+          "target": 2
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 3
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            0
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 13
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 8
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 7
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 7
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 8
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 12
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 0
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 17
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 21
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 24
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 24
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 88
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 36
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 4
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            2
+          ],
+          "target": 44
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 4
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 44
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 26
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 24
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 26
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 24
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 26
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 66
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 24
+        }
+      ],
+      "rules": [
+        [
+          2,
+          48
+        ],
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "seed": 3512467470,
+      "tasks_a": [
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 56
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 66
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 24
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 66
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 42
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 56
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            0
+          ],
+          "target": 4
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 54
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 88
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 2
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 26
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 2
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 24
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            0
+          ],
+          "target": 26
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 44
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 46
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 22
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 48
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 44
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 56
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 36
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 88
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2,
+            2
+          ],
+          "target": 86
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 88
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            2
+          ],
+          "target": 46
+        }
+      ]
+    },
+    {
+      "predictions": [
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            0
+          ],
+          "target": 109
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 32
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 52
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 8
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 35
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 33
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 1
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 34
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 19
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            2
+          ],
+          "target": 70
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 33
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 84
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 41
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 34
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 21
+        }
+      ],
+      "rules": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          14
+        ]
+      ],
+      "seed": 3512467471,
+      "tasks_a": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 7
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            1
+          ],
+          "target": 18
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 7
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            1
+          ],
+          "target": 28
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 41
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 21
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 110
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 21
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 32
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            0
+          ],
+          "target": 46
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            1
+          ],
+          "target": 36
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            2,
+            0
+          ],
+          "target": 83
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            0
+          ],
+          "target": 34
+        }
+      ],
+      "tasks_b": [
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 7
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 1
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            0,
+            1
+          ],
+          "target": 48
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 20
+        },
+        {
+          "input": 112,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 35
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            0,
+            2
+          ],
+          "target": 64
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 1
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            0
+          ],
+          "target": 65
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            1,
+            2
+          ],
+          "target": 1
+        },
+        {
+          "input": 112,
+          "recipe": [
+            0,
+            1,
+            2
+          ],
+          "target": 34
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 83
+        },
+        {
+          "input": 80,
+          "recipe": [
+            2,
+            1,
+            2
+          ],
+          "target": 14
+        },
+        {
+          "input": 48,
+          "recipe": [
+            2,
+            0,
+            2
+          ],
+          "target": 19
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1,
+            0
+          ],
+          "target": 41
+        },
+        {
+          "input": 112,
+          "recipe": [
+            2,
+            1
+          ],
+          "target": 42
+        },
+        {
+          "input": 48,
+          "recipe": [
+            1,
+            1
+          ],
+          "target": 9
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            2,
+            0
+          ],
+          "target": 64
+        },
+        {
+          "input": 48,
+          "recipe": [
+            0,
+            2
+          ],
+          "target": 33
+        },
+        {
+          "input": 80,
+          "recipe": [
+            0,
+            1,
+            1
+          ],
+          "target": 14
+        },
+        {
+          "input": 80,
+          "recipe": [
+            1,
+            2
+          ],
+          "target": 21
+        }
+      ]
+    }
+  ],
+  "mode": "development",
+  "protocol": "discovery-v1"
+}

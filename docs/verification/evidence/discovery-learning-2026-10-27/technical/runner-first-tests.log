@@ -1,0 +1,41 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  1: discovery.world
+ 1/18 Test  #1: discovery.world ..................   Passed    0.04 sec
+      Start  2: discovery.replay
+ 2/18 Test  #2: discovery.replay .................   Passed    0.01 sec
+      Start  3: discovery.refusals
+ 3/18 Test  #3: discovery.refusals ...............   Passed    0.01 sec
+      Start  4: discovery.world_restore
+ 4/18 Test  #4: discovery.world_restore ..........   Passed    0.01 sec
+      Start  5: discovery.learning
+ 5/18 Test  #5: discovery.learning ...............   Passed    0.01 sec
+      Start  6: discovery.minimax
+ 6/18 Test  #6: discovery.minimax ................   Passed    0.01 sec
+      Start  7: discovery.composition
+ 7/18 Test  #7: discovery.composition ............   Passed    0.01 sec
+      Start  8: discovery.frozen
+ 8/18 Test  #8: discovery.frozen .................   Passed    0.01 sec
+      Start  9: discovery.outside
+ 9/18 Test  #9: discovery.outside ................   Passed    0.01 sec
+      Start 10: discovery.access
+10/18 Test #10: discovery.access .................   Passed    0.06 sec
+      Start 11: discovery.contact
+11/18 Test #11: discovery.contact ................   Passed    0.04 sec
+      Start 12: discovery.isolation
+12/18 Test #12: discovery.isolation ..............   Passed    0.05 sec
+      Start 13: discovery.continuation
+13/18 Test #13: discovery.continuation ...........   Passed    0.07 sec
+      Start 14: discovery.corruption
+14/18 Test #14: discovery.corruption .............   Passed    0.03 sec
+      Start 15: discovery.blocked_share
+15/18 Test #15: discovery.blocked_share ..........   Passed    0.02 sec
+      Start 16: discovery.budgets
+16/18 Test #16: discovery.budgets ................   Passed    0.02 sec
+      Start 17: discovery.native_case
+17/18 Test #17: discovery.native_case ............   Passed    1.35 sec
+      Start 18: discovery.native_continuation
+18/18 Test #18: discovery.native_continuation ....   Passed    0.41 sec
+
+100% tests passed out of 18
+
+Total Test time (real) =   2.31 sec

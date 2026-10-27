@@ -1,0 +1,20 @@
+E
+======================================================================
+ERROR: test_discovery_experiment (unittest.loader._FailedTest.test_discovery_experiment)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_discovery_experiment
+Traceback (most recent call last):
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\unittest\loader.py", line 419, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python311\Lib\unittest\loader.py", line 362, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_discovery_experiment.py", line 9, in <module>
+    import run_discovery_experiment as experiment
+ModuleNotFoundError: No module named 'run_discovery_experiment'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

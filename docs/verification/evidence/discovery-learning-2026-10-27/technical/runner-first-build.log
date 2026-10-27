@@ -1,0 +1,32 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (0.8s)
+-- Generating done (1.0s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/msvc
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  discovery_protocol.cpp
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  discovery_main.cpp
+  reality_discovery.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery.exe
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_discovery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_tests.exe

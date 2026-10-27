@@ -1,0 +1,37 @@
+{
+  "D": {
+    "control": 0.020833333333333332,
+    "gain": 0.9791666666666666,
+    "losses": 0,
+    "mean": 1.0,
+    "p": 1.52587890625e-05,
+    "supported": true,
+    "ties": 0,
+    "wins": 16
+  },
+  "G": {
+    "control": 0.153125,
+    "gain": 0.846875,
+    "losses": 0,
+    "mean": 1.0,
+    "p": 1.52587890625e-05,
+    "supported": true,
+    "ties": 0,
+    "wins": 16
+  },
+  "S": {
+    "control": 0.715625,
+    "gain": 0.284375,
+    "losses": 0,
+    "mean": 1.0,
+    "p": 3.0517578125e-05,
+    "supported": true,
+    "ties": 1,
+    "wins": 15
+  },
+  "interpretation": "development only, not confirmation",
+  "mode": "development",
+  "supported": true,
+  "unit": "one world, not one task",
+  "worlds": 16
+}

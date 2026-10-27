@@ -1,0 +1,3 @@
+ERROR: docs/work-items/discovery-learning-implementation.md: missing local link: world|replay|refusals|world_restore
+FAIL: 1 documentation issue(s).
+Original command output preserved from initial plan check; regex in inline code was parsed as a Markdown link. Fixed documentation notation only.

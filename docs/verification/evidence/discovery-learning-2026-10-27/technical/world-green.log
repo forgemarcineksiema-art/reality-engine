@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: discovery.world
+1/4 Test #1: discovery.world ..................   Passed    0.05 sec
+    Start 2: discovery.replay
+2/4 Test #2: discovery.replay .................   Passed    0.01 sec
+    Start 3: discovery.refusals
+3/4 Test #3: discovery.refusals ...............   Passed    0.02 sec
+    Start 4: discovery.world_restore
+4/4 Test #4: discovery.world_restore ..........   Passed    0.02 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =   0.22 sec

@@ -1,0 +1,20 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 17: discovery.native_case
+1/1 Test #17: discovery.native_case ............***Failed    1.22 sec
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tests\discovery_integration.py", line 62, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tests\discovery_integration.py", line 55, in main
+    assert len(result["preexperience_predictions"]) == 24
+               ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'preexperience_predictions'
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   1.25 sec
+
+The following tests FAILED:
+	 17 - discovery.native_case (Failed)
+Errors while running CTest

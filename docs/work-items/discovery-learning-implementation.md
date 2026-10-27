@@ -36,10 +36,10 @@
 
 **Interfaces:** `DiscoveryRule`, `DiscoveryChain`, `DiscoveryMeasurement`; `DiscoveryWorld::configure`, `pulse`, `advance`, `validate`, `serialize/restore`. Wspólne komendy mają ID; impuls trwa jeden krok po konfiguracji. W toku impulsu energia jest rezerwacją; rozliczenie następuje raz przy końcu.
 
-- [ ] Napisać przypadki `world`, `replay`, `refusals`, `world_restore`: ręczne wyniki trzech rodzin, kolejność łańcucha, bilans, rezerwacja, konflikt komendy, odmowy bez mutacji, zapis w trakcie impulsu.
-- [ ] Skonfigurować test i zachować czerwony build braku implementacji.
-- [ ] Zaimplementować konkretne komendy i walidację; zachować zielone wyniki `ctest --preset windows-debug -R '^discovery'` dla czterech zarejestrowanych przypadków aparatury.
-- [ ] Przejrzeć źródła i zapisać mały commit.
+- [x] Napisać przypadki `world`, `replay`, `refusals`, `world_restore`: ręczne wyniki trzech rodzin, kolejność łańcucha, bilans, rezerwacja, konflikt komendy, odmowy bez mutacji, zapis w trakcie impulsu.
+- [x] Skonfigurować test i zachować czerwony build braku implementacji.
+- [x] Zaimplementować konkretne komendy i walidację; zachować zielone wyniki `ctest --preset windows-debug -R '^discovery'` dla czterech zarejestrowanych przypadków aparatury.
+- [x] Przejrzeć źródła i zapisać mały commit.
 
 ### Task 2: Wiedza i decyzje
 
@@ -47,10 +47,10 @@
 
 **Consumes:** `DiscoveryChain`, pomiar wejścia/wyjścia ze źródłem. **Produces:** `DiscoveryAgent::observe`, `predict`, `choose_probe`, `choose_chain`, `teaching_packet`, `freeze`, `serialize/restore`.
 
-- [ ] Napisać przypadki `learning`, `minimax`, `composition`, `frozen`, `outside`: początkowe 75 hipotez, własne pomiary odrzucają sprzeczności, minimax całego układu, powtórzony symbol, deduplikacja i źródło, brak uczenia po freeze, jawne model_inadequate.
-- [ ] Zachować czerwony build/test przed implementacją.
-- [ ] Zaimplementować skończony model i wybór maksymalnie sześciu pomiarów. Żadnej referencji agenta do świata/sędziego ani seeda.
-- [ ] Uruchomić powyższe testy w Debug; oczekiwane wszystkie PASS. Zapisać commit.
+- [x] Napisać przypadki `learning`, `minimax`, `composition`, `frozen`, `outside`: początkowe 75 hipotez, własne pomiary odrzucają sprzeczności, minimax całego układu, powtórzony symbol, deduplikacja i źródło, brak uczenia po freeze, jawne model_inadequate.
+- [x] Zachować czerwony build/test przed implementacją.
+- [x] Zaimplementować skończony model i wybór maksymalnie sześciu pomiarów. Żadnej referencji agenta do świata/sędziego ani seeda.
+- [x] Uruchomić powyższe testy w Debug; oczekiwane wszystkie PASS. Zapisać commit.
 
 ### Task 3: Sesja przestrzenna i kontynuacja
 
@@ -58,10 +58,10 @@
 
 **Consumes:** świat i agent; `TraversalSession` jako jedyny właściciel ruchu/ID/zegara. **Produces:** `DiscoverySession::advance`, `probe`, `train`, `meet_and_share`, `serialize/restore`, kontrolowany widok agenta.
 
-- [ ] Napisać `access`, `contact`, `isolation`, `continuation`, `corruption`, `blocked_share`, `budgets`: dojście do stołu, kontakt po drodze, odmowa przez ścianę/inną podporę/odległość, brak danych przed kontaktem, źródło i czas, równe decyzje przy nieobserwowanej różnicy prawdy, zamrożony model i kopie checkpointu.
-- [ ] Zachować czerwony build/test; implementować istniejące kontrole zamiast konkurencyjnej geometrii.
-- [ ] Nowy zapis `GENESIS_DISCOVERY 1` zawiera otoczkę podróży, aparaturę, pamięć, fazę/liczniki i generatory, z checksumem i odczytem kandydatowym. Odtworzyć hipotezy z legalnych danych, bez zaufania do zapisanych parametrów agenta.
-- [ ] Zielony zestaw discovery w Debug i commit. Brak teleportacji/postępów świata w samym wnioskowaniu.
+- [x] Napisać `access`, `contact`, `isolation`, `continuation`, `corruption`, `blocked_share`, `budgets`: dojście do stołu, kontakt po drodze, odmowa przez ścianę/inną podporę/odległość, brak danych przed kontaktem, źródło i czas, równe decyzje przy nieobserwowanej różnicy prawdy, zamrożony model i kopie checkpointu.
+- [x] Zachować czerwony build/test; implementować istniejące kontrole zamiast konkurencyjnej geometrii.
+- [x] Nowy zapis `GENESIS_DISCOVERY 1` zawiera otoczkę podróży, aparaturę, pamięć, fazę/liczniki i generatory, z checksumem i odczytem kandydatowym. Odtworzyć hipotezy z legalnych danych, bez zaufania do zapisanych parametrów agenta.
+- [x] Zielony zestaw discovery w Debug i commit. Brak teleportacji/postępów świata w samym wnioskowaniu.
 
 ### Task 4: Runner, zamrożenie i dowód
 
@@ -69,13 +69,13 @@
 
 **Consumes:** sesja i protokół. **Produces:** `reality_discovery --case PATH --output NEW_DIRECTORY`, tryb kontynuacji fixture; Python `prepare`, `run`, `analyze` z jawnymi trybami development/confirmatory i plikami manifestu.
 
-- [ ] Napisać najpierw testy Pythona generatora/domen, testu znaków z remisami i wyniku negatywnego; zachować czerwony import/test.
-- [ ] Runner wykonuje D, G, S, losową eksplorację i losowe działanie; zapisuje surowe prognozy/konfiguracje/pomiary oraz koszty. Weryfikować spodziewane wyniki tylko na seedach rozwojowych.
-- [ ] Integracja świeżego procesu porównuje dalszą kontynuację z oryginalnym procesem, w tym impuls w toku i niezależne źródło wiedzy; wadliwy plik daje błąd bez sukcesu CLI.
-- [ ] Wykonać Debug/Release/ASan, format, dokumentację i narzędzia; zachować pełne logi i wcześniejsze porażki. Bez zmiany dawnych limitów i bez podmiany porażek hipotez na zielone testy.
-- [ ] Osobny review całej zmiany przed próbą potwierdzającą; naprawić wykazane usterki z czerwonymi regresjami i powtórzyć właściwe kontrole.
-- [ ] Zamrozić źródła, binarium Release, protokół i manifest SHA-256, uruchomić 64 przypadki raz, obliczyć wyniki według protokołu. Każde dalsze uruchomienie oznaczyć jako powtórzenie, zachować oryginał.
-- [ ] Raport `docs/verification/discovery-learning-experiment.md`: rzeczywiste komendy, dane, D/G/S, koszty, kontrola negatywna, ograniczenia i nieoczekiwane obserwacje. Aktualizować `docs/development.md`, program badań, mapę i wejście README; commit bez push/merge.
+- [x] Napisać najpierw testy Pythona generatora/domen, testu znaków z remisami i wyniku negatywnego; zachować czerwony import/test.
+- [x] Runner wykonuje D, G, S, losową eksplorację i losowe działanie; zapisuje surowe prognozy/konfiguracje/pomiary oraz koszty. Weryfikować spodziewane wyniki tylko na seedach rozwojowych.
+- [x] Integracja świeżego procesu porównuje dalszą kontynuację z oryginalnym procesem, w tym impuls w toku i niezależne źródło wiedzy; wadliwy plik daje błąd bez sukcesu CLI.
+- [x] Wykonać Debug/Release/ASan, format, dokumentację i narzędzia; zachować pełne logi i wcześniejsze porażki. Bez zmiany dawnych limitów i bez podmiany porażek hipotez na zielone testy.
+- [x] Osobny review całej zmiany przed próbą potwierdzającą; naprawić wykazane usterki z czerwonymi regresjami i powtórzyć właściwe kontrole.
+- [x] Zamrozić źródła, binarium Release, protokół i manifest SHA-256, uruchomić 64 przypadki raz, obliczyć wyniki według protokołu. Każde dalsze uruchomienie oznaczyć jako powtórzenie, zachować oryginał.
+- [x] Raport `docs/verification/discovery-learning-experiment.md`: rzeczywiste komendy, dane, D/G/S, koszty, kontrola negatywna, ograniczenia i nieoczekiwane obserwacje. Aktualizować `docs/development.md`, program badań, mapę i wejście README; commit bez push/merge.
 
 ## Ledger i decyzje wykonania
 

@@ -1,0 +1,21 @@
+F.F......
+======================================================================
+FAIL: test_analyze_command_rejects_unfrozen_headers (test_discovery_experiment.DiscoveryExperimentTests.test_analyze_command_rejects_unfrozen_headers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_discovery_experiment.py", line 97, in test_analyze_command_rejects_unfrozen_headers
+    self.assertNotEqual(result.returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_exact_threshold_and_one_attainable_step_below (test_discovery_experiment.DiscoveryExperimentTests.test_exact_threshold_and_one_attainable_step_below)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_discovery_experiment.py", line 85, in test_exact_threshold_and_one_attainable_step_below
+    self.assertTrue(result["G"]["supported"])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.195s
+
+FAILED (failures=2)

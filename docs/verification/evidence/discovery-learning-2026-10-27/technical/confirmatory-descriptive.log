@@ -1,0 +1,27 @@
+teacher probes(min/mean/max)= 3 4.671875 6 eu(mean)= 218.75
+student_with probes(min/mean/max)= 0 0 0 eu(mean)= 0
+student_without probes(min/mean/max)= 2 2 2 eu(mean)= 128
+random_teacher probes(min/mean/max)= 24 24 24 eu(mean)= 875
+random_d min/mean/max= 0.75 0.99609375 1
+random_g min/mean/max= 1 1 1
+cpu_ms min/mean/max= 250 315.4296875 843.75
+wall_ms min/mean/max= 263.0267 322.579128125 876.0788
+peak_working_set_bytes min/mean/max= 5652480 5698112 6254592
+pair_work_with min/mean/max= 431987 437203.59375 446150
+pair_work_without min/mean/max= 1012693 1333935.5 2296201
+overlapping_tasks_b min/mean/max= 2 11.640625 19
+G zero 87 / 87
+G nonzero 1193 / 1193
+G_random zero 22 / 87
+G_random nonzero 211 / 1193
+S_with zero 104 / 104
+S_with nonzero 1176 / 1176
+S_without zero 93 / 104
+S_without nonzero 835 / 1176
+contact ticks 54 54
+packet records 3 4.671875 6
+packet json bytes 334 670
+ties seeds ['0xd15c1003', '0xd15c100f', '0xd15c1016', '0xd15c101f', '0xd15c1020', '0xd15c1026', '0xd15c103b', '0xd15c103d']
+git cf8c7515fc24dc7460642cc784b3f46cd5832e15
+binary 2aa3b1922a885cd3d6f0c80291a470066b163d3399e1c0209a4cf332c46a1b0d
+files 714

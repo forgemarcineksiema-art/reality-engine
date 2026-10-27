@@ -1,0 +1,89 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_headless.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_headless.exe
+  reality_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_tests.exe
+  traversal_scene.cpp
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_transfer_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_transfer_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_demo.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_work_demo.exe
+  reality_work_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_work_tests.exe
+  traversal_clearance.cpp
+  traversal_codec.cpp
+  traversal_course.cpp
+  traversal_delivery.cpp
+  traversal_diagnostics.cpp
+  traversal_knowledge.cpp
+  traversal_law.cpp
+  traversal_needs.cpp
+  traversal_passages.cpp
+  traversal_session.cpp
+  Generowanie kodu...
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  clearance_tests.cpp
+  traversal_tests.cpp
+  passage_tests.cpp
+  reality_adversarial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_adversarial_tests.exe
+  knowledge_tests.cpp
+  reality_clearance_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_clearance_tests.exe
+  reality_passage_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_passage_tests.exe
+  reality_lab_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_lab_tests.exe
+  law_tests.cpp
+  reality_traversal_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_traversal_tests.exe
+  reality_motion_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_motion_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_spatial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_spatial_tests.exe
+  traversal_needs_tests.cpp
+  reality_knowledge_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_knowledge_tests.exe
+  traversal_diagnostics_tests.cpp
+  reality_law_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_law_tests.exe
+  traversal_audit_tests.cpp
+  reality_traversal_needs_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_traversal_needs_tests.exe
+  reality_graphics.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_graphics.lib
+  discovery_world.cpp
+  discovery_agent.cpp
+  discovery_session.cpp
+  reality_traversal_diagnostics_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_traversal_diagnostics_tests.exe
+  delivery_tests.cpp
+  reality_traversal_audit_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_traversal_audit_tests.exe
+  community_tests.cpp
+  discovery_codec.cpp
+  discovery_protocol.cpp
+  reality_delivery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_delivery_tests.exe
+  reality_community_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_community_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Generowanie kodu...
+  reality_lab.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_lab.exe
+  traversal_main.cpp
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  discovery_main.cpp
+  discovery_tests.cpp
+  reality_traversal.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_traversal.exe
+  reality_discovery.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_discovery.exe
+  reality_discovery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_discovery_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt

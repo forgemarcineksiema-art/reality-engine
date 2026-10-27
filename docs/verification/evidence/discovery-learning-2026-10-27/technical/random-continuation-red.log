@@ -1,0 +1,31 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  discovery_tests.cpp
+C:\Users\Marcin\Documents\new\tests\discovery_tests.cpp(260,34): error C2039: „random_chain”: nie jest składową elementu „reality::DiscoverySession” [C:\Users\Marcin\Documents\new\build\msvc\reality_discovery_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\research\discovery_session.hpp(20,7):
+      zobacz deklarację „reality::DiscoverySession”
+  
+C:\Users\Marcin\Documents\new\tests\discovery_tests.cpp(263,24): error C2039: „random_chain”: nie jest składową elementu „reality::DiscoverySession” [C:\Users\Marcin\Documents\new\build\msvc\reality_discovery_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\research\discovery_session.hpp(20,7):
+      zobacz deklarację „reality::DiscoverySession”
+  
+C:\Users\Marcin\Documents\new\tests\discovery_tests.cpp(263,48): error C2039: „random_chain”: nie jest składową elementu „reality::DiscoverySession” [C:\Users\Marcin\Documents\new\build\msvc\reality_discovery_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\research\discovery_session.hpp(20,7):
+      zobacz deklarację „reality::DiscoverySession”
+  
+C:\Users\Marcin\Documents\new\tests\discovery_tests.cpp(264,28): error C2039: „random_chain”: nie jest składową elementu „reality::DiscoverySession” [C:\Users\Marcin\Documents\new\build\msvc\reality_discovery_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\research\discovery_session.hpp(20,7):
+      zobacz deklarację „reality::DiscoverySession”
+  
+C:\Users\Marcin\Documents\new\tests\discovery_tests.cpp(264,52): error C2039: „random_chain”: nie jest składową elementu „reality::DiscoverySession” [C:\Users\Marcin\Documents\new\build\msvc\reality_discovery_tests.vcxproj]
+      C:\Users\Marcin\Documents\new\src\research\discovery_session.hpp(20,7):
+      zobacz deklarację „reality::DiscoverySession”
+  

@@ -1,6 +1,6 @@
 # Program badań i źródła
 
-**Status:** przegląd, hipotezy i projekt pierwszego eksperymentu. Nie przeprowadzono jeszcze opisanej poniżej próby odkrywania na silniku Genesis. Podstawą części źródłowej jest przegląd z wcześniejszej rozmowy z 24–25.10.2026; to nie wyczerpujący przegląd stanu nauki. Techniczny odbiór społeczności M04 pozostaje odrębnym wynikiem.
+**Status:** przegląd, hipotezy i wykonany pierwszy eksperyment odkrywania. [Raport](verification/discovery-learning-experiment.md) zachowuje wynik 64 przypadków według wcześniej zatwierdzonego protokołu, dane, porównania i granice. Podstawą części źródłowej jest przegląd z wcześniejszej rozmowy z 24–25.10.2026; to nie wyczerpujący przegląd stanu nauki. Techniczny odbiór społeczności M04 pozostaje odrębnym wynikiem.
 
 ## Pierwszy eksperyment zlecony przez użytkownika
 
