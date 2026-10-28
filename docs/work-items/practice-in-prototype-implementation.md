@@ -44,9 +44,9 @@ Ominiecie kalibracji przez rÄ™cznÄ…/autonomicznÄ… drogÄ™; wczytanie8
 
 **Interfaces:** `PracticeState::serialize()` i odczyt odtwarzajÄ…cy kandydata z aparatem oraz rolami istniejÄ…cego Ĺ›wiata. Wersja8 zachowuje wszystkie wczeĹ›niejsze sekcje formatu7 i dodaje jeden jawny rekord praktyk przed checksumem. Przy braku praktyk stary wybĂłr wersji i bajty pozostajÄ… bez zmian.
 
-- [ ] RED: `practice.persistence` â€” zapis w konfiguracji, impulsie, oczekiwaniu i pracy po wczytaniu daje identyczny koĹ„cowy Ĺ›wiat. `practice.corruption` z poprawnym checksumem: obcy aktor/urzÄ…dzenie, faĹ‚szywy pomiar, zgoda zuĹĽyta albo wydana przez inny impuls, zĹ‚y stan ĹşrĂłdĹ‚a energii, koszt i model niezgodne z doĹ›wiadczeniem; nieudany odczyt zachowuje poprzedni Ĺ›wiat.
-- [ ] Dla umysĹ‚Ăłw zachowaÄ‡ ograniczony dziennik faktycznych wywoĹ‚aĹ„ wnioskowania i obserwacji. OdtworzyÄ‡ go z zapisanych rzeczywistych pomiarĂłw i porĂłwnaÄ‡ kanoniczny stan/liczniki. Nie zerowaÄ‡ kosztĂłw przez ponowne skonstruowanie agenta. DopasowaÄ‡ pamiÄ™Ä‡ do staĹ‚ego ID/wersji aparatu.
-- [ ] GREEN: stare formaty1â€“7,8â†’obca scena i odwrotnie, snapshot po10000 krokĂłw, Ĺ›wieĹĽy proces dla co najmniej czterech faz. Commit.
+- [x] RED: `practice.persistence` â€” zapis w konfiguracji, impulsie, oczekiwaniu i pracy po wczytaniu daje identyczny koĹ„cowy Ĺ›wiat. `practice.corruption` z poprawnym checksumem: obcy aktor/urzÄ…dzenie, faĹ‚szywy pomiar, zgoda zuĹĽyta albo wydana przez inny impuls, zĹ‚y stan ĹşrĂłdĹ‚a energii, koszt i model niezgodne z doĹ›wiadczeniem; nieudany odczyt zachowuje poprzedni Ĺ›wiat.
+- [x] Dla umysĹ‚Ăłw zachowaÄ‡ ograniczony dziennik faktycznych wywoĹ‚aĹ„ wnioskowania i obserwacji. OdtworzyÄ‡ go z zapisanych rzeczywistych pomiarĂłw i porĂłwnaÄ‡ kanoniczny stan/liczniki. Nie zerowaÄ‡ kosztĂłw przez ponowne skonstruowanie agenta. DopasowaÄ‡ pamiÄ™Ä‡ do staĹ‚ego ID/wersji aparatu.
+- [x] GREEN: stare formaty1â€“7,8â†’obca scena i odwrotnie, snapshot po10000 krokĂłw, Ĺ›wieĹĽy proces dla co najmniej czterech faz. Commit.
 
 ### Task 3: Celowa autonomia i kontakt
 
@@ -54,10 +54,10 @@ Ominiecie kalibracji przez rÄ™cznÄ…/autonomicznÄ… drogÄ™; wczytanie8
 
 **Interfaces:** `make_learning_course()` tworzy wariant istniejÄ…cej spoĹ‚ecznoĹ›ci; wewnÄ™trzne `request_practice_work`, `advance_practice`, `practice_busy` Ĺ‚Ä…czÄ… aktualny zamiar z urzÄ…dzeniem. Role zapisane jako EntityId. Widok zwraca wĹ‚asne prĂłby, etap, poznanÄ… metodÄ™ i przyczynÄ™ oczekiwania.
 
-- [ ] RED: `practice.autonomy` â€” bez rÄ™cznych rozkazĂłw nauczyciel uczy siÄ™ z impulsĂłw i pracuje; `practice.teaching` â€” uczeĹ„ otrzymuje rzeczywiste dane i pĂłĹşniej sam wybiera konfiguracjÄ™; brak kontaktu nie daje wiedzy. Osobno sprawdziÄ‡ inne prawo, aby wykluczyÄ‡ sztywnÄ… receptÄ™.
-- [ ] DopuĹ›ciÄ‡ wczesne uĹĽycie metody, jeĹ›li zgodne modele przewidujÄ… cel. Nie wymuszaÄ‡ oĹ›miu prĂłb jak w badaniu. Puste modele/wyczerpanie budĹĽetu wyraĹşne. Po zweryfikowaniu celu zapamiÄ™taÄ‡ metodÄ™, bez ponownej peĹ‚nej analizy dla identycznej pracy; fizyczny impuls nadal jest konieczny dla kaĹĽdej nowej czynnoĹ›ci.
-- [ ] WspĂłlna kolejka ogranicza monopol operatora. Automatyczny kontakt przekazuje tylko nowe wĹ‚asne pomiary, przyjmuje dane po jednym kroku i nie przerywa chronionych dziaĹ‚aĹ„. Dalsza konserwacja wynika z rzeczywistego zuĹĽycia, nie nowej sztucznej awarii. Osoba nadal moĹĽe wykonaÄ‡ pracÄ™ bez nauczyciela, jeĹ›li nauczy siÄ™ samodzielnie.
-- [ ] GREEN: `practice.needs`, `practice.manual_override`, `practice.protected_message`, `practice.blocked_contact`, `practice.safe_queue`, dĹ‚uĹĽsza kontynuacja i stare regresje. Commit.
+- [x] RED: `practice.autonomy` â€” bez rÄ™cznych rozkazĂłw nauczyciel uczy siÄ™ z impulsĂłw i pracuje; `practice.teaching` â€” uczeĹ„ otrzymuje rzeczywiste dane i pĂłĹşniej sam wybiera konfiguracjÄ™; brak kontaktu nie daje wiedzy. Osobno sprawdziÄ‡ inne prawo, aby wykluczyÄ‡ sztywnÄ… receptÄ™.
+- [x] DopuĹ›ciÄ‡ wczesne uĹĽycie metody, jeĹ›li zgodne modele przewidujÄ… cel. Nie wymuszaÄ‡ oĹ›miu prĂłb jak w badaniu. Puste modele/wyczerpanie budĹĽetu wyraĹşne. Po zweryfikowaniu celu zapamiÄ™taÄ‡ metodÄ™, bez ponownej peĹ‚nej analizy dla identycznej pracy; fizyczny impuls nadal jest konieczny dla kaĹĽdej nowej czynnoĹ›ci.
+- [x] WspĂłlna kolejka ogranicza monopol operatora. Automatyczny kontakt przekazuje tylko nowe wĹ‚asne pomiary, przyjmuje dane po jednym kroku i nie przerywa chronionych dziaĹ‚aĹ„. Dalsza konserwacja wynika z rzeczywistego zuĹĽycia, nie nowej sztucznej awarii. Osoba nadal moĹĽe wykonaÄ‡ pracÄ™ bez nauczyciela, jeĹ›li nauczy siÄ™ samodzielnie.
+- [x] GREEN: `practice.needs`, `practice.manual_override`, `practice.protected_message`, `practice.blocked_contact`, `practice.safe_queue`, dĹ‚uĹĽsza kontynuacja i stare regresje. Commit.
 
 ### Task 4: Widok, wejĹ›cie i launcher
 

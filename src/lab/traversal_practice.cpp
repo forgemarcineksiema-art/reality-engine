@@ -97,7 +97,8 @@ PracticeView TraversalSession::practice_view(std::size_t index) const {
         v.stage = PracticeStage::Working;
     else if (p.sharing_ && (p.sharing_->from == index || p.sharing_->to == index))
         v.stage = PracticeStage::Sharing;
-    else if (std::find(p.queue_.begin(), p.queue_.end(), index) != p.queue_.end())
+    else if (a.autonomous && a.task == TraversalTask::Maintain && practice_at_bench(index) &&
+             std::find(p.queue_.begin(), p.queue_.end(), index) != p.queue_.end())
         v.stage = PracticeStage::Waiting;
     if (v.local && v.energy < p.seed_.input && v.stage == PracticeStage::Idle)
         v.stage = PracticeStage::NoEnergy;
@@ -131,6 +132,8 @@ DiscoveryOutcome TraversalSession::practice_probe(std::size_t index, DiscoveryCh
     auto& mind = p.minds_[index];
     const auto learning = chain == DiscoveryChain{0} && !mind.agent->frozen();
     if (learning && (mind.probes >= 8 || mind.spent + input > 1024 || mind.agent->frozen()))
+        return DiscoveryOutcome::Frozen;
+    if (learning && mind.agent->evidence().size() >= 24)
         return DiscoveryOutcome::Frozen;
     if (p.apparatus_.devices()[0].source < input)
         return DiscoveryOutcome::NoEnergy;
@@ -182,7 +185,6 @@ void TraversalSession::request_practice_work(std::size_t index) {
                                [&](const auto& a) { return a.id == p.permit_->actor; });
         if (it != actors_.end() && it->autonomous && it->task == TraversalTask::Maintain)
             return;
-        p.permit_.reset();
     }
     if (!mind.method && !mind.agent->evidence().empty() &&
         (mind.journal.empty() || !mind.journal.back().starts_with("q ")))
@@ -264,7 +266,9 @@ void TraversalSession::advance_practice() {
     if (p.sharing_ && tick > p.sharing_->tick) {
         auto contact = *p.sharing_;
         p.sharing_.reset();
-        if (knowledge_contact(contact.from, contact.to) && !practice_busy(contact.from) &&
+        if (actors_[contact.from].support.surface == contact.surface &&
+            actors_[contact.to].support.surface == contact.surface &&
+            knowledge_contact(contact.from, contact.to) && !practice_busy(contact.from) &&
             !practice_busy(contact.to)) {
             auto& mind = p.minds_[contact.to];
             contact.end = {actors_[contact.from].feet.x, actors_[contact.from].feet.y,

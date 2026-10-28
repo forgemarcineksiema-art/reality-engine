@@ -89,3 +89,5 @@ Aktualny kontrakt sesji przestrzennej obejmuje odłożone zamiary i bezpieczne g
 
 
 Lokalne ustąpienie przy rozpoczętym Step jest jawnym protokołem sesji według [modelu autonomii](traversal-autonomy.md#lokalna-prośba-o-przejście). Zgoda i manewr mają ścisłe powiązanie; sterowanie ręczne oraz rozpoczęte czynności nie są przejmowane. Fizyczny koniec uzgodnionego kroku zamyka zgodę przed zapisem. Rezerwacje miejsc manewrów nie są zasobami materiałowymi WorkWorld i nie przenoszą gospodarki do nawigacji. Ich lokalny widok jest jedyną dodatkową wiedzą protokołu.
+
+Opcjonalny stan praktyk należy wyłącznie do TraversalSession. Aparat rozlicza energię i pomiary; umysły korzystają z lokalnych obserwacji, nie prawa sceny. WorkWorld zachowuje części, czas i skutek pracy. Ręczny i autonomiczny Maintain przechodzą wspólną bramkę jednorazowej kalibracji. Kontakt przenosi pomiary świadka z czasami, a odczyt formatu8 rekonstruuje stan oraz koszty. Pełny kontrakt i ograniczenia znajdują się w [modelu autonomii](traversal-autonomy.md#integracja-praktyk).

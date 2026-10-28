@@ -167,3 +167,5 @@ Przyrost [diagnostyki i bezpiecznych potrzeb](work-items/diagnostics-needs-harde
 
 
 `clearance.*` sprawdza [ograniczoną współpracę](verification/local-clearance.md): faktyczne zakończenie Step, odmowy, zachowanie sterowania/pracy/zamiaru, współbieżne miejsca, limity, korupcję pary i zgodną kontynuację formatu 3. Rzeczywista migawka nie jest zastępowana samą zmianą etykiety. Wcześniejszy test stabilnego NoPath ma jawnego ręcznie kontrolowanego blokującego, aby nadal badał odmowę niezależnie od nowego dobrowolnego ustępowania.
+
+`practice.*` sprawdza opcjonalną [integrację uczenia](verification/practice-in-prototype.md): prawdziwy impuls przed pracą, jedną zgodę/jedną część, brak energii/części/zasięgu, współbieżność i kolejkę, inne prawo, potrzeby i ręczne przejęcie, blokadę rozmowy przez ścianę, zapis faz i odrzucanie semantycznych uszkodzeń. Cztery fazy mają porównanie pełnych bajtów w świeżym procesie. `practice.native` uruchamia rzeczywiste Win32/D3D11, P/R/F5/F9 i odczyt obcego świata. Nie zastępuje bezpośredniego odbioru użytkownika ani pomiaru długiego działania M06.

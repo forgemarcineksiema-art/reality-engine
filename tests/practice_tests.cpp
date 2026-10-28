@@ -1,4 +1,5 @@
 #include "lab/traversal_session.hpp"
+#include <functional>
 #include <iomanip>
 #include <iostream>
 #include <sstream>
@@ -116,6 +117,161 @@ std::string checksum(std::string text) {
     require(marker != std::string::npos, "snapshot checksum marker");
     text.resize(marker);
     return text + "CHECKSUM " + std::to_string(snapshot_checksum(text)) + "\n";
+}
+std::string alter_practice(const std::string& before,
+                           const std::function<void(std::string&)>& change) {
+    const auto at = before.find("PRACTICE ");
+    require(at != std::string::npos, "practice section absent");
+    std::istringstream in{before.substr(at + 9)};
+    std::string payload;
+    in >> std::quoted(payload);
+    change(payload);
+    std::ostringstream out;
+    out << before.substr(0, at) << "PRACTICE " << std::quoted(payload) << "\nCHECKSUM 0\n";
+    return checksum(out.str());
+}
+void forged_work() {
+    TraversalSession s{fixture()};
+    require(s.practice_probe(0, {0, 0}, 16) == DiscoveryOutcome::Accepted, "proof fixture");
+    s.advance(2);
+    require(s.begin_maintenance(0, 0), "proof work");
+    s.advance(17);
+    const auto before = s.serialize();
+    auto bad = alter_practice(before, [](auto& p) {
+        const auto at = p.find("WORKING 1 ");
+        require(at != std::string::npos, "running owner absent");
+        p.replace(at, p.find('\n', at) - at, "WORKING 0");
+    });
+    bool rejected = false;
+    try {
+        s.restore(bad);
+    } catch (const std::exception&) {
+        rejected = true;
+    }
+    require(rejected && s.serialize() == before, "running calibrated work lost its required owner");
+}
+void missing_permit() {
+    TraversalSession s{fixture()};
+    require(s.practice_probe(0, {0, 0}, 16) == DiscoveryOutcome::Accepted, "permit fixture");
+    s.advance(2);
+    const auto before = s.serialize();
+    const auto bad = alter_practice(before, [](auto& p) {
+        auto at = p.find("PERMIT 1 ");
+        require(at != std::string::npos, "proof absent");
+        p.replace(at, p.find('\n', at) - at, "PERMIT 0");
+    });
+    bool rejected = false;
+    try {
+        s.restore(bad);
+    } catch (const std::exception&) {
+        rejected = true;
+    }
+    require(rejected && s.serialize() == before,
+            "unused successful calibration disappeared on restore");
+}
+void evidence_capacity() {
+    auto scene = fixture();
+    scene.spawns = {{{1, {-.8, 0}}, {}, false},
+                    {{1, {0, -.8}}, {}, false},
+                    {{1, {.8, 0}}, {}, false},
+                    {{1, {0, .8}}, {}, false}};
+    TraversalSession s{scene};
+    for (std::size_t from = 0; from < 3; ++from) {
+        for (unsigned input = 1; input <= 8; ++input) {
+            require(s.practice_probe(from, {0}, input) == DiscoveryOutcome::Accepted,
+                    "donor probe");
+            s.advance(2);
+        }
+        require(s.share_practice(from, 3) == DiscoveryOutcome::Accepted, "capacity contact");
+        s.advance(1);
+    }
+    require(s.practice_view(3).records == 24 && s.practice_view(3).probes == 0,
+            "capacity precondition");
+    const auto before = s.serialize();
+    require(s.practice_probe(3, {0}, 16) == DiscoveryOutcome::Frozen,
+            "accepted an observation with no storage");
+    require(s.serialize() == before, "refusal configured or spent energy");
+}
+void frozen_pending() {
+    auto scene = fixture();
+    scene.practice->law = {{HypothesisKind::Fraction, 8}};
+    scene.spawns[0].autonomous = true;
+    scene.spawns[0].known_stations = 1;
+    TraversalSession s{scene};
+    for (unsigned i = 0; i < 180 && !(s.practice_view(0).method_known &&
+                                      s.practice_view(0).stage == PracticeStage::Pulsing);
+         ++i)
+        s.advance(1);
+    require(s.practice_view(0).method_known && s.practice_view(0).stage == PracticeStage::Pulsing,
+            "frozen pending fixture");
+    const auto before = s.serialize();
+    const auto bad = alter_practice(before, [](auto& p) {
+        auto at = p.rfind("PULSE ");
+        auto end = p.find('\n', at);
+        auto line = p.substr(at, end - at);
+        std::istringstream in{line};
+        std::string tag;
+        std::uint64_t actor, tick;
+        unsigned input, learning, n, module;
+        in >> tag >> actor >> input >> tick >> learning >> n >> module;
+        require(learning == 0 && n == 1 && module == 0, "pending classification fixture");
+        std::ostringstream out;
+        out << "PULSE " << actor << ' ' << input << ' ' << tick << " 1 1 0";
+        p.replace(at, end - at, out.str());
+        at = p.find("PENDING 1 ");
+        end = p.find('\n', at);
+        require(p[end - 1] == '0', "pending purpose fixture");
+        p[end - 1] = '1';
+        at = p.find("MIND ");
+        std::istringstream mind{p.substr(at)};
+        unsigned probes, spent;
+        mind >> tag >> actor >> probes >> spent;
+        std::ostringstream old, new_value;
+        old << "MIND " << actor << ' ' << probes << ' ' << spent;
+        new_value << "MIND " << actor << ' ' << probes + 1 << ' ' << spent + input;
+        p.replace(at, old.str().size(), new_value.str());
+    });
+    bool rejected = false;
+    try {
+        s.restore(bad);
+    } catch (const std::exception&) {
+        rejected = true;
+    }
+    require(rejected && s.serialize() == before, "accepted learning pulse after mind freeze");
+}
+void contact_support() {
+    auto scene = fixture();
+    scene.geometry.bodies = {{1, {-2, 0, 0}, 0, 2, 2, .3, 0, 0, true},
+                             {2, {2, 0, 0}, 0, 2, 2, .3, 0, 0, true}};
+    scene.stations[0].location = {1, {1, 0}};
+    scene.spawns = {{{1, {1, -.5}}, {}, false}, {{1, {1, .5}}, {}, false}};
+    scene.connections = {{{1, {1.7, -.5}}, {2, {-1.7, -.5}}}, {{1, {1.7, .5}}, {2, {-1.7, .5}}}};
+    TraversalSession s{scene};
+    require(s.practice_probe(0, {0}, 16) == DiscoveryOutcome::Accepted, "support donor probe");
+    s.advance(2);
+    s.set_goal(0, {2, {1, -.5}});
+    s.set_goal(1, {2, {1, .5}});
+    for (unsigned i = 0; i < 100; ++i) {
+        if (s.actors()[0].support.surface == 1 && s.actors()[1].support.surface == 1 &&
+            s.can_exchange_knowledge(0, 1)) {
+            auto crossing = s;
+            require(crossing.share_practice(0, 1) == DiscoveryOutcome::Accepted,
+                    "boundary contact refused before move");
+            crossing.advance(1);
+            if (crossing.actors()[0].support.surface == 2 &&
+                crossing.actors()[1].support.surface == 2) {
+                require(crossing.practice_view(1).records == 0,
+                        "contact completed on a different support");
+                const auto saved = crossing.serialize();
+                crossing.restore(saved);
+                require(crossing.serialize() == saved,
+                        "boundary contact produced unloadable state");
+                return;
+            }
+        }
+        s.advance(1);
+    }
+    throw std::runtime_error("fixture never crossed both supports in one step");
 }
 void corruption() {
     for (bool consumed : {false, true}) {
@@ -387,6 +543,16 @@ int main(int argc, char** argv) {
             needs();
         else if (name == "manual_override")
             manual_override();
+        else if (name == "forged_work")
+            forged_work();
+        else if (name == "missing_permit")
+            missing_permit();
+        else if (name == "evidence_capacity")
+            evidence_capacity();
+        else if (name == "frozen_pending")
+            frozen_pending();
+        else if (name == "contact_support")
+            contact_support();
         else if (name == "community")
             community();
         else

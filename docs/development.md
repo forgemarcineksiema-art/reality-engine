@@ -243,3 +243,5 @@ F3 w `reality_traversal` prosi blokującego rozpoczęty Step o zrobienie miejsca
 ## Doświadczenia rozdzielające
 
 `reality_contrast` jest osobnym konsumentem badawczym. Komendy przygotowania, jednorazowego wykonania i niezależnej analizy, a także `--fixture`, `--resume` i `--metadata`, opisuje [API](discriminating-learning.md). [Raport](verification/discriminating-experiment.md) zawiera pełne profile i wyniki I/A/T. Nie zastępuje scen `--community`, `--crossing` ani wcześniejszych laboratoriów.
+
+Wariant uczenia w tej samej społeczności: `python tools/start_practice_playtest.py`, albo `reality_traversal.exe --community --learning`. Launcher wybiera Release i nowy katalog dowodów. `--learning` wymaga `--community`; zwykłe tryby pozostają bez zmiany. Ręczne I/O/P wybierają wejście/moduły/próbę przy aparacie, R korzysta ze wspólnej bramki konserwacji, F7 rozpoczyna przekaz pomiarów. Format8 przechowuje wszystkie fazy praktyki, a stare światy nadal zapisują swoje wersje1–7. Polecenia i ograniczenia: [raport integracji](verification/practice-in-prototype.md).

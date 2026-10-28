@@ -467,7 +467,7 @@ class TraversalWindow final {
             y += h + 8;
         };
         place(title_, 25);
-        place(status_, options_.learning ? 245 : options_.community ? 155 : 88);
+        place(status_, options_.learning ? 265 : options_.community ? 155 : 88);
         place(help_, options_.learning ? 130 : 245);
         for (const auto button : buttons_) {
             place(button, 28);

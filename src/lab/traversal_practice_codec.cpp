@@ -220,6 +220,16 @@ PracticeState PracticeState::deserialize(std::string_view bytes, const Traversal
         if (c.result.status == RequestStatus::Accepted &&
             c.request.lot == session.stations()[seed.station].lot)
             check(actions.contains(c.result.action.value));
+    for (const auto& use : p.uses_) {
+        const auto a = session.world().action(use.action);
+        if (a && a->state == ActionState::Running)
+            check(p.working_ && p.working_->action == use.action);
+    }
+    const auto expected_permit = !p.pending_ && !p.working_ && !measurements.empty() &&
+                                 measurements.back().input == seed.input &&
+                                 measurements.back().output == seed.target &&
+                                 !used.contains(measurements.back().id);
+    check(p.permit_.has_value() == expected_permit);
     if (p.permit_) {
         const auto& r = *p.permit_;
         const auto& m = measurement(r.measurement);
@@ -266,6 +276,9 @@ PracticeState PracticeState::deserialize(std::string_view bytes, const Traversal
         }
         const auto& body = session.geometry().body(c.surface);
         check(body.walkable);
+        check(std::none_of(
+            session.platforms().begin(), session.platforms().end(),
+            [&](const auto& platform) { return platform.definition.body == c.surface; }));
         auto physical = [&](const auto& frame) {
             const SpatialPoint a{frame[0], frame[1], frame[2]}, b{frame[3], frame[4], frame[5]};
             check(length(a - b) <= 2 &&
@@ -357,8 +370,8 @@ PracticeState PracticeState::deserialize(std::string_view bytes, const Traversal
         check(probes == m.probes && spent == m.spent && completed == observations.size() &&
               m.method == expected_method);
         for (const auto& pulse : p.pulses_)
-            if (pulse.actor == m.actor && pulse.chain == DiscoveryChain{0} && !pulse.learning)
-                check(frozen && *frozen <= pulse.tick);
+            if (pulse.actor == m.actor && pulse.chain == DiscoveryChain{0})
+                check(pulse.learning == (!frozen || pulse.tick < *frozen));
         tag(in, "STATE");
         check(quoted(in) == m.agent->state());
     }
