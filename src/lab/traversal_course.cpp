@@ -111,4 +111,12 @@ TraversalScene make_learning_course() {
     s.property_rules[0].residents.push_back(5);
     return s;
 }
+TraversalScene make_two_methods_course() {
+    auto s = make_learning_course();
+    s.passages[0].open = false;
+    s.stations[2].wear = 1000;
+    for (const auto actor : {1U, 3U, 5U})
+        s.spawns[actor].autonomous = false;
+    return s;
+}
 } // namespace reality

@@ -1,6 +1,6 @@
 # Uczenie i konserwacja w prototypie
 
-**Status: zakres techniczny ukończony i zweryfikowany. Odbiór użytkownika: niewykonany.** Nie zamyka M05 ani M06. Kierunek i kolejność określa [jeden plan](../prototype-plan.md), zakres [projekt przyrostu](../work-items/practice-in-prototype.md).
+**Status: zakres techniczny ukończony i zweryfikowany; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Nie zamyka M05 ani M06. Kierunek i kolejność określa [jeden plan](../prototype-plan.md), zakres [projekt przyrostu](../work-items/practice-in-prototype.md).
 
 ## Co działa
 
@@ -46,7 +46,13 @@ Wszystkie kompilacje zakończono przed szeregowymi testami i pomiarami. Wstępny
 
 Zachowane porażki: początkowa odmowa zapisu bez formatu8, przekroczenie20 s przez10001 kroków z kopiowaniem modeli, błędy kompilacji przejściowych wersji, zbyt nisko umieszczona ściana fixture oraz zbyt wczesna próba operatora po dojściu w teście okna. Nie zmieniono progów kontaktu, limitów czasu ani liczby kroków. Po poprawieniu kosztu kopiowania ten sam długi przebieg trwał około3,6 s. Headless nie jest pomiarem wydajności aplikacji.
 
-Bezpośrednia ocena czytelności, sterowania i widocznego skutku przez użytkownika pozostaje niewykonana. Automatyczna próba oraz oględziny przez agenta nie zastępują tej akceptacji.
+## Ocena użytkownika
+
+28.10.2026 użytkownik odpowiedział na stwierdzenie o braku jego odbioru uczenia:
+
+> Nie sprawdziliśmy jeszcze odbioru uczenia przez Ciebie. - jest okej
+
+Ta wypowiedź potwierdza akceptację obecnego uczenia w prototypie. Nie zawiera osobnych ocen czytelności, sterowania ani poszczególnych scenariuszy; nie dopisujemy ich do odbioru. Nie jest akceptacją M05, M06 ani docelowej lokomocji. Podstawą odbioru jest wypowiedź użytkownika, odrębna od automatycznych prób i oględzin przez agenta.
 
 ## Pomiar rzeczywistego okna
 

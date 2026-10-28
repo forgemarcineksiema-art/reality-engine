@@ -1,6 +1,8 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/work-items/m05-two-methods.md", "role": "current-state", "topic": "m05-two-methods-brief"},
+    {"path": "docs/verification/m05-two-methods.md", "role": "verification", "topic": "m05-two-methods-verification"},
     {
       "path": "docs/research/emergent-world-2026-10-28.md",
       "role": "research",

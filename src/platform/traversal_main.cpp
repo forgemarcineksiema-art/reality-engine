@@ -45,6 +45,8 @@ struct Options {
     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
     bool smoke = false, debug = false, resume = false, unattended = false;
     bool delivery = false, crossing = false, law = false, community = false, learning = false;
+    bool two_methods = false;
+    bool repair_smoke = false;
     std::filesystem::path diagnostics;
     unsigned measure_seconds = 0, warmup_seconds = 30;
     int adapter = -1;
@@ -76,6 +78,10 @@ void read_options(Options& options) {
             options.community = true;
         } else if (arg == L"--learning") {
             options.learning = true;
+        } else if (arg == L"--two-methods") {
+            options.two_methods = options.community = options.learning = true;
+        } else if (arg == L"--repair-smoke") {
+            options.repair_smoke = true;
         } else if (arg == L"--law") {
             options.law = true;
         } else if (arg == L"--gpu-debug") {
@@ -122,6 +128,11 @@ void read_options(Options& options) {
     }
     require(!options.resume || options.smoke, "resume-smoke requires smoke-test");
     require(!options.learning || options.community, "learning requires --community");
+    require(!options.repair_smoke || (options.two_methods && options.smoke),
+            "repair-smoke requires two-methods and smoke-test");
+    require(!options.two_methods ||
+                (!options.delivery && !options.crossing && !options.law && !options.resume),
+            "two-methods cannot combine with another scene or resume-smoke");
     require(!warmup_given || options.measure_seconds != 0, "warmup needs a measurement");
     require(options.measure_seconds == 0 || (!options.smoke && save_given && report_given),
             "measurement needs explicit --save and --report and cannot use smoke-test");
@@ -151,7 +162,8 @@ class TraversalWindow final {
   public:
     TraversalWindow(HINSTANCE instance, const Options& options, std::ostream& log)
         : instance_(instance), options_(options), log_(log),
-          session_(options.learning    ? make_learning_course()
+          session_(options.two_methods ? make_two_methods_course()
+                   : options.learning  ? make_learning_course()
                    : options.community ? make_community_course()
                    : options.law       ? make_law_course()
                    : options.crossing  ? make_crossing_course()
@@ -187,7 +199,8 @@ class TraversalWindow final {
     int run() {
         window_ = CreateWindowExW(0, window_class, L"Genesis | ruch, poziomy i autonomia",
                                   WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN, CW_USEDEFAULT,
-                                  CW_USEDEFAULT, 1200, 820, nullptr, nullptr, instance_, this);
+                                  CW_USEDEFAULT, 1200, options_.two_methods ? 920 : 820, nullptr,
+                                  nullptr, instance_, this);
         require(window_ != nullptr, "cannot create traversal window");
         viewport_ = CreateWindowExW(0, view_class, L"Scena", WS_CHILD | WS_VISIBLE, 0, 0, 800, 760,
                                     window_, nullptr, instance_, this);
@@ -214,6 +227,14 @@ class TraversalWindow final {
                                   L"/ PPM: ruch | R: praca\nI: wejście | O: moduły | P: próba przy "
                                   L"aparacie\nF7: przekaż pomiary w kontakcie\nF5/F9: zapis/odczyt "
                                   L"| Q/E, +/-: kamera\nTurkus: aparat; złoto: konserwacja.");
+        if (options_.two_methods)
+            SetWindowTextW(help_,
+                           L"Cel: dostarcz 8 żywności na drugi brzeg.\nObjazd: 2, potem F2 "
+                           L"uruchamia kuriera.\nNaprawa: 4, potem F2 uruchamia badanie.\nPo "
+                           L"otwarciu mostu: 2, F2 uruchamia kuriera.\nSpacja: czas | 1–8: "
+                           L"postać | F2: autonomia\nWASD / PPM: ruch | I/O/P: próba | R: "
+                           L"praca\nF5/F9: zapis/odczyt | Q/E, +/-: kamera\nTurkus: aparat; "
+                           L"złoto: konserwacja.");
         buttons_[0] = control(L"BUTTON", L"Odtwarzaj [Spacja]", 1001, BS_PUSHBUTTON);
         buttons_[1] = control(L"BUTTON", L"+1 s [N]", 1002, BS_PUSHBUTTON);
         buttons_[2] = control(L"BUTTON", L"Autonomia [F2]", 1003, BS_PUSHBUTTON);
@@ -468,7 +489,7 @@ class TraversalWindow final {
         };
         place(title_, 25);
         place(status_, options_.learning ? 265 : options_.community ? 155 : 88);
-        place(help_, options_.learning ? 130 : 245);
+        place(help_, options_.two_methods ? 170 : options_.learning ? 130 : 245);
         for (const auto button : buttons_) {
             place(button, 28);
         }
@@ -531,8 +552,8 @@ class TraversalWindow final {
             constexpr const wchar_t* roles[] = {L"podróżny",    L"kurier",         L"odbiorca",
                                                 L"konserwator", L"opiekun części", L"mieszkaniec",
                                                 L"odbiorca",    L"odpoczywający"};
-            text << L"\nM04 | " << roles[selection_] << L"\nDostawa: "
-                 << session_.actors()[1].delivery->delivered << L"/8 | Posiłki: "
+            text << (options_.two_methods ? L"\nM05 | " : L"\nM04 | ") << roles[selection_]
+                 << L"\nDostawa: " << session_.actors()[1].delivery->delivered << L"/8 | Posiłki: "
                  << session_.stations()[1].completed << L"\nNaprawy: "
                  << session_.stations()[2].completed << L" | Odpoczynek: "
                  << session_.stations()[3].completed + session_.stations()[4].completed
@@ -1206,7 +1227,98 @@ class TraversalWindow final {
         }
         log_ << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
+    void two_methods_smoke() {
+        const auto start = std::chrono::steady_clock::now();
+        const auto timing = [&](const char* stage) {
+            log_ << "two_methods_time_" << stage << '='
+                 << std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count()
+                 << '\n';
+        };
+        require(!session_.passages()[0].open && session_.stations()[2].wear == 1000 &&
+                    !session_.actors()[1].autonomous && !session_.actors()[3].autonomous,
+                "two-methods did not leave the initial choice to the player");
+        {
+            const auto repair = options_.repair_smoke;
+            choose(repair ? 3 : 1);
+            SendMessageW(window_, WM_KEYDOWN, VK_F2, 0);
+            bool bridge = false, ferry = false, checkpointed = false;
+            while (session_.world().clock().tick_count() < 1200) {
+                if (repair && session_.passages()[0].open && !session_.actors()[1].autonomous) {
+                    choose(1);
+                    SendMessageW(window_, WM_KEYDOWN, VK_F2, 0);
+                }
+                session_.advance(1);
+                const auto& courier = session_.actors()[1];
+                bridge = bridge || courier.support.surface == session_.passages()[0].surface;
+                ferry = ferry || courier.transfer == TransferStage::Riding;
+                const auto ready = repair ? session_.actors()[3].action.value != 0
+                                          : courier.transfer == TransferStage::Riding;
+                if (ready && !checkpointed) {
+                    if (repair)
+                        require(
+                            session_.actors()[3].task == TraversalTask::Maintain &&
+                                session_.actors()[3].station == 2 &&
+                                session_.world().action(session_.actors()[3].action)->request.lot ==
+                                    session_.stations()[2].lot,
+                            "native repair checkpoint is not maintenance at the bridge");
+                    SendMessageW(window_, WM_KEYDOWN, VK_F5, 0);
+                    timing("checkpoint_saved");
+                    auto expected = session_;
+                    expected.advance(3);
+                    SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+                    timing("checkpoint_loaded");
+                    session_.advance(3);
+                    require(session_.serialize() == expected.serialize(),
+                            "two-methods F5/F9 lost running work or a loaded ferry");
+                    checkpointed = true;
+                }
+                if (session_.actors()[1].delivery->delivered == 8 &&
+                    session_.stations()[1].completed > 0)
+                    break;
+            }
+            require(checkpointed && session_.actors()[1].delivery->delivered == 8 &&
+                        session_.stations()[1].completed > 0,
+                    "native method did not physically deliver and feed the recipient");
+            require(repair ? bridge && !ferry && session_.stations()[2].completed > 0 &&
+                                 session_.practice_view(3).method_known
+                           : ferry && !bridge && !session_.passages()[0].open &&
+                                 session_.stations()[2].completed == 0,
+                    "native method did not preserve its actual route and consequences");
+            session_.validate();
+            timing("delivered");
+            log_ << (repair ? "two_methods_repair=pass\n" : "two_methods_detour=pass\n");
+        }
+        const auto saved = session_.serialize();
+        TraversalSession foreign;
+        foreign.save(options_.save);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        timing("foreign_loaded");
+        panel();
+        draw();
+        require(!session_.has_practice(), "two-methods foreign save retained practice");
+        write_snapshot_atomic(saved, options_.save);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        timing("return_loaded");
+        require(session_.serialize() == saved, "two-methods foreign save failed to return");
+        choose(3);
+        panel();
+        draw();
+        std::wstring status(static_cast<std::size_t>(GetWindowTextLengthW(status_)) + 1, L'\0');
+        GetWindowTextW(status_, status.data(), static_cast<int>(status.size()));
+        require(status.find(L"M05") != std::wstring::npos &&
+                    status.find(L"Dostawa: 8/8") != std::wstring::npos &&
+                    status.find(L"Praktyka") != std::wstring::npos,
+                "two-methods panel lost visible progress");
+        require(renderer_->capture(options_.capture) > 1000, "two-methods image empty");
+        renderer_->check_diagnostics();
+        log_ << "two_methods_foreign_save=pass\ntwo_methods_panel=pass\n"
+             << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
+    }
     void smoke() {
+        if (options_.two_methods) {
+            two_methods_smoke();
+            return;
+        }
         if (options_.learning) {
             practice_smoke();
             return;

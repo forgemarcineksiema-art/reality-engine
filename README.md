@@ -1,6 +1,8 @@
 # Projekt Genesis / Reality Engine
 
-**Uczenie w prototypie:** `python tools/start_practice_playtest.py` uruchamia tę samą ośmioosobową społeczność z aparatem do prób. Mieszkańcy poznają ustawienie potrzebne do konserwacji, przekazują pomiary przy spotkaniu i wykonują rzeczywistą pracę. Gracz może przejąć postać. [Zakres i dowody](docs/verification/practice-in-prototype.md); bezpośredni odbiór użytkownika pozostaje osobny.
+**Uczenie w prototypie:** `python tools/start_practice_playtest.py` uruchamia tę samą ośmioosobową społeczność z aparatem do prób. Mieszkańcy poznają ustawienie potrzebne do konserwacji, przekazują pomiary przy spotkaniu i wykonują rzeczywistą pracę. Gracz może przejąć postać. [Zakres i dowody](docs/verification/practice-in-prototype.md); użytkownik zaakceptował obecne uczenie w prototypie 28.10.2026.
+
+**Dwie metody dostawy (przyrost M05):** `python tools/start_practice_playtest.py --two-methods`. Napraw zużyty most dzięki poznanej metodzie albo uruchom dostawę istniejącym promem. [Sterowanie i stan weryfikacji](docs/verification/m05-two-methods.md).
 
 [Doświadczenia rozdzielające wyjaśnienia](docs/verification/discriminating-experiment.md): ukończono audyt, próbę potwierdzającą i fizyczne zadanie konserwacji dwóch mieszkańców. I i A otrzymały wsparcie; T pozostała negatywna. [API i komendy](docs/discriminating-learning.md).
 

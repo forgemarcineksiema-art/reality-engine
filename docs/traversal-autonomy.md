@@ -155,6 +155,8 @@ Odczyt 1–6 usuwa stan prawa kandydata i nie dopisuje historycznych przestępst
 
 ## Integracja praktyk
 
+Wariant `make_two_methods_course()` zachowuje poniższe reguły praktyk i istniejący zapis 8. Ustawia początkowo zużyte, zamknięte przejście oraz ręczne sterowanie kurierem i badaczami; wybór uruchomienia osoby korzysta z dotychczasowego `set_autonomous`. Nie posiada odrębnego stanu misji ani mechanizmu dopisującego dostawę. Zakres i testy: [dwie metody dostawy](verification/m05-two-methods.md).
+
 Opcjonalne PracticeState należy do jednej TraversalSession. Wariant make_learning_course() rozszerza dotychczasową społeczność; zwykły make_community_course() zachowuje M04. Role początkowe3/5 są wiązane po EntityId. API has_practice/practice_view/practice_probe/share_practice obsługuje obserwację oraz te same czynności gracza i NPC. Parametry sceny i wyniki rzeczywistych impulsów należą do urządzenia; agent dostaje wyłącznie pomiary i jawny cel pracy.
 
 Poprawny impuls daje temu wykonawcy zgodę na jedną konserwację. Wspólny start_station_action sprawdza tę zgodę dla ręcznej i autonomicznej ścieżki, a zużywa ją po przyjęciu pracy. WorkWorld posiada części i czas80 kroków. Potrzeby, lokalne wiadomości i clearance nie przerywają impulsu; ręczny ruch jest odraczany do bezpiecznej granicy. Kolejka przeplata operatorów. Zły wynik, brak części, zasięgu lub zajęte urządzenie nie tworzą pracy.

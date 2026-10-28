@@ -2,7 +2,7 @@
 
 **Status: M00–M04 zaliczone w opisanym zakresie; M05–M06 pozostają planem.** Użytkownik zaakceptował obecne sterowanie M03 z uwagami rozwojowymi dotyczącymi reakcji na cel, płynności trasy, szybkości i naturalności ruchu. Nie ma harmonogramu tygodniowego. Zakres produktu wynika z [karty](project-charter.md), a parametry z [budżetów](performance-budget.md).
 
-**Ustalona kolejność dalszej pracy, 28.10.2026:** wykorzystanie ukończonych eksperymentów w okienkowym prototypie → pełne M05 → pełne M06 → osobny projekt przejścia do pełnego 3D. Zapis decyzji: DEC-017. [Integracja w oknie](verification/practice-in-prototype.md) jest technicznie ukończona i zweryfikowana; bezpośredni odbiór użytkownika pozostaje osobny. Najbliższy przyrost opisuje [projekt integracji praktyk](work-items/practice-in-prototype.md); nie jest to drugi plan etapów ani ponowne otwarcie M04.
+**Ustalona kolejność dalszej pracy, 28.10.2026:** wykorzystanie ukończonych eksperymentów w okienkowym prototypie → pełne M05 → pełne M06 → osobny projekt przejścia do pełnego 3D. Zapis decyzji: DEC-017. [Integracja w oknie](verification/practice-in-prototype.md) jest technicznie ukończona i zweryfikowana; użytkownik zaakceptował obecne uczenie w prototypie 28.10.2026. Zakres integracji opisuje [projekt integracji praktyk](work-items/practice-in-prototype.md); nie jest to drugi plan etapów ani ponowne otwarcie M04.
 
 Etapy są uporządkowane zależnościami. Nie tworzymy drugiego równoległego backlogu E/P ani nie traktujemy większej populacji jako automatycznego następnego zadania. Dopuszczalne są niezależne małe próby, ale zaliczenie etapu wymaga pełnego wskazanego dowodu.
 
@@ -50,9 +50,9 @@ Kierunek wejścia w M04 z 26.10.2026 obejmował istniejący ruch, prawdziwą dos
 
 Warstwa gry: gracz osobiście wpływa na dostawę albo pracę i potrafi odczytać skutek. Sprawdzamy również spokojny wariant bez katastrofy: mieszkańcy pracują i współpracują bez rozkazów. Nie uznajemy samej liczby NPC za wartość gry. Odbiór M04 został potwierdzony przez użytkownika; szersze badanie graczy i pomiar długiego obciążenia pozostają w M06.
 
-### Najbliższy przyrost — wykorzystanie badań w istniejącym prototypie
+### Przyrost po M04 — wykorzystanie badań w istniejącym prototypie
 
-**Status: technicznie wdrożone i zweryfikowane; odbiór użytkownika niewykonany.** Wymaga odebranego M04 i ukończonego [badania odkrywania](verification/discriminating-experiment.md). Uzasadnienie kolejności: zdolność należy najpierw zastosować w żywym świecie i uczynić czytelną dla gracza, a następnie objąć całą trwałością i historią M05. Dotychczasowych wyników I/A/T nie zmieniamy pod potrzeby pokazu.
+**Status: technicznie wdrożone i zweryfikowane; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Treść i zakres odbioru zapisano w [raporcie](verification/practice-in-prototype.md#ocena-użytkownika). Wymaga odebranego M04 i ukończonego [badania odkrywania](verification/discriminating-experiment.md). Uzasadnienie kolejności: zdolność należy najpierw zastosować w żywym świecie i uczynić czytelną dla gracza, a następnie objąć całą trwałością i historią M05. Dotychczasowych wyników I/A/T nie zmieniamy pod potrzeby pokazu.
 
 Rezultat dla użytkownika: w tej samej małej społeczności mieszkaniec bada nieznane ustawienie urządzenia, poznaje metodę potrzebną do konserwacji i rzeczywiście pracuje. Druga osoba zdobywa pomiary przy spotkaniu i później samodzielnie korzysta z wiedzy. Gracz obserwuje próby, dostarcza części lub sam wykonuje dopuszczalne czynności, a po powrocie widzi skutek. Szczegółowy zakres, kontrakty i lista odbioru należą do [projektu przyrostu](work-items/practice-in-prototype.md).
 
@@ -61,6 +61,8 @@ Dowód zamknięcia: wspólna aplikacja i runner mają jeden świat oraz te same 
 ### M05 — Ciągłość, przejście i historia
 
 **Status: PLAN.** Wymaga M04 i powyższej integracji praktyk. Zamknięcie i naprawa przejścia wpływają na trasy i pracę; migracja reprezentacji zachowuje stan. Jedna scena odnosi się do wiedzy i rzeczywistego wyniku. Dowód: SC-08, SC-09, SC-10 i SC-13 oraz odpowiednia próba aplikacji. Część przejść i kontynuacji istnieje już w M04; przed implementacją należy przypisać istniejące dowody i wskazać rzeczywiste braki zamiast budować je drugi raz.
+
+Technicznie ukończono i zweryfikowano [sytuację z dwiema metodami dostawy](work-items/m05-two-methods.md): naprawę dzięki poznanej metodzie albo istniejący objazd. Odbiór użytkownika nowej sytuacji pozostaje osobny. [Raport przyrostu](verification/m05-two-methods.md) oddziela wyniki od pozostałych wymagań M05, w tym migracji reprezentacji i historii reagującej na zmiany świata.
 
 | Kolejny zakres | Co ma zadziałać | Warunek zamknięcia |
 | --- | --- | --- |

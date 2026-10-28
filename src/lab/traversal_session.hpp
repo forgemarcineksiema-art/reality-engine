@@ -211,6 +211,7 @@ struct TraversalScene {
 [[nodiscard]] TraversalScene make_law_course();
 [[nodiscard]] TraversalScene make_community_course();
 [[nodiscard]] TraversalScene make_learning_course();
+[[nodiscard]] TraversalScene make_two_methods_course();
 struct TraversalPose {
     SpatialPoint feet;
     double heading = 0;

@@ -114,6 +114,7 @@ set(reality_cpp_files
     src/lab/traversal_practice.hpp
     src/lab/traversal_practice.cpp
     tests/practice_tests.cpp
+    tests/two_methods_tests.cpp
     src/headless/contrast_main.cpp
     src/research/contrast_agent.hpp
     src/research/contrast_agent.cpp
@@ -221,6 +222,18 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_two_methods_tests tests/two_methods_tests.cpp)
+    target_link_libraries(reality_two_methods_tests PRIVATE reality_lab_model)
+    reality_deploy_diagnostics(reality_two_methods_tests)
+    foreach(case IN ITEMS choice repair detour)
+        add_test(NAME two_methods.${case} COMMAND reality_two_methods_tests ${case})
+    endforeach()
+    foreach(method IN ITEMS repair detour)
+        add_test(NAME two_methods.fresh_${method} COMMAND "${Python3_EXECUTABLE}"
+            "${CMAKE_CURRENT_SOURCE_DIR}/tests/two_methods_integration.py" "$<TARGET_FILE:reality_two_methods_tests>" ${method})
+        add_test(NAME two_methods.native_${method} COMMAND "${Python3_EXECUTABLE}"
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_practice_native.py" --exe "$<TARGET_FILE:reality_traversal>" --two-methods --method ${method})
+    endforeach()
     add_executable(reality_practice_tests tests/practice_tests.cpp)
     target_link_libraries(reality_practice_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_practice_tests)
@@ -236,7 +249,7 @@ if(BUILD_TESTING)
     add_executable(reality_contrast_tests tests/contrast_tests.cpp)
     target_link_libraries(reality_contrast_tests PRIVATE reality_contrast_model)
     reality_deploy_diagnostics(reality_contrast_tests)
-    foreach(case IN ITEMS agent physical work pending depleted boundary)
+    foreach(case IN ITEMS agent model_order physical work pending depleted boundary)
         add_test(NAME contrast.${case} COMMAND reality_contrast_tests ${case})
     endforeach()
     add_executable(reality_hypothesis_tests tests/hypothesis_tests.cpp)

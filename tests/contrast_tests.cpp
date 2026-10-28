@@ -46,6 +46,36 @@ void agent() {
     ContrastAgent exhausted{{1}, true, {1, 1}};
     require(exhausted.exhausted() && !exhausted.predict({0}, 96), "partial search looks certain");
 }
+void model_order() {
+    auto programs = hypothesis_grammar();
+    const auto less = [](const auto& a, const auto& b) {
+        return a.size() != b.size() ? a.size() < b.size() : a < b;
+    };
+    require(std::is_sorted(programs.begin(), programs.end(), less),
+            "grammar is no longer generated in canonical order");
+    const auto flat = hypothesis_flat_programs();
+    programs.insert(programs.end(), flat.begin(), flat.end());
+    const auto reference = hypothesis_canonical(std::move(programs));
+    ContrastAgent a{{1}, true};
+    require(a.models().size() == reference.size(), "model competitor count changed");
+    for (std::size_t i = 0; i < reference.size(); ++i)
+        require(a.models()[i].program == reference[i].program &&
+                    a.models()[i].table == reference[i].table,
+                "model ordering or canonical representative differs from full sorting");
+    require(a.cost().generated == 20440 && a.cost().primitives == 7822044 && a.cost().reads == 0 &&
+                !a.exhausted(),
+            "construction accounting changed");
+    for (const auto budget : {0U, 129U}) {
+        ContrastAgent limited{{1}, true, {budget, 300000000}};
+        require(limited.exhausted() && limited.cost().primitives == budget &&
+                    limited.models().size() == (budget ? 2U : 1U) &&
+                    limited.models()[0].program.empty(),
+                "budget exhaustion changed the canonical model prefix");
+        if (budget)
+            require(limited.models()[1].program == HypothesisProgram{{HypothesisKind::Loss, 1}},
+                    "first charged model changed");
+    }
+}
 void physical() {
     ContrastSession s{example(), true, 1};
     require(s.share(true) == DiscoveryOutcome::OutOfReach, "remote communication");
@@ -164,6 +194,8 @@ int main(int argc, char** argv) {
         const std::string name = argc == 2 ? argv[1] : "";
         if (name == "agent")
             agent();
+        else if (name == "model_order")
+            model_order();
         else if (name == "physical")
             physical();
         else if (name == "work")
