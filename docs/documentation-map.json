@@ -2,6 +2,11 @@
   "version": 1,
   "documents": [
     {
+      "path": "docs/verification/evidence/discriminating-2026-10-28/review.md",
+      "role": "verification",
+      "topic": "discriminating-code-review"
+    },
+    {
       "path": "docs/discriminating-learning.md",
       "role": "current-state",
       "topic": "discriminating-learning-api"
