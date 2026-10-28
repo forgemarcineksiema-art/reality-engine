@@ -103,4 +103,12 @@ TraversalScene make_community_course() {
     s.property_rules = {{2, 4, {3}, {}}};
     return s;
 }
+TraversalScene make_learning_course() {
+    auto s = make_community_course();
+    s.practice = PracticeSeed{};
+    s.stations[2].wear = 500;
+    s.spawns[5].known_stations = s.spawns[5].known_stations.value_or(0) | 4;
+    s.property_rules[0].residents.push_back(5);
+    return s;
+}
 } // namespace reality

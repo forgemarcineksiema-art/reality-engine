@@ -1,6 +1,7 @@
 #include "lab/traversal_session.hpp"
 #include <algorithm>
 #include <charconv>
+#include <cmath>
 #include <iomanip>
 #include <set>
 #include <sstream>
@@ -41,9 +42,15 @@ DiscoveryChain chain(std::istream& in) {
         c.push_back(static_cast<std::uint8_t>(number(in, 2)));
     return c;
 }
+double real(std::istream& in) {
+    double v = 0;
+    check(static_cast<bool>(in >> v) && std::isfinite(v) && std::abs(v) < 1000000);
+    return v;
+}
 } // namespace
 std::string PracticeState::serialize() const {
     std::ostringstream out;
+    out << std::setprecision(17);
     out << "PSTATE 1\nSEED " << seed_.device << ' ' << seed_.version << ' ' << seed_.station << ' '
         << seed_.input << ' ' << seed_.target << ' ' << seed_.law.size();
     for (const auto& op : seed_.law)
@@ -71,6 +78,25 @@ std::string PracticeState::serialize() const {
     out << "\nUSES " << uses_.size();
     for (const auto& u : uses_)
         out << "\nUSE " << u.measurement << ' ' << u.action.value;
+    out << "\nQUEUE " << queue_.size();
+    for (auto i : queue_)
+        out << ' ' << i;
+    const auto contact = [&](const Contact& c) {
+        out << "\nCONTACT " << c.from << ' ' << c.to << ' ' << c.tick << ' ' << c.surface;
+        for (auto v : c.start)
+            out << ' ' << v;
+        for (auto v : c.end)
+            out << ' ' << v;
+        out << ' ' << c.records.size();
+        for (auto id : c.records)
+            out << ' ' << id;
+    };
+    out << "\nCONTACTS " << contacts_.size();
+    for (const auto& c : contacts_)
+        contact(c);
+    out << "\nSHARING " << sharing_.has_value();
+    if (sharing_)
+        contact(*sharing_);
     out << "\nMINDS " << minds_.size();
     for (const auto& m : minds_) {
         out << "\nMIND " << m.actor.value << ' ' << m.probes << ' ' << m.spent << ' '
@@ -208,6 +234,58 @@ PracticeState PracticeState::deserialize(std::string_view bytes, const Traversal
               a->request.actor == p.minds_[w.actor].actor && actions.contains(w.action.value) &&
               session.actors()[w.actor].action == w.action);
     }
+    tag(in, "QUEUE");
+    count = number(in, 32);
+    std::set<std::size_t> queued;
+    while (count--) {
+        auto i = static_cast<std::size_t>(number(in, 31));
+        check(i < p.minds_.size() && queued.insert(i).second);
+        p.queue_.push_back(i);
+    }
+    auto contact = [&](bool pending) {
+        tag(in, "CONTACT");
+        Contact c;
+        c.from = number(in, 31);
+        c.to = number(in, 31);
+        c.tick = number(in);
+        c.surface = static_cast<std::uint32_t>(number(in, UINT32_MAX));
+        check(c.from < p.minds_.size() && c.to < p.minds_.size() && c.from != c.to &&
+              (pending ? c.tick == now : c.tick < now));
+        for (auto& v : c.start)
+            v = real(in);
+        for (auto& v : c.end)
+            v = real(in);
+        auto n = number(in, 8);
+        check(n > 0);
+        std::set<std::uint64_t> ids;
+        while (n--) {
+            auto id = number(in);
+            check(ids.insert(id).second && measurement(id).source_actor == p.minds_[c.from].actor &&
+                  measurement(id).observed_tick <= c.tick);
+            c.records.push_back(id);
+        }
+        const auto& body = session.geometry().body(c.surface);
+        check(body.walkable);
+        auto physical = [&](const auto& frame) {
+            const SpatialPoint a{frame[0], frame[1], frame[2]}, b{frame[3], frame[4], frame[5]};
+            check(length(a - b) <= 2 &&
+                  body.support({a.x, a.z}, session.actors()[c.from].size.radius, 1) &&
+                  body.support({b.x, b.z}, session.actors()[c.to].size.radius, 1) &&
+                  spatial_segment_clear(session.geometry(), a, b, session.actors()[c.from].size) &&
+                  spatial_segment_clear(session.geometry(), b, a, session.actors()[c.to].size));
+        };
+        physical(c.start);
+        if (!pending)
+            physical(c.end);
+        return c;
+    };
+    tag(in, "CONTACTS");
+    count = number(in, 256);
+    while (count--)
+        p.contacts_.push_back(contact(false));
+    tag(in, "SHARING");
+    if (number(in, 1))
+        p.sharing_ = contact(true);
     tag(in, "MINDS");
     check(number(in, 32) == p.minds_.size());
     for (auto& m : p.minds_) {
@@ -217,7 +295,11 @@ PracticeState PracticeState::deserialize(std::string_view bytes, const Traversal
         m.spent = static_cast<unsigned>(number(in, 1024));
         if (number(in, 1))
             m.method = chain(in);
+        const auto expected_method = m.method;
+        m.method.reset();
         count = number(in, 128);
+        std::uint64_t previous = 0;
+        std::optional<std::uint64_t> frozen;
         std::set<std::uint64_t> observations;
         while (count--) {
             tag(in, "EVENT");
@@ -225,13 +307,40 @@ PracticeState PracticeState::deserialize(std::string_view bytes, const Traversal
             std::istringstream e{event};
             std::string op;
             e >> op;
-            check(op == "o");
+            if (op == "q" || op == "c") {
+                const auto tick = number(e);
+                check(tick >= previous && tick <= now && !m.agent->frozen());
+                previous = tick;
+                if (op == "q") {
+                    p.infer(m, tick);
+                    if (m.method)
+                        frozen = tick;
+                } else
+                    static_cast<void>(p.choose(m, tick));
+                std::string extra;
+                check(!(e >> extra));
+                continue;
+            }
+            check(op == "o" || op == "s");
             const auto id = number(e);
             const auto& obs = measurement(id);
             const auto index = static_cast<std::size_t>(id / 2 - 1);
-            check(index < p.pulses_.size() && p.pulses_[index].learning &&
-                  obs.source_actor == m.actor && observations.insert(id).second);
-            check(m.edit().observe({obs, obs.source_actor, obs.observed_tick}));
+            check(index < p.pulses_.size() && p.pulses_[index].learning);
+            if (op == "o") {
+                check(obs.observed_tick >= previous);
+                previous = obs.observed_tick;
+                check(obs.source_actor == m.actor && observations.insert(id).second);
+                check(m.edit().observe({obs, obs.source_actor, obs.observed_tick}));
+            } else {
+                const auto ci = number(e);
+                check(ci < p.contacts_.size());
+                const auto& c = p.contacts_[ci];
+                check(c.tick + 1 >= previous);
+                previous = c.tick + 1;
+                check(p.minds_[c.to].actor == m.actor &&
+                      std::find(c.records.begin(), c.records.end(), id) != c.records.end());
+                check(m.edit().observe({obs, obs.source_actor, c.tick + 1}, true));
+            }
             std::string extra;
             check(!(e >> extra));
             m.journal.push_back(std::move(event));
@@ -246,10 +355,20 @@ PracticeState PracticeState::deserialize(std::string_view bytes, const Traversal
                     ++completed;
             }
         check(probes == m.probes && spent == m.spent && completed == observations.size() &&
-              !m.method);
+              m.method == expected_method);
+        for (const auto& pulse : p.pulses_)
+            if (pulse.actor == m.actor && pulse.chain == DiscoveryChain{0} && !pulse.learning)
+                check(frozen && *frozen <= pulse.tick);
         tag(in, "STATE");
         check(quoted(in) == m.agent->state());
     }
+    for (const auto& c : p.contacts_)
+        for (auto id : c.records)
+            check(std::any_of(p.minds_[c.from].agent->evidence().begin(),
+                              p.minds_[c.from].agent->evidence().end(), [&](const auto& e) {
+                                  return e.measurement.id == id &&
+                                         e.measurement.source_actor == p.minds_[c.from].actor;
+                              }));
     tag(in, "COMMAND");
     check(number(in) == p.command_);
     std::string extra;

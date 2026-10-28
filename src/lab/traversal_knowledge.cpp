@@ -126,9 +126,9 @@ void TraversalSession::update_knowledge() {
 }
 void TraversalSession::reconsider_belief(std::size_t index) {
     auto& actor = actors_[index];
-    if (!actor.autonomous || actor.yielding || actor.action.value != 0 || protected_motion(actor) ||
-        actor.task == TraversalTask::None || actor.task == TraversalTask::Deliver ||
-        !belief_unavailable(actor, actor.station))
+    if (!actor.autonomous || actor.yielding || actor.action.value != 0 || practice_busy(index) ||
+        protected_motion(actor) || actor.task == TraversalTask::None ||
+        actor.task == TraversalTask::Deliver || !belief_unavailable(actor, actor.station))
         return;
     // Only a received report changes an in-flight plan. Own reservation/consumption
     // can legitimately leave zero available while the current action completes.

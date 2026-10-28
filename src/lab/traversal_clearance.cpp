@@ -93,7 +93,7 @@ ClearanceOutcome TraversalSession::request_clearance(std::size_t index) {
     };
     if (!other.autonomous)
         return reply(ClearanceOutcome::Controlled);
-    if (other.yielding || other.action.value != 0 || in_step(other) ||
+    if (other.yielding || other.action.value != 0 || practice_busy(*recipient) || in_step(other) ||
         other.transfer != TransferStage::None || other.motion.speed > .05 || other.pending_goal ||
         other.stop_after_transfer ||
         std::any_of(scene_.platforms.begin(), scene_.platforms.end(),

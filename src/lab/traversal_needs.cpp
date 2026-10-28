@@ -138,7 +138,7 @@ void TraversalSession::decide(std::size_t index) {
         }
         return;
     }
-    if (!actor.autonomous || committed(actor)) {
+    if (!actor.autonomous || practice_busy(index) || committed(actor)) {
         return;
     }
     reconsider_belief(index);
@@ -229,8 +229,11 @@ bool TraversalSession::start_station_action(std::size_t index) {
     auto& actor = actors_[index];
     auto& station = scene_.stations.at(actor.station);
     const auto now = world_.clock().tick_count();
-    if (!practice_allows_work(index, actor.station))
+    if (!practice_allows_work(index, actor.station)) {
+        if (actor.autonomous)
+            request_practice_work(index);
         return false;
+    }
     check(interaction_accessible(index, station.location, actor.feet),
           "station action requires physical access");
     check(next_command_.value < std::numeric_limits<std::uint64_t>::max(),

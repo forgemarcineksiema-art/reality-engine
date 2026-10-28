@@ -44,7 +44,7 @@ struct Options {
     std::filesystem::path report = std::filesystem::current_path() / L"traversal.log";
     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
     bool smoke = false, debug = false, resume = false, unattended = false;
-    bool delivery = false, crossing = false, law = false, community = false;
+    bool delivery = false, crossing = false, law = false, community = false, learning = false;
     std::filesystem::path diagnostics;
     unsigned measure_seconds = 0, warmup_seconds = 30;
     int adapter = -1;
@@ -74,6 +74,8 @@ void read_options(Options& options) {
             options.crossing = true;
         } else if (arg == L"--community") {
             options.community = true;
+        } else if (arg == L"--learning") {
+            options.learning = true;
         } else if (arg == L"--law") {
             options.law = true;
         } else if (arg == L"--gpu-debug") {
@@ -119,6 +121,7 @@ void read_options(Options& options) {
         }
     }
     require(!options.resume || options.smoke, "resume-smoke requires smoke-test");
+    require(!options.learning || options.community, "learning requires --community");
     require(!warmup_given || options.measure_seconds != 0, "warmup needs a measurement");
     require(options.measure_seconds == 0 || (!options.smoke && save_given && report_given),
             "measurement needs explicit --save and --report and cannot use smoke-test");
@@ -148,11 +151,12 @@ class TraversalWindow final {
   public:
     TraversalWindow(HINSTANCE instance, const Options& options, std::ostream& log)
         : instance_(instance), options_(options), log_(log),
-          session_(options.community  ? make_community_course()
-                   : options.law      ? make_law_course()
-                   : options.crossing ? make_crossing_course()
-                   : options.delivery ? make_delivery_course()
-                                      : make_traversal_course()) {
+          session_(options.learning    ? make_learning_course()
+                   : options.community ? make_community_course()
+                   : options.law       ? make_law_course()
+                   : options.crossing  ? make_crossing_course()
+                   : options.delivery  ? make_delivery_course()
+                                       : make_traversal_course()) {
         WNDCLASSEXW type{};
         type.cbSize = sizeof(type);
         type.hInstance = instance_;
@@ -205,6 +209,11 @@ class TraversalWindow final {
                         L"diagnostyczna\nPola: zielone — "
                         L"jedzenie, fioletowe — odpoczynek, złote — konserwacja.",
                         0);
+        if (options_.learning)
+            SetWindowTextW(help_, L"4 / 6: wykonawcy | Spacja: czas | N: +1 s\nF2: przejmij | WASD "
+                                  L"/ PPM: ruch | R: praca\nI: wejście | O: moduły | P: próba przy "
+                                  L"aparacie\nF7: przekaż pomiary w kontakcie\nF5/F9: zapis/odczyt "
+                                  L"| Q/E, +/-: kamera\nTurkus: aparat; złoto: konserwacja.");
         buttons_[0] = control(L"BUTTON", L"Odtwarzaj [Spacja]", 1001, BS_PUSHBUTTON);
         buttons_[1] = control(L"BUTTON", L"+1 s [N]", 1002, BS_PUSHBUTTON);
         buttons_[2] = control(L"BUTTON", L"Autonomia [F2]", 1003, BS_PUSHBUTTON);
@@ -382,6 +391,8 @@ class TraversalWindow final {
     std::vector<SceneTriangle> scene_;
     std::array<bool, 4> keys_{};
     int selection_ = 0;
+    unsigned practice_input_ = 16;
+    std::size_t practice_chain_ = 0;
     bool minimized_ = false, sizing_ = false, rebase_ = false;
     std::exception_ptr fatal_;
     std::string old_inspector_;
@@ -456,8 +467,8 @@ class TraversalWindow final {
             y += h + 8;
         };
         place(title_, 25);
-        place(status_, options_.community ? 155 : 88);
-        place(help_, 245);
+        place(status_, options_.learning ? 245 : options_.community ? 155 : 88);
+        place(help_, options_.learning ? 130 : 245);
         for (const auto button : buttons_) {
             place(button, 28);
         }
@@ -480,6 +491,24 @@ class TraversalWindow final {
                session_.stations().size() == 5 && session_.passages().size() == 1 &&
                session_.actors()[1].delivery && session_.actors()[1].delivery->source == 0 &&
                session_.actors()[1].delivery->destination == 1;
+    }
+    static const std::vector<DiscoveryChain>& practice_chains() {
+        static const auto chains = [] {
+            auto c = hypothesis_chains();
+            std::erase_if(
+                c, [](const auto& v) { return std::find(v.begin(), v.end(), 0) == v.end(); });
+            return c;
+        }();
+        return chains;
+    }
+    static std::wstring chain_label(const DiscoveryChain& chain) {
+        std::wstring label;
+        for (auto module : chain) {
+            if (!label.empty())
+                label += L" → ";
+            label += static_cast<wchar_t>(L'A' + module);
+        }
+        return label;
     }
     void panel() {
         const auto& actor = session_.actors().at(static_cast<std::size_t>(selection_));
@@ -510,6 +539,29 @@ class TraversalWindow final {
                  << L"\nMost: " << (session_.passages()[0].open ? L"otwarty" : L"zamknięty")
                  << L" | Obsługa podróżnego: "
                  << (session_.legal_service_allowed(0, 2) ? L"tak" : L"odmowa");
+        }
+        if (session_.has_practice()) {
+            const auto v = session_.practice_view(static_cast<std::size_t>(selection_));
+            text << L"\nPraktyka | cel " << v.required_input << L" → " << v.required_output
+                 << L" | próby " << v.probes << L"/8";
+            text << L"\n"
+                 << (v.message.empty() ? (v.method_known ? L"Zna metodę" : L"Brak poznanej metody")
+                                       : wide(v.message));
+            if (v.method)
+                text << L": " << chain_label(*v.method);
+            if (v.local)
+                text << L" | energia " << v.energy;
+            text << L"\nPomiary: " << v.records;
+            if (v.last)
+                text << L" | ostatni " << v.last->input << L" → " << v.last->output << L" (krok "
+                     << v.last->observed_tick << L")";
+            if (!v.history.empty()) {
+                const auto& e = v.history.back();
+                text << L"\nŚwiadek " << e.measurement.source_actor.value << L", poznano w "
+                     << e.learned_tick;
+            }
+            text << L"\nRęcznie: " << practice_input_ << L", "
+                 << chain_label(practice_chains()[practice_chain_]);
         }
         SetWindowTextW(status_, text.str().c_str());
         SetWindowTextW(buttons_[0], pacer_.running() ? L"Pauza [Spacja]" : L"Odtwarzaj [Spacja]");
@@ -618,6 +670,30 @@ class TraversalWindow final {
                 session_.set_autonomous(
                     static_cast<std::size_t>(selection_),
                     !session_.actors()[static_cast<std::size_t>(selection_)].autonomous);
+            } else if (code == 'I' || code == 'O' || code == 'P') {
+                if (!session_.has_practice())
+                    feedback(L"Ten świat nie zawiera aparatu do prób.");
+                else if (code == 'I') {
+                    practice_input_ = practice_input_ == 128 ? 16 : practice_input_ + 16;
+                    feedback(L"Zmieniono wejście próby.");
+                } else if (code == 'O') {
+                    practice_chain_ = (practice_chain_ + 1) % practice_chains().size();
+                    feedback(L"Zmieniono kolejność modułów.");
+                } else if (session_.actors()[static_cast<std::size_t>(selection_)].autonomous)
+                    feedback(L"Przejmij postać F2 przed ręczną próbą.");
+                else {
+                    const auto r = session_.practice_probe(static_cast<std::size_t>(selection_),
+                                                           practice_chains()[practice_chain_],
+                                                           practice_input_);
+                    feedback(
+                        r == DiscoveryOutcome::Accepted ? L"Próba przyjęta. Wynik po dwóch krokach."
+                        : r == DiscoveryOutcome::OutOfReach ? L"Podejdź do aparatu i zatrzymaj się."
+                        : r == DiscoveryOutcome::Busy       ? L"Urządzenie lub wykonawca zajęty."
+                        : r == DiscoveryOutcome::NoEnergy
+                            ? L"Brak energii urządzenia."
+                            : L"Próba odrzucona: zakres lub budżet prób.");
+                    log_ << "practice_probe_outcome=" << static_cast<unsigned>(r) << '\n';
+                }
             } else if (code == VK_F3) {
                 const auto response =
                     session_.request_clearance(static_cast<std::size_t>(selection_));
@@ -712,6 +788,15 @@ class TraversalWindow final {
                 }
                 const auto result = nearest ? session_.share_knowledge(sender, *nearest)
                                             : KnowledgeOutcome::OutOfReach;
+                if (session_.has_practice() && nearest) {
+                    const auto r = session_.share_practice(sender, *nearest);
+                    if (r == DiscoveryOutcome::Accepted) {
+                        feedback(
+                            L"Rozpoczęto przekaz pomiarów; pozostańcie w kontakcie przez krok.");
+                        log_ << "practice_share_started=1\n";
+                        return true;
+                    }
+                }
                 const auto label =
                     result == KnowledgeOutcome::Shared    ? L"przekazano obserwacje"
                     : result == KnowledgeOutcome::NoNews  ? L"brak nowszych obserwacji"
@@ -797,8 +882,11 @@ class TraversalWindow final {
                 }
                 const auto started = nearest && session_.begin_maintenance(index, *nearest);
                 feedback(started ? L"Naprawa rozpoczęta; koszt i praca w WorkWorld."
-                                 : L"Naprawa: przejmij postać, zatrzymaj się i podejdź do "
-                                   L"stanowiska z materiałem.");
+                         : session_.has_practice()
+                             ? L"Naprawa wymaga dojścia, części, uprawnienia i udanej próby "
+                               L"ustawienia [P]."
+                             : L"Naprawa: przejmij postać, zatrzymaj się i podejdź do "
+                               L"stanowiska z materiałem.");
                 log_ << "maintenance_started=" << started << '\n';
             } else if (code == VK_F5) {
                 session_.save(options_.save);
@@ -1051,7 +1139,78 @@ class TraversalWindow final {
         renderer_->check_diagnostics();
         log_ << "law_inspector=pass\n" << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
+    void practice_smoke() {
+        require(session_.has_practice() && session_.actors().size() == 8,
+                "learning flag did not create the community apparatus");
+        choose(3);
+        SendMessageW(window_, WM_KEYDOWN, VK_F2, 0);
+        session_.approach(3, session_.stations()[2].location, .7);
+        session_.advance(40);
+        session_.stop(3);
+        session_.advance(20);
+        log_ << "practice_manual_position=" << session_.actors()[3].feet.x << ' '
+             << session_.actors()[3].feet.z << " speed=" << session_.actors()[3].motion.speed
+             << " contact=" << session_.can_interact_at(3, session_.stations()[2].location) << '\n';
+        const auto& chains = practice_chains();
+        practice_chain_ = static_cast<std::size_t>(
+            std::find(chains.begin(), chains.end(), DiscoveryChain{0, 0}) - chains.begin());
+        require(practice_chain_ < chains.size(), "manual chain missing");
+        SendMessageW(window_, WM_KEYDOWN, 'P', 0);
+        require(session_.practice_view(3).stage == PracticeStage::Configuring,
+                "P did not begin a physical pulse");
+        SendMessageW(window_, WM_KEYDOWN, VK_F5, 0);
+        const auto checkpoint = session_.serialize();
+        auto expected = session_;
+        expected.advance(2);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        session_.advance(2);
+        require(session_.serialize() == expected.serialize(), "F5/F9 pulse continuation differs");
+        SendMessageW(window_, WM_KEYDOWN, 'R', 0);
+        require(session_.actors()[3].action.value != 0, "R bypassed or lost calibrated work");
+        session_.advance(80);
+        require(session_.stations()[2].completed > 0, "native maintenance not completed");
+        SendMessageW(window_, WM_KEYDOWN, VK_F2, 0);
+        session_.advance(240);
+        require(session_.practice_view(3).method_known || session_.practice_view(5).method_known,
+                "native community did not learn");
+        const auto learned = session_.serialize();
+        TraversalSession foreign;
+        foreign.save(options_.save);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        panel();
+        draw();
+        require(!session_.has_practice(), "foreign save retained device");
+        write_snapshot_atomic(learned, options_.save);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        require(session_.serialize() == learned,
+                "learning state did not return after foreign save");
+        SendMessageW(window_, WM_KEYDOWN, 'I', 0);
+        SendMessageW(window_, WM_KEYDOWN, 'O', 0);
+        panel();
+        draw();
+        std::wstring status(static_cast<std::size_t>(GetWindowTextLengthW(status_)) + 1, L'\0');
+        GetWindowTextW(status_, status.data(), static_cast<int>(status.size()));
+        require(status.find(L"Praktyka") != std::wstring::npos &&
+                    status.find(L"Pomiary") != std::wstring::npos,
+                "learning panel missing");
+        require(renderer_->capture(options_.capture) > 1000, "practice GPU capture empty");
+        session_.validate();
+        renderer_->check_diagnostics();
+        log_ << "practice_controls=pass\npractice_foreign_save=pass\npractice_panel=pass\npractice_"
+                "checkpoint_bytes="
+             << checkpoint.size() << '\n';
+        for (std::size_t i : {3U, 5U}) {
+            const auto v = session_.practice_view(i);
+            log_ << "practice_actor=" << i << " probes=" << v.probes << " evidence=" << v.records
+                 << " method=" << v.method_known << " reads=" << v.reads << '\n';
+        }
+        log_ << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
+    }
     void smoke() {
+        if (options_.learning) {
+            practice_smoke();
+            return;
+        }
         if (options_.community) {
             community_smoke();
             return;

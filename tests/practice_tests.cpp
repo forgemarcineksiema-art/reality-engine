@@ -1,5 +1,7 @@
 #include "lab/traversal_session.hpp"
+#include <iomanip>
 #include <iostream>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #if __has_include("lab/traversal_practice.hpp")
@@ -139,6 +141,36 @@ void corruption() {
         }
         require(rejected && s.serialize() == before,
                 "forged or reused calibration accepted/nontransactional");
+        const auto section = before.find("PRACTICE ");
+        require(section != std::string::npos, "missing practice section");
+        std::istringstream input{before.substr(section + 9)};
+        std::string payload;
+        input >> std::quoted(payload);
+        const auto v = s.practice_view(0);
+        const std::vector<std::pair<std::string, std::string>> changes = {
+            {"PULSE 1 16 0 ", "PULSE 2 16 0 "},
+            {"PULSE 1 16 0 ", "PULSE 1 32 0 "},
+            {"MIND 1 ", "MIND 2 "},
+            {"STATE \"1 1 ", "STATE \"1 0 "},
+            {std::to_string(v.primitives) + " " + std::to_string(v.reads) + " ",
+             std::to_string(v.primitives + 1) + " " + std::to_string(v.reads) + " "}};
+        for (const auto& [from, to] : changes) {
+            auto changed = payload;
+            auto at = changed.find(from);
+            require(at != std::string::npos, "corruption target absent");
+            changed.replace(at, from.size(), to);
+            std::ostringstream encoded;
+            encoded << before.substr(0, section) << "PRACTICE " << std::quoted(changed)
+                    << "\nCHECKSUM 0\n";
+            rejected = false;
+            try {
+                s.restore(checksum(encoded.str()));
+            } catch (const std::exception&) {
+                rejected = true;
+            }
+            require(rejected && s.serialize() == before,
+                    "semantic corruption accepted or partially committed");
+        }
     }
 }
 void legacy() {
@@ -163,6 +195,123 @@ void horizon() {
     s.advance(1);
     require(s.serialize() == expected, "research horizon leaked into live world");
 }
+void autonomy() {
+    auto scene = fixture();
+    scene.spawns[0].autonomous = true;
+    scene.spawns[0].known_stations = 1;
+    TraversalSession s{scene};
+    s.advance(180);
+    require(s.stations()[0].completed > 0 && s.practice_view(0).method_known,
+            "resident did not discover a useful work method");
+    require(s.practice_view(0).probes > 0, "work method was given without experience");
+    const auto saved = s.serialize();
+    s.advance(20);
+    const auto expected = s.serialize();
+    s.restore(saved);
+    s.advance(20);
+    require(s.serialize() == expected, "learned mind continuation differs");
+}
+void teaching() {
+    TraversalSession s{fixture()};
+    require(s.practice_probe(0, {0}, 16) == DiscoveryOutcome::Accepted, "teacher probe");
+    s.advance(2);
+    require(s.practice_probe(0, {0}, 64) == DiscoveryOutcome::Accepted, "teacher probe2");
+    s.advance(2);
+    require(s.share_practice(0, 1) == DiscoveryOutcome::Accepted, "physical teaching refused");
+    require(s.practice_view(1).records == 0, "teaching completed before contact duration");
+    auto saved = s.serialize();
+    s.advance(1);
+    auto expected = s.serialize();
+    require(s.practice_view(1).records == 2 && s.practice_view(1).probes == 0,
+            "student received no actual evidence");
+    s.restore(saved);
+    s.advance(1);
+    require(s.serialize() == expected, "teaching restore differs");
+    s.set_autonomous(1, true);
+    s.advance(180);
+    require(s.practice_view(1).method_known && s.stations()[0].completed > 0,
+            "student could not use evidence");
+}
+void alternate() {
+    auto scene = fixture();
+    scene.practice->law = {{HypothesisKind::Fraction, 8}};
+    scene.spawns[0].autonomous = true;
+    scene.spawns[0].known_stations = 1;
+    TraversalSession s{scene};
+    s.advance(240);
+    require(s.practice_view(0).method == DiscoveryChain{0} && s.stations()[0].completed >= 2,
+            "known single-module method cannot be reused with new pulses");
+}
+void blocked_contact() {
+    auto scene = fixture();
+    scene.stations[0].location.local = {-1.5, 0};
+    scene.geometry.bodies.push_back({2, {0, 2, -.1}, 0, .1, .7, 2, 0, 0, false});
+    TraversalSession s{scene};
+    require(!s.can_exchange_knowledge(0, 1), "fixture wall does not block contact");
+    require(s.practice_probe(0, {0}, 16) == DiscoveryOutcome::Accepted,
+            "blocked-contact own probe");
+    s.advance(2);
+    require(s.share_practice(0, 1) == DiscoveryOutcome::OutOfReach &&
+                s.practice_view(1).records == 0,
+            "evidence crossed a wall");
+}
+void safe_queue() {
+    auto scene = fixture(6);
+    for (auto& a : scene.spawns) {
+        a.autonomous = true;
+        a.known_stations = 1;
+    }
+    TraversalSession s{scene};
+    s.advance(240);
+    std::array<bool, 2> worked{};
+    for (const auto& c : s.world().commands())
+        if (c.result.status == RequestStatus::Accepted)
+            for (std::size_t i = 0; i < 2; ++i)
+                if (c.request.actor == s.actors()[i].id)
+                    worked[i] = true;
+    require(worked[0] && worked[1], "one operator monopolized work");
+    s.validate();
+    auto saved = s.serialize();
+    s.restore(saved);
+    require(s.serialize() == saved, "queue/contact snapshot changed");
+}
+void needs() {
+    auto scene = fixture();
+    scene.spawns[0].autonomous = true;
+    scene.spawns[0].hunger = 800;
+    TraversalSession s{scene};
+    s.advance(100);
+    require(s.practice_view(0).probes == 0 && s.stations()[0].completed == 0,
+            "research overrode urgent hunger");
+}
+void manual_override() {
+    auto scene = fixture();
+    scene.spawns[0].autonomous = true;
+    TraversalSession s{scene};
+    for (unsigned i = 0; i < 40 && s.practice_view(0).stage != PracticeStage::Pulsing; ++i)
+        s.advance(1);
+    require(s.practice_view(0).stage == PracticeStage::Pulsing, "automatic probe never started");
+    s.set_autonomous(0, false);
+    s.set_goal(0, {1, {-4, 0}});
+    static_cast<void>(s.share_knowledge(1, 0));
+    s.advance(2);
+    require(s.practice_view(0).records > 0,
+            "manual override or message erased the physical result");
+    s.advance(60);
+    require(s.actors()[0].feet.x < -2, "manual order did not resume after pulse");
+}
+void community() {
+    TraversalSession s{make_learning_course()};
+    s.advance(600);
+    s.validate();
+    require(s.actors().size() == 8 && s.stations()[2].completed > 0,
+            "learning was not integrated into the community");
+    require(s.practice_view(3).method_known || s.practice_view(5).method_known,
+            "community had no learned method");
+    const auto saved = s.serialize();
+    s.restore(saved);
+    require(s.serialize() == saved, "community learning snapshot differs");
+}
 void refusals(bool remote) {
     TraversalSession s{fixture(remote ? 4 : 0, remote)};
     if (remote)
@@ -178,6 +327,29 @@ void refusals(bool remote) {
 int main(int argc, char** argv) {
     try {
 #if __has_include("lab/traversal_practice.hpp")
+        if (argc == 6 && std::string(argv[1]) == "checkpoint") {
+            const auto stage = std::stoul(argv[2]);
+            TraversalSession s{fixture()};
+            require(s.practice_probe(0, stage == 3 ? DiscoveryChain{0, 0} : DiscoveryChain{0},
+                                     16) == DiscoveryOutcome::Accepted,
+                    "checkpoint probe");
+            s.advance(std::min(stage, 2UL));
+            if (stage == 3) {
+                require(s.begin_maintenance(0, 0), "checkpoint work");
+                s.advance(17);
+            }
+            s.save(argv[3]);
+            s.advance(std::stoull(argv[5]));
+            s.save(argv[4]);
+            return 0;
+        }
+        if (argc == 5 && std::string(argv[1]) == "continue") {
+            TraversalSession s;
+            s.load(argv[2]);
+            s.advance(std::stoull(argv[4]));
+            s.save(argv[3]);
+            return 0;
+        }
         std::string name = argc == 2 ? argv[1] : "";
         if (name == "calibration")
             calibration();
@@ -201,6 +373,22 @@ int main(int argc, char** argv) {
             legacy();
         else if (name == "horizon")
             horizon();
+        else if (name == "autonomy")
+            autonomy();
+        else if (name == "teaching")
+            teaching();
+        else if (name == "alternate")
+            alternate();
+        else if (name == "blocked_contact")
+            blocked_contact();
+        else if (name == "safe_queue")
+            safe_queue();
+        else if (name == "needs")
+            needs();
+        else if (name == "manual_override")
+            manual_override();
+        else if (name == "community")
+            community();
         else
             throw std::runtime_error("unknown practice case");
         std::cout << "PASS " << name << '\n';

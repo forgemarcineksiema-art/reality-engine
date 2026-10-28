@@ -1,6 +1,7 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/verification/practice-in-prototype.md", "role": "verification", "topic": "practice-in-prototype-verification"},
     {
       "path": "docs/work-items/practice-in-prototype-implementation.md",
       "role": "planned",

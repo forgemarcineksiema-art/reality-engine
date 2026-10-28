@@ -210,6 +210,7 @@ struct TraversalScene {
 [[nodiscard]] TraversalScene make_crossing_course();
 [[nodiscard]] TraversalScene make_law_course();
 [[nodiscard]] TraversalScene make_community_course();
+[[nodiscard]] TraversalScene make_learning_course();
 struct TraversalPose {
     SpatialPoint feet;
     double heading = 0;
@@ -230,6 +231,7 @@ struct TraversalNavigationView {
 class TraversalSession final {
   public:
     [[nodiscard]] bool has_practice() const noexcept;
+    [[nodiscard]] DiscoveryOutcome share_practice(std::size_t sender, std::size_t recipient);
     [[nodiscard]] PracticeView practice_view(std::size_t actor) const;
     [[nodiscard]] DiscoveryOutcome practice_probe(std::size_t actor, DiscoveryChain chain,
                                                   unsigned input);
@@ -281,6 +283,7 @@ class TraversalSession final {
     void practice_work_started(std::size_t actor, EntityId action);
     void advance_practice();
     void validate_practice() const;
+    void request_practice_work(std::size_t actor);
     WorkWorld world_;
     std::vector<PropertyRule> property_rules_;
     std::vector<PropertyIncident> incidents_;

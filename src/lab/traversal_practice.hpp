@@ -29,6 +29,10 @@ struct PracticeView {
     std::optional<DiscoveryMeasurement> last;
     std::optional<DiscoveryChain> method;
     std::string message;
+    std::size_t station = 0;
+    unsigned required_input = 0, required_output = 0;
+    std::uint64_t reads = 0, primitives = 0;
+    std::vector<DiscoveryEvidence> history;
 };
 class PracticeState final {
   public:
@@ -77,6 +81,13 @@ class PracticeState final {
         std::uint64_t measurement;
         EntityId action;
     };
+    struct Contact {
+        std::size_t from, to;
+        std::uint64_t tick;
+        std::uint32_t surface;
+        std::array<double, 6> start, end;
+        std::vector<std::uint64_t> records;
+    };
     PracticeSeed seed_;
     DiscoveryWorld apparatus_;
     std::vector<Mind> minds_;
@@ -86,6 +97,11 @@ class PracticeState final {
     std::optional<Working> working_;
     std::vector<Pulse> pulses_;
     std::vector<Use> uses_;
+    std::vector<std::size_t> queue_;
+    std::optional<Contact> sharing_;
+    std::vector<Contact> contacts_;
     std::uint64_t command_ = 1;
+    void infer(Mind& mind, std::uint64_t tick);
+    unsigned choose(Mind& mind, std::uint64_t tick);
 };
 } // namespace reality

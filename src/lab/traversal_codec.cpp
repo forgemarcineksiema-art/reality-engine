@@ -598,6 +598,7 @@ void TraversalSession::restore(std::string_view bytes) {
         candidate.actors_.push_back(std::move(a));
     }
     if (version == 8) {
+        candidate.rebuild_geometry();
         tag(input, "PRACTICE");
         std::string state;
         require(static_cast<bool>(input >> std::quoted(state)), "missing practice state");

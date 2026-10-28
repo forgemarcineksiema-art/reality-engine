@@ -137,6 +137,18 @@ std::vector<SceneTriangle> build_traversal_scene(const TraversalSession& session
                 : station.kind == TraversalTask::Rest ? Vec3{.75F, .5F, 1}
                                                       : Vec3{1, .7F, .25F});
     }
+    if (session.has_practice()) {
+        const auto view = session.practice_view(0);
+        const auto& station = session.stations().at(view.station);
+        const auto& body = geometry.body(station.location.surface);
+        const auto p = station.location.local;
+        const auto center =
+            body.world({p.x_m, body.slope_x * p.x_m + body.slope_z * p.z_m, p.z_m}) +
+            SpatialPoint{0, .5, 0};
+        diamond(scene, camera, aspect, center, .3, {.15F, 1, .95F});
+        diamond(scene, camera, aspect, center + SpatialPoint{-.32, .25, 0}, .12, {.2F, .7F, 1});
+        diamond(scene, camera, aspect, center + SpatialPoint{.32, .25, 0}, .12, {.2F, .7F, 1});
+    }
     if (selected >= 0 && static_cast<std::size_t>(selected) < session.actors().size()) {
         const auto& actor = session.actors()[static_cast<std::size_t>(selected)];
         const auto end = std::min(actor.route.legs.size(), actor.leg + 64);

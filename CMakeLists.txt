@@ -224,9 +224,11 @@ if(BUILD_TESTING)
     add_executable(reality_practice_tests tests/practice_tests.cpp)
     target_link_libraries(reality_practice_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_practice_tests)
-    foreach(case IN ITEMS calibration energy concurrent no_parts out_of_reach protected queued_input persistence corruption legacy horizon)
+    foreach(case IN ITEMS calibration energy concurrent no_parts out_of_reach protected queued_input persistence corruption legacy horizon autonomy teaching alternate blocked_contact safe_queue needs manual_override community)
         add_test(NAME practice.${case} COMMAND reality_practice_tests ${case})
     endforeach()
+    add_test(NAME practice.fresh_process COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/practice_integration.py" "$<TARGET_FILE:reality_practice_tests>")
+    add_test(NAME practice.native COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_practice_native.py" --exe "$<TARGET_FILE:reality_traversal>")
     add_test(NAME contrast.native_case COMMAND "${Python3_EXECUTABLE}"
         "${CMAKE_CURRENT_SOURCE_DIR}/tests/contrast_case_integration.py" "$<TARGET_FILE:reality_contrast>")
     add_test(NAME contrast.fresh_process COMMAND "${Python3_EXECUTABLE}"

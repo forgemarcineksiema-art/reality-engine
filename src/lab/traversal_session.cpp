@@ -2021,6 +2021,14 @@ std::string TraversalSession::inspect() const {
             out << "  legal_service_actor=" << actors_[i].id.value
                 << " allowed=" << legal_service_allowed(i, r.station) << '\n';
     }
+    if (practice_)
+        for (std::size_t i = 0; i < actors_.size(); ++i) {
+            const auto v = practice_view(i);
+            out << "practice_actor=" << actors_[i].id.value << " probes=" << v.probes
+                << " records=" << v.records << " method=" << v.method_known << " reads=" << v.reads
+                << " primitives=" << v.primitives << " stage=" << static_cast<unsigned>(v.stage)
+                << '\n';
+        }
     return out.str();
 }
 void TraversalSession::advance(std::uint64_t ticks) {
