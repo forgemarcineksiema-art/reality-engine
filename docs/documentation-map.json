@@ -2,6 +2,11 @@
   "version": 1,
   "documents": [
     {
+      "path": "docs/work-items/practice-in-prototype-implementation.md",
+      "role": "planned",
+      "topic": "practice-in-prototype-implementation"
+    },
+    {
       "path": "docs/work-items/practice-in-prototype.md",
       "role": "planned",
       "topic": "practice-in-prototype-design"
