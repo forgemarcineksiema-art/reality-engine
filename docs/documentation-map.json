@@ -1,104 +1,498 @@
 {
   "version": 1,
   "documents": [
-    {"path": "docs/verification/hypothesis-building-experiment.md", "role": "verification", "topic": "hypothesis-building-experiment-results"},
-    {"path": "docs/verification/evidence/hypothesis-building-2026-10-27/review.md", "role": "verification", "topic": "hypothesis-building-code-review"},
-    {"path": "docs/hypothesis-building.md", "role": "current-state", "topic": "hypothesis-building-api"},
-    {"path": "docs/work-items/hypothesis-building-implementation.md", "role": "planned", "topic": "hypothesis-building-implementation"},
-    {"path": "docs/verification/hypothesis-building-design.md", "role": "verification", "topic": "hypothesis-building-design-review"},
-    {"path": "docs/work-items/hypothesis-building-experiment.md", "role": "research", "topic": "hypothesis-building-experiment-protocol"},
-    {"path": "docs/verification/evidence/discovery-learning-2026-10-27/review.md", "role": "verification", "topic": "discovery-learning-code-review"},
-    {"path": "docs/discovery-learning.md", "role": "current-state", "topic": "discovery-learning-api"},
-    {"path": "docs/verification/discovery-learning-experiment.md", "role": "verification", "topic": "discovery-learning-experiment-results"},
-    {"path": "docs/work-items/discovery-learning-implementation.md", "role": "planned", "topic": "discovery-learning-implementation"},
-    {"path": "docs/verification/discovery-learning-design.md", "role": "verification", "topic": "discovery-learning-design-review"},
-    {"path": "docs/work-items/discovery-learning-experiment.md", "role": "research", "topic": "discovery-learning-experiment-protocol"},
-    {"path": "docs/verification/evidence/m04-acceptance-2026-10-27/review.md", "role": "verification", "topic": "m04-acceptance-review"},
-    {"path": "docs/work-items/m04-acceptance.md", "role": "current-state", "topic": "m04-acceptance-plan"},
-    {"path": "docs/verification/m04-acceptance.md", "role": "verification", "topic": "m04-acceptance-evidence"},
-    {"path": "docs/verification/m04-playtest.md", "role": "verification", "topic": "m04-human-acceptance"},
-    {"path": "docs/verification/evidence/witness-property-law-2026-10-27/review.md", "role": "verification", "topic": "witness-property-law-review"},
-    {"path": "docs/work-items/witness-property-law.md", "role": "current-state", "topic": "witness-property-law-plan"},
-    {"path": "docs/verification/witness-property-law.md", "role": "verification", "topic": "witness-property-law-evidence"},
-    {"path": "docs/work-items/passage-logistics.md", "role": "current-state", "topic": "passage-logistics-plan"},
-    {"path": "docs/verification/passage-logistics.md", "role": "verification", "topic": "passage-logistics-evidence"},
-    {"path": "docs/work-items/local-station-knowledge.md", "role": "current-state", "topic": "local-station-knowledge-plan"},
-    {"path": "docs/verification/local-station-knowledge.md", "role": "verification", "topic": "local-station-knowledge-evidence"},
-    {"path": "README.md", "role": "entry", "topic": "project-entry"},
-    {"path": "AGENTS.md", "role": "normative", "topic": "agent-entry"},
-    {"path": "engineering-rules.md", "role": "normative", "topic": "engineering-rules"},
-    {"path": "docs/project-charter.md", "role": "normative", "topic": "user-intent"},
-    {"path": "docs/game-design.md", "role": "proposal", "topic": "player-experience"},
-    {"path": "docs/architecture.md", "role": "normative", "topic": "module-boundaries"},
-    {"path": "docs/subsystem-contracts.md", "role": "normative", "topic": "invariants"},
-    {"path": "docs/testing-strategy.md", "role": "normative", "topic": "verification"},
-    {"path": "docs/prototype-plan.md", "role": "planned", "topic": "milestones"},
-    {"path": "docs/performance-budget.md", "role": "proposal", "topic": "measurement-budgets"},
-    {"path": "docs/development.md", "role": "current-state", "topic": "commands-and-environment"},
-    {"path": "docs/decisions.md", "role": "decision-register", "topic": "decision-status"},
-    {"path": "docs/workflow.md", "role": "normative", "topic": "delivery-workflow"},
-    {"path": "docs/risks-and-open-questions.md", "role": "open", "topic": "risks"},
-    {"path": "docs/research-agenda.md", "role": "research", "topic": "research-evidence"},
-    {"path": "docs/templates/change-brief.md", "role": "template", "topic": "change-template"},
-    {"path": "docs/templates/verification-report.md", "role": "template", "topic": "verification-template"},
-    {"path": "docs/templates/experiment-record.md", "role": "template", "topic": "experiment-template"},
-    {"path": "docs/archive/README.md", "role": "archive-index", "topic": "historical-index"},
-    {"path": "docs/verification/documentation-baseline.md", "role": "verification", "topic": "documentation-baseline"},
-    {"path": "docs/verification/material-delivery.md", "role": "verification", "topic": "material-delivery-verification"},
-    {"path": "docs/work-items/m00-build-and-diagnostics.md", "role": "current-state", "topic": "m00-change-brief"},
-    {"path": "docs/verification/m00-build-and-diagnostics.md", "role": "verification", "topic": "m00-verification"},
-    {"path": "docs/work-items/m01-identity-actions-reservations.md", "role": "current-state", "topic": "m01-change-brief"},
-    {"path": "docs/work-domain.md", "role": "current-state", "topic": "work-domain-api-and-format"},
-    {"path": "docs/verification/m01-identity-actions-reservations.md", "role": "verification", "topic": "m01-verification"},
-    {"path": "docs/work-items/m02-window-laboratory.md", "role": "current-state", "topic": "m02-change-brief"},
-    {"path": "docs/window-laboratory.md", "role": "current-state", "topic": "window-laboratory-api"},
-    {"path": "docs/verification/m02-window-laboratory.md", "role": "verification", "topic": "m02-verification"},
-    {"path": "opinion-project-assessment.md", "role": "research", "topic": "user-supplied-external-assessment"},
-    {"path": "maxing.md", "role": "proposal", "topic": "user-supplied-quality-aspiration"},
-    {"path": "argon-analize.md", "role": "research", "topic": "user-supplied-argon-analysis"},
-    {"path": "argon-specyfikacja-domkniecia.md", "role": "proposal", "topic": "user-supplied-argon-specification"},
-    {"path": "docs/verification/identity-fantasy-and-assessment.md", "role": "verification", "topic": "assessment-response-and-fiction-alignment"},
-    {"path": "docs/work-items/m03-motion-navigation.md", "role": "current-state", "topic": "m03-change-brief"},
-    {"path": "docs/motion-navigation.md", "role": "current-state", "topic": "motion-navigation-api-and-format"},
-    {"path": "docs/verification/m03-motion-navigation.md", "role": "verification", "topic": "m03-verification"},
-    {"path": "docs/work-items/navigation-polish.md", "role": "current-state", "topic": "navigation-polish-brief"},
-    {"path": "docs/verification/navigation-polish.md", "role": "verification", "topic": "navigation-polish-verification"},
-    {"path": "docs/work-items/motion-adversarial-audit.md", "role": "current-state", "topic": "motion-adversarial-brief"},
-    {"path": "docs/verification/motion-adversarial-audit.md", "role": "verification", "topic": "motion-adversarial-verification"},
-    {"path": "docs/work-items/advanced-traversal.md", "role": "current-state", "topic": "advanced-traversal-brief"},
-    {"path": "docs/work-items/autonomy-need-fallback.md", "role": "current-state", "topic": "autonomy-need-fallback-brief"},
-    {"path": "docs/work-items/reusable-capacity.md", "role": "current-state", "topic": "reusable-capacity-brief"},
-    {"path": "docs/work-items/traversal-multi-actor.md", "role": "current-state", "topic": "traversal-multi-actor-brief"},
-    {"path": "docs/verification/traversal-multi-actor.md", "role": "verification", "topic": "traversal-multi-actor-verification"},
-    {"path": "docs/verification/reusable-capacity.md", "role": "verification", "topic": "reusable-capacity-verification"},
-    {"path": "docs/traversal-autonomy.md", "role": "current-state", "topic": "traversal-autonomy-api-and-rules"},
-    {"path": "docs/verification/autonomy-need-fallback.md", "role": "verification", "topic": "autonomy-need-fallback-verification"},
-    {"path": "docs/work-items/traversal-command-hardening.md", "role": "current-state", "topic": "traversal-command-hardening-brief"},
-    {"path": "docs/verification/traversal-command-hardening.md", "role": "verification", "topic": "traversal-command-hardening-verification"},
-    {"path": ".opencode/agents/architect.md", "role": "current-state", "topic": "opencode-architect-configuration"},
-    {"path": ".opencode/agents/engineer.md", "role": "current-state", "topic": "opencode-engineer-configuration"},
-    {"path": ".opencode/agents/lead-engineer.md", "role": "current-state", "topic": "opencode-lead-engineer-configuration"},
-    {"path": "traversal-multi-actor-audit.md", "role": "proposal", "topic": "traversal-multi-actor-audit"},
-    {"path": "docs/work-items/navigation-obstruction-recovery.md", "role": "current-state", "topic": "navigation-obstruction-recovery-brief"},
-    {"path": "docs/verification/navigation-obstruction-recovery.md", "role": "verification", "topic": "navigation-obstruction-recovery-verification"},
-    {"path": "docs/work-items/m04-entry-design.md", "role": "proposal", "topic": "m04-entry-design"},
-    {"path": "docs/work-items/m04-entry-observability.md", "role": "current-state", "topic": "m04-entry-observability-plan"},
-    {"path": "docs/work-items/material-delivery.md", "role": "current-state", "topic": "material-delivery-plan"},
-    {"path": "docs/work-items/material-transfer-design.md", "role": "proposal", "topic": "material-transfer-design"},
-    {"path": "docs/verification/m04-entry-observability.md", "role": "verification", "topic": "m04-entry-observability-verification"},
-    {"path": "docs/verification/diagnostics-needs-hardening.md", "role": "verification", "topic": "diagnostics-needs-evidence"},
-    {"path": "docs/verification/retained-world-navigation-stall.md", "role": "verification", "topic": "retained-world-stall-fix"},
-    {"path": "docs/verification/local-clearance.md", "role": "verification", "topic": "local-clearance-evidence"},
-    {"path": "docs/work-items/local-clearance.md", "role": "current-state", "topic": "local-clearance-plan"},
-    {"path": "docs/work-items/retained-world-navigation-stall.md", "role": "open", "topic": "retained-world-stagnation"},
-    {"path": "docs/work-items/diagnostics-needs-hardening.md", "role": "current-state", "topic": "diagnostics-needs-hardening-plan"}
+    {
+      "path": "docs/work-items/discriminating-experiment.md",
+      "role": "research",
+      "topic": "discriminating-experiment-protocol"
+    },
+    {
+      "path": "docs/work-items/discriminating-implementation.md",
+      "role": "planned",
+      "topic": "discriminating-implementation"
+    },
+    {
+      "path": "docs/verification/hypothesis-building-experiment.md",
+      "role": "verification",
+      "topic": "hypothesis-building-experiment-results"
+    },
+    {
+      "path": "docs/verification/evidence/hypothesis-building-2026-10-27/review.md",
+      "role": "verification",
+      "topic": "hypothesis-building-code-review"
+    },
+    {
+      "path": "docs/hypothesis-building.md",
+      "role": "current-state",
+      "topic": "hypothesis-building-api"
+    },
+    {
+      "path": "docs/work-items/hypothesis-building-implementation.md",
+      "role": "planned",
+      "topic": "hypothesis-building-implementation"
+    },
+    {
+      "path": "docs/verification/hypothesis-building-design.md",
+      "role": "verification",
+      "topic": "hypothesis-building-design-review"
+    },
+    {
+      "path": "docs/work-items/hypothesis-building-experiment.md",
+      "role": "research",
+      "topic": "hypothesis-building-experiment-protocol"
+    },
+    {
+      "path": "docs/verification/evidence/discovery-learning-2026-10-27/review.md",
+      "role": "verification",
+      "topic": "discovery-learning-code-review"
+    },
+    {
+      "path": "docs/discovery-learning.md",
+      "role": "current-state",
+      "topic": "discovery-learning-api"
+    },
+    {
+      "path": "docs/verification/discovery-learning-experiment.md",
+      "role": "verification",
+      "topic": "discovery-learning-experiment-results"
+    },
+    {
+      "path": "docs/work-items/discovery-learning-implementation.md",
+      "role": "planned",
+      "topic": "discovery-learning-implementation"
+    },
+    {
+      "path": "docs/verification/discovery-learning-design.md",
+      "role": "verification",
+      "topic": "discovery-learning-design-review"
+    },
+    {
+      "path": "docs/work-items/discovery-learning-experiment.md",
+      "role": "research",
+      "topic": "discovery-learning-experiment-protocol"
+    },
+    {
+      "path": "docs/verification/evidence/m04-acceptance-2026-10-27/review.md",
+      "role": "verification",
+      "topic": "m04-acceptance-review"
+    },
+    {
+      "path": "docs/work-items/m04-acceptance.md",
+      "role": "current-state",
+      "topic": "m04-acceptance-plan"
+    },
+    {
+      "path": "docs/verification/m04-acceptance.md",
+      "role": "verification",
+      "topic": "m04-acceptance-evidence"
+    },
+    {
+      "path": "docs/verification/m04-playtest.md",
+      "role": "verification",
+      "topic": "m04-human-acceptance"
+    },
+    {
+      "path": "docs/verification/evidence/witness-property-law-2026-10-27/review.md",
+      "role": "verification",
+      "topic": "witness-property-law-review"
+    },
+    {
+      "path": "docs/work-items/witness-property-law.md",
+      "role": "current-state",
+      "topic": "witness-property-law-plan"
+    },
+    {
+      "path": "docs/verification/witness-property-law.md",
+      "role": "verification",
+      "topic": "witness-property-law-evidence"
+    },
+    {
+      "path": "docs/work-items/passage-logistics.md",
+      "role": "current-state",
+      "topic": "passage-logistics-plan"
+    },
+    {
+      "path": "docs/verification/passage-logistics.md",
+      "role": "verification",
+      "topic": "passage-logistics-evidence"
+    },
+    {
+      "path": "docs/work-items/local-station-knowledge.md",
+      "role": "current-state",
+      "topic": "local-station-knowledge-plan"
+    },
+    {
+      "path": "docs/verification/local-station-knowledge.md",
+      "role": "verification",
+      "topic": "local-station-knowledge-evidence"
+    },
+    {
+      "path": "README.md",
+      "role": "entry",
+      "topic": "project-entry"
+    },
+    {
+      "path": "AGENTS.md",
+      "role": "normative",
+      "topic": "agent-entry"
+    },
+    {
+      "path": "engineering-rules.md",
+      "role": "normative",
+      "topic": "engineering-rules"
+    },
+    {
+      "path": "docs/project-charter.md",
+      "role": "normative",
+      "topic": "user-intent"
+    },
+    {
+      "path": "docs/game-design.md",
+      "role": "proposal",
+      "topic": "player-experience"
+    },
+    {
+      "path": "docs/architecture.md",
+      "role": "normative",
+      "topic": "module-boundaries"
+    },
+    {
+      "path": "docs/subsystem-contracts.md",
+      "role": "normative",
+      "topic": "invariants"
+    },
+    {
+      "path": "docs/testing-strategy.md",
+      "role": "normative",
+      "topic": "verification"
+    },
+    {
+      "path": "docs/prototype-plan.md",
+      "role": "planned",
+      "topic": "milestones"
+    },
+    {
+      "path": "docs/performance-budget.md",
+      "role": "proposal",
+      "topic": "measurement-budgets"
+    },
+    {
+      "path": "docs/development.md",
+      "role": "current-state",
+      "topic": "commands-and-environment"
+    },
+    {
+      "path": "docs/decisions.md",
+      "role": "decision-register",
+      "topic": "decision-status"
+    },
+    {
+      "path": "docs/workflow.md",
+      "role": "normative",
+      "topic": "delivery-workflow"
+    },
+    {
+      "path": "docs/risks-and-open-questions.md",
+      "role": "open",
+      "topic": "risks"
+    },
+    {
+      "path": "docs/research-agenda.md",
+      "role": "research",
+      "topic": "research-evidence"
+    },
+    {
+      "path": "docs/templates/change-brief.md",
+      "role": "template",
+      "topic": "change-template"
+    },
+    {
+      "path": "docs/templates/verification-report.md",
+      "role": "template",
+      "topic": "verification-template"
+    },
+    {
+      "path": "docs/templates/experiment-record.md",
+      "role": "template",
+      "topic": "experiment-template"
+    },
+    {
+      "path": "docs/archive/README.md",
+      "role": "archive-index",
+      "topic": "historical-index"
+    },
+    {
+      "path": "docs/verification/documentation-baseline.md",
+      "role": "verification",
+      "topic": "documentation-baseline"
+    },
+    {
+      "path": "docs/verification/material-delivery.md",
+      "role": "verification",
+      "topic": "material-delivery-verification"
+    },
+    {
+      "path": "docs/work-items/m00-build-and-diagnostics.md",
+      "role": "current-state",
+      "topic": "m00-change-brief"
+    },
+    {
+      "path": "docs/verification/m00-build-and-diagnostics.md",
+      "role": "verification",
+      "topic": "m00-verification"
+    },
+    {
+      "path": "docs/work-items/m01-identity-actions-reservations.md",
+      "role": "current-state",
+      "topic": "m01-change-brief"
+    },
+    {
+      "path": "docs/work-domain.md",
+      "role": "current-state",
+      "topic": "work-domain-api-and-format"
+    },
+    {
+      "path": "docs/verification/m01-identity-actions-reservations.md",
+      "role": "verification",
+      "topic": "m01-verification"
+    },
+    {
+      "path": "docs/work-items/m02-window-laboratory.md",
+      "role": "current-state",
+      "topic": "m02-change-brief"
+    },
+    {
+      "path": "docs/window-laboratory.md",
+      "role": "current-state",
+      "topic": "window-laboratory-api"
+    },
+    {
+      "path": "docs/verification/m02-window-laboratory.md",
+      "role": "verification",
+      "topic": "m02-verification"
+    },
+    {
+      "path": "opinion-project-assessment.md",
+      "role": "research",
+      "topic": "user-supplied-external-assessment"
+    },
+    {
+      "path": "maxing.md",
+      "role": "proposal",
+      "topic": "user-supplied-quality-aspiration"
+    },
+    {
+      "path": "argon-analize.md",
+      "role": "research",
+      "topic": "user-supplied-argon-analysis"
+    },
+    {
+      "path": "argon-specyfikacja-domkniecia.md",
+      "role": "proposal",
+      "topic": "user-supplied-argon-specification"
+    },
+    {
+      "path": "docs/verification/identity-fantasy-and-assessment.md",
+      "role": "verification",
+      "topic": "assessment-response-and-fiction-alignment"
+    },
+    {
+      "path": "docs/work-items/m03-motion-navigation.md",
+      "role": "current-state",
+      "topic": "m03-change-brief"
+    },
+    {
+      "path": "docs/motion-navigation.md",
+      "role": "current-state",
+      "topic": "motion-navigation-api-and-format"
+    },
+    {
+      "path": "docs/verification/m03-motion-navigation.md",
+      "role": "verification",
+      "topic": "m03-verification"
+    },
+    {
+      "path": "docs/work-items/navigation-polish.md",
+      "role": "current-state",
+      "topic": "navigation-polish-brief"
+    },
+    {
+      "path": "docs/verification/navigation-polish.md",
+      "role": "verification",
+      "topic": "navigation-polish-verification"
+    },
+    {
+      "path": "docs/work-items/motion-adversarial-audit.md",
+      "role": "current-state",
+      "topic": "motion-adversarial-brief"
+    },
+    {
+      "path": "docs/verification/motion-adversarial-audit.md",
+      "role": "verification",
+      "topic": "motion-adversarial-verification"
+    },
+    {
+      "path": "docs/work-items/advanced-traversal.md",
+      "role": "current-state",
+      "topic": "advanced-traversal-brief"
+    },
+    {
+      "path": "docs/work-items/autonomy-need-fallback.md",
+      "role": "current-state",
+      "topic": "autonomy-need-fallback-brief"
+    },
+    {
+      "path": "docs/work-items/reusable-capacity.md",
+      "role": "current-state",
+      "topic": "reusable-capacity-brief"
+    },
+    {
+      "path": "docs/work-items/traversal-multi-actor.md",
+      "role": "current-state",
+      "topic": "traversal-multi-actor-brief"
+    },
+    {
+      "path": "docs/verification/traversal-multi-actor.md",
+      "role": "verification",
+      "topic": "traversal-multi-actor-verification"
+    },
+    {
+      "path": "docs/verification/reusable-capacity.md",
+      "role": "verification",
+      "topic": "reusable-capacity-verification"
+    },
+    {
+      "path": "docs/traversal-autonomy.md",
+      "role": "current-state",
+      "topic": "traversal-autonomy-api-and-rules"
+    },
+    {
+      "path": "docs/verification/autonomy-need-fallback.md",
+      "role": "verification",
+      "topic": "autonomy-need-fallback-verification"
+    },
+    {
+      "path": "docs/work-items/traversal-command-hardening.md",
+      "role": "current-state",
+      "topic": "traversal-command-hardening-brief"
+    },
+    {
+      "path": "docs/verification/traversal-command-hardening.md",
+      "role": "verification",
+      "topic": "traversal-command-hardening-verification"
+    },
+    {
+      "path": ".opencode/agents/architect.md",
+      "role": "current-state",
+      "topic": "opencode-architect-configuration"
+    },
+    {
+      "path": ".opencode/agents/engineer.md",
+      "role": "current-state",
+      "topic": "opencode-engineer-configuration"
+    },
+    {
+      "path": ".opencode/agents/lead-engineer.md",
+      "role": "current-state",
+      "topic": "opencode-lead-engineer-configuration"
+    },
+    {
+      "path": "traversal-multi-actor-audit.md",
+      "role": "proposal",
+      "topic": "traversal-multi-actor-audit"
+    },
+    {
+      "path": "docs/work-items/navigation-obstruction-recovery.md",
+      "role": "current-state",
+      "topic": "navigation-obstruction-recovery-brief"
+    },
+    {
+      "path": "docs/verification/navigation-obstruction-recovery.md",
+      "role": "verification",
+      "topic": "navigation-obstruction-recovery-verification"
+    },
+    {
+      "path": "docs/work-items/m04-entry-design.md",
+      "role": "proposal",
+      "topic": "m04-entry-design"
+    },
+    {
+      "path": "docs/work-items/m04-entry-observability.md",
+      "role": "current-state",
+      "topic": "m04-entry-observability-plan"
+    },
+    {
+      "path": "docs/work-items/material-delivery.md",
+      "role": "current-state",
+      "topic": "material-delivery-plan"
+    },
+    {
+      "path": "docs/work-items/material-transfer-design.md",
+      "role": "proposal",
+      "topic": "material-transfer-design"
+    },
+    {
+      "path": "docs/verification/m04-entry-observability.md",
+      "role": "verification",
+      "topic": "m04-entry-observability-verification"
+    },
+    {
+      "path": "docs/verification/diagnostics-needs-hardening.md",
+      "role": "verification",
+      "topic": "diagnostics-needs-evidence"
+    },
+    {
+      "path": "docs/verification/retained-world-navigation-stall.md",
+      "role": "verification",
+      "topic": "retained-world-stall-fix"
+    },
+    {
+      "path": "docs/verification/local-clearance.md",
+      "role": "verification",
+      "topic": "local-clearance-evidence"
+    },
+    {
+      "path": "docs/work-items/local-clearance.md",
+      "role": "current-state",
+      "topic": "local-clearance-plan"
+    },
+    {
+      "path": "docs/work-items/retained-world-navigation-stall.md",
+      "role": "open",
+      "topic": "retained-world-stagnation"
+    },
+    {
+      "path": "docs/work-items/diagnostics-needs-hardening.md",
+      "role": "current-state",
+      "topic": "diagnostics-needs-hardening-plan"
+    }
   ],
   "identifiers": [
-    {"prefix": "ENG", "definition_file": "engineering-rules.md", "pattern": "ENG-[0-9]{2}"},
-    {"prefix": "INV", "definition_file": "docs/subsystem-contracts.md", "pattern": "INV-[0-9]{2}"},
-    {"prefix": "SC", "definition_file": "docs/testing-strategy.md", "pattern": "SC-[0-9]{2}"},
-    {"prefix": "M", "definition_file": "docs/prototype-plan.md", "pattern": "M[0-9]{2}"},
-    {"prefix": "DEC", "definition_file": "docs/decisions.md", "pattern": "DEC-[0-9]{3}"}
+    {
+      "prefix": "ENG",
+      "definition_file": "engineering-rules.md",
+      "pattern": "ENG-[0-9]{2}"
+    },
+    {
+      "prefix": "INV",
+      "definition_file": "docs/subsystem-contracts.md",
+      "pattern": "INV-[0-9]{2}"
+    },
+    {
+      "prefix": "SC",
+      "definition_file": "docs/testing-strategy.md",
+      "pattern": "SC-[0-9]{2}"
+    },
+    {
+      "prefix": "M",
+      "definition_file": "docs/prototype-plan.md",
+      "pattern": "M[0-9]{2}"
+    },
+    {
+      "prefix": "DEC",
+      "definition_file": "docs/decisions.md",
+      "pattern": "DEC-[0-9]{3}"
+    }
   ],
   "archive_manifest": "docs/archive/manifest.json"
 }
