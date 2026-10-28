@@ -1,0 +1,68 @@
+judged 8/80
+judged 16/80
+judged 24/80
+judged 32/80
+judged 40/80
+judged 48/80
+judged 56/80
+judged 64/80
+judged 72/80
+judged 80/80
+{
+  "protocol": "discrimination-v1",
+  "main": {
+    "n": 64,
+    "D": "1",
+    "G": "1",
+    "identified": 64,
+    "delta": "3901414033557199/38430407296512000",
+    "A_sign": {
+      "wins": 60,
+      "losses": 4,
+      "ties": 0,
+      "p": "679121/18446744073709551616"
+    },
+    "teacher": 64,
+    "social": [
+      62,
+      64
+    ],
+    "T_sign": {
+      "wins": 2,
+      "losses": 0,
+      "ties": 62,
+      "p": "1/4"
+    },
+    "I": true,
+    "A": true,
+    "T": false
+  },
+  "outside": {
+    "n": 16,
+    "D": "0",
+    "G": "0",
+    "identified": 0,
+    "delta": "889953/251968000",
+    "A_sign": {
+      "wins": 9,
+      "losses": 6,
+      "ties": 1,
+      "p": "9949/32768"
+    },
+    "teacher": 0,
+    "social": [
+      0,
+      0
+    ],
+    "T_sign": {
+      "wins": 0,
+      "losses": 0,
+      "ties": 16,
+      "p": "1"
+    },
+    "I": false,
+    "A": false,
+    "T": false
+  },
+  "distinct_main_laws": 61
+}

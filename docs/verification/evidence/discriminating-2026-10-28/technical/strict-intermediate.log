@@ -1,0 +1,22 @@
+E......F
+======================================================================
+ERROR: test_development_raw_replayed_and_tampering_rejected (test_contrast_experiment.ContrastTests.test_development_raw_replayed_and_tampering_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_contrast_experiment.py", line 31, in test_development_raw_replayed_and_tampering_rejected
+    j.judge_legacy(case,raw)
+    ^^^^^^^^^^^^^^
+AttributeError: module 'contrast_judge' has no attribute 'judge_legacy'
+
+======================================================================
+FAIL: test_strict_reader_requires_contact_and_metrics (test_contrast_experiment.ContrastTests.test_strict_reader_requires_contact_and_metrics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_contrast_experiment.py", line 46, in test_strict_reader_requires_contact_and_metrics
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.038s
+
+FAILED (failures=1, errors=1)

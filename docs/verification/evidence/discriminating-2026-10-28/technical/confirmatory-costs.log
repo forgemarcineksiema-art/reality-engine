@@ -1,0 +1,866 @@
+{
+  "main": {
+    "R": {
+      "costs": {
+        "training_energy": {
+          "min": 249,
+          "mean": 499.75,
+          "max": 720
+        },
+        "energy": {
+          "min": 1497,
+          "mean": 2300.984375,
+          "max": 3225
+        },
+        "primitives": {
+          "min": 7822044,
+          "mean": 7822044,
+          "max": 7822044
+        },
+        "reads": {
+          "min": 8243,
+          "mean": 116323.765625,
+          "max": 837274
+        },
+        "training_wall_ms": {
+          "min": 51.8663,
+          "mean": 65.0203890625,
+          "max": 129.477
+        },
+        "training_cpu_ms": {
+          "min": 46.875,
+          "mean": 64.94140625,
+          "max": 125
+        },
+        "wall_ms": {
+          "min": 69.3127,
+          "mean": 86.661034375,
+          "max": 164.425
+        },
+        "cpu_ms": {
+          "min": 62.5,
+          "mean": 85.9375,
+          "max": 156.25
+        },
+        "process_lifetime_peak_bytes": {
+          "min": 8478720,
+          "mean": 9131712,
+          "max": 10153984
+        },
+        "B_no_message": {
+          "energy": {
+            "min": 149,
+            "mean": 229.53125,
+            "max": 355
+          },
+          "primitives": {
+            "min": 7822044,
+            "mean": 7822044,
+            "max": 7822044
+          },
+          "reads": {
+            "min": 307112,
+            "mean": 315781.21875,
+            "max": 324258
+          },
+          "wall_ms": {
+            "min": 7.1214,
+            "mean": 8.95200625,
+            "max": 17.9327
+          },
+          "cpu_ms": {
+            "min": 0,
+            "mean": 8.7890625,
+            "max": 31.25
+          },
+          "contact_ticks": {
+            "min": 125,
+            "mean": 125,
+            "max": 125
+          },
+          "contact_wall_ms": {
+            "min": 4.2581,
+            "mean": 5.3546375,
+            "max": 10.1206
+          },
+          "contact_cpu_ms": {
+            "min": 0,
+            "mean": 5.126953125,
+            "max": 15.625
+          },
+          "own_probe_energy": {
+            "min": 115,
+            "mean": 145.21875,
+            "max": 227
+          }
+        },
+        "B_message": {
+          "energy": {
+            "min": 36,
+            "mean": 168.34375,
+            "max": 331
+          },
+          "primitives": {
+            "min": 7822044,
+            "mean": 7822044,
+            "max": 7822044
+          },
+          "reads": {
+            "min": 2445,
+            "mean": 4749.1875,
+            "max": 12417
+          },
+          "wall_ms": {
+            "min": 6.387,
+            "mean": 8.1836734375,
+            "max": 17.3673
+          },
+          "cpu_ms": {
+            "min": 0,
+            "mean": 8.7890625,
+            "max": 15.625
+          },
+          "contact_ticks": {
+            "min": 125,
+            "mean": 125,
+            "max": 125
+          },
+          "contact_wall_ms": {
+            "min": 4.2805,
+            "mean": 5.6208171875,
+            "max": 11.2934
+          },
+          "contact_cpu_ms": {
+            "min": 0,
+            "mean": 5.859375,
+            "max": 15.625
+          },
+          "own_probe_energy": {
+            "min": 9,
+            "mean": 84.03125,
+            "max": 210
+          }
+        }
+      },
+      "final_models": {
+        "min": 1,
+        "mean": 9.90625,
+        "max": 54
+      },
+      "final_all_correct": 7717,
+      "final_covered": 8192,
+      "final_unanimous": 7054,
+      "final_false_unanimous": 0,
+      "final_width_sum": 19458,
+      "empty_final": 0,
+      "first_singleton": [
+        7,
+        5,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        8,
+        null,
+        null,
+        3,
+        null,
+        null,
+        6,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        6,
+        null,
+        null,
+        null,
+        null,
+        5,
+        null,
+        null,
+        null,
+        2,
+        null,
+        6,
+        null
+      ],
+      "teacher_work": 61,
+      "B_work": [
+        62,
+        64
+      ],
+      "exhausted": 0,
+      "curve": [
+        0.5364990234375,
+        0.766357421875,
+        0.8524169921875,
+        0.875732421875,
+        0.9010009765625,
+        0.9166259765625,
+        0.9281005859375,
+        0.9420166015625
+      ]
+    },
+    "A": {
+      "costs": {
+        "training_energy": {
+          "min": 243,
+          "mean": 457.21875,
+          "max": 710
+        },
+        "energy": {
+          "min": 1368,
+          "mean": 2258.453125,
+          "max": 3350
+        },
+        "primitives": {
+          "min": 7822044,
+          "mean": 7822044,
+          "max": 7822044
+        },
+        "reads": {
+          "min": 310542,
+          "mean": 333167.796875,
+          "max": 360215
+        },
+        "training_wall_ms": {
+          "min": 51.0753,
+          "mean": 60.9099125,
+          "max": 110.0319
+        },
+        "training_cpu_ms": {
+          "min": 46.875,
+          "mean": 60.05859375,
+          "max": 109.375
+        },
+        "wall_ms": {
+          "min": 68.0886,
+          "mean": 81.46218125,
+          "max": 149.3862
+        },
+        "cpu_ms": {
+          "min": 62.5,
+          "mean": 80.078125,
+          "max": 156.25
+        },
+        "process_lifetime_peak_bytes": {
+          "min": 8871936,
+          "mean": 9476544,
+          "max": 10153984
+        },
+        "B_no_message": {
+          "energy": {
+            "min": 149,
+            "mean": 229.53125,
+            "max": 355
+          },
+          "primitives": {
+            "min": 7822044,
+            "mean": 7822044,
+            "max": 7822044
+          },
+          "reads": {
+            "min": 307112,
+            "mean": 315781.21875,
+            "max": 324258
+          },
+          "wall_ms": {
+            "min": 6.9759,
+            "mean": 8.6783640625,
+            "max": 24.8845
+          },
+          "cpu_ms": {
+            "min": 0,
+            "mean": 10.009765625,
+            "max": 15.625
+          },
+          "contact_ticks": {
+            "min": 125,
+            "mean": 125,
+            "max": 125
+          },
+          "contact_wall_ms": {
+            "min": 4.1492,
+            "mean": 5.1317140625,
+            "max": 13.5971
+          },
+          "contact_cpu_ms": {
+            "min": 0,
+            "mean": 6.34765625,
+            "max": 15.625
+          },
+          "own_probe_energy": {
+            "min": 115,
+            "mean": 145.21875,
+            "max": 227
+          }
+        },
+        "B_message": {
+          "energy": {
+            "min": 54,
+            "mean": 194.546875,
+            "max": 337
+          },
+          "primitives": {
+            "min": 7822044,
+            "mean": 7822044,
+            "max": 7822044
+          },
+          "reads": {
+            "min": 2424,
+            "mean": 2511.671875,
+            "max": 2617
+          },
+          "wall_ms": {
+            "min": 6.2502,
+            "mean": 7.6751234375,
+            "max": 17.3524
+          },
+          "cpu_ms": {
+            "min": 0,
+            "mean": 6.591796875,
+            "max": 31.25
+          },
+          "contact_ticks": {
+            "min": 125,
+            "mean": 125,
+            "max": 125
+          },
+          "contact_wall_ms": {
+            "min": 4.172,
+            "mean": 5.1933078125,
+            "max": 11.8846
+          },
+          "contact_cpu_ms": {
+            "min": 0,
+            "mean": 4.638671875,
+            "max": 15.625
+          },
+          "own_probe_energy": {
+            "min": 26,
+            "mean": 110.234375,
+            "max": 234
+          }
+        }
+      },
+      "final_models": {
+        "min": 1,
+        "mean": 1,
+        "max": 1
+      },
+      "final_all_correct": 8192,
+      "final_covered": 8192,
+      "final_unanimous": 8192,
+      "final_false_unanimous": 0,
+      "final_width_sum": 0,
+      "empty_final": 0,
+      "first_singleton": [
+        3,
+        5,
+        3,
+        5,
+        5,
+        5,
+        6,
+        5,
+        6,
+        6,
+        4,
+        5,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4,
+        6,
+        5,
+        5,
+        5,
+        7,
+        5,
+        3,
+        4,
+        6,
+        5,
+        2,
+        6,
+        5,
+        6,
+        5,
+        3,
+        3,
+        6,
+        5,
+        4,
+        5,
+        6,
+        5,
+        5,
+        4,
+        6,
+        3,
+        5,
+        5,
+        5,
+        3,
+        6,
+        5,
+        5,
+        2,
+        4,
+        6,
+        5,
+        3,
+        5,
+        6,
+        6,
+        3,
+        5,
+        5,
+        4
+      ],
+      "teacher_work": 64,
+      "B_work": [
+        62,
+        64
+      ],
+      "exhausted": 0,
+      "curve": [
+        0.7281494140625,
+        0.863525390625,
+        0.9412841796875,
+        0.980224609375,
+        0.9932861328125,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "outside": {
+    "R": {
+      "costs": {
+        "training_energy": {
+          "min": 405,
+          "mean": 534.5,
+          "max": 628
+        },
+        "energy": {
+          "min": 405,
+          "mean": 534.5,
+          "max": 628
+        },
+        "primitives": {
+          "min": 7822044,
+          "mean": 7822044,
+          "max": 7822044
+        },
+        "reads": {
+          "min": 2370,
+          "mean": 9884.25,
+          "max": 26622
+        },
+        "training_wall_ms": {
+          "min": 51.2167,
+          "mean": 54.82903125,
+          "max": 60.0248
+        },
+        "training_cpu_ms": {
+          "min": 46.875,
+          "mean": 53.7109375,
+          "max": 62.5
+        },
+        "wall_ms": {
+          "min": 61.5795,
+          "mean": 66.8271,
+          "max": 72.7931
+        },
+        "cpu_ms": {
+          "min": 62.5,
+          "mean": 69.3359375,
+          "max": 78.125
+        },
+        "process_lifetime_peak_bytes": {
+          "min": 8474624,
+          "mean": 8773888,
+          "max": 9383936
+        },
+        "B_no_message": {
+          "energy": {
+            "min": 101,
+            "mean": 155.25,
+            "max": 219
+          },
+          "primitives": {
+            "min": 7822044,
+            "mean": 7822044,
+            "max": 7822044
+          },
+          "reads": {
+            "min": 305731,
+            "mean": 306858.75,
+            "max": 308162
+          },
+          "wall_ms": {
+            "min": 5.1068,
+            "mean": 5.9907375,
+            "max": 8.6189
+          },
+          "cpu_ms": {
+            "min": 0,
+            "mean": 8.7890625,
+            "max": 15.625
+          },
+          "contact_ticks": {
+            "min": 125,
+            "mean": 125,
+            "max": 125
+          },
+          "contact_wall_ms": {
+            "min": 4.1491,
+            "mean": 4.74263125,
+            "max": 6.3116
+          },
+          "contact_cpu_ms": {
+            "min": 0,
+            "mean": 5.859375,
+            "max": 15.625
+          },
+          "own_probe_energy": {
+            "min": 101,
+            "mean": 150.25,
+            "max": 219
+          }
+        },
+        "B_message": {
+          "energy": {
+            "min": 60,
+            "mean": 119.125,
+            "max": 203
+          },
+          "primitives": {
+            "min": 7822044,
+            "mean": 7822044,
+            "max": 7822044
+          },
+          "reads": {
+            "min": 2370,
+            "mean": 2428.25,
+            "max": 2558
+          },
+          "wall_ms": {
+            "min": 4.3784,
+            "mean": 5.159575,
+            "max": 6.9688
+          },
+          "cpu_ms": {
+            "min": 0,
+            "mean": 6.8359375,
+            "max": 15.625
+          },
+          "contact_ticks": {
+            "min": 125,
+            "mean": 125,
+            "max": 125
+          },
+          "contact_wall_ms": {
+            "min": 4.1836,
+            "mean": 4.9178,
+            "max": 6.5665
+          },
+          "contact_cpu_ms": {
+            "min": 0,
+            "mean": 5.859375,
+            "max": 15.625
+          },
+          "own_probe_energy": {
+            "min": 60,
+            "mean": 119.125,
+            "max": 203
+          }
+        }
+      },
+      "final_models": {
+        "min": 0,
+        "mean": 0,
+        "max": 0
+      },
+      "final_all_correct": 0,
+      "final_covered": 0,
+      "final_unanimous": 0,
+      "final_false_unanimous": 0,
+      "final_width_sum": 0,
+      "empty_final": 16,
+      "first_singleton": [
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "teacher_work": 0,
+      "B_work": [
+        0,
+        0
+      ],
+      "exhausted": 0,
+      "curve": [
+        0.13037109375,
+        0.06787109375,
+        0.0234375,
+        0.01123046875,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "A": {
+      "costs": {
+        "training_energy": {
+          "min": 476,
+          "mean": 563.875,
+          "max": 717
+        },
+        "energy": {
+          "min": 476,
+          "mean": 563.875,
+          "max": 717
+        },
+        "primitives": {
+          "min": 7822044,
+          "mean": 7822044,
+          "max": 7822044
+        },
+        "reads": {
+          "min": 305859,
+          "mean": 308034.5,
+          "max": 310594
+        },
+        "training_wall_ms": {
+          "min": 50.0743,
+          "mean": 58.28201875,
+          "max": 76.5432
+        },
+        "training_cpu_ms": {
+          "min": 46.875,
+          "mean": 56.640625,
+          "max": 78.125
+        },
+        "wall_ms": {
+          "min": 60.3666,
+          "mean": 70.02925,
+          "max": 87.4665
+        },
+        "cpu_ms": {
+          "min": 46.875,
+          "mean": 68.359375,
+          "max": 93.75
+        },
+        "process_lifetime_peak_bytes": {
+          "min": 9150464,
+          "mean": 9359872,
+          "max": 9666560
+        },
+        "B_no_message": {
+          "energy": {
+            "min": 101,
+            "mean": 155.25,
+            "max": 219
+          },
+          "primitives": {
+            "min": 7822044,
+            "mean": 7822044,
+            "max": 7822044
+          },
+          "reads": {
+            "min": 305731,
+            "mean": 306858.75,
+            "max": 308162
+          },
+          "wall_ms": {
+            "min": 4.9554,
+            "mean": 5.8718812499999995,
+            "max": 8.023
+          },
+          "cpu_ms": {
+            "min": 0,
+            "mean": 4.8828125,
+            "max": 15.625
+          },
+          "contact_ticks": {
+            "min": 125,
+            "mean": 125,
+            "max": 125
+          },
+          "contact_wall_ms": {
+            "min": 4.0545,
+            "mean": 4.7038,
+            "max": 5.4219
+          },
+          "contact_cpu_ms": {
+            "min": 0,
+            "mean": 1.953125,
+            "max": 15.625
+          },
+          "own_probe_energy": {
+            "min": 101,
+            "mean": 150.25,
+            "max": 219
+          }
+        },
+        "B_message": {
+          "energy": {
+            "min": 41,
+            "mean": 110.375,
+            "max": 172
+          },
+          "primitives": {
+            "min": 7822044,
+            "mean": 7822044,
+            "max": 7822044
+          },
+          "reads": {
+            "min": 2371,
+            "mean": 2379.25,
+            "max": 2389
+          },
+          "wall_ms": {
+            "min": 4.3438,
+            "mean": 4.96875,
+            "max": 5.3701
+          },
+          "cpu_ms": {
+            "min": 0,
+            "mean": 5.859375,
+            "max": 15.625
+          },
+          "contact_ticks": {
+            "min": 125,
+            "mean": 125,
+            "max": 125
+          },
+          "contact_wall_ms": {
+            "min": 4.0566,
+            "mean": 4.70473125,
+            "max": 5.0698
+          },
+          "contact_cpu_ms": {
+            "min": 0,
+            "mean": 5.859375,
+            "max": 15.625
+          },
+          "own_probe_energy": {
+            "min": 41,
+            "mean": 110.375,
+            "max": 172
+          }
+        }
+      },
+      "final_models": {
+        "min": 0,
+        "mean": 0,
+        "max": 0
+      },
+      "final_all_correct": 0,
+      "final_covered": 0,
+      "final_unanimous": 0,
+      "final_false_unanimous": 0,
+      "final_width_sum": 0,
+      "empty_final": 16,
+      "first_singleton": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "teacher_work": 0,
+      "B_work": [
+        0,
+        0
+      ],
+      "exhausted": 0,
+      "curve": [
+        0.21875,
+        0.03515625,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "distinct_tasks": {
+    "min": 3,
+    "mean": 19.15625,
+    "max": 20
+  },
+  "pool_size": {
+    "min": 3,
+    "mean": 520.546875,
+    "max": 1326
+  },
+  "distinct_main_laws": 61,
+  "rejected_candidates": 38
+}

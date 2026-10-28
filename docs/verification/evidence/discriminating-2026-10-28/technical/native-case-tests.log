@@ -1,0 +1,21 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: contrast.native_case
+1/8 Test #1: contrast.native_case .............   Passed    6.52 sec
+    Start 2: contrast.fresh_process
+2/8 Test #2: contrast.fresh_process ...........   Passed    7.44 sec
+    Start 3: contrast.agent
+3/8 Test #3: contrast.agent ...................   Passed    0.56 sec
+    Start 4: contrast.physical
+4/8 Test #4: contrast.physical ................   Passed    1.58 sec
+    Start 5: contrast.work
+5/8 Test #5: contrast.work ....................   Passed    1.76 sec
+    Start 6: contrast.pending
+6/8 Test #6: contrast.pending .................   Passed    3.43 sec
+    Start 7: contrast.depleted
+7/8 Test #7: contrast.depleted ................   Passed    0.88 sec
+    Start 8: contrast.boundary
+8/8 Test #8: contrast.boundary ................   Passed    5.70 sec
+
+100% tests passed out of 8
+
+Total Test time (real) =  27.95 sec

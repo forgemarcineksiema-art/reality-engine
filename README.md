@@ -1,5 +1,7 @@
 # Projekt Genesis / Reality Engine
 
+[Doświadczenia rozdzielające wyjaśnienia](docs/verification/discriminating-experiment.md): ukończono audyt, próbę potwierdzającą i fizyczne zadanie konserwacji dwóch mieszkańców. I i A otrzymały wsparcie; T pozostała negatywna. [API i komendy](docs/discriminating-learning.md).
+
 Action RPG w przyziemnej, realistycznej i brutalnej cywilizacji fantasy, łączące otwarty świat z autonomiczną symulacją społeczeństwa. Własny Reality Engine, fizyka i nawigacja. Zatwierdzoną wizję i nadal otwarte szczegóły oddzielają DEC-008 i DEC-011 w [rejestrze decyzji](docs/decisions.md).
 
 **Stan:** zaliczono M00–M04 w opisanym zakresie: fundament, czynności oraz własny ruch kinematyczny 2,5D, kolizje, A*, zmienne przejścia i zapis podróży. Tryb `--motion` działa w oknie Win32/D3D11 na MX330. [Raport M03](docs/verification/m03-motion-navigation.md) obejmuje akceptację obecnego sterowania przez użytkownika, z uwagami do płynności prowadzenia do celu, szybkości i naturalności ruchu. Istnieje ograniczona autonomia potrzeb, pierwszy zakres dostaw w laboratorium przestrzennym oraz autonomiczny zwrot nieprzypisanego ładunku; wspólna mała społeczność ma [zaliczony odbiór M04](docs/verification/m04-acceptance.md), potwierdzony przez użytkownika 27.10.2026. Git używa gałęzi `main`, publikowanej w publicznym `origin` na GitHubie, i wersjonuje punkt wyjścia projektu. Zasady pracy, gałęzi tematycznych i zakres archiwum opisuje [przepływ pracy](docs/workflow.md#repozytorium-git).

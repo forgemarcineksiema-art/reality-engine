@@ -239,3 +239,7 @@ F3 w `reality_traversal` prosi blokującego rozpoczęty Step o zrobienie miejsca
 ### Wspólny odbiór M04
 
 `python tools/start_m04_playtest.py` uruchamia świeże Release `--community`, tworząc nowy katalog pod build na zapis/log/diagnostykę. [Instrukcja](verification/m04-playtest.md) określa próbę człowieka; [audyt](verification/m04-acceptance.md) zawiera macierz kryteriów i fakty. `ctest --preset windows-debug -R '^community[.]' --output-on-failure` uruchamia integrację, a `python tools/test_community_native.py --exe ./build/msvc/RelWithDebInfo/reality_traversal.exe --output ./build/m04-native` zachowuje dwa procesy i expected.save. Katalog wyjściowy musi być nowy. Nowy test ma limit subprocess18s i CTest20s; nie zmieniono dawnych limitów. Wczytanie F9 innego poprawnego świata przełącza panel na ogólny widok zamiast zakładać strukturę community.
+
+## Doświadczenia rozdzielające
+
+`reality_contrast` jest osobnym konsumentem badawczym. Komendy przygotowania, jednorazowego wykonania i niezależnej analizy, a także `--fixture`, `--resume` i `--metadata`, opisuje [API](discriminating-learning.md). [Raport](verification/discriminating-experiment.md) zawiera pełne profile i wyniki I/A/T. Nie zastępuje scen `--community`, `--crossing` ani wcześniejszych laboratoriów.

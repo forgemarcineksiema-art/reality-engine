@@ -1,0 +1,60 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/contrast-portability/frozen-source/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/contrast-portability/frozen-source/CMakeLists.txt
+  simulation_clock.cpp
+  entity_registry.cpp
+  runtime_metrics.cpp
+  work_world.cpp
+  material_transfer.cpp
+  world_snapshot.cpp
+  Generowanie kodu...
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\contrast-rebuild\RelWithDebInfo\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/contrast-portability/frozen-source/CMakeLists.txt
+  lab_session.cpp
+  lab_scene.cpp
+  kinematic.cpp
+  grid_navigation.cpp
+  motion_session.cpp
+  spatial_geometry.cpp
+  surface_navigation.cpp
+  locomotion.cpp
+  platform_motion.cpp
+  traversal_session.cpp
+  traversal_course.cpp
+  traversal_codec.cpp
+  traversal_diagnostics.cpp
+  traversal_needs.cpp
+  traversal_clearance.cpp
+  traversal_delivery.cpp
+  traversal_knowledge.cpp
+  traversal_law.cpp
+  traversal_passages.cpp
+  traversal_scene.cpp
+  Generowanie kodu...
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\contrast-rebuild\RelWithDebInfo\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/contrast-portability/frozen-source/CMakeLists.txt
+  discovery_world.cpp
+  discovery_agent.cpp
+  discovery_session.cpp
+  discovery_codec.cpp
+  discovery_protocol.cpp
+  Generowanie kodu...
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\contrast-rebuild\RelWithDebInfo\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/contrast-portability/frozen-source/CMakeLists.txt
+  hypothesis_program.cpp
+  hypothesis_agent.cpp
+  hypothesis_session.cpp
+  hypothesis_codec.cpp
+  hypothesis_protocol.cpp
+  Generowanie kodu...
+  reality_hypothesis_model.vcxproj -> C:\Users\Marcin\Documents\new\build\contrast-rebuild\RelWithDebInfo\reality_hypothesis_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/contrast-portability/frozen-source/CMakeLists.txt
+  contrast_agent.cpp
+  contrast_session.cpp
+  Generowanie kodu...
+  reality_contrast_model.vcxproj -> C:\Users\Marcin\Documents\new\build\contrast-rebuild\RelWithDebInfo\reality_contrast_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/contrast-portability/frozen-source/CMakeLists.txt
+  contrast_main.cpp
+  reality_contrast.vcxproj -> C:\Users\Marcin\Documents\new\build\contrast-rebuild\RelWithDebInfo\reality_contrast.exe

@@ -1,0 +1,13 @@
+F........
+======================================================================
+FAIL: test_binary_identity_rejects_wrong_build_or_stale_sources (test_contrast_experiment.ContrastTests.test_binary_identity_rejects_wrong_build_or_stale_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_contrast_experiment.py", line 85, in test_binary_identity_rejects_wrong_build_or_stale_sources
+    self.assertTrue(callable(getattr(runner,'validate_native_identity',None)), 'binary is not bound to compiled sources')
+AssertionError: False is not true : binary is not bound to compiled sources
+
+----------------------------------------------------------------------
+Ran 9 tests in 5.545s
+
+FAILED (failures=1)

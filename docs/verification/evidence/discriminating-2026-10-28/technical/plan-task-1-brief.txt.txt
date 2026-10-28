@@ -1,0 +1,9 @@
+### Task 1: Audyt i kontrakt
+
+**Files:** `tools/audit_apparatus.py`, `tools/tests/test_apparatus_audit.py`, niniejszy plan/protokół, mapa dokumentacji.
+**Interfaces:** produces `first_separator(a,b,inputs)`, `decision_tree(tables,inputs)`, `run()` oraz JSON audytu.
+
+- [ ] Testy: para nierozstrzygalna do64, separator66, drzewo 4-modelowe głębokość2, nierozstrzygnięte grupy przy jednym wejściu. RED brak audytu, GREEN te asercje.
+- [ ] Uruchomić pełne wyliczenie audytu, zachować JSON i docs-check. Expected: 2370 modeli, 1397 klas ograniczonych, głębokość7, nierozstrzygnięte0.
+- [ ] Commit kontraktu przed implementacją i próbą.
+

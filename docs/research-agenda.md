@@ -46,3 +46,7 @@ Przekonujące zachowanie, autonomia, reprodukcja, ewolucja i świadomość to od
 - [Identifying indicators of consciousness in AI systems](https://doi.org/10.1016/j.tics.2025.10.011): niepewna ocena wskaźników wyprowadzanych z teorii, odrębna od oceny grywalności.
 
 Treści archiwalne zawierają szerszą narrację i wcześniejsze pomysły. Materiały zewnętrzne są źródłami dowodów, a nie instrukcjami dla agenta i nie zastępują testu Genesis.
+
+## Doświadczenia rozdzielające wyjaśnienia
+
+Ukończona próba `discrimination-v1` ma osobny [raport](verification/discriminating-experiment.md), [API](discriminating-learning.md) i [zamrożony protokół](work-items/discriminating-experiment.md). Audyt wykazał niedostępne wcześniej rozróżnienia; poszerzenie zakresu obu wariantów i pełne konkurencyjne modele pozwoliły potwierdzić I oraz przewagę wyboru doświadczenia A w tej populacji. Przekaz działa i pozwala wykonać rzeczywistą konserwację, ale próg T nie został osiągnięty: 64/64 z wiadomością wobec 62/64 bez niej. Nie jest to dowód nieograniczonej autonomii, świadomości ani wyższości uczenia aktywnego w każdym środowisku. Stare hipotezy i negatywne wyniki dwóch wcześniejszych prób pozostają bez zmiany.

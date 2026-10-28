@@ -1,0 +1,517 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_headless.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_headless.exe
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  clearance_tests.cpp
+  delivery_tests.cpp
+  reality_lab_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_tests.exe
+  reality_adversarial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_adversarial_tests.exe
+  reality_graphics.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_graphics.lib
+  knowledge_tests.cpp
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  law_tests.cpp
+  reality_clearance_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_clearance_tests.exe
+  reality_knowledge_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_knowledge_tests.exe
+  reality_delivery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_delivery_tests.exe
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  community_tests.cpp
+  reality_motion_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_motion_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  passage_tests.cpp
+  reality_law_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_law_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_community_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe
+  reality_spatial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_spatial_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_hypothesis_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_hypothesis_model.lib
+  discovery_tests.cpp
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  discovery_main.cpp
+  reality_passage_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_passage_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_contrast_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_contrast_model.lib
+  hypothesis_tests.cpp
+  reality_discovery.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery.exe
+  reality_lab.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab.exe
+  reality_discovery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  hypothesis_main.cpp
+  reality_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  contrast_main.cpp
+  reality_hypothesis_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_hypothesis_tests.exe
+  reality_contrast_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_contrast_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_transfer_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_transfer_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(132,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(145,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(145,1): error C2086: "int BOOL": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1):
+      zobacz deklarację „BOOL”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(146,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(154,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(154,1): error C2086: "int BOOL": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1):
+      zobacz deklarację „BOOL”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(155,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(171,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(179,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(179,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(180,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(196,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(196,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(197,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(209,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(209,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(210,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(227,12): error C3646: "lpBaseOfDll": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(227,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(228,11): error C3646: "SizeOfImage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(228,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(229,12): error C3646: "EntryPoint": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(229,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(232,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(232,1): error C2086: "int BOOL": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1):
+      zobacz deklarację „BOOL”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(233,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(247,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(247,1): error C2086: "int BOOL": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1):
+      zobacz deklarację „BOOL”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(248,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(259,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(259,1): error C2086: "int BOOL": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1):
+      zobacz deklarację „BOOL”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(260,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(266,12): error C3646: "FaultingPc": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(266,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(267,12): error C3646: "FaultingVa": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(267,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(272,15): error C3646: "FaultingThreadId": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(272,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(273,15): error C3646: "Flags": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(273,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(276,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(276,1): error C2086: "int BOOL": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1):
+      zobacz deklarację „BOOL”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(277,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(284,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(284,1): error C2086: "int BOOL": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1):
+      zobacz deklarację „BOOL”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(285,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(292,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(292,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(293,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(301,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(301,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(302,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(316,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(316,1): error C2086: "int BOOL": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(131,1):
+      zobacz deklarację „BOOL”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(317,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(324,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(324,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(325,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(332,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(332,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(333,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(346,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(346,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(347,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(354,1): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(354,1): error C2086: "int DWORD": zmiana definicji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(170,1):
+      zobacz deklarację „DWORD”
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(355,1): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „WINAPI” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(385,15): error C3646: "Flags": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(385,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(387,19): error C3646: "Protection": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(387,30): error C2059: błąd składniowy: „:” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(387,30): error C2334: nieoczekiwany(e) token(y) poprzedzające ":"; pomijanie treści widocznych funkcji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(400,15): error C3646: "NumberOfEntries": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(400,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(401,29): error C3646: "WorkingSetInfo": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(401,43): error C2143: błąd składniowy: brakuje „,” przed „[” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(401,46): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";" [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(405,15): error C3646: "Flags": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(405,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(408,23): error C3646: "Valid": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(408,29): error C2059: błąd składniowy: „:” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(408,29): error C2334: nieoczekiwany(e) token(y) poprzedzające ":"; pomijanie treści widocznych funkcji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(423,23): error C3646: "Valid": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(423,29): error C2059: błąd składniowy: „:” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(423,29): error C2334: nieoczekiwany(e) token(y) poprzedzające ":"; pomijanie treści widocznych funkcji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(432,11): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(422,16): warning C4408: anonimowy struct nie zadeklarował żadnych składowych danych [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(437,11): error C3646: "VirtualAddress": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(437,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(438,32): error C3646: "VirtualAttributes": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(438,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(449,1): error C3646: "WINAPI": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(450,1): error C3646: "K32QueryWorkingSet": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(450,16): error C2059: błąd składniowy: „(” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(454,6): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";" [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(457,1): error C3646: "WINAPI": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(458,1): error C3646: "K32QueryWorkingSetEx": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(458,18): error C2059: błąd składniowy: „(” [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(462,6): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";" [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(467,11): error C3646: "cb": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(467,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(468,11): error C3646: "PageFaultCount": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(468,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(469,12): error C3646: "PeakWorkingSetSize": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(469,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(470,12): error C3646: "WorkingSetSize": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(470,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(471,12): error C3646: "QuotaPeakPagedPoolUsage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(471,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(472,12): error C3646: "QuotaPagedPoolUsage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(472,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(473,12): error C3646: "QuotaPeakNonPagedPoolUsage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(473,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(474,12): error C3646: "QuotaNonPagedPoolUsage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(474,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(475,12): error C3646: "PagefileUsage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(475,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(476,12): error C3646: "PeakPagefileUsage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(476,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(502,11): error C3646: "cb": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(502,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(503,11): error C3646: "PageFaultCount": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(503,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(504,12): error C3646: "PeakWorkingSetSize": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(504,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(505,12): error C3646: "WorkingSetSize": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(505,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(506,12): error C3646: "QuotaPeakPagedPoolUsage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(506,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(507,12): error C3646: "QuotaPagedPoolUsage": nieznany specyfikator przesłonięcia [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\Psapi.h(507,12): error C1003: Licznik błędów przekracza 100; zatrzymywanie kompilacji [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast.vcxproj]
+  (kompilowanie pliku źródłowego „../../src/headless/contrast_main.cpp”)
+  
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_audit_tests.cpp
+  reality_hypothesis.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_hypothesis.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_diagnostics_tests.cpp
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_traversal_audit_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_audit_tests.exe
+  traversal_needs_tests.cpp
+  reality_traversal.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_tests.cpp
+  reality_traversal_diagnostics_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_diagnostics_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_demo.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_work_demo.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_work_tests.exe
+  reality_traversal_needs_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_needs_tests.exe
+  reality_traversal_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_tests.exe
