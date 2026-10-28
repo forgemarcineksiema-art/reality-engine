@@ -8,7 +8,11 @@ import tempfile
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'tools'))
 import contrast_judge as judge
-from run_contrast_experiment import case_text
+from run_contrast_experiment import case_text, hashes, source_files, ROOT, validate_native_identity
+from run_hypothesis_experiment import native_provenance
+
+identity=json.loads(subprocess.check_output([sys.argv[1],'--metadata'],text=True))
+validate_native_identity(identity,hashes(ROOT,source_files()),native_provenance(Path(sys.argv[1])))
 
 case = json.loads((Path(__file__).parent/'data/contrast/development-case.json').read_text())
 with tempfile.TemporaryDirectory() as temporary:

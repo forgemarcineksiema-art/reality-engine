@@ -81,5 +81,14 @@ class ContrastTests(unittest.TestCase):
             runner.claim_run(root)
             with self.assertRaises(FileExistsError): runner.claim_run(root)
 
+    def test_binary_identity_rejects_wrong_build_or_stale_sources(self):
+        self.assertTrue(callable(getattr(runner,'validate_native_identity',None)), 'binary is not bound to compiled sources')
+        sources={'src/file.cpp':'a'*64}
+        provenance=dict(configuration='RelWithDebInfo',address_sanitizer='OFF',compiler_version='19.44.35226.0')
+        good=dict(sources=sources,configuration='RelWithDebInfo',asan=0,pointer_bits=64,msvc_full_ver=194435226)
+        runner.validate_native_identity(good,sources,provenance)
+        for bad in (dict(good,configuration='Debug'),dict(good,sources={}),dict(good,asan=1)):
+            with self.assertRaises(ValueError): runner.validate_native_identity(bad,sources,provenance)
+
 
 if __name__=='__main__': unittest.main()

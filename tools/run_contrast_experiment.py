@@ -12,6 +12,7 @@ import subprocess
 import contrast_judge as j
 import hypothesis_model as h
 from run_hypothesis_experiment import native_provenance
+import audit_apparatus
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = 'discrimination-v1'
 
@@ -61,6 +62,14 @@ def validate_review(record, sources):
             and record.get('verified_sources') == sources, 'review must be READY and bound to all sources')
 
 
+def validate_native_identity(identity, sources, provenance):
+    major,minor,patch,*_ = map(int,provenance['compiler_version'].split('.'))
+    j.check(identity['sources']==sources and identity['configuration']==provenance['configuration']
+            and identity['pointer_bits']==64 and identity['asan']==int(provenance['address_sanitizer']=='ON')
+            and identity['msvc_full_ver']==(major*100+minor)*100000+patch,
+            'binary identity differs from sources, compiler or build configuration')
+
+
 def generate(seed, excluded=(), divisor=0):
     rng = h.RandomDomain(seed, 60)
     rejected = []
@@ -98,7 +107,7 @@ def verify(directory):
     j.check(freeze['seeds'] == list(range(base,base+count))+list(range(0x44562000,0x44562010)), 'predeclared seeds changed')
     verify_files(directory/'frozen-source', freeze['sources'], exact=True)
     for module in (__file__,j.__file__,h.__file__,sys.modules['run_discovery_experiment'].__file__,
-                   sys.modules['run_hypothesis_experiment'].__file__):
+                   sys.modules['run_hypothesis_experiment'].__file__,audit_apparatus.__file__):
         j.check(digest(module)==digest(directory/'frozen-source/tools'/Path(module).name),
                 'analysis dependency differs from frozen code: '+Path(module).name)
     cases = read(directory/'cases.json')
@@ -129,6 +138,8 @@ def prepare(args):
                 'development must verify this exact source and binary')
         excluded = {j.truth(c) for c in read(development/'cases.json')[:8]}
     provenance = native_provenance(args.exe)
+    identity = json.loads(subprocess.check_output([str(args.exe.resolve()),'--metadata'],text=True))
+    validate_native_identity(identity,sources,provenance)
     j.check(provenance['configuration']=='RelWithDebInfo' and provenance['address_sanitizer']=='OFF',
             'experiment needs optimized non-ASan binary')
     count,base = (8,0x44560000) if args.mode=='development' else (64,0x44561000)
@@ -140,6 +151,12 @@ def prepare(args):
         target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(source,target)
     shutil.copyfile(args.exe,output/'reality_contrast.exe')
+    write(output/'native-identity.json',identity)
+    build_root=args.exe.resolve().parent.parent
+    shutil.copyfile(build_root/'CMakeCache.txt',output/'CMakeCache.txt')
+    version=provenance['cmake_version']
+    shutil.copyfile(build_root/f'CMakeFiles/{version}/CMakeCXXCompiler.cmake',output/'CMakeCXXCompiler.cmake')
+    write(output/'apparatus-audit.json',audit_apparatus.run())
     if args.review: shutil.copyfile(args.review,output/'review-record.json')
     # Freeze precedes generation of all new truths and task plans.
     write(output/'freeze.json',dict(protocol=PROTOCOL,mode=args.mode,utc=datetime.now(timezone.utc).isoformat(),
@@ -160,6 +177,8 @@ def claim_run(directory):
 
 def run(directory):
     cases = verify(directory)
+    j.check(json.loads(subprocess.check_output([str((directory/'reality_contrast.exe').resolve()),'--metadata'],text=True))
+            == read(directory/'native-identity.json'),'copied binary identity changed')
     claim_run(directory)
     raw = directory/'raw'
     raw.mkdir()

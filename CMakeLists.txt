@@ -86,6 +86,15 @@ add_library(reality_graphics STATIC src/graphics/d3d11_renderer.cpp)
 add_library(reality_contrast_model STATIC src/research/contrast_agent.cpp src/research/contrast_session.cpp)
 target_link_libraries(reality_contrast_model PUBLIC reality_hypothesis_model)
 add_executable(reality_contrast src/headless/contrast_main.cpp)
+add_custom_target(contrast_identity
+    COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/write_contrast_identity.py"
+        "${CMAKE_CURRENT_BINARY_DIR}/contrast_identity.hpp"
+    BYPRODUCTS "${CMAKE_CURRENT_BINARY_DIR}/contrast_identity.hpp"
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+add_dependencies(reality_contrast contrast_identity)
+target_include_directories(reality_contrast PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
+target_compile_definitions(reality_contrast PRIVATE
+    REALITY_CONTRAST_CONFIG="$<CONFIG>" REALITY_CONTRAST_ASAN=$<BOOL:${REALITY_ENABLE_ASAN}>)
 target_link_libraries(reality_contrast PRIVATE reality_contrast_model)
 reality_deploy_diagnostics(reality_contrast)
 target_link_libraries(reality_graphics PUBLIC reality_lab_model d3d11 dxgi d3dcompiler windowscodecs ole32)

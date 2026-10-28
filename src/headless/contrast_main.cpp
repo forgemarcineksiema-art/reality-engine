@@ -1,3 +1,4 @@
+#include "contrast_identity.hpp"
 #include "research/contrast_session.hpp"
 #include <chrono>
 #include <fstream>
@@ -5,8 +6,9 @@
 #include <stdexcept>
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
-#include <Psapi.h>
 #include <Windows.h>
+
+#include <Psapi.h>
 #include <iomanip>
 using namespace reality;
 namespace {
@@ -170,6 +172,13 @@ void variant(std::ostream& o, HypothesisLaw law, bool active, unsigned seed,
 } // namespace
 int main(int argc, char** argv) {
     try {
+        if (argc == 2 && std::string(argv[1]) == "--metadata") {
+            std::cout << "{\"sources\":" << contrast_source_hashes << ",\"configuration\":\""
+                      << REALITY_CONTRAST_CONFIG << "\",\"asan\":" << REALITY_CONTRAST_ASAN
+                      << ",\"msvc_full_ver\":" << _MSC_FULL_VER
+                      << ",\"pointer_bits\":" << sizeof(void*) * 8 << "}\n";
+            return 0;
+        }
         if (argc == 3 && std::string(argv[1]) == "--fixture") {
             const std::filesystem::path directory{argv[2]};
             if (!std::filesystem::create_directory(directory))
