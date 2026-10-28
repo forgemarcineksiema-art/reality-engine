@@ -2028,6 +2028,13 @@ std::string TraversalSession::inspect() const {
                 << " records=" << v.records << " method=" << v.method_known << " reads=" << v.reads
                 << " primitives=" << v.primitives << " stage=" << static_cast<unsigned>(v.stage)
                 << '\n';
+            for (const auto& e : v.history)
+                out << "  practice_observation=" << e.measurement.id
+                    << " actor=" << actors_[i].id.value << " input=" << e.measurement.input
+                    << " output=" << e.measurement.output
+                    << " source=" << e.measurement.source_actor.value
+                    << " via=" << e.via_actor.value << " observed=" << e.measurement.observed_tick
+                    << " learned=" << e.learned_tick << '\n';
         }
     return out.str();
 }

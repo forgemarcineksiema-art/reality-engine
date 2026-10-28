@@ -65,9 +65,9 @@ Ominiecie kalibracji przez rÄ™cznÄ…/autonomicznÄ… drogÄ™; wczytanie8
 
 **Interfaces:** `--community --learning`, istniejÄ…ce F5/F9 i R/F7; I zmienia rÄ™czne wejĹ›cie, O wybiera konfiguracjÄ™, P prĂłbuje. Nie zajmowaÄ‡ Q/E, ktĂłre juĹĽ obracajÄ… kamerÄ™. Dotychczasowe tryby bez zmian. Nowy launcher podaje komendÄ™ i osobny katalog dowodĂłw/zapisu.
 
-- [ ] RED: natywny test rzeczywistego okna wymaga wĹ‚Ä…czenia flagi, obrazu urzÄ…dzenia i komunikatĂłw uczenia/pracy, aktywnego F5/F9 i poprawnego obcego Ĺ›wiata.
-- [ ] PokazaÄ‡ aparat przy istniejÄ…cym stanowisku, wĹ‚asne ostatnie prĂłby i wyraĹşny etap. KrĂłtkie zdarzenia pozostajÄ… w historii. UI tĹ‚umaczy przyjÄ™cie/odmowÄ™ polecenia, nie deklaruje sukcesu przed domenÄ…. ZwykĹ‚e interakcje wymagajÄ… dojĹ›cia; inspektor nie przekazuje prawdy do decyzji.
-- [ ] GREEN: natywny GPU/input, przejÄ™cie i ruch, resize/minimalizacja/powrĂłt, brak aparatu po F9 nie powoduje awarii. Commit.
+- [x] RED: natywny test rzeczywistego okna wymaga wĹ‚Ä…czenia flagi, obrazu urzÄ…dzenia i komunikatĂłw uczenia/pracy, aktywnego F5/F9 i poprawnego obcego Ĺ›wiata.
+- [x] PokazaÄ‡ aparat przy istniejÄ…cym stanowisku, wĹ‚asne ostatnie prĂłby i wyraĹşny etap. KrĂłtkie zdarzenia pozostajÄ… w historii. UI tĹ‚umaczy przyjÄ™cie/odmowÄ™ polecenia, nie deklaruje sukcesu przed domenÄ…. ZwykĹ‚e interakcje wymagajÄ… dojĹ›cia; inspektor nie przekazuje prawdy do decyzji.
+- [x] GREEN: natywny GPU/input, przejÄ™cie i ruch, resize/minimalizacja/powrĂłt, brak aparatu po F9 nie powoduje awarii. Commit.
 
 ### Task 5: KoĹ„cowe domkniÄ™cie i prĂłba uĹĽytkownika
 

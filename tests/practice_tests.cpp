@@ -380,6 +380,8 @@ void teaching() {
     auto expected = s.serialize();
     require(s.practice_view(1).records == 2 && s.practice_view(1).probes == 0,
             "student received no actual evidence");
+    require(s.inspect().find("practice_observation=") != std::string::npos,
+            "retained measurements are invisible in history");
     s.restore(saved);
     s.advance(1);
     require(s.serialize() == expected, "teaching restore differs");
