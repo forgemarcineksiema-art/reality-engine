@@ -3,8 +3,32 @@
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <Psapi.h>
+#include <Windows.h>
+#include <iomanip>
 using namespace reality;
 namespace {
+double cpu_ms() {
+    FILETIME created{}, ended{}, kernel{}, user{};
+    if (!GetProcessTimes(GetCurrentProcess(), &created, &ended, &kernel, &user))
+        throw std::runtime_error("CPU measurement unavailable");
+    const auto ticks = [](FILETIME t) {
+        return (static_cast<std::uint64_t>(t.dwHighDateTime) << 32) | t.dwLowDateTime;
+    };
+    return static_cast<double>(ticks(kernel) + ticks(user)) / 10000.;
+}
+std::uint64_t peak_bytes() {
+    PROCESS_MEMORY_COUNTERS memory{};
+    if (!GetProcessMemoryInfo(GetCurrentProcess(), &memory, sizeof(memory)))
+        throw std::runtime_error("memory measurement unavailable");
+    return memory.PeakWorkingSetSize;
+}
+double elapsed(std::chrono::steady_clock::time_point start) {
+    return std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start)
+        .count();
+}
 template <class T> void array(std::ostream& o, const T& a) {
     o << '[';
     bool comma = false;
@@ -59,6 +83,7 @@ bool goal(ContrastSession& s, std::ostream& o, unsigned actor, unsigned x, unsig
 void variant(std::ostream& o, HypothesisLaw law, bool active, unsigned seed,
              const std::array<std::pair<unsigned, unsigned>, 20>& goals) {
     auto start = std::chrono::steady_clock::now();
+    const auto cpu_start = cpu_ms();
     ContrastSession s{law, active, seed};
     o << "{\"steps\":[";
     for (unsigned n = 0; n < 8; ++n) {
@@ -80,7 +105,9 @@ void variant(std::ostream& o, HypothesisLaw law, bool active, unsigned seed,
         o << "]}";
     }
     s.freeze(0);
-    o << "],\"goals\":[";
+    o << "],\"training_wall_ms\":" << elapsed(start)
+      << ",\"training_cpu_ms\":" << cpu_ms() - cpu_start
+      << ",\"training_energy\":" << 8192 - s.apparatus().devices()[0].source << ",\"goals\":[";
     for (unsigned n = 0; n < 20; ++n) {
         if (n)
             o << ',';
@@ -93,11 +120,22 @@ void variant(std::ostream& o, HypothesisLaw law, bool active, unsigned seed,
         if (message)
             o << ',';
         auto b = s;
+        const auto social_start = std::chrono::steady_clock::now();
+        const auto social_cpu = cpu_ms();
         const auto start_tick = b.tick();
         if (b.meet_and_share(message != 0) != DiscoveryOutcome::Accepted)
             throw std::runtime_error("contact refused");
         o << "{\"contact_ticks\":" << b.tick() - start_tick
-          << ",\"contact_tick\":" << b.contact_tick() << ",\"received\":[";
+          << ",\"contact_tick\":" << b.contact_tick() << ",\"contact_positions\":[";
+        for (unsigned i = 0; i < 6; ++i) {
+            if (i)
+                o << ',';
+            o << std::setprecision(17) << b.contact_positions()[i];
+        }
+        o << "],\"contact_surfaces\":";
+        array(o, b.contact_surfaces());
+        o << ",\"contact_wall_ms\":" << elapsed(social_start)
+          << ",\"contact_cpu_ms\":" << cpu_ms() - social_cpu << ",\"received\":[";
         bool comma = false;
         for (const auto& e : b.agent(1).evidence()) {
             if (comma)
@@ -118,14 +156,16 @@ void variant(std::ostream& o, HypothesisLaw law, bool active, unsigned seed,
         (void)goal(b, o, 1, goals[0].first, goals[0].second, true);
         o << ",\"reads\":" << b.agent(1).cost().reads
           << ",\"primitives\":" << b.agent(1).cost().primitives
-          << ",\"energy\":" << 8192 - b.apparatus().devices()[1].source << '}';
+          << ",\"energy\":" << 8192 - b.apparatus().devices()[1].source
+          << ",\"wall_ms\":" << elapsed(social_start) << ",\"cpu_ms\":" << cpu_ms() - social_cpu
+          << ",\"exhausted\":" << b.agent(1).exhausted() << '}';
     }
     const auto& cost = s.agent(0).cost();
     o << "],\"reads\":" << cost.reads << ",\"primitives\":" << cost.primitives
       << ",\"exhausted\":" << s.agent(0).exhausted()
-      << ",\"energy\":" << 8192 - s.apparatus().devices()[0].source << ",\"wall_ms\":"
-      << std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count()
-      << '}';
+      << ",\"energy\":" << 8192 - s.apparatus().devices()[0].source
+      << ",\"wall_ms\":" << elapsed(start) << ",\"cpu_ms\":" << cpu_ms() - cpu_start
+      << ",\"process_lifetime_peak_bytes\":" << peak_bytes() << '}';
 }
 } // namespace
 int main(int argc, char** argv) {
@@ -198,7 +238,7 @@ int main(int argc, char** argv) {
         if (std::filesystem::exists(argv[2]))
             throw std::runtime_error("output exists");
         std::ofstream o(argv[2]);
-        o << "{\"R\":";
+        o << "{\"schema\":2,\"R\":";
         variant(o, law, false, seed, goals);
         o << ",\"A\":";
         variant(o, law, true, seed, goals);

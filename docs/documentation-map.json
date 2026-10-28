@@ -2,6 +2,11 @@
   "version": 1,
   "documents": [
     {
+      "path": "docs/discriminating-learning.md",
+      "role": "current-state",
+      "topic": "discriminating-learning-api"
+    },
+    {
       "path": "docs/verification/discriminating-experiment.md",
       "role": "verification",
       "topic": "discriminating-experiment-progress"

@@ -206,6 +206,8 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_test(NAME contrast.native_case COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/contrast_case_integration.py" "$<TARGET_FILE:reality_contrast>")
     add_test(NAME contrast.fresh_process COMMAND "${Python3_EXECUTABLE}"
         "${CMAKE_CURRENT_SOURCE_DIR}/tests/contrast_integration.py" "$<TARGET_FILE:reality_contrast>")
     add_executable(reality_contrast_tests tests/contrast_tests.cpp)

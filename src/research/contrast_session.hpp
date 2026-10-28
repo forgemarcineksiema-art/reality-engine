@@ -29,6 +29,8 @@ class ContrastSession final {
     [[nodiscard]] bool work_started() const noexcept { return work_started_; }
     [[nodiscard]] bool pending() const noexcept { return pending_.has_value(); }
     [[nodiscard]] std::uint64_t contact_tick() const noexcept { return contact_tick_; }
+    [[nodiscard]] const auto& contact_positions() const noexcept { return contact_positions_; }
+    [[nodiscard]] const auto& contact_surfaces() const noexcept { return contact_surfaces_; }
     [[nodiscard]] std::string serialize() const;
     void restore(std::string_view bytes);
 
@@ -53,6 +55,8 @@ class ContrastSession final {
     std::uint64_t command_ = 1;
     bool work_started_ = false;
     std::uint64_t contact_tick_ = 0;
+    std::array<double, 6> contact_positions_{};
+    std::array<std::uint32_t, 2> contact_surfaces_{};
     [[nodiscard]] bool at_bench(unsigned actor) const;
     void room(unsigned entries = 1) const;
     void ready() const;

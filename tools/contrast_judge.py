@@ -3,7 +3,7 @@ import sys
 sys.dont_write_bytecode = True
 from collections import Counter
 from fractions import Fraction
-from math import comb
+from math import comb, isfinite
 import hypothesis_model as h
 
 
@@ -101,7 +101,14 @@ def goal(mind, raw, values, pair, actor, tick, command, work=False):
     return tick, command, int(good)
 
 
-def judge(case, raw):
+def judge_legacy(case, raw):
+    """Historical development reader; never used for new experiment packages."""
+    return judge(case, raw, legacy=True)
+
+
+def judge(case, raw, *, legacy=False):
+    if not legacy:
+        check(raw.get('schema') == 2, 'strict native schema 2 required')
     values = truth(case)
     result = {}
     for mode in ('R', 'A'):
@@ -109,12 +116,22 @@ def judge(case, raw):
         a = Mind(mode == 'A', case['seed'])
         tick, command = 0, 2
         curve = []
+        diagnostics = []
         for step in r['steps']:
             tick, command = trial(a, step['trial'], values, 1, tick, command)
             ps = [a.predict((0,), x) for x in range(1,129)]
             check(step['predictions'] == ps, 'prediction declaration changed')
+            if not case['divisor']:
+                check(values in a.current, 'true behavior eliminated from in-language alternatives')
             used = {x for x, _ in a.evidence}
             curve.append(Fraction(sum(p is not None and p[0] == values[x] for x,p in enumerate(ps,1) if x not in used), 128-len(used)))
+            diagnostics.append(dict(models=len(a.current),
+                all_correct=sum(p is not None and p[0] == values[x] for x,p in enumerate(ps,1)),
+                covered=sum(p is not None and p[1] <= values[x] <= p[2] for x,p in enumerate(ps,1)),
+                unanimous=sum(p is not None and p[1] == p[2] for p in ps),
+                false_unanimous=sum(p is not None and p[1] == p[2] and p[0] != values[x] for x,p in enumerate(ps,1)),
+                width=sum(p[2]-p[1] for p in ps if p is not None),
+                informative=step['trial']['active']))
         check(len(curve) == 8, 'training budget changed')
         hits = 0
         for pair, g in zip(case['goals'], r['goals'], strict=True):
@@ -127,18 +144,32 @@ def judge(case, raw):
         if r['teacher']['measurement']:
             expected_energy += r['teacher']['measurement']['input']
         check(r['energy'] == expected_energy, 'teacher energy changed')
+        if not legacy:
+            check(r['training_energy'] == sum(t['trial']['input'] for t in r['steps']) <= 1024, 'training energy budget')
+            for field in ('wall_ms','cpu_ms','training_wall_ms','training_cpu_ms'):
+                check(isfinite(r[field]) and r[field] >= 0, 'invalid teacher timing')
+            check(0 < r['process_lifetime_peak_bytes'], 'missing process memory measurement')
         social = []
         for message, braw in enumerate(r['social']):
             b = Mind(True,case['seed'])
             btick, bcommand = tick+braw['contact_ticks'],command
             check(0 < braw['contact_ticks'] < 1000, 'invalid physical contact cost')
-            if 'contact_tick' in braw:
+            if not legacy:
+                check(all(k in braw for k in ('contact_tick','contact_positions','contact_surfaces')), 'missing contact proof')
                 check(tick < braw['contact_tick'] <= btick, 'invalid contact instant')
+                positions = braw['contact_positions']
+                check(len(positions) == 6 and all(isfinite(x) for x in positions), 'invalid contact coordinates')
+                check(braw['contact_surfaces'] == [1,1] and
+                      sum((positions[k]-positions[k+3])**2 for k in range(3)) <= 4+1e-9,
+                      'contact outside shared support or two metre reach')
+                check(positions[3:] == [4,0,0], 'recipient moved during fixed contact fixture')
+                for field in ('wall_ms','cpu_ms','contact_wall_ms','contact_cpu_ms'):
+                    check(isfinite(braw[field]) and braw[field] >= 0, 'invalid recipient timing')
             check(len(braw['received']) == (8 if message else 0), 'packet length')
             for i,e in enumerate(braw['received']):
                 original = r['steps'][i]['trial']['measurement']
                 check(e['measurement'] == original and e['via'] == 1 and original['tick'] < e['learned'] <= btick, 'teaching provenance changed')
-                if 'contact_tick' in braw:
+                if not legacy:
                     check(e['learned'] == braw['contact_tick'], 'wrong teaching instant')
                 b.observe(original['input'], original['output'])
             for t in braw['trials']:
@@ -150,9 +181,16 @@ def judge(case, raw):
             if braw['work']['measurement']:
                 expected_b_energy += braw['work']['measurement']['input']
             check(braw['energy'] == expected_b_energy, 'recipient energy changed')
+            check(sum(t['input'] for t in braw['trials']) <= 256, 'recipient energy budget')
+            if not legacy:
+                check(braw['exhausted'] == b.exhausted, 'recipient exhaustion changed')
             social.append(good)
         check(len(social)==2 and r['social'][0]['contact_ticks']==r['social'][1]['contact_ticks'], 'unequal contact')
-        result[mode] = dict(D=str(curve[-1]), curve=str(sum(curve)/8), G=hits, singleton=len(a.current)==1, teacher=teacher, social=social)
+        if not legacy:
+            check(all(r['social'][0][k] == r['social'][1][k] for k in ('contact_tick','contact_positions','contact_surfaces')), 'unequal contact proof')
+        result[mode] = dict(D=str(curve[-1]), curve=str(sum(curve)/8), G=hits, singleton=len(a.current)==1,
+                            teacher=teacher, social=social, diagnostics=diagnostics,
+                            first_singleton=next((i+1 for i,d in enumerate(diagnostics) if d['models']==1),None))
     return result
 
 

@@ -236,6 +236,13 @@ DiscoveryOutcome ContrastSession::share(bool message) {
     advance(1);
     events_.pop_back(); // share is one atomic journal operation, including its time
     contact_tick_ = tick();
+    for (unsigned i = 0; i < 2; ++i) {
+        const auto& a = traversal_.actors()[i];
+        contact_positions_[i * 3] = a.feet.x;
+        contact_positions_[i * 3 + 1] = a.feet.y;
+        contact_positions_[i * 3 + 2] = a.feet.z;
+        contact_surfaces_[i] = a.support.surface;
+    }
     agents_[1] = std::move(recipient);
     events_.push_back("s " + std::to_string(message));
     return DiscoveryOutcome::Accepted;
