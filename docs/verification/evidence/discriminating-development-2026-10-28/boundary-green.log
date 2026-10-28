@@ -1,0 +1,19 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: contrast.fresh_process
+1/7 Test #1: contrast.fresh_process ...........   Passed    8.31 sec
+    Start 2: contrast.agent
+2/7 Test #2: contrast.agent ...................   Passed    0.58 sec
+    Start 3: contrast.physical
+3/7 Test #3: contrast.physical ................   Passed    1.67 sec
+    Start 4: contrast.work
+4/7 Test #4: contrast.work ....................   Passed    1.84 sec
+    Start 5: contrast.pending
+5/7 Test #5: contrast.pending .................   Passed    3.15 sec
+    Start 6: contrast.depleted
+6/7 Test #6: contrast.depleted ................   Passed    0.87 sec
+    Start 7: contrast.boundary
+7/7 Test #7: contrast.boundary ................   Passed    5.50 sec
+
+100% tests passed out of 7
+
+Total Test time (real) =  21.98 sec

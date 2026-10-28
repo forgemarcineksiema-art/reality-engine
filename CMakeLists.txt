@@ -83,6 +83,11 @@ target_link_libraries(reality_hypothesis PRIVATE reality_hypothesis_model)
 reality_deploy_diagnostics(reality_hypothesis)
 
 add_library(reality_graphics STATIC src/graphics/d3d11_renderer.cpp)
+add_library(reality_contrast_model STATIC src/research/contrast_agent.cpp src/research/contrast_session.cpp)
+target_link_libraries(reality_contrast_model PUBLIC reality_hypothesis_model)
+add_executable(reality_contrast src/headless/contrast_main.cpp)
+target_link_libraries(reality_contrast PRIVATE reality_contrast_model)
+reality_deploy_diagnostics(reality_contrast)
 target_link_libraries(reality_graphics PUBLIC reality_lab_model d3d11 dxgi d3dcompiler windowscodecs ole32)
 target_compile_definitions(reality_graphics PUBLIC WIN32_LEAN_AND_MEAN NOMINMAX UNICODE _UNICODE)
 
@@ -94,6 +99,12 @@ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 sh
 reality_deploy_diagnostics(reality_traversal)
 
 set(reality_cpp_files
+    src/headless/contrast_main.cpp
+    src/research/contrast_agent.hpp
+    src/research/contrast_agent.cpp
+    src/research/contrast_session.hpp
+    src/research/contrast_session.cpp
+    tests/contrast_tests.cpp
     src/research/hypothesis_protocol.hpp
     src/research/hypothesis_protocol.cpp
     src/headless/hypothesis_main.cpp
@@ -195,6 +206,14 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_test(NAME contrast.fresh_process COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/contrast_integration.py" "$<TARGET_FILE:reality_contrast>")
+    add_executable(reality_contrast_tests tests/contrast_tests.cpp)
+    target_link_libraries(reality_contrast_tests PRIVATE reality_contrast_model)
+    reality_deploy_diagnostics(reality_contrast_tests)
+    foreach(case IN ITEMS agent physical work pending depleted boundary)
+        add_test(NAME contrast.${case} COMMAND reality_contrast_tests ${case})
+    endforeach()
     add_executable(reality_hypothesis_tests tests/hypothesis_tests.cpp)
     target_link_libraries(reality_hypothesis_tests PRIVATE reality_hypothesis_model)
     reality_deploy_diagnostics(reality_hypothesis_tests)

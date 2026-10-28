@@ -2,6 +2,11 @@
   "version": 1,
   "documents": [
     {
+      "path": "docs/verification/discriminating-experiment.md",
+      "role": "verification",
+      "topic": "discriminating-experiment-progress"
+    },
+    {
       "path": "docs/work-items/discriminating-experiment.md",
       "role": "research",
       "topic": "discriminating-experiment-protocol"

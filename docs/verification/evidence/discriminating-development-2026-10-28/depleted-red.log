@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 6: contrast.depleted
+1/1 Test #6: contrast.depleted ................***Failed    0.94 sec
+accepted an impulse without energy
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   1.02 sec
+
+The following tests FAILED:
+	  6 - contrast.depleted (Failed)
+Errors while running CTest

@@ -1,0 +1,56 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 1: contrast.agent
+Could not find executable C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+Looked in the following places:
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/RelWithDebInfo/reality_contrast_tests.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/RelWithDebInfo/reality_contrast_tests.exe.exe
+RelWithDebInfo/C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+RelWithDebInfo/C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe.exe
+1/4 Test #1: contrast.agent ...................***Not Run   0.00 sec
+Unable to find executable: C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+    Start 2: contrast.physical
+Could not find executable C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+Looked in the following places:
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/RelWithDebInfo/reality_contrast_tests.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/RelWithDebInfo/reality_contrast_tests.exe.exe
+RelWithDebInfo/C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+RelWithDebInfo/C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe.exe
+Unable to find executable: C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+2/4 Test #2: contrast.physical ................***Not Run   0.00 sec
+    Start 3: contrast.work
+Could not find executable C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+Looked in the following places:
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/RelWithDebInfo/reality_contrast_tests.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/RelWithDebInfo/reality_contrast_tests.exe.exe
+RelWithDebInfo/C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+RelWithDebInfo/C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe.exe
+Unable to find executable: C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+3/4 Test #3: contrast.work ....................***Not Run   0.00 sec
+    Start 4: contrast.pending
+Could not find executable C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+Looked in the following places:
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/RelWithDebInfo/reality_contrast_tests.exe
+C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/RelWithDebInfo/reality_contrast_tests.exe.exe
+RelWithDebInfo/C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+RelWithDebInfo/C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe.exe
+Unable to find executable: C:/Users/Marcin/Documents/new/build/msvc/RelWithDebInfo/reality_contrast_tests.exe
+4/4 Test #4: contrast.pending .................***Not Run   0.00 sec
+
+0% tests passed, 4 tests failed out of 4
+
+Total Test time (real) =   0.06 sec
+
+The following tests FAILED:
+	  1 - contrast.agent (Not Run)
+	  2 - contrast.physical (Not Run)
+	  3 - contrast.work (Not Run)
+	  4 - contrast.pending (Not Run)
+Errors while running CTest

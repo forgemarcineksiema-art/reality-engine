@@ -1,0 +1,56 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_scene.cpp
+  traversal_clearance.cpp
+  traversal_codec.cpp
+  traversal_course.cpp
+  traversal_delivery.cpp
+  traversal_diagnostics.cpp
+  traversal_knowledge.cpp
+  traversal_law.cpp
+  traversal_needs.cpp
+  traversal_passages.cpp
+  traversal_session.cpp
+  Generowanie kodu...
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  discovery_agent.cpp
+  discovery_codec.cpp
+  discovery_protocol.cpp
+  discovery_session.cpp
+  discovery_world.cpp
+  Generowanie kodu...
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  hypothesis_agent.cpp
+  hypothesis_codec.cpp
+  hypothesis_program.cpp
+  hypothesis_protocol.cpp
+  hypothesis_session.cpp
+  Generowanie kodu...
+  reality_hypothesis_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_hypothesis_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  contrast_tests.cpp
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: __cdecl reality::ContrastAgent::ContrastAgent(struct reality::EntityId,bool,struct reality::HypothesisLimits)" (??0ContrastAgent@reality@@QEAA@UEntityId@1@_NUHypothesisLimits@1@@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::agent(void)" (?agent@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: bool __cdecl reality::ContrastAgent::observe(struct reality::DiscoveryEvidence const &,bool)" (?observe@ContrastAgent@reality@@QEAA_NAEBUDiscoveryEvidence@2@_N@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::agent(void)" (?agent@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: struct reality::ContrastChoice __cdecl reality::ContrastAgent::choose(class std::span<unsigned int const ,-1>)" (?choose@ContrastAgent@reality@@QEAA?AUContrastChoice@2@V?$span@$$CBI$0?0@std@@@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::agent(void)" (?agent@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: class std::optional<struct reality::DiscoveryPrediction> __cdecl reality::ContrastAgent::predict(class std::vector<unsigned char,class std::allocator<unsigned char> > const &,unsigned int)" (?predict@ContrastAgent@reality@@QEAA?AV?$optional@UDiscoveryPrediction@reality@@@std@@AEBV?$vector@EV?$allocator@E@std@@@4@I@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::agent(void)" (?agent@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: __cdecl reality::ContrastSession::ContrastSession(struct reality::HypothesisLaw,bool,unsigned int,struct reality::HypothesisLimits)" (??0ContrastSession@reality@@QEAA@UHypothesisLaw@1@_NIUHypothesisLimits@1@@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::physical(void)" (?physical@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: struct reality::ContrastChoice __cdecl reality::ContrastSession::choose(unsigned int)" (?choose@ContrastSession@reality@@QEAA?AUContrastChoice@2@I@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::train(class reality::ContrastSession &)" (?train@?A0xa7ab9de5@@YAXAEAVContrastSession@reality@@@Z) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: class std::optional<class std::vector<unsigned char,class std::allocator<unsigned char> > > __cdecl reality::ContrastSession::choose_chain(unsigned int,unsigned int,unsigned int)" (?choose_chain@ContrastSession@reality@@QEAA?AV?$optional@V?$vector@EV?$allocator@E@std@@@std@@@std@@III@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::work(void)" (?work@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: enum reality::DiscoveryOutcome __cdecl reality::ContrastSession::begin_probe(unsigned int,class std::vector<unsigned char,class std::allocator<unsigned char> >,unsigned int,bool)" (?begin_probe@ContrastSession@reality@@QEAA?AW4DiscoveryOutcome@2@IV?$vector@EV?$allocator@E@std@@@std@@I_N@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::train(class reality::ContrastSession &)" (?train@?A0xa7ab9de5@@YAXAEAVContrastSession@reality@@@Z) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: enum reality::DiscoveryOutcome __cdecl reality::ContrastSession::begin_work(unsigned int,class std::vector<unsigned char,class std::allocator<unsigned char> >,unsigned int,unsigned int)" (?begin_work@ContrastSession@reality@@QEAA?AW4DiscoveryOutcome@2@IV?$vector@EV?$allocator@E@std@@@std@@II@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::work(void)" (?work@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: void __cdecl reality::ContrastSession::advance(unsigned __int64)" (?advance@ContrastSession@reality@@QEAAX_K@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::train(class reality::ContrastSession &)" (?train@?A0xa7ab9de5@@YAXAEAVContrastSession@reality@@@Z) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: void __cdecl reality::ContrastSession::freeze(unsigned int)" (?freeze@ContrastSession@reality@@QEAAXI@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::train(class reality::ContrastSession &)" (?train@?A0xa7ab9de5@@YAXAEAVContrastSession@reality@@@Z) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: enum reality::DiscoveryOutcome __cdecl reality::ContrastSession::share(bool)" (?share@ContrastSession@reality@@QEAA?AW4DiscoveryOutcome@2@_N@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::physical(void)" (?physical@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: enum reality::DiscoveryOutcome __cdecl reality::ContrastSession::meet_and_share(bool)" (?meet_and_share@ContrastSession@reality@@QEAA?AW4DiscoveryOutcome@2@_N@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::work(void)" (?work@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: unsigned __int64 __cdecl reality::ContrastSession::tick(void)const " (?tick@ContrastSession@reality@@QEBA_KXZ) przywołany w funkcji "void __cdecl `anonymous namespace'::work(void)" (?work@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: unsigned __int64 __cdecl reality::ContrastSession::parts(unsigned int)const " (?parts@ContrastSession@reality@@QEBA_KI@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::work(void)" (?work@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: unsigned __int64 __cdecl reality::ContrastSession::completed(unsigned int)const " (?completed@ContrastSession@reality@@QEBA_KI@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::work(void)" (?work@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl reality::ContrastSession::serialize(void)const " (?serialize@ContrastSession@reality@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ) przywołany w funkcji "void __cdecl `anonymous namespace'::physical(void)" (?physical@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+contrast_tests.obj : error LNK2019: nierozpoznany symbol zewnętrzny "public: void __cdecl reality::ContrastSession::restore(class std::basic_string_view<char,struct std::char_traits<char> >)" (?restore@ContrastSession@reality@@QEAAXV?$basic_string_view@DU?$char_traits@D@std@@@std@@@Z) przywołany w funkcji "void __cdecl `anonymous namespace'::physical(void)" (?physical@?A0xa7ab9de5@@YAXXZ) [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]
+C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_contrast_tests.exe : fatal error LNK1120: liczba nierozpoznanych elementów zewnętrznych: 18 [C:\Users\Marcin\Documents\new\build\msvc\reality_contrast_tests.vcxproj]

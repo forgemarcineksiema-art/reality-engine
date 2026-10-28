@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_adaptive_tree_proves_bound_for_every_model (test_apparatus_audit.ApparatusAuditTests.test_adaptive_tree_proves_bound_for_every_model)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_apparatus_audit.py", line 22, in test_adaptive_tree_proves_bound_for_every_model
+    self.assertIsNotNone(audit, 'missing apparatus distinguishability audit')
+AssertionError: unexpectedly None : missing apparatus distinguishability audit
+
+======================================================================
+FAIL: test_indistinguishable_until_intervention (test_apparatus_audit.ApparatusAuditTests.test_indistinguishable_until_intervention)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_apparatus_audit.py", line 13, in test_indistinguishable_until_intervention
+    self.assertIsNotNone(audit, 'missing apparatus distinguishability audit')
+AssertionError: unexpectedly None : missing apparatus distinguishability audit
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

@@ -1,0 +1,58 @@
+{
+  "protocol": "apparatus-audit-v1",
+  "syntax": 20440,
+  "semantic_models": 2370,
+  "restricted_classes": 1397,
+  "ambiguous_classes": 150,
+  "ambiguous_models": 1123,
+  "maximum_ambiguity": 526,
+  "ambiguous_pairs": 139219,
+  "catalogue_sha256": "fbb484c9c1ad3284958df420d80ad9a5079f84d6400f3e8ae763d0418b7a61f7",
+  "full_tree": {
+    "max_depth": 7,
+    "leaves": 2370,
+    "unresolved": 0,
+    "depths": {
+      "1": 20,
+      "2": 214,
+      "3": 328,
+      "4": 451,
+      "5": 944,
+      "6": 391,
+      "7": 22
+    },
+    "model_reads": 1318697
+  },
+  "witness": {
+    "f": [
+      [
+        0,
+        48
+      ],
+      [
+        2,
+        12
+      ]
+    ],
+    "g": [
+      [
+        0,
+        48
+      ],
+      [
+        1,
+        16
+      ],
+      [
+        2,
+        12
+      ]
+    ],
+    "old_separator": null,
+    "new_separator": 66,
+    "at_96": [
+      36,
+      12
+    ]
+  }
+}

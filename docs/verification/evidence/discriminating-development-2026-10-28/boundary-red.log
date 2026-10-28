@@ -1,0 +1,13 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 7: contrast.boundary
+1/1 Test #7: contrast.boundary ................***Failed    3.65 sec
+accepted impulse beyond session horizon
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   3.73 sec
+
+The following tests FAILED:
+	  7 - contrast.boundary (Failed)
+Errors while running CTest

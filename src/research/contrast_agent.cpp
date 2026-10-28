@@ -1,0 +1,192 @@
+#include "research/contrast_agent.hpp"
+#include <algorithm>
+#include <set>
+#include <sstream>
+#include <stdexcept>
+namespace reality {
+ContrastAgent::ContrastAgent(EntityId actor, bool active, HypothesisLimits limits)
+    : actor_(actor), active_(active), limits_(limits) {
+    if (!actor.value || limits.primitives > 10000000 || limits.reads > 300000000)
+        throw std::invalid_argument("contrast mind parameters");
+    auto programs = hypothesis_grammar();
+    cost_.generated = programs.size();
+    auto flat = hypothesis_flat_programs();
+    programs.insert(programs.end(), flat.begin(), flat.end());
+    std::sort(programs.begin(), programs.end(), [](const auto& a, const auto& b) {
+        return a.size() != b.size() ? a.size() < b.size() : a < b;
+    });
+    std::set<HypothesisTable> seen;
+    for (auto& program : programs) {
+        if (!charge(program.size() * 129, true))
+            break;
+        auto table = hypothesis_table(program);
+        if (seen.insert(table).second)
+            models_.push_back({std::move(program), table});
+    }
+}
+bool ContrastAgent::charge(std::uint64_t count, bool primitive) {
+    auto& spent = primitive ? cost_.primitives : cost_.reads;
+    const auto limit = primitive ? limits_.primitives : limits_.reads;
+    if (exhausted_)
+        return false;
+    if (count > limit - spent) {
+        exhausted_ = true;
+        return false;
+    }
+    spent += count;
+    return true;
+}
+bool ContrastAgent::observe(const DiscoveryEvidence& e, bool shared) {
+    if (frozen_)
+        return false;
+    const auto& m = e.measurement;
+    if (!m.id || m.id != m.command || !m.source_actor.value || m.input < 1 || m.input > 128 ||
+        m.output > m.input || m.chain != DiscoveryChain{0} || !m.observed_tick ||
+        e.learned_tick < m.observed_tick || e.via_actor != m.source_actor || m.apparatus > 1 ||
+        (shared ? (m.source_actor == actor_ || e.learned_tick == m.observed_tick)
+                : (m.source_actor != actor_ || e.learned_tick != m.observed_tick)))
+        throw std::invalid_argument("contrast evidence provenance");
+    for (const auto& old : evidence_) {
+        if (old.measurement.id == m.id) {
+            if (old != e)
+                throw std::invalid_argument("conflicting contrast evidence");
+            return false;
+        }
+    }
+    if (evidence_.size() >= 24 ||
+        (!evidence_.empty() && e.learned_tick < evidence_.back().learned_tick))
+        throw std::invalid_argument("contrast evidence capacity/chronology");
+    evidence_.push_back(e);
+    if (exhausted_)
+        return true;
+    std::vector<HypothesisModel> remaining;
+    for (const auto& model : models_) {
+        if (!charge(1))
+            return true;
+        if (model.table[m.input] == m.output)
+            remaining.push_back(model);
+    }
+    models_ = std::move(remaining);
+    return true;
+}
+ContrastChoice ContrastAgent::choose(std::span<const unsigned> permutation) {
+    if (permutation.size() != 128)
+        throw std::invalid_argument("contrast permutation size");
+    std::array<bool, 129> seen{}, used{};
+    for (const auto& e : evidence_)
+        used[e.measurement.input] = true;
+    ContrastChoice c;
+    c.before = models_.size();
+    for (auto x : permutation) {
+        if (x < 1 || x > 128 || seen[x])
+            throw std::invalid_argument("contrast permutation values");
+        seen[x] = true;
+        if (!used[x] && !c.input)
+            c.input = x;
+    }
+    if (!active_ || exhausted_ || c.before < 2)
+        return c;
+    const auto fallback = c.input;
+    c.worst = c.before;
+    for (unsigned x = 1; x <= 128; ++x) {
+        if (used[x])
+            continue;
+        std::array<std::uint64_t, 129> groups{};
+        for (const auto& model : models_) {
+            if (!charge(1))
+                return ContrastChoice{fallback, false, c.before, 0, {}};
+            ++groups[model.table[x]];
+        }
+        const auto worst = *std::max_element(groups.begin(), groups.end());
+        if (worst < c.worst) {
+            c.input = x;
+            c.worst = worst;
+            c.partition = groups;
+            c.active = true;
+        }
+    }
+    return c;
+}
+std::optional<unsigned> ContrastAgent::output(const HypothesisModel& model,
+                                              const DiscoveryChain& chain, unsigned x) {
+    for (auto symbol : chain) {
+        if (symbol == 0) {
+            if (!charge(1))
+                return {};
+            x = model.table[x];
+        } else if (symbol == 1)
+            x /= 2;
+        else
+            x = std::min(x, 48U);
+    }
+    return x;
+}
+std::optional<DiscoveryPrediction> ContrastAgent::predict(const DiscoveryChain& chain, unsigned x) {
+    if (!discovery_chain_valid(chain) || x > 128)
+        throw std::invalid_argument("contrast prediction range");
+    if (exhausted_ || models_.empty())
+        return {};
+    std::vector<unsigned> values;
+    for (const auto& model : models_) {
+        const auto y = output(model, chain, x);
+        if (!y)
+            return {};
+        values.push_back(*y);
+    }
+    std::sort(values.begin(), values.end());
+    return DiscoveryPrediction{values[(values.size() - 1) / 2], values.front(), values.back(),
+                               values.size()};
+}
+std::optional<DiscoveryChain> ContrastAgent::choose_chain(unsigned x, unsigned target) {
+    if (x < 1 || x > 128 || !target || target > x)
+        throw std::invalid_argument("contrast goal range");
+    if (exhausted_ || models_.empty())
+        return {};
+    std::uint64_t best_hits = 0;
+    unsigned best_spread = 129;
+    std::optional<DiscoveryChain> best;
+    for (const auto& chain : hypothesis_chains()) {
+        std::uint64_t hits = 0;
+        unsigned low = 129, high = 0;
+        for (const auto& model : models_) {
+            const auto y = output(model, chain, x);
+            if (!y)
+                return {};
+            hits += *y == target;
+            low = std::min(low, *y);
+            high = std::max(high, *y);
+        }
+        const auto spread = high - low;
+        if (hits &&
+            (!best || hits > best_hits ||
+             (hits == best_hits &&
+              (spread < best_spread ||
+               (spread == best_spread && (chain.size() < best->size() ||
+                                          (chain.size() == best->size() && chain < *best))))))) {
+            best = chain;
+            best_hits = hits;
+            best_spread = spread;
+        }
+    }
+    return best;
+}
+std::string ContrastAgent::state() const {
+    std::ostringstream out;
+    out << actor_.value << ' ' << active_ << ' ' << frozen_ << ' ' << exhausted_ << ' '
+        << limits_.primitives << ' ' << limits_.reads << ' ' << cost_.primitives << ' '
+        << cost_.reads << ' ' << cost_.generated << '\n';
+    for (const auto& model : models_) {
+        out << model.program.size();
+        for (const auto op : model.program)
+            out << ' ' << static_cast<unsigned>(op.kind) << ' ' << op.parameter;
+        out << '\n';
+    }
+    out << "E " << evidence_.size() << '\n';
+    for (const auto& e : evidence_)
+        out << e.measurement.id << ' ' << e.measurement.apparatus << ' '
+            << e.measurement.source_actor.value << ' ' << e.measurement.observed_tick << ' '
+            << e.measurement.input << ' ' << e.measurement.output << ' ' << e.via_actor.value << ' '
+            << e.learned_tick << '\n';
+    return out.str();
+}
+} // namespace reality

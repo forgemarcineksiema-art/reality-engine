@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "D": "1",
+  "G": "1",
+  "identified": 8,
+  "delta": "26067156280469/320253394137600",
+  "A_sign": {
+    "wins": 7,
+    "losses": 1,
+    "ties": 0,
+    "p": "9/256"
+  },
+  "teacher": 8,
+  "social": [
+    8,
+    8
+  ],
+  "T_sign": {
+    "wins": 0,
+    "losses": 0,
+    "ties": 8,
+    "p": "1"
+  },
+  "I": true,
+  "A": false,
+  "T": false
+}

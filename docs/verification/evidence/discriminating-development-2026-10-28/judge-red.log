@@ -1,0 +1,13 @@
+F..
+======================================================================
+FAIL: test_development_raw_replayed_and_tampering_rejected (test_contrast_experiment.ContrastTests.test_development_raw_replayed_and_tampering_rejected) (change='energy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_contrast_experiment.py", line 39, in test_development_raw_replayed_and_tampering_rejected
+    with self.subTest(change=change),self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.420s
+
+FAILED (failures=1)
