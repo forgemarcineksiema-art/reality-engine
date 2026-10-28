@@ -98,6 +98,14 @@ Aktywne zgody wymagają zewnętrznego formatu 3; czytelnicy wersji 1/2 zachowuj�
 
 `GENESIS_WORK_WORLD 3` zapisuje typ i transfery; `GENESIS_TRAVERSAL 4` zapisuje ładunek, kurs i stanowisko zwrotu. Późniejszy przyrost dodaje autonomiczne odłożenie nieprzypisanego ładunku w znanym zgodnym stanowisku bez nowej wersji formatu; dawne wersje pozostają czytelne, a nieokreślony historyczny materiał nie jest reinterpretowany. Sam przyrost nie rozstrzyga praw własności, recept ani zakończenia M04. Limit historii nadal wymaga osobnego rozwiązania.
 
+## DEC-017 — Badania w prototypie, pełne M05/M06, następnie projekt 3D
+
+**USTALONA kolejność, użytkownik, 28.10.2026.** Najpierw wykorzystać ukończone eksperymenty w działającym prototypie, następnie w pełni ukończyć M05 i M06, a dopiero później przekształcić obecny zakres 2,5D w pełne 3D w osobnym projekcie. Rozwinięcie należy do [jednego planu](prototype-plan.md), a pierwszy konkretny przyrost do [projektu integracji praktyk](work-items/practice-in-prototype.md).
+
+Zachowuje DEC-011, własny silnik, odebrane fundamenty i wymagania ciągłości, migracji reprezentacji oraz odbioru. Nie zmienia historycznej akceptacji M04. Nowy konsument badawczy nie jest automatycznie funkcją zwykłej gry; potrzebne są wspólny świat, widok, wejście i próba użytkownika. Szczegóły urządzenia, techniczne API integracji, liczby nowego pomiaru i zakres pełnego 3D pozostają propozycjami autora do osobnego dopracowania, nie dodatkowymi decyzjami przypisanymi użytkownikowi. Nie tworzymy drugiego backlogu etapów ani nie odraczamy braków M05/M06 do projektu 3D.
+
+Ta decyzja dotyczy planowania. Nie zmienia formatu zapisu ani zachowania kodu; migracje wymagają własnych projektów i weryfikacji.
+
 ## Jak dopisać decyzję
 
 Podaj ID, status, źródło decyzji, problem, wybrany zakres, alternatywy i skutki. Przy zmianie opisz, który wcześniejszy wybór zastępujesz oraz jak migrują dane i konsumenci. Wynik testu jest dowodem weryfikacji, nie zastępczą zgodą na zmianę celu użytkownika.

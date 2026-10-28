@@ -2,6 +2,11 @@
   "version": 1,
   "documents": [
     {
+      "path": "docs/work-items/practice-in-prototype.md",
+      "role": "planned",
+      "topic": "practice-in-prototype-design"
+    },
+    {
       "path": "docs/verification/evidence/discriminating-2026-10-28/review.md",
       "role": "verification",
       "topic": "discriminating-code-review"

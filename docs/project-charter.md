@@ -12,6 +12,7 @@
 - Silnik, fizyka i nawigacja są własne. Unreal Engine został odrzucony. Zależności ograniczamy do minimum.
 - Pierwszy rezultat łączy grywalny fragment i laboratorium małej autonomicznej społeczności. Grafika ma najmniejszy priorytet.
 - Projekt realizuje użytkownik ze swoimi agentami AI. Nie ma narzuconego terminu.
+- Kolejność dalszych prac ustalona 28.10.2026: zastosować wyniki eksperymentów w działającym prototypie, ukończyć całe M05 i M06, następnie osobno zaprojektować przekształcenie zakresu 2,5D w pełne 3D. Szczegóły i dowody etapów należą do [jednego planu](prototype-plan.md).
 - Punktem odniesienia jest laptop użytkownika i5/MX330/8 GB RAM. Dokładny odczyt i proponowane budżety są w [budżetach](performance-budget.md).
 
 ## Hierarchia wartości
