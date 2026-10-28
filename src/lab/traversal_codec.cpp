@@ -73,6 +73,7 @@ std::vector<EntityId> queue(std::istream& in) {
 }
 } // namespace
 std::string TraversalSession::serialize() const {
+    require(!practice_, "practice snapshot requires the new format");
     validate();
     std::ostringstream out;
     out.imbue(std::locale::classic());
@@ -313,6 +314,7 @@ void TraversalSession::restore(std::string_view bytes) {
     auto candidate = *this;
     candidate.world_ = deserialize_world(work);
     candidate.scene_ = {};
+    candidate.practice_.reset();
     candidate.actors_.clear();
     candidate.property_rules_.clear();
     candidate.incidents_.clear();

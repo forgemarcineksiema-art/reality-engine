@@ -221,6 +221,8 @@ TraversalSession::TraversalSession(TraversalScene scene)
     }
     inputs_.resize(actors_.size());
     queued_inputs_.resize(actors_.size());
+    if (scene_.practice)
+        practice_.emplace(*scene_.practice, *this);
     synchronize_presentation();
     validate();
 }
@@ -548,6 +550,17 @@ void TraversalSession::set_goal(std::size_t index, SurfaceLocation goal) {
     auto& actor = actors_.at(index);
     check(surface_feet(geometry_, goal, limits(actor)).has_value(),
           "goal is not physically usable");
+    if (practice_busy(index)) {
+        actor.autonomous = false;
+        actor.pending_goal = goal;
+        actor.pending_reach = 0;
+        actor.requested_goal = goal;
+        actor.requested_reach = 0;
+        actor.stop_after_transfer = false;
+        inputs_[index] = {};
+        queued_inputs_[index] = {};
+        return;
+    }
     cancel_yield(index);
     inputs_.at(index) = {};
     queued_inputs_.at(index) = {};
@@ -591,6 +604,15 @@ void TraversalSession::set_goal(std::size_t index, SurfaceLocation goal) {
 }
 void TraversalSession::stop(std::size_t index) {
     auto& actor = actors_.at(index);
+    if (practice_busy(index)) {
+        actor.autonomous = false;
+        actor.pending_goal.reset();
+        actor.pending_reach = 0;
+        actor.stop_after_transfer = true;
+        inputs_[index] = {};
+        queued_inputs_[index] = {};
+        return;
+    }
     cancel_yield(index);
     actor.suspended.clear();
     actor.need_retry_at = 0;
@@ -637,6 +659,11 @@ void TraversalSession::set_autonomous(std::size_t index, bool enabled) {
 }
 void TraversalSession::set_input(std::size_t index, GroundPoint direction) {
     reality::validate(direction);
+    if (practice_busy(index)) {
+        if (direction.x_m != 0 || direction.z_m != 0)
+            stop(index);
+        return;
+    }
     const auto norm = std::hypot(direction.x_m, direction.z_m);
     if (norm > 1) {
         direction.x_m /= norm;
@@ -773,6 +800,17 @@ void TraversalSession::approach(std::size_t index, SurfaceLocation destination, 
     const auto anchor = body.world({destination.local.x_m, 0, destination.local.z_m});
     check(body.support({anchor.x, anchor.z}, 0, limits(actor).maximum_slope).has_value(),
           "invalid approach anchor");
+    if (practice_busy(index)) {
+        actor.autonomous = false;
+        actor.pending_goal = destination;
+        actor.pending_reach = reach;
+        actor.requested_goal = destination;
+        actor.requested_reach = reach;
+        actor.stop_after_transfer = false;
+        inputs_[index] = {};
+        queued_inputs_[index] = {};
+        return;
+    }
     cancel_yield(index);
     inputs_[index] = {};
     queued_inputs_[index] = {};
@@ -1610,6 +1648,7 @@ void TraversalSession::tick() {
         }
     }
     // Close agreements at the same authoritative boundary as their physical Step.
+    advance_practice();
     update_clearance();
     update_passages();
     inputs_ = held;
@@ -1618,6 +1657,7 @@ void TraversalSession::tick() {
     }
 }
 void TraversalSession::validate() const {
+    validate_practice();
     world_.validate();
     scene_.geometry.validate();
     geometry_.validate();

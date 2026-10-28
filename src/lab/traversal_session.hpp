@@ -1,4 +1,5 @@
 #pragma once
+#include "lab/traversal_practice.hpp"
 
 #include "navigation/surface_navigation.hpp"
 #include "persistence/world_snapshot.hpp"
@@ -202,6 +203,7 @@ struct TraversalScene {
         std::optional<std::size_t> courier;
     };
     std::vector<PropertySeed> property_rules;
+    std::optional<PracticeSeed> practice;
 };
 [[nodiscard]] TraversalScene make_traversal_course();
 [[nodiscard]] TraversalScene make_delivery_course();
@@ -227,6 +229,10 @@ struct TraversalNavigationView {
 
 class TraversalSession final {
   public:
+    [[nodiscard]] bool has_practice() const noexcept;
+    [[nodiscard]] PracticeView practice_view(std::size_t actor) const;
+    [[nodiscard]] DiscoveryOutcome practice_probe(std::size_t actor, DiscoveryChain chain,
+                                                  unsigned input);
     explicit TraversalSession(TraversalScene scene = make_traversal_course());
     [[nodiscard]] const WorkWorld& world() const noexcept;
     [[nodiscard]] const SpatialGeometry& geometry() const noexcept;
@@ -268,6 +274,13 @@ class TraversalSession final {
     void validate() const;
 
   private:
+    std::optional<PracticeState> practice_;
+    [[nodiscard]] bool practice_busy(std::size_t actor) const;
+    [[nodiscard]] bool practice_at_bench(std::size_t actor) const;
+    [[nodiscard]] bool practice_allows_work(std::size_t actor, std::size_t station) const;
+    void practice_work_started(std::size_t actor, EntityId action);
+    void advance_practice();
+    void validate_practice() const;
     WorkWorld world_;
     std::vector<PropertyRule> property_rules_;
     std::vector<PropertyIncident> incidents_;

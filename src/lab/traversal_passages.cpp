@@ -25,6 +25,10 @@ const std::vector<PassageState>& TraversalSession::passages() const noexcept {
     return scene_.passages;
 }
 bool TraversalSession::protected_operation(const TraversalActor& a) const {
+    if (practice_)
+        for (std::size_t i = 0; i < actors_.size(); ++i)
+            if (actors_[i].id == a.id && practice_busy(i))
+                return true;
     return a.action.value != 0 || a.yielding || a.transfer == TransferStage::Boarding ||
            a.transfer == TransferStage::Riding || a.transfer == TransferStage::Exiting ||
            (a.leg < a.route.legs.size() && a.route.legs[a.leg].kind == SurfaceLegKind::Step &&

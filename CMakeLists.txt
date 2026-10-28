@@ -60,22 +60,24 @@ add_executable(reality_work_demo src/headless/work_demo.cpp)
 target_link_libraries(reality_work_demo PRIVATE reality_core)
 reality_deploy_diagnostics(reality_work_demo)
 
-add_library(reality_lab_model STATIC src/lab/lab_session.cpp src/graphics/lab_scene.cpp
+add_library(reality_learning_core STATIC src/research/discovery_world.cpp src/research/discovery_agent.cpp
+    src/research/hypothesis_program.cpp src/research/contrast_agent.cpp)
+target_link_libraries(reality_learning_core PUBLIC reality_core)
+add_library(reality_lab_model STATIC src/lab/traversal_practice.cpp src/lab/lab_session.cpp src/graphics/lab_scene.cpp
     src/physics/kinematic.cpp src/navigation/grid_navigation.cpp src/lab/motion_session.cpp
     src/physics/spatial_geometry.cpp src/navigation/surface_navigation.cpp src/physics/locomotion.cpp
     src/physics/platform_motion.cpp src/lab/traversal_session.cpp src/lab/traversal_course.cpp
     src/lab/traversal_codec.cpp src/lab/traversal_diagnostics.cpp src/lab/traversal_needs.cpp
     src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/lab/traversal_law.cpp src/lab/traversal_passages.cpp src/graphics/traversal_scene.cpp)
-target_link_libraries(reality_lab_model PUBLIC reality_core)
+target_link_libraries(reality_lab_model PUBLIC reality_core reality_learning_core)
 
-add_library(reality_discovery_model STATIC src/research/discovery_world.cpp src/research/discovery_agent.cpp
-    src/research/discovery_session.cpp src/research/discovery_codec.cpp src/research/discovery_protocol.cpp)
+add_library(reality_discovery_model STATIC src/research/discovery_session.cpp src/research/discovery_codec.cpp src/research/discovery_protocol.cpp)
 target_link_libraries(reality_discovery_model PUBLIC reality_lab_model)
 target_link_libraries(reality_discovery_model PRIVATE psapi)
 add_executable(reality_discovery src/headless/discovery_main.cpp)
 target_link_libraries(reality_discovery PRIVATE reality_discovery_model)
 reality_deploy_diagnostics(reality_discovery)
-add_library(reality_hypothesis_model STATIC src/research/hypothesis_program.cpp src/research/hypothesis_agent.cpp
+add_library(reality_hypothesis_model STATIC src/research/hypothesis_agent.cpp
     src/research/hypothesis_session.cpp src/research/hypothesis_codec.cpp src/research/hypothesis_protocol.cpp)
 target_link_libraries(reality_hypothesis_model PUBLIC reality_discovery_model)
 add_executable(reality_hypothesis src/headless/hypothesis_main.cpp)
@@ -83,7 +85,7 @@ target_link_libraries(reality_hypothesis PRIVATE reality_hypothesis_model)
 reality_deploy_diagnostics(reality_hypothesis)
 
 add_library(reality_graphics STATIC src/graphics/d3d11_renderer.cpp)
-add_library(reality_contrast_model STATIC src/research/contrast_agent.cpp src/research/contrast_session.cpp)
+add_library(reality_contrast_model STATIC src/research/contrast_session.cpp)
 target_link_libraries(reality_contrast_model PUBLIC reality_hypothesis_model)
 add_executable(reality_contrast src/headless/contrast_main.cpp)
 add_custom_target(contrast_identity
@@ -108,6 +110,9 @@ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 sh
 reality_deploy_diagnostics(reality_traversal)
 
 set(reality_cpp_files
+    src/lab/traversal_practice.hpp
+    src/lab/traversal_practice.cpp
+    tests/practice_tests.cpp
     src/headless/contrast_main.cpp
     src/research/contrast_agent.hpp
     src/research/contrast_agent.cpp
@@ -215,6 +220,12 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_practice_tests tests/practice_tests.cpp)
+    target_link_libraries(reality_practice_tests PRIVATE reality_lab_model)
+    reality_deploy_diagnostics(reality_practice_tests)
+    foreach(case IN ITEMS calibration energy concurrent no_parts out_of_reach protected queued_input)
+        add_test(NAME practice.${case} COMMAND reality_practice_tests ${case})
+    endforeach()
     add_test(NAME contrast.native_case COMMAND "${Python3_EXECUTABLE}"
         "${CMAKE_CURRENT_SOURCE_DIR}/tests/contrast_case_integration.py" "$<TARGET_FILE:reality_contrast>")
     add_test(NAME contrast.fresh_process COMMAND "${Python3_EXECUTABLE}"

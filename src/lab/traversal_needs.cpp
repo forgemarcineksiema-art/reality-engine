@@ -51,7 +51,7 @@ bool TraversalSession::select_task(std::size_t index, TraversalTask wanted,
 bool TraversalSession::interrupt_for_need(std::size_t index) {
     auto& actor = actors_[index];
     const auto now = world_.clock().tick_count();
-    if (!actor.autonomous || actor.action.value != 0 || committed(actor) ||
+    if (!actor.autonomous || actor.action.value != 0 || practice_busy(index) || committed(actor) ||
         actor.task == TraversalTask::None || now < actor.need_retry_at)
         return false;
     actor.need_retry_at = 0;
@@ -229,6 +229,8 @@ bool TraversalSession::start_station_action(std::size_t index) {
     auto& actor = actors_[index];
     auto& station = scene_.stations.at(actor.station);
     const auto now = world_.clock().tick_count();
+    if (!practice_allows_work(index, actor.station))
+        return false;
     check(interaction_accessible(index, station.location, actor.feet),
           "station action requires physical access");
     check(next_command_.value < std::numeric_limits<std::uint64_t>::max(),
@@ -254,6 +256,8 @@ bool TraversalSession::start_station_action(std::size_t index) {
         actor.action = request.action;
         check(world_.begin(actor.action) == Transition::Changed,
               "autonomous action failed to begin");
+        if (station.kind == TraversalTask::Maintain)
+            practice_work_started(index, actor.action);
         actor.goal.reset();
         actor.route = {};
         actor.leg = 0;
