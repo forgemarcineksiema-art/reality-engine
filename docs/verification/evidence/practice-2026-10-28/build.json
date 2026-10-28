@@ -1,0 +1,8 @@
+{
+  "source_commit": "08bdeafe308a89c26fcf88faaa360bd73fb05656",
+  "configuration": "RelWithDebInfo",
+  "exe_sha256": "b837ca3b2bb083a97a9914cda7259a566704c9bfa760434d015479a60c4b5388",
+  "compiler": "MSVC 19.44.35226.0",
+  "runtime": "Windows / D3D11",
+  "purpose": "Prototype integration; not a new research confirmation"
+}

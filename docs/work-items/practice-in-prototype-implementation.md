@@ -73,9 +73,9 @@ Ominiecie kalibracji przez rÄ™cznÄ…/autonomicznÄ… drogÄ™; wczytanie8
 
 **Files:** nowy raport `docs/verification/practice-in-prototype.md`, aktualne API/autonomia/rozwĂłj/README/mapa; dowody i launcher.
 
-- [ ] ZmierzyÄ‡ rzeczywistÄ… pracÄ™ wnioskowania w oknie Release na wskazanym adapterze; sprawdziÄ‡ postÄ™p potrzeb/pracy, przyciÄ™cia i brak blokowania klatki. Przed prĂłbÄ… zamroziÄ‡ scenÄ™, ustawienia i czas; nie nazywaÄ‡ kosztu headless pomiarem okna.
-- [ ] NiezaleĹĽny koĹ„cowy review, poprawki Important/Critical REDâ†’GREEN, peĹ‚ne Debug/Release/ASan, Python, docs i format. ZachowaÄ‡ wczeĹ›niejsze poraĹĽki, stare formaty i wszystkie wyniki badaĹ„.
-- [ ] ZachowaÄ‡ checkpointy, hashe i powtarzalny scenariusz; udostÄ™pniÄ‡ dziaĹ‚ajÄ…ce okno oraz krĂłtkÄ… instrukcjÄ™ uĹĽytkownikowi.
+- [x] ZmierzyÄ‡ rzeczywistÄ… pracÄ™ wnioskowania w oknie Release na wskazanym adapterze; sprawdziÄ‡ postÄ™p potrzeb/pracy, przyciÄ™cia i brak blokowania klatki. Przed prĂłbÄ… zamroziÄ‡ scenÄ™, ustawienia i czas; nie nazywaÄ‡ kosztu headless pomiarem okna.
+- [x] NiezaleĹĽny koĹ„cowy review, poprawki Important/Critical REDâ†’GREEN, peĹ‚ne Debug/Release/ASan, Python, docs i format. ZachowaÄ‡ wczeĹ›niejsze poraĹĽki, stare formaty i wszystkie wyniki badaĹ„.
+- [x] ZachowaÄ‡ checkpointy, hashe i powtarzalny scenariusz; udostÄ™pniÄ‡ dziaĹ‚ajÄ…ce okno oraz krĂłtkÄ… instrukcjÄ™ uĹĽytkownikowi.
 - [ ] Osobno zapisaÄ‡ bezpoĹ›redniÄ… ocenÄ™ uĹĽytkownika czytelnoĹ›ci, sterowania i widocznego skutku. Jej brak nie staje siÄ™ automatycznym zaliczeniem przyrostu. Dopiero po odbiorze przejĹ›Ä‡ do nastÄ™pnych brakĂłw M05.
 
 Plan nie obiecuje human acceptance ani przewagi nauczania. Implementacja ma dostarczyÄ‡ dziaĹ‚ajÄ…cÄ… moĹĽliwoĹ›Ä‡, dowody oraz konkretny rezultat do sprawdzenia przez uĹĽytkownika.

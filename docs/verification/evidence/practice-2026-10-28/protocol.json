@@ -1,0 +1,25 @@
+{
+  "source_commit": "08bdeafe308a89c26fcf88faaa360bd73fb05656",
+  "binary": "build/msvc/RelWithDebInfo/reality_traversal.exe",
+  "binary_sha256": "b837ca3b2bb083a97a9914cda7259a566704c9bfa760434d015479a60c4b5388",
+  "configuration": "RelWithDebInfo",
+  "scene": "make_learning_course",
+  "arguments": "--community --learning --adapter 0",
+  "adapter": "NVIDIA GeForce MX330",
+  "step_ms": 50,
+  "initial_wear": 500,
+  "initial_source_energy": 8192,
+  "own_probe_budget": 8,
+  "own_energy_budget": 1024,
+  "early": {
+    "warmup_seconds": 0,
+    "measure_seconds": 30
+  },
+  "warmed": {
+    "warmup_seconds": 30,
+    "measure_seconds": 30
+  },
+  "interventions": "none",
+  "purpose": "Short application measurement covering learning and warmed continuation; not M06 acceptance",
+  "created_utc": "2026-10-28T14:06:46.2753849Z"
+}

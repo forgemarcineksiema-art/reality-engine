@@ -1,0 +1,15 @@
+{
+  "source_commit": "08bdeafe308a89c26fcf88faaa360bd73fb05656",
+  "debug": {"passed": 358, "total": 358, "seconds": 283.18},
+  "release": {"passed": 358, "total": 358, "seconds": 75.92},
+  "asan": {"passed": 360, "total": 360, "seconds": 288.49},
+  "python": {"passed": 58, "total": 58},
+  "documentation": "PASS",
+  "format": "PASS",
+  "review": {"initial_verdict": "REQUEST CHANGES", "important": 4, "critical": 0, "fixed_with_red_green": 4, "deferred_minors": 0, "extra_regressions": ["missing_permit", "history visibility"], "second_review": false},
+  "measurement": {"adapter": "NVIDIA GeForce MX330", "first_seconds": 30, "warmed_seconds": 30, "warmup_seconds": 30, "simulation_errors": 0, "interventions": 0, "occluded_frames": 0},
+  "final_visual_qa": {"tool": "Computer Use", "tick": 493, "selected_resident": 6, "own_probes": 0, "evidence": 4, "source_resident": 4, "learned_tick": 126, "method": "A -> A", "maintenances": 4, "delivery": "4/8", "manual_configuration_line_visible": true, "paused_for_user": true, "saved_world_roundtrip": "PASS; exact full bytes after load and zero steps"},
+  "human_acceptance": "NOT PERFORMED",
+  "milestones": "M05 and M06 remain future work",
+  "publication": "Local topic branch; no merge or push performed"
+}

@@ -1,6 +1,6 @@
 # Odkrywanie i przekazywanie praktyk w prototypie
 
-**Status: wdrożenie w końcowej weryfikacji; bezpośredni odbiór użytkownika niewykonany.** Użytkownik ustalił 28.10.2026 kolejność: wykorzystać eksperymenty w prototypie, ukończyć M05 i M06, następnie osobno zaprojektować przejście do pełnego 3D. Kolejność obowiązuje w [jednym planie](../prototype-plan.md); szczegóły poniżej są specyfikacją przyrostu, a rzeczywisty stan i ograniczenia podaje [raport integracji](../verification/practice-in-prototype.md). Wyniki badań pozostają w [raporcie](../verification/discriminating-experiment.md), bez zmiany ich kryteriów ani przypisywania im odbioru gry.
+**Status: zakres techniczny ukończony i zweryfikowany; bezpośredni odbiór użytkownika niewykonany.** Użytkownik ustalił 28.10.2026 kolejność: wykorzystać eksperymenty w prototypie, ukończyć M05 i M06, następnie osobno zaprojektować przejście do pełnego 3D. Kolejność obowiązuje w [jednym planie](../prototype-plan.md); szczegóły poniżej są specyfikacją przyrostu, a rzeczywisty stan i ograniczenia podaje [raport integracji](../verification/practice-in-prototype.md). Wyniki badań pozostają w [raporcie](../verification/discriminating-experiment.md), bez zmiany ich kryteriów ani przypisywania im odbioru gry.
 
 ## Co użytkownik ma zobaczyć
 

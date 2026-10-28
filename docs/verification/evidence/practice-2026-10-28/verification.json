@@ -1,0 +1,9 @@
+{
+  "four_fresh_process_continuations": "PASS",
+  "native_final": "PASS",
+  "zip_crc": "PASS",
+  "run_entry_hashes": "PASS",
+  "program_hash": "PASS",
+  "source_key_files": "PASS",
+  "entries": 108
+}

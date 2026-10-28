@@ -1,6 +1,6 @@
 # Uczenie i konserwacja w prototypie
 
-**Status: wdrożenie działa; trwa końcowa weryfikacja. Odbiór użytkownika: niewykonany.** Nie zamyka M05 ani M06. Kierunek i kolejność określa [jeden plan](../prototype-plan.md), zakres [projekt przyrostu](../work-items/practice-in-prototype.md).
+**Status: zakres techniczny ukończony i zweryfikowany. Odbiór użytkownika: niewykonany.** Nie zamyka M05 ani M06. Kierunek i kolejność określa [jeden plan](../prototype-plan.md), zakres [projekt przyrostu](../work-items/practice-in-prototype.md).
 
 ## Co działa
 
@@ -31,8 +31,46 @@ To uczenie w znanej, skończonej rodzinie modeli, nie dowód świadomości ani d
 
 ## Dowody i stan kontroli
 
-Dotychczasowy przebieg:20/20 prób praktyk przeszło w Debug, w tym prawdziwe okno D3D11, P/R/F5/F9, obcy stary świat, konserwacja, uczenie, kontakt, kolejka, inne prawo oraz cztery kontynuacje w świeżym procesie. Rozszerzone testy uszkodzeń i przejęcia wymagają końcowego przebiegu. Pełne Debug/Release/ASan, pomiar okna i niezależny przegląd pozostają do odnotowania po wykonaniu.
+Końcowa weryfikacja kodu08bdeaf, po poprawkach przeglądu i udostępnieniu historii:
+
+| Kontrola | Rzeczywisty wynik |
+| --- | --- |
+| `cmake --build --preset windows-debug`, `ctest --preset windows-debug` |358/358 PASS,283,18 s |
+| `cmake --build --preset windows-release`, `ctest --preset windows-release` |358/358 PASS,75,92 s |
+| `cmake --preset windows-asan`, build/test `windows-asan` |360/360 PASS,288,49 s |
+| `python -m unittest discover -s tools/tests -p "test_*.py"` |58/58 PASS, także w każdym pełnym CTest |
+| `python tools/check_docs.py` i target `format-check` |PASS |
+| `practice.*` |26 przypadków, w każdym pełnym profilu; zawierają rzeczywiste okno |
+
+Wszystkie kompilacje zakończono przed szeregowymi testami i pomiarami. Wstępny pełny Release miał353/353 PASS; równoległa kompilacja przeciążyła wcześniejszy Debug i spowodowała timeout `practice.corruption`20,05 s. Zachowano tę porażkę. Końcowy pełny Debug przeszedł bez zmiany20-sekundowego limitu. Nie ma skipów, osłabionych asercji ani podmienionej naukowej próby potwierdzającej.
 
 Zachowane porażki: początkowa odmowa zapisu bez formatu8, przekroczenie20 s przez10001 kroków z kopiowaniem modeli, błędy kompilacji przejściowych wersji, zbyt nisko umieszczona ściana fixture oraz zbyt wczesna próba operatora po dojściu w teście okna. Nie zmieniono progów kontaktu, limitów czasu ani liczby kroków. Po poprawieniu kosztu kopiowania ten sam długi przebieg trwał około3,6 s. Headless nie jest pomiarem wydajności aplikacji.
 
 Bezpośrednia ocena czytelności, sterowania i widocznego skutku przez użytkownika pozostaje niewykonana. Automatyczna próba oraz oględziny przez agenta nie zastępują tej akceptacji.
+
+## Pomiar rzeczywistego okna
+
+Kod zamrożono w08bdeaf, Release MSVC19.44.35226.0, MX330, D3D11 bez debug layer, scena `--community --learning`, krok50 ms, domyślny viewport844×781. Parametry i czas zapisano przed uruchomieniem. Oba przebiegi zaczęły od identycznego checksumu7599178036059219827. Bez ingerencji, resize, minimalizacji ani zasłoniętych klatek. Pierwszy mierzy pierwsze30 s, drugi30 s po30 s rozgrzewki; to krótkie próby aplikacji, nie pełny pomiar M06.
+
+| Wynik | Pierwsze30 s |30 s po rozgrzewce |
+| --- | --- | --- |
+| Klatka p50/p95/p99, ms |16,666 /16,907 /17,404 |16,667 /16,907 /17,071 |
+| Najdłuższa klatka, ms |140,382 |21,040 |
+| Symulacja p99 / maksimum, ms |0,779 /2,028 |0,911 /1,127 |
+| Próbki / zmierzone kroki |1796 /597 |1800 /600 |
+| Szczyt working set, bajty |69652480 |71262208 |
+| Szczyt private bytes, bajty |101478400 |90669056 |
+| Konserwacje na końcu świata |5 |7 |
+| Błędy symulacji |0 |0 |
+
+Średni odstęp klatek wynosił16,711 i16,667 ms. Pierwszy wynik140 ms pozostaje w danych; nie usunięto startowej klatki ani nie przypisano jej bez dodatkowego profilowania jednej funkcji. Maksimum czasu właściwej symulacji wyniosło2,028 ms. Reszta do50 ms w liczniku backlog jest zwykłą pozostałością stałego kroku; maksimum obu prób pozostało poniżej50 ms. Konstrukcja modeli i ładowanie sceny następują przed oknem pomiarowym, a pomiar obejmuje bieżące uczenie, zachowanie świata, inspektor oraz rysowanie. VRAM i długotrwałe nagrzewanie nie zostały tu zmierzone.
+
+W obu próbach mieszkaniec4 wykonał4 własne pomiary i wydał336740 odczytów modeli. Mieszkaniec6 otrzymał4 pomiary, wykonał0 własnych prób i wydał2668 odczytów. Obaj zachowali metodę. Każdy z ośmiu umysłów rozlicza7822044 operacji konstrukcji modeli: łącznie62576352 operacje i339408 odczytów. Koszt odbiorcy oraz całej inicjalizacji jest ujęty jawnie. Nie porównujemy tego przebiegu ze starym M04 jako kontrolowanym dowodem przewagi wydajności.
+
+Oględziny przez Computer Use potwierdziły widoczny aparat, wybór4/6, pracę po4 własnych pomiarach, przejęcie4 pomiarów przez drugą osobę,7 konserwacji i dostawę8/8, powiększenie okna, minimalizację oraz powrót. Przegląd i regresje poprawek opisuje [osobny zapis](practice-in-prototype-review.md). To techniczne oględziny autora, bez przypisania im akceptacji użytkownika.
+
+## Zachowane artefakty
+
+[Manifest SHA-256](evidence/practice-2026-10-28/manifest.json) obejmuje źródła08bdeaf, zmierzony program Release, protokół oraz archiwum108 plików z przebiegów. [Kontrola archiwów](evidence/practice-2026-10-28/verification.json) sprawdza CRC, rozmiary i hashe wpisów, zgodność kluczowych źródeł oraz binarium. Cztery checkpointy konfiguracji/impulsu/oczekiwania/pracy odtworzono w świeżych procesach z identycznymi pełnymi bajtami końcowymi. Ponowiono natywną próbę dokładnie tego programu. To weryfikacja kopii i kontynuacji; archiwalnego źródła nie kompilowano drugi raz w osobnym checkoutcie.
+
+Oryginały pozostają w `build/practice-in-prototype/`; archiwum zachowuje również wcześniejsze błędy i logi. Osobny launcher otwiera nową scenę z nowym katalogiem, a świat z oględzin końcowych ma własny zapis. Domknięcie techniczne i wersjonowane dowody nie stanowią publikacji na GitHubie ani akceptacji człowieka.
