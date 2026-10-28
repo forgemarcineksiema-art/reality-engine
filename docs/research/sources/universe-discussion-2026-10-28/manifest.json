@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "date": "2026-10-28",
+  "timezone": "Europe/Warsaw",
+  "scope": "User-provided attachments and substantive user/assistant messages; no system/developer instructions, reasoning, progress messages or tool logs.",
+  "source_thread": "01a183a2-874f-7db3-89b0-23f67fd602d3",
+  "messages": {
+    "user": 5,
+    "assistant_final": 4,
+    "cutoff_utc": "2026-10-28T18:26:43.872Z"
+  },
+  "files": [
+    {
+      "path": "universe-principles.txt",
+      "source": "C:\\Users\\Marcin\\.codex\\attachments\\1c4fa8ae-3ba6-43f9-95b6-d351671b4043\\Wklejony tekst.txt",
+      "bytes": 9419,
+      "sha256": "69f20a748701812e4948da0ea9d11a77df2fc3db3a927bccf1405955657cbc1c"
+    },
+    {
+      "path": "games-and-artificial-life.txt",
+      "source": "C:\\Users\\Marcin\\.codex\\attachments\\8f554a65-3ff6-4eca-9d6e-f886c750fadc\\Wklejony tekst.txt",
+      "bytes": 10224,
+      "sha256": "a909a905b5161ce8996c7aea415ccfc51da7d5d50a89266d43fb19edbc4eb1e7"
+    },
+    {
+      "path": "conversation.json",
+      "source": "Current chat response_item message text only",
+      "bytes": 26106,
+      "sha256": "0caaf126bf2e9479a14d8a6428415b309f8a6aca90c6417a72ac2cebae64f34c"
+    }
+  ]
+}

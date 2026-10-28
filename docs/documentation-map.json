@@ -1,6 +1,11 @@
 {
   "version": 1,
   "documents": [
+    {
+      "path": "docs/research/emergent-world-2026-10-28.md",
+      "role": "research",
+      "topic": "emergent-world-discussion-2026-10-28"
+    },
     {"path": "docs/verification/practice-in-prototype-review.md", "role": "verification", "topic": "practice-in-prototype-review"},
     {"path": "docs/verification/practice-in-prototype.md", "role": "verification", "topic": "practice-in-prototype-verification"},
     {
