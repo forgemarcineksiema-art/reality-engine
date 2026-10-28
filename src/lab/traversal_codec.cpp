@@ -73,13 +73,12 @@ std::vector<EntityId> queue(std::istream& in) {
 }
 } // namespace
 std::string TraversalSession::serialize() const {
-    require(!practice_, "practice snapshot requires the new format");
     validate();
     std::ostringstream out;
     out.imbue(std::locale::classic());
     out << std::setprecision(17);
     const auto work = serialize_world(world_);
-    const auto lawful = !property_rules_.empty() || !incidents_.empty();
+    const auto lawful = practice_ || !property_rules_.empty() || !incidents_.empty();
     const auto passage_state =
         lawful ||
         std::any_of(scene_.passages.begin(), scene_.passages.end(),
@@ -109,7 +108,8 @@ std::string TraversalSession::serialize() const {
                    actor.finish_grace_until != 0;
         });
     out << "GENESIS_TRAVERSAL "
-        << (lawful          ? 7
+        << (practice_       ? 8
+            : lawful        ? 7
             : passage_state ? 6
             : knowledgeable ? 5
             : inventory     ? 4
@@ -286,6 +286,8 @@ std::string TraversalSession::serialize() const {
                 << leg.transport << '\n';
         }
     }
+    if (practice_)
+        out << "PRACTICE " << std::quoted(practice_->serialize()) << '\n';
     const auto body = out.str();
     require(body.size() + 64 < snapshot_byte_limit, "traversal snapshot exceeds limit");
     return body + "CHECKSUM " + std::to_string(snapshot_checksum(body)) + "\n";
@@ -303,8 +305,8 @@ void TraversalSession::restore(std::string_view bytes) {
     std::istringstream input{std::string{bytes.substr(0, checksum)}};
     input.imbue(std::locale::classic());
     tag(input, "GENESIS_TRAVERSAL");
-    const auto version = integer(input, 7);
-    require(version >= 1 && version <= 7, "unsupported traversal version");
+    const auto version = integer(input, 8);
+    require(version >= 1 && version <= 8, "unsupported traversal version");
     tag(input, "WORLD");
     const auto work_size = integer(input, snapshot_byte_limit);
     require(input.get() == '\n', "invalid traversal world framing");
@@ -594,6 +596,12 @@ void TraversalSession::restore(std::string_view bytes) {
             a.route.legs.push_back(l);
         }
         candidate.actors_.push_back(std::move(a));
+    }
+    if (version == 8) {
+        tag(input, "PRACTICE");
+        std::string state;
+        require(static_cast<bool>(input >> std::quoted(state)), "missing practice state");
+        candidate.practice_ = PracticeState::deserialize(state, candidate);
     }
     require(!(input >> extra), "trailing traversal data");
     candidate.rebuild_geometry();

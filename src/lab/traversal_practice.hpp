@@ -1,5 +1,6 @@
 #pragma once
 #include "research/contrast_agent.hpp"
+#include <memory>
 #include <optional>
 namespace reality {
 class TraversalSession;
@@ -32,15 +33,24 @@ struct PracticeView {
 class PracticeState final {
   public:
     PracticeState(PracticeSeed seed, const TraversalSession& session);
+    [[nodiscard]] std::string serialize() const;
+    [[nodiscard]] static PracticeState deserialize(std::string_view bytes,
+                                                   const TraversalSession& session);
 
   private:
     friend class TraversalSession;
     struct Mind {
         EntityId actor;
-        ContrastAgent agent;
+        std::shared_ptr<ContrastAgent> agent;
         unsigned probes = 0, spent = 0;
         std::optional<DiscoveryChain> method;
-        explicit Mind(EntityId id) : actor(id), agent(id, true) {}
+        std::vector<std::string> journal;
+        explicit Mind(EntityId id) : actor(id), agent(std::make_shared<ContrastAgent>(id, true)) {}
+        ContrastAgent& edit() {
+            if (agent.use_count() != 1)
+                agent = std::make_shared<ContrastAgent>(*agent);
+            return *agent;
+        }
     };
     struct Pending {
         std::size_t actor;
@@ -56,6 +66,17 @@ class PracticeState final {
         std::size_t actor;
         EntityId action;
     };
+    struct Pulse {
+        EntityId actor;
+        unsigned input;
+        DiscoveryChain chain;
+        std::uint64_t tick;
+        bool learning;
+    };
+    struct Use {
+        std::uint64_t measurement;
+        EntityId action;
+    };
     PracticeSeed seed_;
     DiscoveryWorld apparatus_;
     std::vector<Mind> minds_;
@@ -63,6 +84,8 @@ class PracticeState final {
     std::optional<Pending> pending_;
     std::optional<Permit> permit_;
     std::optional<Working> working_;
+    std::vector<Pulse> pulses_;
+    std::vector<Use> uses_;
     std::uint64_t command_ = 1;
 };
 } // namespace reality

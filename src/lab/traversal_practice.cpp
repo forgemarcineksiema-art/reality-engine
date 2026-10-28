@@ -53,11 +53,11 @@ PracticeView TraversalSession::practice_view(std::size_t index) const {
     v.local = interaction_accessible(index, scene_.stations[p.seed_.station].location, a.feet);
     v.energy = v.local ? p.apparatus_.devices()[0].source : 0;
     v.probes = mind.probes;
-    v.records = static_cast<unsigned>(mind.agent.evidence().size());
+    v.records = static_cast<unsigned>(mind.agent->evidence().size());
     v.method = mind.method;
     v.method_known = v.method.has_value();
-    if (!mind.agent.evidence().empty())
-        v.last = mind.agent.evidence().back().measurement;
+    if (!mind.agent->evidence().empty())
+        v.last = mind.agent->evidence().back().measurement;
     if (p.pending_ && p.pending_->actor == index)
         v.stage = p.pending_->stage == 0 ? PracticeStage::Configuring : PracticeStage::Pulsing;
     else if (p.working_ && p.working_->actor == index)
@@ -81,15 +81,19 @@ DiscoveryOutcome TraversalSession::practice_probe(std::size_t index, DiscoveryCh
     if (!practice_at_bench(index))
         return DiscoveryOutcome::OutOfReach;
     auto& mind = p.minds_[index];
-    const auto learning = chain == DiscoveryChain{0};
-    if (learning && (mind.probes >= 8 || mind.spent + input > 1024 || mind.agent.frozen()))
+    const auto learning = chain == DiscoveryChain{0} && !mind.agent->frozen();
+    if (learning && (mind.probes >= 8 || mind.spent + input > 1024 || mind.agent->frozen()))
         return DiscoveryOutcome::Frozen;
     if (p.apparatus_.devices()[0].source < input)
         return DiscoveryOutcome::NoEnergy;
-    const auto result = p.apparatus_.configure(p.command_, actors_[index].id, 0, std::move(chain));
+    if (p.pulses_.size() >= 2048 || mind.journal.size() >= 120)
+        return DiscoveryOutcome::Frozen;
+    const auto result = p.apparatus_.configure(p.command_, actors_[index].id, 0, chain);
     if (result != DiscoveryOutcome::Accepted)
         return result;
     ++p.command_;
+    p.pulses_.push_back(
+        {actors_[index].id, input, std::move(chain), p.apparatus_.tick(), learning});
     p.pending_ = PracticeState::Pending{index, input, 0, p.command_++, learning};
     p.permit_.reset();
     if (learning) {
@@ -109,6 +113,7 @@ void TraversalSession::practice_work_started(std::size_t index, EntityId action)
     if (!practice_ || actors_[index].station != practice_->seed_.station)
         return;
     check(practice_allows_work(index, actors_[index].station), "maintenance calibration missing");
+    practice_->uses_.push_back({practice_->permit_->measurement, action});
     practice_->permit_.reset();
     practice_->working_ = PracticeState::Working{index, action};
 }
@@ -130,9 +135,11 @@ void TraversalSession::advance_practice() {
         } else {
             const auto& m = p.apparatus_.measurements().back();
             check(m.command == request.command, "practice impulse result missing");
-            if (request.learning)
-                check(p.minds_[request.actor].agent.observe({m, m.source_actor, m.observed_tick}),
+            if (request.learning) {
+                check(p.minds_[request.actor].edit().observe({m, m.source_actor, m.observed_tick}),
                       "duplicate practice observation");
+                p.minds_[request.actor].journal.push_back("o " + std::to_string(m.id));
+            }
             if (m.input == p.seed_.input && m.output == p.seed_.target)
                 p.permit_ = PracticeState::Permit{m.source_actor, m.id, m.observed_tick};
             finished = request.actor;

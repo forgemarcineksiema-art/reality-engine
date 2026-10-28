@@ -63,7 +63,7 @@ reality_deploy_diagnostics(reality_work_demo)
 add_library(reality_learning_core STATIC src/research/discovery_world.cpp src/research/discovery_agent.cpp
     src/research/hypothesis_program.cpp src/research/contrast_agent.cpp)
 target_link_libraries(reality_learning_core PUBLIC reality_core)
-add_library(reality_lab_model STATIC src/lab/traversal_practice.cpp src/lab/lab_session.cpp src/graphics/lab_scene.cpp
+add_library(reality_lab_model STATIC src/lab/traversal_practice_codec.cpp src/lab/traversal_practice.cpp src/lab/lab_session.cpp src/graphics/lab_scene.cpp
     src/physics/kinematic.cpp src/navigation/grid_navigation.cpp src/lab/motion_session.cpp
     src/physics/spatial_geometry.cpp src/navigation/surface_navigation.cpp src/physics/locomotion.cpp
     src/physics/platform_motion.cpp src/lab/traversal_session.cpp src/lab/traversal_course.cpp
@@ -110,6 +110,7 @@ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 sh
 reality_deploy_diagnostics(reality_traversal)
 
 set(reality_cpp_files
+    src/lab/traversal_practice_codec.cpp
     src/lab/traversal_practice.hpp
     src/lab/traversal_practice.cpp
     tests/practice_tests.cpp
@@ -223,7 +224,7 @@ if(BUILD_TESTING)
     add_executable(reality_practice_tests tests/practice_tests.cpp)
     target_link_libraries(reality_practice_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_practice_tests)
-    foreach(case IN ITEMS calibration energy concurrent no_parts out_of_reach protected queued_input)
+    foreach(case IN ITEMS calibration energy concurrent no_parts out_of_reach protected queued_input persistence corruption legacy horizon)
         add_test(NAME practice.${case} COMMAND reality_practice_tests ${case})
     endforeach()
     add_test(NAME contrast.native_case COMMAND "${Python3_EXECUTABLE}"
