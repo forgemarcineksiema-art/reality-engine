@@ -106,6 +106,12 @@ Zachowuje DEC-011, własny silnik, odebrane fundamenty i wymagania ciągłości,
 
 Ta decyzja dotyczy planowania. Nie zmienia formatu zapisu ani zachowania kodu; migracje wymagają własnych projektów i weryfikacji.
 
+## DEC-018 — Ograniczona zmiana reprezentacji kuriera
+
+**Źródło:** użytkownik zatwierdził rozpoczęcie SC-09 po sytuacji dwóch metod, 29.10.2026. **Wybór inżynierski:** opcjonalny stan podróży w tej samej sesji, pomiędzy dwoma statycznymi terminalami. Zajmuje miejsce lokalnego wykonawcy, zachowując osobę/partię/zlecenie i wspólny zegar. Czas wynika z autorskiej długości i prędkości do 3 m/s; po 1200 krokach najpóźniej osiąga się fazę powrotu, która może czekać na rzeczywistą wolną przestrzeń.
+
+Alternatywy odrzucone: sama flaga renderowania pozostawiałaby lokalną kapsułę i świadków; druga gospodarka lub kopia kuriera łamałyby własność. Pełny streaming, pojazdy i ogólny graf odległych tras przekraczają ten przyrost. Dane wymagają opcjonalnej otoczki 9, bez zmiany WorkWorld i historycznych światów 1–8. Konsumenci fizyki, wiedzy, prawa i obrazu wymagają lokalnej reprezentacji. Szczegóły, odmowy i granice określają [model](traversal-autonomy.md#podróż-poza-lokalną-reprezentacją) oraz [brief](work-items/m05-distant-delivery.md); wyniki należą do [raportu](verification/m05-distant-delivery.md). Nie jest to ukończenie całego M05 ani zgoda użytkownika na odbiór nowego kursu.
+
 ## Jak dopisać decyzję
 
 Podaj ID, status, źródło decyzji, problem, wybrany zakres, alternatywy i skutki. Przy zmianie opisz, który wcześniejszy wybór zastępujesz oraz jak migrują dane i konsumenci. Wynik testu jest dowodem weryfikacji, nie zastępczą zgodą na zmianę celu użytkownika.

@@ -64,6 +64,8 @@ Dowód zamknięcia: wspólna aplikacja i runner mają jeden świat oraz te same 
 
 Technicznie ukończono i zweryfikowano [sytuację z dwiema metodami dostawy](work-items/m05-two-methods.md): naprawę dzięki poznanej metodzie albo istniejący objazd. Odbiór użytkownika nowej sytuacji pozostaje osobny. [Raport przyrostu](verification/m05-two-methods.md) oddziela wyniki od pozostałych wymagań M05, w tym migracji reprezentacji i historii reagującej na zmiany świata.
 
+Zaimplementowano [jeden przewóz lokalny/daleki](work-items/m05-distant-delivery.md), obejmujący rzeczywistą zmianę reprezentacji SC-09 w ograniczonym modelu statycznych terminali. Nowe próby przechodzą, lecz pełna weryfikacja techniczna pozostaje niezaliczona przez powtarzalne przekroczenia czasu istniejących kontroli. [Raport](verification/m05-distant-delivery.md) zachowuje wyniki i otwartą bramkę; SC-09, odbiór użytkownika i pozostałe wymagania M05 pozostają niezamknięte.
+
 | Kolejny zakres | Co ma zadziałać | Warunek zamknięcia |
 | --- | --- | --- |
 | Ciągłość wspólnego świata | Zapis w trakcie uczenia, ruchu, ładunku, oczekiwania i pracy; powrót gracza bez resetu pamięci | SC-08, stare formaty, uszkodzony odczyt, brak podwójnego zużycia i zgodna kontynuacja w nowym procesie |

@@ -114,10 +114,19 @@ std::vector<SceneTriangle> build_traversal_scene(const TraversalSession& session
                      {color.x * light, color.y * light, color.z * light});
         }
     }
+    for (const auto& c : session.distant_connections())
+        for (const auto terminal : c.terminals) {
+            const auto point = surface_feet(session.geometry(), terminal, TraversalLimits{});
+            if (point)
+                diamond(scene, camera, aspect, *point + SpatialPoint{0, .04, 0}, .3,
+                        {.1F, .8F, .85F});
+        }
     const auto poses = session.presentation(fraction);
     for (std::size_t i = 0; i < poses.size(); ++i) {
         const auto chosen = selected == static_cast<int>(i);
         const auto color = chosen ? Vec3{.24F, .7F, 1} : Vec3{.95F, .55F, .2F};
+        if (!poses[i].visible)
+            continue;
         capsule(scene, camera, aspect, poses[i], session.actors()[i].size, color,
                 static_cast<int>(i), chosen);
         const auto& actor = session.actors()[i];

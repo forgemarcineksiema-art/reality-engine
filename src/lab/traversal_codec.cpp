@@ -78,7 +78,8 @@ std::string TraversalSession::serialize() const {
     out.imbue(std::locale::classic());
     out << std::setprecision(17);
     const auto work = serialize_world(world_);
-    const auto lawful = practice_ || !property_rules_.empty() || !incidents_.empty();
+    const auto distant = !scene_.distant_connections.empty();
+    const auto lawful = distant || practice_ || !property_rules_.empty() || !incidents_.empty();
     const auto passage_state =
         lawful ||
         std::any_of(scene_.passages.begin(), scene_.passages.end(),
@@ -108,7 +109,8 @@ std::string TraversalSession::serialize() const {
                    actor.finish_grace_until != 0;
         });
     out << "GENESIS_TRAVERSAL "
-        << (practice_       ? 8
+        << (distant         ? 9
+            : practice_     ? 8
             : lawful        ? 7
             : passage_state ? 6
             : knowledgeable ? 5
@@ -286,6 +288,24 @@ std::string TraversalSession::serialize() const {
                 << leg.transport << '\n';
         }
     }
+    if (distant) {
+        out << "DISTANT_CONNECTIONS " << scene_.distant_connections.size() << '\n';
+        for (const auto& c : scene_.distant_connections) {
+            out << "DISTANT_CONNECTION " << c.id;
+            location(out, c.terminals[0]);
+            location(out, c.terminals[1]);
+            out << ' ' << c.distance_m << ' ' << c.travel_ticks << ' ' << c.open << '\n';
+        }
+        out << "JOURNEYS " << actors_.size() << '\n';
+        for (const auto& a : actors_) {
+            out << "JOURNEY " << a.id.value << ' ' << a.journey.has_value();
+            if (a.journey)
+                out << ' ' << a.journey->connection << ' ' << a.journey->side << ' '
+                    << a.journey->departed_at << ' ' << a.journey->elapsed;
+            out << '\n';
+        }
+        out << "OPTIONAL_PRACTICE " << practice_.has_value() << '\n';
+    }
     if (practice_)
         out << "PRACTICE " << std::quoted(practice_->serialize()) << '\n';
     const auto body = out.str();
@@ -305,8 +325,8 @@ void TraversalSession::restore(std::string_view bytes) {
     std::istringstream input{std::string{bytes.substr(0, checksum)}};
     input.imbue(std::locale::classic());
     tag(input, "GENESIS_TRAVERSAL");
-    const auto version = integer(input, 8);
-    require(version >= 1 && version <= 8, "unsupported traversal version");
+    const auto version = integer(input, 9);
+    require(version >= 1 && version <= 9, "unsupported traversal version");
     tag(input, "WORLD");
     const auto work_size = integer(input, snapshot_byte_limit);
     require(input.get() == '\n', "invalid traversal world framing");
@@ -597,7 +617,39 @@ void TraversalSession::restore(std::string_view bytes) {
         }
         candidate.actors_.push_back(std::move(a));
     }
-    if (version == 8) {
+    bool practice_present = version == 8;
+    if (version == 9) {
+        tag(input, "DISTANT_CONNECTIONS");
+        const auto count = integer(input, 16);
+        require(count > 0, "empty distant format");
+        for (std::uint64_t n = 0; n < count; ++n) {
+            tag(input, "DISTANT_CONNECTION");
+            DistantConnection c;
+            c.id = static_cast<std::uint32_t>(integer(input, UINT32_MAX));
+            c.terminals = {location(input), location(input)};
+            c.distance_m = real(input);
+            c.travel_ticks = integer(input, 1200);
+            c.open = integer(input, 1) != 0;
+            candidate.scene_.distant_connections.push_back(c);
+        }
+        tag(input, "JOURNEYS");
+        require(integer(input, 32) == candidate.actors_.size(), "distant population mismatch");
+        for (auto& a : candidate.actors_) {
+            tag(input, "JOURNEY");
+            require(integer(input) == a.id.value, "distant identity mismatch");
+            if (integer(input, 1) != 0) {
+                DistantJourney j;
+                j.connection = static_cast<std::uint32_t>(integer(input, UINT32_MAX));
+                j.side = static_cast<unsigned>(integer(input, 1));
+                j.departed_at = integer(input);
+                j.elapsed = integer(input, 1200);
+                a.journey = j;
+            }
+        }
+        tag(input, "OPTIONAL_PRACTICE");
+        practice_present = integer(input, 1) != 0;
+    }
+    if (practice_present) {
         candidate.rebuild_geometry();
         tag(input, "PRACTICE");
         std::string state;

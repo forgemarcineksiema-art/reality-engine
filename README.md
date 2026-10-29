@@ -4,6 +4,8 @@
 
 **Dwie metody dostawy (przyrost M05):** `python tools/start_practice_playtest.py --two-methods`. Napraw zużyty most dzięki poznanej metodzie albo uruchom dostawę istniejącym promem. [Sterowanie i stan weryfikacji](docs/verification/m05-two-methods.md).
 
+**Jeden kurier lokalnie i daleko:** `python tools/start_distant_playtest.py` uruchamia tę samą aplikację z kursem pomiędzy statycznymi terminalami. W podróży kurier znika z lokalnej fizyki i wraca z tą samą partią. [Zakres i stan kontroli](docs/verification/m05-distant-delivery.md).
+
 [Doświadczenia rozdzielające wyjaśnienia](docs/verification/discriminating-experiment.md): ukończono audyt, próbę potwierdzającą i fizyczne zadanie konserwacji dwóch mieszkańców. I i A otrzymały wsparcie; T pozostała negatywna. [API i komendy](docs/discriminating-learning.md).
 
 Action RPG w przyziemnej, realistycznej i brutalnej cywilizacji fantasy, łączące otwarty świat z autonomiczną symulacją społeczeństwa. Własny Reality Engine, fizyka i nawigacja. Zatwierdzoną wizję i nadal otwarte szczegóły oddzielają DEC-008 i DEC-011 w [rejestrze decyzji](docs/decisions.md).

@@ -45,7 +45,7 @@ struct Options {
     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
     bool smoke = false, debug = false, resume = false, unattended = false;
     bool delivery = false, crossing = false, law = false, community = false, learning = false;
-    bool two_methods = false;
+    bool two_methods = false, distant = false;
     bool repair_smoke = false;
     std::filesystem::path diagnostics;
     unsigned measure_seconds = 0, warmup_seconds = 30;
@@ -78,6 +78,8 @@ void read_options(Options& options) {
             options.community = true;
         } else if (arg == L"--learning") {
             options.learning = true;
+        } else if (arg == L"--distant-delivery") {
+            options.distant = true;
         } else if (arg == L"--two-methods") {
             options.two_methods = options.community = options.learning = true;
         } else if (arg == L"--repair-smoke") {
@@ -126,6 +128,10 @@ void read_options(Options& options) {
             }
         }
     }
+    require(!options.distant ||
+                (!options.two_methods && !options.community && !options.learning &&
+                 !options.delivery && !options.crossing && !options.law && !options.resume),
+            "distant-delivery cannot combine with another scene");
     require(!options.resume || options.smoke, "resume-smoke requires smoke-test");
     require(!options.learning || options.community, "learning requires --community");
     require(!options.repair_smoke || (options.two_methods && options.smoke),
@@ -162,13 +168,14 @@ class TraversalWindow final {
   public:
     TraversalWindow(HINSTANCE instance, const Options& options, std::ostream& log)
         : instance_(instance), options_(options), log_(log),
-          session_(options.two_methods ? make_two_methods_course()
-                   : options.learning  ? make_learning_course()
-                   : options.community ? make_community_course()
-                   : options.law       ? make_law_course()
-                   : options.crossing  ? make_crossing_course()
-                   : options.delivery  ? make_delivery_course()
-                                       : make_traversal_course()) {
+          session_(options.distant       ? make_distant_course()
+                   : options.two_methods ? make_two_methods_course()
+                   : options.learning    ? make_learning_course()
+                   : options.community   ? make_community_course()
+                   : options.law         ? make_law_course()
+                   : options.crossing    ? make_crossing_course()
+                   : options.delivery    ? make_delivery_course()
+                                         : make_traversal_course()) {
         WNDCLASSEXW type{};
         type.cbSize = sizeof(type);
         type.hInstance = instance_;
@@ -235,6 +242,15 @@ class TraversalWindow final {
                            L"postać | F2: autonomia\nWASD / PPM: ruch | I/O/P: próba | R: "
                            L"praca\nF5/F9: zapis/odczyt | Q/E, +/-: kamera\nTurkus: aparat; "
                            L"złoto: konserwacja.");
+        if (options_.distant)
+            SetWindowTextW(help_, L"Cel: kurier 1 przewozi 8 żywności i karmi odbiorcę.\n"
+                                  L"Terminale: turkusowe romby. Daleki kurs: 18 m / 6 s.\n"
+                                  L"Podczas podróży ciało znika ze sceny; ładunek pozostaje.\n"
+                                  L"Zajęte wyjście: czekanie na terminal, bez ponownej podróży.\n"
+                                  L"Spacja: czas | N: +1 s | 1–3 / Tab: postać\n"
+                                  L"F2: autonomia | WASD / PPM: lokalny ruch\n"
+                                  L"F4: fizyczny ładunek | F5/F9: zapis/odczyt\n"
+                                  L"Q/E, +/-: kamera. Potrzeby płyną także w podróży.");
         buttons_[0] = control(L"BUTTON", L"Odtwarzaj [Spacja]", 1001, BS_PUSHBUTTON);
         buttons_[1] = control(L"BUTTON", L"+1 s [N]", 1002, BS_PUSHBUTTON);
         buttons_[2] = control(L"BUTTON", L"Autonomia [F2]", 1003, BS_PUSHBUTTON);
@@ -541,7 +557,16 @@ class TraversalWindow final {
             if (cargo)
                 text << L" | ładunek " << cargo->record.quantity.value;
         }
-        text << L"\n" << state_label(actor.state);
+        if (actor.journey) {
+            const auto& j = *actor.journey;
+            const auto found = std::find_if(session_.distant_connections().begin(),
+                                            session_.distant_connections().end(),
+                                            [&](const auto& c) { return c.id == j.connection; });
+            text << L"\nDaleka podróż " << j.elapsed << L"/" << found->travel_ticks;
+            if (j.elapsed == found->travel_ticks)
+                text << L" | oczekuje na terminal";
+        } else
+            text << L"\n" << state_label(actor.state);
         if (actor.delivery)
             text << L" | dostawa " << actor.delivery->delivered << L"/" << actor.delivery->quantity;
         text << L"\n"
@@ -615,7 +640,14 @@ class TraversalWindow final {
             static_cast<float>(static_cast<int>(keys_[3]) - static_cast<int>(keys_[1])),
             static_cast<float>(static_cast<int>(keys_[0]) - static_cast<int>(keys_[2])));
     }
-    void apply_input() { session_.set_input(static_cast<std::size_t>(selection_), direction()); }
+    void apply_input() {
+        if (!session_.actors()[static_cast<std::size_t>(selection_)].local() &&
+            direction() != GroundPoint{}) {
+            feedback(L"Ruch lokalny jest niedostępny podczas dalekiej podróży.");
+            return;
+        }
+        session_.set_input(static_cast<std::size_t>(selection_), direction());
+    }
     void choose(int selection) {
         clear_keys();
         selection_ = selection;
@@ -630,6 +662,11 @@ class TraversalWindow final {
                                : code == 'D' ? 3
                                              : -1;
         if (key_index >= 0) {
+            if (!session_.actors()[static_cast<std::size_t>(selection_)].local()) {
+                if (down)
+                    feedback(L"Ruch lokalny jest niedostępny podczas dalekiej podróży.");
+                return true;
+            }
             keys_[static_cast<std::size_t>(key_index)] = down;
             if (down && !repeat) {
                 session_.queue_input(static_cast<std::size_t>(selection_), direction());
@@ -948,6 +985,11 @@ class TraversalWindow final {
             }
             return;
         }
+        if (!session_.actors()[static_cast<std::size_t>(selection_)].local()) {
+            feedback(
+                L"Ruch lokalny jest niedostępny podczas dalekiej podróży. Poczekaj na terminal.");
+            return;
+        }
         auto target =
             pick_traversal_surface(session_, camera_, nx, ny, aspect(), fraction(), approach);
         if (object && *object != selection_ && *object >= 0 &&
@@ -1227,6 +1269,52 @@ class TraversalWindow final {
         }
         log_ << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
+    void distant_smoke() {
+        selection_ = 0;
+        for (unsigned n = 0; n < 12 && session_.actors()[0].local(); ++n)
+            SendMessageW(window_, WM_KEYDOWN, 'N', 0);
+        require(!session_.actors()[0].local(), "native courier never left local representation");
+        const auto cargo = session_.actors()[0].cargo;
+        require(session_.world().resource(cargo)->record.quantity.value == 4 &&
+                    !session_.presentation(.5)[0].visible,
+                "native distant cargo or visibility invalid");
+        panel();
+        draw();
+        require(renderer_->capture(options_.capture) > 1000, "distant GPU image empty");
+        SendMessageW(window_, WM_KEYDOWN, VK_F5, 0);
+        auto expected = session_;
+        expected.advance(13);
+        session_.advance(3);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        session_.advance(13);
+        require(session_.serialize() == expected.serialize(), "native distant F5/F9 diverged");
+        log_ << "distant_checkpoint=pass\n";
+        const auto current = session_.serialize();
+        TraversalSession foreign{make_crossing_course()};
+        foreign.save(options_.save);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        panel();
+        draw();
+        require(session_.distant_connections().empty(), "foreign world retained distant topology");
+        write_snapshot_atomic(current, options_.save);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        require(session_.serialize() == current, "native foreign world return diverged");
+        log_ << "distant_foreign_save=pass\n";
+        for (unsigned n = 0; n < 900 && (session_.actors()[0].delivery->delivered != 8 ||
+                                         session_.stations()[1].completed == 0);
+             ++n)
+            session_.advance(1);
+        session_.validate();
+        require(session_.actors()[0].delivery->delivered == 8 &&
+                    session_.stations()[1].completed > 0 && session_.actors()[0].cargo == cargo,
+                "native distant trip did not physically deliver and feed");
+        panel();
+        draw();
+        require(renderer_->capture(options_.capture.parent_path() / L"distant-delivered.png") >
+                    1000,
+                "distant delivered GPU image empty");
+        log_ << "distant_delivery=pass\n" << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
+    }
     void two_methods_smoke() {
         const auto start = std::chrono::steady_clock::now();
         const auto timing = [&](const char* stage) {
@@ -1315,6 +1403,10 @@ class TraversalWindow final {
              << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
     void smoke() {
+        if (options_.distant) {
+            distant_smoke();
+            return;
+        }
         if (options_.two_methods) {
             two_methods_smoke();
             return;

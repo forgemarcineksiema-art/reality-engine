@@ -101,8 +101,9 @@ bool boarding_clear(const SpatialGeometry& geometry, const TransportService& s,
         if (!spatial_segment_clear(geometry, path[p - 1], path[p], actor.size))
             return false;
         for (const auto& other : people)
-            if (other.id != actor.id && !capsule_paths_clear(path[p - 1], path[p], actor.size,
-                                                             other.feet, other.feet, other.size))
+            if (other.local() && other.id != actor.id &&
+                !capsule_paths_clear(path[p - 1], path[p], actor.size, other.feet, other.feet,
+                                     other.size))
                 return false;
     }
     return true;
@@ -110,7 +111,7 @@ bool boarding_clear(const SpatialGeometry& geometry, const TransportService& s,
 bool parking_free(SpatialPoint feet, const TraversalActor& actor,
                   std::span<const TraversalActor> people) {
     return std::all_of(people.begin(), people.end(), [&](const auto& other) {
-        return other.id == actor.id ||
+        return !other.local() || other.id == actor.id ||
                capsule_paths_clear(feet, feet, actor.size, other.feet, other.feet, other.size);
     });
 }
@@ -322,16 +323,17 @@ std::vector<TraversalPose> TraversalSession::presentation(double fraction) const
                 }
             }
         }
-        poses.push_back(
-            {feet, previous_headings_[i] +
-                       angle_delta(previous_headings_[i], actor.motion.heading) * fraction});
+        poses.push_back({feet,
+                         previous_headings_[i] +
+                             angle_delta(previous_headings_[i], actor.motion.heading) * fraction,
+                         actor.local()});
     }
     return poses;
 }
 std::vector<SurfaceBlocker> TraversalSession::stationary_neighbours(std::size_t index) const {
     std::vector<SurfaceBlocker> result;
     for (std::size_t other = 0; other < actors_.size(); ++other) {
-        if (other != index && actors_[other].motion.speed < .05 &&
+        if (other != index && actors_[other].local() && actors_[other].motion.speed < .05 &&
             length(actors_[other].feet - actors_[index].feet) < 3.)
             result.push_back({actors_[other].feet, actors_[other].size});
     }
@@ -536,7 +538,7 @@ TraversalNavigationView TraversalSession::navigation_view(std::size_t index) con
     if (leg.kind == SurfaceLegKind::Walk && actor.leg + 1 == actor.route.legs.size() &&
         actor.requested_reach == 0 && result.target && length(*result.target - actor.feet) < 1.25) {
         for (const auto& other : actors_)
-            if (other.id != actor.id &&
+            if (other.local() && other.id != actor.id &&
                 !capsule_paths_clear(*result.target, *result.target, actor.size, other.feet,
                                      other.feet, other.size)) {
                 result.kind = TraversalGuidanceKind::OccupiedGoal;
@@ -548,6 +550,8 @@ TraversalNavigationView TraversalSession::navigation_view(std::size_t index) con
 }
 void TraversalSession::set_goal(std::size_t index, SurfaceLocation goal) {
     auto& actor = actors_.at(index);
+    if (!actor.local())
+        return;
     check(surface_feet(geometry_, goal, limits(actor)).has_value(),
           "goal is not physically usable");
     if (practice_busy(index)) {
@@ -604,6 +608,15 @@ void TraversalSession::set_goal(std::size_t index, SurfaceLocation goal) {
 }
 void TraversalSession::stop(std::size_t index) {
     auto& actor = actors_.at(index);
+    if (!actor.local()) {
+        actor.autonomous = false;
+        actor.suspended.clear();
+        actor.need_retry_at = 0;
+        actor.finish_grace_until = 0;
+        inputs_[index] = {};
+        queued_inputs_[index] = {};
+        return;
+    }
     if (practice_busy(index)) {
         actor.autonomous = false;
         actor.pending_goal.reset();
@@ -659,6 +672,8 @@ void TraversalSession::set_autonomous(std::size_t index, bool enabled) {
 }
 void TraversalSession::set_input(std::size_t index, GroundPoint direction) {
     reality::validate(direction);
+    if (!actors_.at(index).local())
+        return;
     if (practice_busy(index)) {
         if (direction.x_m != 0 || direction.z_m != 0)
             stop(index);
@@ -699,7 +714,7 @@ void TraversalSession::queue_input(std::size_t index, GroundPoint direction) {
 bool TraversalSession::approach_point_free(std::size_t index, SpatialPoint feet) const {
     const auto& actor = actors_.at(index);
     for (std::size_t other = 0; other < actors_.size(); ++other) {
-        if (other == index)
+        if (other == index || !actors_[other].local())
             continue;
         const auto& person = actors_[other];
         if (!capsule_paths_clear(feet, feet, actor.size, person.feet, person.feet, person.size))
@@ -717,7 +732,7 @@ bool TraversalSession::interaction_accessible(std::size_t index, SurfaceLocation
                                               SpatialPoint feet) const {
     const auto& actor = actors_.at(index);
     const auto target = surface_feet(geometry_, destination, limits(actor));
-    return target && length(*target - feet) <= 1.1 &&
+    return actor.local() && target && length(*target - feet) <= 1.1 &&
            spatial_segment_clear(geometry_, feet, *target, actor.size);
 }
 bool TraversalSession::can_interact_at(std::size_t actor, SurfaceLocation location) const {
@@ -793,6 +808,8 @@ void TraversalSession::retry_approach(std::size_t index) {
     }
 }
 void TraversalSession::approach(std::size_t index, SurfaceLocation destination, double reach) {
+    if (!actors_.at(index).local())
+        return;
     check(std::isfinite(reach) && reach > 0 && reach <= 2, "invalid approach reach");
     auto& actor = actors_.at(index);
     reality::validate(destination.local);
@@ -880,6 +897,8 @@ SpatialPoint TraversalSession::target(TraversalActor& actor) {
         const auto goal = feet_at(geometry_, leg.to, actor);
         if (length(goal - actor.feet) < 1.25) {
             for (const auto& other : actors_) {
+                if (!other.local())
+                    continue;
                 if (other.id != actor.id && !capsule_paths_clear(goal, goal, actor.size, other.feet,
                                                                  other.feet, other.size)) {
                     actor.state = TraversalState::Waiting;
@@ -913,6 +932,8 @@ SpatialPoint TraversalSession::target(TraversalActor& actor) {
             }
             if (found->owner.value == 0) {
                 for (const auto& other : actors_) {
+                    if (!other.local())
+                        continue;
                     if (occupies_passage(geometry_, found->surface, other)) {
                         found->owner = other.id;
                         if (std::find(found->queue.begin(), found->queue.end(), other.id) ==
@@ -1071,6 +1092,10 @@ void TraversalSession::progress(TraversalActor& actor) {
 }
 void TraversalSession::move(std::size_t index, double dt, const SpatialGeometry& end_geometry) {
     auto& actor = actors_[index];
+    if (!actor.local()) {
+        append(history_[index], static_cast<double>(substep_ + 1) / subdivisions, actor.feet);
+        return;
+    }
     const auto old_feet = actor.feet;
     auto carried = old_feet;
     std::uint32_t carrier = 0;
@@ -1128,7 +1153,7 @@ void TraversalSession::move(std::size_t index, double dt, const SpatialGeometry&
             return false;
         // Reject a candidate blocked by a person before the swept surface search.
         for (std::size_t other = 0; other < actors_.size(); ++other) {
-            if (other != index &&
+            if (other != index && actors_[other].local() &&
                 !capsule_paths_clear(carried, *supported, actor.size, actors_[other].feet,
                                      actors_[other].feet, actors_[other].size))
                 return false;
@@ -1160,7 +1185,7 @@ void TraversalSession::move(std::size_t index, double dt, const SpatialGeometry&
                 }
                 bool free = true;
                 for (std::size_t other = 0; other < actors_.size(); ++other) {
-                    if (other == index) {
+                    if (other == index || !actors_[other].local()) {
                         continue;
                     }
                     const auto& person = actors_[other];
@@ -1318,7 +1343,7 @@ void TraversalSession::move(std::size_t index, double dt, const SpatialGeometry&
         }
     }
     for (std::size_t other = 0; legal && other < actors_.size(); ++other) {
-        if (other == index) {
+        if (other == index || !actors_[other].local()) {
             continue;
         }
         const auto other_start = substep_starts_[other];
@@ -1350,7 +1375,7 @@ void TraversalSession::move(std::size_t index, double dt, const SpatialGeometry&
             length(sweep.feet - future) > 2 * contact_margin_m)
             legal = false;
         for (std::size_t other = 0; legal && other < actors_.size(); ++other) {
-            if (other == index)
+            if (other == index || !actors_[other].local())
                 continue;
             const auto& person = actors_[other];
             const auto current = processed_[other] ? person.feet : substep_carries_[other];
@@ -1422,10 +1447,14 @@ void TraversalSession::tick() {
     for (std::size_t i = 0; i < actors_.size(); ++i) {
         auto& actor = actors_[i];
         actor.hunger = std::min(std::uint64_t{1000}, actor.hunger + 1);
-        if (actor.motion.speed > .1 && actor.energy > 0) {
+        if (actor.local() && actor.motion.speed > .1 && actor.energy > 0) {
             --actor.energy;
         }
+        if (!actor.local())
+            continue;
         decide(i);
+        if (!actor.local())
+            continue;
         if (!actor.yielding && actor.goal && actor.blocked_ticks >= 25 && now >= actor.retry_at &&
             actor.transfer == TransferStage::None && !committed_step(actor)) {
             if (actor.requested_goal && actor.requested_reach > 0) {
@@ -1461,6 +1490,8 @@ void TraversalSession::tick() {
         moving.blocked = false;
         auto next = (moving.phase + 1) % moving.definition.period();
         for (const auto& actor : actors_) {
+            if (!actor.local())
+                continue;
             for (std::size_t ahead = actor.leg;
                  ahead < std::min(actor.route.legs.size(), actor.leg + 2); ++ahead) {
                 const auto& leg = actor.route.legs[ahead];
@@ -1521,6 +1552,8 @@ void TraversalSession::tick() {
             }
         }
         for (const auto& actor : actors_) {
+            if (!actor.local())
+                continue;
             if (moving.blocked) {
                 break;
             }
@@ -1541,7 +1574,7 @@ void TraversalSession::tick() {
                     moving.blocked = true;
                 }
                 for (const auto& other : actors_) {
-                    if (other.id == actor.id) {
+                    if (other.id == actor.id || !other.local()) {
                         continue;
                     }
                     auto other_end = other.feet;
@@ -1606,8 +1639,8 @@ void TraversalSession::tick() {
         substep_padding_.assign(actors_.size(), 0);
         for (std::size_t i = 0; i < actors_.size(); ++i) {
             const auto& actor = actors_[i];
-            if (!platform(scene_, actor.support.surface) || committed_step(actor) ||
-                actor.transfer == TransferStage::Boarding ||
+            if (!actor.local() || !platform(scene_, actor.support.surface) ||
+                committed_step(actor) || actor.transfer == TransferStage::Boarding ||
                 actor.transfer == TransferStage::Exiting) {
                 continue;
             }
@@ -1642,6 +1675,7 @@ void TraversalSession::tick() {
         }
     }
     world_.advance(1);
+    advance_distant();
     for (std::size_t i = 0; i < actors_.size(); ++i) {
         if (actors_[i].action.value != 0) {
             decide(i);
@@ -1657,6 +1691,7 @@ void TraversalSession::tick() {
     }
 }
 void TraversalSession::validate() const {
+    validate_distant();
     validate_practice();
     world_.validate();
     scene_.geometry.validate();
@@ -1708,7 +1743,7 @@ void TraversalSession::validate() const {
         }
         reality::validate(actor.motion, tuning_);
         actor.size.validate();
-        check(spatial_occupiable(geometry_, actor.feet, actor.size),
+        check(!actor.local() || spatial_occupiable(geometry_, actor.feet, actor.size),
               "traversal actor penetrates geometry");
         check(actor.hunger <= 1000 && actor.energy <= 1000 &&
                   (actor.known_stations & ~known) == 0 && actor.requested_reach >= 0 &&
@@ -1716,8 +1751,9 @@ void TraversalSession::validate() const {
               "invalid actor needs or knowledge");
         for (std::size_t other = i + 1; other < actors_.size(); ++other) {
             check(actor.id != actors_[other].id, "duplicate traversal actor identity");
-            check(capsule_paths_clear(actor.feet, actor.feet, actor.size, actors_[other].feet,
-                                      actors_[other].feet, actors_[other].size),
+            check(!actor.local() || !actors_[other].local() ||
+                      capsule_paths_clear(actor.feet, actor.feet, actor.size, actors_[other].feet,
+                                          actors_[other].feet, actors_[other].size),
                   "traversal actors overlap");
         }
         check(actor.route.legs.size() <= 512 && actor.leg <= actor.route.legs.size() &&
@@ -1769,7 +1805,7 @@ void TraversalSession::validate() const {
                       actor.transfer_point < transfer_points(geometry_, *found, actor).size(),
                   "transfer cursor outside physical profile");
         }
-        if (!is_step && !is_transfer) {
+        if (actor.local() && !is_step && !is_transfer) {
             const auto& body = geometry_.body(actor.support.surface);
             const auto height = body.support({actor.feet.x, actor.feet.z}, actor.size.radius,
                                              limits(actor).maximum_slope);
@@ -1898,17 +1934,22 @@ std::string TraversalSession::inspect() const {
     out << std::fixed << std::setprecision(3);
     out << "tick=" << world_.clock().tick_count() << " actors=" << actors_.size() << "\n";
     for (const auto& actor : actors_) {
-        out << "actor=" << actor.id.value << " surface=" << actor.support.surface
-            << " feet=" << actor.feet.x << ',' << actor.feet.y << ',' << actor.feet.z
-            << " speed=" << actor.motion.speed << " accel=" << actor.motion.acceleration
-            << " yaw=" << actor.motion.heading << " state=" << static_cast<unsigned>(actor.state)
-            << " auto=" << actor.autonomous << " task=" << static_cast<unsigned>(actor.task)
-            << " hunger=" << actor.hunger << " energy=" << actor.energy << " plans=" << actor.plans
-            << " leg=" << actor.leg << '/' << actor.route.legs.size()
-            << " transfer=" << static_cast<unsigned>(actor.transfer)
+        out << "actor=" << actor.id.value
+            << " representation=" << (actor.local() ? "local" : "distant")
+            << " surface=" << actor.support.surface << " feet=" << actor.feet.x << ','
+            << actor.feet.y << ',' << actor.feet.z << " speed=" << actor.motion.speed
+            << " accel=" << actor.motion.acceleration << " yaw=" << actor.motion.heading
+            << " state=" << static_cast<unsigned>(actor.state) << " auto=" << actor.autonomous
+            << " task=" << static_cast<unsigned>(actor.task) << " hunger=" << actor.hunger
+            << " energy=" << actor.energy << " plans=" << actor.plans << " leg=" << actor.leg << '/'
+            << actor.route.legs.size() << " transfer=" << static_cast<unsigned>(actor.transfer)
             << " action=" << actor.action.value << " blocked=" << actor.blocked_ticks
             << " step_point=" << actor.step_point << " need_retry_at=" << actor.need_retry_at
             << " finish_grace_until=" << actor.finish_grace_until << '\n';
+        if (actor.journey)
+            out << "  distant_connection=" << actor.journey->connection
+                << " elapsed=" << actor.journey->elapsed
+                << " departed_at=" << actor.journey->departed_at << '\n';
         for (const auto& paused : actor.suspended)
             out << "  suspended_task=" << static_cast<unsigned>(paused.task)
                 << " station=" << paused.station << '\n';

@@ -266,7 +266,8 @@ void TraversalSession::advance_practice() {
     if (p.sharing_ && tick > p.sharing_->tick) {
         auto contact = *p.sharing_;
         p.sharing_.reset();
-        if (actors_[contact.from].support.surface == contact.surface &&
+        if (actors_[contact.from].local() && actors_[contact.to].local() &&
+            actors_[contact.from].support.surface == contact.surface &&
             actors_[contact.to].support.surface == contact.surface &&
             knowledge_contact(contact.from, contact.to) && !practice_busy(contact.from) &&
             !practice_busy(contact.to)) {

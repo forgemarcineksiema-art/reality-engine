@@ -23,7 +23,7 @@ void TraversalSession::assign_delivery(std::size_t index, std::uint32_t source,
     check(source < scene_.stations.size() && destination < scene_.stations.size() &&
               source != destination && quantity > 0 && quantity <= 1024,
           "invalid delivery order");
-    check(!actor.yielding && !committed(actor) && actor.action.value == 0 &&
+    check(actor.local() && !actor.yielding && !committed(actor) && actor.action.value == 0 &&
               (!actor.delivery || !active(*actor.delivery)),
           "delivery actor is busy");
     const auto from = world_.resource(scene_.stations[source].lot),
@@ -110,6 +110,8 @@ CargoStatus TraversalSession::interact_cargo(std::size_t index, std::size_t stat
 }
 CargoStatus TraversalSession::interact_cargo_impl(std::size_t index, std::size_t station_index) {
     auto& actor = actors_.at(index);
+    if (!actor.local())
+        return CargoStatus::OutOfReach;
     if (station_index >= scene_.stations.size())
         return CargoStatus::Unavailable;
     if (actor.yielding || committed(actor) || actor.action.value != 0 || actor.motion.speed > .03)
@@ -209,6 +211,8 @@ bool TraversalSession::plan_delivery(std::size_t index) {
         auto& job = *actor.delivery;
         const auto station =
             job.phase == DeliveryPhase::ToDestination ? job.destination : job.source;
+        if (plan_distant_delivery(index, scene_.stations[station].location))
+            return true;
         if (choose_approach(index, scene_.stations[station].location, .9, true)) {
             actor.task = TraversalTask::Deliver;
             actor.finish_grace_until = 0;
@@ -228,6 +232,9 @@ bool TraversalSession::plan_delivery(std::size_t index) {
     const auto station = choose_return_station(actor);
     if (!station)
         return false;
+    actor.station = static_cast<std::uint32_t>(*station);
+    if (plan_distant_delivery(index, scene_.stations[*station].location))
+        return true;
     if (choose_approach(index, scene_.stations[*station].location, .9, true)) {
         actor.task = TraversalTask::Deliver;
         actor.station = static_cast<std::uint32_t>(*station);
@@ -256,6 +263,8 @@ void TraversalSession::arrive_delivery(std::size_t index) {
         station = job.phase == DeliveryPhase::ToDestination ? job.destination : job.source;
     }
     check(station < scene_.stations.size(), "cargo return arrived without a station");
+    if (plan_distant_delivery(index, scene_.stations[station].location))
+        return;
     const auto point =
         surface_feet(geometry_, scene_.stations[station].location, TraversalLimits{actor.size});
     auto success = false;

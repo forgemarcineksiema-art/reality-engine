@@ -1,6 +1,8 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/verification/m05-distant-delivery.md", "role": "verification", "topic": "m05-distant-delivery-verification"},
+    {"path": "docs/work-items/m05-distant-delivery.md", "role": "current-state", "topic": "m05-distant-delivery-brief"},
     {"path": "docs/work-items/m05-two-methods.md", "role": "current-state", "topic": "m05-two-methods-brief"},
     {"path": "docs/verification/m05-two-methods.md", "role": "verification", "topic": "m05-two-methods-verification"},
     {

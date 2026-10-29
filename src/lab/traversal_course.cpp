@@ -119,4 +119,20 @@ TraversalScene make_two_methods_course() {
         s.spawns[actor].autonomous = false;
     return s;
 }
+TraversalScene make_distant_course() {
+    TraversalScene s;
+    s.geometry.bodies = {{1, {-6, 0, 0}, 0, 4, 4, .3, 0, 0, true},
+                         {2, {6, 0, 0}, 0, 4, 4, .3, 0, 0, true}};
+    s.distant_connections = {{1, {{{1, {2, 0}}, {2, {-2, 0}}}}, 18, 120, true}};
+    s.stations = {{{1, {-1, 0}}, TraversalTask::Eat, 12},
+                  {{2, {1, 0}}, TraversalTask::Eat, 0},
+                  {{1, {-1, -2}}, TraversalTask::Rest, 1},
+                  {{2, {1, -2}}, TraversalTask::Rest, 1}};
+    s.stations[0].initial_material = {1};
+    s.stations[1].initial_material = {1};
+    s.spawns = {{{1, {-1, 0}}, {}, true}, {{1, {-1, 2}}, {}, false}, {{2, {1, 2}}, {}, true, 300}};
+    s.spawns[2].known_stations = 10;
+    s.initial_deliveries = {{0, 0, 1, 8}};
+    return s;
+}
 } // namespace reality

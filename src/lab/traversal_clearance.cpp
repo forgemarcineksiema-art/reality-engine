@@ -8,7 +8,8 @@
 namespace reality {
 namespace {
 bool in_step(const TraversalActor& actor) {
-    return actor.transfer == TransferStage::None && actor.leg < actor.route.legs.size() &&
+    return actor.local() && actor.transfer == TransferStage::None &&
+           actor.leg < actor.route.legs.size() &&
            actor.route.legs[actor.leg].kind == SurfaceLegKind::Step && actor.step_point > 0;
 }
 std::vector<SpatialPoint> remaining_step(const SpatialGeometry& geometry,
@@ -78,7 +79,7 @@ ClearanceOutcome TraversalSession::request_clearance(std::size_t index) {
     for (std::size_t i = 0; i < actors_.size(); ++i) {
         const auto& other = actors_[i];
         const auto distance = length(other.feet - requester.feet);
-        if (i != index && distance < closest &&
+        if (other.local() && i != index && distance < closest &&
             obstructs(path, requester.size, other.feet, other.size)) {
             recipient = i;
             closest = distance;
@@ -103,7 +104,7 @@ ClearanceOutcome TraversalSession::request_clearance(std::size_t index) {
         return reply(ClearanceOutcome::Busy);
     std::vector<SurfaceBlocker> blockers;
     for (const auto& person : actors_)
-        if (person.id != other.id && length(person.feet - other.feet) <= 3)
+        if (person.local() && person.id != other.id && length(person.feet - other.feet) <= 3)
             blockers.push_back({person.feet, person.size});
     const auto& body = geometry_.body(other.support.surface);
     const auto local = body.local(other.feet);
@@ -119,7 +120,7 @@ ClearanceOutcome TraversalSession::request_clearance(std::size_t index) {
                 continue;
             bool free = true;
             for (const auto& person : actors_) {
-                if (person.id == other.id)
+                if (!person.local() || person.id == other.id)
                     continue;
                 if (length(person.feet - other.feet) <= 3 &&
                     !capsule_paths_clear(*feet, *feet, other.size, person.feet, person.feet,

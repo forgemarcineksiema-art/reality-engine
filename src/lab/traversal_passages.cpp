@@ -70,6 +70,8 @@ bool TraversalSession::passage_motion_clear(SpatialPoint from, SpatialPoint to,
 }
 bool TraversalSession::passage_busy(const PassageState& p) const {
     for (const auto& a : actors_) {
+        if (!a.local())
+            continue;
         const auto blocked = barrier(geometry_, p, a.size);
         if (a.support.surface == p.surface || !spatial_occupiable(blocked, a.feet, a.size))
             return true;
@@ -98,6 +100,8 @@ bool TraversalSession::passage_busy(const PassageState& p) const {
 }
 bool TraversalSession::passage_contact(std::size_t index, const PassageState& p) const {
     const auto& a = actors_.at(index);
+    if (!a.local())
+        return false;
     for (const auto& c : scene_.connections) {
         // Geometry owns the bank association; a historical Step may have no
         // FIFO label. It must still expose its physical observation channel.
@@ -173,6 +177,8 @@ void TraversalSession::update_passages() {
             change_passage(p, false);
     }
     for (std::size_t i = 0; i < actors_.size(); ++i) {
+        if (!actors_[i].local())
+            continue;
         for (std::size_t p = 0; p < scene_.passages.size(); ++p)
             static_cast<void>(observe_passage(i, scene_.passages[p].id));
         auto& a = actors_[i];

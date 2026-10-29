@@ -131,8 +131,23 @@ struct ViolationTestimony {
     std::uint64_t observed_tick = 0, learned_tick = 0;
     EntityId source_actor, via_actor;
 };
+struct DistantConnection {
+    std::uint32_t id = 0;
+    std::array<SurfaceLocation, 2> terminals;
+    double distance_m = 0;
+    std::uint64_t travel_ticks = 0;
+    bool open = true;
+};
+struct DistantJourney {
+    std::uint32_t connection = 0;
+    unsigned side = 0;
+    std::uint64_t departed_at = 0, elapsed = 0;
+};
+enum class DistantOutcome { Departed, Busy, OutOfReach, Closed, Unavailable };
 struct TraversalActor {
     EntityId id;
+    std::optional<DistantJourney> journey;
+    [[nodiscard]] bool local() const noexcept { return !journey; }
     SurfaceLocation support;
     SpatialPoint feet;
     LocomotionState motion;
@@ -176,6 +191,7 @@ struct TraversalActor {
 };
 struct TraversalScene {
     SpatialGeometry geometry;
+    std::vector<DistantConnection> distant_connections;
     std::vector<SurfaceConnection> connections;
     std::vector<PlatformState> platforms;
     std::vector<TransportService> services;
@@ -212,9 +228,11 @@ struct TraversalScene {
 [[nodiscard]] TraversalScene make_community_course();
 [[nodiscard]] TraversalScene make_learning_course();
 [[nodiscard]] TraversalScene make_two_methods_course();
+[[nodiscard]] TraversalScene make_distant_course();
 struct TraversalPose {
     SpatialPoint feet;
     double heading = 0;
+    bool visible = true;
 };
 enum class TraversalGuidanceKind { None, Walk, Parking, Precision, Riding, OccupiedGoal, Blocked };
 struct TraversalNavigationView {
@@ -231,6 +249,9 @@ struct TraversalNavigationView {
 
 class TraversalSession final {
   public:
+    [[nodiscard]] const std::vector<DistantConnection>& distant_connections() const noexcept;
+    [[nodiscard]] DistantOutcome depart(std::size_t actor, std::uint32_t connection, unsigned side);
+    [[nodiscard]] bool set_distant_open(std::uint32_t connection, bool open);
     [[nodiscard]] bool has_practice() const noexcept;
     [[nodiscard]] DiscoveryOutcome share_practice(std::size_t sender, std::size_t recipient);
     [[nodiscard]] PracticeView practice_view(std::size_t actor) const;
@@ -277,6 +298,9 @@ class TraversalSession final {
     void validate() const;
 
   private:
+    void advance_distant();
+    void validate_distant() const;
+    [[nodiscard]] bool plan_distant_delivery(std::size_t actor, SurfaceLocation destination);
     std::optional<PracticeState> practice_;
     [[nodiscard]] bool practice_busy(std::size_t actor) const;
     [[nodiscard]] bool practice_at_bench(std::size_t actor) const;

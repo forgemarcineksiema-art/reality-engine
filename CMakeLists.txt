@@ -67,7 +67,7 @@ add_library(reality_lab_model STATIC src/lab/traversal_practice_codec.cpp src/la
     src/physics/kinematic.cpp src/navigation/grid_navigation.cpp src/lab/motion_session.cpp
     src/physics/spatial_geometry.cpp src/navigation/surface_navigation.cpp src/physics/locomotion.cpp
     src/physics/platform_motion.cpp src/lab/traversal_session.cpp src/lab/traversal_course.cpp
-    src/lab/traversal_codec.cpp src/lab/traversal_diagnostics.cpp src/lab/traversal_needs.cpp
+    src/lab/traversal_distant.cpp src/lab/traversal_codec.cpp src/lab/traversal_diagnostics.cpp src/lab/traversal_needs.cpp
     src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/lab/traversal_law.cpp src/lab/traversal_passages.cpp src/graphics/traversal_scene.cpp)
 target_link_libraries(reality_lab_model PUBLIC reality_core reality_learning_core)
 
@@ -110,6 +110,8 @@ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 sh
 reality_deploy_diagnostics(reality_traversal)
 
 set(reality_cpp_files
+    src/lab/traversal_distant.cpp
+    tests/distant_tests.cpp
     src/lab/traversal_practice_codec.cpp
     src/lab/traversal_practice.hpp
     src/lab/traversal_practice.cpp
@@ -222,6 +224,18 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_distant_tests tests/distant_tests.cpp)
+    target_link_libraries(reality_distant_tests PRIVATE reality_lab_model)
+    reality_deploy_diagnostics(reality_distant_tests)
+    foreach(case IN ITEMS handoff ghost blocked closed needs corruption protected isolation manual stale_goal cancelled_return)
+        add_test(NAME distant.${case} COMMAND reality_distant_tests ${case})
+    endforeach()
+    foreach(phase IN ITEMS travel waiting cancelled)
+        add_test(NAME distant.fresh_${phase} COMMAND "${Python3_EXECUTABLE}"
+            "${CMAKE_CURRENT_SOURCE_DIR}/tests/distant_integration.py" "$<TARGET_FILE:reality_distant_tests>" ${phase})
+    endforeach()
+    add_test(NAME distant.native COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_distant_native.py" --exe "$<TARGET_FILE:reality_traversal>")
     add_executable(reality_two_methods_tests tests/two_methods_tests.cpp)
     target_link_libraries(reality_two_methods_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_two_methods_tests)

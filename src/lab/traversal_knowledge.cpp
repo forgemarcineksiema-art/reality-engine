@@ -45,7 +45,7 @@ void TraversalSession::observe_station(std::size_t index, std::size_t station_in
 KnowledgeOutcome TraversalSession::share_knowledge(std::size_t sender, std::size_t recipient) {
     const auto& from = actors_.at(sender);
     auto& to = actors_.at(recipient);
-    if (sender == recipient || length(from.feet - to.feet) > 2)
+    if (!from.local() || !to.local() || sender == recipient || length(from.feet - to.feet) > 2)
         return KnowledgeOutcome::OutOfReach;
     if (!knowledge_contact(sender, recipient))
         return KnowledgeOutcome::Blocked;
@@ -115,8 +115,8 @@ void TraversalSession::update_knowledge() {
     const auto now = world_.clock().tick_count();
     for (std::size_t sender = 0; sender < actors_.size(); ++sender) {
         auto& actor = actors_[sender];
-        if (!actor.autonomous || actor.share_until == 0 || now >= actor.share_until ||
-            now < actor.share_retry_at)
+        if (!actor.local() || !actor.autonomous || actor.share_until == 0 ||
+            now >= actor.share_until || now < actor.share_retry_at)
             continue;
         actor.share_retry_at = now + 10;
         for (std::size_t recipient = 0; recipient < actors_.size(); ++recipient)

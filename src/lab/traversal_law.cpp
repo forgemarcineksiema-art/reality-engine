@@ -26,7 +26,8 @@ bool TraversalSession::legal_service_allowed(std::size_t actor, std::size_t stat
 bool TraversalSession::knowledge_contact(std::size_t from, std::size_t to) const {
     const auto& a = actors_.at(from);
     const auto& b = actors_.at(to);
-    return from != to && length(a.feet - b.feet) <= 2 && a.support.surface == b.support.surface &&
+    return a.local() && b.local() && from != to && length(a.feet - b.feet) <= 2 &&
+           a.support.surface == b.support.surface &&
            spatial_segment_clear(geometry_, a.feet, b.feet, a.size) &&
            spatial_segment_clear(geometry_, b.feet, a.feet, b.size);
 }
