@@ -38,6 +38,53 @@ void program_case() {
             require(p.table != square, "outside control inside F");
     }
 }
+void table_equivalence() {
+    std::vector<HypothesisProgram> reference(1);
+    std::size_t start = 0, end = 1;
+    for (unsigned depth = 0; depth < 3; ++depth) {
+        for (auto i = start; i < end; ++i)
+            for (const auto op : hypothesis_primitives()) {
+                auto program = reference[i];
+                program.push_back(op);
+                reference.push_back(std::move(program));
+            }
+        start = end;
+        end = reference.size();
+    }
+    auto programs = hypothesis_grammar();
+    require(programs == reference, "grammar syntax or generation order changed");
+    const auto flat = hypothesis_flat_programs();
+    programs.insert(programs.end(), flat.begin(), flat.end());
+    for (const auto kind : {HypothesisKind::Loss, HypothesisKind::Cap, HypothesisKind::Fraction,
+                            HypothesisKind::Gate})
+        for (unsigned parameter = 1; parameter <= (kind == HypothesisKind::Fraction ? 16U : 64U);
+             ++parameter)
+            programs.push_back({{kind, parameter}});
+    for (const auto& program : programs) {
+        const auto table = hypothesis_table(program);
+        for (unsigned input = 0; input <= 128; ++input)
+            require(table[input] == hypothesis_apply(program, input),
+                    "batched table differs from scalar semantics");
+    }
+    for (const auto& program :
+         std::vector<HypothesisProgram>{{{HypothesisKind::Loss, 0}},
+                                        {{HypothesisKind::Cap, 65}},
+                                        {{HypothesisKind::Fraction, 17}},
+                                        {{static_cast<HypothesisKind>(4), 1}},
+                                        {{HypothesisKind::Cap, 1},
+                                         {HypothesisKind::Loss, 1},
+                                         {HypothesisKind::Gate, 1},
+                                         {HypothesisKind::Cap, 1}},
+                                        {{HypothesisKind::Cap, 1}, {HypothesisKind::Loss, 0}}}) {
+        bool rejected = false;
+        try {
+            static_cast<void>(hypothesis_table(program));
+        } catch (const std::invalid_argument&) {
+            rejected = true;
+        }
+        require(rejected, "table bypassed scalar program validation");
+    }
+}
 void apparatus_case() {
     std::array<HypothesisTable, 3> tables{hypothesis_table(example()),
                                           hypothesis_table({{HypothesisKind::Fraction, 8}}),
@@ -284,7 +331,9 @@ int main(int argc, char* argv[]) {
     try {
         require(argc == 2, "case required");
         const std::string name{argv[1]};
-        if (name == "program")
+        if (name == "table_equivalence")
+            table_equivalence();
+        else if (name == "program")
             program_case();
         else if (name == "session")
             session_case();

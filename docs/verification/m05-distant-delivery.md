@@ -1,6 +1,6 @@
 # Jeden kurier poza lokalnym obszarem
 
-**Status: zaimplementowano ograniczony kurs; pełna weryfikacja techniczna niezaliczona, 29.10.2026.** [Brief](../work-items/m05-distant-delivery.md) określa zakres. Ten raport dotyczy ograniczonego kursu SC-09 i kontynuacji SC-08; nie zalicza całego M05/M06, pełnego 3D ani odbioru użytkownika.
+**Status: ograniczony kurs zweryfikowany technicznie po [naprawie kosztu uczenia](learning-cost.md), 29.10.2026.** [Brief](../work-items/m05-distant-delivery.md) określa zakres. Ten raport dotyczy ograniczonego kursu SC-09 i kontynuacji SC-08; nie zalicza całego M05/M06, pełnego 3D ani odbioru użytkownika.
 
 ## Model i wykonanie
 
@@ -42,4 +42,4 @@ Zachowano trzy rzeczywiste pary `reality_distant_tests.exe checkpoint/continue`:
 
 Po buildzie Release uruchom z katalogu głównego `python tools/start_distant_playtest.py`. Launcher wypisuje osobny katalog dowodów. Spacja uruchamia czas, N dodaje sekundę, 1 wybiera kuriera; F5/F9 zapisuje i odtwarza świat. Panel pokazuje postęp dalekiej podróży, potrzeby, partię i dostawę. W podróży lokalny ruch jest jawnie niedostępny. Po kilku kursach odbiorca powinien otrzymać 8 jednostek i rzeczywiście zjeść. Ocena czytelności tego przejścia przez użytkownika pozostaje niewykonana.
 
-Pełnego SC-09 nie zamykamy przed wyjaśnieniem lub rozwiązaniem powtarzalnych przekroczeń czasu wymaganych kontroli. Nie dodano streamingu, ogólnej sieci dalekich tras, fizyki między terminalami ani dalszego scenariusza historii SC-13. Są to granice przyrostu, nie ukryte wyniki testów.
+Historyczna bramka przekroczeń czasu została rozwiązana i ponownie sprawdzona w pełnych profilach opisanych w [raporcie naprawy](learning-cost.md). Powyższe porażki zachowują stan wcześniejszych prób; nie są usuwane przez późniejszy sukces. Nie dodano streamingu, ogólnej sieci dalekich tras, fizyki między terminalami ani dalszego scenariusza historii SC-13. Są to granice przyrostu, nie ukryte wyniki testów.

@@ -1,6 +1,6 @@
 # Jeden przewóz w dwóch reprezentacjach
 
-**Status: kurs zaimplementowany; pełna weryfikacja techniczna niezaliczona, 29.10.2026.** Użytkownik zatwierdził rozpoczęcie SC-09 po sytuacji dwóch metod. To przyrost [M05](../prototype-plan.md), bez zamknięcia całego etapu. Punkt wyjścia: `2e096b0`. [Raport](../verification/m05-distant-delivery.md) zachowuje wyniki i otwarte przekroczenia czasu.
+**Status: kurs zweryfikowany technicznie po [naprawie kosztu uczenia](../verification/learning-cost.md), 29.10.2026.** Użytkownik zatwierdził rozpoczęcie SC-09 po sytuacji dwóch metod. To przyrost [M05](../prototype-plan.md), bez zamknięcia całego etapu. Punkt wyjścia: `2e096b0`. [Raport](../verification/m05-distant-delivery.md) zachowuje wcześniejsze wyniki i przekroczenia czasu.
 
 ## Cel i kontrakt
 
@@ -32,7 +32,7 @@ Używamy TDD oraz `superpowers:subagent-driven-development`: jeden spójny pion 
 - [x] Wdrożyć najmniejszą reprezentację i konsumenta. Żadnego pustego frameworka streamingu, gotowej fizyki ani drugiej gospodarki.
 - [x] Zapis i odtworzenie w nowych procesach w trakcie podróży oraz oczekiwania na powrót. Korupcja z poprawnym checksumem, stare formaty, brak ponownego zużycia i transakcyjna odmowa.
 - [x] Udostępnić jawną próbę w tej samej aplikacji, pokazując reprezentację/postęp i rzeczywistą dostawę. Natywny obraz, wejście, F5/F9 i obcy poprawny zapis. Nie nazywać headless dowodem okna.
-- [ ] Pełne Debug/Release/ASan, format, narzędzia i dokumentacja. Zachować RED, błędy i nieudane próby w raporcie; nie zwiększać historycznych limitów lub osłabiać asercji. Dzielić procesy pomiarowe tylko z zachowaniem wszystkich kroków i asercji.
+- [x] Pełne Debug/Release/ASan, format, narzędzia i dokumentacja. Zachować RED, błędy i nieudane próby w raporcie; nie zwiększać historycznych limitów lub osłabiać asercji. Dzielić procesy pomiarowe tylko z zachowaniem wszystkich kroków i asercji.
 
 ### Zadanie 2 — kontrola integracji i odbiór techniczny
 

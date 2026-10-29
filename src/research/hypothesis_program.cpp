@@ -33,11 +33,42 @@ unsigned hypothesis_apply(const HypothesisProgram& program, unsigned input) {
     return value;
 }
 HypothesisTable hypothesis_table(const HypothesisProgram& program) {
+    // Use the scalar validation contract once for the entire table. Dispatch
+    // each operation once, rather than revalidating and walking the program
+    // through checked vector iterators for every one of the 129 inputs.
+    static_cast<void>(hypothesis_apply(program, 0));
     HypothesisTable table{};
-    for (unsigned e = 0; e <= 128; ++e)
-        table[e] = static_cast<std::uint16_t>(hypothesis_apply(program, e));
+    auto* values = table.data();
+    for (unsigned input = 0; input <= 128; ++input)
+        values[input] = static_cast<std::uint16_t>(input);
+    for (const auto op : program) {
+        switch (op.kind) {
+        case HypothesisKind::Loss:
+            for (unsigned input = 0; input <= 128; ++input)
+                values[input] = static_cast<std::uint16_t>(
+                    values[input] > op.parameter ? values[input] - op.parameter : 0);
+            break;
+        case HypothesisKind::Cap:
+            for (unsigned input = 0; input <= 128; ++input)
+                values[input] = static_cast<std::uint16_t>(
+                    std::min(static_cast<unsigned>(values[input]), op.parameter));
+            break;
+        case HypothesisKind::Fraction:
+            for (unsigned input = 0; input <= 128; ++input)
+                values[input] = static_cast<std::uint16_t>(values[input] * op.parameter / 16);
+            break;
+        case HypothesisKind::Gate:
+            for (unsigned input = 0; input <= 128; ++input)
+                if (values[input] < op.parameter)
+                    values[input] = 0;
+            break;
+        default:
+            throw std::invalid_argument("hypothesis operator");
+        }
+    }
     return table;
 }
+
 const std::vector<HypothesisOp>& hypothesis_primitives() {
     static const auto ops = [] {
         std::vector<HypothesisOp> result;
@@ -57,12 +88,18 @@ const std::vector<HypothesisOp>& hypothesis_primitives() {
 }
 std::vector<HypothesisProgram> hypothesis_grammar() {
     std::vector<HypothesisProgram> result(1);
+    const auto width = hypothesis_primitives().size();
+    result.reserve(1 + width + width * width + width * width * width);
     std::size_t start = 0, end = 1;
     for (unsigned depth = 0; depth < 3; ++depth) {
         for (auto i = start; i < end; ++i)
             for (const auto op : hypothesis_primitives()) {
-                auto expression = result[i];
-                expression.push_back(op);
+                // Allocate the final length once, rather than copying a vector
+                // at full capacity and reallocating it again for its last op.
+                HypothesisProgram expression(depth + 1);
+                if (depth != 0)
+                    std::copy_n(result[i].data(), depth, expression.data());
+                expression.back() = op;
                 result.push_back(std::move(expression));
             }
         start = end;
