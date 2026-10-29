@@ -1,5 +1,7 @@
 # Dwie metody rzeczywistej dostawy w M05
 
+**Aktualizacja odbioru 29.10.2026:** użytkownik zaakceptował opisany zakres bez osobnego playtestu. [Zbiorczy raport M05](m05-acceptance.md#decyzja-użytkownika) zachowuje dosłowną deklarację i oddziela ją od obserwacji; wcześniejsze wzmianki o oczekującym odbiorze opisują stan przed tą decyzją.
+
 **Status: technicznie ukończone i zweryfikowane 29.10.2026. Odbiór użytkownika tej sytuacji niewykonany.** Zakres określa [brief](../work-items/m05-two-methods.md), a pełne wymagania M05 [jeden plan](../prototype-plan.md). Akceptacja poprzedniego uczenia pozostaje w [jego raporcie](practice-in-prototype.md#ocena-użytkownika). Ten przyrost nie zamyka całego M05 ani M06.
 
 ## Uruchomienie

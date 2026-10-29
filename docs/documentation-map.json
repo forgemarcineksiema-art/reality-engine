@@ -1,6 +1,9 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/verification/sc08-continuity-audit.md", "role": "verification", "topic": "sc08-continuity-audit"},
+    {"path": "docs/verification/m05-acceptance.md", "role": "verification", "topic": "m05-acceptance"},
+    {"path": "docs/work-items/m05-continuity-audit.md", "role": "current-state", "topic": "m05-continuity-audit-plan"},
     {"path": "docs/story-scene.md", "role": "current-state", "topic": "story-scene-api-and-format"},
     {"path": "docs/verification/m05-story.md", "role": "verification", "topic": "m05-story-verification"},
     {"path": "docs/work-items/m05-story-implementation.md", "role": "current-state", "topic": "m05-story-implementation"},

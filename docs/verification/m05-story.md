@@ -1,5 +1,7 @@
 # Historia po zmianie świata — dowody SC-13
 
+**Aktualizacja odbioru 29.10.2026:** użytkownik zaakceptował opisany zakres bez osobnego playtestu. [Zbiorczy raport M05](m05-acceptance.md#decyzja-użytkownika) zachowuje dosłowną deklarację i oddziela ją od obserwacji; wcześniejsze wzmianki o oczekującym odbiorze opisują stan przed tą decyzją.
+
 **Status: zatwierdzony zakres techniczny wdrożony i zweryfikowany, 29.10.2026.** [Projekt](../work-items/m05-story-design.md), [plan wykonania](../work-items/m05-story-implementation.md), [API](../story-scene.md). Odbiór przez użytkownika oraz zakończenie całego M05/M06 pozostają osobne.
 
 ## Zachowanie i granice

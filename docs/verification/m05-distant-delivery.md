@@ -1,5 +1,7 @@
 # Jeden kurier poza lokalnym obszarem
 
+**Aktualizacja odbioru 29.10.2026:** użytkownik zaakceptował opisany zakres bez osobnego playtestu. [Zbiorczy raport M05](m05-acceptance.md#decyzja-użytkownika) zachowuje dosłowną deklarację i oddziela ją od obserwacji; wcześniejsze wzmianki o oczekującym odbiorze opisują stan przed tą decyzją.
+
 **Status: ograniczony kurs zweryfikowany technicznie po [naprawie kosztu uczenia](learning-cost.md), 29.10.2026.** [Brief](../work-items/m05-distant-delivery.md) określa zakres. Ten raport dotyczy ograniczonego kursu SC-09 i kontynuacji SC-08; nie zalicza całego M05/M06, pełnego 3D ani odbioru użytkownika.
 
 ## Model i wykonanie

@@ -1,6 +1,6 @@
 # Strategia testów i odbioru
 
-**Status:** normatywne wymagania oraz katalog rozwoju. M00 obejmuje zegar, CLI, narzędzia i początkowy zakres SC-15. M01 pokrywa SC-01 i SC-02 dla modelu wykonawca/partia/czynność oraz ograniczone części SC-03, SC-04 i SC-08 opisane niżej. M02 dodaje aplikację, a M03 geometrię, ruch, trasy i kontynuację podróży w opisanym zakresie. Aktualny odbiór ograniczonego M04 opisuje [audyt](verification/m04-acceptance.md); dalsze części katalogu pozostają planem. Rzeczywiste komendy wskazuje [środowisko pracy](development.md).
+**Status:** normatywne wymagania oraz katalog rozwoju. M00 obejmuje zegar, CLI, narzędzia i początkowy zakres SC-15. M01 pokrywa SC-01 i SC-02 dla modelu wykonawca/partia/czynność oraz ograniczone części SC-03, SC-04 i SC-08 opisane niżej. M02 dodaje aplikację, a M03 geometrię, ruch, trasy i kontynuację podróży w opisanym zakresie. Aktualny odbiór ograniczonego M04 opisuje [audyt](verification/m04-acceptance.md); zakres M05 i jego akceptację opisuje [raport zbiorczy](verification/m05-acceptance.md). Pozostałe niezrealizowane części katalogu pozostają planem. Rzeczywiste komendy wskazuje [środowisko pracy](development.md).
 
 ## Obecny zakres domenowy
 
@@ -14,7 +14,7 @@ Poniższa tabela zachowuje zakres fundamentu M01; późniejsze podróże, wiedza
 | SC-02 | Konkurencja wykonawców, pełna partia, utrwalone sukcesy i odmowy, konflikt payloadu, skutek najwyżej raz | Pieniądze i płatności |
 | SC-03 | Przed rozpoczęciem i po zużyciu, usunięcie wykonawcy i partii, powtarzane przerwanie | Narzędzia i biologiczna śmierć; przed rezerwacją brak czynności do anulowania |
 | SC-04 | Zużycie, strata, niedobór, transfer typowanego materiału, kontrola bilansów, seria 100 operacji z seedem `0x4d3031` | Recepty i produkcja |
-| SC-08 | Rezerwacja i praca w toku, odrębny proces, korupcja, wersja, sprzeczne dane i dziennik, rzeczywista odmowa podmiany pliku | Podróż, oczekiwanie na trasę, awaria sprzętu i nagłe przerwanie procesu podczas zapisu |
+| SC-08 | Rezerwacja/praca, uczenie, podróż/ładunek i oczekiwanie; nowe procesy, korupcja, wersje, dziennik i rzeczywista odmowa podmiany pełnego pliku; [audyt](verification/sc08-continuity-audit.md) | Awaria sprzętu, utrata zasilania i nagłe przerwanie procesu w trakcie zapisu |
 
 Są też granice czasu, limitów kolekcji i dziennika, kolejność równoczesnych terminów oraz porównanie skoku czasu z pojedynczymi krokami. Nie zaliczają pełnych przyszłych subsystemów. Nie wykonano testów współbieżności ani pomiaru wydajności symulacji.
 
@@ -111,6 +111,8 @@ Sprawdź brak drogi, drogę zastępczą, zbyt wąskie przejście i zamknięcie m
 ### SC-08 — Kontynuacja i awaria zapisu
 
 Zapisz podczas pracy, podróży, oczekiwania na trasę i obowiązującej rezerwacji. Wczytaj oraz porównaj chronione dane z opisanym stanem. Wstrzyknij błąd zapisu i uszkodzony albo nieobsługiwany format. Ostatni poprawny świat pozostaje dostępny; program nie zgłasza sukcesu i nie resetuje stanu potajemnie. Chroni INV-05 i INV-12.
+
+[Audyt SC-08](verification/sc08-continuity-audit.md) przypisuje istniejące asercje do faz i zachowuje 16 nowych kontynuacji, pięć oczekiwanych odmów oraz trzy profile po 123 testy. Nie utożsamia odmowy podmiany pliku z awarią nośnika.
 
 ### SC-09 — Przejście szczegółowości
 
