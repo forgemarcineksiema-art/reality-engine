@@ -1,0 +1,11 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start   1: distant.handoff
+1/3 Test   #1: distant.handoff ..................   Passed    0.34 sec
+    Start  16: two_methods.choice
+2/3 Test  #16: two_methods.choice ...............   Passed    1.40 sec
+    Start 195: transfer.removed
+3/3 Test #195: transfer.removed .................   Passed    0.10 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =   1.89 sec

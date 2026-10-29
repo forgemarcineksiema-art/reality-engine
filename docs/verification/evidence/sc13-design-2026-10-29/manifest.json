@@ -1,0 +1,15 @@
+{
+  "base_commit": "5462279",
+  "command": "ctest --preset windows-debug -R '^distant[.]handoff$|^two_methods[.]choice$|^transfer[.]removed$'",
+  "result": "3/3 PASS",
+  "files": {
+    "baseline.log": {
+      "size": 440,
+      "sha256": "7b045cb69bba9cc69bd81934cb4aedf3bd5c546c6c4538cfebdeac3122433c8b"
+    },
+    "builder-check.txt": {
+      "size": 24,
+      "sha256": "3dfe5438b32acab3f30a7bbb46ad6beb303668d5dcdf693defd8ee9bb812d44a"
+    }
+  }
+}

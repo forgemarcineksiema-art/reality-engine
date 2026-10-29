@@ -1,6 +1,7 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/work-items/m05-story-design.md", "role": "current-state", "topic": "m05-story-design"},
     {"path": "docs/work-items/learning-cost.md", "role": "current-state", "topic": "learning-cost-brief"},
     {"path": "docs/verification/learning-cost.md", "role": "verification", "topic": "learning-cost-verification"},
     {"path": "docs/verification/m05-distant-delivery.md", "role": "verification", "topic": "m05-distant-delivery-verification"},
