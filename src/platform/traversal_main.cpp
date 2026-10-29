@@ -45,7 +45,8 @@ struct Options {
     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
     bool smoke = false, debug = false, resume = false, unattended = false;
     bool delivery = false, crossing = false, law = false, community = false, learning = false;
-    bool two_methods = false, distant = false;
+    bool two_methods = false, distant = false, story = false;
+    std::string story_case = "normal";
     bool repair_smoke = false;
     std::filesystem::path diagnostics;
     unsigned measure_seconds = 0, warmup_seconds = 30;
@@ -78,6 +79,22 @@ void read_options(Options& options) {
             options.community = true;
         } else if (arg == L"--learning") {
             options.learning = true;
+        } else if (arg == L"--story") {
+            options.story = true;
+        } else if (arg == L"--story-case") {
+            require(i + 1 < count, "missing story case");
+            const std::wstring_view value{args[++i]};
+            options.story = true;
+            if (value == L"normal")
+                options.story_case = "normal";
+            else if (value == L"missing-person")
+                options.story_case = "missing-person";
+            else if (value == L"missing-place")
+                options.story_case = "missing-place";
+            else if (value == L"moved-supplies")
+                options.story_case = "moved-supplies";
+            else
+                throw std::invalid_argument("unknown story case");
         } else if (arg == L"--distant-delivery") {
             options.distant = true;
         } else if (arg == L"--two-methods") {
@@ -128,6 +145,10 @@ void read_options(Options& options) {
             }
         }
     }
+    require(!options.story || (!options.distant && !options.two_methods && !options.community &&
+                               !options.learning && !options.delivery && !options.crossing &&
+                               !options.law && !options.resume),
+            "story cannot combine with another scene");
     require(!options.distant ||
                 (!options.two_methods && !options.community && !options.learning &&
                  !options.delivery && !options.crossing && !options.law && !options.resume),
@@ -168,7 +189,8 @@ class TraversalWindow final {
   public:
     TraversalWindow(HINSTANCE instance, const Options& options, std::ostream& log)
         : instance_(instance), options_(options), log_(log),
-          session_(options.distant       ? make_distant_course()
+          session_(options.story         ? make_story_course()
+                   : options.distant     ? make_distant_course()
                    : options.two_methods ? make_two_methods_course()
                    : options.learning    ? make_learning_course()
                    : options.community   ? make_community_course()
@@ -176,6 +198,18 @@ class TraversalWindow final {
                    : options.crossing    ? make_crossing_course()
                    : options.delivery    ? make_delivery_course()
                                          : make_traversal_course()) {
+        if (options.story_case == "missing-person")
+            require(session_.remove_actor(session_.story()->speaker), "story actor removal failed");
+        else if (options.story_case == "missing-place")
+            require(session_.remove_static_body(session_.story()->site),
+                    "story site removal failed");
+        else if (options.story_case == "moved-supplies") {
+            session_.assign_delivery(3, 0, 1, 4);
+            require(session_.interact_cargo(3, 0) == CargoStatus::Transferred,
+                    "story supply transfer failed");
+            session_.cancel_delivery(3);
+        }
+        session_.validate();
         WNDCLASSEXW type{};
         type.cbSize = sizeof(type);
         type.hInstance = instance_;
@@ -204,10 +238,11 @@ class TraversalWindow final {
     TraversalWindow(const TraversalWindow&) = delete;
     TraversalWindow& operator=(const TraversalWindow&) = delete;
     int run() {
-        window_ = CreateWindowExW(0, window_class, L"Genesis | ruch, poziomy i autonomia",
-                                  WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN, CW_USEDEFAULT,
-                                  CW_USEDEFAULT, 1200, options_.two_methods ? 920 : 820, nullptr,
-                                  nullptr, instance_, this);
+        window_ =
+            CreateWindowExW(0, window_class, L"Genesis | ruch, poziomy i autonomia",
+                            WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN, CW_USEDEFAULT, CW_USEDEFAULT,
+                            1200, (options_.two_methods || options_.story) ? 920 : 820, nullptr,
+                            nullptr, instance_, this);
         require(window_ != nullptr, "cannot create traversal window");
         viewport_ = CreateWindowExW(0, view_class, L"Scena", WS_CHILD | WS_VISIBLE, 0, 0, 800, 760,
                                     window_, nullptr, instance_, this);
@@ -251,6 +286,13 @@ class TraversalWindow final {
                                   L"F2: autonomia | WASD / PPM: lokalny ruch\n"
                                   L"F4: fizyczny ładunek | F5/F9: zapis/odczyt\n"
                                   L"Q/E, +/-: kamera. Potrzeby płyną także w podróży.");
+        if (options_.story)
+            SetWindowTextW(
+                help_, L"Historia: zaopatrzenie dla odbiorcy.\nT: rozmowa / przyjęcie przy punkcie "
+                       L"spotkania.\nCel: 4 jednostki żywności i rzeczywisty posiłek.\nWASD / PPM: "
+                       L"ruch | F4: fizyczny ładunek.\nF2: oddaj / przejmij autonomię.\nSpacja / "
+                       L"N: czas | 1–4 / Tab: postać.\nF5/F9: zapis/odczyt, także po "
+                       L"odmowie.\nHistoria ma 30 s czasu świata na wykonanie.");
         buttons_[0] = control(L"BUTTON", L"Odtwarzaj [Spacja]", 1001, BS_PUSHBUTTON);
         buttons_[1] = control(L"BUTTON", L"+1 s [N]", 1002, BS_PUSHBUTTON);
         buttons_[2] = control(L"BUTTON", L"Autonomia [F2]", 1003, BS_PUSHBUTTON);
@@ -504,8 +546,10 @@ class TraversalWindow final {
             y += h + 8;
         };
         place(title_, 25);
-        place(status_, options_.learning ? 265 : options_.community ? 155 : 88);
-        place(help_, options_.two_methods ? 170 : options_.learning ? 130 : 245);
+        place(status_, options_.learning ? 265 : (options_.community || options_.story) ? 155 : 88);
+        place(help_, (options_.two_methods || options_.story) ? 170
+                     : options_.learning                      ? 130
+                                                              : 245);
         for (const auto button : buttons_) {
             place(button, 28);
         }
@@ -547,6 +591,25 @@ class TraversalWindow final {
         }
         return label;
     }
+    static const wchar_t* story_label(StoryStage stage) {
+        switch (stage) {
+        case StoryStage::Dormant:
+            return L"porozmawiaj przy punkcie spotkania [T]";
+        case StoryStage::Accepted:
+            return L"przyjęte; dostarcz żywność";
+        case StoryStage::Completed:
+            return L"ukończone: dostawa i posiłek";
+        case StoryStage::MissingSpeaker:
+            return L"zakończone: brak rozmówcy";
+        case StoryStage::MissingSite:
+            return L"zakończone: brak miejsca spotkania";
+        case StoryStage::MissingSupply:
+            return L"odmowa: brak zaopatrzenia przy źródle";
+        case StoryStage::Failed:
+            return L"zakończone bez wykonania";
+        }
+        throw std::invalid_argument("invalid story stage");
+    }
     void panel() {
         const auto& actor = session_.actors().at(static_cast<std::size_t>(selection_));
         std::wostringstream text;
@@ -573,6 +636,13 @@ class TraversalWindow final {
              << L"Krok: " << session_.world().clock().tick_count() << L" | "
              << (pacer_.running() ? L"czas płynie" : L"pauza") << L"\nGPU: "
              << renderer_->adapter_name();
+        if (session_.story()) {
+            const auto& st = *session_.story();
+            text << L"\nZaopatrzenie: " << story_label(st.stage);
+            if (st.stage == StoryStage::Accepted)
+                text << L"\nPozostało kroków: "
+                     << 600 - (session_.world().clock().tick_count() - st.started_at);
+        }
         if (community_panel()) {
             constexpr const wchar_t* roles[] = {L"podróżny",    L"kurier",         L"odbiorca",
                                                 L"konserwator", L"opiekun części", L"mieszkaniec",
@@ -728,6 +798,16 @@ class TraversalWindow final {
                 session_.set_autonomous(
                     static_cast<std::size_t>(selection_),
                     !session_.actors()[static_cast<std::size_t>(selection_)].autonomous);
+            } else if (code == 'T') {
+                const auto r = session_.begin_story(static_cast<std::size_t>(selection_));
+                if (r == StoryReply::OutOfReach)
+                    feedback(L"Podejdź do znanego punktu spotkania, rozmówcy i źródła.");
+                else if (r == StoryReply::Busy)
+                    feedback(L"Zatrzymaj się, dokończ czynność lub odłóż własny ładunek.");
+                else if (r == StoryReply::Unavailable)
+                    feedback(L"Ta postać lub świat nie ma tej historii.");
+                else
+                    feedback(story_label(session_.story()->stage));
             } else if (code == 'I' || code == 'O' || code == 'P') {
                 if (!session_.has_practice())
                     feedback(L"Ten świat nie zawiera aparatu do prób.");
@@ -1269,6 +1349,92 @@ class TraversalWindow final {
         }
         log_ << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
+    void story_smoke() {
+        selection_ = 0;
+        require(session_.story() && session_.story()->stage == StoryStage::Dormant,
+                "story started without input");
+        const auto speaker = session_.story()->speaker, source = session_.story()->source;
+        const auto site = session_.story()->site;
+        SendMessageW(window_, WM_KEYDOWN, 'T', 0);
+        const auto expected_stage =
+            options_.story_case == "normal"           ? StoryStage::Accepted
+            : options_.story_case == "missing-person" ? StoryStage::MissingSpeaker
+            : options_.story_case == "missing-place"  ? StoryStage::MissingSite
+                                                      : StoryStage::MissingSupply;
+        require(session_.story()->stage == expected_stage,
+                "native input did not follow real story preconditions");
+        if (options_.story_case == "normal") {
+            SendMessageW(window_, WM_KEYDOWN, VK_F2, 0);
+            for (unsigned n = 0;
+                 n < 100 &&
+                 (session_.world().resource(session_.actors()[0].cargo)->record.quantity.value !=
+                      4 ||
+                  session_.actors()[0].motion.speed <= .1);
+                 ++n)
+                session_.advance(1);
+            require(session_.world().resource(session_.actors()[0].cargo)->record.quantity.value ==
+                            4 &&
+                        session_.actors()[0].motion.speed > .1,
+                    "native checkpoint is not physical loaded motion");
+        }
+        panel();
+        draw();
+        require(renderer_->capture(options_.capture) > 1000, "story GPU image empty");
+        SendMessageW(window_, WM_KEYDOWN, VK_F5, 0);
+        auto expected = session_;
+        expected.advance(13);
+        session_.advance(3);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        session_.advance(13);
+        require(session_.serialize() == expected.serialize(), "story F5/F9 diverged");
+        log_ << "story_checkpoint=pass\n";
+        if (options_.story_case == "normal") {
+            for (unsigned n = 0; n < 600 && session_.story()->stage == StoryStage::Accepted; ++n)
+                session_.advance(1);
+            require(session_.story()->stage == StoryStage::Completed,
+                    "native story did not reach real outcome");
+        } else {
+            require(session_.story()->stage == expected_stage, "native refusal restarted");
+            if (options_.story_case == "missing-person")
+                require(session_.actors().size() == 3 &&
+                            !session_.world().entities().contains(speaker, EntityKind::Actor),
+                        "native speaker resurrected");
+            if (options_.story_case == "missing-place")
+                require(std::none_of(session_.geometry().bodies.begin(),
+                                     session_.geometry().bodies.end(),
+                                     [&](const auto& b) { return b.id == site; }),
+                        "native place restored");
+            if (options_.story_case == "moved-supplies")
+                require(session_.world().resource(source)->record.quantity.value == 0 &&
+                            session_.world()
+                                    .resource(session_.actors().back().cargo)
+                                    ->record.quantity.value == 4,
+                        "native supply duplicated");
+        }
+        panel();
+        std::wstring status(static_cast<std::size_t>(GetWindowTextLengthW(status_)) + 1, L'\0');
+        GetWindowTextW(status_, status.data(), static_cast<int>(status.size()));
+        require(status.find(L"Zaopatrzenie:") != std::wstring::npos &&
+                    status.find(story_label(session_.story()->stage)) != std::wstring::npos,
+                "native panel does not show actual story ending");
+        draw();
+        require(renderer_->capture(options_.capture.parent_path() / L"story-outcome.png") > 1000,
+                "story outcome GPU image empty");
+        log_ << "story_panel=pass\n";
+        const auto current = session_.serialize();
+        TraversalSession foreign{make_crossing_course()};
+        foreign.save(options_.save);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        SendMessageW(window_, WM_KEYDOWN, 'T', 0);
+        panel();
+        draw();
+        require(!session_.story(), "foreign world kept old story");
+        write_snapshot_atomic(current, options_.save);
+        SendMessageW(window_, WM_KEYDOWN, VK_F9, 0);
+        require(session_.serialize() == current, "native story did not return after foreign save");
+        log_ << "story_foreign_save=pass\nstory_case=" << options_.story_case << '\n'
+             << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
+    }
     void distant_smoke() {
         selection_ = 0;
         for (unsigned n = 0; n < 12 && session_.actors()[0].local(); ++n)
@@ -1403,6 +1569,10 @@ class TraversalWindow final {
              << session_.inspect() << "TRAVERSAL SMOKE PASS\n";
     }
     void smoke() {
+        if (options_.story) {
+            story_smoke();
+            return;
+        }
         if (options_.distant) {
             distant_smoke();
             return;

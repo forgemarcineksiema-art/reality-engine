@@ -1,5 +1,6 @@
 #pragma once
 #include "lab/traversal_practice.hpp"
+#include "lab/traversal_story.hpp"
 
 #include "navigation/surface_navigation.hpp"
 #include "persistence/world_snapshot.hpp"
@@ -220,6 +221,7 @@ struct TraversalScene {
     };
     std::vector<PropertySeed> property_rules;
     std::optional<PracticeSeed> practice;
+    std::optional<StorySeed> story;
 };
 [[nodiscard]] TraversalScene make_traversal_course();
 [[nodiscard]] TraversalScene make_delivery_course();
@@ -229,6 +231,7 @@ struct TraversalScene {
 [[nodiscard]] TraversalScene make_learning_course();
 [[nodiscard]] TraversalScene make_two_methods_course();
 [[nodiscard]] TraversalScene make_distant_course();
+[[nodiscard]] TraversalScene make_story_course();
 struct TraversalPose {
     SpatialPoint feet;
     double heading = 0;
@@ -249,6 +252,10 @@ struct TraversalNavigationView {
 
 class TraversalSession final {
   public:
+    [[nodiscard]] const std::optional<StoryState>& story() const noexcept;
+    [[nodiscard]] StoryReply begin_story(std::size_t actor);
+    [[nodiscard]] bool remove_actor(EntityId actor);
+    [[nodiscard]] bool remove_static_body(std::uint32_t body);
     [[nodiscard]] const std::vector<DistantConnection>& distant_connections() const noexcept;
     [[nodiscard]] DistantOutcome depart(std::size_t actor, std::uint32_t connection, unsigned side);
     [[nodiscard]] bool set_distant_open(std::uint32_t connection, bool open);
@@ -298,6 +305,10 @@ class TraversalSession final {
     void validate() const;
 
   private:
+    std::optional<StoryState> story_;
+    void init_story();
+    void update_story();
+    void validate_story() const;
     void advance_distant();
     void validate_distant() const;
     [[nodiscard]] bool plan_distant_delivery(std::size_t actor, SurfaceLocation destination);

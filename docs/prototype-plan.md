@@ -60,11 +60,13 @@ Dowód zamknięcia: wspólna aplikacja i runner mają jeden świat oraz te same 
 
 ### M05 — Ciągłość, przejście i historia
 
-**Status: PLAN.** Wymaga M04 i powyższej integracji praktyk. Zamknięcie i naprawa przejścia wpływają na trasy i pracę; migracja reprezentacji zachowuje stan. Jedna scena odnosi się do wiedzy i rzeczywistego wyniku. Dowód: SC-08, SC-09, SC-10 i SC-13 oraz odpowiednia próba aplikacji. Część przejść i kontynuacji istnieje już w M04; przed implementacją należy przypisać istniejące dowody i wskazać rzeczywiste braki zamiast budować je drugi raz.
+**Status: W REALIZACJI.** Wymaga M04 i powyższej integracji praktyk. Zamknięcie i naprawa przejścia wpływają na trasy i pracę; migracja reprezentacji zachowuje stan. Jedna scena odnosi się do wiedzy i rzeczywistego wyniku. Dowód: SC-08, SC-09, SC-10 i SC-13 oraz odpowiednia próba aplikacji. Część przejść i kontynuacji istnieje już w M04; przed implementacją należy przypisać istniejące dowody i wskazać rzeczywiste braki zamiast budować je drugi raz.
 
 Technicznie ukończono i zweryfikowano [sytuację z dwiema metodami dostawy](work-items/m05-two-methods.md): naprawę dzięki poznanej metodzie albo istniejący objazd. Odbiór użytkownika nowej sytuacji pozostaje osobny. [Raport przyrostu](verification/m05-two-methods.md) oddziela wyniki od pozostałych wymagań M05, w tym migracji reprezentacji i historii reagującej na zmiany świata.
 
 Zaimplementowano [jeden przewóz lokalny/daleki](work-items/m05-distant-delivery.md), obejmujący rzeczywistą zmianę reprezentacji SC-09 w ograniczonym modelu statycznych terminali. Po [naprawie kosztu uczenia](verification/learning-cost.md) pełne Debug/Release/ASan przeszły; ograniczony techniczny zakres SC-09 jest zweryfikowany. [Raport kuriera](verification/m05-distant-delivery.md) zachowuje także wcześniejsze porażki. Odbiór użytkownika nowego kursu i pozostałe wymagania M05 pozostają osobne.
+
+Zaimplementowano i technicznie zweryfikowano zatwierdzony [zakres historii SC-13](work-items/m05-story-design.md): jeden fizyczny kurs i posiłek oraz rzeczywiste usunięcie rozmówcy/miejsca lub przeniesienie zapasu przed startem. [Raport](verification/m05-story.md) obejmuje pełne profile, nowe procesy, aplikację i granice. To ograniczone przygotowanie jednej autorskiej sceny; odbiór użytkownika i całe M05 pozostają osobne.
 
 | Kolejny zakres | Co ma zadziałać | Warunek zamknięcia |
 | --- | --- | --- |

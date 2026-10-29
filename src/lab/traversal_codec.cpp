@@ -79,7 +79,8 @@ std::string TraversalSession::serialize() const {
     out << std::setprecision(17);
     const auto work = serialize_world(world_);
     const auto distant = !scene_.distant_connections.empty();
-    const auto lawful = distant || practice_ || !property_rules_.empty() || !incidents_.empty();
+    const auto lawful =
+        story_ || distant || practice_ || !property_rules_.empty() || !incidents_.empty();
     const auto passage_state =
         lawful ||
         std::any_of(scene_.passages.begin(), scene_.passages.end(),
@@ -109,7 +110,8 @@ std::string TraversalSession::serialize() const {
                    actor.finish_grace_until != 0;
         });
     out << "GENESIS_TRAVERSAL "
-        << (distant         ? 9
+        << (story_          ? 10
+            : distant       ? 9
             : practice_     ? 8
             : lawful        ? 7
             : passage_state ? 6
@@ -288,7 +290,7 @@ std::string TraversalSession::serialize() const {
                 << leg.transport << '\n';
         }
     }
-    if (distant) {
+    if (distant || story_) {
         out << "DISTANT_CONNECTIONS " << scene_.distant_connections.size() << '\n';
         for (const auto& c : scene_.distant_connections) {
             out << "DISTANT_CONNECTION " << c.id;
@@ -308,6 +310,26 @@ std::string TraversalSession::serialize() const {
     }
     if (practice_)
         out << "PRACTICE " << std::quoted(practice_->serialize()) << '\n';
+    if (story_) {
+        const auto& st = *story_;
+        out << "STORY " << st.executor.value << ' ' << st.speaker.value << ' ' << st.recipient.value
+            << ' ' << st.source.value << ' ' << st.destination.value << ' ' << st.site;
+        location(out, st.meeting);
+        out << ' ' << st.quantity << '\n';
+        const auto& b = st.site_context;
+        out << "STORY_SITE " << b.id;
+        point(out, b.origin);
+        out << ' ' << b.yaw << ' ' << b.half_x << ' ' << b.half_z << ' ' << b.depth << ' '
+            << b.slope_x << ' ' << b.slope_z << ' ' << b.walkable << '\n';
+        out << "STORY_STATE " << static_cast<unsigned>(st.stage) << ' ' << st.started_at << ' '
+            << st.ended_at << ' ' << st.begin_event << ' ' << st.end_event << ' ' << st.order.value
+            << ' ' << st.cargo.value << ' ' << st.meal.value << ' ' << st.order_end.value << '\n';
+        out << "STORY_CONTACT " << st.request_surface;
+        point(out, st.request_feet);
+        out << ' ' << st.speaker_surface;
+        point(out, st.speaker_feet);
+        out << ' ' << st.observed << ' ' << st.available << '\n';
+    }
     const auto body = out.str();
     require(body.size() + 64 < snapshot_byte_limit, "traversal snapshot exceeds limit");
     return body + "CHECKSUM " + std::to_string(snapshot_checksum(body)) + "\n";
@@ -325,8 +347,8 @@ void TraversalSession::restore(std::string_view bytes) {
     std::istringstream input{std::string{bytes.substr(0, checksum)}};
     input.imbue(std::locale::classic());
     tag(input, "GENESIS_TRAVERSAL");
-    const auto version = integer(input, 9);
-    require(version >= 1 && version <= 9, "unsupported traversal version");
+    const auto version = integer(input, 10);
+    require(version >= 1 && version <= 10, "unsupported traversal version");
     tag(input, "WORLD");
     const auto work_size = integer(input, snapshot_byte_limit);
     require(input.get() == '\n', "invalid traversal world framing");
@@ -337,6 +359,7 @@ void TraversalSession::restore(std::string_view bytes) {
     candidate.world_ = deserialize_world(work);
     candidate.scene_ = {};
     candidate.practice_.reset();
+    candidate.story_.reset();
     candidate.actors_.clear();
     candidate.property_rules_.clear();
     candidate.incidents_.clear();
@@ -618,10 +641,10 @@ void TraversalSession::restore(std::string_view bytes) {
         candidate.actors_.push_back(std::move(a));
     }
     bool practice_present = version == 8;
-    if (version == 9) {
+    if (version >= 9) {
         tag(input, "DISTANT_CONNECTIONS");
         const auto count = integer(input, 16);
-        require(count > 0, "empty distant format");
+        require(version == 10 || count > 0, "empty distant format");
         for (std::uint64_t n = 0; n < count; ++n) {
             tag(input, "DISTANT_CONNECTION");
             DistantConnection c;
@@ -655,6 +678,47 @@ void TraversalSession::restore(std::string_view bytes) {
         std::string state;
         require(static_cast<bool>(input >> std::quoted(state)), "missing practice state");
         candidate.practice_ = PracticeState::deserialize(state, candidate);
+    }
+    if (version == 10) {
+        tag(input, "STORY");
+        StoryState st;
+        st.executor = {integer(input)};
+        st.speaker = {integer(input)};
+        st.recipient = {integer(input)};
+        st.source = {integer(input)};
+        st.destination = {integer(input)};
+        st.site = static_cast<std::uint32_t>(integer(input, UINT32_MAX));
+        st.meeting = location(input);
+        st.quantity = integer(input, 4);
+        tag(input, "STORY_SITE");
+        auto& b = st.site_context;
+        b.id = static_cast<std::uint32_t>(integer(input, UINT32_MAX));
+        b.origin = point(input);
+        b.yaw = real(input);
+        b.half_x = real(input);
+        b.half_z = real(input);
+        b.depth = real(input);
+        b.slope_x = real(input);
+        b.slope_z = real(input);
+        b.walkable = integer(input, 1) != 0;
+        tag(input, "STORY_STATE");
+        st.stage = static_cast<StoryStage>(integer(input, 6));
+        st.started_at = integer(input);
+        st.ended_at = integer(input);
+        st.begin_event = integer(input);
+        st.end_event = integer(input);
+        st.order = {integer(input)};
+        st.cargo = {integer(input)};
+        st.meal = {integer(input)};
+        st.order_end = {integer(input)};
+        tag(input, "STORY_CONTACT");
+        st.request_surface = static_cast<std::uint32_t>(integer(input, UINT32_MAX));
+        st.request_feet = point(input);
+        st.speaker_surface = static_cast<std::uint32_t>(integer(input, UINT32_MAX));
+        st.speaker_feet = point(input);
+        st.observed = integer(input, 1) != 0;
+        st.available = integer(input);
+        candidate.story_ = st;
     }
     require(!(input >> extra), "trailing traversal data");
     candidate.rebuild_geometry();

@@ -67,7 +67,7 @@ add_library(reality_lab_model STATIC src/lab/traversal_practice_codec.cpp src/la
     src/physics/kinematic.cpp src/navigation/grid_navigation.cpp src/lab/motion_session.cpp
     src/physics/spatial_geometry.cpp src/navigation/surface_navigation.cpp src/physics/locomotion.cpp
     src/physics/platform_motion.cpp src/lab/traversal_session.cpp src/lab/traversal_course.cpp
-    src/lab/traversal_distant.cpp src/lab/traversal_codec.cpp src/lab/traversal_diagnostics.cpp src/lab/traversal_needs.cpp
+    src/lab/traversal_story.cpp src/lab/traversal_distant.cpp src/lab/traversal_codec.cpp src/lab/traversal_diagnostics.cpp src/lab/traversal_needs.cpp
     src/lab/traversal_clearance.cpp src/lab/traversal_delivery.cpp src/lab/traversal_knowledge.cpp src/lab/traversal_law.cpp src/lab/traversal_passages.cpp src/graphics/traversal_scene.cpp)
 target_link_libraries(reality_lab_model PUBLIC reality_core reality_learning_core)
 
@@ -110,6 +110,9 @@ target_link_libraries(reality_traversal PRIVATE reality_graphics user32 gdi32 sh
 reality_deploy_diagnostics(reality_traversal)
 
 set(reality_cpp_files
+    src/lab/traversal_story.hpp
+    src/lab/traversal_story.cpp
+    tests/story_tests.cpp
     src/lab/traversal_distant.cpp
     tests/distant_tests.cpp
     src/lab/traversal_practice_codec.cpp
@@ -224,6 +227,20 @@ add_custom_target(format-check
 )
 
 if(BUILD_TESTING)
+    add_executable(reality_story_tests tests/story_tests.cpp)
+    target_link_libraries(reality_story_tests PRIVATE reality_lab_model)
+    reality_deploy_diagnostics(reality_story_tests)
+    foreach(case IN ITEMS normal removed_actor removed_site moved_supply contact wall busy cancel deadline sticky combinations unsafe_removal persistence corruption legacy support_contact source_consumption deadline_step order_binding cancelled_corruption resource_binding observation_time static_bindings false_failure terminal_order terminal_rebind manual)
+        add_test(NAME story.${case} COMMAND reality_story_tests ${case})
+    endforeach()
+    foreach(phase IN ITEMS speaker site supply travel returned complete failed)
+        add_test(NAME story.fresh_${phase} COMMAND "${Python3_EXECUTABLE}"
+            "${CMAKE_CURRENT_SOURCE_DIR}/tests/story_integration.py" "$<TARGET_FILE:reality_story_tests>" ${phase})
+    endforeach()
+    foreach(variant IN ITEMS normal missing-person missing-place moved-supplies)
+        add_test(NAME story.native_${variant} COMMAND "${Python3_EXECUTABLE}"
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_story_native.py" --exe "$<TARGET_FILE:reality_traversal>" --case ${variant})
+    endforeach()
     add_executable(reality_distant_tests tests/distant_tests.cpp)
     target_link_libraries(reality_distant_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_distant_tests)

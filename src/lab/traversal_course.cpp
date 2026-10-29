@@ -135,4 +135,22 @@ TraversalScene make_distant_course() {
     s.initial_deliveries = {{0, 0, 1, 8}};
     return s;
 }
+TraversalScene make_story_course() {
+    TraversalScene s;
+    s.geometry.bodies = {{1, {3, 0, 0}, 0, 8, 5, .3, 0, 0, true},
+                         {2, {3, 1, 3}, 0, 1, .15, 1, 0, 0, false}};
+    s.stations = {{{1, {1, 0}}, TraversalTask::Eat, 4},
+                  {{1, {6, 0}}, TraversalTask::Eat, 0},
+                  {{1, {0, -2}}, TraversalTask::Rest, 1},
+                  {{1, {6, -2}}, TraversalTask::Rest, 1}};
+    s.stations[0].initial_material = {1};
+    s.stations[1].initial_material = {1};
+    s.spawns = {{{1, {0, 0}}, {}, false},
+                {{1, {0, 1.4}}, {}, false},
+                {{1, {6, 1.5}}, {}, true, 700},
+                {{1, {1, -.65}}, {}, false}};
+    s.spawns[2].known_stations = 10;
+    s.story = StorySeed{};
+    return s;
+}
 } // namespace reality

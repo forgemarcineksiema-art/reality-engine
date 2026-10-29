@@ -23,6 +23,8 @@ void TraversalSession::assign_delivery(std::size_t index, std::uint32_t source,
     check(source < scene_.stations.size() && destination < scene_.stations.size() &&
               source != destination && quantity > 0 && quantity <= 1024,
           "invalid delivery order");
+    check(!story_ || actor.id != story_->executor || !story_->cargo.value,
+          "story retains its original delivery record");
     check(actor.local() && !actor.yielding && !committed(actor) && actor.action.value == 0 &&
               (!actor.delivery || !active(*actor.delivery)),
           "delivery actor is busy");
@@ -48,7 +50,11 @@ void TraversalSession::cancel_delivery(std::size_t index) {
     auto& actor = actors_.at(index);
     if (!actor.delivery || !active(*actor.delivery))
         return;
-    actor.delivery->phase = DeliveryPhase::Cancelled;
+    const bool fulfilled_story = story_ && story_->stage == StoryStage::Completed &&
+                                 story_->executor == actor.id &&
+                                 story_->order == actor.delivery->started_command;
+    // After success this cancels only the remaining return, not the fulfilled order.
+    actor.delivery->phase = fulfilled_story ? DeliveryPhase::Completed : DeliveryPhase::Cancelled;
     actor.delivery->ended_command = next_command_;
     if (actor.task == TraversalTask::Deliver) {
         const auto autonomous = actor.autonomous;
@@ -56,6 +62,7 @@ void TraversalSession::cancel_delivery(std::size_t index) {
         actor.autonomous = autonomous;
         actor.task = TraversalTask::None;
     }
+    update_story();
 }
 bool TraversalSession::cargo_returning(const TraversalActor& actor) const noexcept {
     return actor.task == TraversalTask::Deliver &&

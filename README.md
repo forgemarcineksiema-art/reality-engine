@@ -4,6 +4,8 @@
 
 **Dwie metody dostawy (przyrost M05):** `python tools/start_practice_playtest.py --two-methods`. Napraw zużyty most dzięki poznanej metodzie albo uruchom dostawę istniejącym promem. [Sterowanie i stan weryfikacji](docs/verification/m05-two-methods.md).
 
+**Historia reagująca na świat:** `python tools/start_story_playtest.py` uruchamia zaopatrzenie 4/4 z rozmową T i rzeczywistym posiłkiem. `--case missing-person`, `missing-place` lub `moved-supplies` przygotowuje zmieniony świat przed rozmową. [Sterowanie i stan kontroli](docs/verification/m05-story.md).
+
 **Jeden kurier lokalnie i daleko:** `python tools/start_distant_playtest.py` uruchamia tę samą aplikację z kursem pomiędzy statycznymi terminalami. W podróży kurier znika z lokalnej fizyki i wraca z tą samą partią. [Zakres i stan kontroli](docs/verification/m05-distant-delivery.md).
 
 [Doświadczenia rozdzielające wyjaśnienia](docs/verification/discriminating-experiment.md): ukończono audyt, próbę potwierdzającą i fizyczne zadanie konserwacji dwóch mieszkańców. I i A otrzymały wsparcie; T pozostała negatywna. [API i komendy](docs/discriminating-learning.md).

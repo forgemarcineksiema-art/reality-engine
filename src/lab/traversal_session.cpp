@@ -224,6 +224,7 @@ TraversalSession::TraversalSession(TraversalScene scene)
     queued_inputs_.resize(actors_.size());
     if (scene_.practice)
         practice_.emplace(*scene_.practice, *this);
+    init_story();
     synchronize_presentation();
     validate();
 }
@@ -1685,6 +1686,7 @@ void TraversalSession::tick() {
     advance_practice();
     update_clearance();
     update_passages();
+    update_story();
     inputs_ = held;
     for (auto& input : queued_inputs_) {
         input = {};
@@ -1694,6 +1696,7 @@ void TraversalSession::validate() const {
     validate_distant();
     validate_practice();
     world_.validate();
+    validate_story();
     scene_.geometry.validate();
     geometry_.validate();
     validate_clearance();
@@ -1932,6 +1935,12 @@ std::string TraversalSession::inspect() const {
     std::ostringstream out;
     out.imbue(std::locale::classic());
     out << std::fixed << std::setprecision(3);
+    if (story_)
+        out << "story stage=" << static_cast<unsigned>(story_->stage)
+            << " executor=" << story_->executor.value << " speaker=" << story_->speaker.value
+            << " source=" << story_->source.value << " destination=" << story_->destination.value
+            << " started=" << story_->started_at << " ended=" << story_->ended_at
+            << " meal=" << story_->meal.value << '\n';
     out << "tick=" << world_.clock().tick_count() << " actors=" << actors_.size() << "\n";
     for (const auto& actor : actors_) {
         out << "actor=" << actor.id.value

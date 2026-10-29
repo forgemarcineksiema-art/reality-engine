@@ -1,12 +1,12 @@
 # Historia zaopatrzenia po zmianie świata
 
-**Status: projekt do zatwierdzenia, 29.10.2026. Kod SC-13 nie jest jeszcze zaimplementowany.** Baza: `5462279`. Zakres realizuje SC-13 i INV-15 w [jednym planie](../prototype-plan.md) oraz [strategii testów](../testing-strategy.md#sc-13--historia-po-zmianie-świata). Odbiór całego M05 pozostaje osobny.
+**Status: projekt zatwierdzony 29.10.2026; zakres techniczny wdrożony i zweryfikowany — [raport](../verification/m05-story.md).** Baza: `5462279`. Zakres realizuje SC-13 i INV-15 w [jednym planie](../prototype-plan.md) oraz [strategii testów](../testing-strategy.md#sc-13--historia-po-zmianie-świata). Odbiór całego M05 pozostaje osobny.
 
 ## Cel i wybór podejścia
 
 Jedna autorska historia w obecnej aplikacji ma respektować rzeczywiste osoby, geometrię i materiał. Zmiana świata przed rozpoczęciem rozmowy daje określoną odmowę lub zakończenie. Zwykły wariant kończy się dopiero po fizycznej dostawie i posiłku. Nie przywracamy oczekiwanej osoby, miejsca lub zapasu.
 
-Wybrany kierunek do zatwierdzenia: mały opcjonalny stan sceny w tej samej TraversalSession. Posiada tylko definicję ról i postęp historii; pozostali właściciele zachowują świat, zasoby, ruch i wiedzę. Uzasadnienie: zakres M05 wymaga wspólnego świata i aplikacji.
+Zatwierdzony kierunek: mały opcjonalny stan sceny w tej samej TraversalSession. Posiada tylko definicję ról i postęp historii; pozostali właściciele zachowują świat, zasoby, ruch i wiedzę. Uzasadnienie: zakres M05 wymaga wspólnego świata i aplikacji.
 
 Rozważone alternatywy: samodzielna scena na WorkWorld byłaby prostsza, ale nie sprawdziłaby konsumentów przestrzeni i obecnego okna. Warunki zaszyte w UI rozdzieliłyby reguły gry i runnera. Ogólny silnik zadań/dialogów nie ma jeszcze drugiego konkretnego konsumenta. W tym przyroście nie powstaje żaden z tych trzech wariantów.
 
@@ -78,3 +78,5 @@ Baza przed projektem: distant.handoff, two_methods.choice i transfer.removed 3/3
 ## Przegląd projektu
 
 Niezależny builder check: „nothing important left”. Bez kodowania, kompilacji lub testów przez recenzenta. Integrator doprecyzował jako własne decyzje bezpieczną lokalną bramkę punktu spotkania przed oceną brakujących ról oraz zakończenie po ręcznym anulowaniu. To doprecyzowanie zatwierdzanego projektu, nie wynik implementacji.
+
+Użytkownik zatwierdził projekt odpowiedzią „Tak, wdrażaj projekt”. [Plan wykonania](m05-story-implementation.md) rozpisuje jego realizację.
