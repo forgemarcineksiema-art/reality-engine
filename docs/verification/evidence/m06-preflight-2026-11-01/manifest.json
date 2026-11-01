@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "client_date": "2026-11-01",
+  "timezone": "Europe/Warsaw",
+  "code_head": "82395a34b8e354962dcb4eebfeaf5e3ce1d84a03",
+  "branch": "codex/verified-capabilities-plan",
+  "configuration": "RelWithDebInfo, windows-release",
+  "scope": "Readiness audit and selected existing headless tests; no C++ changes, native application measurement or human playtest.",
+  "commands": [
+    {
+      "command": "cmake --build --preset windows-release --target reality_traversal_diagnostics_tests reality_practice_tests",
+      "exit_code": 0
+    },
+    {
+      "command": "ctest --preset windows-release -R '^(traversal\\.diagnostics_.+|practice\\.(autonomy|teaching|community|persistence|evidence_capacity|frozen_pending))$'",
+      "exit_code": 0,
+      "passed": 17,
+      "failed": 0
+    }
+  ],
+  "logs": [
+    {
+      "path": "docs/verification/evidence/m06-preflight-2026-11-01/build-release.log",
+      "size_bytes": 1658,
+      "sha256": "2db6112d854fe93c3d6b9cb3b83d7273e9486077b456ed69adbc4e74ca14e427"
+    },
+    {
+      "path": "docs/verification/evidence/m06-preflight-2026-11-01/ctest-release.log",
+      "size_bytes": 2358,
+      "sha256": "ff9515890ae9ed09c351e6cd6dfba2ac9ee4d4d6b761328a8decaf8c5a6ae018"
+    }
+  ],
+  "working_tree_source_bytes": [
+    {
+      "path": "CMakeLists.txt",
+      "size_bytes": 33967,
+      "sha256": "7d5c0a910b7247459abb3b4883709ec24a1fb8a01bf179dc4ae7210a16501dcc"
+    },
+    {
+      "path": "CMakePresets.json",
+      "size_bytes": 1729,
+      "sha256": "3a4446992afc196d994525e4db71eb46f3ad973558fb3594f7234d29bc05ff53"
+    },
+    {
+      "path": "src/core/runtime_metrics.hpp",
+      "size_bytes": 592,
+      "sha256": "2b448b0b253f5e9796ae9f095478f624fe83d3c5e744d10a6d34b453d1963eca"
+    },
+    {
+      "path": "src/core/runtime_metrics.cpp",
+      "size_bytes": 2651,
+      "sha256": "82e669263cebed026a008806271436c55a010eeb05c66dd033e80ea8972248ab"
+    },
+    {
+      "path": "src/platform/traversal_main.cpp",
+      "size_bytes": 98669,
+      "sha256": "d8825189c8ac88707d4402d1cc37da5af4e50137f52417aea88ce88ca168b350"
+    },
+    {
+      "path": "src/lab/traversal_diagnostics.hpp",
+      "size_bytes": 2093,
+      "sha256": "e92dfa2ab4355db386a2d2e37e742d63a47342b187d7a80afee88c980dedd97a"
+    },
+    {
+      "path": "src/lab/traversal_diagnostics.cpp",
+      "size_bytes": 11346,
+      "sha256": "0978087678795ab251da70391d5a9f507568382f60cb221f67bcba3ba4dadc1b"
+    },
+    {
+      "path": "tests/traversal_diagnostics_tests.cpp",
+      "size_bytes": 14824,
+      "sha256": "93a6e7583ce089e3b466930546ba745a77f98e914abb347dc701c0a07b07b215"
+    },
+    {
+      "path": "tests/practice_tests.cpp",
+      "size_bytes": 23482,
+      "sha256": "2b304107736609b765a6ebd1ab4e60cc5c12097cb557bf2f49698b04f086e2f4"
+    },
+    {
+      "path": "tools/test_traversal_diagnostics.py",
+      "size_bytes": 6777,
+      "sha256": "a912ff4ad5ce8715c538c8e2738b22348bf24cf24d2deb7e63b32399431cecdf"
+    }
+  ],
+  "built_test_binaries": [
+    {
+      "path": "build/msvc/RelWithDebInfo/reality_traversal_diagnostics_tests.exe",
+      "size_bytes": 1725440,
+      "sha256": "cc71cbd4094c9428a4c3117001bdb4a103bd7126a9678d49c66fae21d3c6cd04"
+    },
+    {
+      "path": "build/msvc/RelWithDebInfo/reality_practice_tests.exe",
+      "size_bytes": 1656832,
+      "sha256": "46964d4435d904d97a2fdfc8a8f2301c8280a4a2347fa1a3c0241d867165f5c3"
+    }
+  ]
+}

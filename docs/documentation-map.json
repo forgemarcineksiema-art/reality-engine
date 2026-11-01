@@ -1,6 +1,26 @@
 {
   "version": 1,
   "documents": [
+    {
+      "path": "docs/work-items/m06-measurement-export.md",
+      "role": "planned",
+      "topic": "m06-measurement-export-implementation"
+    },
+    {
+      "path": "docs/work-items/m06-acceptance.md",
+      "role": "planned",
+      "topic": "m06-acceptance-preparation"
+    },
+    {
+      "path": "docs/verification/m06-preflight.md",
+      "role": "verification",
+      "topic": "m06-measurement-readiness"
+    },
+    {
+      "path": "docs/research/capabilities-product-direction-2026-10-29.md",
+      "role": "research",
+      "topic": "capabilities-product-direction-2026-10-29"
+    },
     {"path": "docs/verification/sc08-continuity-audit.md", "role": "verification", "topic": "sc08-continuity-audit"},
     {"path": "docs/verification/m05-acceptance.md", "role": "verification", "topic": "m05-acceptance"},
     {"path": "docs/work-items/m05-continuity-audit.md", "role": "current-state", "topic": "m05-continuity-audit-plan"},

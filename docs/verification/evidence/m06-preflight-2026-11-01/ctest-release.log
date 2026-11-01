@@ -1,0 +1,39 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start  68: practice.persistence
+ 1/17 Test  #68: practice.persistence .......................   Passed    0.32 sec
+      Start  72: practice.autonomy
+ 2/17 Test  #72: practice.autonomy ..........................   Passed    0.09 sec
+      Start  73: practice.teaching
+ 3/17 Test  #73: practice.teaching ..........................   Passed    0.08 sec
+      Start  79: practice.community
+ 4/17 Test  #79: practice.community .........................   Passed    0.38 sec
+      Start  82: practice.evidence_capacity
+ 5/17 Test  #82: practice.evidence_capacity .................   Passed    0.10 sec
+      Start  83: practice.frozen_pending
+ 6/17 Test  #83: practice.frozen_pending ....................   Passed    0.09 sec
+      Start 262: traversal.diagnostics_progress
+ 7/17 Test #262: traversal.diagnostics_progress .............   Passed    0.03 sec
+      Start 263: traversal.diagnostics_waiting
+ 8/17 Test #263: traversal.diagnostics_waiting ..............   Passed    0.05 sec
+      Start 264: traversal.diagnostics_reset
+ 9/17 Test #264: traversal.diagnostics_reset ................   Passed    0.01 sec
+      Start 265: traversal.diagnostics_snapshot
+10/17 Test #265: traversal.diagnostics_snapshot .............   Passed    0.06 sec
+      Start 266: traversal.diagnostics_timings
+11/17 Test #266: traversal.diagnostics_timings ..............   Passed    0.01 sec
+      Start 267: traversal.diagnostics_invalid_sample
+12/17 Test #267: traversal.diagnostics_invalid_sample .......   Passed    0.02 sec
+      Start 268: traversal.diagnostics_plan_churn
+13/17 Test #268: traversal.diagnostics_plan_churn ...........   Passed    0.01 sec
+      Start 269: traversal.diagnostics_independent_alarms
+14/17 Test #269: traversal.diagnostics_independent_alarms ...   Passed    0.02 sec
+      Start 270: traversal.diagnostics_service_progress
+15/17 Test #270: traversal.diagnostics_service_progress .....   Passed    0.02 sec
+      Start 271: traversal.diagnostics_batch_transaction
+16/17 Test #271: traversal.diagnostics_batch_transaction ....   Passed    0.02 sec
+      Start 272: traversal.diagnostics_live_view
+17/17 Test #272: traversal.diagnostics_live_view ............   Passed    0.19 sec
+
+100% tests passed out of 17
+
+Total Test time (real) =   1.70 sec
