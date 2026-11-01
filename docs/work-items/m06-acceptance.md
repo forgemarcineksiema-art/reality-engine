@@ -6,20 +6,20 @@
 
 Uzyskać porównywalny zapis zachowania i kosztu obecnej społeczności, pozwalający odróżnić sprawne działanie od bezczynności, niedoboru, utknięcia i narastającej zaległości. Kryteria interpretujemy według [strategii testów](../testing-strategy.md) i [budżetów](../performance-budget.md). Nowe możliwości konstrukcji, autonomiczne tworzenie zabaw i pełne 3D należą do późniejszego projektu.
 
-Najbliższe zadanie wykonawcze: **uzupełnić istniejącą diagnostykę o eksport próbek w czasie oraz oznaczenie rozgrzewki i faz pomiaru**. Reguły mieszkańców, zapasów, uczenia i formaty świata zachowują dotychczasową semantykę. To pierwszy ograniczony przyrost przygotowania, nie cała instrumentacja M06.
+Pierwszy przyrost: **eksport próbek w czasie oraz oznaczenie rozgrzewki i faz pomiaru**, opisany w [planie wykonawczym](m06-measurement-export.md) i [raporcie](../verification/m06-measurement-export.md). Reguły mieszkańców, zapasów, uczenia i formaty świata zachowują dotychczasową semantykę. To ograniczony zakres przygotowania, nie cała instrumentacja M06.
 
 ## Co już istnieje
 
 - `RuntimeMetrics` zbiera czasy klatki, aktualizacji symulacji i zaległości oraz raportuje min/p50/p95/p99/max/średnią.
 - Aplikacja obsługuje `--measure-seconds` od 1 do 1800 i `--warmup-seconds` od 0 do 300, jawny zapis i raport oraz końcowy zapis `.final.save`.
-- Pamięć procesu jest próbkowana raz na sekundę, a raport zawiera wartości początkowe, końcowe i maksymalne. Obecny raport nie eksportuje pełnego szeregu próbek pamięci.
+- Pamięć procesu jest próbkowana raz na sekundę, a raport zawiera wartości początkowe, końcowe i maksymalne. Opcjonalny `--measurement-trace DIR` zachowuje szereg pamięci i czasów obu faz w CSV.
 - Zliczane są interwencje, minimalizacje, resize, zasłonięte prezentacje i błędy symulacji. Diagnostyka obserwuje postęp i może zachować migawkę alarmu.
 
 Źródła: [metryki](../../src/core/runtime_metrics.hpp), [implementacja](../../src/core/runtime_metrics.cpp), [aplikacja](../../src/platform/traversal_main.cpp), [komendy i ograniczenia](../development.md#diagnostyka-przestrzennego-laboratorium).
 
 ## Zakres pierwszego zadania implementacyjnego
 
-Proponowane pliki: `src/core/runtime_metrics.hpp`, `src/core/runtime_metrics.cpp`, `src/platform/traversal_main.cpp`, `tests/traversal_diagnostics_tests.cpp`, `tools/test_traversal_diagnostics.py` oraz właściwe opisy komend w `docs/development.md`. Dokładny interfejs opcji i format eksportu należy doprecyzować przed kodem; żadne nowe polecenie nie jest obecnie dostępne.
+Pliki: `src/core/runtime_metrics.hpp`, `src/core/runtime_metrics.cpp`, `src/platform/traversal_main.cpp`, `tests/traversal_diagnostics_tests.cpp`, `tools/test_traversal_diagnostics.py` oraz właściwe opisy komend w `docs/development.md`. Interfejs opcji i format eksportu określa [kontrakt przyrostu](m06-measurement-export.md#kontrakt), a użycie — [instrukcja](../development.md#eksport-przebiegu-pomiaru).
 
 Wymagania dla eksportu:
 

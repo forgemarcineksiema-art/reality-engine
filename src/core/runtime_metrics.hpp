@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cstddef>
+#include <cstdint>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -22,5 +24,23 @@ class RuntimeMetrics final {
 
   private:
     std::vector<double> frames_, simulation_, backlog_;
+};
+enum class MeasurementPhase { Warmup, Measurement };
+struct MeasurementSample {
+    double elapsed_ms = 0;
+    std::uint64_t tick = 0;
+    MeasurementPhase phase = MeasurementPhase::Warmup;
+    double frame_ms = 0, simulation_ms = 0, backlog_ms = 0;
+    std::optional<std::uint64_t> working_set_bytes, private_bytes;
+};
+// Process-local observer: elapsed time orders samples even after a world restore.
+class MeasurementTrace final {
+  public:
+    void record(MeasurementSample sample);
+    [[nodiscard]] std::string csv() const;
+    [[nodiscard]] std::size_t size() const noexcept { return samples_.size(); }
+
+  private:
+    std::vector<MeasurementSample> samples_;
 };
 } // namespace reality

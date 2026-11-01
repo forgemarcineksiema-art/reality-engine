@@ -2,6 +2,11 @@
   "version": 1,
   "documents": [
     {
+      "path": "docs/verification/m06-measurement-export.md",
+      "role": "verification",
+      "topic": "m06-measurement-export-verification"
+    },
+    {
       "path": "docs/work-items/m06-measurement-export.md",
       "role": "planned",
       "topic": "m06-measurement-export-implementation"

@@ -87,6 +87,8 @@ Warstwa gry: sytuacja udostępnia co najmniej dwie zaimplementowane metody, z ko
 
 [Przygotowanie odbioru](work-items/m06-acceptance.md) określa najbliższy zakres instrumentacji i rozdzielenie prób. [Audyt gotowości z 01.11.2026](verification/m06-preflight.md) zawiera kontrolę istniejących źródeł oraz wybrane 17/17 testów Release; nie jest długim pomiarem, próbą natywną ani odbiorem całego M06.
 
+[Pierwszy przyrost eksportu](verification/m06-measurement-export.md) dodaje opcjonalny szereg czasów i pamięci obu faz. Nie zamyka pomiarów CPU/GPU, dłuższej próby ani odbioru z ludźmi.
+
 Pracę dzielimy na: zamrożenie sceny i kryteriów odbioru; kontrolowany dłuższy pomiar aplikacji; próbę z ludźmi; naprawę wykrytych wad i ponowną kontrolę dotkniętego zakresu; końcowy raport i decyzję użytkownika. Propozycja pomiaru autora to 2 minuty rozgrzewki oraz 30 minut rejestrowanego działania w Release na i5/MX330/8 GB, z fazą spokojną, uczeniem, ingerencją, odejściem/powrotem i zapisem. Czas, fazy i progi należy zapisać w protokole przed próbą, odwołując się do [właściciela budżetów](performance-budget.md). Nie są to osiągnięte parametry ani zmiana dotychczasowych limitów testów.
 
 Mierzymy rozkład klatek i przycięcia, CPU/GPU, pamięć i jej trend, zaległość aktualizacji, koszt wnioskowania/nawigacji i zapisu oraz postęp pracy mieszkańców. Do oceny czasu nie używamy ASan ani uruchomionych równolegle kompilacji. Część techniczna wymaga również pełnych regresji Debug/Release/ASan oraz kontroli narzędzi/dokumentacji. Wynik pomiaru niespełniający zapisanej bramki wymaga poprawy i powtórzenia porównywalnej próby, nie usunięcia złych próbek.

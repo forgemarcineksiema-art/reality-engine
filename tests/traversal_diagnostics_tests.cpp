@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <limits>
+#include <locale>
 #include <stdexcept>
 
 using namespace reality;
@@ -168,6 +169,117 @@ void timings() {
     for (unsigned i = 0; i < 4; ++i)
         large.record(1e308, 0, 0);
     require(std::isfinite(large.frames().mean_ms), "finite timing samples overflow their mean");
+}
+void trace_format() {
+    struct Comma final : std::numpunct<char> {
+        char do_decimal_point() const override { return ','; }
+    };
+    const auto original = std::locale();
+    std::locale::global(std::locale{original, new Comma});
+    try {
+        MeasurementTrace trace;
+        trace.record({1.25, 40, MeasurementPhase::Warmup, 1.25, .5, 0, {}, {}});
+        trace.record({2.5, 41, MeasurementPhase::Measurement, 1.25, .25, 2, 12345, 67890});
+        trace.record({4, 2, MeasurementPhase::Measurement, 1.5, .5, 0, {}, {}});
+        require(trace.size() == 3 &&
+                    trace.csv() ==
+                        "elapsed_ms,tick,phase,frame_ms,simulation_ms,backlog_ms,working_set_bytes,"
+                        "private_bytes\n"
+                        "1.250000,40,warmup,1.250000,0.500000,0.000000,,\n"
+                        "2.500000,41,measurement,1.250000,0.250000,2.000000,12345,67890\n"
+                        "4.000000,2,measurement,1.500000,0.500000,0.000000,,\n",
+                "CSV lost phase, precision, missing memory or restored tick under locale");
+    } catch (...) {
+        std::locale::global(original);
+        throw;
+    }
+    std::locale::global(original);
+}
+void trace_invalid() {
+    MeasurementTrace trace;
+    trace.record({10, 10, MeasurementPhase::Measurement, 1, .5, 0, {}, {}});
+    const auto before = trace.csv();
+    const MeasurementSample valid{11, 2, MeasurementPhase::Measurement, 1, .5, 0, {}, {}};
+    const auto reject = [&](MeasurementSample sample) {
+        bool rejected = false;
+        try {
+            trace.record(sample);
+        } catch (const std::invalid_argument&) {
+            rejected = true;
+        }
+        require(rejected && trace.size() == 1 && trace.csv() == before,
+                "invalid trace sample changed prior evidence");
+    };
+    for (const auto bad :
+         {-1., std::numeric_limits<double>::infinity(), std::numeric_limits<double>::quiet_NaN()}) {
+        for (unsigned field = 0; field < 4; ++field) {
+            auto sample = valid;
+            switch (field) {
+            case 0:
+                sample.elapsed_ms = bad;
+                break;
+            case 1:
+                sample.frame_ms = bad;
+                break;
+            case 2:
+                sample.simulation_ms = bad;
+                break;
+            case 3:
+                sample.backlog_ms = bad;
+                break;
+            }
+            reject(sample);
+        }
+    }
+    auto sample = valid;
+    sample.elapsed_ms = 9;
+    reject(sample);
+    sample = valid;
+    sample.phase = MeasurementPhase::Warmup;
+    reject(sample);
+    sample.phase = static_cast<MeasurementPhase>(99);
+    reject(sample);
+    sample = valid;
+    sample.working_set_bytes = 100;
+    reject(sample);
+    sample = valid;
+    sample.private_bytes = 100;
+    reject(sample);
+    trace.record(valid);
+    require(trace.size() == 2, "restored world tick was mistaken for wall-clock reversal");
+}
+void trace_capacity() {
+    MeasurementTrace trace;
+    const MeasurementSample sample{1, 1, MeasurementPhase::Measurement, 1, 0, 0, {}, {}};
+    for (std::size_t i = 0; i < 1000000; ++i)
+        trace.record(sample);
+    bool rejected = false;
+    try {
+        trace.record(sample);
+    } catch (const std::length_error&) {
+        rejected = true;
+    }
+    require(rejected && trace.size() == 1000000,
+            "trace silently dropped or accepted samples beyond its explicit budget");
+}
+void trace_observer() {
+    TraversalSession observed, reference;
+    MeasurementTrace trace;
+    for (unsigned i = 0; i < 40; ++i) {
+        observed.advance(1);
+        reference.advance(1);
+        trace.record({static_cast<double>(i),
+                      observed.world().clock().tick_count(),
+                      i < 10 ? MeasurementPhase::Warmup : MeasurementPhase::Measurement,
+                      1,
+                      .5,
+                      0,
+                      {},
+                      {}});
+        static_cast<void>(trace.csv());
+        require(observed.serialize() == reference.serialize(),
+                "measurement trace changed world or persistence semantics");
+    }
 }
 void invalid_sample() {
     NavigationProgressWatch watch;
@@ -339,6 +451,14 @@ int main(int argc, char** argv) {
             snapshot();
         else if (name == "timings")
             timings();
+        else if (name == "trace_format")
+            trace_format();
+        else if (name == "trace_invalid")
+            trace_invalid();
+        else if (name == "trace_capacity")
+            trace_capacity();
+        else if (name == "trace_observer")
+            trace_observer();
         else
             throw std::invalid_argument("unknown diagnostics case");
         std::cout << "PASS " << name << '\n';

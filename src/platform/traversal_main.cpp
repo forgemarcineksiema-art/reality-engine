@@ -10,6 +10,7 @@
 
 #include <algorithm>
 #include <chrono>
+#include <climits>
 #include <exception>
 #include <fstream>
 #include <memory>
@@ -49,9 +50,63 @@ struct Options {
     std::string story_case = "normal";
     bool repair_smoke = false;
     std::filesystem::path diagnostics;
+    std::filesystem::path measurement_trace;
     unsigned measure_seconds = 0, warmup_seconds = 30;
     int adapter = -1;
 };
+std::filesystem::path output_path(const std::filesystem::path& path) {
+    // Win32 trims trailing dots/spaces; reject those ambiguous aliases before opening a log.
+    for (const auto& part : path) {
+        const auto value = part.native();
+        require(value == L"." || value == L".." || value.empty() ||
+                    (value.back() != L'.' && value.back() != L' '),
+                "ambiguous measurement output path");
+    }
+    auto normalized = std::filesystem::weakly_canonical(std::filesystem::absolute(path));
+    if (normalized.has_relative_path() && normalized.filename().empty())
+        normalized = normalized.parent_path();
+    return normalized;
+}
+bool same_path(const std::filesystem::path& first, const std::filesystem::path& second) {
+    const auto a = first.native(), b = second.native();
+    require(a.size() <= INT_MAX && b.size() <= INT_MAX, "measurement output path too long");
+    return CompareStringOrdinal(a.data(), static_cast<int>(a.size()), b.data(),
+                                static_cast<int>(b.size()), TRUE) == CSTR_EQUAL;
+}
+void validate_trace_paths(const Options& options) {
+    if (options.measurement_trace.empty())
+        return;
+    const auto directory = output_path(options.measurement_trace);
+    require(!std::filesystem::exists(directory), "measurement trace directory already exists");
+    require(std::filesystem::is_directory(directory.parent_path()),
+            "measurement trace parent directory must exist");
+    const auto csv = directory / L"samples.csv";
+    auto final_save = options.save;
+    final_save += L".final.save";
+    for (const auto& path :
+         {options.save, final_save, options.report, options.capture, options.diagnostics}) {
+        const auto normalized = output_path(path);
+        require(!same_path(normalized, csv) && !same_path(normalized, directory),
+                "measurement trace conflicts with another output");
+    }
+}
+void write_new_csv(const std::filesystem::path& path, std::string_view bytes) {
+    const auto handle = CreateFileW(path.c_str(), GENERIC_WRITE, FILE_SHARE_READ, nullptr,
+                                    CREATE_NEW, FILE_ATTRIBUTE_NORMAL, nullptr);
+    require(handle != INVALID_HANDLE_VALUE, "cannot create new measurement trace CSV");
+    struct Close {
+        HANDLE handle;
+        ~Close() { CloseHandle(handle); }
+    } close{handle};
+    while (!bytes.empty()) {
+        const auto chunk = static_cast<DWORD>(std::min(bytes.size(), std::size_t{MAXDWORD}));
+        DWORD written = 0;
+        require(WriteFile(handle, bytes.data(), chunk, &written, nullptr) && written > 0,
+                "cannot write measurement trace CSV");
+        bytes.remove_prefix(written);
+    }
+    require(FlushFileBuffers(handle) != 0, "cannot flush measurement trace CSV");
+}
 void read_options(Options& options) {
     int count = 0;
     auto* args = CommandLineToArgvW(GetCommandLineW(), &count);
@@ -63,7 +118,8 @@ void read_options(Options& options) {
     bool save_given = false, report_given = false, warmup_given = false;
     for (int i = 1; i < count; ++i) {
         const std::wstring_view arg{args[i]};
-        if (arg == L"--smoke-test" || arg == L"--measure-seconds" || arg == L"--warmup-seconds")
+        if (arg == L"--smoke-test" || arg == L"--measure-seconds" || arg == L"--warmup-seconds" ||
+            arg == L"--measurement-trace")
             options.unattended = true;
     }
     for (int i = 1; i < count; ++i) {
@@ -120,6 +176,9 @@ void read_options(Options& options) {
                 options.capture = value;
             } else if (arg == L"--diagnostics") {
                 options.diagnostics = value;
+            } else if (arg == L"--measurement-trace") {
+                require(!value.empty(), "measurement trace directory is empty");
+                options.measurement_trace = value;
             } else if (arg == L"--measure-seconds" || arg == L"--warmup-seconds") {
                 options.unattended = true;
                 require(!value.empty() &&
@@ -163,8 +222,11 @@ void read_options(Options& options) {
     require(!warmup_given || options.measure_seconds != 0, "warmup needs a measurement");
     require(options.measure_seconds == 0 || (!options.smoke && save_given && report_given),
             "measurement needs explicit --save and --report and cannot use smoke-test");
+    require(options.measurement_trace.empty() || options.measure_seconds != 0,
+            "measurement trace needs a measurement");
     if (options.diagnostics.empty())
         options.diagnostics = options.save.parent_path() / "traversal-diagnostics";
+    validate_trace_paths(options);
 }
 const wchar_t* state_label(TraversalState state) {
     switch (state) {
@@ -238,6 +300,29 @@ class TraversalWindow final {
     TraversalWindow(const TraversalWindow&) = delete;
     TraversalWindow& operator=(const TraversalWindow&) = delete;
     int run() {
+        try {
+            if (!options_.measurement_trace.empty()) {
+                require(std::filesystem::create_directory(options_.measurement_trace),
+                        "cannot reserve new measurement trace directory");
+                trace_directory_created_ = true;
+            }
+            run_loop();
+            export_trace(true);
+            log_ << "normal_shutdown=1\n";
+            return 0;
+        } catch (...) {
+            const auto original = std::current_exception();
+            try {
+                export_trace(false);
+            } catch (const std::exception& error) {
+                OutputDebugStringA(error.what());
+            }
+            std::rethrow_exception(original);
+        }
+    }
+
+  private:
+    void run_loop() {
         window_ =
             CreateWindowExW(0, window_class, L"Genesis | ruch, poziomy i autonomia",
                             WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN, CW_USEDEFAULT, CW_USEDEFAULT,
@@ -321,6 +406,7 @@ class TraversalWindow final {
                  << "\nwarmup_seconds=" << options_.warmup_seconds
                  << "\nmeasurement_initial_checksum=" << snapshot_checksum(session_.serialize())
                  << '\n';
+            log_.flush();
         }
         measurement_started_ = true;
         unsigned frames = 0;
@@ -388,11 +474,12 @@ class TraversalWindow final {
                 MsgWaitForMultipleObjectsEx(0, nullptr, 100, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
             }
             const auto frame_end = std::chrono::steady_clock::now();
-            if (options_.smoke ||
-                (options_.measure_seconds != 0 && frame_start >= measurement_start)) {
-                const auto milliseconds = [](auto duration) {
-                    return std::chrono::duration<double, std::milli>{duration}.count();
-                };
+            const auto milliseconds = [](auto duration) {
+                return std::chrono::duration<double, std::milli>{duration}.count();
+            };
+            const bool measured = options_.smoke || (options_.measure_seconds != 0 &&
+                                                     frame_start >= measurement_start);
+            if (measured) {
                 metrics_.record(milliseconds(frame_end - previous_frame_end),
                                 milliseconds(simulation_end - simulation_start),
                                 milliseconds(pacer_.pending()));
@@ -400,22 +487,41 @@ class TraversalWindow final {
                 if (!first_sample_)
                     first_sample_ = previous_frame_end;
                 last_sample_ = frame_end;
-                if (frame_end >= next_memory_sample_) {
-                    PROCESS_MEMORY_COUNTERS_EX memory{};
-                    require(
-                        GetProcessMemoryInfo(GetCurrentProcess(),
+            }
+            const bool legacy_memory = measured && frame_end >= next_memory_sample_;
+            const bool trace_enabled = !options_.measurement_trace.empty();
+            const auto observer_start = trace_enabled ? std::chrono::steady_clock::now()
+                                                      : std::chrono::steady_clock::time_point{};
+            const bool trace_memory = trace_enabled && frame_end >= next_trace_memory_sample_;
+            std::optional<std::uint64_t> working, private_bytes;
+            if (legacy_memory || trace_memory) {
+                PROCESS_MEMORY_COUNTERS_EX memory{};
+                require(GetProcessMemoryInfo(GetCurrentProcess(),
                                              reinterpret_cast<PROCESS_MEMORY_COUNTERS*>(&memory),
                                              sizeof(memory)) != 0,
                         "cannot measure process memory");
-                    const auto working = static_cast<std::uint64_t>(memory.WorkingSetSize);
+                working = static_cast<std::uint64_t>(memory.WorkingSetSize);
+                private_bytes = static_cast<std::uint64_t>(memory.PrivateUsage);
+                if (legacy_memory) {
                     if (first_working_set_ == 0)
-                        first_working_set_ = working;
-                    last_working_set_ = working;
-                    peak_working_set_ = std::max(peak_working_set_, working);
-                    peak_private_bytes_ = std::max(peak_private_bytes_,
-                                                   static_cast<std::uint64_t>(memory.PrivateUsage));
+                        first_working_set_ = *working;
+                    last_working_set_ = *working;
+                    peak_working_set_ = std::max(peak_working_set_, *working);
+                    peak_private_bytes_ = std::max(peak_private_bytes_, *private_bytes);
                     next_memory_sample_ = frame_end + 1s;
                 }
+                if (trace_memory)
+                    next_trace_memory_sample_ = frame_end + 1s;
+            }
+            if (trace_enabled) {
+                trace_.record({milliseconds(frame_end - run_start),
+                               session_.world().clock().tick_count(),
+                               measured ? MeasurementPhase::Measurement : MeasurementPhase::Warmup,
+                               milliseconds(frame_end - previous_frame_end),
+                               milliseconds(simulation_end - simulation_start),
+                               milliseconds(pacer_.pending()), working, private_bytes});
+                trace_observer_ms_ +=
+                    milliseconds(std::chrono::steady_clock::now() - observer_start);
             }
             previous_frame_end = frame_end;
             if (options_.smoke && ++frames == 2) {
@@ -451,8 +557,6 @@ class TraversalWindow final {
             require(measurement_finished_ && simulation_errors_ == 0,
                     "measurement ended early or simulation failed");
         }
-        log_ << "normal_shutdown=1\n";
-        return 0;
     }
 
   private:
@@ -477,9 +581,10 @@ class TraversalWindow final {
     std::string old_inspector_;
     TraversalDiagnostics diagnostics_;
     RuntimeMetrics metrics_;
+    MeasurementTrace trace_;
     std::optional<std::filesystem::path> last_diagnostic_;
     std::optional<std::chrono::steady_clock::time_point> first_sample_, last_sample_;
-    std::chrono::steady_clock::time_point next_memory_sample_{};
+    std::chrono::steady_clock::time_point next_memory_sample_{}, next_trace_memory_sample_{};
     std::uint64_t capture_sequence_ = 0, measured_ticks_ = 0;
     std::uint64_t first_working_set_ = 0, last_working_set_ = 0, peak_working_set_ = 0,
                   peak_private_bytes_ = 0;
@@ -487,6 +592,31 @@ class TraversalWindow final {
              measurement_interventions_ = 0, measurement_minimizations_ = 0,
              measurement_resizes_ = 0;
     bool measurement_started_ = false, measurement_finished_ = false;
+    bool trace_directory_created_ = false, trace_export_attempted_ = false;
+    double trace_observer_ms_ = 0;
+    void export_trace(bool complete) {
+        if (!trace_directory_created_ || trace_export_attempted_)
+            return;
+        trace_export_attempted_ = true;
+        const auto start = std::chrono::steady_clock::now();
+        const auto elapsed = [&] {
+            return std::chrono::duration<double, std::milli>{std::chrono::steady_clock::now() -
+                                                             start}
+                .count();
+        };
+        log_ << "measurement_trace_schema=1\nmeasurement_trace_samples=" << trace_.size()
+             << "\nmeasurement_trace_observer_ms=" << trace_observer_ms_ << '\n';
+        try {
+            write_new_csv(options_.measurement_trace / L"samples.csv", trace_.csv());
+        } catch (const std::exception& error) {
+            log_ << "measurement_trace_exported=0\nmeasurement_trace_complete=0\n"
+                 << "measurement_trace_export_ms=" << elapsed()
+                 << "\nmeasurement_trace_error=" << error.what() << '\n';
+            throw;
+        }
+        log_ << "measurement_trace_exported=1\nmeasurement_trace_complete=" << complete
+             << "\nmeasurement_trace_export_ms=" << elapsed() << '\n';
+    }
     void capture_diagnostic(std::string_view reason) {
         last_diagnostic_.reset();
         try {

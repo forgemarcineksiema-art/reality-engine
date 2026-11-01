@@ -375,12 +375,20 @@ if(BUILD_TESTING)
     add_executable(reality_traversal_diagnostics_tests tests/traversal_diagnostics_tests.cpp)
     target_link_libraries(reality_traversal_diagnostics_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_traversal_diagnostics_tests)
-    foreach(case IN ITEMS progress waiting reset snapshot timings invalid_sample plan_churn independent_alarms service_progress batch_transaction live_view)
+    foreach(case IN ITEMS progress waiting reset snapshot timings invalid_sample plan_churn independent_alarms service_progress batch_transaction live_view trace_format trace_invalid trace_capacity trace_observer)
         add_test(NAME traversal.diagnostics_${case} COMMAND reality_traversal_diagnostics_tests ${case})
     endforeach()
     add_test(NAME traversal.native_diagnostics
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
                 --exe "$<TARGET_FILE:reality_traversal>")
+    add_test(NAME traversal.native_measurement_trace
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
+                --exe "$<TARGET_FILE:reality_traversal>" --trace-only)
+    foreach(case IN ITEMS paths interrupted collision)
+        add_test(NAME traversal.native_trace_${case}
+            COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
+                --exe "$<TARGET_FILE:reality_traversal>" --trace-case ${case})
+    endforeach()
     add_test(NAME delivery.native_diagnostics
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
                 --exe "$<TARGET_FILE:reality_traversal>" --delivery-only)

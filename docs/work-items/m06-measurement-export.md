@@ -37,10 +37,10 @@ Pliki: `src/core/runtime_metrics.hpp`, `src/core/runtime_metrics.cpp`, `src/plat
 
 Interfejsy: `MeasurementPhase`, `MeasurementSample`, `MeasurementTrace::record`, `MeasurementTrace::csv`, `MeasurementTrace::size`; obecne `RuntimeMetrics::record/frames/report` pozostają zgodne. Konsument natywny przekazuje rzeczywisty czas, tick i odczyty procesu.
 
-- [ ] Zachować stan bazowy i wykonać kontrolę dokumentacji oraz istniejących wybranych testów diagnostyki.
-- [ ] Dodać próbę natywną nowego eksportu i uruchomić ją na starej aplikacji. Oczekiwane: brak obsługi opcji, kod 1 i czerwony test wymagający CSV.
-- [ ] Dodać przypadki jednostkowe formatu, walidacji, limitu i braku mutacji świata; wdrożyć model próbek i uzyskać wynik zielony.
-- [ ] Włączyć opcję, zbieranie obu faz, pamięć i zapis CSV bez nadpisywania. Wymagać rzeczywistych danych w próbie natywnej i zgodności starych podsumowań.
-- [ ] Zweryfikować odmowy, błąd pliku i przedwczesne zamknięcie; poprawić wykazane błędy bez zmiany niezmienników.
+- [x] Zachować stan bazowy i wykonać kontrolę dokumentacji oraz istniejących wybranych testów diagnostyki.
+- [x] Dodać próbę natywną nowego eksportu i uruchomić ją na starej aplikacji. Oczekiwane: brak obsługi opcji, kod 1 i czerwony test wymagający CSV.
+- [x] Dodać przypadki jednostkowe formatu, walidacji, limitu i braku mutacji świata; wdrożyć model próbek i uzyskać wynik zielony.
+- [x] Włączyć opcję, zbieranie obu faz, pamięć i zapis CSV bez nadpisywania. Wymagać rzeczywistych danych w próbie natywnej i zgodności starych podsumowań.
+- [x] Zweryfikować odmowy, błąd pliku i przedwczesne zamknięcie; poprawić wykazane błędy bez zmiany niezmienników.
 - [ ] Wykonać właściwe buildy, pełne CTest Debug/Release/ASan, format, kontrolę dokumentacji i testy narzędzi. Zachować wcześniejsze porażki i ograniczenia.
 - [ ] Uzyskać niezależny przegląd, rozstrzygnąć uwagi i zakończyć raport. Nie zamykać całego M06 przez ten przyrost.

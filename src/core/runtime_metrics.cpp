@@ -69,4 +69,41 @@ std::string RuntimeMetrics::report() const {
     append("backlog", backlog_);
     return out.str();
 }
+void MeasurementTrace::record(MeasurementSample sample) {
+    for (const auto value :
+         {sample.elapsed_ms, sample.frame_ms, sample.simulation_ms, sample.backlog_ms})
+        if (!std::isfinite(value) || value < 0)
+            throw std::invalid_argument("invalid measurement trace timing");
+    if ((sample.phase != MeasurementPhase::Warmup &&
+         sample.phase != MeasurementPhase::Measurement) ||
+        sample.working_set_bytes.has_value() != sample.private_bytes.has_value())
+        throw std::invalid_argument("invalid measurement trace phase or memory pair");
+    if (!samples_.empty() && (sample.elapsed_ms < samples_.back().elapsed_ms ||
+                              (samples_.back().phase == MeasurementPhase::Measurement &&
+                               sample.phase == MeasurementPhase::Warmup)))
+        throw std::invalid_argument("measurement trace moved backwards");
+    if (samples_.size() == 1000000)
+        throw std::length_error("measurement trace sample budget exhausted");
+    samples_.push_back(sample);
+}
+std::string MeasurementTrace::csv() const {
+    std::ostringstream out;
+    out.exceptions(std::ios::badbit | std::ios::failbit);
+    out.imbue(std::locale::classic());
+    out << "elapsed_ms,tick,phase,frame_ms,simulation_ms,backlog_ms,working_set_bytes,private_"
+           "bytes\n"
+        << std::fixed << std::setprecision(6);
+    for (const auto& sample : samples_) {
+        out << sample.elapsed_ms << ',' << sample.tick << ','
+            << (sample.phase == MeasurementPhase::Warmup ? "warmup" : "measurement") << ','
+            << sample.frame_ms << ',' << sample.simulation_ms << ',' << sample.backlog_ms << ',';
+        if (sample.working_set_bytes)
+            out << *sample.working_set_bytes;
+        out << ',';
+        if (sample.private_bytes)
+            out << *sample.private_bytes;
+        out << '\n';
+    }
+    return out.str();
+}
 } // namespace reality
