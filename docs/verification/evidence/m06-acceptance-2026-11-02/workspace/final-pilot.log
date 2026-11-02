@@ -1,0 +1,32 @@
+{
+  "passed": false,
+  "scope": "measurement gates; final-world restoration and continuation are separate",
+  "failures": [
+    "frame_p99_ms"
+  ],
+  "metrics": {
+    "frame_p95_ms": 17.0946,
+    "frame_p99_ms": 34.557,
+    "frame_max_ms": 47.0565,
+    "backlog_max_ms": 49.8121,
+    "frame_p50_ms": 16.6678,
+    "working_set_bytes_peak": 71122944,
+    "working_set_bytes_growth": 2445312,
+    "private_bytes_peak": 96653312,
+    "private_bytes_growth": 2772992,
+    "gpu_p95_ms": 0.152576,
+    "cpu_work_ms_p95": 15.5697,
+    "cpu_work_ms_total": 25739.128200000032,
+    "present_ms_p95": 13.3732,
+    "present_ms_total": 33871.38880000004,
+    "process_cpu_ms_p95": 31.25,
+    "process_cpu_ms_total": 31109.375,
+    "navigation_ms_p95": 0.0,
+    "navigation_ms_total": 4.1526,
+    "learning_ms_p95": 0.0063,
+    "learning_ms_total": 6.396699999999996,
+    "completed_first": 0,
+    "completed_last": 36,
+    "longest_extreme_need_ms": 0.0
+  }
+}

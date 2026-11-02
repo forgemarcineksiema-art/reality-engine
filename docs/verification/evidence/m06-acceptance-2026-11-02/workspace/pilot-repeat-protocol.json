@@ -1,0 +1,23 @@
+{
+  "executable": "C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\RelWithDebInfo\\reality_traversal.exe",
+  "initial_world": "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\initial.save",
+  "output": "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\pilot-profile-repeat",
+  "executable_sha256": "9b865ba32ea0974de0211464b74a56b17d73deb851a4493a2076844341bb80ad",
+  "initial_world_sha256": "bc9acd346b51a13b2408d0c506494f1d576714e4c020b4e106be8bd72b0df5cc",
+  "warmup_seconds": 0,
+  "measure_seconds": 60,
+  "viewport": "844x781",
+  "selected_adapter": "NVIDIA GeForce MX330",
+  "adapter_index": 0,
+  "gates": {
+    "frame_p95_ms": 20,
+    "frame_p99_ms": 33.34,
+    "frame_max_ms": 250,
+    "backlog_max_ms": 1000,
+    "memory_peak_bytes": 536870912,
+    "memory_growth_bytes": 67108864,
+    "tick_fraction": 0.95,
+    "activity_window_seconds": 300,
+    "gpu_valid_fraction": 0.95
+  }
+}

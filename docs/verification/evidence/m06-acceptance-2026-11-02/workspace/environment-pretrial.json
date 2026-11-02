@@ -1,0 +1,113 @@
+{
+  "Cpu": {
+    "Name": "Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz",
+    "NumberOfCores": 4,
+    "NumberOfLogicalProcessors": 8
+  },
+  "Memory": {
+    "TotalVisibleMemorySize": 8160952,
+    "FreePhysicalMemory": 1463172
+  },
+  "Gpu": [
+    {
+      "Name": "Intel(R) UHD Graphics",
+      "DriverVersion": "31.0.101.2145"
+    },
+    {
+      "Name": "NVIDIA GeForce MX330",
+      "DriverVersion": "32.0.15.8278"
+    }
+  ],
+  "Processes": [
+    {
+      "Name": "Memory Compression",
+      "Id": 3092,
+      "CPU": null,
+      "WorkingSet64": 668180480
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 11532,
+      "CPU": 1093.296875,
+      "WorkingSet64": 499601408
+    },
+    {
+      "Name": "MsMpEng",
+      "Id": 5164,
+      "CPU": null,
+      "WorkingSet64": 354897920
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 12748,
+      "CPU": 501.921875,
+      "WorkingSet64": 290385920
+    },
+    {
+      "Name": "codex",
+      "Id": 9408,
+      "CPU": 303.0625,
+      "WorkingSet64": 279007232
+    },
+    {
+      "Name": "chrome",
+      "Id": 10144,
+      "CPU": 75.765625,
+      "WorkingSet64": 260415488
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 14708,
+      "CPU": 150.578125,
+      "WorkingSet64": 224841728
+    },
+    {
+      "Name": "explorer",
+      "Id": 8864,
+      "CPU": 102.0,
+      "WorkingSet64": 187092992
+    },
+    {
+      "Name": "chrome",
+      "Id": 13764,
+      "CPU": 21.125,
+      "WorkingSet64": 182542336
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 16280,
+      "CPU": 43.5625,
+      "WorkingSet64": 166264832
+    },
+    {
+      "Name": "msedge",
+      "Id": 18356,
+      "CPU": 5.75,
+      "WorkingSet64": 134197248
+    },
+    {
+      "Name": "StartMenuExperienceHost",
+      "Id": 9548,
+      "CPU": 25.640625,
+      "WorkingSet64": 126033920
+    },
+    {
+      "Name": "SearchHost",
+      "Id": 10228,
+      "CPU": 12.421875,
+      "WorkingSet64": 112304128
+    },
+    {
+      "Name": "chrome",
+      "Id": 8056,
+      "CPU": 19.765625,
+      "WorkingSet64": 97894400
+    },
+    {
+      "Name": "dwm",
+      "Id": 1624,
+      "CPU": null,
+      "WorkingSet64": 97525760
+    }
+  ]
+}

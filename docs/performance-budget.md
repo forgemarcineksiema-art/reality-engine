@@ -2,6 +2,8 @@
 
 **Właściciel tematu:** parametry prób i metoda oceny kosztu. Wszystkie cele poniżej są PROPOZYCJĄ do pomiaru. Wykonano [pierwszy pomiar małej sceny przestrzennej](verification/m04-entry-observability.md#pomiar-dłuższego-działania), bez dowodu skalowania całego silnika lub docelowego świata.
 
+02.11.2026 wykonano [odbiór techniczny M06](verification/m06-acceptance.md): 8 osób, MX330, rzeczywisty viewport 844×781, 120+1800 s Release, z zachowanymi progami i surowymi danymi. Wynik nie potwierdza propozycji 1280×720 ani większej populacji.
+
 ## Potwierdzony punkt odniesienia
 
 Odczyt lokalny z 25.10.2026: Intel Core i5-1035G1, 4 rdzenie/8 wątków; około 7,78 GiB pamięci raportowanej przez system; Intel UHD Graphics oraz NVIDIA GeForce MX330. Użytkownik określił laptop jako i5/MX330/8 GB RAM.

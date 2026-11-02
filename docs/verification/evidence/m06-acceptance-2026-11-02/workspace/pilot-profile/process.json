@@ -1,0 +1,25 @@
+{
+  "command": [
+    "C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\RelWithDebInfo\\reality_traversal.exe",
+    "--community",
+    "--learning",
+    "--initial-world",
+    "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\initial.save",
+    "--profile-runtime",
+    "--measurement-trace",
+    "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\pilot-profile\\trace",
+    "--warmup-seconds",
+    "0",
+    "--measure-seconds",
+    "60",
+    "--adapter",
+    "0",
+    "--save",
+    "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\pilot-profile\\world.save",
+    "--report",
+    "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\pilot-profile\\run.log"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 60.81102728843689,
+  "initial_world_unchanged": true
+}

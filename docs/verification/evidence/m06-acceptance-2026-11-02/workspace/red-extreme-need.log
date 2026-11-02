@@ -1,0 +1,13 @@
+.......F
+======================================================================
+FAIL: test_rejects_prolonged_extreme_need (test_m06_acceptance.AcceptanceTests.test_rejects_prolonged_extreme_need)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_m06_acceptance.py", line 90, in test_rejects_prolonged_extreme_need
+    self.assertFalse(m06.evaluate(self.root, self.protocol)["passed"])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.148s
+
+FAILED (failures=1)

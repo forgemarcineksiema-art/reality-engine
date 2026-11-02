@@ -1,0 +1,11 @@
+warning: in the working copy of 'CMakeLists.txt', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/development.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/documentation-map.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/game-design.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/prototype-plan.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work-items/m06-acceptance.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/lab/traversal_practice.cpp', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/lab/traversal_session.cpp', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/navigation/surface_navigation.cpp', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/platform/traversal_main.cpp', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'tests/traversal_diagnostics_tests.cpp', CRLF will be replaced by LF the next time Git touches it

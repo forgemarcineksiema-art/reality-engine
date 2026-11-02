@@ -130,6 +130,8 @@ Zmień dostępność mostu przez właściwą komendę. Uruchom rzeczywiste plano
 
 Uruchom rzeczywisty program. Sprawdź ruch, interakcję, resize, minimalizację/powrót, wybór adaptera i zakończenie. Jeśli twierdzenie dotyczy sprzętu MX330, zapisz faktycznie wybrany adapter. Obraz programowego renderera lub innej karty nie jest takim dowodem. Człowiek osobno ocenia sterowanie i czytelność.
 
+[Odbiór M06](verification/m06-acceptance.md) zachowuje pełne profile, rzeczywistą aplikację i odtworzenie końcowego świata. Decyzją użytkownika z 02.11.2026 ocena grywalności przez uczestników nie jest bramką tego etapu.
+
 ### SC-12 — Dłuższe obciążenie
 
 Uruchom ustalony scenariusz i konfigurację przez okres określony przed próbą. Zapisz rozkład czasów, przycięcia, pamięć, zaległości i opóźnienie aktualizacji. Porównanie wymaga podobnego stanu nagrzania i braku konkurencyjnego obciążenia. Nie ukrywaj złych próbek. Chroni INV-11; metoda jest w [budżetach](performance-budget.md).

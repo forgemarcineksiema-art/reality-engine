@@ -1,0 +1,85 @@
+tick=38598 actors=8
+actor=1 representation=local surface=1 feet=-3.000,0.000,-3.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=1000 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=9996 wear=500 source_actor=2 via_actor=2 observed_tick=1 learned_tick=37
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  belief_unknown_station=4
+  passage_belief=1 open=1 source_actor=1 via_actor=1 observed_tick=38598 learned_tick=38598
+actor=2 representation=local surface=1 feet=-3.626,0.000,-1.637 speed=0.000 accel=0.000 yaw=2.363 state=2 auto=1 task=3 hunger=304 energy=958 plans=362 leg=1/1 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  cargo_lot=14 cargo_quantity=0 cargo_capacity=4
+  delivery_phase=3 source=0 destination=1 delivered=8/8
+  belief_station=0 available=9524 wear=500 source_actor=2 via_actor=2 observed_tick=38294 learned_tick=38294
+  belief_station=1 available=10004 wear=500 source_actor=2 via_actor=2 observed_tick=566 learned_tick=566
+  belief_station=2 available=9802 wear=190 source_actor=2 via_actor=2 observed_tick=38597 learned_tick=38597
+  belief_station=3 available=2 wear=500 source_actor=2 via_actor=2 observed_tick=38494 learned_tick=38494
+  belief_unknown_station=4
+  passage_belief=1 open=1 source_actor=2 via_actor=2 observed_tick=38598 learned_tick=38598
+  goal_surface=1 local=1.376,-1.640 reach=0.900
+  route=found retry_at=38504
+actor=3 representation=local surface=2 feet=5.987,0.000,0.723 speed=0.000 accel=0.000 yaw=1.574 state=4 auto=1 task=0 hunger=80 energy=984 plans=134 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=9988 wear=500 source_actor=2 via_actor=2 observed_tick=395 learned_tick=567
+  belief_station=1 available=9742 wear=500 source_actor=3 via_actor=3 observed_tick=38518 learned_tick=38518
+  passage_belief=1 open=1 source_actor=2 via_actor=2 observed_tick=544 learned_tick=567
+actor=4 representation=local surface=1 feet=-3.684,0.000,-0.827 speed=2.355 accel=3.398 yaw=-1.312 state=1 auto=1 task=1 hunger=356 energy=647 plans=498 leg=1/2 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=9526 wear=500 source_actor=4 via_actor=4 observed_tick=38242 learned_tick=38242
+  belief_station=1 available=10004 wear=500 source_actor=2 via_actor=2 observed_tick=566 learned_tick=34590
+  belief_station=2 available=9803 wear=135 source_actor=4 via_actor=4 observed_tick=38542 learned_tick=38542
+  belief_station=3 available=2 wear=500 source_actor=4 via_actor=4 observed_tick=37383 learned_tick=37383
+  passage_belief=1 open=1 source_actor=4 via_actor=4 observed_tick=38593 learned_tick=38593
+  goal_surface=1 local=-0.376,-0.360 reach=0.900
+  route=found retry_at=38597
+actor=5 representation=local surface=1 feet=-6.360,0.000,-0.627 speed=0.000 accel=0.000 yaw=-0.072 state=4 auto=1 task=0 hunger=115 energy=964 plans=132 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=9522 wear=500 source_actor=5 via_actor=5 observed_tick=38483 learned_tick=38483
+  belief_unknown_station=3
+actor=6 representation=local surface=1 feet=-3.627,0.000,-2.358 speed=0.000 accel=0.000 yaw=2.514 state=0 auto=1 task=3 hunger=297 energy=557 plans=494 leg=0/0 transfer=0 action=996 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=9524 wear=500 source_actor=6 via_actor=6 observed_tick=38301 learned_tick=38301
+  belief_station=2 available=9802 wear=137 source_actor=6 via_actor=6 observed_tick=38544 learned_tick=38544
+  belief_station=3 available=2 wear=500 source_actor=6 via_actor=6 observed_tick=36789 learned_tick=36789
+  passage_belief=1 open=1 source_actor=6 via_actor=6 observed_tick=38598 learned_tick=38598
+actor=7 representation=local surface=2 feet=6.625,0.000,-0.364 speed=0.000 accel=0.000 yaw=-0.874 state=4 auto=1 task=0 hunger=80 energy=985 plans=134 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=9988 wear=500 source_actor=2 via_actor=2 observed_tick=395 learned_tick=567
+  belief_station=1 available=9742 wear=500 source_actor=7 via_actor=7 observed_tick=38518 learned_tick=38518
+  belief_unknown_station=4
+  passage_belief=1 open=1 source_actor=2 via_actor=2 observed_tick=544 learned_tick=567
+actor=8 representation=local surface=1 feet=-2.377,0.000,-1.650 speed=0.000 accel=0.000 yaw=-0.105 state=2 auto=1 task=3 hunger=217 energy=525 plans=353 leg=1/1 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_station=0 available=9523 wear=500 source_actor=8 via_actor=8 observed_tick=38381 learned_tick=38381
+  belief_station=2 available=9802 wear=190 source_actor=8 via_actor=8 observed_tick=38597 learned_tick=38597
+  belief_station=3 available=2 wear=500 source_actor=8 via_actor=8 observed_tick=36911 learned_tick=36911
+  passage_belief=1 open=1 source_actor=8 via_actor=8 observed_tick=38598 learned_tick=38598
+  goal_surface=1 local=2.624,-1.640 reach=0.900
+  route=found retry_at=38560
+platform=4 phase=98 dock=-1 blocked=0
+station=9 kind=1 stock=9522 completed=470 wear=500
+station=10 kind=1 stock=9742 completed=266 wear=500
+station=11 kind=3 stock=9802 completed=197 wear=191
+station=12 kind=2 capacity=2 occupied=0 available=2 completed=48 wear=500
+station=13 kind=2 capacity=2 occupied=0 available=2 completed=0 wear=500
+passage=1 surface=3 owner=0 queue=0 open=1 maintenance_station=2
+service=1 owner=0 queue=0
+property_station=2 custodian=5
+  legal_service_actor=1 allowed=1
+  legal_service_actor=2 allowed=1
+  legal_service_actor=3 allowed=1
+  legal_service_actor=4 allowed=1
+  legal_service_actor=5 allowed=1
+  legal_service_actor=6 allowed=1
+  legal_service_actor=7 allowed=1
+  legal_service_actor=8 allowed=1
+practice_actor=1 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=2 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=3 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=4 probes=4 records=4 method=1 reads=336740 primitives=7822044 stage=0
+  practice_observation=2 actor=4 input=99 output=16 source=4 via=4 observed=37 learned=37
+  practice_observation=4 actor=4 input=36 output=16 source=4 via=4 observed=39 learned=39
+  practice_observation=6 actor=4 input=20 output=16 source=4 via=4 observed=41 learned=41
+  practice_observation=8 actor=4 input=12 output=8 source=4 via=4 observed=43 learned=43
+practice_actor=5 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=6 probes=0 records=4 method=1 reads=2668 primitives=7822044 stage=3
+  practice_observation=2 actor=6 input=99 output=16 source=4 via=4 observed=37 learned=126
+  practice_observation=4 actor=6 input=36 output=16 source=4 via=4 observed=39 learned=126
+  practice_observation=6 actor=6 input=20 output=16 source=4 via=4 observed=41 learned=126
+  practice_observation=8 actor=6 input=12 output=8 source=4 via=4 observed=43 learned=126
+practice_actor=7 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=8 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+M06 CONTINUATION PASS ticks=200 checkpoint=100

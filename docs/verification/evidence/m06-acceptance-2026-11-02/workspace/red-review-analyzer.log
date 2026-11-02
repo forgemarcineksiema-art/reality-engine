@@ -1,0 +1,45 @@
+..FFF....F..F
+======================================================================
+FAIL: test_rejects_changed_initial_world (test_m06_acceptance.AcceptanceTests.test_rejects_changed_initial_world)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_m06_acceptance.py", line 103, in test_rejects_changed_initial_world
+    self.assertFalse(m06.evaluate(self.root, self.protocol)["passed"])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_rejects_changed_protocol (test_m06_acceptance.AcceptanceTests.test_rejects_changed_protocol)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_m06_acceptance.py", line 118, in test_rejects_changed_protocol
+    self.assertFalse(m06.evaluate(self.root, changed)["passed"])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_rejects_duplicate_station_progress (test_m06_acceptance.AcceptanceTests.test_rejects_duplicate_station_progress)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_m06_acceptance.py", line 113, in test_rejects_duplicate_station_progress
+    self.assertFalse(m06.evaluate(self.root, self.protocol)["passed"])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_rejects_missing_process (test_m06_acceptance.AcceptanceTests.test_rejects_missing_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_m06_acceptance.py", line 99, in test_rejects_missing_process
+    self.assertFalse(m06.evaluate(self.root, self.protocol)["passed"])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_rejects_truncated_actor_history (test_m06_acceptance.AcceptanceTests.test_rejects_truncated_actor_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\tests\test_m06_acceptance.py", line 107, in test_rejects_truncated_actor_history
+    self.assertFalse(m06.evaluate(self.root, self.protocol)["passed"])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.423s
+
+FAILED (failures=5)

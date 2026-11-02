@@ -1,6 +1,9 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/review.md", "role": "verification", "topic": "m06-technical-review"},
+    {"path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/progress.md", "role": "verification", "topic": "m06-technical-execution-ledger"},
+
     {"path": "docs/verification/m06-acceptance.md", "role": "verification", "topic": "m06-technical-acceptance"},
     {"path": "docs/work-items/m06-technical-acceptance.md", "role": "planned", "topic": "m06-technical-execution"},
     {

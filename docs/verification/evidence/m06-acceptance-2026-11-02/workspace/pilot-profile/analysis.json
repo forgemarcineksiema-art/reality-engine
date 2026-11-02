@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "failures": [],
+  "metrics": {
+    "frame_p95_ms": 17.0017,
+    "frame_p99_ms": 20.1225,
+    "frame_max_ms": 106.4493,
+    "backlog_max_ms": 49.989,
+    "frame_p50_ms": 16.6665,
+    "working_set_bytes_peak": 68632576,
+    "working_set_bytes_growth": 5214208,
+    "private_bytes_peak": 108675072,
+    "private_bytes_growth": -12566528,
+    "gpu_p95_ms": 0.152576,
+    "cpu_work_ms_p95": 12.8166,
+    "cpu_work_ms_total": 23581.829799999978,
+    "present_ms_p95": 13.346,
+    "present_ms_total": 35937.20450000001,
+    "process_cpu_ms_p95": 15.625,
+    "process_cpu_ms_total": 27531.25,
+    "navigation_ms_p95": 0.0,
+    "navigation_ms_total": 5.235000000000001,
+    "learning_ms_p95": 0.0071,
+    "learning_ms_total": 9.855500000000006,
+    "completed_first": 0,
+    "completed_last": 30
+  }
+}

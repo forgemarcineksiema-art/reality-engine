@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Users\\Marcin\\Documents\\new\\build\\msvc\\RelWithDebInfo\\reality_traversal.exe",
+    "--community",
+    "--smoke-test",
+    "--resume-smoke",
+    "--gpu-debug",
+    "--save",
+    "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\long\\world.save.final.save",
+    "--report",
+    "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\native-resume-verified.log",
+    "--capture",
+    "C:\\Users\\Marcin\\Documents\\new\\build\\m06-acceptance-workspace\\native-resume-verified.png"
+  ],
+  "exit_code": 0,
+  "source_sha256": "e7d2010bdb2198b4911552694db3ea19c333b64a7a958876a46b6f99ffa72444",
+  "source_unchanged": true
+}

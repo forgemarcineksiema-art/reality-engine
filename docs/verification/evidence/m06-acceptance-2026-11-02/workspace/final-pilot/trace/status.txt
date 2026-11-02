@@ -1,0 +1,15 @@
+measurement_trace_schema=1
+measurement_trace_samples=3879
+measurement_trace_observer_ms=8.7564
+measurement_trace_exported=1
+measurement_trace_complete=1
+profile_observer_ms=397.335
+profile_gpu_resolved=3879
+profile_gpu_pending=0
+profile_gpu_skipped=0
+profile_navigation_calls=70
+profile_navigation_ms=4.8472
+profile_learning_calls=1628
+profile_learning_ms=9.5084
+profile_save_calls=2
+profile_save_ms=114.109

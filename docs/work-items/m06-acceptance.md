@@ -1,6 +1,6 @@
 # Przygotowanie odbioru M06
 
-**Status: przygotowanie techniczne, 01.11.2026; długi pomiar i próby ludzi pozostają niewykonane.** Etap i jego zależności określa [jeden plan](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). [Audyt gotowości](../verification/m06-preflight.md) wskazuje istniejące pomiary, wybrane sprawdzenia i konkretne braki. Dokument nie zmienia zakresu odbioru M05.
+**Status: zakres techniczny wykonany i zweryfikowany 02.11.2026; [raport końcowy](../verification/m06-acceptance.md).** Użytkownik odebrał fundament i wyłączył uczestników/grywalność z bramek M06. Etap i jego zależności określa [jeden plan](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). [Audyt gotowości](../verification/m06-preflight.md) wskazuje istniejące pomiary, wybrane sprawdzenia i konkretne braki. Dokument nie zmienia zakresu odbioru M05.
 
 ## Cel najbliższego przyrostu
 

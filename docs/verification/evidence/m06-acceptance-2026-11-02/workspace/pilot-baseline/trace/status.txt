@@ -1,0 +1,5 @@
+measurement_trace_schema=1
+measurement_trace_samples=3598
+measurement_trace_observer_ms=6.6678
+measurement_trace_exported=1
+measurement_trace_complete=1

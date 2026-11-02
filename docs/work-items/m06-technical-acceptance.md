@@ -2,7 +2,7 @@
 
 > Wykonanie: `superpowers:executing-plans`, zadania kolejno, jedna niezależna kontrola kodu na końcu.
 
-**Aktualizacja 02.11.2026:** Debug/Release 435/435, ASan 437/437 po jednej kontroli niezależnej i naprawach. Długi pomiar i końcowa kontynuacja pozostają do wykonania.
+**Aktualizacja 02.11.2026:** Debug/Release 435/435, ASan 437/437 po jednej kontroli niezależnej i naprawach. Długi pomiar 120+1800 s oraz kontynuacja headless/natywna przeszły; [raport](../verification/m06-acceptance.md).
 
 **Cel:** wiarygodny fundament: poprawność, ciągłość świata, rzeczywisty postęp i kontrolowane dłuższe działanie aplikacji na laptopie użytkownika.
 
@@ -39,13 +39,13 @@ Pliki: `src/core/runtime_profile.*`, `src/navigation/surface_navigation.cpp`, `s
 Pliki: `tools/run_m06_acceptance.py`, testy narzędzia, `docs/verification/m06-acceptance.md`, dowody oraz zamrożony protokół JSON.
 
 - [x] Testy analizatora mają wykrywać utraconą fazę, niepełny zapis, błędy symulacji, brak aktywności i przekroczenia bramek na danych wejściowych.
-- [ ] Pilotaż: ta sama scena i ustawienia, profil włączony/wyłączony, ujawnić koszt obserwacji i rzeczywisty viewport.
-- [ ] Zamrozić wersję, pliki startowe, adapter, viewport, zasoby, fazy, kryteria oraz czas 120 s + 1800 s przed długą próbą.
-- [ ] Wykonać długą próbę Release bez kompilacji i ciężkich zadań w tle. Zachować wszystkie próbki i końcowy świat. Zidentyfikować postęp, niedobory i stagnację.
-- [ ] Odtworzyć końcowy świat w nowym procesie, sprawdzić bilanse i kontynuację; osobno istniejące natywne SC-11 i oba warianty konsekwencji M05.
+- [x] Pilotaż: ta sama scena i ustawienia, profil włączony/wyłączony, ujawnić koszt obserwacji i rzeczywisty viewport.
+- [x] Zamrozić wersję, pliki startowe, adapter, viewport, zasoby, fazy, kryteria oraz czas 120 s + 1800 s przed długą próbą.
+- [x] Wykonać długą próbę Release bez kompilacji i ciężkich zadań w tle. Zachować wszystkie próbki i końcowy świat. Zidentyfikować postęp, niedobory i stagnację.
+- [x] Odtworzyć końcowy świat w nowym procesie, sprawdzić bilanse i kontynuację; osobno istniejące natywne SC-11 i oba warianty konsekwencji M05.
 
 ### Task 3: końcowe dowody i status
 
-- [ ] Jedna niezależna kontrola kodu, istotne uwagi RED/GREEN, pełne wymagane kontrole finalnego kodu.
-- [ ] Raportować osobno poprawność, wydajność, postęp, granice. Jeśli bramka nie przeszła, naprawić przyczynę i ponowić porównywalną próbę; nie dopasować progu do wyniku.
-- [ ] Zarchiwizować logi i hashe, zaktualizować jeden plan na podstawie dowodów i decyzji użytkownika. Commit lokalny; publikacja nie jest częścią tego zlecenia.
+- [x] Jedna niezależna kontrola kodu, istotne uwagi RED/GREEN, pełne wymagane kontrole finalnego kodu.
+- [x] Raportować osobno poprawność, wydajność, postęp, granice. Jeśli bramka nie przeszła, naprawić przyczynę i ponowić porównywalną próbę; nie dopasować progu do wyniku.
+- [x] Zarchiwizować logi i hashe, zaktualizować jeden plan na podstawie dowodów i decyzji użytkownika. Commit lokalny; publikacja nie jest częścią tego zlecenia.

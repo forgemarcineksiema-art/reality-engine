@@ -1,0 +1,31 @@
+{
+  "passed": false,
+  "failures": [
+    "frame_p95_ms",
+    "frame_p99_ms"
+  ],
+  "metrics": {
+    "frame_p95_ms": 22.3983,
+    "frame_p99_ms": 35.2771,
+    "frame_max_ms": 129.4451,
+    "backlog_max_ms": 49.996,
+    "frame_p50_ms": 16.6624,
+    "working_set_bytes_peak": 71135232,
+    "working_set_bytes_growth": 8744960,
+    "private_bytes_peak": 109711360,
+    "private_bytes_growth": -12075008,
+    "gpu_p95_ms": 0.152576,
+    "cpu_work_ms_p95": 21.8654,
+    "cpu_work_ms_total": 27381.722000000056,
+    "present_ms_p95": 13.4408,
+    "present_ms_total": 32134.98119999993,
+    "process_cpu_ms_p95": 31.25,
+    "process_cpu_ms_total": 29218.75,
+    "navigation_ms_p95": 0.0,
+    "navigation_ms_total": 5.107100000000001,
+    "learning_ms_p95": 0.008,
+    "learning_ms_total": 9.501599999999993,
+    "completed_first": 0,
+    "completed_last": 30
+  }
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_runtime_profile.py", line 61, in <module>
+    check(args.exe.resolve(), args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_runtime_profile.py", line 22, in check
+    assert result.returncode == 0, f"profile process failed: {result.returncode}"
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: profile process failed: 1

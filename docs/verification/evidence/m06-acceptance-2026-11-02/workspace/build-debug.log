@@ -1,0 +1,94 @@
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  runtime_profile.cpp
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_work_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_work_tests.exe
+  reality_transfer_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_transfer_tests.exe
+  reality_headless.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_headless.exe
+  reality_work_demo.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_work_demo.exe
+  reality_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_tests.exe
+  reality_learning_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_learning_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_practice.cpp
+  traversal_session.cpp
+  surface_navigation.cpp
+  Generowanie kodu...
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_clearance_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_clearance_tests.exe
+  reality_traversal_audit_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_audit_tests.exe
+  reality_discovery_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_model.lib
+  reality_traversal_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_tests.exe
+  reality_two_methods_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_two_methods_tests.exe
+  traversal_diagnostics_tests.cpp
+  reality_spatial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_spatial_tests.exe
+  reality_traversal_needs_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_needs_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_passage_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_passage_tests.exe
+  reality_story_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_story_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_law_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_law_tests.exe
+  reality_practice_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_practice_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_community_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_community_tests.exe
+  reality_motion_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_motion_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  m06_tests.cpp
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_knowledge_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_knowledge_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  d3d11_renderer.cpp
+  reality_traversal_diagnostics_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal_diagnostics_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_distant_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_distant_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_delivery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_delivery_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_adversarial_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_adversarial_tests.exe
+  reality_m06_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_m06_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_hypothesis_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_hypothesis_model.lib
+  reality_discovery.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery.exe
+  reality_graphics.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_graphics.lib
+  reality_discovery_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_discovery_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_contrast_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_contrast_model.lib
+  reality_hypothesis.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_hypothesis.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_hypothesis_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_hypothesis_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  contrast_main.cpp
+  reality_contrast_tests.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_contrast_tests.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_main.cpp
+  lab_main.cpp
+  reality_contrast.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_contrast.exe
+  reality_lab.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_lab.exe
+  reality_traversal.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\Debug\reality_traversal.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt

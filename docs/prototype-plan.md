@@ -83,17 +83,17 @@ Warstwa gry: sytuacja udostępnia co najmniej dwie zaimplementowane metody, z ko
 
 ### M06 — Odbiór i decyzja o skali
 
-**Status: W REALIZACJI.** Wymaga pełnego M05. Dłuższe działanie, pomiar budżetów i techniczny odbiór fundamentu. Dowód: SC-11 i SC-12 według [briefu M06](work-items/m06-acceptance.md). Raport obejmuje również słabe wyniki i ograniczenia.
+**Status: WYKONANE W OPISANYM ZAKRESIE, 02.11.2026.** [Odbiór techniczny](verification/m06-acceptance.md) obejmuje SC-11/SC-12, pełne Debug/Release 435/435 i ASan 437/437, zamrożone 120 s rozgrzewki +1800 s pomiaru na MX330 oraz kontynuację końcowego świata w osobnych procesach. Użytkownik odebrał fundament techniczny; nie wymaga próby grywalności ani uczestników. Negatywne pilotaże i ograniczenia pozostają w raporcie.
 
 [Przygotowanie odbioru](work-items/m06-acceptance.md) określa najbliższy zakres instrumentacji i rozdzielenie prób. [Audyt gotowości z 01.11.2026](verification/m06-preflight.md) zawiera kontrolę istniejących źródeł oraz wybrane 17/17 testów Release; nie jest długim pomiarem, próbą natywną ani odbiorem całego M06.
 
-[Pierwszy przyrost eksportu](verification/m06-measurement-export.md) dodaje opcjonalny szereg czasów i pamięci obu faz. Nie zamyka pomiarów CPU/GPU, dłuższej próby ani odbioru z ludźmi.
+[Pierwszy przyrost eksportu](verification/m06-measurement-export.md) dodaje opcjonalny szereg czasów i pamięci obu faz. Sam nie zamykał pomiarów CPU/GPU i dłuższej próby; ich końcowe dowody zawiera raport odbioru technicznego.
 
-Pracę dzielimy na: zamrożenie sceny i kryteriów odbioru; kontrolowany dłuższy pomiar aplikacji; kontrolę kontynuacji i skutków; naprawę wykrytych wad i ponowną kontrolę dotkniętego zakresu; końcowy raport i decyzję użytkownika. Propozycja pomiaru autora to 2 minuty rozgrzewki oraz 30 minut rejestrowanego działania w Release na i5/MX330/8 GB, z fazą spokojną, uczeniem, ingerencją, odejściem/powrotem i zapisem. Czas, fazy i progi należy zapisać w protokole przed próbą, odwołując się do [właściciela budżetów](performance-budget.md). Nie są to osiągnięte parametry ani zmiana dotychczasowych limitów testów.
+Zakres wykonano w oddzielnych próbach: zamrożona scena i kryteria; kontrolowany pomiar aplikacji 120 s rozgrzewki +1800 s rejestracji na i5/MX330/8 GB; techniczne próby ingerencji i obu metod; kontynuacja końcowego świata w osobnych procesach; naprawy wykrytych wad i pełne regresje. Krótkie ujemne pilotaże pozostają w raporcie. Protokół i bramki zamrożono przed długą próbą, bez zmiany dotychczasowych limitów testów. Osiągnięty viewport 844×781 nie potwierdza propozycji 1280×720 ani większej skali.
 
 Mierzymy rozkład klatek i przycięcia, CPU/GPU, pamięć i jej trend, zaległość aktualizacji, koszt wnioskowania/nawigacji i zapisu oraz postęp pracy mieszkańców. Do oceny czasu nie używamy ASan ani uruchomionych równolegle kompilacji. Część techniczna wymaga również pełnych regresji Debug/Release/ASan oraz kontroli narzędzi/dokumentacji. Wynik pomiaru niespełniający zapisanej bramki wymaga poprawy i powtórzenia porównywalnej próby, nie usunięcia złych próbek.
 
-Decyzja użytkownika z 02.11.2026: M06 ma potwierdzić solidność i wiarygodność fundamentu. Użytkownik zadeklarował odbiór; nie wymaga uczestników ani próby grywalności obecnego prototypu 2,5D. Techniczne kontrole pozostają do wykonania i muszą mieć własne dowody. Wcześniejsza propozycja uczestników oraz zainteresowania dalszą grą nie jest już bramką M06. Ocena przyszłej gry pozostaje oddzielnym zagadnieniem [projektu gry](game-design.md#ocena-gry).
+Decyzja użytkownika z 02.11.2026: M06 ma potwierdzić solidność i wiarygodność fundamentu. Użytkownik zadeklarował odbiór; nie wymaga uczestników ani próby grywalności obecnego prototypu 2,5D. Techniczne kontrole zostały wykonane i mają własne dowody w raporcie. Wcześniejsza propozycja uczestników oraz zainteresowania dalszą grą nie jest już bramką M06. Ocena przyszłej gry pozostaje oddzielnym zagadnieniem [projektu gry](game-design.md#ocena-gry).
 
 Dopiero ten etap uzasadnia wybór następnego kierunku: większa populacja, głębsza fizyka, lepsza historia albo poprawa istniejącego zachowania. Hipoteza kolejnej liczebności znajduje się w budżetach. Nie rozwijamy wszystkich wymiarów jednocześnie.
 
