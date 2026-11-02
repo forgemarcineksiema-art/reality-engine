@@ -1,0 +1,1 @@
+PASS CSV and incomplete status survive a real report write failure

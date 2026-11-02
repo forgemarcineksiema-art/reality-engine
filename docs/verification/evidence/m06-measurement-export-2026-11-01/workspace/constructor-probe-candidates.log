@@ -1,0 +1,28 @@
+grammar_count=20440
+grammar_seconds=0.059361
+flat_count=103
+flat_seconds=0.0005656
+models=2370 primitives=7822044 state_hash=10397648819308036333
+agent_seconds=0.215422
+models=2370 primitives=7822044 state_hash=14698857554573010876
+agent_seconds=0.176501
+models=2370 primitives=7822044 state_hash=16338909553607100595
+agent_seconds=0.184195
+budget=0 state_hash=3588343014218061398 models=1 generated=20440 primitives=0 exhausted=1
+budget=128 state_hash=251453272354494697 models=1 generated=20440 primitives=0 exhausted=1
+budget=129 state_hash=16613408650787494864 models=2 generated=20440 primitives=129 exhausted=1
+budget=1000 state_hash=10845589545690041621 models=6 generated=20440 primitives=903 exhausted=1
+budget=100000 state_hash=12968137195473856209 models=277 generated=20440 primitives=99975 exhausted=1
+budget=10000000 state_hash=11451656008292934549 models=2370 generated=20440 primitives=7822044 exhausted=0
+2370
+current_seconds=0.15268
+full_hash_seconds=0.109646
+sample_hash_seconds=0.107961
+2370
+current_seconds=0.15244
+full_hash_seconds=0.124537
+sample_hash_seconds=0.136117
+2370
+current_seconds=0.217373
+full_hash_seconds=0.139474
+sample_hash_seconds=0.10434

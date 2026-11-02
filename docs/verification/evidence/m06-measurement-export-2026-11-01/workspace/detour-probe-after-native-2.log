@@ -1,0 +1,14 @@
+{"diagnostic_only": true, "acceptance_deadlines_unchanged": true, "diagnostic_outer_limit_seconds": 30, "returncode": 0, "wall_seconds": 5.549955200000113, "process_cpu_seconds": 5.40625, "system_busy_percent": 18.124118476727787, "within_existing_checkpoint_budget": true, "prefix_native": true}
+constructed=1.7307
+
+reached=2.30865
+
+saved=2.64611
+
+finished=5.085
+
+expected_saved=5.43682
+
+PASS checkpoint
+
+

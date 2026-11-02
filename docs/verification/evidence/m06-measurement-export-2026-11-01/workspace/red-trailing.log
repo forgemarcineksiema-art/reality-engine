@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 315, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 308, in main
+    execute(args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 302, in execute
+    check_trace(args.exe.resolve(), output)
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 27, in check_trace
+    raise AssertionError(f"measurement trace process failed: {result.returncode}")
+AssertionError: measurement trace process failed: 1

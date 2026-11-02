@@ -1,0 +1,20 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/m06-constructor-probe/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/build/m06-measurement-export-workspace/constructor-probe/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/m06-constructor-probe/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (0.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/m06-constructor-probe
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/m06-measurement-export-workspace/constructor-probe/CMakeLists.txt
+  continue.cpp
+LINK : warning LNK4300: element "/INCREMENTAL" jest ignorowany, ponieważ moduł wejściowy zawiera metadane ASAN [C:\Users\Marcin\Documents\new\build\m06-constructor-probe\continue_probe.vcxproj]
+  continue_probe.vcxproj -> C:\Users\Marcin\Documents\new\build\m06-constructor-probe\RelWithDebInfo\continue_probe.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/m06-measurement-export-workspace/constructor-probe/CMakeLists.txt
+  main.cpp
+LINK : warning LNK4300: element "/INCREMENTAL" jest ignorowany, ponieważ moduł wejściowy zawiera metadane ASAN [C:\Users\Marcin\Documents\new\build\m06-constructor-probe\probe.vcxproj]
+  probe.vcxproj -> C:\Users\Marcin\Documents\new\build\m06-constructor-probe\RelWithDebInfo\probe.exe
+  Building Custom Rule C:/Users/Marcin/Documents/new/build/m06-measurement-export-workspace/constructor-probe/CMakeLists.txt

@@ -1,0 +1,1174 @@
+# Review package: 3bf2d60f3c9183d1b7d74eefabf3f07fd3e42ae6..HEAD
+
+## Commits
+f2493a3 Export phased runtime measurements without overwriting evidence
+
+## Files changed
+ CMakeLists.txt                              |  10 +-
+ docs/development.md                         |  16 +++
+ docs/documentation-map.json                 |   5 +
+ docs/prototype-plan.md                      |   2 +
+ docs/verification/m06-measurement-export.md |  21 +++
+ docs/work-items/m06-acceptance.md           |   6 +-
+ docs/work-items/m06-measurement-export.md   |  10 +-
+ src/core/runtime_metrics.cpp                |  37 +++++
+ src/core/runtime_metrics.hpp                |  20 +++
+ src/platform/traversal_main.cpp             | 168 ++++++++++++++++++++---
+ tests/traversal_diagnostics_tests.cpp       | 120 +++++++++++++++++
+ tools/test_traversal_diagnostics.py         | 202 +++++++++++++++++++++++++++-
+ 12 files changed, 587 insertions(+), 30 deletions(-)
+
+## Diff
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3c4bf5f..fba7f55 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -368,26 +368,34 @@ if(BUILD_TESTING)
+     target_link_libraries(reality_traversal_needs_tests PRIVATE reality_lab_model)
+     target_compile_definitions(reality_traversal_needs_tests PRIVATE
+         REALITY_NEEDS_FIXTURE="${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/traversal-v1-needs.save")
+     reality_deploy_diagnostics(reality_traversal_needs_tests)
+     foreach(case IN ITEMS interruption exhaustion safe_step safe_transport running_action manual_override unavailable_need persistence finish_expiry legacy_fixture safe_queue)
+         add_test(NAME needs.${case} COMMAND reality_traversal_needs_tests ${case})
+     endforeach()
+     add_executable(reality_traversal_diagnostics_tests tests/traversal_diagnostics_tests.cpp)
+     target_link_libraries(reality_traversal_diagnostics_tests PRIVATE reality_lab_model)
+     reality_deploy_diagnostics(reality_traversal_diagnostics_tests)
+-    foreach(case IN ITEMS progress waiting reset snapshot timings invalid_sample plan_churn independent_alarms service_progress batch_transaction live_view)
++    foreach(case IN ITEMS progress waiting reset snapshot timings invalid_sample plan_churn independent_alarms service_progress batch_transaction live_view trace_format trace_invalid trace_capacity trace_observer)
+         add_test(NAME traversal.diagnostics_${case} COMMAND reality_traversal_diagnostics_tests ${case})
+     endforeach()
+     add_test(NAME traversal.native_diagnostics
+         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
+                 --exe "$<TARGET_FILE:reality_traversal>")
++    add_test(NAME traversal.native_measurement_trace
++        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
++                --exe "$<TARGET_FILE:reality_traversal>" --trace-only)
++    foreach(case IN ITEMS paths interrupted collision)
++        add_test(NAME traversal.native_trace_${case}
++            COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
++                --exe "$<TARGET_FILE:reality_traversal>" --trace-case ${case})
++    endforeach()
+     add_test(NAME delivery.native_diagnostics
+         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
+                 --exe "$<TARGET_FILE:reality_traversal>" --delivery-only)
+     add_test(NAME passage.native_diagnostics
+         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_crossing_native.py"
+                 --exe "$<TARGET_FILE:reality_traversal>")
+     add_executable(reality_traversal_audit_tests tests/traversal_audit_tests.cpp)
+     target_link_libraries(reality_traversal_audit_tests PRIVATE reality_lab_model)
+     target_compile_definitions(reality_traversal_audit_tests PRIVATE
+         REALITY_STALL_FIXTURE="${CMAKE_CURRENT_SOURCE_DIR}/docs/verification/evidence/retained-world-stall-6938/world.save")
+diff --git a/docs/development.md b/docs/development.md
+index 6416ee9..fc5bb03 100644
+--- a/docs/development.md
++++ b/docs/development.md
+@@ -208,20 +208,36 @@ Przykład jawnego pomiaru domyślnej sceny (odrębne, nowe ścieżki dowodów):
+ ```powershell
+ ./build/msvc/RelWithDebInfo/reality_traversal.exe --measure-seconds 300 --warmup-seconds 30 --report ./build/m04-measure.log --save ./build/m04-measure.save --diagnostics ./build/m04-measure-diagnostics
+ ```
+ 
+ Pomiar wymaga jawnych `--save` i `--report`, czasu 1–1800 s oraz przygotowania 0–300 s. Nie łączy się ze smoke. Okno samo uruchamia świat, zapisuje stan początkowy, po czasie kończy pomiar i zapisuje `*.final.save`. Nie należy używać ścieżki ważnego zwykłego świata. Klatki są odstępami pomiędzy zakończeniami prezentacji; obejmują koszt aplikacji i oczekiwanie prezentacji. `simulation_*` mierzy tylko `SimulationPacer::update`, a `backlog_*` pozostały czas zegara. Pamięć jest próbkowana raz na sekundę: to wartości procesu, bez osobnego kosztu VRAM. Percentyle są najbliższą rangą, a maksima i średnia nie odrzucają odstających próbek.
+ 
+ Raport zawiera interwencje klawiaturą/myszą, minimalizacje, resize, klatki zasłonięte, błędy symulacji i faktyczną liczbę kroków. `measurement_finished=1` potwierdza zakończenie czasu, nie osiągnięcie budżetu ani spokojny przebieg. Miarodajna próba wymaga również kontroli tych warunków oraz braku konkurencyjnych ciężkich zadań. Nie wyciągamy z samych czasów klatek wniosku o wąskim gardle GPU. Po zakończeniu czytamy także stan świata i migawki, aby nie pomylić wydajnego bezruchu ze sprawnym działaniem społeczności.
+ 
+ Test procesu `python tools/test_traversal_diagnostics.py --exe ./build/msvc/Debug/reality_traversal.exe` wymaga GPU i Narzędzi grafiki. Sprawdza rzeczywisty raport, zapis F6, kontynuację nowego procesu, błędne argumenty oraz krótki pomiar. Jest włączony do CTest; nie jest benchmarkiem FPS ani ludzką oceną sterowania.
+ 
++### Eksport przebiegu pomiaru
++
++Opcjonalne `--measurement-trace DIR` zachowuje rozgrzewkę i okres właściwy w `DIR/samples.csv`. Rodzic katalogu musi istnieć, a sam katalog musi być nowy. Przykład krótkiej próby z istniejącego katalogu głównego:
++
++```powershell
++./build/msvc/RelWithDebInfo/reality_traversal.exe --community --learning --measure-seconds 10 --warmup-seconds 2 --measurement-trace ./build/trace-probe --report ./build/trace-probe.log --save ./build/trace-probe.save
++```
++
++CSV wersji 1 ma kolumny `elapsed_ms,tick,phase,frame_ms,simulation_ms,backlog_ms,working_set_bytes,private_bytes`. Czas `elapsed_ms` oznacza koniec klatki od uruchomienia pętli; faza `warmup`/`measurement` wynika z początku klatki. Tick jest odczytem po aktualizacji i może się cofnąć po F9. Kolejność wyznacza czas rzeczywisty. Czasy mają sześć miejsc po przecinku i jednostkę ms, pamięć całkowitą liczbę bajtów. Puste pola pamięci oznaczają brak odczytu w tej klatce. Odczyt następuje nominalnie raz na sekundę oraz przy pierwszej klatce okresu mierzonego; nie jest maksymalnym zużyciem pomiędzy odczytami. Stare podsumowania nadal dotyczą tylko fazy właściwej.
++
++Eksport po zakończeniu buforowania nie wchodzi do czasów klatek. Log podaje `measurement_trace_samples`, `measurement_trace_exported`, `measurement_trace_complete`, `measurement_trace_export_ms` i `measurement_trace_observer_ms`. Ten ostatni licznik mierzy sekcję odczytu pamięci i dodania do bufora, także wspólny odczyt używany przez stare statystyki; nie jest izolowanym narzutem względem wyłączonego eksportu. Koszt sekcji obserwatora trafia do następnego odstępu między końcami klatek. Końcowy eksport i zapis świata wymagają osobnej interpretacji. Sam szereg nie rozdziela GPU, uczenia i nawigacji.
++
++Limit wynosi 1 000 000 próbek całego przebiegu; jego przekroczenie jest błędem, bez usuwania wolnych lub najstarszych klatek. Wcześniejsze zamknięcie okna lub obsłużony błąd zachowuje dostępne próbki z `measurement_trace_complete=0` i kodem 1. Istniejący CSV nie jest nadpisywany nawet wtedy, gdy pojawi się podczas działania. Częściowy plik po błędzie zapisu pozostaje dowodem nieudanego eksportu. Nagłe zabicie procesu lub utrata zasilania nie gwarantują zapisania bufora. Ścieżki z końcową kropką/spacją są odrzucane jako niejednoznaczne w Win32.
++
++Nowe próby: `ctest --preset windows-release -R '^traversal\.(diagnostics_trace_|native_measurement_trace|native_trace_)'`. Natywne przypadki sprawdzają dane, zgodność podsumowań, odmowy, konkurencyjny plik i przedwczesne WM_CLOSE. [Raport przyrostu](verification/m06-measurement-export.md) oddziela te kontrole od docelowych prób M06.
++
+ 
+ ### Domknięcie inspektora i pilnych potrzeb
+ 
+ Inspektor Win32 konwertuje LF do CRLF wyłącznie na granicy widoku i zachowuje zaznaczenie oraz pionową pozycję przewijania przy odświeżaniu. Native smoke sprawdza `inspector_records=pass` i `inspector_scroll=pass`. Automatyczne F6 reaguje na nowy alarm konkretnego trwałego ID, z zachowanym limitem ośmiu prób na uruchomienie; ręczne F6 jest niezależne. Pełna semantyka obserwacji, pilności i zewnętrznego zapisu wersji 2 znajduje się w [modelu autonomii](traversal-autonomy.md). Dawny pomiar 300 s dotyczy wcześniejszej wersji programu.
+ 
+ 
+ Obserwacja zachowanego świata z opcjonalnymi dowodami: `reality_traversal_audit_tests --resume-course PATH --diagnostics NOWY_KATALOG`. Wykonuje 1000 walidowanych kroków, raportuje nowe alarmy i zapisuje najwyżej osiem migawek; odmawia istniejącego katalogu. Nie zapisuje pliku wejściowego. Bez `--diagnostics` pozostaje obserwacją bez zapisów. Rzeczywiste pozostałe zgłoszenie opisuje [stagnacja zachowanego świata](work-items/retained-world-navigation-stall.md).
+ 
+ 
+ ### Lokalna prośba o przejście
+diff --git a/docs/documentation-map.json b/docs/documentation-map.json
+index 7e52b71..7fc8b67 100644
+--- a/docs/documentation-map.json
++++ b/docs/documentation-map.json
+@@ -1,13 +1,18 @@
+ {
+   "version": 1,
+   "documents": [
++    {
++      "path": "docs/verification/m06-measurement-export.md",
++      "role": "verification",
++      "topic": "m06-measurement-export-verification"
++    },
+     {
+       "path": "docs/work-items/m06-measurement-export.md",
+       "role": "planned",
+       "topic": "m06-measurement-export-implementation"
+     },
+     {
+       "path": "docs/work-items/m06-acceptance.md",
+       "role": "planned",
+       "topic": "m06-acceptance-preparation"
+     },
+diff --git a/docs/prototype-plan.md b/docs/prototype-plan.md
+index 4202af4..9c1eaf8 100644
+--- a/docs/prototype-plan.md
++++ b/docs/prototype-plan.md
+@@ -80,20 +80,22 @@ Wyjście poza kamerę lub zapis/wczytanie nie jest dowodem migracji reprezentacj
+ Zmiana dostępności mostu nie potwierdza fizycznego rozpadu. Rozszerzenie o dynamikę i zerwanie elementów musi osobno przejść scenariusze fizyki i spójności konstrukcji.
+ 
+ Warstwa gry: sytuacja udostępnia co najmniej dwie zaimplementowane metody, z kosztami oraz trwałymi skutkami. Mały test bezpośredniego konfliktu Action RPG można dołączyć po jego własnym briefie i odbiorze; nie blokuje wymaganej autonomii i nie staje się rozbudowaną produkcją walki.
+ 
+ ### M06 — Odbiór i decyzja o skali
+ 
+ **Status: PLAN.** Wymaga pełnego M05. Dłuższe działanie, pomiar budżetów i próba z człowiekiem. Dowód: SC-11 i SC-12 oraz obserwacja kryteriów z [projektu gry](game-design.md). Raport obejmuje również słabe wyniki i ograniczenia.
+ 
+ [Przygotowanie odbioru](work-items/m06-acceptance.md) określa najbliższy zakres instrumentacji i rozdzielenie prób. [Audyt gotowości z 01.11.2026](verification/m06-preflight.md) zawiera kontrolę istniejących źródeł oraz wybrane 17/17 testów Release; nie jest długim pomiarem, próbą natywną ani odbiorem całego M06.
+ 
++[Pierwszy przyrost eksportu](verification/m06-measurement-export.md) dodaje opcjonalny szereg czasów i pamięci obu faz. Nie zamyka pomiarów CPU/GPU, dłuższej próby ani odbioru z ludźmi.
++
+ Pracę dzielimy na: zamrożenie sceny i kryteriów odbioru; kontrolowany dłuższy pomiar aplikacji; próbę z ludźmi; naprawę wykrytych wad i ponowną kontrolę dotkniętego zakresu; końcowy raport i decyzję użytkownika. Propozycja pomiaru autora to 2 minuty rozgrzewki oraz 30 minut rejestrowanego działania w Release na i5/MX330/8 GB, z fazą spokojną, uczeniem, ingerencją, odejściem/powrotem i zapisem. Czas, fazy i progi należy zapisać w protokole przed próbą, odwołując się do [właściciela budżetów](performance-budget.md). Nie są to osiągnięte parametry ani zmiana dotychczasowych limitów testów.
+ 
+ Mierzymy rozkład klatek i przycięcia, CPU/GPU, pamięć i jej trend, zaległość aktualizacji, koszt wnioskowania/nawigacji i zapisu oraz postęp pracy mieszkańców. Do oceny czasu nie używamy ASan ani uruchomionych równolegle kompilacji. Część techniczna wymaga również pełnych regresji Debug/Release/ASan oraz kontroli narzędzi/dokumentacji. Wynik pomiaru niespełniający zapisanej bramki wymaga poprawy i powtórzenia porównywalnej próby, nie usunięcia złych próbek.
+ 
+ Odbiór obejmuje też czytelność sterowania, odkrywanie metod, zrozumienie konsekwencji oraz zainteresowanie dalszą przygodą. Automatyczne testy bilansów nie zastępują tej próby. Kryteria i wnioski zapisujemy przed rozbudową skali, bez automatycznego przypisywania ocen 10/10.
+ 
+ Zachowujemy istniejącą propozycję próby z co najmniej trzema osobami z [projektu gry](game-design.md): samodzielne rozpoznanie dwóch metod, zrozumienie skutków i kontynuacji bez gracza oraz konkretne uzasadnienie chęci dalszej gry. Oddzielnie zapisujemy bezpośredni odbiór użytkownika. Jeśli tych prób nie wykonano, odpowiednia część pozostaje nieweryfikowana; agent AI ani test automatyczny nie zastępują uczestnika. Nieudana ocena czytelności lub sterowania nie staje się zaliczeniem przez samo ukończenie czasu próby.
+ 
+ Dopiero ten etap uzasadnia wybór następnego kierunku: większa populacja, głębsza fizyka, lepsza historia albo poprawa istniejącego zachowania. Hipoteza kolejnej liczebności znajduje się w budżetach. Nie rozwijamy wszystkich wymiarów jednocześnie.
+ 
+diff --git a/docs/verification/m06-measurement-export.md b/docs/verification/m06-measurement-export.md
+new file mode 100644
+index 0000000..eeac9be
+--- /dev/null
++++ b/docs/verification/m06-measurement-export.md
+@@ -0,0 +1,21 @@
++# Eksport przebiegu pomiaru — pierwszy przyrost przygotowania
++
++**Status: implementacja i krótkie próby wykonane 01.11.2026; końcowe regresje po poprawce ścieżek i niezależny przegląd w toku.** To ograniczony zakres [briefu](../work-items/m06-acceptance.md) i [planu wykonawczego](../work-items/m06-measurement-export.md). Status całego etapu pozostaje u [jednego właściciela](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali).
++
++## Zachowanie
++
++`--measurement-trace DIR` eksportuje rzeczywiste czasy klatek, aktualizacji, zaległości i odczyty pamięci procesu do nowego `samples.csv`. Zachowuje również rozgrzewkę. Dotychczasowy raport nadal obejmuje okres właściwy. Obserwator nie trafia do zapisu świata ani do wiedzy mieszkańców. [Instrukcja](../development.md#eksport-przebiegu-pomiaru) określa format, opcje, koszty i granice.
++
++Istniejące dowody nie są nadpisywane. Obsłużone przerwanie zachowuje dostępny ślad z oznaczeniem niepełnej próby. Błąd eksportu daje kod 1 i nie może otrzymać `normal_shutdown=1`.
++
++## Weryfikacja w toku
++
++Baza kodu tego przyrostu: `3bf2d60f3c9183d1b7d74eefabf3f07fd3e42ae6`. Początkowe wybrane regresje Release: 17/17 PASS. Nowy test natywny na starej aplikacji zakończył się kodem 1, ponieważ brakowało opcji eksportu. Testy modelu najpierw wykazały brak nowego API w kompilacji. Po implementacji testy diagnostyki: 15/15 PASS; natywne próby szeregu, odmów ścieżek, WM_CLOSE i konkurencyjnego CSV: PASS.
++
++Pierwsza pełna macierz CTest: Debug **428/428 PASS** (235,46 s), Release **428/428 PASS** (76,99 s), ASan **430/430 PASS** (367,19 s). W każdym profilu wykonano cztery nowe przypadki modelu i cztery nowe próby natywne. Format i kontrola dokumentacji: PASS. Testy narzędzi: **58/58 PASS**.
++
++Dodatkowa próba ujawniła błędną odmowę nowego katalogu z końcowym separatorem. Zachowano czerwony test natywny; normalizacja końcowego pustego komponentu ścieżki dała wynik zielony. Rozszerzono również próbę odmów o alias Win32 `\\?\` — ochrona działała już przed tą poprawką. Końcowe kontrole i niezależny przegląd są w toku; zachowane logi rozdzielą oba przebiegi.
++
++## Granice
++
++Krótkie próby natywne są kontrolą kontraktu i działania Win32/D3D11, bez oceny FPS. Nie wykonano dłuższej próby M06, izolowanego porównania narzutu włączonego/wyłączonego eksportu ani sesji z ludźmi. Pamięć dotyczy procesu, bez VRAM. Nie wdrożono osobnych liczników GPU, uczenia, nawigacji i zapisu. Bufor nie gwarantuje przetrwania twardego zabicia procesu, utraty zasilania ani awarii nośnika.
+diff --git a/docs/work-items/m06-acceptance.md b/docs/work-items/m06-acceptance.md
+index ec3216b..60d4e47 100644
+--- a/docs/work-items/m06-acceptance.md
++++ b/docs/work-items/m06-acceptance.md
+@@ -1,32 +1,32 @@
+ # Przygotowanie odbioru M06
+ 
+ **Status: przygotowanie techniczne, 01.11.2026; długi pomiar i próby ludzi pozostają niewykonane.** Etap i jego zależności określa [jeden plan](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). [Audyt gotowości](../verification/m06-preflight.md) wskazuje istniejące pomiary, wybrane sprawdzenia i konkretne braki. Dokument nie zmienia zakresu odbioru M05.
+ 
+ ## Cel najbliższego przyrostu
+ 
+ Uzyskać porównywalny zapis zachowania i kosztu obecnej społeczności, pozwalający odróżnić sprawne działanie od bezczynności, niedoboru, utknięcia i narastającej zaległości. Kryteria interpretujemy według [strategii testów](../testing-strategy.md) i [budżetów](../performance-budget.md). Nowe możliwości konstrukcji, autonomiczne tworzenie zabaw i pełne 3D należą do późniejszego projektu.
+ 
+-Najbliższe zadanie wykonawcze: **uzupełnić istniejącą diagnostykę o eksport próbek w czasie oraz oznaczenie rozgrzewki i faz pomiaru**. Reguły mieszkańców, zapasów, uczenia i formaty świata zachowują dotychczasową semantykę. To pierwszy ograniczony przyrost przygotowania, nie cała instrumentacja M06.
++Pierwszy przyrost: **eksport próbek w czasie oraz oznaczenie rozgrzewki i faz pomiaru**, opisany w [planie wykonawczym](m06-measurement-export.md) i [raporcie](../verification/m06-measurement-export.md). Reguły mieszkańców, zapasów, uczenia i formaty świata zachowują dotychczasową semantykę. To ograniczony zakres przygotowania, nie cała instrumentacja M06.
+ 
+ ## Co już istnieje
+ 
+ - `RuntimeMetrics` zbiera czasy klatki, aktualizacji symulacji i zaległości oraz raportuje min/p50/p95/p99/max/średnią.
+ - Aplikacja obsługuje `--measure-seconds` od 1 do 1800 i `--warmup-seconds` od 0 do 300, jawny zapis i raport oraz końcowy zapis `.final.save`.
+-- Pamięć procesu jest próbkowana raz na sekundę, a raport zawiera wartości początkowe, końcowe i maksymalne. Obecny raport nie eksportuje pełnego szeregu próbek pamięci.
++- Pamięć procesu jest próbkowana raz na sekundę, a raport zawiera wartości początkowe, końcowe i maksymalne. Opcjonalny `--measurement-trace DIR` zachowuje szereg pamięci i czasów obu faz w CSV.
+ - Zliczane są interwencje, minimalizacje, resize, zasłonięte prezentacje i błędy symulacji. Diagnostyka obserwuje postęp i może zachować migawkę alarmu.
+ 
+ Źródła: [metryki](../../src/core/runtime_metrics.hpp), [implementacja](../../src/core/runtime_metrics.cpp), [aplikacja](../../src/platform/traversal_main.cpp), [komendy i ograniczenia](../development.md#diagnostyka-przestrzennego-laboratorium).
+ 
+ ## Zakres pierwszego zadania implementacyjnego
+ 
+-Proponowane pliki: `src/core/runtime_metrics.hpp`, `src/core/runtime_metrics.cpp`, `src/platform/traversal_main.cpp`, `tests/traversal_diagnostics_tests.cpp`, `tools/test_traversal_diagnostics.py` oraz właściwe opisy komend w `docs/development.md`. Dokładny interfejs opcji i format eksportu należy doprecyzować przed kodem; żadne nowe polecenie nie jest obecnie dostępne.
++Pliki: `src/core/runtime_metrics.hpp`, `src/core/runtime_metrics.cpp`, `src/platform/traversal_main.cpp`, `tests/traversal_diagnostics_tests.cpp`, `tools/test_traversal_diagnostics.py` oraz właściwe opisy komend w `docs/development.md`. Interfejs opcji i format eksportu określa [kontrakt przyrostu](m06-measurement-export.md#kontrakt), a użycie — [instrukcja](../development.md#eksport-przebiegu-pomiaru).
+ 
+ Wymagania dla eksportu:
+ 
+ 1. Próbki mają względny czas rzeczywisty, tick świata, oznaczenie rozgrzewki/fazy i jednostki. Brak pomiaru jest jawny i odróżniony od zera.
+ 2. Zachować istniejące podsumowanie okresu mierzonego. Osobno zachować dane rozgrzewki, żeby nie zgubić pierwszych prób uczenia. Nie mieszać zimnego startu z ustalonym obciążeniem przy ocenie płynności.
+ 3. Zachować przebieg pamięci, a nie tylko pierwszy i ostatni odczyt. Zachować przycięcia i niepowodzenia; nie filtrować odstających próbek.
+ 4. Właścicielem danych pomiarowych pozostaje obserwator aplikacji. Nie dopisywać czasu zegara ściennego do zapisu świata ani nie udostępniać pomiarów planerowi NPC. Chronione są INV-02, INV-08, INV-11, INV-12 i INV-16 z [kontraktów](../subsystem-contracts.md).
+ 5. Eksport nie może zmieniać stanu symulacji. Koszt samego zbierania i zapisu próbek należy ujawnić w pilotażu; błąd pliku nie może zostać zamieniony w fikcyjny poprawny pomiar.
+ 6. Przypadki odbioru: rozgrzewka i okres właściwy; niepoprawna próbka; błąd eksportu; pełny okres bez zgubienia końcowych danych; zgodność dotychczasowego raportu i zapisu świata. Testy dotyczą danych i skutków, nie tylko komunikatu sukcesu.
+ 
+diff --git a/docs/work-items/m06-measurement-export.md b/docs/work-items/m06-measurement-export.md
+index fa33c7c..8272089 100644
+--- a/docs/work-items/m06-measurement-export.md
++++ b/docs/work-items/m06-measurement-export.md
+@@ -30,17 +30,17 @@
+ - Przywrócenie zapisu może cofnąć tick; obserwator nie może przez to blokować poprawnego świata.
+ - Próbki rozgrzewki nie mogą powiększyć istniejących liczników/podsumowań okresu mierzonego.
+ - Zamknięcie okna przed końcem czasu ma zachować dostępny ślad z oznaczeniem niepełnej próby.
+ 
+ ## Task 1: Eksport próbek w aplikacji
+ 
+ Pliki: `src/core/runtime_metrics.hpp`, `src/core/runtime_metrics.cpp`, `src/platform/traversal_main.cpp`, `tests/traversal_diagnostics_tests.cpp`, `tools/test_traversal_diagnostics.py`, `CMakeLists.txt`, instrukcja uruchomienia i raport przyrostu.
+ 
+ Interfejsy: `MeasurementPhase`, `MeasurementSample`, `MeasurementTrace::record`, `MeasurementTrace::csv`, `MeasurementTrace::size`; obecne `RuntimeMetrics::record/frames/report` pozostają zgodne. Konsument natywny przekazuje rzeczywisty czas, tick i odczyty procesu.
+ 
+-- [ ] Zachować stan bazowy i wykonać kontrolę dokumentacji oraz istniejących wybranych testów diagnostyki.
+-- [ ] Dodać próbę natywną nowego eksportu i uruchomić ją na starej aplikacji. Oczekiwane: brak obsługi opcji, kod 1 i czerwony test wymagający CSV.
+-- [ ] Dodać przypadki jednostkowe formatu, walidacji, limitu i braku mutacji świata; wdrożyć model próbek i uzyskać wynik zielony.
+-- [ ] Włączyć opcję, zbieranie obu faz, pamięć i zapis CSV bez nadpisywania. Wymagać rzeczywistych danych w próbie natywnej i zgodności starych podsumowań.
+-- [ ] Zweryfikować odmowy, błąd pliku i przedwczesne zamknięcie; poprawić wykazane błędy bez zmiany niezmienników.
++- [x] Zachować stan bazowy i wykonać kontrolę dokumentacji oraz istniejących wybranych testów diagnostyki.
++- [x] Dodać próbę natywną nowego eksportu i uruchomić ją na starej aplikacji. Oczekiwane: brak obsługi opcji, kod 1 i czerwony test wymagający CSV.
++- [x] Dodać przypadki jednostkowe formatu, walidacji, limitu i braku mutacji świata; wdrożyć model próbek i uzyskać wynik zielony.
++- [x] Włączyć opcję, zbieranie obu faz, pamięć i zapis CSV bez nadpisywania. Wymagać rzeczywistych danych w próbie natywnej i zgodności starych podsumowań.
++- [x] Zweryfikować odmowy, błąd pliku i przedwczesne zamknięcie; poprawić wykazane błędy bez zmiany niezmienników.
+ - [ ] Wykonać właściwe buildy, pełne CTest Debug/Release/ASan, format, kontrolę dokumentacji i testy narzędzi. Zachować wcześniejsze porażki i ograniczenia.
+ - [ ] Uzyskać niezależny przegląd, rozstrzygnąć uwagi i zakończyć raport. Nie zamykać całego M06 przez ten przyrost.
+diff --git a/src/core/runtime_metrics.cpp b/src/core/runtime_metrics.cpp
+index ddd409e..6941b0b 100644
+--- a/src/core/runtime_metrics.cpp
++++ b/src/core/runtime_metrics.cpp
+@@ -62,11 +62,48 @@ std::string RuntimeMetrics::report() const {
+             << name << "_p95_ms=" << s.p95_ms << '\n'
+             << name << "_p99_ms=" << s.p99_ms << '\n'
+             << name << "_max_ms=" << s.maximum_ms << '\n'
+             << name << "_mean_ms=" << s.mean_ms << '\n';
+     };
+     append("frame", frames_);
+     append("simulation", simulation_);
+     append("backlog", backlog_);
+     return out.str();
+ }
++void MeasurementTrace::record(MeasurementSample sample) {
++    for (const auto value :
++         {sample.elapsed_ms, sample.frame_ms, sample.simulation_ms, sample.backlog_ms})
++        if (!std::isfinite(value) || value < 0)
++            throw std::invalid_argument("invalid measurement trace timing");
++    if ((sample.phase != MeasurementPhase::Warmup &&
++         sample.phase != MeasurementPhase::Measurement) ||
++        sample.working_set_bytes.has_value() != sample.private_bytes.has_value())
++        throw std::invalid_argument("invalid measurement trace phase or memory pair");
++    if (!samples_.empty() && (sample.elapsed_ms < samples_.back().elapsed_ms ||
++                              (samples_.back().phase == MeasurementPhase::Measurement &&
++                               sample.phase == MeasurementPhase::Warmup)))
++        throw std::invalid_argument("measurement trace moved backwards");
++    if (samples_.size() == 1000000)
++        throw std::length_error("measurement trace sample budget exhausted");
++    samples_.push_back(sample);
++}
++std::string MeasurementTrace::csv() const {
++    std::ostringstream out;
++    out.exceptions(std::ios::badbit | std::ios::failbit);
++    out.imbue(std::locale::classic());
++    out << "elapsed_ms,tick,phase,frame_ms,simulation_ms,backlog_ms,working_set_bytes,private_"
++           "bytes\n"
++        << std::fixed << std::setprecision(6);
++    for (const auto& sample : samples_) {
++        out << sample.elapsed_ms << ',' << sample.tick << ','
++            << (sample.phase == MeasurementPhase::Warmup ? "warmup" : "measurement") << ','
++            << sample.frame_ms << ',' << sample.simulation_ms << ',' << sample.backlog_ms << ',';
++        if (sample.working_set_bytes)
++            out << *sample.working_set_bytes;
++        out << ',';
++        if (sample.private_bytes)
++            out << *sample.private_bytes;
++        out << '\n';
++    }
++    return out.str();
++}
+ } // namespace reality
+diff --git a/src/core/runtime_metrics.hpp b/src/core/runtime_metrics.hpp
+index c96b71d..be7cf1f 100644
+--- a/src/core/runtime_metrics.hpp
++++ b/src/core/runtime_metrics.hpp
+@@ -1,13 +1,15 @@
+ #pragma once
+ 
+ #include <cstddef>
++#include <cstdint>
++#include <optional>
+ #include <string>
+ #include <vector>
+ 
+ namespace reality {
+ struct TimingSummary {
+     std::size_t count = 0;
+     double minimum_ms = 0;
+     double p50_ms = 0;
+     double p95_ms = 0;
+     double p99_ms = 0;
+@@ -16,11 +18,29 @@ struct TimingSummary {
+ };
+ class RuntimeMetrics final {
+   public:
+     void record(double frame_ms, double simulation_ms, double backlog_ms);
+     [[nodiscard]] TimingSummary frames() const;
+     [[nodiscard]] std::string report() const;
+ 
+   private:
+     std::vector<double> frames_, simulation_, backlog_;
+ };
++enum class MeasurementPhase { Warmup, Measurement };
++struct MeasurementSample {
++    double elapsed_ms = 0;
++    std::uint64_t tick = 0;
++    MeasurementPhase phase = MeasurementPhase::Warmup;
++    double frame_ms = 0, simulation_ms = 0, backlog_ms = 0;
++    std::optional<std::uint64_t> working_set_bytes, private_bytes;
++};
++// Process-local observer: elapsed time orders samples even after a world restore.
++class MeasurementTrace final {
++  public:
++    void record(MeasurementSample sample);
++    [[nodiscard]] std::string csv() const;
++    [[nodiscard]] std::size_t size() const noexcept { return samples_.size(); }
++
++  private:
++    std::vector<MeasurementSample> samples_;
++};
+ } // namespace reality
+diff --git a/src/platform/traversal_main.cpp b/src/platform/traversal_main.cpp
+index fd5c9bc..281bbc8 100644
+--- a/src/platform/traversal_main.cpp
++++ b/src/platform/traversal_main.cpp
+@@ -3,20 +3,21 @@
+ #include "lab/lab_session.hpp"
+ #include "lab/traversal_diagnostics.hpp"
+ #include "lab/traversal_session.hpp"
+ 
+ #include <psapi.h>
+ #include <shellapi.h>
+ #include <windowsx.h>
+ 
+ #include <algorithm>
+ #include <chrono>
++#include <climits>
+ #include <exception>
+ #include <fstream>
+ #include <memory>
+ #include <sstream>
+ #include <stdexcept>
+ 
+ namespace {
+ using namespace reality;
+ using namespace std::chrono_literals;
+ constexpr wchar_t window_class[] = L"GenesisTraversalMain";
+@@ -42,35 +43,90 @@ std::wstring wide(std::string_view text) {
+ struct Options {
+     std::filesystem::path save = std::filesystem::current_path() / L"traversal-world.save";
+     std::filesystem::path report = std::filesystem::current_path() / L"traversal.log";
+     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
+     bool smoke = false, debug = false, resume = false, unattended = false;
+     bool delivery = false, crossing = false, law = false, community = false, learning = false;
+     bool two_methods = false, distant = false, story = false;
+     std::string story_case = "normal";
+     bool repair_smoke = false;
+     std::filesystem::path diagnostics;
++    std::filesystem::path measurement_trace;
+     unsigned measure_seconds = 0, warmup_seconds = 30;
+     int adapter = -1;
+ };
++std::filesystem::path output_path(const std::filesystem::path& path) {
++    // Win32 trims trailing dots/spaces; reject those ambiguous aliases before opening a log.
++    for (const auto& part : path) {
++        const auto value = part.native();
++        require(value == L"." || value == L".." || value.empty() ||
++                    (value.back() != L'.' && value.back() != L' '),
++                "ambiguous measurement output path");
++    }
++    auto normalized = std::filesystem::weakly_canonical(std::filesystem::absolute(path));
++    if (normalized.has_relative_path() && normalized.filename().empty())
++        normalized = normalized.parent_path();
++    return normalized;
++}
++bool same_path(const std::filesystem::path& first, const std::filesystem::path& second) {
++    const auto a = first.native(), b = second.native();
++    require(a.size() <= INT_MAX && b.size() <= INT_MAX, "measurement output path too long");
++    return CompareStringOrdinal(a.data(), static_cast<int>(a.size()), b.data(),
++                                static_cast<int>(b.size()), TRUE) == CSTR_EQUAL;
++}
++void validate_trace_paths(const Options& options) {
++    if (options.measurement_trace.empty())
++        return;
++    const auto directory = output_path(options.measurement_trace);
++    require(!std::filesystem::exists(directory), "measurement trace directory already exists");
++    require(std::filesystem::is_directory(directory.parent_path()),
++            "measurement trace parent directory must exist");
++    const auto csv = directory / L"samples.csv";
++    auto final_save = options.save;
++    final_save += L".final.save";
++    for (const auto& path :
++         {options.save, final_save, options.report, options.capture, options.diagnostics}) {
++        const auto normalized = output_path(path);
++        require(!same_path(normalized, csv) && !same_path(normalized, directory),
++                "measurement trace conflicts with another output");
++    }
++}
++void write_new_csv(const std::filesystem::path& path, std::string_view bytes) {
++    const auto handle = CreateFileW(path.c_str(), GENERIC_WRITE, FILE_SHARE_READ, nullptr,
++                                    CREATE_NEW, FILE_ATTRIBUTE_NORMAL, nullptr);
++    require(handle != INVALID_HANDLE_VALUE, "cannot create new measurement trace CSV");
++    struct Close {
++        HANDLE handle;
++        ~Close() { CloseHandle(handle); }
++    } close{handle};
++    while (!bytes.empty()) {
++        const auto chunk = static_cast<DWORD>(std::min(bytes.size(), std::size_t{MAXDWORD}));
++        DWORD written = 0;
++        require(WriteFile(handle, bytes.data(), chunk, &written, nullptr) && written > 0,
++                "cannot write measurement trace CSV");
++        bytes.remove_prefix(written);
++    }
++    require(FlushFileBuffers(handle) != 0, "cannot flush measurement trace CSV");
++}
+ void read_options(Options& options) {
+     int count = 0;
+     auto* args = CommandLineToArgvW(GetCommandLineW(), &count);
+     require(args != nullptr, "cannot read traversal command line");
+     struct Free {
+         void operator()(wchar_t** pointer) const { LocalFree(pointer); }
+     };
+     std::unique_ptr<wchar_t*, Free> owned{args};
+     bool save_given = false, report_given = false, warmup_given = false;
+     for (int i = 1; i < count; ++i) {
+         const std::wstring_view arg{args[i]};
+-        if (arg == L"--smoke-test" || arg == L"--measure-seconds" || arg == L"--warmup-seconds")
++        if (arg == L"--smoke-test" || arg == L"--measure-seconds" || arg == L"--warmup-seconds" ||
++            arg == L"--measurement-trace")
+             options.unattended = true;
+     }
+     for (int i = 1; i < count; ++i) {
+         const std::wstring_view arg{args[i]};
+         if (arg == L"--smoke-test") {
+             options.smoke = true;
+             options.unattended = true;
+         } else if (arg == L"--delivery") {
+             options.delivery = true;
+         } else if (arg == L"--crossing") {
+@@ -113,20 +169,23 @@ void read_options(Options& options) {
+             if (arg == L"--save") {
+                 options.save = value;
+                 save_given = true;
+             } else if (arg == L"--report") {
+                 options.report = value;
+                 report_given = true;
+             } else if (arg == L"--capture") {
+                 options.capture = value;
+             } else if (arg == L"--diagnostics") {
+                 options.diagnostics = value;
++            } else if (arg == L"--measurement-trace") {
++                require(!value.empty(), "measurement trace directory is empty");
++                options.measurement_trace = value;
+             } else if (arg == L"--measure-seconds" || arg == L"--warmup-seconds") {
+                 options.unattended = true;
+                 require(!value.empty() &&
+                             std::all_of(value.begin(), value.end(),
+                                         [](wchar_t c) { return c >= L'0' && c <= L'9'; }),
+                         "invalid measurement duration");
+                 const auto seconds = std::stoul(value);
+                 require(seconds <= (arg == L"--measure-seconds" ? 1800UL : 300UL) &&
+                             (arg != L"--measure-seconds" || seconds > 0),
+                         "measurement duration outside supported range");
+@@ -156,22 +215,25 @@ void read_options(Options& options) {
+     require(!options.resume || options.smoke, "resume-smoke requires smoke-test");
+     require(!options.learning || options.community, "learning requires --community");
+     require(!options.repair_smoke || (options.two_methods && options.smoke),
+             "repair-smoke requires two-methods and smoke-test");
+     require(!options.two_methods ||
+                 (!options.delivery && !options.crossing && !options.law && !options.resume),
+             "two-methods cannot combine with another scene or resume-smoke");
+     require(!warmup_given || options.measure_seconds != 0, "warmup needs a measurement");
+     require(options.measure_seconds == 0 || (!options.smoke && save_given && report_given),
+             "measurement needs explicit --save and --report and cannot use smoke-test");
++    require(options.measurement_trace.empty() || options.measure_seconds != 0,
++            "measurement trace needs a measurement");
+     if (options.diagnostics.empty())
+         options.diagnostics = options.save.parent_path() / "traversal-diagnostics";
++    validate_trace_paths(options);
+ }
+ const wchar_t* state_label(TraversalState state) {
+     switch (state) {
+     case TraversalState::Idle:
+         return L"Stoi";
+     case TraversalState::Moving:
+         return L"Podąża do celu";
+     case TraversalState::Arrived:
+         return L"Cel osiągnięty";
+     case TraversalState::Waiting:
+@@ -231,20 +293,43 @@ class TraversalWindow final {
+         }
+         if (font_) {
+             DeleteObject(font_);
+         }
+         UnregisterClassW(view_class, instance_);
+         UnregisterClassW(window_class, instance_);
+     }
+     TraversalWindow(const TraversalWindow&) = delete;
+     TraversalWindow& operator=(const TraversalWindow&) = delete;
+     int run() {
++        try {
++            if (!options_.measurement_trace.empty()) {
++                require(std::filesystem::create_directory(options_.measurement_trace),
++                        "cannot reserve new measurement trace directory");
++                trace_directory_created_ = true;
++            }
++            run_loop();
++            export_trace(true);
++            log_ << "normal_shutdown=1\n";
++            return 0;
++        } catch (...) {
++            const auto original = std::current_exception();
++            try {
++                export_trace(false);
++            } catch (const std::exception& error) {
++                OutputDebugStringA(error.what());
++            }
++            std::rethrow_exception(original);
++        }
++    }
++
++  private:
++    void run_loop() {
+         window_ =
+             CreateWindowExW(0, window_class, L"Genesis | ruch, poziomy i autonomia",
+                             WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN, CW_USEDEFAULT, CW_USEDEFAULT,
+                             1200, (options_.two_methods || options_.story) ? 920 : 820, nullptr,
+                             nullptr, instance_, this);
+         require(window_ != nullptr, "cannot create traversal window");
+         viewport_ = CreateWindowExW(0, view_class, L"Scena", WS_CHILD | WS_VISIBLE, 0, 0, 800, 760,
+                                     window_, nullptr, instance_, this);
+         require(viewport_ != nullptr, "cannot create traversal viewport");
+         font_ = CreateFontW(-15, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET,
+@@ -314,20 +399,21 @@ class TraversalWindow final {
+         const auto measurement_start = run_start + std::chrono::seconds{options_.warmup_seconds};
+         const auto measurement_end =
+             measurement_start + std::chrono::seconds{options_.measure_seconds};
+         if (options_.measure_seconds != 0) {
+             session_.save(options_.save);
+             pacer_.set_running(true);
+             log_ << "measure_seconds=" << options_.measure_seconds
+                  << "\nwarmup_seconds=" << options_.warmup_seconds
+                  << "\nmeasurement_initial_checksum=" << snapshot_checksum(session_.serialize())
+                  << '\n';
++            log_.flush();
+         }
+         measurement_started_ = true;
+         unsigned frames = 0;
+         for (;;) {
+             const auto frame_start = std::chrono::steady_clock::now();
+             if (options_.measure_seconds != 0 && frame_start >= measurement_end) {
+                 measurement_finished_ = true;
+                 break;
+             }
+             MSG message{};
+@@ -381,48 +467,68 @@ class TraversalWindow final {
+                     ++automatic_captures_;
+                     capture_diagnostic("suspected_stall_actor_" + std::to_string(actor.value));
+                 }
+             panel();
+             draw();
+             if (!renderer_->present()) {
+                 ++occluded_frames_;
+                 MsgWaitForMultipleObjectsEx(0, nullptr, 100, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
+             }
+             const auto frame_end = std::chrono::steady_clock::now();
+-            if (options_.smoke ||
+-                (options_.measure_seconds != 0 && frame_start >= measurement_start)) {
+-                const auto milliseconds = [](auto duration) {
+-                    return std::chrono::duration<double, std::milli>{duration}.count();
+-                };
++            const auto milliseconds = [](auto duration) {
++                return std::chrono::duration<double, std::milli>{duration}.count();
++            };
++            const bool measured = options_.smoke || (options_.measure_seconds != 0 &&
++                                                     frame_start >= measurement_start);
++            if (measured) {
+                 metrics_.record(milliseconds(frame_end - previous_frame_end),
+                                 milliseconds(simulation_end - simulation_start),
+                                 milliseconds(pacer_.pending()));
+                 measured_ticks_ += session_.world().clock().tick_count() - before_tick;
+                 if (!first_sample_)
+                     first_sample_ = previous_frame_end;
+                 last_sample_ = frame_end;
+-                if (frame_end >= next_memory_sample_) {
+-                    PROCESS_MEMORY_COUNTERS_EX memory{};
+-                    require(
+-                        GetProcessMemoryInfo(GetCurrentProcess(),
++            }
++            const bool legacy_memory = measured && frame_end >= next_memory_sample_;
++            const bool trace_enabled = !options_.measurement_trace.empty();
++            const auto observer_start = trace_enabled ? std::chrono::steady_clock::now()
++                                                      : std::chrono::steady_clock::time_point{};
++            const bool trace_memory = trace_enabled && frame_end >= next_trace_memory_sample_;
++            std::optional<std::uint64_t> working, private_bytes;
++            if (legacy_memory || trace_memory) {
++                PROCESS_MEMORY_COUNTERS_EX memory{};
++                require(GetProcessMemoryInfo(GetCurrentProcess(),
+                                              reinterpret_cast<PROCESS_MEMORY_COUNTERS*>(&memory),
+                                              sizeof(memory)) != 0,
+                         "cannot measure process memory");
+-                    const auto working = static_cast<std::uint64_t>(memory.WorkingSetSize);
++                working = static_cast<std::uint64_t>(memory.WorkingSetSize);
++                private_bytes = static_cast<std::uint64_t>(memory.PrivateUsage);
++                if (legacy_memory) {
+                     if (first_working_set_ == 0)
+-                        first_working_set_ = working;
+-                    last_working_set_ = working;
+-                    peak_working_set_ = std::max(peak_working_set_, working);
+-                    peak_private_bytes_ = std::max(peak_private_bytes_,
+-                                                   static_cast<std::uint64_t>(memory.PrivateUsage));
++                        first_working_set_ = *working;
++                    last_working_set_ = *working;
++                    peak_working_set_ = std::max(peak_working_set_, *working);
++                    peak_private_bytes_ = std::max(peak_private_bytes_, *private_bytes);
+                     next_memory_sample_ = frame_end + 1s;
+                 }
++                if (trace_memory)
++                    next_trace_memory_sample_ = frame_end + 1s;
++            }
++            if (trace_enabled) {
++                trace_.record({milliseconds(frame_end - run_start),
++                               session_.world().clock().tick_count(),
++                               measured ? MeasurementPhase::Measurement : MeasurementPhase::Warmup,
++                               milliseconds(frame_end - previous_frame_end),
++                               milliseconds(simulation_end - simulation_start),
++                               milliseconds(pacer_.pending()), working, private_bytes});
++                trace_observer_ms_ +=
++                    milliseconds(std::chrono::steady_clock::now() - observer_start);
+             }
+             previous_frame_end = frame_end;
+             if (options_.smoke && ++frames == 2) {
+                 smoke();
+                 PostQuitMessage(0);
+             }
+         }
+         renderer_->check_diagnostics();
+         if (options_.smoke || options_.measure_seconds != 0) {
+             log_ << diagnostics_.report() << metrics_.report()
+@@ -444,22 +550,20 @@ class TraversalWindow final {
+                  << "\nprivate_peak_sampled_bytes=" << peak_private_bytes_ << '\n';
+             log_ << session_.inspect();
+         }
+         if (options_.measure_seconds != 0) {
+             auto final_save = options_.save;
+             final_save += L".final.save";
+             session_.save(final_save);
+             require(measurement_finished_ && simulation_errors_ == 0,
+                     "measurement ended early or simulation failed");
+         }
+-        log_ << "normal_shutdown=1\n";
+-        return 0;
+     }
+ 
+   private:
+     HINSTANCE instance_;
+     const Options& options_;
+     std::ostream& log_;
+     HWND window_ = nullptr, viewport_ = nullptr, title_ = nullptr, status_ = nullptr,
+          help_ = nullptr, feedback_ = nullptr, inspector_ = nullptr;
+     std::array<HWND, 5> buttons_{};
+     HFONT font_ = nullptr;
+@@ -470,30 +574,56 @@ class TraversalWindow final {
+     std::vector<SceneTriangle> scene_;
+     std::array<bool, 4> keys_{};
+     int selection_ = 0;
+     unsigned practice_input_ = 16;
+     std::size_t practice_chain_ = 0;
+     bool minimized_ = false, sizing_ = false, rebase_ = false;
+     std::exception_ptr fatal_;
+     std::string old_inspector_;
+     TraversalDiagnostics diagnostics_;
+     RuntimeMetrics metrics_;
++    MeasurementTrace trace_;
+     std::optional<std::filesystem::path> last_diagnostic_;
+     std::optional<std::chrono::steady_clock::time_point> first_sample_, last_sample_;
+-    std::chrono::steady_clock::time_point next_memory_sample_{};
++    std::chrono::steady_clock::time_point next_memory_sample_{}, next_trace_memory_sample_{};
+     std::uint64_t capture_sequence_ = 0, measured_ticks_ = 0;
+     std::uint64_t first_working_set_ = 0, last_working_set_ = 0, peak_working_set_ = 0,
+                   peak_private_bytes_ = 0;
+     unsigned automatic_captures_ = 0, simulation_errors_ = 0, occluded_frames_ = 0,
+              measurement_interventions_ = 0, measurement_minimizations_ = 0,
+              measurement_resizes_ = 0;
+     bool measurement_started_ = false, measurement_finished_ = false;
++    bool trace_directory_created_ = false, trace_export_attempted_ = false;
++    double trace_observer_ms_ = 0;
++    void export_trace(bool complete) {
++        if (!trace_directory_created_ || trace_export_attempted_)
++            return;
++        trace_export_attempted_ = true;
++        const auto start = std::chrono::steady_clock::now();
++        const auto elapsed = [&] {
++            return std::chrono::duration<double, std::milli>{std::chrono::steady_clock::now() -
++                                                             start}
++                .count();
++        };
++        log_ << "measurement_trace_schema=1\nmeasurement_trace_samples=" << trace_.size()
++             << "\nmeasurement_trace_observer_ms=" << trace_observer_ms_ << '\n';
++        try {
++            write_new_csv(options_.measurement_trace / L"samples.csv", trace_.csv());
++        } catch (const std::exception& error) {
++            log_ << "measurement_trace_exported=0\nmeasurement_trace_complete=0\n"
++                 << "measurement_trace_export_ms=" << elapsed()
++                 << "\nmeasurement_trace_error=" << error.what() << '\n';
++            throw;
++        }
++        log_ << "measurement_trace_exported=1\nmeasurement_trace_complete=" << complete
++             << "\nmeasurement_trace_export_ms=" << elapsed() << '\n';
++    }
+     void capture_diagnostic(std::string_view reason) {
+         last_diagnostic_.reset();
+         try {
+             diagnostics_.observe(session_);
+             std::filesystem::create_directories(options_.diagnostics);
+             require(capture_sequence_ < std::numeric_limits<std::uint64_t>::max(),
+                     "diagnostic sequence exhausted");
+             const auto name = "case-" + std::to_string(GetTickCount64()) + "-" +
+                               std::to_string(++capture_sequence_);
+             const auto directory = options_.diagnostics / name;
+diff --git a/tests/traversal_diagnostics_tests.cpp b/tests/traversal_diagnostics_tests.cpp
+index 3ef6a5f..ff2c44d 100644
+--- a/tests/traversal_diagnostics_tests.cpp
++++ b/tests/traversal_diagnostics_tests.cpp
+@@ -1,17 +1,18 @@
+ #include "core/runtime_metrics.hpp"
+ #include "lab/traversal_diagnostics.hpp"
+ 
+ #include <cmath>
+ #include <fstream>
+ #include <iostream>
+ #include <limits>
++#include <locale>
+ #include <stdexcept>
+ 
+ using namespace reality;
+ namespace {
+ void require(bool value, const char* message) {
+     if (!value)
+         throw std::runtime_error(message);
+ }
+ NavigationSample travelling(std::uint64_t tick, double distance = 3) {
+     NavigationSample sample{EntityId{1},
+@@ -162,20 +163,131 @@ void timings() {
+     } catch (const std::invalid_argument&) {
+         rejected = true;
+     }
+     require(rejected && metrics.frames().count == 5, "invalid metric partially changed sample set");
+     require(RuntimeMetrics{}.frames().count == 0, "empty timing window fabricated samples");
+     RuntimeMetrics large;
+     for (unsigned i = 0; i < 4; ++i)
+         large.record(1e308, 0, 0);
+     require(std::isfinite(large.frames().mean_ms), "finite timing samples overflow their mean");
+ }
++void trace_format() {
++    struct Comma final : std::numpunct<char> {
++        char do_decimal_point() const override { return ','; }
++    };
++    const auto original = std::locale();
++    std::locale::global(std::locale{original, new Comma});
++    try {
++        MeasurementTrace trace;
++        trace.record({1.25, 40, MeasurementPhase::Warmup, 1.25, .5, 0, {}, {}});
++        trace.record({2.5, 41, MeasurementPhase::Measurement, 1.25, .25, 2, 12345, 67890});
++        trace.record({4, 2, MeasurementPhase::Measurement, 1.5, .5, 0, {}, {}});
++        require(trace.size() == 3 &&
++                    trace.csv() ==
++                        "elapsed_ms,tick,phase,frame_ms,simulation_ms,backlog_ms,working_set_bytes,"
++                        "private_bytes\n"
++                        "1.250000,40,warmup,1.250000,0.500000,0.000000,,\n"
++                        "2.500000,41,measurement,1.250000,0.250000,2.000000,12345,67890\n"
++                        "4.000000,2,measurement,1.500000,0.500000,0.000000,,\n",
++                "CSV lost phase, precision, missing memory or restored tick under locale");
++    } catch (...) {
++        std::locale::global(original);
++        throw;
++    }
++    std::locale::global(original);
++}
++void trace_invalid() {
++    MeasurementTrace trace;
++    trace.record({10, 10, MeasurementPhase::Measurement, 1, .5, 0, {}, {}});
++    const auto before = trace.csv();
++    const MeasurementSample valid{11, 2, MeasurementPhase::Measurement, 1, .5, 0, {}, {}};
++    const auto reject = [&](MeasurementSample sample) {
++        bool rejected = false;
++        try {
++            trace.record(sample);
++        } catch (const std::invalid_argument&) {
++            rejected = true;
++        }
++        require(rejected && trace.size() == 1 && trace.csv() == before,
++                "invalid trace sample changed prior evidence");
++    };
++    for (const auto bad :
++         {-1., std::numeric_limits<double>::infinity(), std::numeric_limits<double>::quiet_NaN()}) {
++        for (unsigned field = 0; field < 4; ++field) {
++            auto sample = valid;
++            switch (field) {
++            case 0:
++                sample.elapsed_ms = bad;
++                break;
++            case 1:
++                sample.frame_ms = bad;
++                break;
++            case 2:
++                sample.simulation_ms = bad;
++                break;
++            case 3:
++                sample.backlog_ms = bad;
++                break;
++            }
++            reject(sample);
++        }
++    }
++    auto sample = valid;
++    sample.elapsed_ms = 9;
++    reject(sample);
++    sample = valid;
++    sample.phase = MeasurementPhase::Warmup;
++    reject(sample);
++    sample.phase = static_cast<MeasurementPhase>(99);
++    reject(sample);
++    sample = valid;
++    sample.working_set_bytes = 100;
++    reject(sample);
++    sample = valid;
++    sample.private_bytes = 100;
++    reject(sample);
++    trace.record(valid);
++    require(trace.size() == 2, "restored world tick was mistaken for wall-clock reversal");
++}
++void trace_capacity() {
++    MeasurementTrace trace;
++    const MeasurementSample sample{1, 1, MeasurementPhase::Measurement, 1, 0, 0, {}, {}};
++    for (std::size_t i = 0; i < 1000000; ++i)
++        trace.record(sample);
++    bool rejected = false;
++    try {
++        trace.record(sample);
++    } catch (const std::length_error&) {
++        rejected = true;
++    }
++    require(rejected && trace.size() == 1000000,
++            "trace silently dropped or accepted samples beyond its explicit budget");
++}
++void trace_observer() {
++    TraversalSession observed, reference;
++    MeasurementTrace trace;
++    for (unsigned i = 0; i < 40; ++i) {
++        observed.advance(1);
++        reference.advance(1);
++        trace.record({static_cast<double>(i),
++                      observed.world().clock().tick_count(),
++                      i < 10 ? MeasurementPhase::Warmup : MeasurementPhase::Measurement,
++                      1,
++                      .5,
++                      0,
++                      {},
++                      {}});
++        static_cast<void>(trace.csv());
++        require(observed.serialize() == reference.serialize(),
++                "measurement trace changed world or persistence semantics");
++    }
++}
+ void invalid_sample() {
+     NavigationProgressWatch watch;
+     watch.observe(travelling(0));
+     const auto before = watch.report();
+     auto sample = travelling(20);
+     sample.goal.reset();
+     bool rejected = false;
+     try {
+         watch.observe(sample);
+     } catch (const std::invalid_argument&) {
+@@ -332,19 +444,27 @@ int main(int argc, char** argv) {
+         else if (name == "progress")
+             progress();
+         else if (name == "waiting")
+             waiting();
+         else if (name == "reset")
+             reset();
+         else if (name == "snapshot")
+             snapshot();
+         else if (name == "timings")
+             timings();
++        else if (name == "trace_format")
++            trace_format();
++        else if (name == "trace_invalid")
++            trace_invalid();
++        else if (name == "trace_capacity")
++            trace_capacity();
++        else if (name == "trace_observer")
++            trace_observer();
+         else
+             throw std::invalid_argument("unknown diagnostics case");
+         std::cout << "PASS " << name << '\n';
+         return 0;
+     } catch (const std::exception& e) {
+         std::cerr << "FAIL " << e.what() << '\n';
+         return 1;
+     }
+ }
+diff --git a/tools/test_traversal_diagnostics.py b/tools/test_traversal_diagnostics.py
+index 8279cb9..8c23217 100644
+--- a/tools/test_traversal_diagnostics.py
++++ b/tools/test_traversal_diagnostics.py
+@@ -1,16 +1,201 @@
+ """Exercise native traversal diagnostics and a fresh-process snapshot continuation."""
+ 
+ import argparse
++import csv
++import ctypes
++from ctypes import wintypes
++import math
+ import pathlib
+ import subprocess
+ import tempfile
++import time
++
++
++def check_trace(exe: pathlib.Path, output: pathlib.Path) -> None:
++    startup = subprocess.STARTUPINFO()
++    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
++    startup.wShowWindow = 0
++    trace = output / "trace"
++    report = output / "trace.log"
++    result = subprocess.run([
++        str(exe), "--community", "--learning", "--gpu-debug",
++        "--measure-seconds", "2", "--warmup-seconds", "1",
++        "--measurement-trace", str(trace) + "/", "--save", str(output / "trace.save"),
++        "--report", str(report),
++    ], timeout=9, startupinfo=startup, check=False)
++    if result.returncode != 0:
++        raise AssertionError(f"measurement trace process failed: {result.returncode}")
++    with (trace / "samples.csv").open(encoding="utf-8", newline="") as stream:
++        reader = csv.DictReader(stream)
++        expected = ["elapsed_ms", "tick", "phase", "frame_ms", "simulation_ms", "backlog_ms",
++                    "working_set_bytes", "private_bytes"]
++        if reader.fieldnames != expected:
++            raise AssertionError("measurement trace CSV schema changed")
++        rows = list(reader)
++    measured = [row for row in rows if row["phase"] == "measurement"]
++    warmup = [row for row in rows if row["phase"] == "warmup"]
++    if not warmup or not measured or rows != warmup + measured:
++        raise AssertionError("trace lost warmup, measured samples, or phase order")
++    previous = -1.0
++    memory_samples = 0
++    for row in rows:
++        elapsed = float(row["elapsed_ms"])
++        if not math.isfinite(elapsed) or elapsed < previous:
++            raise AssertionError("trace real-time order is invalid")
++        previous = elapsed
++        int(row["tick"])
++        for key in ("frame_ms", "simulation_ms", "backlog_ms"):
++            value = float(row[key])
++            if not math.isfinite(value) or value < 0:
++                raise AssertionError(f"invalid trace timing: {key}")
++        if bool(row["working_set_bytes"]) != bool(row["private_bytes"]):
++            raise AssertionError("trace contains only half a memory observation")
++        if row["working_set_bytes"]:
++            if min(int(row["working_set_bytes"]), int(row["private_bytes"])) <= 0:
++                raise AssertionError("native memory observation is not a real process reading")
++            memory_samples += 1
++    values = dict(line.split("=", 1) for line in report.read_text(encoding="utf-8").splitlines()
++                  if "=" in line)
++    if memory_samples < 2 or int(values["frame_samples"]) != len(measured):
++        raise AssertionError("trace lost memory history or changed measured summary membership")
++    if values.get("measurement_trace_complete") != "1" or values.get("normal_shutdown") != "1":
++        raise AssertionError("trace did not report successful capture and shutdown")
++    for key in ("measurement_trace_observer_ms", "measurement_trace_export_ms"):
++        value = float(values[key])
++        if not math.isfinite(value) or value < 0:
++            raise AssertionError(f"invalid observer cost: {key}")
++    times = sorted(float(row["frame_ms"]) for row in measured)
++    expected_summary = {
++        "frame_min_ms": times[0], "frame_max_ms": times[-1],
++        "frame_mean_ms": sum(times) / len(times),
++        **{f"frame_p{p}_ms": times[math.ceil(p / 100 * len(times)) - 1]
++           for p in (50, 95, 99)},
++    }
++    for key, expected_value in expected_summary.items():
++        # Existing reports round to four decimal places; CSV retains six.
++        if abs(float(values[key]) - expected_value) > 0.0001:
++            raise AssertionError(f"legacy summary differs from measured trace samples: {key}")
++    print("PASS measurement trace phases, memory history and unchanged summary")
++
++
++def check_trace_paths(exe: pathlib.Path, output: pathlib.Path) -> None:
++    startup = subprocess.STARTUPINFO()
++    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
++    startup.wShowWindow = 0
++    report = output / "preserved.log"
++    report.write_bytes(b"preserve report")
++    existing = output / "existing"
++    existing.mkdir()
++    sentinel = existing / "samples.csv"
++    sentinel.write_bytes(b"preserve evidence")
++    trace = output / "new-trace"
++    base = ["--measure-seconds", "1", "--warmup-seconds", "0",
++            "--save", str(output / "world.save"), "--report", str(report)]
++    cases = [
++        ["--measurement-trace", str(trace)],
++        ["--smoke-test", "--measurement-trace", str(trace)],
++        [*base, "--measurement-trace", str(existing)],
++        [*base, "--measurement-trace", str(sentinel)],
++        [*base, "--measurement-trace", str(output / "missing" / "trace")],
++        [*base, "--measurement-trace", str(trace), "--save", str(trace / "SAMPLES.CSV")],
++        [*base, "--measurement-trace", str(trace), "--capture", str(trace / "samples.csv")],
++        [*base, "--measurement-trace", str(trace), "--diagnostics", str(trace / "samples.csv")],
++        [*base, "--measurement-trace", str(trace), "--report", str(trace / ".." / "new-trace" / "samples.csv")],
++        [*base, "--measurement-trace", str(trace), "--report", str(trace / "samples.csv.")],
++        [*base, "--measurement-trace", str(trace), "--save", str(trace)],
++        [*base, "--measurement-trace", str(trace), "--save", "\\\\?\\" + str(trace / "samples.csv")],
++    ]
++    for args in cases:
++        result = subprocess.run([str(exe), *args], timeout=3, startupinfo=startup, check=False)
++        if result.returncode != 1:
++            raise AssertionError(f"invalid trace paths succeeded: {args}")
++        if report.read_bytes() != b"preserve report" or sentinel.read_bytes() != b"preserve evidence":
++            raise AssertionError("trace validation overwrote existing report or evidence")
++        if trace.exists():
++            raise AssertionError("invalid trace invocation left an output directory")
++    print("PASS trace path refusals and preserved evidence")
++
++
++def check_trace_interruption(exe: pathlib.Path, output: pathlib.Path, collision: bool) -> None:
++    startup = subprocess.STARTUPINFO()
++    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
++    startup.wShowWindow = 0
++    report, trace, save = output / "run.log", output / "trace", output / "world.save"
++    duration = "1" if collision else "10"
++    with subprocess.Popen([
++        str(exe), "--community", "--learning", "--gpu-debug", "--measure-seconds", duration,
++        "--warmup-seconds", "1", "--measurement-trace", str(trace),
++        "--save", str(save), "--report", str(report),
++    ], startupinfo=startup) as process:
++        try:
++            deadline = time.monotonic() + 6
++            while True:
++                if process.poll() is not None:
++                    raise AssertionError("trace process exited before test intervention")
++                if report.exists() and "measurement_initial_checksum=" in report.read_text(encoding="utf-8"):
++                    break
++                if time.monotonic() >= deadline:
++                    raise AssertionError("trace process did not initialize within deadline")
++                time.sleep(.02)
++            initial = save.read_bytes()
++            if collision:
++                (trace / "samples.csv").write_bytes(b"preserve competing writer")
++            else:
++                # Send WM_CLOSE to this process's own main window after completed frames.
++                user32 = ctypes.WinDLL("user32", use_last_error=True)
++                callback_type = ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
++                user32.EnumWindows.argtypes = [callback_type, wintypes.LPARAM]
++                user32.GetWindowThreadProcessId.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.DWORD)]
++                user32.GetClassNameW.argtypes = [wintypes.HWND, wintypes.LPWSTR, ctypes.c_int]
++                user32.PostMessageW.argtypes = [wintypes.HWND, wintypes.UINT, wintypes.WPARAM, wintypes.LPARAM]
++                windows = []
++
++                @callback_type
++                def find_window(window, _):
++                    pid = wintypes.DWORD()
++                    user32.GetWindowThreadProcessId(window, ctypes.byref(pid))
++                    name = ctypes.create_unicode_buffer(128)
++                    user32.GetClassNameW(window, name, len(name))
++                    if pid.value == process.pid and name.value == "GenesisTraversalMain":
++                        windows.append(window)
++                    return True
++
++                time.sleep(.3)
++                if not user32.EnumWindows(find_window, 0) or len(windows) != 1:
++                    raise AssertionError("could not identify this test process's main window")
++                if not user32.PostMessageW(windows[0], 0x0010, 0, 0):
++                    raise AssertionError("could not request an orderly early window close")
++            result = process.wait(timeout=6)
++        finally:
++            if process.poll() is None:
++                process.kill()
++                process.wait(timeout=3)
++    text = report.read_text(encoding="utf-8")
++    values = dict(line.split("=", 1) for line in text.splitlines() if "=" in line)
++    if result != 1 or values.get("measurement_trace_complete") != "0" or "normal_shutdown=1" in text:
++        raise AssertionError("incomplete or failed export was reported as success")
++    if save.read_bytes() != initial or not save.with_suffix(".save.final.save").is_file():
++        raise AssertionError("failed/interrupted trace damaged the saved world")
++    csv_path = trace / "samples.csv"
++    if collision:
++        if (csv_path.read_bytes() != b"preserve competing writer" or
++                values.get("measurement_trace_exported") != "0" or "measurement_trace_error=" not in text):
++            raise AssertionError("failed export overwrote evidence or hid its error")
++    else:
++        with csv_path.open(encoding="utf-8", newline="") as stream:
++            rows = list(csv.DictReader(stream))
++        if (values.get("measurement_trace_exported") != "1" or not rows or
++                len(rows) != int(values["measurement_trace_samples"]) or
++                values.get("measurement_finished") != "0"):
++            raise AssertionError("early close lost buffered frames or claimed a complete run")
++    print("PASS trace export collision" if collision else "PASS trace orderly interruption")
+ 
+ 
+ def check(exe: pathlib.Path, output: pathlib.Path, delivery_only: bool = False) -> None:
+     report = output / "native.log"
+     save = output / "ordinary.save"
+     startup = subprocess.STARTUPINFO()
+     startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+     startup.wShowWindow = 0
+ 
+     def run(arguments: list[str]) -> None:
+@@ -97,21 +282,34 @@ def check(exe: pathlib.Path, output: pathlib.Path, delivery_only: bool = False)
+             measured_values.get("measured_ticks", "0")) == 0:
+         raise AssertionError("bounded native measurement failed to run simulation and finish")
+     print("PASS native progress, frame metrics, F6 snapshot and fresh-process continuation")
+ 
+ 
+ def main() -> None:
+     parser = argparse.ArgumentParser()
+     parser.add_argument("--exe", type=pathlib.Path, required=True)
+     parser.add_argument("--output", type=pathlib.Path)
+     parser.add_argument("--delivery-only", action="store_true")
++    parser.add_argument("--trace-only", action="store_true")
++    parser.add_argument("--trace-case", choices=("paths", "interrupted", "collision"))
+     args = parser.parse_args()
++
++    def execute(output: pathlib.Path) -> None:
++        if args.trace_case == "paths":
++            check_trace_paths(args.exe.resolve(), output)
++        elif args.trace_case in ("interrupted", "collision"):
++            check_trace_interruption(args.exe.resolve(), output, args.trace_case == "collision")
++        elif args.trace_only:
++            check_trace(args.exe.resolve(), output)
++        else:
++            check(args.exe.resolve(), output, args.delivery_only)
++
+     if args.output:
+         args.output.mkdir(parents=True, exist_ok=False)
+-        check(args.exe.resolve(), args.output.resolve(), args.delivery_only)
++        execute(args.output.resolve())
+     else:
+         with tempfile.TemporaryDirectory(prefix="genesis-diagnostics-") as directory:
+-            check(args.exe.resolve(), pathlib.Path(directory), args.delivery_only)
++            execute(pathlib.Path(directory))
+ 
+ 
+ if __name__ == "__main__":
+     main()

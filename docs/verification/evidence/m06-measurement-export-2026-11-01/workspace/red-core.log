@@ -1,0 +1,67 @@
+CMake is re-running because C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/Users/Marcin/Documents/new/CMakeLists.txt'
+  is newer than 'C:/Users/Marcin/Documents/new/build/msvc/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (1.3s)
+-- Generating done (2.3s)
+-- Build files have been written to: C:/Users/Marcin/Documents/new/build/msvc
+Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_learning_core.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_learning_core.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  reality_lab_model.vcxproj -> C:\Users\Marcin\Documents\new\build\msvc\RelWithDebInfo\reality_lab_model.lib
+  Building Custom Rule C:/Users/Marcin/Documents/new/CMakeLists.txt
+  traversal_diagnostics_tests.cpp
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(180,9): error C2065: "MeasurementTrace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(180,26): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „trace” [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(180,26): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(181,9): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(181,33): error C2653: "MeasurementPhase": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(181,51): error C2065: "Warmup": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(182,9): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(182,32): error C2653: "MeasurementPhase": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(182,50): error C2065: "Measurement": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(183,9): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(183,29): error C2653: "MeasurementPhase": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(183,47): error C2065: "Measurement": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(184,17): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(185,21): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(198,5): error C2065: "MeasurementTrace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(198,22): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „trace” [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(198,22): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(199,5): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(199,27): error C2653: "MeasurementPhase": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(199,45): error C2065: "Measurement": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(200,25): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(200,16): error C2737: „before”: obiekt const musi być zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(201,5): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(201,29): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „valid” [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(201,29): error C2065: "valid": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(201,42): error C2653: "MeasurementPhase": nie jest nazwą klasa lub nazwą przestrzeni nazw [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(201,60): error C2065: "Measurement": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(202,29): error C2187: błąd składniowy: nie oczekiwano tutaj elementu „MeasurementSample” [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(202,47): error C2065: "sample": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(202,53): error C2059: błąd składniowy: „)” [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(203,9): error C2062: nieoczekiwany typ "bool" [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(205,13): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(205,26): error C2065: "sample": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(207,13): error C2065: "rejected": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(209,17): error C2065: "rejected": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(209,29): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(209,50): error C2065: "trace": niezadeklarowany identyfikator [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(209,65): error C3536: "before" : nie można użyć, zanim zostanie zainicjowany [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(212,5): error C2447: "{": brak nagłówka funkcji (stary styl formalnej listy?) [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(419,13): error C3861: "service_progress": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(421,13): error C3861: "batch_transaction": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(423,13): error C3861: "live_view": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(425,13): error C3861: "independent_alarms": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(427,13): error C3861: "plan_churn": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(429,13): error C3861: "invalid_sample": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(445,13): error C3861: "trace_capacity": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(447,13): error C3861: "trace_observer": identyfikatora nie odnaleziono [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]
+C:\Users\Marcin\Documents\new\tests\traversal_diagnostics_tests.cpp(457,1): error C1004: napotkano nieoczekiwany znacznik końca pliku [C:\Users\Marcin\Documents\new\build\msvc\reality_traversal_diagnostics_tests.vcxproj]

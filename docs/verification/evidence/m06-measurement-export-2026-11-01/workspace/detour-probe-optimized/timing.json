@@ -1,0 +1,11 @@
+{
+  "diagnostic_only": true,
+  "acceptance_deadlines_unchanged": true,
+  "diagnostic_outer_limit_seconds": 30,
+  "returncode": 0,
+  "wall_seconds": 3.6265471000006073,
+  "process_cpu_seconds": 3.609375,
+  "system_busy_percent": 17.222820236813778,
+  "within_existing_checkpoint_budget": true,
+  "prefix_native": false
+}

@@ -1,0 +1,61 @@
+{
+  "captured_utc": "2026-11-01T22:50:32.5158690Z",
+  "total_visible_kib": 8160952,
+  "free_physical_kib": 1999232,
+  "note": "Snapshot during full ASan run; not evidence of the timeout cause.",
+  "processes": [
+    {
+      "ProcessName": "Memory Compression",
+      "Id": 3092,
+      "WorkingSet64": 794107904,
+      "CPU": null
+    },
+    {
+      "ProcessName": "ChatGPT",
+      "Id": 11532,
+      "WorkingSet64": 530939904,
+      "CPU": 500.90625
+    },
+    {
+      "ProcessName": "MsMpEng",
+      "Id": 5164,
+      "WorkingSet64": 317779968,
+      "CPU": null
+    },
+    {
+      "ProcessName": "ChatGPT",
+      "Id": 12748,
+      "WorkingSet64": 274259968,
+      "CPU": 266.390625
+    },
+    {
+      "ProcessName": "codex",
+      "Id": 9408,
+      "WorkingSet64": 218431488,
+      "CPU": 133.109375
+    },
+    {
+      "ProcessName": "explorer",
+      "Id": 8864,
+      "WorkingSet64": 198135808,
+      "CPU": 74.953125
+    },
+    {
+      "ProcessName": "ChatGPT",
+      "Id": 14708,
+      "WorkingSet64": 176676864,
+      "CPU": 60.65625
+    },
+    {
+      "ProcessName": "StartMenuExperienceHost",
+      "Id": 9548,
+      "WorkingSet64": 125452288,
+      "CPU": 20.609375
+    }
+  ],
+  "fixture_binary": {
+    "path": "build/asan/RelWithDebInfo/reality_two_methods_tests.exe",
+    "sha256": "CB0EE0E7DB07426EA7CCD1397C2B18FD277304A9F29672E87820F3B037BBFF0E",
+    "last_write_utc": "2026-11-01T21:59:59.6823283Z"
+  }
+}

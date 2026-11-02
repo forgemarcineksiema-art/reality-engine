@@ -1,0 +1,146 @@
+Test project C:/Users/Marcin/Documents/new/build/asan
+        Start   1: story.normal
+  1/432 Test   #1: story.normal ...............................   Passed    0.17 sec
+        Start   2: story.removed_actor
+  2/432 Test   #2: story.removed_actor ........................   Passed    0.07 sec
+        Start   3: story.removed_site
+  3/432 Test   #3: story.removed_site .........................   Passed    0.05 sec
+        Start   4: story.moved_supply
+  4/432 Test   #4: story.moved_supply .........................   Passed    0.05 sec
+        Start   5: story.contact
+  5/432 Test   #5: story.contact ..............................   Passed    0.13 sec
+        Start   6: story.wall
+  6/432 Test   #6: story.wall .................................   Passed    0.06 sec
+        Start   7: story.busy
+  7/432 Test   #7: story.busy .................................   Passed    0.06 sec
+        Start   8: story.cancel
+  8/432 Test   #8: story.cancel ...............................   Passed    0.07 sec
+        Start   9: story.deadline
+  9/432 Test   #9: story.deadline .............................   Passed    0.48 sec
+        Start  10: story.sticky
+ 10/432 Test  #10: story.sticky ...............................   Passed    0.05 sec
+        Start  11: story.combinations
+ 11/432 Test  #11: story.combinations .........................   Passed    0.06 sec
+        Start  12: story.unsafe_removal
+ 12/432 Test  #12: story.unsafe_removal .......................   Passed    0.06 sec
+        Start  13: story.persistence
+ 13/432 Test  #13: story.persistence ..........................   Passed    0.27 sec
+        Start  14: story.corruption
+ 14/432 Test  #14: story.corruption ...........................   Passed    0.07 sec
+        Start  15: story.legacy
+ 15/432 Test  #15: story.legacy ...............................   Passed    1.62 sec
+        Start  16: story.support_contact
+ 16/432 Test  #16: story.support_contact ......................   Passed    0.05 sec
+        Start  17: story.source_consumption
+ 17/432 Test  #17: story.source_consumption ...................   Passed    0.24 sec
+        Start  18: story.deadline_step
+ 18/432 Test  #18: story.deadline_step ........................   Passed    0.54 sec
+        Start  19: story.order_binding
+ 19/432 Test  #19: story.order_binding ........................   Passed    0.16 sec
+        Start  20: story.cancelled_corruption
+ 20/432 Test  #20: story.cancelled_corruption .................   Passed    0.06 sec
+        Start  21: story.resource_binding
+ 21/432 Test  #21: story.resource_binding .....................   Passed    0.06 sec
+        Start  22: story.observation_time
+ 22/432 Test  #22: story.observation_time .....................   Passed    0.09 sec
+        Start  23: story.static_bindings
+ 23/432 Test  #23: story.static_bindings ......................   Passed    0.06 sec
+        Start  24: story.false_failure
+ 24/432 Test  #24: story.false_failure ........................   Passed    0.06 sec
+        Start  25: story.terminal_order
+ 25/432 Test  #25: story.terminal_order .......................   Passed    0.22 sec
+        Start  26: story.terminal_rebind
+ 26/432 Test  #26: story.terminal_rebind ......................   Passed    0.17 sec
+        Start  27: story.manual
+ 27/432 Test  #27: story.manual ...............................   Passed    0.25 sec
+        Start  28: story.fresh_speaker
+ 28/432 Test  #28: story.fresh_speaker ........................   Passed    0.42 sec
+        Start  29: story.fresh_site
+ 29/432 Test  #29: story.fresh_site ...........................   Passed    0.32 sec
+        Start  30: story.fresh_supply
+ 30/432 Test  #30: story.fresh_supply .........................   Passed    0.32 sec
+        Start  31: story.fresh_travel
+ 31/432 Test  #31: story.fresh_travel .........................   Passed    0.49 sec
+        Start  32: story.fresh_returned
+ 32/432 Test  #32: story.fresh_returned .......................   Passed    0.34 sec
+        Start  33: story.fresh_complete
+ 33/432 Test  #33: story.fresh_complete .......................   Passed    0.46 sec
+        Start  34: story.fresh_failed
+ 34/432 Test  #34: story.fresh_failed .........................   Passed    0.73 sec
+        Start  35: story.native_normal
+ 35/432 Test  #35: story.native_normal ........................   Passed    1.55 sec
+        Start  36: story.native_missing-person
+ 36/432 Test  #36: story.native_missing-person ................   Passed    1.34 sec
+        Start  37: story.native_missing-place
+ 37/432 Test  #37: story.native_missing-place .................   Passed    1.20 sec
+        Start  38: story.native_moved-supplies
+ 38/432 Test  #38: story.native_moved-supplies ................   Passed    1.19 sec
+        Start  39: distant.handoff
+ 39/432 Test  #39: distant.handoff ............................   Passed    0.55 sec
+        Start  40: distant.ghost
+ 40/432 Test  #40: distant.ghost ..............................   Passed    0.12 sec
+        Start  41: distant.blocked
+ 41/432 Test  #41: distant.blocked ............................   Passed    0.56 sec
+        Start  42: distant.closed
+ 42/432 Test  #42: distant.closed .............................   Passed    0.16 sec
+        Start  43: distant.needs
+ 43/432 Test  #43: distant.needs ..............................   Passed    0.12 sec
+        Start  44: distant.corruption
+ 44/432 Test  #44: distant.corruption .........................   Passed    0.51 sec
+        Start  45: distant.protected
+ 45/432 Test  #45: distant.protected ..........................   Passed    1.77 sec
+        Start  46: distant.isolation
+ 46/432 Test  #46: distant.isolation ..........................   Passed    0.63 sec
+        Start  47: distant.manual
+ 47/432 Test  #47: distant.manual .............................   Passed    0.19 sec
+        Start  48: distant.stale_goal
+ 48/432 Test  #48: distant.stale_goal .........................   Passed    0.18 sec
+        Start  49: distant.cancelled_return
+ 49/432 Test  #49: distant.cancelled_return ...................   Passed    0.33 sec
+        Start  50: distant.fresh_travel
+ 50/432 Test  #50: distant.fresh_travel .......................   Passed    1.26 sec
+        Start  51: distant.fresh_waiting
+ 51/432 Test  #51: distant.fresh_waiting ......................   Passed    1.15 sec
+        Start  52: distant.fresh_cancelled
+ 52/432 Test  #52: distant.fresh_cancelled ....................   Passed    0.77 sec
+        Start  53: distant.native
+ 53/432 Test  #53: distant.native .............................   Passed    1.46 sec
+        Start  54: two_methods.choice
+ 54/432 Test  #54: two_methods.choice .........................   Passed    1.82 sec
+        Start  55: two_methods.repair
+ 55/432 Test  #55: two_methods.repair .........................   Passed    3.57 sec
+        Start  56: two_methods.detour
+ 56/432 Test  #56: two_methods.detour .........................   Passed    4.23 sec
+        Start  57: two_methods.fresh_repair
+ 57/432 Test  #57: two_methods.fresh_repair ...................   Passed    8.77 sec
+        Start  58: two_methods.native_repair
+ 58/432 Test  #58: two_methods.native_repair ..................   Passed   10.07 sec
+        Start  59: two_methods.fresh_detour
+ 59/432 Test  #59: two_methods.fresh_detour ...................***Failed    8.44 sec
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tests\two_methods_integration.py", line 24, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Marcin\Documents\new\tests\two_methods_integration.py", line 15, in main
+    subprocess.run([str(exe), "checkpoint", method, str(checkpoint), str(expected)], check=True, timeout=8)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1238, in communicate
+    sts = self.wait(timeout=self._remaining_time(endtime))
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1274, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1603, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Users\\Marcin\\Documents\\new\\build\\asan\\RelWithDebInfo\\reality_two_methods_tests.exe', 'checkpoint', 'detour', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-two-methods-ak53sody\\detour-checkpoint.save', 'C:\\Users\\Marcin\\AppData\\Local\\Temp\\genesis-two-methods-ak53sody\\detour-expected.save']' timed out after 7.999995800000761 seconds
+
+
+98% tests passed, 1 tests failed out of 59
+
+Total Test time (real) =  60.41 sec
+
+The following tests FAILED:
+	 59 - two_methods.fresh_detour (Failed)
+Errors while running CTest

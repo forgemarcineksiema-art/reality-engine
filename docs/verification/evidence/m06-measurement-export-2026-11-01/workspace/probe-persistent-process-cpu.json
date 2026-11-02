@@ -1,0 +1,3857 @@
+{
+  "wall_seconds": 18.9161785,
+  "note": "Persistent processes only; diagnostics, not proof of causation.",
+  "before": [
+    {
+      "Name": "System Idle Process",
+      "ProcessId": 0,
+      "CreationDate": "2026-11-01T18:18:45.155875+01:00",
+      "KernelModeTime": 1355134531250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "System",
+      "ProcessId": 4,
+      "CreationDate": "2026-11-01T18:18:45.155875+01:00",
+      "KernelModeTime": 18907968750,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "Secure System",
+      "ProcessId": 140,
+      "CreationDate": "2026-11-01T18:18:31.533781+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "Registry",
+      "ProcessId": 184,
+      "CreationDate": "2026-11-01T18:18:31.541061+01:00",
+      "KernelModeTime": 20781250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "smss.exe",
+      "ProcessId": 652,
+      "CreationDate": "2026-11-01T18:18:45.17337+01:00",
+      "KernelModeTime": 3906250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "csrss.exe",
+      "ProcessId": 944,
+      "CreationDate": "2026-11-01T18:18:48.667412+01:00",
+      "KernelModeTime": 40937500,
+      "UserModeTime": 10625000
+    },
+    {
+      "Name": "wininit.exe",
+      "ProcessId": 636,
+      "CreationDate": "2026-11-01T18:18:50.442465+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "csrss.exe",
+      "ProcessId": 620,
+      "CreationDate": "2026-11-01T18:18:50.444706+01:00",
+      "KernelModeTime": 243281250,
+      "UserModeTime": 30312500
+    },
+    {
+      "Name": "winlogon.exe",
+      "ProcessId": 1056,
+      "CreationDate": "2026-11-01T18:18:50.75575+01:00",
+      "KernelModeTime": 5781250,
+      "UserModeTime": 5156250
+    },
+    {
+      "Name": "services.exe",
+      "ProcessId": 1080,
+      "CreationDate": "2026-11-01T18:18:50.802007+01:00",
+      "KernelModeTime": 138281250,
+      "UserModeTime": 82968750
+    },
+    {
+      "Name": "LsaIso.exe",
+      "ProcessId": 1124,
+      "CreationDate": "2026-11-01T18:18:50.875836+01:00",
+      "KernelModeTime": 5312500,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "lsass.exe",
+      "ProcessId": 1132,
+      "CreationDate": "2026-11-01T18:18:50.882153+01:00",
+      "KernelModeTime": 137343750,
+      "UserModeTime": 133281250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1284,
+      "CreationDate": "2026-11-01T18:18:51.383169+01:00",
+      "KernelModeTime": 104062500,
+      "UserModeTime": 69531250
+    },
+    {
+      "Name": "fontdrvhost.exe",
+      "ProcessId": 1316,
+      "CreationDate": "2026-11-01T18:18:51.411317+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "fontdrvhost.exe",
+      "ProcessId": 1324,
+      "CreationDate": "2026-11-01T18:18:51.41136+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 1562500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1424,
+      "CreationDate": "2026-11-01T18:18:51.539331+01:00",
+      "KernelModeTime": 233281250,
+      "UserModeTime": 275937500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1468,
+      "CreationDate": "2026-11-01T18:18:51.569802+01:00",
+      "KernelModeTime": 21562500,
+      "UserModeTime": 13281250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1568,
+      "CreationDate": "2026-11-01T18:18:51.71345+01:00",
+      "KernelModeTime": 2031250,
+      "UserModeTime": 11093750
+    },
+    {
+      "Name": "dwm.exe",
+      "ProcessId": 1624,
+      "CreationDate": "2026-11-01T18:18:51.716319+01:00",
+      "KernelModeTime": 3757500000,
+      "UserModeTime": 4875468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1748,
+      "CreationDate": "2026-11-01T18:18:51.742739+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 2343750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1824,
+      "CreationDate": "2026-11-01T18:18:51.777354+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "IntelCpHDCPSvc.exe",
+      "ProcessId": 1836,
+      "CreationDate": "2026-11-01T18:18:51.777967+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1872,
+      "CreationDate": "2026-11-01T18:18:51.78469+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1924,
+      "CreationDate": "2026-11-01T18:18:51.791998+01:00",
+      "KernelModeTime": 7656250,
+      "UserModeTime": 6406250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1932,
+      "CreationDate": "2026-11-01T18:18:51.792014+01:00",
+      "KernelModeTime": 6406250,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1940,
+      "CreationDate": "2026-11-01T18:18:51.792048+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 2031250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1948,
+      "CreationDate": "2026-11-01T18:18:51.79225+01:00",
+      "KernelModeTime": 4843750,
+      "UserModeTime": 4375000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1956,
+      "CreationDate": "2026-11-01T18:18:51.792401+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1976,
+      "CreationDate": "2026-11-01T18:18:51.793982+01:00",
+      "KernelModeTime": 6718750,
+      "UserModeTime": 7031250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1412,
+      "CreationDate": "2026-11-01T18:18:51.813419+01:00",
+      "KernelModeTime": 29687500,
+      "UserModeTime": 15937500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2120,
+      "CreationDate": "2026-11-01T18:18:51.823648+01:00",
+      "KernelModeTime": 2343750,
+      "UserModeTime": 2187500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2132,
+      "CreationDate": "2026-11-01T18:18:51.824457+01:00",
+      "KernelModeTime": 60625000,
+      "UserModeTime": 60468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2256,
+      "CreationDate": "2026-11-01T18:18:51.850206+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2360,
+      "CreationDate": "2026-11-01T18:18:51.876372+01:00",
+      "KernelModeTime": 27812500,
+      "UserModeTime": 18750000
+    },
+    {
+      "Name": "igfxCUIServiceN.exe",
+      "ProcessId": 2400,
+      "CreationDate": "2026-11-01T18:18:51.887463+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2632,
+      "CreationDate": "2026-11-01T18:18:51.953169+01:00",
+      "KernelModeTime": 4375000,
+      "UserModeTime": 3437500
+    },
+    {
+      "Name": "NVDisplay.Container.exe",
+      "ProcessId": 2644,
+      "CreationDate": "2026-11-01T18:18:51.954357+01:00",
+      "KernelModeTime": 46093750,
+      "UserModeTime": 99218750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2824,
+      "CreationDate": "2026-11-01T18:18:51.993711+01:00",
+      "KernelModeTime": 307031250,
+      "UserModeTime": 90000000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2844,
+      "CreationDate": "2026-11-01T18:18:51.998823+01:00",
+      "KernelModeTime": 3906250,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2964,
+      "CreationDate": "2026-11-01T18:18:52.034542+01:00",
+      "KernelModeTime": 29843750,
+      "UserModeTime": 14843750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3028,
+      "CreationDate": "2026-11-01T18:18:52.061608+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3036,
+      "CreationDate": "2026-11-01T18:18:52.062042+01:00",
+      "KernelModeTime": 801406250,
+      "UserModeTime": 131562500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3044,
+      "CreationDate": "2026-11-01T18:18:52.062097+01:00",
+      "KernelModeTime": 13750000,
+      "UserModeTime": 7656250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2892,
+      "CreationDate": "2026-11-01T18:18:52.105489+01:00",
+      "KernelModeTime": 17812500,
+      "UserModeTime": 5312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3076,
+      "CreationDate": "2026-11-01T18:18:52.108621+01:00",
+      "KernelModeTime": 4062500,
+      "UserModeTime": 11562500
+    },
+    {
+      "Name": "Memory Compression",
+      "ProcessId": 3092,
+      "CreationDate": "2026-11-01T18:18:52.113284+01:00",
+      "KernelModeTime": 1225000000,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3216,
+      "CreationDate": "2026-11-01T18:18:52.170928+01:00",
+      "KernelModeTime": 13437500,
+      "UserModeTime": 12812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3248,
+      "CreationDate": "2026-11-01T18:18:52.209646+01:00",
+      "KernelModeTime": 38906250,
+      "UserModeTime": 29531250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3308,
+      "CreationDate": "2026-11-01T18:18:52.270062+01:00",
+      "KernelModeTime": 1875000,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "dasHost.exe",
+      "ProcessId": 3316,
+      "CreationDate": "2026-11-01T18:18:52.28291+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3528,
+      "CreationDate": "2026-11-01T18:18:52.411198+01:00",
+      "KernelModeTime": 24531250,
+      "UserModeTime": 18125000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3536,
+      "CreationDate": "2026-11-01T18:18:52.413822+01:00",
+      "KernelModeTime": 4375000,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3552,
+      "CreationDate": "2026-11-01T18:18:52.422004+01:00",
+      "KernelModeTime": 10468750,
+      "UserModeTime": 15156250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3668,
+      "CreationDate": "2026-11-01T18:18:52.493838+01:00",
+      "KernelModeTime": 206406250,
+      "UserModeTime": 420468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3740,
+      "CreationDate": "2026-11-01T18:18:52.538349+01:00",
+      "KernelModeTime": 13906250,
+      "UserModeTime": 8437500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3832,
+      "CreationDate": "2026-11-01T18:18:52.605527+01:00",
+      "KernelModeTime": 5468750,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4012,
+      "CreationDate": "2026-11-01T18:18:52.743981+01:00",
+      "KernelModeTime": 12968750,
+      "UserModeTime": 11250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4036,
+      "CreationDate": "2026-11-01T18:18:52.757157+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 781250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3272,
+      "CreationDate": "2026-11-01T18:18:52.796261+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4004,
+      "CreationDate": "2026-11-01T18:18:52.808201+01:00",
+      "KernelModeTime": 9375000,
+      "UserModeTime": 5000000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4232,
+      "CreationDate": "2026-11-01T18:18:52.880455+01:00",
+      "KernelModeTime": 3906250,
+      "UserModeTime": 3593750
+    },
+    {
+      "Name": "spoolsv.exe",
+      "ProcessId": 4244,
+      "CreationDate": "2026-11-01T18:18:52.88207+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4348,
+      "CreationDate": "2026-11-01T18:18:52.945807+01:00",
+      "KernelModeTime": 27500000,
+      "UserModeTime": 23437500
+    },
+    {
+      "Name": "NVDisplay.Container.exe",
+      "ProcessId": 4376,
+      "CreationDate": "2026-11-01T18:18:52.952898+01:00",
+      "KernelModeTime": 244843750,
+      "UserModeTime": 166562500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4408,
+      "CreationDate": "2026-11-01T18:18:52.997033+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4632,
+      "CreationDate": "2026-11-01T18:18:53.234423+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "AdminService.exe",
+      "ProcessId": 4652,
+      "CreationDate": "2026-11-01T18:18:53.238605+01:00",
+      "KernelModeTime": 15625000,
+      "UserModeTime": 15625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4660,
+      "CreationDate": "2026-11-01T18:18:53.243572+01:00",
+      "KernelModeTime": 8125000,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4684,
+      "CreationDate": "2026-11-01T18:18:53.246132+01:00",
+      "KernelModeTime": 3097968750,
+      "UserModeTime": 3232187500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4692,
+      "CreationDate": "2026-11-01T18:18:53.246572+01:00",
+      "KernelModeTime": 2343750,
+      "UserModeTime": 2187500
+    },
+    {
+      "Name": "OneApp.IGCC.WinService.exe",
+      "ProcessId": 4700,
+      "CreationDate": "2026-11-01T18:18:53.246838+01:00",
+      "KernelModeTime": 3906250,
+      "UserModeTime": 4687500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4708,
+      "CreationDate": "2026-11-01T18:18:53.248531+01:00",
+      "KernelModeTime": 127812500,
+      "UserModeTime": 142812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4720,
+      "CreationDate": "2026-11-01T18:18:53.255348+01:00",
+      "KernelModeTime": 52343750,
+      "UserModeTime": 71093750
+    },
+    {
+      "Name": "vmcompute.exe",
+      "ProcessId": 4732,
+      "CreationDate": "2026-11-01T18:18:53.260103+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 781250
+    },
+    {
+      "Name": "OfficeClickToRun.exe",
+      "ProcessId": 4740,
+      "CreationDate": "2026-11-01T18:18:53.263995+01:00",
+      "KernelModeTime": 29375000,
+      "UserModeTime": 19062500
+    },
+    {
+      "Name": "MpDefenderCoreService.exe",
+      "ProcessId": 4848,
+      "CreationDate": "2026-11-01T18:18:53.324276+01:00",
+      "KernelModeTime": 16875000,
+      "UserModeTime": 8906250
+    },
+    {
+      "Name": "LMS.exe",
+      "ProcessId": 4912,
+      "CreationDate": "2026-11-01T18:18:53.367579+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "nvcontainer.exe",
+      "ProcessId": 4948,
+      "CreationDate": "2026-11-01T18:18:53.382335+01:00",
+      "KernelModeTime": 13437500,
+      "UserModeTime": 15468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4984,
+      "CreationDate": "2026-11-01T18:18:53.401882+01:00",
+      "KernelModeTime": 3281250,
+      "UserModeTime": 2187500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4992,
+      "CreationDate": "2026-11-01T18:18:53.404774+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "QcomWlanSrvx64.exe",
+      "ProcessId": 5040,
+      "CreationDate": "2026-11-01T18:18:53.41386+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "RtkAudUService64.exe",
+      "ProcessId": 5060,
+      "CreationDate": "2026-11-01T18:18:53.419588+01:00",
+      "KernelModeTime": 2656250,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "RstMwService.exe",
+      "ProcessId": 5080,
+      "CreationDate": "2026-11-01T18:18:53.434259+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5100,
+      "CreationDate": "2026-11-01T18:18:53.453296+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1556,
+      "CreationDate": "2026-11-01T18:18:53.468864+01:00",
+      "KernelModeTime": 69843750,
+      "UserModeTime": 82343750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4340,
+      "CreationDate": "2026-11-01T18:18:53.470495+01:00",
+      "KernelModeTime": 7812500,
+      "UserModeTime": 5781250
+    },
+    {
+      "Name": "MsMpEng.exe",
+      "ProcessId": 5164,
+      "CreationDate": "2026-11-01T18:18:53.487855+01:00",
+      "KernelModeTime": 2731093750,
+      "UserModeTime": 10473906250
+    },
+    {
+      "Name": "wslservice.exe",
+      "ProcessId": 5316,
+      "CreationDate": "2026-11-01T18:18:53.54669+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "jhi_service.exe",
+      "ProcessId": 5384,
+      "CreationDate": "2026-11-01T18:18:53.595883+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5392,
+      "CreationDate": "2026-11-01T18:18:53.597625+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5852,
+      "CreationDate": "2026-11-01T18:18:53.842204+01:00",
+      "KernelModeTime": 4062500,
+      "UserModeTime": 7031250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5900,
+      "CreationDate": "2026-11-01T18:18:53.909164+01:00",
+      "KernelModeTime": 2343750,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5972,
+      "CreationDate": "2026-11-01T18:18:53.936318+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "AggregatorHost.exe",
+      "ProcessId": 6488,
+      "CreationDate": "2026-11-01T18:18:54.256653+01:00",
+      "KernelModeTime": 7812500,
+      "UserModeTime": 7343750
+    },
+    {
+      "Name": "DefenderSessionHelper.exe",
+      "ProcessId": 7116,
+      "CreationDate": "2026-11-01T18:18:54.733958+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "WmiPrvSE.exe",
+      "ProcessId": 6316,
+      "CreationDate": "2026-11-01T18:18:57.334709+01:00",
+      "KernelModeTime": 70468750,
+      "UserModeTime": 29375000
+    },
+    {
+      "Name": "nvcontainer.exe",
+      "ProcessId": 6328,
+      "CreationDate": "2026-11-01T18:18:57.336202+01:00",
+      "KernelModeTime": 19375000,
+      "UserModeTime": 61875000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 8680,
+      "CreationDate": "2026-11-01T18:19:00.353566+01:00",
+      "KernelModeTime": 342812500,
+      "UserModeTime": 111406250
+    },
+    {
+      "Name": "nvcontainer.exe",
+      "ProcessId": 8752,
+      "CreationDate": "2026-11-01T18:19:00.375761+01:00",
+      "KernelModeTime": 293437500,
+      "UserModeTime": 1194843750
+    },
+    {
+      "Name": "codex-windows-sandbox-service.exe",
+      "ProcessId": 8824,
+      "CreationDate": "2026-11-01T18:19:00.448828+01:00",
+      "KernelModeTime": 1250000,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 8988,
+      "CreationDate": "2026-11-01T18:19:00.48291+01:00",
+      "KernelModeTime": 1250000,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "sihost.exe",
+      "ProcessId": 6816,
+      "CreationDate": "2026-11-01T18:19:00.624454+01:00",
+      "KernelModeTime": 88281250,
+      "UserModeTime": 45468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 7032,
+      "CreationDate": "2026-11-01T18:19:00.644771+01:00",
+      "KernelModeTime": 11875000,
+      "UserModeTime": 10000000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 8596,
+      "CreationDate": "2026-11-01T18:19:00.715739+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 9212,
+      "CreationDate": "2026-11-01T18:19:00.761746+01:00",
+      "KernelModeTime": 10312500,
+      "UserModeTime": 9843750
+    },
+    {
+      "Name": "PresentationFontCache.exe",
+      "ProcessId": 9112,
+      "CreationDate": "2026-11-01T18:19:00.77646+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 2031250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4776,
+      "CreationDate": "2026-11-01T18:19:00.884146+01:00",
+      "KernelModeTime": 85625000,
+      "UserModeTime": 121406250
+    },
+    {
+      "Name": "taskhostw.exe",
+      "ProcessId": 8500,
+      "CreationDate": "2026-11-01T18:19:00.899679+01:00",
+      "KernelModeTime": 24843750,
+      "UserModeTime": 18906250
+    },
+    {
+      "Name": "SearchIndexer.exe",
+      "ProcessId": 8852,
+      "CreationDate": "2026-11-01T18:19:01.054386+01:00",
+      "KernelModeTime": 213281250,
+      "UserModeTime": 1259218750
+    },
+    {
+      "Name": "igfxEMN.exe",
+      "ProcessId": 4728,
+      "CreationDate": "2026-11-01T18:19:01.345743+01:00",
+      "KernelModeTime": 7500000,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "explorer.exe",
+      "ProcessId": 8864,
+      "CreationDate": "2026-11-01T18:19:01.929309+01:00",
+      "KernelModeTime": 441093750,
+      "UserModeTime": 350156250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 9284,
+      "CreationDate": "2026-11-01T18:19:02.343796+01:00",
+      "KernelModeTime": 8281250,
+      "UserModeTime": 9218750
+    },
+    {
+      "Name": "CrossDeviceResume.exe",
+      "ProcessId": 9444,
+      "CreationDate": "2026-11-01T18:19:02.653829+01:00",
+      "KernelModeTime": 9218750,
+      "UserModeTime": 5468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 9492,
+      "CreationDate": "2026-11-01T18:19:02.753242+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 9616,
+      "CreationDate": "2026-11-01T18:19:02.859749+01:00",
+      "KernelModeTime": 1875000,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "SearchHost.exe",
+      "ProcessId": 10228,
+      "CreationDate": "2026-11-01T18:19:03.779952+01:00",
+      "KernelModeTime": 52500000,
+      "UserModeTime": 50312500
+    },
+    {
+      "Name": "StartMenuExperienceHost.exe",
+      "ProcessId": 9548,
+      "CreationDate": "2026-11-01T18:19:03.792864+01:00",
+      "KernelModeTime": 63125000,
+      "UserModeTime": 143437500
+    },
+    {
+      "Name": "WidgetBoard.exe",
+      "ProcessId": 10108,
+      "CreationDate": "2026-11-01T18:19:04.095952+01:00",
+      "KernelModeTime": 6093750,
+      "UserModeTime": 2968750
+    },
+    {
+      "Name": "RuntimeBroker.exe",
+      "ProcessId": 10272,
+      "CreationDate": "2026-11-01T18:19:04.233596+01:00",
+      "KernelModeTime": 24375000,
+      "UserModeTime": 15781250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 10396,
+      "CreationDate": "2026-11-01T18:19:04.371418+01:00",
+      "KernelModeTime": 9218750,
+      "UserModeTime": 12656250
+    },
+    {
+      "Name": "CrossDeviceService.exe",
+      "ProcessId": 10496,
+      "CreationDate": "2026-11-01T18:19:04.558627+01:00",
+      "KernelModeTime": 22656250,
+      "UserModeTime": 45312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 11020,
+      "CreationDate": "2026-11-01T18:19:05.350388+01:00",
+      "KernelModeTime": 19375000,
+      "UserModeTime": 8593750
+    },
+    {
+      "Name": "WidgetService.exe",
+      "ProcessId": 11124,
+      "CreationDate": "2026-11-01T18:19:05.587885+01:00",
+      "KernelModeTime": 10000000,
+      "UserModeTime": 7656250
+    },
+    {
+      "Name": "DefenderAiPlatformHost.exe",
+      "ProcessId": 11240,
+      "CreationDate": "2026-11-01T18:19:06.145694+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "ShellExperienceHost.exe",
+      "ProcessId": 11684,
+      "CreationDate": "2026-11-01T18:19:07.570006+01:00",
+      "KernelModeTime": 8593750,
+      "UserModeTime": 8281250
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 11896,
+      "CreationDate": "2026-11-01T18:19:07.819773+01:00",
+      "KernelModeTime": 68281250,
+      "UserModeTime": 47500000
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 12164,
+      "CreationDate": "2026-11-01T18:19:08.204067+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 12176,
+      "CreationDate": "2026-11-01T18:19:08.237192+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 5540,
+      "CreationDate": "2026-11-01T18:19:09.312725+01:00",
+      "KernelModeTime": 23750000,
+      "UserModeTime": 12968750
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 7920,
+      "CreationDate": "2026-11-01T18:19:09.312764+01:00",
+      "KernelModeTime": 15312500,
+      "UserModeTime": 16718750
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 9676,
+      "CreationDate": "2026-11-01T18:19:09.675639+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 9652,
+      "CreationDate": "2026-11-01T18:19:09.986378+01:00",
+      "KernelModeTime": 27812500,
+      "UserModeTime": 54062500
+    },
+    {
+      "Name": "MicrosoftStartFeedProvider.exe",
+      "ProcessId": 12992,
+      "CreationDate": "2026-11-01T18:19:11.944384+01:00",
+      "KernelModeTime": 14375000,
+      "UserModeTime": 7656250
+    },
+    {
+      "Name": "ctfmon.exe",
+      "ProcessId": 13016,
+      "CreationDate": "2026-11-01T18:19:12.045549+01:00",
+      "KernelModeTime": 75468750,
+      "UserModeTime": 30312500
+    },
+    {
+      "Name": "TextInputHost.exe",
+      "ProcessId": 12708,
+      "CreationDate": "2026-11-01T18:19:13.804546+01:00",
+      "KernelModeTime": 34218750,
+      "UserModeTime": 30625000
+    },
+    {
+      "Name": "RuntimeBroker.exe",
+      "ProcessId": 13120,
+      "CreationDate": "2026-11-01T18:19:14.519413+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 14044,
+      "CreationDate": "2026-11-01T18:19:23.242494+01:00",
+      "KernelModeTime": 24843750,
+      "UserModeTime": 29531250
+    },
+    {
+      "Name": "NisSrv.exe",
+      "ProcessId": 4676,
+      "CreationDate": "2026-11-01T18:19:25.83935+01:00",
+      "KernelModeTime": 12187500,
+      "UserModeTime": 16093750
+    },
+    {
+      "Name": "QASvc.exe",
+      "ProcessId": 14792,
+      "CreationDate": "2026-11-01T18:19:31.462271+01:00",
+      "KernelModeTime": 177031250,
+      "UserModeTime": 1741718750
+    },
+    {
+      "Name": "QAAgent.exe",
+      "ProcessId": 14900,
+      "CreationDate": "2026-11-01T18:19:32.454719+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "QAAdminAgent.exe",
+      "ProcessId": 14984,
+      "CreationDate": "2026-11-01T18:19:33.469848+01:00",
+      "KernelModeTime": 273125000,
+      "UserModeTime": 67187500
+    },
+    {
+      "Name": "igfxextN.exe",
+      "ProcessId": 15020,
+      "CreationDate": "2026-11-01T18:19:33.58355+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "unsecapp.exe",
+      "ProcessId": 15068,
+      "CreationDate": "2026-11-01T18:19:33.64922+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5276,
+      "CreationDate": "2026-11-01T18:20:41.743892+01:00",
+      "KernelModeTime": 4218750,
+      "UserModeTime": 4843750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 13336,
+      "CreationDate": "2026-11-01T18:21:00.735795+01:00",
+      "KernelModeTime": 44062500,
+      "UserModeTime": 21875000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 14612,
+      "CreationDate": "2026-11-01T18:21:01.187437+01:00",
+      "KernelModeTime": 12031250,
+      "UserModeTime": 6250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 6060,
+      "CreationDate": "2026-11-01T18:21:01.743855+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 3750000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 15196,
+      "CreationDate": "2026-11-01T18:21:01.89572+01:00",
+      "KernelModeTime": 5468750,
+      "UserModeTime": 2500000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5292,
+      "CreationDate": "2026-11-01T18:21:02.226302+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 15096,
+      "CreationDate": "2026-11-01T18:21:02.387975+01:00",
+      "KernelModeTime": 32656250,
+      "UserModeTime": 97656250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4716,
+      "CreationDate": "2026-11-01T18:21:02.548654+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 2968750
+    },
+    {
+      "Name": "ePowerButton_NB.exe",
+      "ProcessId": 7896,
+      "CreationDate": "2026-11-01T18:22:01.397425+01:00",
+      "KernelModeTime": 5468750,
+      "UserModeTime": 4843750
+    },
+    {
+      "Name": "StorPSCTL.exe",
+      "ProcessId": 6624,
+      "CreationDate": "2026-11-01T18:22:01.39918+01:00",
+      "KernelModeTime": 9218750,
+      "UserModeTime": 5625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 10520,
+      "CreationDate": "2026-11-01T18:23:52.120589+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 1875000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 7408,
+      "CreationDate": "2026-11-01T18:25:06.562728+01:00",
+      "KernelModeTime": 3593750,
+      "UserModeTime": 4375000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 8264,
+      "CreationDate": "2026-11-01T18:25:06.970806+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "ApplicationFrameHost.exe",
+      "ProcessId": 12236,
+      "CreationDate": "2026-11-01T18:28:22.147759+01:00",
+      "KernelModeTime": 373906250,
+      "UserModeTime": 117500000
+    },
+    {
+      "Name": "SystemSettings.exe",
+      "ProcessId": 5980,
+      "CreationDate": "2026-11-01T18:28:22.148227+01:00",
+      "KernelModeTime": 25468750,
+      "UserModeTime": 45781250
+    },
+    {
+      "Name": "UserOOBEBroker.exe",
+      "ProcessId": 9640,
+      "CreationDate": "2026-11-01T18:28:23.602555+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5160,
+      "CreationDate": "2026-11-01T18:28:23.618034+01:00",
+      "KernelModeTime": 2031250,
+      "UserModeTime": 1875000
+    },
+    {
+      "Name": "AppActions.exe",
+      "ProcessId": 10260,
+      "CreationDate": "2026-11-01T18:29:02.374184+01:00",
+      "KernelModeTime": 3437500,
+      "UserModeTime": 10312500
+    },
+    {
+      "Name": "ShellHost.exe",
+      "ProcessId": 11912,
+      "CreationDate": "2026-11-01T18:35:40.698344+01:00",
+      "KernelModeTime": 25312500,
+      "UserModeTime": 19218750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 6432,
+      "CreationDate": "2026-11-01T18:49:09.205335+01:00",
+      "KernelModeTime": 15156250,
+      "UserModeTime": 37031250
+    },
+    {
+      "Name": "EdgeGameAssist.exe",
+      "ProcessId": 15108,
+      "CreationDate": "2026-11-01T20:07:28.405806+01:00",
+      "KernelModeTime": 13437500,
+      "UserModeTime": 14062500
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 9592,
+      "CreationDate": "2026-11-01T20:07:29.457291+01:00",
+      "KernelModeTime": 115468750,
+      "UserModeTime": 85156250
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 14056,
+      "CreationDate": "2026-11-01T20:07:30.463447+01:00",
+      "KernelModeTime": 4687500,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 2988,
+      "CreationDate": "2026-11-01T20:07:30.750248+01:00",
+      "KernelModeTime": 6562500,
+      "UserModeTime": 4375000
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 6008,
+      "CreationDate": "2026-11-01T20:07:30.750803+01:00",
+      "KernelModeTime": 54531250,
+      "UserModeTime": 33281250
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 12408,
+      "CreationDate": "2026-11-01T20:07:30.975297+01:00",
+      "KernelModeTime": 2187500,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 3620,
+      "CreationDate": "2026-11-01T20:07:31.376908+01:00",
+      "KernelModeTime": 8750000,
+      "UserModeTime": 14843750
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 10860,
+      "CreationDate": "2026-11-01T20:07:31.378037+01:00",
+      "KernelModeTime": 5937500,
+      "UserModeTime": 21562500
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 7036,
+      "CreationDate": "2026-11-01T20:07:31.411288+01:00",
+      "KernelModeTime": 2187500,
+      "UserModeTime": 1875000
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 12020,
+      "CreationDate": "2026-11-01T20:08:31.009902+01:00",
+      "KernelModeTime": 2656250,
+      "UserModeTime": 3437500
+    },
+    {
+      "Name": "RuntimeBroker.exe",
+      "ProcessId": 8188,
+      "CreationDate": "2026-11-01T20:08:31.21472+01:00",
+      "KernelModeTime": 5468750,
+      "UserModeTime": 3437500
+    },
+    {
+      "Name": "DismHost.exe",
+      "ProcessId": 7760,
+      "CreationDate": "2026-11-01T20:28:08.391787+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "SecurityHealthService.exe",
+      "ProcessId": 10168,
+      "CreationDate": "2026-11-01T20:43:19.848341+01:00",
+      "KernelModeTime": 1875000,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5868,
+      "CreationDate": "2026-11-01T20:44:09.944897+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 12748,
+      "CreationDate": "2026-11-01T21:09:51.901421+01:00",
+      "KernelModeTime": 1012968750,
+      "UserModeTime": 1827812500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 4272,
+      "CreationDate": "2026-11-01T21:09:52.211476+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 8936,
+      "CreationDate": "2026-11-01T21:09:52.250547+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 14708,
+      "CreationDate": "2026-11-01T21:09:53.576193+01:00",
+      "KernelModeTime": 311875000,
+      "UserModeTime": 337187500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 14136,
+      "CreationDate": "2026-11-01T21:09:53.628458+01:00",
+      "KernelModeTime": 97812500,
+      "UserModeTime": 79218750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 6764,
+      "CreationDate": "2026-11-01T21:09:53.846514+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 2968750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 11236,
+      "CreationDate": "2026-11-01T21:10:05.178204+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 11532,
+      "CreationDate": "2026-11-01T21:10:05.983296+01:00",
+      "KernelModeTime": 484062500,
+      "UserModeTime": 5104531250
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 9096,
+      "CreationDate": "2026-11-01T21:10:05.984417+01:00",
+      "KernelModeTime": 3125000,
+      "UserModeTime": 5156250
+    },
+    {
+      "Name": "codex.exe",
+      "ProcessId": 9408,
+      "CreationDate": "2026-11-01T21:10:07.377956+01:00",
+      "KernelModeTime": 759062500,
+      "UserModeTime": 727500000
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 11104,
+      "CreationDate": "2026-11-01T21:10:07.392134+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 5240,
+      "CreationDate": "2026-11-01T21:10:09.197917+01:00",
+      "KernelModeTime": 642031250,
+      "UserModeTime": 220000000
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 3052,
+      "CreationDate": "2026-11-01T21:10:12.765568+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 3284,
+      "CreationDate": "2026-11-01T21:10:17.718818+01:00",
+      "KernelModeTime": 26093750,
+      "UserModeTime": 78437500
+    },
+    {
+      "Name": "codex-computer-use-swift.exe",
+      "ProcessId": 12688,
+      "CreationDate": "2026-11-01T21:10:21.679217+01:00",
+      "KernelModeTime": 41718750,
+      "UserModeTime": 22812500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 4588,
+      "CreationDate": "2026-11-01T21:10:21.760323+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 10992,
+      "CreationDate": "2026-11-01T21:10:32.536857+01:00",
+      "KernelModeTime": 72968750,
+      "UserModeTime": 290468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 15424,
+      "CreationDate": "2026-11-01T21:10:34.31152+01:00",
+      "KernelModeTime": 4531250,
+      "UserModeTime": 5937500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 16280,
+      "CreationDate": "2026-11-01T21:10:41.331717+01:00",
+      "KernelModeTime": 111562500,
+      "UserModeTime": 191406250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 4764,
+      "CreationDate": "2026-11-01T21:11:03.739103+01:00",
+      "KernelModeTime": 5312500,
+      "UserModeTime": 23437500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15628,
+      "CreationDate": "2026-11-01T21:11:03.769857+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "codex.exe",
+      "ProcessId": 5792,
+      "CreationDate": "2026-11-01T21:11:08.849672+01:00",
+      "KernelModeTime": 26562500,
+      "UserModeTime": 11875000
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 12844,
+      "CreationDate": "2026-11-01T21:11:08.888551+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 15996,
+      "CreationDate": "2026-11-01T21:11:13.798606+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 16320,
+      "CreationDate": "2026-11-01T21:11:13.894675+01:00",
+      "KernelModeTime": 1250000,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 2952,
+      "CreationDate": "2026-11-01T22:03:09.078336+01:00",
+      "KernelModeTime": 3281250,
+      "UserModeTime": 781250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 7512,
+      "CreationDate": "2026-11-01T22:03:09.12542+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 7744,
+      "CreationDate": "2026-11-01T22:03:11.732765+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 13628,
+      "CreationDate": "2026-11-01T22:03:11.732769+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 14536,
+      "CreationDate": "2026-11-01T22:03:11.741476+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 9780,
+      "CreationDate": "2026-11-01T22:03:11.748081+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 6100,
+      "CreationDate": "2026-11-01T22:03:11.754765+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15736,
+      "CreationDate": "2026-11-01T22:03:11.75793+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 6532,
+      "CreationDate": "2026-11-01T22:03:11.769667+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 10604,
+      "CreationDate": "2026-11-01T22:03:11.770318+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 8780,
+      "CreationDate": "2026-11-01T22:03:11.772463+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 7232,
+      "CreationDate": "2026-11-01T22:03:11.779518+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 10188,
+      "CreationDate": "2026-11-01T22:03:11.782071+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 1548,
+      "CreationDate": "2026-11-01T22:03:11.875667+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 3680,
+      "CreationDate": "2026-11-01T22:03:11.935761+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 14224,
+      "CreationDate": "2026-11-01T22:03:12.256061+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 4687500
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 4788,
+      "CreationDate": "2026-11-01T22:03:12.7163+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 7500000
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 4672,
+      "CreationDate": "2026-11-01T22:03:13.23807+01:00",
+      "KernelModeTime": 48125000,
+      "UserModeTime": 48437500
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 6780,
+      "CreationDate": "2026-11-01T22:03:20.442647+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 8924,
+      "CreationDate": "2026-11-01T22:03:20.542108+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 13281250
+    },
+    {
+      "Name": "codex-code-mode-host.exe",
+      "ProcessId": 2900,
+      "CreationDate": "2026-11-01T22:04:28.135383+01:00",
+      "KernelModeTime": 6406250,
+      "UserModeTime": 11093750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15280,
+      "CreationDate": "2026-11-01T22:04:28.143086+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "OneDrive.Sync.Service.exe",
+      "ProcessId": 13744,
+      "CreationDate": "2026-11-01T22:32:25.373801+01:00",
+      "KernelModeTime": 50937500,
+      "UserModeTime": 55625000
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 8368,
+      "CreationDate": "2026-11-01T23:10:24.98753+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 10936,
+      "CreationDate": "2026-11-01T23:10:25.010979+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 14632,
+      "CreationDate": "2026-11-01T23:10:26.038799+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 2343750
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 7860,
+      "CreationDate": "2026-11-01T23:10:26.046819+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 14560,
+      "CreationDate": "2026-11-01T23:10:26.053097+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15824,
+      "CreationDate": "2026-11-01T23:10:26.056589+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 14212,
+      "CreationDate": "2026-11-01T23:10:26.056784+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 13812,
+      "CreationDate": "2026-11-01T23:10:26.078481+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 13808,
+      "CreationDate": "2026-11-01T23:10:26.079235+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 8948,
+      "CreationDate": "2026-11-01T23:10:26.089208+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 14460,
+      "CreationDate": "2026-11-01T23:10:26.103592+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 15452,
+      "CreationDate": "2026-11-01T23:10:26.123624+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 336,
+      "CreationDate": "2026-11-01T23:10:26.130066+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15184,
+      "CreationDate": "2026-11-01T23:10:26.155943+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 14276,
+      "CreationDate": "2026-11-01T23:10:26.377184+01:00",
+      "KernelModeTime": 2031250,
+      "UserModeTime": 4687500
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 12960,
+      "CreationDate": "2026-11-01T23:10:27.026207+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 1784,
+      "CreationDate": "2026-11-01T23:10:27.132569+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 7500000
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 13716,
+      "CreationDate": "2026-11-01T23:10:27.791429+01:00",
+      "KernelModeTime": 54375000,
+      "UserModeTime": 62500000
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 8904,
+      "CreationDate": "2026-11-01T23:10:46.720105+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 16352,
+      "CreationDate": "2026-11-01T23:10:46.99444+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 17656250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 15832,
+      "CreationDate": "2026-11-01T23:48:24.632677+01:00",
+      "KernelModeTime": 5156250,
+      "UserModeTime": 3437500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 16652,
+      "CreationDate": "2026-11-01T23:55:22.264578+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 2656250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 11212,
+      "CreationDate": "2026-11-01T23:55:22.59582+01:00",
+      "KernelModeTime": 16093750,
+      "UserModeTime": 24843750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1804,
+      "CreationDate": "2026-11-01T23:57:09.411348+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 3808,
+      "CreationDate": "2026-11-02T00:02:30.633696+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 7964,
+      "CreationDate": "2026-11-02T00:02:30.639965+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 14584,
+      "CreationDate": "2026-11-02T00:02:30.644133+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 14544,
+      "CreationDate": "2026-11-02T00:02:30.646919+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 7024,
+      "CreationDate": "2026-11-02T00:02:30.651296+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 17044,
+      "CreationDate": "2026-11-02T00:02:30.652927+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 12868,
+      "CreationDate": "2026-11-02T00:02:30.658292+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 4900,
+      "CreationDate": "2026-11-02T00:02:30.660759+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 10832,
+      "CreationDate": "2026-11-02T00:02:30.665656+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 16588,
+      "CreationDate": "2026-11-02T00:02:30.665951+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 6288,
+      "CreationDate": "2026-11-02T00:02:30.677152+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 13652,
+      "CreationDate": "2026-11-02T00:02:30.69491+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 4796,
+      "CreationDate": "2026-11-02T00:02:30.853968+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 5000000
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 2652,
+      "CreationDate": "2026-11-02T00:02:30.908396+01:00",
+      "KernelModeTime": 3281250,
+      "UserModeTime": 6093750
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 15760,
+      "CreationDate": "2026-11-02T00:02:31.018224+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 11424,
+      "CreationDate": "2026-11-02T00:02:31.391707+01:00",
+      "KernelModeTime": 35312500,
+      "UserModeTime": 45156250
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 17276,
+      "CreationDate": "2026-11-02T00:02:37.104902+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 10008,
+      "CreationDate": "2026-11-02T00:02:37.194566+01:00",
+      "KernelModeTime": 1250000,
+      "UserModeTime": 8437500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 17140,
+      "CreationDate": "2026-11-02T00:04:31.218144+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "pwsh.exe",
+      "ProcessId": 9224,
+      "CreationDate": "2026-11-02T00:05:20.130767+01:00",
+      "KernelModeTime": 2187500,
+      "UserModeTime": 5312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 2128,
+      "CreationDate": "2026-11-02T00:05:20.157953+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "WmiPrvSE.exe",
+      "ProcessId": 17204,
+      "CreationDate": "2026-11-02T00:05:20.672248+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 312500
+    }
+  ],
+  "after": [
+    {
+      "Name": "System Idle Process",
+      "ProcessId": 0,
+      "CreationDate": "2026-11-01T18:18:45.155875+01:00",
+      "KernelModeTime": 1356173281250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "System",
+      "ProcessId": 4,
+      "CreationDate": "2026-11-01T18:18:45.155875+01:00",
+      "KernelModeTime": 18916718750,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "Secure System",
+      "ProcessId": 140,
+      "CreationDate": "2026-11-01T18:18:31.533781+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "Registry",
+      "ProcessId": 184,
+      "CreationDate": "2026-11-01T18:18:31.541061+01:00",
+      "KernelModeTime": 20781250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "smss.exe",
+      "ProcessId": 652,
+      "CreationDate": "2026-11-01T18:18:45.17337+01:00",
+      "KernelModeTime": 3906250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "csrss.exe",
+      "ProcessId": 944,
+      "CreationDate": "2026-11-01T18:18:48.667412+01:00",
+      "KernelModeTime": 40937500,
+      "UserModeTime": 10625000
+    },
+    {
+      "Name": "wininit.exe",
+      "ProcessId": 636,
+      "CreationDate": "2026-11-01T18:18:50.442465+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "csrss.exe",
+      "ProcessId": 620,
+      "CreationDate": "2026-11-01T18:18:50.444706+01:00",
+      "KernelModeTime": 245000000,
+      "UserModeTime": 30312500
+    },
+    {
+      "Name": "winlogon.exe",
+      "ProcessId": 1056,
+      "CreationDate": "2026-11-01T18:18:50.75575+01:00",
+      "KernelModeTime": 5781250,
+      "UserModeTime": 5156250
+    },
+    {
+      "Name": "services.exe",
+      "ProcessId": 1080,
+      "CreationDate": "2026-11-01T18:18:50.802007+01:00",
+      "KernelModeTime": 138281250,
+      "UserModeTime": 82968750
+    },
+    {
+      "Name": "LsaIso.exe",
+      "ProcessId": 1124,
+      "CreationDate": "2026-11-01T18:18:50.875836+01:00",
+      "KernelModeTime": 5312500,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "lsass.exe",
+      "ProcessId": 1132,
+      "CreationDate": "2026-11-01T18:18:50.882153+01:00",
+      "KernelModeTime": 137500000,
+      "UserModeTime": 133906250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1284,
+      "CreationDate": "2026-11-01T18:18:51.383169+01:00",
+      "KernelModeTime": 104062500,
+      "UserModeTime": 69687500
+    },
+    {
+      "Name": "fontdrvhost.exe",
+      "ProcessId": 1316,
+      "CreationDate": "2026-11-01T18:18:51.411317+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "fontdrvhost.exe",
+      "ProcessId": 1324,
+      "CreationDate": "2026-11-01T18:18:51.41136+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 1562500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1424,
+      "CreationDate": "2026-11-01T18:18:51.539331+01:00",
+      "KernelModeTime": 233281250,
+      "UserModeTime": 275937500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1468,
+      "CreationDate": "2026-11-01T18:18:51.569802+01:00",
+      "KernelModeTime": 21562500,
+      "UserModeTime": 13281250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1568,
+      "CreationDate": "2026-11-01T18:18:51.71345+01:00",
+      "KernelModeTime": 2031250,
+      "UserModeTime": 11093750
+    },
+    {
+      "Name": "dwm.exe",
+      "ProcessId": 1624,
+      "CreationDate": "2026-11-01T18:18:51.716319+01:00",
+      "KernelModeTime": 3757656250,
+      "UserModeTime": 4875468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1748,
+      "CreationDate": "2026-11-01T18:18:51.742739+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 2343750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1824,
+      "CreationDate": "2026-11-01T18:18:51.777354+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "IntelCpHDCPSvc.exe",
+      "ProcessId": 1836,
+      "CreationDate": "2026-11-01T18:18:51.777967+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1872,
+      "CreationDate": "2026-11-01T18:18:51.78469+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1924,
+      "CreationDate": "2026-11-01T18:18:51.791998+01:00",
+      "KernelModeTime": 7656250,
+      "UserModeTime": 6406250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1932,
+      "CreationDate": "2026-11-01T18:18:51.792014+01:00",
+      "KernelModeTime": 6406250,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1940,
+      "CreationDate": "2026-11-01T18:18:51.792048+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 2031250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1948,
+      "CreationDate": "2026-11-01T18:18:51.79225+01:00",
+      "KernelModeTime": 4843750,
+      "UserModeTime": 4375000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1956,
+      "CreationDate": "2026-11-01T18:18:51.792401+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1976,
+      "CreationDate": "2026-11-01T18:18:51.793982+01:00",
+      "KernelModeTime": 6718750,
+      "UserModeTime": 7031250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1412,
+      "CreationDate": "2026-11-01T18:18:51.813419+01:00",
+      "KernelModeTime": 29687500,
+      "UserModeTime": 15937500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2120,
+      "CreationDate": "2026-11-01T18:18:51.823648+01:00",
+      "KernelModeTime": 2343750,
+      "UserModeTime": 2187500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2132,
+      "CreationDate": "2026-11-01T18:18:51.824457+01:00",
+      "KernelModeTime": 60625000,
+      "UserModeTime": 60468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2256,
+      "CreationDate": "2026-11-01T18:18:51.850206+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2360,
+      "CreationDate": "2026-11-01T18:18:51.876372+01:00",
+      "KernelModeTime": 27812500,
+      "UserModeTime": 18750000
+    },
+    {
+      "Name": "igfxCUIServiceN.exe",
+      "ProcessId": 2400,
+      "CreationDate": "2026-11-01T18:18:51.887463+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2632,
+      "CreationDate": "2026-11-01T18:18:51.953169+01:00",
+      "KernelModeTime": 4531250,
+      "UserModeTime": 3437500
+    },
+    {
+      "Name": "NVDisplay.Container.exe",
+      "ProcessId": 2644,
+      "CreationDate": "2026-11-01T18:18:51.954357+01:00",
+      "KernelModeTime": 46093750,
+      "UserModeTime": 99218750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2824,
+      "CreationDate": "2026-11-01T18:18:51.993711+01:00",
+      "KernelModeTime": 307031250,
+      "UserModeTime": 90000000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2844,
+      "CreationDate": "2026-11-01T18:18:51.998823+01:00",
+      "KernelModeTime": 3906250,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2964,
+      "CreationDate": "2026-11-01T18:18:52.034542+01:00",
+      "KernelModeTime": 29843750,
+      "UserModeTime": 14843750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3028,
+      "CreationDate": "2026-11-01T18:18:52.061608+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3036,
+      "CreationDate": "2026-11-01T18:18:52.062042+01:00",
+      "KernelModeTime": 808437500,
+      "UserModeTime": 131875000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3044,
+      "CreationDate": "2026-11-01T18:18:52.062097+01:00",
+      "KernelModeTime": 13906250,
+      "UserModeTime": 7656250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 2892,
+      "CreationDate": "2026-11-01T18:18:52.105489+01:00",
+      "KernelModeTime": 17812500,
+      "UserModeTime": 5312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3076,
+      "CreationDate": "2026-11-01T18:18:52.108621+01:00",
+      "KernelModeTime": 4062500,
+      "UserModeTime": 11562500
+    },
+    {
+      "Name": "Memory Compression",
+      "ProcessId": 3092,
+      "CreationDate": "2026-11-01T18:18:52.113284+01:00",
+      "KernelModeTime": 1225937500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3216,
+      "CreationDate": "2026-11-01T18:18:52.170928+01:00",
+      "KernelModeTime": 13437500,
+      "UserModeTime": 12812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3248,
+      "CreationDate": "2026-11-01T18:18:52.209646+01:00",
+      "KernelModeTime": 38906250,
+      "UserModeTime": 29531250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3308,
+      "CreationDate": "2026-11-01T18:18:52.270062+01:00",
+      "KernelModeTime": 1875000,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "dasHost.exe",
+      "ProcessId": 3316,
+      "CreationDate": "2026-11-01T18:18:52.28291+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3528,
+      "CreationDate": "2026-11-01T18:18:52.411198+01:00",
+      "KernelModeTime": 24531250,
+      "UserModeTime": 18125000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3536,
+      "CreationDate": "2026-11-01T18:18:52.413822+01:00",
+      "KernelModeTime": 4375000,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3552,
+      "CreationDate": "2026-11-01T18:18:52.422004+01:00",
+      "KernelModeTime": 10468750,
+      "UserModeTime": 15156250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3668,
+      "CreationDate": "2026-11-01T18:18:52.493838+01:00",
+      "KernelModeTime": 206406250,
+      "UserModeTime": 420468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3740,
+      "CreationDate": "2026-11-01T18:18:52.538349+01:00",
+      "KernelModeTime": 13906250,
+      "UserModeTime": 8437500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3832,
+      "CreationDate": "2026-11-01T18:18:52.605527+01:00",
+      "KernelModeTime": 5468750,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4012,
+      "CreationDate": "2026-11-01T18:18:52.743981+01:00",
+      "KernelModeTime": 12968750,
+      "UserModeTime": 11250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4036,
+      "CreationDate": "2026-11-01T18:18:52.757157+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 781250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3272,
+      "CreationDate": "2026-11-01T18:18:52.796261+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4004,
+      "CreationDate": "2026-11-01T18:18:52.808201+01:00",
+      "KernelModeTime": 9375000,
+      "UserModeTime": 5000000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4232,
+      "CreationDate": "2026-11-01T18:18:52.880455+01:00",
+      "KernelModeTime": 3906250,
+      "UserModeTime": 3593750
+    },
+    {
+      "Name": "spoolsv.exe",
+      "ProcessId": 4244,
+      "CreationDate": "2026-11-01T18:18:52.88207+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4348,
+      "CreationDate": "2026-11-01T18:18:52.945807+01:00",
+      "KernelModeTime": 27500000,
+      "UserModeTime": 23437500
+    },
+    {
+      "Name": "NVDisplay.Container.exe",
+      "ProcessId": 4376,
+      "CreationDate": "2026-11-01T18:18:52.952898+01:00",
+      "KernelModeTime": 245000000,
+      "UserModeTime": 166718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4408,
+      "CreationDate": "2026-11-01T18:18:52.997033+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4632,
+      "CreationDate": "2026-11-01T18:18:53.234423+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "AdminService.exe",
+      "ProcessId": 4652,
+      "CreationDate": "2026-11-01T18:18:53.238605+01:00",
+      "KernelModeTime": 15625000,
+      "UserModeTime": 15625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4660,
+      "CreationDate": "2026-11-01T18:18:53.243572+01:00",
+      "KernelModeTime": 8125000,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4684,
+      "CreationDate": "2026-11-01T18:18:53.246132+01:00",
+      "KernelModeTime": 3097968750,
+      "UserModeTime": 3232187500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4692,
+      "CreationDate": "2026-11-01T18:18:53.246572+01:00",
+      "KernelModeTime": 2343750,
+      "UserModeTime": 2187500
+    },
+    {
+      "Name": "OneApp.IGCC.WinService.exe",
+      "ProcessId": 4700,
+      "CreationDate": "2026-11-01T18:18:53.246838+01:00",
+      "KernelModeTime": 3906250,
+      "UserModeTime": 4687500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4708,
+      "CreationDate": "2026-11-01T18:18:53.248531+01:00",
+      "KernelModeTime": 127812500,
+      "UserModeTime": 143125000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4720,
+      "CreationDate": "2026-11-01T18:18:53.255348+01:00",
+      "KernelModeTime": 52343750,
+      "UserModeTime": 71562500
+    },
+    {
+      "Name": "vmcompute.exe",
+      "ProcessId": 4732,
+      "CreationDate": "2026-11-01T18:18:53.260103+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 781250
+    },
+    {
+      "Name": "OfficeClickToRun.exe",
+      "ProcessId": 4740,
+      "CreationDate": "2026-11-01T18:18:53.263995+01:00",
+      "KernelModeTime": 29375000,
+      "UserModeTime": 19062500
+    },
+    {
+      "Name": "MpDefenderCoreService.exe",
+      "ProcessId": 4848,
+      "CreationDate": "2026-11-01T18:18:53.324276+01:00",
+      "KernelModeTime": 16875000,
+      "UserModeTime": 8906250
+    },
+    {
+      "Name": "LMS.exe",
+      "ProcessId": 4912,
+      "CreationDate": "2026-11-01T18:18:53.367579+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "nvcontainer.exe",
+      "ProcessId": 4948,
+      "CreationDate": "2026-11-01T18:18:53.382335+01:00",
+      "KernelModeTime": 13437500,
+      "UserModeTime": 15468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4984,
+      "CreationDate": "2026-11-01T18:18:53.401882+01:00",
+      "KernelModeTime": 3281250,
+      "UserModeTime": 2187500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4992,
+      "CreationDate": "2026-11-01T18:18:53.404774+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "QcomWlanSrvx64.exe",
+      "ProcessId": 5040,
+      "CreationDate": "2026-11-01T18:18:53.41386+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "RtkAudUService64.exe",
+      "ProcessId": 5060,
+      "CreationDate": "2026-11-01T18:18:53.419588+01:00",
+      "KernelModeTime": 2656250,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "RstMwService.exe",
+      "ProcessId": 5080,
+      "CreationDate": "2026-11-01T18:18:53.434259+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5100,
+      "CreationDate": "2026-11-01T18:18:53.453296+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1556,
+      "CreationDate": "2026-11-01T18:18:53.468864+01:00",
+      "KernelModeTime": 70625000,
+      "UserModeTime": 83281250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4340,
+      "CreationDate": "2026-11-01T18:18:53.470495+01:00",
+      "KernelModeTime": 7812500,
+      "UserModeTime": 5781250
+    },
+    {
+      "Name": "MsMpEng.exe",
+      "ProcessId": 5164,
+      "CreationDate": "2026-11-01T18:18:53.487855+01:00",
+      "KernelModeTime": 2741250000,
+      "UserModeTime": 10515312500
+    },
+    {
+      "Name": "wslservice.exe",
+      "ProcessId": 5316,
+      "CreationDate": "2026-11-01T18:18:53.54669+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "jhi_service.exe",
+      "ProcessId": 5384,
+      "CreationDate": "2026-11-01T18:18:53.595883+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5392,
+      "CreationDate": "2026-11-01T18:18:53.597625+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5852,
+      "CreationDate": "2026-11-01T18:18:53.842204+01:00",
+      "KernelModeTime": 4062500,
+      "UserModeTime": 7031250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5900,
+      "CreationDate": "2026-11-01T18:18:53.909164+01:00",
+      "KernelModeTime": 2343750,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5972,
+      "CreationDate": "2026-11-01T18:18:53.936318+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "AggregatorHost.exe",
+      "ProcessId": 6488,
+      "CreationDate": "2026-11-01T18:18:54.256653+01:00",
+      "KernelModeTime": 7812500,
+      "UserModeTime": 7343750
+    },
+    {
+      "Name": "DefenderSessionHelper.exe",
+      "ProcessId": 7116,
+      "CreationDate": "2026-11-01T18:18:54.733958+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "WmiPrvSE.exe",
+      "ProcessId": 6316,
+      "CreationDate": "2026-11-01T18:18:57.334709+01:00",
+      "KernelModeTime": 70468750,
+      "UserModeTime": 29375000
+    },
+    {
+      "Name": "nvcontainer.exe",
+      "ProcessId": 6328,
+      "CreationDate": "2026-11-01T18:18:57.336202+01:00",
+      "KernelModeTime": 19375000,
+      "UserModeTime": 61875000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 8680,
+      "CreationDate": "2026-11-01T18:19:00.353566+01:00",
+      "KernelModeTime": 342812500,
+      "UserModeTime": 111406250
+    },
+    {
+      "Name": "nvcontainer.exe",
+      "ProcessId": 8752,
+      "CreationDate": "2026-11-01T18:19:00.375761+01:00",
+      "KernelModeTime": 293437500,
+      "UserModeTime": 1194843750
+    },
+    {
+      "Name": "codex-windows-sandbox-service.exe",
+      "ProcessId": 8824,
+      "CreationDate": "2026-11-01T18:19:00.448828+01:00",
+      "KernelModeTime": 1250000,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 8988,
+      "CreationDate": "2026-11-01T18:19:00.48291+01:00",
+      "KernelModeTime": 1250000,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "sihost.exe",
+      "ProcessId": 6816,
+      "CreationDate": "2026-11-01T18:19:00.624454+01:00",
+      "KernelModeTime": 88281250,
+      "UserModeTime": 45468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 7032,
+      "CreationDate": "2026-11-01T18:19:00.644771+01:00",
+      "KernelModeTime": 11875000,
+      "UserModeTime": 10000000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 8596,
+      "CreationDate": "2026-11-01T18:19:00.715739+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 9212,
+      "CreationDate": "2026-11-01T18:19:00.761746+01:00",
+      "KernelModeTime": 10312500,
+      "UserModeTime": 9843750
+    },
+    {
+      "Name": "PresentationFontCache.exe",
+      "ProcessId": 9112,
+      "CreationDate": "2026-11-01T18:19:00.77646+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 2031250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4776,
+      "CreationDate": "2026-11-01T18:19:00.884146+01:00",
+      "KernelModeTime": 85625000,
+      "UserModeTime": 121406250
+    },
+    {
+      "Name": "taskhostw.exe",
+      "ProcessId": 8500,
+      "CreationDate": "2026-11-01T18:19:00.899679+01:00",
+      "KernelModeTime": 24843750,
+      "UserModeTime": 18906250
+    },
+    {
+      "Name": "SearchIndexer.exe",
+      "ProcessId": 8852,
+      "CreationDate": "2026-11-01T18:19:01.054386+01:00",
+      "KernelModeTime": 213281250,
+      "UserModeTime": 1259375000
+    },
+    {
+      "Name": "igfxEMN.exe",
+      "ProcessId": 4728,
+      "CreationDate": "2026-11-01T18:19:01.345743+01:00",
+      "KernelModeTime": 7500000,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "explorer.exe",
+      "ProcessId": 8864,
+      "CreationDate": "2026-11-01T18:19:01.929309+01:00",
+      "KernelModeTime": 441093750,
+      "UserModeTime": 350312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 9284,
+      "CreationDate": "2026-11-01T18:19:02.343796+01:00",
+      "KernelModeTime": 8281250,
+      "UserModeTime": 9218750
+    },
+    {
+      "Name": "CrossDeviceResume.exe",
+      "ProcessId": 9444,
+      "CreationDate": "2026-11-01T18:19:02.653829+01:00",
+      "KernelModeTime": 9218750,
+      "UserModeTime": 5468750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 9492,
+      "CreationDate": "2026-11-01T18:19:02.753242+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 9616,
+      "CreationDate": "2026-11-01T18:19:02.859749+01:00",
+      "KernelModeTime": 1875000,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "SearchHost.exe",
+      "ProcessId": 10228,
+      "CreationDate": "2026-11-01T18:19:03.779952+01:00",
+      "KernelModeTime": 52500000,
+      "UserModeTime": 50312500
+    },
+    {
+      "Name": "StartMenuExperienceHost.exe",
+      "ProcessId": 9548,
+      "CreationDate": "2026-11-01T18:19:03.792864+01:00",
+      "KernelModeTime": 63125000,
+      "UserModeTime": 143437500
+    },
+    {
+      "Name": "WidgetBoard.exe",
+      "ProcessId": 10108,
+      "CreationDate": "2026-11-01T18:19:04.095952+01:00",
+      "KernelModeTime": 6093750,
+      "UserModeTime": 2968750
+    },
+    {
+      "Name": "RuntimeBroker.exe",
+      "ProcessId": 10272,
+      "CreationDate": "2026-11-01T18:19:04.233596+01:00",
+      "KernelModeTime": 24375000,
+      "UserModeTime": 15781250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 10396,
+      "CreationDate": "2026-11-01T18:19:04.371418+01:00",
+      "KernelModeTime": 9218750,
+      "UserModeTime": 12656250
+    },
+    {
+      "Name": "CrossDeviceService.exe",
+      "ProcessId": 10496,
+      "CreationDate": "2026-11-01T18:19:04.558627+01:00",
+      "KernelModeTime": 22656250,
+      "UserModeTime": 45312500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 11020,
+      "CreationDate": "2026-11-01T18:19:05.350388+01:00",
+      "KernelModeTime": 19375000,
+      "UserModeTime": 8593750
+    },
+    {
+      "Name": "WidgetService.exe",
+      "ProcessId": 11124,
+      "CreationDate": "2026-11-01T18:19:05.587885+01:00",
+      "KernelModeTime": 10000000,
+      "UserModeTime": 7656250
+    },
+    {
+      "Name": "DefenderAiPlatformHost.exe",
+      "ProcessId": 11240,
+      "CreationDate": "2026-11-01T18:19:06.145694+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "ShellExperienceHost.exe",
+      "ProcessId": 11684,
+      "CreationDate": "2026-11-01T18:19:07.570006+01:00",
+      "KernelModeTime": 8593750,
+      "UserModeTime": 8281250
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 11896,
+      "CreationDate": "2026-11-01T18:19:07.819773+01:00",
+      "KernelModeTime": 68281250,
+      "UserModeTime": 47656250
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 12164,
+      "CreationDate": "2026-11-01T18:19:08.204067+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 12176,
+      "CreationDate": "2026-11-01T18:19:08.237192+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 5540,
+      "CreationDate": "2026-11-01T18:19:09.312725+01:00",
+      "KernelModeTime": 23750000,
+      "UserModeTime": 12968750
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 7920,
+      "CreationDate": "2026-11-01T18:19:09.312764+01:00",
+      "KernelModeTime": 15312500,
+      "UserModeTime": 16718750
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 9676,
+      "CreationDate": "2026-11-01T18:19:09.675639+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "msedgewebview2.exe",
+      "ProcessId": 9652,
+      "CreationDate": "2026-11-01T18:19:09.986378+01:00",
+      "KernelModeTime": 27812500,
+      "UserModeTime": 54062500
+    },
+    {
+      "Name": "MicrosoftStartFeedProvider.exe",
+      "ProcessId": 12992,
+      "CreationDate": "2026-11-01T18:19:11.944384+01:00",
+      "KernelModeTime": 14375000,
+      "UserModeTime": 7656250
+    },
+    {
+      "Name": "ctfmon.exe",
+      "ProcessId": 13016,
+      "CreationDate": "2026-11-01T18:19:12.045549+01:00",
+      "KernelModeTime": 75781250,
+      "UserModeTime": 30468750
+    },
+    {
+      "Name": "TextInputHost.exe",
+      "ProcessId": 12708,
+      "CreationDate": "2026-11-01T18:19:13.804546+01:00",
+      "KernelModeTime": 34218750,
+      "UserModeTime": 30937500
+    },
+    {
+      "Name": "RuntimeBroker.exe",
+      "ProcessId": 13120,
+      "CreationDate": "2026-11-01T18:19:14.519413+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 14044,
+      "CreationDate": "2026-11-01T18:19:23.242494+01:00",
+      "KernelModeTime": 25000000,
+      "UserModeTime": 29531250
+    },
+    {
+      "Name": "NisSrv.exe",
+      "ProcessId": 4676,
+      "CreationDate": "2026-11-01T18:19:25.83935+01:00",
+      "KernelModeTime": 12187500,
+      "UserModeTime": 16406250
+    },
+    {
+      "Name": "QASvc.exe",
+      "ProcessId": 14792,
+      "CreationDate": "2026-11-01T18:19:31.462271+01:00",
+      "KernelModeTime": 177031250,
+      "UserModeTime": 1742031250
+    },
+    {
+      "Name": "QAAgent.exe",
+      "ProcessId": 14900,
+      "CreationDate": "2026-11-01T18:19:32.454719+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "QAAdminAgent.exe",
+      "ProcessId": 14984,
+      "CreationDate": "2026-11-01T18:19:33.469848+01:00",
+      "KernelModeTime": 273125000,
+      "UserModeTime": 67187500
+    },
+    {
+      "Name": "igfxextN.exe",
+      "ProcessId": 15020,
+      "CreationDate": "2026-11-01T18:19:33.58355+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "unsecapp.exe",
+      "ProcessId": 15068,
+      "CreationDate": "2026-11-01T18:19:33.64922+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5276,
+      "CreationDate": "2026-11-01T18:20:41.743892+01:00",
+      "KernelModeTime": 4218750,
+      "UserModeTime": 4843750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 13336,
+      "CreationDate": "2026-11-01T18:21:00.735795+01:00",
+      "KernelModeTime": 44218750,
+      "UserModeTime": 21875000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 14612,
+      "CreationDate": "2026-11-01T18:21:01.187437+01:00",
+      "KernelModeTime": 12031250,
+      "UserModeTime": 6250000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 6060,
+      "CreationDate": "2026-11-01T18:21:01.743855+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 3750000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 15196,
+      "CreationDate": "2026-11-01T18:21:01.89572+01:00",
+      "KernelModeTime": 5468750,
+      "UserModeTime": 2500000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5292,
+      "CreationDate": "2026-11-01T18:21:02.226302+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 15096,
+      "CreationDate": "2026-11-01T18:21:02.387975+01:00",
+      "KernelModeTime": 32656250,
+      "UserModeTime": 98281250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 4716,
+      "CreationDate": "2026-11-01T18:21:02.548654+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 2968750
+    },
+    {
+      "Name": "ePowerButton_NB.exe",
+      "ProcessId": 7896,
+      "CreationDate": "2026-11-01T18:22:01.397425+01:00",
+      "KernelModeTime": 5468750,
+      "UserModeTime": 4843750
+    },
+    {
+      "Name": "StorPSCTL.exe",
+      "ProcessId": 6624,
+      "CreationDate": "2026-11-01T18:22:01.39918+01:00",
+      "KernelModeTime": 9218750,
+      "UserModeTime": 5625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 10520,
+      "CreationDate": "2026-11-01T18:23:52.120589+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 1875000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 7408,
+      "CreationDate": "2026-11-01T18:25:06.562728+01:00",
+      "KernelModeTime": 3593750,
+      "UserModeTime": 4375000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 8264,
+      "CreationDate": "2026-11-01T18:25:06.970806+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "ApplicationFrameHost.exe",
+      "ProcessId": 12236,
+      "CreationDate": "2026-11-01T18:28:22.147759+01:00",
+      "KernelModeTime": 373906250,
+      "UserModeTime": 117500000
+    },
+    {
+      "Name": "SystemSettings.exe",
+      "ProcessId": 5980,
+      "CreationDate": "2026-11-01T18:28:22.148227+01:00",
+      "KernelModeTime": 25468750,
+      "UserModeTime": 45781250
+    },
+    {
+      "Name": "UserOOBEBroker.exe",
+      "ProcessId": 9640,
+      "CreationDate": "2026-11-01T18:28:23.602555+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5160,
+      "CreationDate": "2026-11-01T18:28:23.618034+01:00",
+      "KernelModeTime": 2031250,
+      "UserModeTime": 1875000
+    },
+    {
+      "Name": "AppActions.exe",
+      "ProcessId": 10260,
+      "CreationDate": "2026-11-01T18:29:02.374184+01:00",
+      "KernelModeTime": 3437500,
+      "UserModeTime": 10312500
+    },
+    {
+      "Name": "ShellHost.exe",
+      "ProcessId": 11912,
+      "CreationDate": "2026-11-01T18:35:40.698344+01:00",
+      "KernelModeTime": 25312500,
+      "UserModeTime": 19218750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 6432,
+      "CreationDate": "2026-11-01T18:49:09.205335+01:00",
+      "KernelModeTime": 15156250,
+      "UserModeTime": 37031250
+    },
+    {
+      "Name": "EdgeGameAssist.exe",
+      "ProcessId": 15108,
+      "CreationDate": "2026-11-01T20:07:28.405806+01:00",
+      "KernelModeTime": 13437500,
+      "UserModeTime": 14062500
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 9592,
+      "CreationDate": "2026-11-01T20:07:29.457291+01:00",
+      "KernelModeTime": 115468750,
+      "UserModeTime": 85312500
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 14056,
+      "CreationDate": "2026-11-01T20:07:30.463447+01:00",
+      "KernelModeTime": 4687500,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 2988,
+      "CreationDate": "2026-11-01T20:07:30.750248+01:00",
+      "KernelModeTime": 6562500,
+      "UserModeTime": 4375000
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 6008,
+      "CreationDate": "2026-11-01T20:07:30.750803+01:00",
+      "KernelModeTime": 54531250,
+      "UserModeTime": 33281250
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 12408,
+      "CreationDate": "2026-11-01T20:07:30.975297+01:00",
+      "KernelModeTime": 2187500,
+      "UserModeTime": 1718750
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 3620,
+      "CreationDate": "2026-11-01T20:07:31.376908+01:00",
+      "KernelModeTime": 8750000,
+      "UserModeTime": 14843750
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 10860,
+      "CreationDate": "2026-11-01T20:07:31.378037+01:00",
+      "KernelModeTime": 5937500,
+      "UserModeTime": 21562500
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 7036,
+      "CreationDate": "2026-11-01T20:07:31.411288+01:00",
+      "KernelModeTime": 2187500,
+      "UserModeTime": 1875000
+    },
+    {
+      "Name": "msedge.exe",
+      "ProcessId": 12020,
+      "CreationDate": "2026-11-01T20:08:31.009902+01:00",
+      "KernelModeTime": 2656250,
+      "UserModeTime": 3437500
+    },
+    {
+      "Name": "RuntimeBroker.exe",
+      "ProcessId": 8188,
+      "CreationDate": "2026-11-01T20:08:31.21472+01:00",
+      "KernelModeTime": 5468750,
+      "UserModeTime": 3437500
+    },
+    {
+      "Name": "DismHost.exe",
+      "ProcessId": 7760,
+      "CreationDate": "2026-11-01T20:28:08.391787+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "SecurityHealthService.exe",
+      "ProcessId": 10168,
+      "CreationDate": "2026-11-01T20:43:19.848341+01:00",
+      "KernelModeTime": 1875000,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 5868,
+      "CreationDate": "2026-11-01T20:44:09.944897+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 12748,
+      "CreationDate": "2026-11-01T21:09:51.901421+01:00",
+      "KernelModeTime": 1015468750,
+      "UserModeTime": 1833906250
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 4272,
+      "CreationDate": "2026-11-01T21:09:52.211476+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 8936,
+      "CreationDate": "2026-11-01T21:09:52.250547+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 625000
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 14708,
+      "CreationDate": "2026-11-01T21:09:53.576193+01:00",
+      "KernelModeTime": 312031250,
+      "UserModeTime": 337187500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 14136,
+      "CreationDate": "2026-11-01T21:09:53.628458+01:00",
+      "KernelModeTime": 98437500,
+      "UserModeTime": 79218750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 6764,
+      "CreationDate": "2026-11-01T21:09:53.846514+01:00",
+      "KernelModeTime": 2500000,
+      "UserModeTime": 2968750
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 11236,
+      "CreationDate": "2026-11-01T21:10:05.178204+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 11532,
+      "CreationDate": "2026-11-01T21:10:05.983296+01:00",
+      "KernelModeTime": 484531250,
+      "UserModeTime": 5126406250
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 9096,
+      "CreationDate": "2026-11-01T21:10:05.984417+01:00",
+      "KernelModeTime": 3125000,
+      "UserModeTime": 5156250
+    },
+    {
+      "Name": "codex.exe",
+      "ProcessId": 9408,
+      "CreationDate": "2026-11-01T21:10:07.377956+01:00",
+      "KernelModeTime": 759375000,
+      "UserModeTime": 728593750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 11104,
+      "CreationDate": "2026-11-01T21:10:07.392134+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 5240,
+      "CreationDate": "2026-11-01T21:10:09.197917+01:00",
+      "KernelModeTime": 650937500,
+      "UserModeTime": 225468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 3052,
+      "CreationDate": "2026-11-01T21:10:12.765568+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 3284,
+      "CreationDate": "2026-11-01T21:10:17.718818+01:00",
+      "KernelModeTime": 26093750,
+      "UserModeTime": 78437500
+    },
+    {
+      "Name": "codex-computer-use-swift.exe",
+      "ProcessId": 12688,
+      "CreationDate": "2026-11-01T21:10:21.679217+01:00",
+      "KernelModeTime": 41875000,
+      "UserModeTime": 22812500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 4588,
+      "CreationDate": "2026-11-01T21:10:21.760323+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 10992,
+      "CreationDate": "2026-11-01T21:10:32.536857+01:00",
+      "KernelModeTime": 72968750,
+      "UserModeTime": 290468750
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 15424,
+      "CreationDate": "2026-11-01T21:10:34.31152+01:00",
+      "KernelModeTime": 4531250,
+      "UserModeTime": 5937500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 16280,
+      "CreationDate": "2026-11-01T21:10:41.331717+01:00",
+      "KernelModeTime": 111562500,
+      "UserModeTime": 191406250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 4764,
+      "CreationDate": "2026-11-01T21:11:03.739103+01:00",
+      "KernelModeTime": 5312500,
+      "UserModeTime": 23437500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15628,
+      "CreationDate": "2026-11-01T21:11:03.769857+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "codex.exe",
+      "ProcessId": 5792,
+      "CreationDate": "2026-11-01T21:11:08.849672+01:00",
+      "KernelModeTime": 26562500,
+      "UserModeTime": 11875000
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 12844,
+      "CreationDate": "2026-11-01T21:11:08.888551+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 15996,
+      "CreationDate": "2026-11-01T21:11:13.798606+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 2812500
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 16320,
+      "CreationDate": "2026-11-01T21:11:13.894675+01:00",
+      "KernelModeTime": 1250000,
+      "UserModeTime": 1406250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 2952,
+      "CreationDate": "2026-11-01T22:03:09.078336+01:00",
+      "KernelModeTime": 3281250,
+      "UserModeTime": 781250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 7512,
+      "CreationDate": "2026-11-01T22:03:09.12542+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 7744,
+      "CreationDate": "2026-11-01T22:03:11.732765+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 13628,
+      "CreationDate": "2026-11-01T22:03:11.732769+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 14536,
+      "CreationDate": "2026-11-01T22:03:11.741476+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 9780,
+      "CreationDate": "2026-11-01T22:03:11.748081+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 6100,
+      "CreationDate": "2026-11-01T22:03:11.754765+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15736,
+      "CreationDate": "2026-11-01T22:03:11.75793+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 6532,
+      "CreationDate": "2026-11-01T22:03:11.769667+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 10604,
+      "CreationDate": "2026-11-01T22:03:11.770318+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 8780,
+      "CreationDate": "2026-11-01T22:03:11.772463+01:00",
+      "KernelModeTime": 1562500,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 7232,
+      "CreationDate": "2026-11-01T22:03:11.779518+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 10188,
+      "CreationDate": "2026-11-01T22:03:11.782071+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 1548,
+      "CreationDate": "2026-11-01T22:03:11.875667+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 3680,
+      "CreationDate": "2026-11-01T22:03:11.935761+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 14224,
+      "CreationDate": "2026-11-01T22:03:12.256061+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 4687500
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 4788,
+      "CreationDate": "2026-11-01T22:03:12.7163+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 7500000
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 4672,
+      "CreationDate": "2026-11-01T22:03:13.23807+01:00",
+      "KernelModeTime": 48125000,
+      "UserModeTime": 48437500
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 6780,
+      "CreationDate": "2026-11-01T22:03:20.442647+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 8924,
+      "CreationDate": "2026-11-01T22:03:20.542108+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 13281250
+    },
+    {
+      "Name": "codex-code-mode-host.exe",
+      "ProcessId": 2900,
+      "CreationDate": "2026-11-01T22:04:28.135383+01:00",
+      "KernelModeTime": 6406250,
+      "UserModeTime": 11093750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15280,
+      "CreationDate": "2026-11-01T22:04:28.143086+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "OneDrive.Sync.Service.exe",
+      "ProcessId": 13744,
+      "CreationDate": "2026-11-01T22:32:25.373801+01:00",
+      "KernelModeTime": 51093750,
+      "UserModeTime": 55625000
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 8368,
+      "CreationDate": "2026-11-01T23:10:24.98753+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 10936,
+      "CreationDate": "2026-11-01T23:10:25.010979+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 14632,
+      "CreationDate": "2026-11-01T23:10:26.038799+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 2343750
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 7860,
+      "CreationDate": "2026-11-01T23:10:26.046819+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 14560,
+      "CreationDate": "2026-11-01T23:10:26.053097+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15824,
+      "CreationDate": "2026-11-01T23:10:26.056589+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 14212,
+      "CreationDate": "2026-11-01T23:10:26.056784+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 13812,
+      "CreationDate": "2026-11-01T23:10:26.078481+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 1250000
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 13808,
+      "CreationDate": "2026-11-01T23:10:26.079235+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 8948,
+      "CreationDate": "2026-11-01T23:10:26.089208+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 14460,
+      "CreationDate": "2026-11-01T23:10:26.103592+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 15452,
+      "CreationDate": "2026-11-01T23:10:26.123624+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 336,
+      "CreationDate": "2026-11-01T23:10:26.130066+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 15184,
+      "CreationDate": "2026-11-01T23:10:26.155943+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 14276,
+      "CreationDate": "2026-11-01T23:10:26.377184+01:00",
+      "KernelModeTime": 2031250,
+      "UserModeTime": 4687500
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 12960,
+      "CreationDate": "2026-11-01T23:10:27.026207+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 1784,
+      "CreationDate": "2026-11-01T23:10:27.132569+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 7500000
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 13716,
+      "CreationDate": "2026-11-01T23:10:27.791429+01:00",
+      "KernelModeTime": 54375000,
+      "UserModeTime": 62500000
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 8904,
+      "CreationDate": "2026-11-01T23:10:46.720105+01:00",
+      "KernelModeTime": 937500,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 16352,
+      "CreationDate": "2026-11-01T23:10:46.99444+01:00",
+      "KernelModeTime": 2812500,
+      "UserModeTime": 17656250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 15832,
+      "CreationDate": "2026-11-01T23:48:24.632677+01:00",
+      "KernelModeTime": 5156250,
+      "UserModeTime": 3437500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 16652,
+      "CreationDate": "2026-11-01T23:55:22.264578+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 2656250
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1804,
+      "CreationDate": "2026-11-01T23:57:09.411348+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 3808,
+      "CreationDate": "2026-11-02T00:02:30.633696+01:00",
+      "KernelModeTime": 1406250,
+      "UserModeTime": 1093750
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 7964,
+      "CreationDate": "2026-11-02T00:02:30.639965+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 14584,
+      "CreationDate": "2026-11-02T00:02:30.644133+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 14544,
+      "CreationDate": "2026-11-02T00:02:30.646919+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 7024,
+      "CreationDate": "2026-11-02T00:02:30.651296+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 17044,
+      "CreationDate": "2026-11-02T00:02:30.652927+01:00",
+      "KernelModeTime": 312500,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 12868,
+      "CreationDate": "2026-11-02T00:02:30.658292+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 468750
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 4900,
+      "CreationDate": "2026-11-02T00:02:30.660759+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 10832,
+      "CreationDate": "2026-11-02T00:02:30.665656+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 16588,
+      "CreationDate": "2026-11-02T00:02:30.665951+01:00",
+      "KernelModeTime": 781250,
+      "UserModeTime": 937500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 6288,
+      "CreationDate": "2026-11-02T00:02:30.677152+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 312500
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 13652,
+      "CreationDate": "2026-11-02T00:02:30.69491+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 4796,
+      "CreationDate": "2026-11-02T00:02:30.853968+01:00",
+      "KernelModeTime": 1093750,
+      "UserModeTime": 5000000
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 2652,
+      "CreationDate": "2026-11-02T00:02:30.908396+01:00",
+      "KernelModeTime": 3281250,
+      "UserModeTime": 6093750
+    },
+    {
+      "Name": "node_repl.exe",
+      "ProcessId": 15760,
+      "CreationDate": "2026-11-02T00:02:31.018224+01:00",
+      "KernelModeTime": 468750,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 11424,
+      "CreationDate": "2026-11-02T00:02:31.391707+01:00",
+      "KernelModeTime": 35312500,
+      "UserModeTime": 45156250
+    },
+    {
+      "Name": "cmd.exe",
+      "ProcessId": 17276,
+      "CreationDate": "2026-11-02T00:02:37.104902+01:00",
+      "KernelModeTime": 625000,
+      "UserModeTime": 0
+    },
+    {
+      "Name": "node.exe",
+      "ProcessId": 10008,
+      "CreationDate": "2026-11-02T00:02:37.194566+01:00",
+      "KernelModeTime": 1250000,
+      "UserModeTime": 8437500
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 17140,
+      "CreationDate": "2026-11-02T00:04:31.218144+01:00",
+      "KernelModeTime": 0,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "pwsh.exe",
+      "ProcessId": 9224,
+      "CreationDate": "2026-11-02T00:05:20.130767+01:00",
+      "KernelModeTime": 3281250,
+      "UserModeTime": 6406250
+    },
+    {
+      "Name": "conhost.exe",
+      "ProcessId": 2128,
+      "CreationDate": "2026-11-02T00:05:20.157953+01:00",
+      "KernelModeTime": 156250,
+      "UserModeTime": 156250
+    },
+    {
+      "Name": "WmiPrvSE.exe",
+      "ProcessId": 17204,
+      "CreationDate": "2026-11-02T00:05:20.672248+01:00",
+      "KernelModeTime": 1718750,
+      "UserModeTime": 1406250
+    }
+  ],
+  "largest_cpu_deltas": [
+    {
+      "Name": "System Idle Process",
+      "ProcessId": 0,
+      "CpuSeconds": 103.875
+    },
+    {
+      "Name": "MsMpEng.exe",
+      "ProcessId": 5164,
+      "CpuSeconds": 5.15625
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 11532,
+      "CpuSeconds": 2.234375
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 5240,
+      "CpuSeconds": 1.4375
+    },
+    {
+      "Name": "System",
+      "ProcessId": 4,
+      "CpuSeconds": 0.875
+    },
+    {
+      "Name": "ChatGPT.exe",
+      "ProcessId": 12748,
+      "CpuSeconds": 0.859375
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 3036,
+      "CpuSeconds": 0.734375
+    },
+    {
+      "Name": "pwsh.exe",
+      "ProcessId": 9224,
+      "CpuSeconds": 0.21875
+    },
+    {
+      "Name": "WmiPrvSE.exe",
+      "ProcessId": 17204,
+      "CpuSeconds": 0.21875
+    },
+    {
+      "Name": "svchost.exe",
+      "ProcessId": 1556,
+      "CpuSeconds": 0.171875
+    },
+    {
+      "Name": "csrss.exe",
+      "ProcessId": 620,
+      "CpuSeconds": 0.171875
+    },
+    {
+      "Name": "codex.exe",
+      "ProcessId": 9408,
+      "CpuSeconds": 0.140625
+    }
+  ]
+}

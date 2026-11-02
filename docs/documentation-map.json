@@ -2,6 +2,16 @@
   "version": 1,
   "documents": [
     {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/review.md",
+      "role": "verification",
+      "topic": "m06-measurement-export-code-review"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/progress.md",
+      "role": "verification",
+      "topic": "m06-measurement-export-execution-ledger"
+    },
+    {
       "path": "docs/verification/m06-measurement-export.md",
       "role": "verification",
       "topic": "m06-measurement-export-verification"

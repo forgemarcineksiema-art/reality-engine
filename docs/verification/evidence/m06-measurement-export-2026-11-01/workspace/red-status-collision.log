@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 388, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 381, in main
+    execute(args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 372, in execute
+    check_trace_interruption(args.exe.resolve(), output, args.trace_case != "interrupted",
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 179, in check_trace_interruption
+    raise AssertionError("incomplete or failed export was reported as success")
+AssertionError: incomplete or failed export was reported as success

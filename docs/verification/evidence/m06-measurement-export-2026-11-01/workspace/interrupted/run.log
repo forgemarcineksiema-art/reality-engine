@@ -1,0 +1,129 @@
+adapter_index=0 name=NVIDIA GeForce MX330 vendor=4318 device=7446 software=0
+adapter_index=1 name=Intel(R) UHD Graphics vendor=32902 device=35414 software=0
+adapter_index=2 name=Microsoft Basic Render Driver vendor=5140 device=140 software=1
+selected_adapter=NVIDIA GeForce MX330 feature_level=0xb000 hardware=1 gpu_debug=1
+resize=844x781
+measure_seconds=10
+warmup_seconds=1
+measurement_initial_checksum=7599178036059219827
+navigation_observations=8
+navigation_actor=1 observed_tick=6 activity=inactive last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=2 observed_tick=6 activity=travelling last_progress_tick=3 distance_m=4.2942 stagnant_ticks=3 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=3 observed_tick=6 activity=travelling last_progress_tick=1 distance_m=0.7800 stagnant_ticks=5 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=4 observed_tick=6 activity=travelling last_progress_tick=1 distance_m=0.2800 stagnant_ticks=5 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=5 observed_tick=6 activity=no_path last_progress_tick=0 distance_m=0.0000 stagnant_ticks=0 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=6 observed_tick=6 activity=travelling last_progress_tick=1 distance_m=1.6485 stagnant_ticks=5 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=7 observed_tick=6 activity=travelling last_progress_tick=1 distance_m=0.4017 stagnant_ticks=5 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+navigation_actor=8 observed_tick=6 activity=travelling last_progress_tick=1 distance_m=1.5180 stagnant_ticks=5 resource=0 transport=0 blocker=0 queue_position=0 resource_progress=0 externally_blocked=0
+frame_samples=0
+frame_min_ms=0.0000
+frame_p50_ms=0.0000
+frame_p95_ms=0.0000
+frame_p99_ms=0.0000
+frame_max_ms=0.0000
+frame_mean_ms=0.0000
+simulation_samples=0
+simulation_min_ms=0.0000
+simulation_p50_ms=0.0000
+simulation_p95_ms=0.0000
+simulation_p99_ms=0.0000
+simulation_max_ms=0.0000
+simulation_mean_ms=0.0000
+backlog_samples=0
+backlog_min_ms=0.0000
+backlog_p50_ms=0.0000
+backlog_p95_ms=0.0000
+backlog_p99_ms=0.0000
+backlog_max_ms=0.0000
+backlog_mean_ms=0.0000
+measurement_finished=0
+measurement_interventions=0
+measurement_minimizations=0
+measurement_resizes=0
+occluded_frames=0
+simulation_errors=0
+measured_ticks=0
+measured_wall_ms=0
+viewport=844x781
+working_set_first_bytes=0
+working_set_last_bytes=0
+working_set_peak_sampled_bytes=0
+private_peak_sampled_bytes=0
+tick=6 actors=8
+actor=1 representation=local surface=1 feet=-3.000,0.000,-3.000 speed=0.000 accel=0.000 yaw=0.000 state=0 auto=0 task=0 hunger=6 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  belief_unknown_station=4
+  passage_belief=1 open=1 source_actor=1 via_actor=1 observed_tick=6 learned_tick=6
+actor=2 representation=local surface=1 feet=-6.000,0.000,0.000 speed=0.000 accel=0.000 yaw=0.240 state=3 auto=1 task=4 hunger=6 energy=1000 plans=2 leg=0/5 transfer=0 action=0 blocked=20 step_point=0 need_retry_at=0 finish_grace_until=0
+  cargo_lot=14 cargo_quantity=4 cargo_capacity=4
+  delivery_phase=1 source=0 destination=1 delivered=0/8
+  belief_station=0 available=16 wear=500 source_actor=2 via_actor=2 observed_tick=1 learned_tick=1
+  belief_unknown_station=1
+  belief_unknown_station=2
+  belief_unknown_station=3
+  belief_unknown_station=4
+  goal_surface=2 local=0.280,0.000 reach=0.900
+  route=found retry_at=2
+actor=3 representation=local surface=2 feet=6.000,0.000,1.500 speed=0.000 accel=0.000 yaw=0.540 state=3 auto=1 task=1 hunger=306 energy=1000 plans=2 leg=0/1 transfer=0 action=0 blocked=5 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=1
+  goal_surface=2 local=1.000,0.720 reach=0.900
+  route=found retry_at=45
+actor=4 representation=local surface=1 feet=-4.000,0.000,-2.000 speed=0.000 accel=0.000 yaw=0.540 state=3 auto=1 task=3 hunger=6 energy=1000 plans=2 leg=0/1 transfer=0 action=0 blocked=5 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=1 local=1.280,-2.000 reach=0.900
+  route=found retry_at=45
+actor=5 representation=local surface=1 feet=-5.400,0.000,-2.000 speed=0.000 accel=0.000 yaw=0.000 state=4 auto=1 task=0 hunger=6 energy=1000 plans=0 leg=0/0 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=3
+actor=6 representation=local surface=1 feet=-6.998,0.000,1.003 speed=0.121 accel=2.695 yaw=0.540 state=1 auto=1 task=3 hunger=186 energy=1000 plans=1 leg=0/2 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=2
+  belief_unknown_station=3
+  goal_surface=1 local=1.640,-1.376 reach=0.900
+  route=found retry_at=0
+actor=7 representation=local surface=2 feet=7.000,0.000,-0.500 speed=0.000 accel=0.000 yaw=-0.540 state=3 auto=1 task=1 hunger=356 energy=1000 plans=2 leg=0/1 transfer=0 action=0 blocked=5 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=1
+  belief_unknown_station=4
+  goal_surface=2 local=1.624,-0.360 reach=0.900
+  route=found retry_at=45
+actor=8 representation=local surface=1 feet=-5.000,0.000,3.000 speed=0.007 accel=0.633 yaw=-0.540 state=1 auto=1 task=2 hunger=26 energy=200 plans=2 leg=0/1 transfer=0 action=0 blocked=0 step_point=0 need_retry_at=0 finish_grace_until=0
+  belief_unknown_station=0
+  belief_unknown_station=3
+  goal_surface=1 local=-1.376,2.360 reach=0.900
+  route=found retry_at=45
+platform=4 phase=6 dock=0 blocked=0
+station=9 kind=1 stock=16 completed=0 wear=500
+station=10 kind=1 stock=0 completed=0 wear=500
+station=11 kind=3 stock=24 completed=0 wear=506
+station=12 kind=2 capacity=2 occupied=0 available=2 completed=0 wear=500
+station=13 kind=2 capacity=2 occupied=0 available=2 completed=0 wear=500
+passage=1 surface=3 owner=0 queue=0 open=1 maintenance_station=2
+service=1 owner=0 queue=0
+property_station=2 custodian=5
+  legal_service_actor=1 allowed=1
+  legal_service_actor=2 allowed=1
+  legal_service_actor=3 allowed=1
+  legal_service_actor=4 allowed=1
+  legal_service_actor=5 allowed=1
+  legal_service_actor=6 allowed=1
+  legal_service_actor=7 allowed=1
+  legal_service_actor=8 allowed=1
+practice_actor=1 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=2 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=3 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=4 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=5 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=6 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=7 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+practice_actor=8 probes=0 records=0 method=0 reads=0 primitives=7822044 stage=0
+measurement_trace_schema=1
+measurement_trace_samples=22
+measurement_trace_exported=1
+measurement_trace_complete=0
+measurement_trace_export_ms=1.1587
+ERROR: measurement ended early or simulation failed

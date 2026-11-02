@@ -1,0 +1,33 @@
+UpdateCTestConfiguration  from :C:/Users/Marcin/Documents/new/DartConfiguration.tcl
+Test project C:/Users/Marcin/Documents/new/build/asan
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 59
+    Start 59: two_methods.fresh_detour
+
+59: Test command: C:\Users\Marcin\AppData\Local\Programs\Python\Python313\python.exe "C:/Users/Marcin/Documents/new/tests/two_methods_integration.py" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_two_methods_tests.exe" "detour"
+59: Working Directory: C:/Users/Marcin/Documents/new/build/asan
+59: Environment variables: 
+59:  ASAN_OPTIONS=halt_on_error=1
+59:  ASAN_VCASAN_DEBUGGING=0
+59: Test timeout computed to be: 20
+59: constructed=1.5546
+59: reached=2.09988
+59: saved=2.36154
+59: finished=5.20595
+59: expected_saved=5.52182
+59: PASS checkpoint
+59: PASS continue
+59: PASS detour continued in a fresh process
+1/1 Test #59: two_methods.fresh_detour .........   Passed   10.27 sec
+
+The following tests passed:
+	two_methods.fresh_detour
+
+100% tests passed out of 1
+
+Total Test time (real) =  10.30 sec

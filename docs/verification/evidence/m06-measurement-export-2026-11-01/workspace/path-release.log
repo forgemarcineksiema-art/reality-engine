@@ -1,0 +1,45 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+      Start 262: traversal.diagnostics_progress
+ 1/20 Test #262: traversal.diagnostics_progress .............   Passed    0.02 sec
+      Start 263: traversal.diagnostics_waiting
+ 2/20 Test #263: traversal.diagnostics_waiting ..............   Passed    0.04 sec
+      Start 264: traversal.diagnostics_reset
+ 3/20 Test #264: traversal.diagnostics_reset ................   Passed    0.01 sec
+      Start 265: traversal.diagnostics_snapshot
+ 4/20 Test #265: traversal.diagnostics_snapshot .............   Passed    0.04 sec
+      Start 266: traversal.diagnostics_timings
+ 5/20 Test #266: traversal.diagnostics_timings ..............   Passed    0.01 sec
+      Start 267: traversal.diagnostics_invalid_sample
+ 6/20 Test #267: traversal.diagnostics_invalid_sample .......   Passed    0.01 sec
+      Start 268: traversal.diagnostics_plan_churn
+ 7/20 Test #268: traversal.diagnostics_plan_churn ...........   Passed    0.02 sec
+      Start 269: traversal.diagnostics_independent_alarms
+ 8/20 Test #269: traversal.diagnostics_independent_alarms ...   Passed    0.01 sec
+      Start 270: traversal.diagnostics_service_progress
+ 9/20 Test #270: traversal.diagnostics_service_progress .....   Passed    0.01 sec
+      Start 271: traversal.diagnostics_batch_transaction
+10/20 Test #271: traversal.diagnostics_batch_transaction ....   Passed    0.01 sec
+      Start 272: traversal.diagnostics_live_view
+11/20 Test #272: traversal.diagnostics_live_view ............   Passed    0.15 sec
+      Start 273: traversal.diagnostics_trace_format
+12/20 Test #273: traversal.diagnostics_trace_format .........   Passed    0.01 sec
+      Start 274: traversal.diagnostics_trace_invalid
+13/20 Test #274: traversal.diagnostics_trace_invalid ........   Passed    0.01 sec
+      Start 275: traversal.diagnostics_trace_capacity
+14/20 Test #275: traversal.diagnostics_trace_capacity .......   Passed    0.08 sec
+      Start 276: traversal.diagnostics_trace_observer
+15/20 Test #276: traversal.diagnostics_trace_observer .......   Passed    0.23 sec
+      Start 277: traversal.native_diagnostics
+16/20 Test #277: traversal.native_diagnostics ...............   Passed    3.38 sec
+      Start 278: traversal.native_measurement_trace
+17/20 Test #278: traversal.native_measurement_trace .........   Passed    3.69 sec
+      Start 279: traversal.native_trace_paths
+18/20 Test #279: traversal.native_trace_paths ...............   Passed    0.48 sec
+      Start 280: traversal.native_trace_interrupted
+19/20 Test #280: traversal.native_trace_interrupted .........   Passed    1.09 sec
+      Start 281: traversal.native_trace_collision
+20/20 Test #281: traversal.native_trace_collision ...........   Passed    2.71 sec
+
+100% tests passed out of 20
+
+Total Test time (real) =  12.09 sec

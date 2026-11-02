@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 409, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 402, in main
+    execute(args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 396, in execute
+    check_trace(args.exe.resolve(), output)
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 67, in check_trace
+    raise AssertionError("two memory sampling clocks interleaved inside the measured phase")
+AssertionError: two memory sampling clocks interleaved inside the measured phase

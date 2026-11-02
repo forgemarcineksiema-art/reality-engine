@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 381, in <module>
+    main()
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 374, in main
+    execute(args.output.resolve())
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 364, in execute
+    check_trace_report_failure(args.exe.resolve(), output)
+  File "C:\Users\Marcin\Documents\new\tools\test_traversal_diagnostics.py", line 245, in check_trace_report_failure
+    raise AssertionError("failed report prevented salvage of the available CSV buffer")
+AssertionError: failed report prevented salvage of the available CSV buffer

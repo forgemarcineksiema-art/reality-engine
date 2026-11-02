@@ -1,0 +1,26 @@
+UpdateCTestConfiguration  from :C:/Users/Marcin/Documents/new/DartConfiguration.tcl
+Test project C:/Users/Marcin/Documents/new/build/asan
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 58
+    Start 58: two_methods.native_repair
+
+58: Test command: C:\Users\Marcin\AppData\Local\Programs\Python\Python313\python.exe "C:/Users/Marcin/Documents/new/tools/test_practice_native.py" "--exe" "C:/Users/Marcin/Documents/new/build/asan/RelWithDebInfo/reality_traversal.exe" "--two-methods" "--method" "repair"
+58: Working Directory: C:/Users/Marcin/Documents/new/build/asan
+58: Environment variables: 
+58:  ASAN_OPTIONS=halt_on_error=1
+58:  ASAN_VCASAN_DEBUGGING=0
+58: Test timeout computed to be: 20
+58: PASS native practice: physical controls, learning, GPU and foreign saves
+1/1 Test #58: two_methods.native_repair ........   Passed   10.81 sec
+
+The following tests passed:
+	two_methods.native_repair
+
+100% tests passed out of 1
+
+Total Test time (real) =  10.85 sec

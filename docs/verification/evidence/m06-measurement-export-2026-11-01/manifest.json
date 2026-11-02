@@ -1,0 +1,1013 @@
+{
+  "schema_version": 1,
+  "started_client_date": "2026-11-01",
+  "client_date": "2026-11-02",
+  "timezone": "Europe/Warsaw",
+  "code_head": "9e1ce66e088a6cc48cbdc504f8ed65df159cff92",
+  "reviewed_head": "f2493a32abc86dda27a7798ebdce98e6c04e6031",
+  "base": "3bf2d60f3c9183d1b7d74eefabf3f07fd3e42ae6",
+  "scope": "Bounded measurement export and semantically identical mind initialization; no long benchmark or human acceptance.",
+  "final_ctest_passed": {
+    "debug": 431,
+    "release": 431,
+    "asan": 433
+  },
+  "final_python_tests_passed": 58,
+  "retained_timing_failure": {
+    "test": "two_methods.fresh_detour",
+    "full_run_passed": 431,
+    "total": 432,
+    "exit_code": 8,
+    "checkpoint_limit_seconds": 8,
+    "cause": "unproven",
+    "log": "workspace/ctest-asan-timeout.log",
+    "strict_isolated_retry": "PASS, checkpoint expected_saved=5.52182 seconds",
+    "isolated_log": "workspace/asan-detour-isolated.log",
+    "second_run": "workspace/ctest-asan-second-timeout-aborted.log",
+    "third_run": "workspace/ctest-asan-third-timeout.log",
+    "optimized_initial_subset_failure": "workspace/contrast-init-optimized-tests.log",
+    "note": "Diagnostic 30-second probes are not acceptance. Final 8/20-second gates unchanged. Timing variability remains open."
+  },
+  "commands": [
+    {
+      "command": "cmake --build --preset windows-debug",
+      "exit_code": 0
+    },
+    {
+      "command": "cmake --build --preset windows-release",
+      "exit_code": 0
+    },
+    {
+      "command": "cmake --build --preset windows-asan",
+      "exit_code": 0
+    },
+    {
+      "command": "ctest --preset windows-debug",
+      "exit_code": 0,
+      "passed": 431
+    },
+    {
+      "command": "ctest --preset windows-release",
+      "exit_code": 0,
+      "passed": 431
+    },
+    {
+      "command": "ctest --preset windows-asan --stop-on-failure",
+      "exit_code": 0,
+      "passed": 433
+    },
+    {
+      "command": "python tools/check_docs.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python -m unittest discover -s tools/tests -p test_*.py",
+      "exit_code": 0
+    },
+    {
+      "command": "cmake --build --preset windows-debug --target format-check",
+      "exit_code": 0
+    }
+  ],
+  "source_working_bytes": [
+    {
+      "path": "CMakeLists.txt",
+      "size_bytes": 34622,
+      "sha256": "39709670bb43dfba838540600f6f2aaf9e7e13d0fc48bfd7f88b472c7da1e03e"
+    },
+    {
+      "path": "CMakePresets.json",
+      "size_bytes": 1729,
+      "sha256": "3a4446992afc196d994525e4db71eb46f3ad973558fb3594f7234d29bc05ff53"
+    },
+    {
+      "path": ".clang-format",
+      "size_bytes": 128,
+      "sha256": "281a2c66a5cc300ec0d50a69fccd4c24bd3f63e59160d790ee8b814c45f5e34c"
+    },
+    {
+      "path": "src/core/runtime_metrics.hpp",
+      "size_bytes": 1301,
+      "sha256": "2214ca74b8d3df3f57554588def8714638591155c9d230d9f9e08e5c39dce216"
+    },
+    {
+      "path": "src/core/runtime_metrics.cpp",
+      "size_bytes": 4555,
+      "sha256": "37f8fd52b025a7d8762480468e3b9356564b5e9c9b0903e4a3bf1eecd4887a34"
+    },
+    {
+      "path": "src/platform/traversal_main.cpp",
+      "size_bytes": 106187,
+      "sha256": "f48fc0b90c4ade9dee7309307572ac049fc1330cd9e6f7e9a0a9f2d377e981d0"
+    },
+    {
+      "path": "tests/traversal_diagnostics_tests.cpp",
+      "size_bytes": 19295,
+      "sha256": "cd446d31c8716399719c35e701b973be20abfc5cdc73b97d3e7ee2e00bc603ce"
+    },
+    {
+      "path": "tools/test_traversal_diagnostics.py",
+      "size_bytes": 23767,
+      "sha256": "dbe12fb0ac3119eb5db2578698dc42df6be50ac5a12a0f22f5bb30d6340ee86d"
+    },
+    {
+      "path": "src/research/contrast_agent.cpp",
+      "size_bytes": 8763,
+      "sha256": "d0c1b0452c4ce21942d322850d9f8d9ef4df08b47e2669031d6c0358e3ecba13"
+    },
+    {
+      "path": "tests/contrast_tests.cpp",
+      "size_bytes": 10587,
+      "sha256": "a983ed226dcf650600726a69d33ef38671201be6d51f28fa9f299e15effefdbb"
+    },
+    {
+      "path": "tests/two_methods_tests.cpp",
+      "size_bytes": 7916,
+      "sha256": "0017ffbf2fb2f90fddf953ff9280446c11a7e09dfa1bfc16821d3e72251e7c0b"
+    },
+    {
+      "path": "tests/two_methods_integration.py",
+      "size_bytes": 1053,
+      "sha256": "5b4c12e48f7286d29c145f7bdedea5e02302e78da407c1dce9a07823838d0e0a"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "build/msvc/Debug/reality_traversal.exe",
+      "size_bytes": 3851264,
+      "sha256": "5c41de08385a446279b302ebb494a34e9b4573f3928c469d2a44278e66fe1d45"
+    },
+    {
+      "path": "build/msvc/RelWithDebInfo/reality_traversal.exe",
+      "size_bytes": 2100736,
+      "sha256": "4b4a1473b7c8b238f2dda8c62984451c40fddb452544450e01546b525c144067"
+    },
+    {
+      "path": "build/asan/RelWithDebInfo/reality_traversal.exe",
+      "size_bytes": 3347968,
+      "sha256": "e4fbb8d7f93187ed0bae719ca8af4629a92ffe74cb627b9d290f0ada5801fa8c"
+    },
+    {
+      "path": "build/asan/RelWithDebInfo/reality_two_methods_tests.exe",
+      "size_bytes": 2575360,
+      "sha256": "a40bb8a0030329df13ba683feecfd34c5c51c06ba2d24bb06945c973215f7b5d"
+    }
+  ],
+  "archived_files": [
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/final-docs.log",
+      "size_bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/final-format.log",
+      "size_bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/final-python.log",
+      "size_bytes": 163,
+      "sha256": "a2a8fcd173fc7384d7f4c2eda4df5e3862188ca4f1082ce93bf450961e432648"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/archive_evidence.py",
+      "size_bytes": 5569,
+      "sha256": "87870c0769cd397c5a6518b0a1255175f81a0cf692d87b1207b04890e7f41054"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/asan-detour-isolated.log",
+      "size_bytes": 1246,
+      "sha256": "56ed3d2e8bb21af030134d68881d6bdc76eb68066017ec546381970e40d48cf2"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/asan-final-LastTest.log",
+      "size_bytes": 345343,
+      "sha256": "bda6c184dfc5a0b1bc66b7199738389ea33e19ebe2d72076cb513de662622f52"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/asan-retry-start-condition.json",
+      "size_bytes": 187,
+      "sha256": "7bf8886a73fe2e490b3598a79056dd06bac62a2f5db47df601b7499714037c0a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/asan-timeout-environment.json",
+      "size_bytes": 1483,
+      "sha256": "2160be756ed9e05bc054dfe5c5941844d046db47e7237c33f0193d6f45d302c7"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/asan-timeout-LastTest.log",
+      "size_bytes": 345834,
+      "sha256": "cb369e4952342759c49ad4d92436cc20ddd9c1ce43caf4350282ddb6ec85d58e"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/asan-timeout-LastTestsFailed.log",
+      "size_bytes": 29,
+      "sha256": "185a4e67b03fa89ce05a005bb54f6dc377d0237cf06ad5d8952111e2b750a06a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/baseline-tests.log",
+      "size_bytes": 2358,
+      "sha256": "7d3a2d5427c5d91dbc256ca18599bf79f61ce3acdfd136927887fa012b212b24"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-asan-final.log",
+      "size_bytes": 7532,
+      "sha256": "e29ab52c395e98629dfb7ffaef0bf6a15d8440aefa1d5bf07f1f05ccf07e82be"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-asan.log",
+      "size_bytes": 7590,
+      "sha256": "3171c74e6fa580919a93d75733aef418df05a53d2197e5903d55931db106008a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-cadence.log",
+      "size_bytes": 1005,
+      "sha256": "de42415348827e2b8dbbf1bfb6ed102153a87b50ac51b6d69f426c951d1a5328"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-core.log",
+      "size_bytes": 900,
+      "sha256": "6422966505a7008e472b0a9a9bcf49d254f8e25d6e18d851bc3e1d4ce3e103ad"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-debug-final.log",
+      "size_bytes": 7546,
+      "sha256": "51689c74a67e44d29d69fae280638abf31dd603c9afc3f1bd9a2ce11e175ba2e"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-debug.log",
+      "size_bytes": 7557,
+      "sha256": "b2acfcd4eb60c69e572f95d7111c2fa36c1df725f9ca0d6a5b61f72f99b2dafb"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-native.log",
+      "size_bytes": 1005,
+      "sha256": "de42415348827e2b8dbbf1bfb6ed102153a87b50ac51b6d69f426c951d1a5328"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-path-asan.log",
+      "size_bytes": 1847,
+      "sha256": "897e08cdb77008e066cec5b5dfe80dc8fa6e031f1941f02b23192b2c3dc5fa35"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-path-debug.log",
+      "size_bytes": 1766,
+      "sha256": "c88b1f5254392d326e952dbcaf3924af7d9c719dd78c8ad2d31ef9e838abfb8d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-path-release.log",
+      "size_bytes": 1825,
+      "sha256": "9b10fdf588e1711f26084df6a2331d431814ea241c9b0a80670041c6efe09680"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-release-final.log",
+      "size_bytes": 7398,
+      "sha256": "9fc737be2b2029c602d201f104fb09c35498e037602bbe17fd49dd506a16f378"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-release.log",
+      "size_bytes": 7409,
+      "sha256": "2e0ba77570f046873e6633959d08a2a3e7518a3709527f397bfbba78f8705fa1"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-review-fix.log",
+      "size_bytes": 1495,
+      "sha256": "ae64c1abad5c9b34bc6d699cfd483b2bb5da6a67f178021427303d94883ace75"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/build-trailing-release.log",
+      "size_bytes": 1005,
+      "sha256": "de42415348827e2b8dbbf1bfb6ed102153a87b50ac51b6d69f426c951d1a5328"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/collision/run.log",
+      "size_bytes": 8225,
+      "sha256": "bffd8bf01ac73e881ba084f842c7a58018c16302bc92d9ece98c5c04f00802a6"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/collision/trace/samples.csv",
+      "size_bytes": 25,
+      "sha256": "e54deb4ade3e7ccba438df7daf2367a1a987ca2e93547b7ed0822a38dec5253d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/collision/world.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/collision/world.save.final.save",
+      "size_bytes": 258728,
+      "sha256": "3921d4ea9b38b436673adc0b912ea408c4ff29df356b5941eacc1712c17226e6"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/collision.log",
+      "size_bytes": 29,
+      "sha256": "b6d8dacba663011d890acb4ad6dddd1fc561d8976326ffde041d290f85f78800"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/configure-asan.log",
+      "size_bytes": 211,
+      "sha256": "af05f574d2970e1a1c978b0c8342b1e2803f9475c895238aad652c104f2aaa42"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/configure-release.log",
+      "size_bytes": 211,
+      "sha256": "1b2eadbfada754569172ad08b4543384a9356096714df557b8e69b23de9ad7ee"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe/CMakeLists.txt",
+      "size_bytes": 949,
+      "sha256": "9e33655ddc4e4d87bb87334cd4b11eddf71cc5cd145f8bcadf610619bdc1b28b"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe/continue.cpp",
+      "size_bytes": 839,
+      "sha256": "5851a2f58eab40de635e941c41c13ad1d234d8de3e7767400866bb7f009e8f55"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe/main.cpp",
+      "size_bytes": 3561,
+      "sha256": "09ceb40278f5990a2ae452043af0a379cc9127b8434062d76a0c13800a592d9d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe-baseline.log",
+      "size_bytes": 939,
+      "sha256": "7319b90816c645d825afa9ae2fe0482123858c8d06401eba12f36cbd4bb4df97"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe-build.log",
+      "size_bytes": 648,
+      "sha256": "9ff1cd56b207b9f20d3cd42045e97aeccc7c9ed3bc03d4c2892d8908deac0f88"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe-candidates-build.log",
+      "size_bytes": 648,
+      "sha256": "9ff1cd56b207b9f20d3cd42045e97aeccc7c9ed3bc03d4c2892d8908deac0f88"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe-candidates.log",
+      "size_bytes": 1205,
+      "sha256": "7d4097551b36e5ca6cba6eef2c8ae2a95455c1998a717deb5fa89b00bb4fcd4b"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe-configure.log",
+      "size_bytes": 600,
+      "sha256": "682db7e46a4bc44998f3b36429ec9f2c570c65d1c257d81ca57429bebadfee45"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/continue-probe-actual.save",
+      "size_bytes": 293558,
+      "sha256": "e9c24d7db5c28d0352737e9254327a8bce6e1f6570e01004cab7d73aacb5b768"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/continue-probe-build.log",
+      "size_bytes": 1707,
+      "sha256": "639bc4ba2f1b8802be1d9ee6c5903463cbfe4bcf38dacdeb07b0434f73fa4333"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/continue-probe.log",
+      "size_bytes": 72,
+      "sha256": "2a4b6c7d7fc59fefaf1409602df75d4809ce6c3c23326c17d6704028a5a15e54"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/contrast-compat-baseline-build.log",
+      "size_bytes": 1901,
+      "sha256": "ddc4d90895124c58212b5dcf2c201e6c76233355ec6d2fe741a424fcdc1df443"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/contrast-compat-baseline.log",
+      "size_bytes": 340,
+      "sha256": "54c358bca8957c8bfcb8ec5a6cda830175802d51f01471431ece2b8dffc46406"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/contrast-init-optimized-build.log",
+      "size_bytes": 3238,
+      "sha256": "b4a7b59dc86ba55fe53a15e4b4848867982d7ff4640b7f45c194f194061beb1e"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/contrast-init-optimized-tests.log",
+      "size_bytes": 6286,
+      "sha256": "b8fa3d1afda73bf6b84f5e5ec22a5e9b76a4d65c61f162578744b8602f9b9c6c"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-asan-before-cadence-fix.log",
+      "size_bytes": 55691,
+      "sha256": "30f9dc651249371e7af73e97b7135e527de00c66485e2af7048cad2aa7816e3c"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-asan-before-path-fix.log",
+      "size_bytes": 55401,
+      "sha256": "f36647c32e4490304f93b03eb67d9b04b4718cd75f6bf6fe5ea3dd5b2d852bab"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-asan-second-timeout-aborted.log",
+      "size_bytes": 40192,
+      "sha256": "42c9082fe0b21b966b7aa8f41133598b17443da6358d0ef3a6b455644cdf42c9"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-asan-third-timeout.log",
+      "size_bytes": 9232,
+      "sha256": "b5d407eea4d46e8e55223636b393120ff14e00465e6e052688c1a8111b66f816"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-asan-timeout.log",
+      "size_bytes": 57407,
+      "sha256": "33710e50b2019ba441b843bdf577c58f99c0838e4a66d07781ed90c28b64a484"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-asan.log",
+      "size_bytes": 55820,
+      "sha256": "b4c84f9e36028c50ca8cadc47c0a989b44e4563ac087212f68b4e91ace41bd25"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-debug-before-cadence-fix.log",
+      "size_bytes": 55419,
+      "sha256": "5541dfd92a6d58c9a1d73125f7e6594249b467c098fce9d06e88352479f02880"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-debug-before-path-fix.log",
+      "size_bytes": 55129,
+      "sha256": "c5ebadc1d1005722790fa21d63b4e6df2a4caf422a72320545750b1f824ff9a9"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-debug-before-review-fix.log",
+      "size_bytes": 55129,
+      "sha256": "ce3a17511860254276ef51d7d979d628e238c30433f356cb85b91746704bb4d1"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-debug.log",
+      "size_bytes": 55548,
+      "sha256": "7c1a085c05b07d348bf281cf2c73ff29b88828573b607fcb0c6f66576a3f08a5"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-release-before-cadence-fix.log",
+      "size_bytes": 55419,
+      "sha256": "487a240fc88503d02dbea9ced723d17fc01b2d1e311fa312d893b8ede11ef34c"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-release-before-path-fix.log",
+      "size_bytes": 55129,
+      "sha256": "324fcf464efb85fd9bc93577def86bf1fbe728678759ad618aa8c4c7cd990016"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/ctest-release.log",
+      "size_bytes": 55548,
+      "sha256": "ce5f2be838a701e3d71d23060663d723c36d42df1aa432f3597d8d25c02cc815"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native/checkpoint.save",
+      "size_bytes": 291489,
+      "sha256": "9d1b0f7a5d3bc6177187640ec7164d24bfcadcf403fc8d5133a0a57e064d610d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native/checkpoint.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native/checkpoint.stdout.log",
+      "size_bytes": 112,
+      "sha256": "b942b822c385f605b4054262a7b3be045769efd660e8abd6fb8f538ba67f9806"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native/expected.save",
+      "size_bytes": 293558,
+      "sha256": "e9c24d7db5c28d0352737e9254327a8bce6e1f6570e01004cab7d73aacb5b768"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native/prefix.log",
+      "size_bytes": 1124,
+      "sha256": "d52fd528b6bf6a970ba7499692c0f337f394d422e5c16234dce8be69a6344af6"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native/timing.json",
+      "size_bytes": 326,
+      "sha256": "aee025a806303baec23a7397e6a3f41feafa64b6d8c8760502cac19d3c9a03b9"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native-2/checkpoint.save",
+      "size_bytes": 291489,
+      "sha256": "9d1b0f7a5d3bc6177187640ec7164d24bfcadcf403fc8d5133a0a57e064d610d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native-2/checkpoint.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native-2/checkpoint.stdout.log",
+      "size_bytes": 109,
+      "sha256": "899da83bb51e361b51f67b23e21e53e7a069e99542a46492ac342cff50610566"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native-2/expected.save",
+      "size_bytes": 293558,
+      "sha256": "e9c24d7db5c28d0352737e9254327a8bce6e1f6570e01004cab7d73aacb5b768"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native-2/prefix.log",
+      "size_bytes": 1124,
+      "sha256": "9a5059a7e26da7c9b1b1c7ff825c430d3c6bd60da84b03fd85aba57880865685"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native-2/timing.json",
+      "size_bytes": 328,
+      "sha256": "9facbeaaa4760e61c5780d105ed001f2854b6659f6723ea88e5aa13bc899e77a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native-2.log",
+      "size_bytes": 421,
+      "sha256": "5be89c094b956974a99a8079af9507f66a37bc6060505c5b27a3957fd70eb728"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-after-native.log",
+      "size_bytes": 422,
+      "sha256": "d5fdeb0910030f1414c99aeac1e53fc73ffe13ad2c105ade7d17cef2cd1b8163"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-hot/checkpoint.save",
+      "size_bytes": 291489,
+      "sha256": "9d1b0f7a5d3bc6177187640ec7164d24bfcadcf403fc8d5133a0a57e064d610d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-hot/checkpoint.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-hot/checkpoint.stdout.log",
+      "size_bytes": 112,
+      "sha256": "7082479a77826f25d380c8776da8a516b70c3e7c8c1df3349f7463a50af4f9aa"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-hot/expected.save",
+      "size_bytes": 293558,
+      "sha256": "e9c24d7db5c28d0352737e9254327a8bce6e1f6570e01004cab7d73aacb5b768"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-hot/timing.json",
+      "size_bytes": 329,
+      "sha256": "db27acf37d16e1c904921940e310ff66a897684cb015f153b7f7079cf8cc99a4"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-hot.log",
+      "size_bytes": 425,
+      "sha256": "9f66ad33dcaac73a0811533faca242ae952197a45597dedb8983ece3484cf3b3"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-optimized/checkpoint.save",
+      "size_bytes": 291489,
+      "sha256": "9d1b0f7a5d3bc6177187640ec7164d24bfcadcf403fc8d5133a0a57e064d610d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-optimized/checkpoint.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-optimized/checkpoint.stdout.log",
+      "size_bytes": 112,
+      "sha256": "d0c55edc0733a9085bc885d27cf5a0fe69dfd01f61140b43e65c238d76da862e"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-optimized/expected.save",
+      "size_bytes": 293558,
+      "sha256": "e9c24d7db5c28d0352737e9254327a8bce6e1f6570e01004cab7d73aacb5b768"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-optimized/timing.json",
+      "size_bytes": 331,
+      "sha256": "0b45cdee591bd166240d8ecdd98d28e84319d064cfadafdb67fcd9afb572700b"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/detour-probe-optimized.log",
+      "size_bytes": 427,
+      "sha256": "ae33f507de6a12be5f82cc7608f6b7b5ec65bd2cdf89aa0e59a88400ed03dd1e"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/docs-final.log",
+      "size_bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/docs-first-failure.log",
+      "size_bytes": 140,
+      "sha256": "66dd339a8c4ddde6829d569f675571c178345918ec9700c9fd7619bc6da1ba60"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/docs-pre-review.log",
+      "size_bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/docs.log",
+      "size_bytes": 127,
+      "sha256": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/final-fix.diff",
+      "size_bytes": 67820,
+      "sha256": "c910fd48ea3e8dca454edfd4213d6ab36aa7f72dedf51a1dc513e8dc120e5734"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/format-final.log",
+      "size_bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/format-pre-review.log",
+      "size_bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/format.log",
+      "size_bytes": 161,
+      "sha256": "0ac1628fd1590b42a69524227e91829eee5ed598aabc906e9497268c485ec9e4"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-cadence/trace/samples.csv",
+      "size_bytes": 9976,
+      "sha256": "5ce676b297ea79e446a547d9719e334954a60d24d6b0cbf47eb9b81027df345f"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-cadence/trace/status.txt",
+      "size_bytes": 152,
+      "sha256": "13bf27ed6a8eb7f9d8993f5b13b847295781f271d419392c868c49f343828083"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-cadence/trace.log",
+      "size_bytes": 8371,
+      "sha256": "726aa7c67a0e76ac7538553ba9172a3378b1b4d6054ea7ac3f6c3125b262665e"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-cadence/trace.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-cadence/trace.save.final.save",
+      "size_bytes": 257128,
+      "sha256": "b3a9d7b5f24bce3a8bae2a506e3489af8db3f00e13d1cdc56eb53ea61580c250"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-cadence.log",
+      "size_bytes": 69,
+      "sha256": "fb3e64b5eb9a4c7fa89548312456b840d282ce9b020bab666e661c5082a7f958"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-core.log",
+      "size_bytes": 2172,
+      "sha256": "9ff1b4a458ee3b71ab79532ad7472bd0aaf3b26a56a27ddeb3f4c02807e38c0e"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace/samples.csv",
+      "size_bytes": 10018,
+      "sha256": "10da708e29695062d75a877021029d44c7891acdbde76cf535bd4c23b1fd8a3b"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace/status.txt",
+      "size_bytes": 152,
+      "sha256": "920fca02c6fee213d0c5413e97c61224e641f1e411cf4785f88cfd500e8e69b0"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace.log",
+      "size_bytes": 8530,
+      "sha256": "0f4882fc9c6005932734631779ea34be76c05bd2bc709a2c640b26b50a33361c"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace.save.final.save",
+      "size_bytes": 257170,
+      "sha256": "39a11002cea622886ec4cfaf928636f65409cf306f1e7f3e7a94769e560b3108"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-final.log",
+      "size_bytes": 69,
+      "sha256": "fb3e64b5eb9a4c7fa89548312456b840d282ce9b020bab666e661c5082a7f958"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-native/trace/samples.csv",
+      "size_bytes": 9882,
+      "sha256": "e9bf9a9bc23ab2a3c1824cc9059022cf4258e2725f1c578d62f13efcf94d2c9c"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-native/trace.log",
+      "size_bytes": 8493,
+      "sha256": "775de1c9497e2a53c26a9cf4f794d1c734e0e9aa7715a067ebeb760a6a6488b0"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-native/trace.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-native/trace.save.final.save",
+      "size_bytes": 257170,
+      "sha256": "39a11002cea622886ec4cfaf928636f65409cf306f1e7f3e7a94769e560b3108"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-native.log",
+      "size_bytes": 69,
+      "sha256": "fb3e64b5eb9a4c7fa89548312456b840d282ce9b020bab666e661c5082a7f958"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-report-failure/run.log",
+      "size_bytes": 423,
+      "sha256": "a71a19236c86714fa4135c8a4a0e673f3bdbcf061cb3c6684c68d6e3e49cae9a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-report-failure/trace/samples.csv",
+      "size_bytes": 10012,
+      "sha256": "c14ad0a93e829bcce9c0ffa663987b3c8a1f93e692a0d36f9b2a1b125401246d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-report-failure/trace/status.txt",
+      "size_bytes": 152,
+      "sha256": "5a85bb558fe32e82e56495a79ccf60cb42e62e103baa3d0a041ead39b52e9de9"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-report-failure/world.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-report-failure.log",
+      "size_bytes": 68,
+      "sha256": "6cd2a7c43ebb425938bc67683eaed5d8991dbd130a2635ef9fecc2fae59e0746"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-status-collision/run.log",
+      "size_bytes": 8264,
+      "sha256": "c2a1a5bb639f3fd76a028619290d19b4d87bf5f2a474b791e9d16ef39009ec0c"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-status-collision/trace/samples.csv",
+      "size_bytes": 6523,
+      "sha256": "58b82ef015d75555478f8cce1373ec0bdb6840bb8466f45d6dd579007a52e1cd"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-status-collision/trace/status.txt",
+      "size_bytes": 25,
+      "sha256": "e54deb4ade3e7ccba438df7daf2367a1a987ca2e93547b7ed0822a38dec5253d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-status-collision/world.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-status-collision/world.save.final.save",
+      "size_bytes": 258728,
+      "sha256": "3921d4ea9b38b436673adc0b912ea408c4ff29df356b5941eacc1712c17226e6"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-status-collision.log",
+      "size_bytes": 29,
+      "sha256": "b6d8dacba663011d890acb4ad6dddd1fc561d8976326ffde041d290f85f78800"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-trailing/trace/samples.csv",
+      "size_bytes": 10063,
+      "sha256": "c994b0575a312464aa66fca9c26c04a59e019fc56bb5c34ab9d1e22aaf72711d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-trailing/trace.log",
+      "size_bytes": 8371,
+      "sha256": "28406b59a494e9550261a6864d5a6584be5847f5458a090acee55ffad7e319d6"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-trailing/trace.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-trailing/trace.save.final.save",
+      "size_bytes": 257128,
+      "sha256": "b3a9d7b5f24bce3a8bae2a506e3489af8db3f00e13d1cdc56eb53ea61580c250"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-trailing.log",
+      "size_bytes": 69,
+      "sha256": "fb3e64b5eb9a4c7fa89548312456b840d282ce9b020bab666e661c5082a7f958"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/interrupted/run.log",
+      "size_bytes": 7622,
+      "sha256": "31992db806a905154961591af3f853ab4b9172f7c5161dd74dad65e77fc6d068"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/interrupted/trace/samples.csv",
+      "size_bytes": 1222,
+      "sha256": "417d45160f806dc6596b589dd36edc9aa5daca363d588ea59448807242698099"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/interrupted/world.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/interrupted/world.save.final.save",
+      "size_bytes": 291948,
+      "sha256": "494b2b950dac9aab403c6c671e460392a0ef428d48cc5f8b02ebb3a2422ffad2"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/interrupted.log",
+      "size_bytes": 33,
+      "sha256": "45c0673c046df3eb8fa71c3d886a39d3290727058bab05aea81bc5112ba792e3"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/old-checkpoint-new-mind-continuation.json",
+      "size_bytes": 187,
+      "sha256": "f76a6aed257cad44ef729298e62675aeb0f7435a5529b435f2dc56c0f2f07fdc"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/optimized-world-hashes.json",
+      "size_bytes": 417,
+      "sha256": "2908f4ea4e0388d904039e5b236bb048d6db5428472f6ad067c581b8039e40c0"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/path-asan.log",
+      "size_bytes": 2843,
+      "sha256": "33d0aa761165dea5b47337a85ee1b5b957a252aa1400ad76492922af017d1c52"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/path-debug.log",
+      "size_bytes": 2843,
+      "sha256": "b0a74805bd4fdd74f2548af2c9150a04bbedb92739c5420fb3e2010a0f8bc1fa"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/path-release.log",
+      "size_bytes": 2843,
+      "sha256": "2445a1facd1b83e0d3ad070c088db91d039d3ad7529050213b706b5aff51c097"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/paths/existing/samples.csv",
+      "size_bytes": 17,
+      "sha256": "74117420f145ca4bcee6fce86d8a1608fe948b838ae1d3b6f6cbff99184abcb9"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/paths/preserved.log",
+      "size_bytes": 15,
+      "sha256": "23777e85b2cc58b10eda3f7b1d46185d59bb2ce81a57f0c29ce265b400daa9ba"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/paths.log",
+      "size_bytes": 49,
+      "sha256": "5420fb951356e86b921f33d4eb60a0cfc4301d9b7cdca050a539dc52b4bc581a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/probe-persistent-process-cpu.json",
+      "size_bytes": 107531,
+      "sha256": "b98ecacb83c1690c36ee81005eea4c00125655b5f5f385921231176db2a900d0"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/probe_detour_timing.py",
+      "size_bytes": 3133,
+      "sha256": "0e9075e37073c576c139b6da03dbc610248e39ec5e005b46de6150e9e8d669e1"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/progress.md",
+      "size_bytes": 7891,
+      "sha256": "bed344fa0e37889b5e7614aed82528e88833d47f7de48b6b0d8919afc412f33c"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/python-final.log",
+      "size_bytes": 162,
+      "sha256": "c1603caa6685ba153c1241058b6df675a1f5612dc0b8cc9db1076d54834122d6"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/python.log",
+      "size_bytes": 162,
+      "sha256": "b46a4fd9cd9e0cc2669c5473a4377c2199fd95085de4e61f06039489e33d070a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-core.log",
+      "size_bytes": 12155,
+      "sha256": "d6fbd0074cba043cb6330895a34d6ad4e96e98557d34467042394ad9f87a6de3"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-memory-cadence/trace/samples.csv",
+      "size_bytes": 10062,
+      "sha256": "bb995ff34d7d7b12856fd8449ccea7a75e3a1d4d3d9cb16510fcc8f6cfa81120"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-memory-cadence/trace/status.txt",
+      "size_bytes": 152,
+      "sha256": "fc57f7b81b7b058922cc3a7d519e3555cb406aeec501b5ea877b53830dfa1f39"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-memory-cadence/trace.log",
+      "size_bytes": 8371,
+      "sha256": "7911975ba8b64e61680940bf2c2ce2db8ef6ac3c12a0f316922d7ce7c4e503b1"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-memory-cadence/trace.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-memory-cadence/trace.save.final.save",
+      "size_bytes": 257128,
+      "sha256": "b3a9d7b5f24bce3a8bae2a506e3489af8db3f00e13d1cdc56eb53ea61580c250"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-memory-cadence.log",
+      "size_bytes": 698,
+      "sha256": "257f6b7b5481a260b9a1aa9870eead97800b6610bd7d6ce01b72d934de36faf2"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-namespace/existing/samples.csv",
+      "size_bytes": 17,
+      "sha256": "74117420f145ca4bcee6fce86d8a1608fe948b838ae1d3b6f6cbff99184abcb9"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-namespace/preserved.log",
+      "size_bytes": 15,
+      "sha256": "23777e85b2cc58b10eda3f7b1d46185d59bb2ce81a57f0c29ce265b400daa9ba"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-namespace.log",
+      "size_bytes": 49,
+      "sha256": "5420fb951356e86b921f33d4eb60a0cfc4301d9b7cdca050a539dc52b4bc581a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-native.log",
+      "size_bytes": 659,
+      "sha256": "d01adc73c68901d43f6fc4525a50b72b5ef1b7df5a9b43300b44e7cf08bff1d4"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-report-failure/run.log",
+      "size_bytes": 423,
+      "sha256": "a71a19236c86714fa4135c8a4a0e673f3bdbcf061cb3c6684c68d6e3e49cae9a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-report-failure/world.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-report-failure.log",
+      "size_bytes": 719,
+      "sha256": "fab8498a3738598b5c0ba43ff727fcd0c9adf85d197e0586c0f13e8b3ad57e5b"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-status-collision/run.log",
+      "size_bytes": 7939,
+      "sha256": "7e4299a1d1b095cc71f73fb69c3c4abcb46c5df8bc910f815a92d754daddabb4"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-status-collision/trace/samples.csv",
+      "size_bytes": 6444,
+      "sha256": "aef7d3bd0e15fa415837db9db946775ac9d3ee88e9b32191fbc292c9471b6a91"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-status-collision/trace/status.txt",
+      "size_bytes": 25,
+      "sha256": "e54deb4ade3e7ccba438df7daf2367a1a987ca2e93547b7ed0822a38dec5253d"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-status-collision/world.save",
+      "size_bytes": 290391,
+      "sha256": "ae0991260a9c05f74726ed712f30331e287581be8c3b9e968fcecd2e4c09f14a"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-status-collision/world.save.final.save",
+      "size_bytes": 258554,
+      "sha256": "2c178ea053affd551d49cf5659caa9303c15119f409bcf40e9bf2715731c0998"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-status-collision.log",
+      "size_bytes": 733,
+      "sha256": "3cdca66fdfd6b5abc73bd48997adefcd0eb152a1953ce6f52c823d9dbc21dc2b"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-trailing.log",
+      "size_bytes": 659,
+      "sha256": "219672624fc4a33f91ec869a08c826c8c949ae1e99b13d7f15d71b6cd21e5e66"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/review.diff",
+      "size_bytes": 69042,
+      "sha256": "ea7bbf063c79324f0dfa6d279042971bff406d299902d90f1b4c2982effc79be"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/review.md",
+      "size_bytes": 3064,
+      "sha256": "e59109f358f0f006288be7921fab92fd4d8cbfaa3acd191e7b2cc247a7951253"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/two-methods-phase-build.log",
+      "size_bytes": 847,
+      "sha256": "757a528d1232ee7751f094443a7529abfc41394315881cebf297fad7ab840765"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/two-methods-phase-pair.log",
+      "size_bytes": 2069,
+      "sha256": "d51dbdbf0e7c0a7c5caef2d0eb2622df6504bcd4269cd550b77f59004da6258e"
+    }
+  ]
+}

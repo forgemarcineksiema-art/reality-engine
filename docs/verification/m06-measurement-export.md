@@ -34,6 +34,30 @@ python -m unittest discover -s tools/tests -p "test_*.py"
 
 Końcowa próba natywna `--community --learning --gpu-debug --warmup-seconds 1 --measure-seconds 2 --measurement-trace DIR` zachowała 178 wierszy: 58 rozgrzewki i 120 pomiaru, z 40 krokami świata w okresie mierzonym. Liczniki zbierania i eksportu wyniosły odpowiednio 0,3942 ms oraz 4,7398 ms; są pojedynczym odczytem sekcji obserwatora i zapisu, bez izolowanego porównania z wyłączoną instrumentacją. Oba pliki mają status poprawnego zapisu, a proces zakończył się kodem 0.
 
+## Wersja i zachowane dowody
+
+Kod końcowy: `9e1ce66e088a6cc48cbdc504f8ed65df159cff92`; implementacja przed review: `f2493a32abc86dda27a7798ebdce98e6c04e6031`. Zmiany zachowano na gałęzi `codex/verified-capabilities-plan`. Katalog dowodów nosi datę rozpoczęcia, a końcowe sprawdzenia pochodzą z 02.11.2026.
+
+- Pełne logi: [Debug](evidence/m06-measurement-export-2026-11-01/workspace/ctest-debug.log), [Release](evidence/m06-measurement-export-2026-11-01/workspace/ctest-release.log), [ASan](evidence/m06-measurement-export-2026-11-01/workspace/ctest-asan.log).
+- Dane końcowej próby: [samples.csv](evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace/samples.csv), [status](evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace/status.txt), [raport procesu](evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace.log).
+- Przebieg decyzji, poleceń i porażek: [dziennik](evidence/m06-measurement-export-2026-11-01/workspace/progress.md), [niezależny przegląd i odpowiedź implementera](evidence/m06-measurement-export-2026-11-01/workspace/review.md), [pierwszy pełny timeout ASan](evidence/m06-measurement-export-2026-11-01/workspace/ctest-asan-timeout.log), [czerwony test błędu raportu](evidence/m06-measurement-export-2026-11-01/workspace/red-report-failure.log).
+
+Archiwum obejmuje surowe próby negatywne, wybrane wcześniejsze macierze, sondy diagnostyczne, zapisy świata i kopię wykonanych poprawek. Zachowano dokładne bajty, w tym zakończenia wierszy logów. [Manifest SHA-256](evidence/m06-measurement-export-2026-11-01/manifest.json) identyfikuje pliki, źródła i binaria. Kontrole po dodaniu archiwum mają osobne logi: [dokumentacja](evidence/m06-measurement-export-2026-11-01/final-docs.log), [Python](evidence/m06-measurement-export-2026-11-01/final-python.log), [format](evidence/m06-measurement-export-2026-11-01/final-format.log).
+
+Surowy wynik CTest zawiera własne końcowe spacje, a zapis diffu również puste wiersze z prefiksem kontekstu. Nie poprawiano ich narzędziem stylu. Źródła i opisy sprawdzono osobno, natomiast archiwum sprawdzono sumami SHA-256 oraz zgodnością zapisanych blobów Gita z plikami bez filtrów.
+
+Przyjęte rozstrzygnięcia wykonawcze:
+
+| Decyzja | Powód i koszt, gdyby była błędna |
+| --- | --- |
+| Istniejąca gałąź robocza i buildy | Zachowanie przygotowania oraz cache na laptopie 8 GB; koszt: wspólna historia przygotowania i implementacji, wymagająca rozdzielenia commitami |
+| Dziennik w ignorowanym build | Zgodność z układem repozytorium; koszt: mógł zniknąć podczas czyszczenia, dlatego przed porządkowaniem zachowano pełną kopię |
+| Gwarancja eksportu obejmuje obsłużone błędy | Bufor nie jest dziennikiem odpornym na twarde zakończenie; koszt: utrata nieeksportowanych próbek w takim zdarzeniu |
+| Długi pomiar, izolowany narzut i odbiór ludzi pozostają w M06 | Krótka próba potwierdza zachowanie eksportu; koszt: wydajność i użyteczność projektu nadal wymagają odbioru |
+| Wąskie usprawnienie inicjalizacji | Usunięcie powtarzanego kosztu przy zachowaniu limitów; ryzyko zmiany kolejności modeli, kosztów lub izolacji pokryto niezależną referencją, sześcioma hashami i identycznymi bajtami świata |
+
+Nie odłożono uwag Minor z przeglądu. Zmienność czasów pod obciążeniem pozostaje jawnym ryzykiem, mimo zielonej końcowej macierzy.
+
 ## Historia weryfikacji
 
 Baza kodu tego przyrostu: `3bf2d60f3c9183d1b7d74eefabf3f07fd3e42ae6`. Początkowe wybrane regresje Release: 17/17 PASS. Nowy test natywny na starej aplikacji zakończył się kodem 1, ponieważ brakowało opcji eksportu. Testy modelu najpierw wykazały brak nowego API w kompilacji. Po implementacji testy diagnostyki: 15/15 PASS; natywne próby szeregu, odmów ścieżek, WM_CLOSE i konkurencyjnego CSV: PASS.
