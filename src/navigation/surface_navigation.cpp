@@ -1,4 +1,5 @@
 #include "navigation/surface_navigation.hpp"
+#include "core/runtime_profile.hpp"
 
 #include <algorithm>
 #include <array>
@@ -145,6 +146,7 @@ SurfaceRoute find_surface_route(const SpatialGeometry& geometry,
                                 SurfaceLocation start, SurfaceLocation goal, TraversalLimits limits,
                                 std::size_t expansion_budget, std::size_t visibility_budget,
                                 std::span<const SurfaceBlocker> blockers) {
+    ProfileScope profile(ProfileOperation::Navigation);
     geometry.validate();
     limits.validate();
     if (blockers.size() > 32)

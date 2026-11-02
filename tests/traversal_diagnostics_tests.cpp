@@ -1,4 +1,5 @@
 #include "core/runtime_metrics.hpp"
+#include "core/runtime_profile.hpp"
 #include "lab/traversal_diagnostics.hpp"
 
 #include <cmath>
@@ -425,11 +426,51 @@ void live_view() {
     require(parking && precision && riding, "live fixture missed parking, precision or riding");
 }
 } // namespace
+void profile_costs() {
+    RuntimeProfile first, second;
+    {
+        ProfileBinding binding(&first);
+        {
+            ProfileScope navigation(ProfileOperation::Navigation);
+        }
+        try {
+            ProfileScope learning(ProfileOperation::Learning);
+            {
+                ProfileScope nested(ProfileOperation::Learning);
+            }
+            throw std::runtime_error("expected");
+        } catch (const std::runtime_error&) {
+        }
+        {
+            ProfileScope outer(ProfileOperation::Navigation);
+            ProfileBinding other(&second);
+            ProfileScope navigation(ProfileOperation::Navigation);
+        }
+        {
+            ProfileScope save(ProfileOperation::Save);
+        }
+    }
+    {
+        ProfileScope unused(ProfileOperation::Save);
+    }
+    require(first.costs[0].calls == 2 && first.costs[1].calls == 1 && first.costs[2].calls == 1 &&
+                second.costs[0].calls == 1 && second.costs[1].calls == 0,
+            "profile scope lost isolation/exception boundary");
+    TraversalSession plain, measured;
+    plain.advance(30);
+    {
+        ProfileBinding binding(&first);
+        measured.advance(30);
+    }
+    require(plain.serialize() == measured.serialize(), "profile changed world state");
+}
 int main(int argc, char** argv) {
     try {
         require(argc == 2, "expected a diagnostics test name");
         const std::string_view name{argv[1]};
-        if (name == "service_progress")
+        if (name == "profile_costs")
+            profile_costs();
+        else if (name == "service_progress")
             service_progress();
         else if (name == "batch_transaction")
             batch_transaction();

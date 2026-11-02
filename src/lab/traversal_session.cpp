@@ -1,4 +1,5 @@
 #include "lab/traversal_session.hpp"
+#include "core/runtime_profile.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -2099,6 +2100,7 @@ void TraversalSession::advance(std::uint64_t ticks) {
     }
 }
 void TraversalSession::save(const std::filesystem::path& path) const {
+    ProfileScope profile(ProfileOperation::Save);
     write_snapshot_atomic(serialize(), path);
 }
 void TraversalSession::load(const std::filesystem::path& path) {

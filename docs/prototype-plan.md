@@ -83,19 +83,17 @@ Warstwa gry: sytuacja udostępnia co najmniej dwie zaimplementowane metody, z ko
 
 ### M06 — Odbiór i decyzja o skali
 
-**Status: PLAN.** Wymaga pełnego M05. Dłuższe działanie, pomiar budżetów i próba z człowiekiem. Dowód: SC-11 i SC-12 oraz obserwacja kryteriów z [projektu gry](game-design.md). Raport obejmuje również słabe wyniki i ograniczenia.
+**Status: W REALIZACJI.** Wymaga pełnego M05. Dłuższe działanie, pomiar budżetów i techniczny odbiór fundamentu. Dowód: SC-11 i SC-12 według [briefu M06](work-items/m06-acceptance.md). Raport obejmuje również słabe wyniki i ograniczenia.
 
 [Przygotowanie odbioru](work-items/m06-acceptance.md) określa najbliższy zakres instrumentacji i rozdzielenie prób. [Audyt gotowości z 01.11.2026](verification/m06-preflight.md) zawiera kontrolę istniejących źródeł oraz wybrane 17/17 testów Release; nie jest długim pomiarem, próbą natywną ani odbiorem całego M06.
 
 [Pierwszy przyrost eksportu](verification/m06-measurement-export.md) dodaje opcjonalny szereg czasów i pamięci obu faz. Nie zamyka pomiarów CPU/GPU, dłuższej próby ani odbioru z ludźmi.
 
-Pracę dzielimy na: zamrożenie sceny i kryteriów odbioru; kontrolowany dłuższy pomiar aplikacji; próbę z ludźmi; naprawę wykrytych wad i ponowną kontrolę dotkniętego zakresu; końcowy raport i decyzję użytkownika. Propozycja pomiaru autora to 2 minuty rozgrzewki oraz 30 minut rejestrowanego działania w Release na i5/MX330/8 GB, z fazą spokojną, uczeniem, ingerencją, odejściem/powrotem i zapisem. Czas, fazy i progi należy zapisać w protokole przed próbą, odwołując się do [właściciela budżetów](performance-budget.md). Nie są to osiągnięte parametry ani zmiana dotychczasowych limitów testów.
+Pracę dzielimy na: zamrożenie sceny i kryteriów odbioru; kontrolowany dłuższy pomiar aplikacji; kontrolę kontynuacji i skutków; naprawę wykrytych wad i ponowną kontrolę dotkniętego zakresu; końcowy raport i decyzję użytkownika. Propozycja pomiaru autora to 2 minuty rozgrzewki oraz 30 minut rejestrowanego działania w Release na i5/MX330/8 GB, z fazą spokojną, uczeniem, ingerencją, odejściem/powrotem i zapisem. Czas, fazy i progi należy zapisać w protokole przed próbą, odwołując się do [właściciela budżetów](performance-budget.md). Nie są to osiągnięte parametry ani zmiana dotychczasowych limitów testów.
 
 Mierzymy rozkład klatek i przycięcia, CPU/GPU, pamięć i jej trend, zaległość aktualizacji, koszt wnioskowania/nawigacji i zapisu oraz postęp pracy mieszkańców. Do oceny czasu nie używamy ASan ani uruchomionych równolegle kompilacji. Część techniczna wymaga również pełnych regresji Debug/Release/ASan oraz kontroli narzędzi/dokumentacji. Wynik pomiaru niespełniający zapisanej bramki wymaga poprawy i powtórzenia porównywalnej próby, nie usunięcia złych próbek.
 
-Odbiór obejmuje też czytelność sterowania, odkrywanie metod, zrozumienie konsekwencji oraz zainteresowanie dalszą przygodą. Automatyczne testy bilansów nie zastępują tej próby. Kryteria i wnioski zapisujemy przed rozbudową skali, bez automatycznego przypisywania ocen 10/10.
-
-Zachowujemy istniejącą propozycję próby z co najmniej trzema osobami z [projektu gry](game-design.md): samodzielne rozpoznanie dwóch metod, zrozumienie skutków i kontynuacji bez gracza oraz konkretne uzasadnienie chęci dalszej gry. Oddzielnie zapisujemy bezpośredni odbiór użytkownika. Jeśli tych prób nie wykonano, odpowiednia część pozostaje nieweryfikowana; agent AI ani test automatyczny nie zastępują uczestnika. Nieudana ocena czytelności lub sterowania nie staje się zaliczeniem przez samo ukończenie czasu próby.
+Decyzja użytkownika z 02.11.2026: M06 ma potwierdzić solidność i wiarygodność fundamentu. Użytkownik zadeklarował odbiór; nie wymaga uczestników ani próby grywalności obecnego prototypu 2,5D. Techniczne kontrole pozostają do wykonania i muszą mieć własne dowody. Wcześniejsza propozycja uczestników oraz zainteresowania dalszą grą nie jest już bramką M06. Ocena przyszłej gry pozostaje oddzielnym zagadnieniem [projektu gry](game-design.md#ocena-gry).
 
 Dopiero ten etap uzasadnia wybór następnego kierunku: większa populacja, głębsza fizyka, lepsza historia albo poprawa istniejącego zachowania. Hipoteza kolejnej liczebności znajduje się w budżetach. Nie rozwijamy wszystkich wymiarów jednocześnie.
 

@@ -1,4 +1,5 @@
 #include "core/runtime_metrics.hpp"
+#include "core/runtime_profile.hpp"
 #include "graphics/d3d11_renderer.hpp"
 #include "lab/lab_session.hpp"
 #include "lab/traversal_diagnostics.hpp"
@@ -13,6 +14,7 @@
 #include <climits>
 #include <exception>
 #include <fstream>
+#include <iomanip>
 #include <locale>
 #include <memory>
 #include <sstream>
@@ -45,13 +47,13 @@ struct Options {
     std::filesystem::path save = std::filesystem::current_path() / L"traversal-world.save";
     std::filesystem::path report = std::filesystem::current_path() / L"traversal.log";
     std::filesystem::path capture = std::filesystem::current_path() / L"traversal.png";
-    bool smoke = false, debug = false, resume = false, unattended = false;
+    bool smoke = false, debug = false, resume = false, unattended = false, profile = false;
     bool delivery = false, crossing = false, law = false, community = false, learning = false;
     bool two_methods = false, distant = false, story = false;
     std::string story_case = "normal";
     bool repair_smoke = false;
     std::filesystem::path diagnostics;
-    std::filesystem::path measurement_trace;
+    std::filesystem::path measurement_trace, initial_world;
     unsigned measure_seconds = 0, warmup_seconds = 30;
     int adapter = -1;
 };
@@ -72,7 +74,9 @@ bool same_path(const std::filesystem::path& first, const std::filesystem::path& 
     const auto a = first.native(), b = second.native();
     require(a.size() <= INT_MAX && b.size() <= INT_MAX, "measurement output path too long");
     return CompareStringOrdinal(a.data(), static_cast<int>(a.size()), b.data(),
-                                static_cast<int>(b.size()), TRUE) == CSTR_EQUAL;
+                                static_cast<int>(b.size()), TRUE) == CSTR_EQUAL ||
+           (std::filesystem::exists(first) && std::filesystem::exists(second) &&
+            std::filesystem::equivalent(first, second));
 }
 void validate_trace_paths(const Options& options) {
     if (options.measurement_trace.empty())
@@ -89,7 +93,11 @@ void validate_trace_paths(const Options& options) {
          {options.save, final_save, options.report, options.capture, options.diagnostics}) {
         const auto normalized = output_path(path);
         require(!same_path(normalized, csv) && !same_path(normalized, status) &&
-                    !same_path(normalized, directory),
+                    !same_path(normalized, directory) &&
+                    !same_path(normalized, directory / L"profile.csv") &&
+                    !same_path(normalized, directory / L"gpu.csv") &&
+                    !same_path(normalized, directory / L"progress.csv") &&
+                    !same_path(normalized, directory / L"actors.csv"),
                 "measurement trace conflicts with another output");
     }
 }
@@ -162,6 +170,8 @@ void read_options(Options& options) {
             options.repair_smoke = true;
         } else if (arg == L"--law") {
             options.law = true;
+        } else if (arg == L"--profile-runtime") {
+            options.profile = true;
         } else if (arg == L"--gpu-debug") {
             options.debug = true;
         } else if (arg == L"--resume-smoke") {
@@ -179,6 +189,9 @@ void read_options(Options& options) {
                 options.capture = value;
             } else if (arg == L"--diagnostics") {
                 options.diagnostics = value;
+            } else if (arg == L"--initial-world") {
+                require(!value.empty(), "initial world path is empty");
+                options.initial_world = value;
             } else if (arg == L"--measurement-trace") {
                 require(!value.empty(), "measurement trace directory is empty");
                 options.measurement_trace = value;
@@ -225,6 +238,21 @@ void read_options(Options& options) {
     require(!warmup_given || options.measure_seconds != 0, "warmup needs a measurement");
     require(options.measure_seconds == 0 || (!options.smoke && save_given && report_given),
             "measurement needs explicit --save and --report and cannot use smoke-test");
+    if (!options.initial_world.empty()) {
+        require(options.measure_seconds != 0 && !options.smoke,
+                "initial-world requires measurement");
+        const auto input = output_path(options.initial_world);
+        auto final_save = options.save;
+        final_save += L".final.save";
+        for (const auto& path :
+             {options.save, final_save, options.report, options.capture, options.diagnostics})
+            require(!same_path(input, output_path(path)), "initial world conflicts with output");
+        if (!options.measurement_trace.empty())
+            require(!same_path(input.parent_path(), output_path(options.measurement_trace)),
+                    "initial world conflicts with trace directory");
+    }
+    require(!options.profile || !options.measurement_trace.empty(),
+            "runtime profile requires measurement trace");
     require(options.measurement_trace.empty() || options.measure_seconds != 0,
             "measurement trace needs a measurement");
     if (options.diagnostics.empty())
@@ -274,6 +302,8 @@ class TraversalWindow final {
                     "story supply transfer failed");
             session_.cancel_delivery(3);
         }
+        if (!options_.initial_world.empty())
+            session_.load(options_.initial_world);
         session_.validate();
         WNDCLASSEXW type{};
         type.cbSize = sizeof(type);
@@ -303,6 +333,7 @@ class TraversalWindow final {
     TraversalWindow(const TraversalWindow&) = delete;
     TraversalWindow& operator=(const TraversalWindow&) = delete;
     int run() {
+        ProfileBinding profile_binding(options_.profile ? &profile_ : nullptr);
         try {
             if (!options_.measurement_trace.empty()) {
                 require(std::filesystem::create_directory(options_.measurement_trace),
@@ -395,6 +426,23 @@ class TraversalWindow final {
         layout();
         renderer_ =
             std::make_unique<D3D11Renderer>(viewport_, log_, options_.adapter, options_.debug);
+        if (options_.profile) {
+            renderer_->enable_timing();
+            profile_csv_.imbue(std::locale::classic());
+            gpu_csv_.imbue(std::locale::classic());
+            progress_csv_.imbue(std::locale::classic());
+            actors_csv_.imbue(std::locale::classic());
+            actors_csv_ << std::fixed << std::setprecision(6)
+                        << "elapsed_ms,tick,actor,autonomous,state,task,hunger,energy,plans,action,"
+                           "delivered,probes,method,records\n";
+            progress_csv_ << std::fixed << std::setprecision(6)
+                          << "elapsed_ms,tick,station,completed,stock,wear\n";
+            profile_csv_
+                << std::fixed << std::setprecision(6)
+                << "frame,elapsed_ms,tick,phase,cpu_work_ms,present_ms,process_cpu_ms,navigation_"
+                   "calls,navigation_ms,learning_calls,learning_ms,save_calls,save_ms\n";
+            gpu_csv_ << std::fixed << std::setprecision(6) << "frame,status,gpu_ms\n";
+        }
         ShowWindow(window_, SW_SHOWNORMAL);
         UpdateWindow(window_);
         auto previous = std::chrono::steady_clock::now();
@@ -413,6 +461,7 @@ class TraversalWindow final {
             log_.flush();
         }
         measurement_started_ = true;
+        auto previous_cpu = options_.profile ? process_cpu_ms() : 0;
         unsigned frames = 0;
         for (;;) {
             const auto frame_start = std::chrono::steady_clock::now();
@@ -420,6 +469,7 @@ class TraversalWindow final {
                 measurement_finished_ = true;
                 break;
             }
+            const auto costs_before = profile_;
             MSG message{};
             bool quit = false;
             while (PeekMessageW(&message, nullptr, 0, 0, PM_REMOVE)) {
@@ -473,6 +523,7 @@ class TraversalWindow final {
                 }
             panel();
             draw();
+            const auto present_start = std::chrono::steady_clock::now();
             if (!renderer_->present()) {
                 ++occluded_frames_;
                 MsgWaitForMultipleObjectsEx(0, nullptr, 100, QS_ALLINPUT, MWMO_INPUTAVAILABLE);
@@ -526,6 +577,50 @@ class TraversalWindow final {
                                milliseconds(pacer_.pending()), working, private_bytes});
                 trace_observer_ms_ +=
                     milliseconds(std::chrono::steady_clock::now() - observer_start);
+            }
+            if (options_.profile) {
+                const auto profile_start = std::chrono::steady_clock::now();
+                const auto cpu = process_cpu_ms();
+                profile_csv_ << ++profile_frames_ << ',' << milliseconds(frame_end - run_start)
+                             << ',' << session_.world().clock().tick_count() << ','
+                             << (measured ? "measurement" : "warmup") << ','
+                             << milliseconds(present_start - frame_start) << ','
+                             << milliseconds(frame_end - present_start) << ','
+                             << cpu - previous_cpu;
+                for (std::size_t i = 0; i < profile_.costs.size(); ++i)
+                    profile_csv_ << ',' << profile_.costs[i].calls - costs_before.costs[i].calls
+                                 << ','
+                                 << profile_.costs[i].milliseconds -
+                                        costs_before.costs[i].milliseconds;
+                profile_csv_ << '\n';
+                previous_cpu = cpu;
+                collect_gpu();
+                if (frame_end >= next_progress_) {
+                    for (std::size_t i = 0; i < session_.stations().size(); ++i) {
+                        const auto& station = session_.stations()[i];
+                        const auto resource = session_.world().resource(station.lot);
+                        progress_csv_ << milliseconds(frame_end - run_start) << ','
+                                      << session_.world().clock().tick_count() << ',' << i << ','
+                                      << station.completed << ',' << resource->record.quantity.value
+                                      << ',' << station.wear << '\n';
+                    }
+                    for (std::size_t i = 0; i < session_.actors().size(); ++i) {
+                        const auto& actor = session_.actors()[i];
+                        const auto practice = session_.practice_view(i);
+                        actors_csv_
+                            << milliseconds(frame_end - run_start) << ','
+                            << session_.world().clock().tick_count() << ',' << actor.id.value << ','
+                            << actor.autonomous << ',' << static_cast<unsigned>(actor.state) << ','
+                            << static_cast<unsigned>(actor.task) << ',' << actor.hunger << ','
+                            << actor.energy << ',' << actor.plans << ',' << actor.action.value
+                            << ',' << (actor.delivery ? actor.delivery->delivered : 0) << ','
+                            << practice.probes << ',' << practice.method_known << ','
+                            << practice.records << '\n';
+                    }
+                    next_progress_ = frame_end + 1s;
+                }
+                profile_observer_ms_ +=
+                    milliseconds(std::chrono::steady_clock::now() - profile_start);
             }
             previous_frame_end = frame_end;
             if (options_.smoke && ++frames == 2) {
@@ -585,6 +680,31 @@ class TraversalWindow final {
     std::string old_inspector_;
     TraversalDiagnostics diagnostics_;
     RuntimeMetrics metrics_;
+    RuntimeProfile profile_;
+    std::ostringstream profile_csv_, gpu_csv_, progress_csv_, actors_csv_;
+    std::chrono::steady_clock::time_point next_progress_{};
+    double profile_observer_ms_ = 0;
+    std::uint64_t profile_frames_ = 0, gpu_resolved_ = 0;
+    static double process_cpu_ms() {
+        FILETIME creation{}, exit{}, kernel{}, user{};
+        require(GetProcessTimes(GetCurrentProcess(), &creation, &exit, &kernel, &user) != 0,
+                "cannot measure process CPU time");
+        const auto ticks = [](FILETIME value) {
+            return (static_cast<std::uint64_t>(value.dwHighDateTime) << 32) | value.dwLowDateTime;
+        };
+        return static_cast<double>(ticks(kernel) + ticks(user)) / 10000.0;
+    }
+    void collect_gpu() {
+        if (!renderer_ || !options_.profile)
+            return;
+        for (const auto& timing : renderer_->take_gpu_timings()) {
+            gpu_csv_ << timing.frame << ',' << (timing.milliseconds ? "valid" : "disjoint") << ',';
+            if (timing.milliseconds)
+                gpu_csv_ << *timing.milliseconds;
+            gpu_csv_ << '\n';
+            ++gpu_resolved_;
+        }
+    }
     MeasurementTrace trace_;
     std::optional<std::filesystem::path> last_diagnostic_;
     std::optional<std::chrono::steady_clock::time_point> first_sample_, last_sample_;
@@ -616,11 +736,32 @@ class TraversalWindow final {
                 << "\nmeasurement_trace_observer_ms=" << trace_observer_ms_
                 << "\nmeasurement_trace_exported=" << exported
                 << "\nmeasurement_trace_complete=" << finished << '\n';
+            if (options_.profile) {
+                out << "profile_observer_ms=" << profile_observer_ms_
+                    << "\nprofile_gpu_resolved=" << gpu_resolved_
+                    << "\nprofile_gpu_pending=" << (renderer_ ? renderer_->gpu_pending() : 0)
+                    << "\nprofile_gpu_skipped=" << (renderer_ ? renderer_->gpu_skipped() : 0)
+                    << '\n';
+                const std::array<const char*, 3> names{"navigation", "learning", "save"};
+                for (std::size_t i = 0; i < names.size(); ++i)
+                    out << "profile_" << names[i] << "_calls=" << profile_.costs[i].calls
+                        << "\nprofile_" << names[i] << "_ms=" << profile_.costs[i].milliseconds
+                        << '\n';
+            }
             return out.str();
         };
         try {
             // Saving the buffer and its status must not depend on a working report stream.
             write_new_trace_file(options_.measurement_trace / L"samples.csv", trace_.csv());
+            if (options_.profile) {
+                collect_gpu();
+                write_new_trace_file(options_.measurement_trace / L"profile.csv",
+                                     profile_csv_.str());
+                write_new_trace_file(options_.measurement_trace / L"gpu.csv", gpu_csv_.str());
+                write_new_trace_file(options_.measurement_trace / L"progress.csv",
+                                     progress_csv_.str());
+                write_new_trace_file(options_.measurement_trace / L"actors.csv", actors_csv_.str());
+            }
             write_new_trace_file(options_.measurement_trace / L"status.txt",
                                  metadata(true, complete));
         } catch (const std::exception& error) {

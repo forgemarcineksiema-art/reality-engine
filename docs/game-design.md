@@ -120,4 +120,4 @@ Przed próbą zapisujemy wersję sceny, instrukcję, ustawienia, obserwacje i ni
 | Wartościowa autonomia | Odejście i powrót pokazują kontynuację oraz możliwość dalszej przygody | Bez gracza nic się nie dzieje lub świat stale się rozpada |
 | Powód do powrotu | Dobrowolna dalsza eksploracja i konkretne uzasadnienie zainteresowania | Podziw technologii bez zainteresowania własnym działaniem |
 
-Po M03 poprawiamy ruch i kamerę przed pogłębianiem geometrii. W M04 sprawdzamy ingerencję i spokojną autonomię. W M05 oceniamy sytuację i historię po zmianie świata. M06 łączy próbę gry z poprawnością, trwałością i pomiarami. Nie tworzymy drugiego planu ani nie przyznajemy 10/10 za sam opis.
+Po M03 poprawiamy ruch i kamerę przed pogłębianiem geometrii. W M04 sprawdzamy ingerencję i spokojną autonomię. W M05 oceniamy sytuację i historię po zmianie świata. Decyzją użytkownika z 02.11.2026 M06 odbiera poprawność, trwałość i pomiary fundamentu; powyższa propozycja oceny przyszłej gry nie jest jego bramką. Nie tworzymy drugiego planu ani nie przyznajemy 10/10 za sam opis.

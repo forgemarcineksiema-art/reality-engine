@@ -1,3 +1,4 @@
+#include "core/runtime_profile.hpp"
 #include "lab/traversal_session.hpp"
 #include <algorithm>
 #include <numeric>
@@ -160,6 +161,7 @@ DiscoveryOutcome TraversalSession::practice_probe(std::size_t index, DiscoveryCh
     return DiscoveryOutcome::Accepted;
 }
 void TraversalSession::request_practice_work(std::size_t index) {
+    ProfileScope profile(ProfileOperation::Learning);
     if (!practice_ || !practice_at_bench(index))
         return;
     auto& p = *practice_;
@@ -257,6 +259,7 @@ void TraversalSession::practice_work_started(std::size_t index, EntityId action)
     practice_->working_ = PracticeState::Working{index, action};
 }
 void TraversalSession::advance_practice() {
+    ProfileScope profile(ProfileOperation::Learning);
     if (!practice_)
         return;
     auto& p = *practice_;

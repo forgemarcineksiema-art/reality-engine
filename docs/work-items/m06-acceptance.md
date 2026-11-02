@@ -48,8 +48,10 @@ Scena ma skończone zasoby. Przygotować i opisać je przed próbą, bez niewido
 
 ## Odbiór i granice
 
+**Decyzja użytkownika, 02.11.2026:** M06 odbiera fundament techniczny. Użytkownik zadeklarował odbiór i zlecił wykonanie kontroli solidności oraz wiarygodności. Uczestnicy, grywalność i chęć dalszej gry nie są bramkami M06. Wyniki techniczne pozostają obowiązkowe; deklaracja nie zastępuje pomiarów. Szczegóły wykonania: [plan techniczny](m06-technical-acceptance.md).
+
 Po instrumentacji wykonać pilotaż, zamrozić właściwy protokół i dopiero przeprowadzić dłuższą próbę bez konkurencyjnych kompilacji lub ciężkich zadań AI. Regresje, test natywny i pomiar aplikacji są odrębnymi dowodami. M06 wymaga także pełnych kontroli Debug/Release/ASan, narzędzi i dokumentacji opisanych w jednym planie.
 
-Próba ludzi pozostaje osobną częścią M06: propozycja pięciu uczestników i sesji 15–20 minut z projektu gry, z kryterium co najmniej trzech osób samodzielnie rozpoznających dwie działające metody. Instrukcja, podpowiedzi, obserwacje i ograniczenia są zapisywane. Agent AI nie zastępuje uczestników ani decyzji użytkownika.
+Dawna propozycja próby z uczestnikami została wyłączona z M06 decyzją użytkownika. Ocena przyszłej gry pozostaje w projekcie gry, bez blokowania odbioru obecnego silnika.
 
-Raport końcowy ma rozdzielać poprawność, wydajność, zachowanie społeczności, czytelność dla ludzi i zainteresowanie dalszą grą. Przygotowanie tego briefu oraz wybrane testy gotowości nie zamykają M06.
+Raport końcowy ma rozdzielać poprawność, wydajność, zachowanie społeczności, zakres technicznego odbioru i pozostałe ograniczenia. Przygotowanie tego briefu oraz wybrane testy gotowości nie zamykają M06.

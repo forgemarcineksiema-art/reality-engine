@@ -7,11 +7,17 @@
 #include <dxgi1_6.h>
 #include <wrl/client.h>
 
+#include <array>
 #include <filesystem>
+#include <optional>
 #include <ostream>
 #include <string>
 
 namespace reality {
+struct GpuTiming {
+    std::uint64_t frame = 0;
+    std::optional<double> milliseconds;
+};
 
 class D3D11Renderer final {
   public:
@@ -27,6 +33,10 @@ class D3D11Renderer final {
     [[nodiscard]] unsigned width() const noexcept;
     [[nodiscard]] unsigned height() const noexcept;
     void check_diagnostics();
+    void enable_timing();
+    [[nodiscard]] std::vector<GpuTiming> take_gpu_timings();
+    [[nodiscard]] unsigned gpu_pending() const noexcept;
+    [[nodiscard]] std::uint64_t gpu_skipped() const noexcept { return gpu_skipped_; }
 
   private:
     template <typename T> using ComPtr = Microsoft::WRL::ComPtr<T>;
@@ -45,6 +55,13 @@ class D3D11Renderer final {
     std::wstring adapter_name_;
     unsigned width_ = 0;
     unsigned height_ = 0;
+    struct TimingSlot {
+        ComPtr<ID3D11Query> disjoint, start, finish;
+        std::uint64_t frame = 0;
+    };
+    std::array<TimingSlot, 8> timing_slots_;
+    bool timing_enabled_ = false;
+    std::uint64_t gpu_frame_ = 0, gpu_skipped_ = 0;
 };
 
 } // namespace reality

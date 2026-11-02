@@ -191,6 +191,22 @@ void D3D11Renderer::draw(const std::vector<SceneTriangle>& scene) {
     if (scene.size() > laboratory_vertex_capacity / 3) {
         throw std::length_error("laboratory vertex capacity exceeded");
     }
+    TimingSlot* timing = nullptr;
+    if (timing_enabled_) {
+        ++gpu_frame_;
+        for (auto& slot : timing_slots_)
+            if (!slot.frame) {
+                timing = &slot;
+                break;
+            }
+        if (timing) {
+            timing->frame = gpu_frame_;
+            context_->Begin(timing->disjoint.Get());
+            context_->End(timing->start.Get());
+        } else {
+            ++gpu_skipped_;
+        }
+    }
     D3D11_MAPPED_SUBRESOURCE mapped{};
     checked(context_->Map(vertices_.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped), "Map vertices");
     auto* destination = static_cast<SceneVertex*>(mapped.pData);
@@ -213,7 +229,57 @@ void D3D11Renderer::draw(const std::vector<SceneTriangle>& scene) {
     context_->VSSetShader(vertex_shader_.Get(), nullptr, 0);
     context_->PSSetShader(pixel_shader_.Get(), nullptr, 0);
     context_->Draw(static_cast<UINT>(scene.size() * 3), 0);
+    if (timing) {
+        context_->End(timing->finish.Get());
+        context_->End(timing->disjoint.Get());
+    }
     check_diagnostics();
+}
+
+void D3D11Renderer::enable_timing() {
+    if (timing_enabled_)
+        return;
+    for (auto& slot : timing_slots_) {
+        const D3D11_QUERY_DESC disjoint{D3D11_QUERY_TIMESTAMP_DISJOINT, 0};
+        const D3D11_QUERY_DESC timestamp{D3D11_QUERY_TIMESTAMP, 0};
+        checked(device_->CreateQuery(&disjoint, &slot.disjoint), "CreateQuery disjoint");
+        checked(device_->CreateQuery(&timestamp, &slot.start), "CreateQuery start");
+        checked(device_->CreateQuery(&timestamp, &slot.finish), "CreateQuery finish");
+    }
+    timing_enabled_ = true;
+}
+std::vector<GpuTiming> D3D11Renderer::take_gpu_timings() {
+    std::vector<GpuTiming> results;
+    for (auto& slot : timing_slots_) {
+        if (!slot.frame)
+            continue;
+        D3D11_QUERY_DATA_TIMESTAMP_DISJOINT data{};
+        UINT64 start = 0, finish = 0;
+        const auto read = [&](ID3D11Query* query, void* value, UINT size) {
+            const auto result =
+                context_->GetData(query, value, size, D3D11_ASYNC_GETDATA_DONOTFLUSH);
+            checked(result, "GetData timing");
+            return result == S_OK;
+        };
+        if (!read(slot.disjoint.Get(), &data, sizeof(data)) ||
+            !read(slot.start.Get(), &start, sizeof(start)) ||
+            !read(slot.finish.Get(), &finish, sizeof(finish)))
+            continue;
+        GpuTiming result{slot.frame, std::nullopt};
+        if (!data.Disjoint && data.Frequency && finish >= start)
+            result.milliseconds =
+                static_cast<double>(finish - start) * 1000.0 / static_cast<double>(data.Frequency);
+        results.push_back(result);
+        slot.frame = 0;
+    }
+    return results;
+}
+unsigned D3D11Renderer::gpu_pending() const noexcept {
+    unsigned result = 0;
+    for (const auto& slot : timing_slots_)
+        if (slot.frame)
+            ++result;
+    return result;
 }
 
 bool D3D11Renderer::present() {

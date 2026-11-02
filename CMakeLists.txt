@@ -44,6 +44,7 @@ endfunction()
 add_library(reality_core STATIC
     src/core/simulation_clock.cpp
     src/core/entity_registry.cpp
+    src/core/runtime_profile.cpp
     src/core/runtime_metrics.cpp
     src/simulation/work_world.cpp
     src/simulation/material_transfer.cpp
@@ -151,10 +152,13 @@ set(reality_cpp_files
     tests/discovery_tests.cpp
     src/core/simulation_clock.hpp
     src/core/simulation_clock.cpp
+    src/core/runtime_profile.hpp
     src/core/runtime_metrics.hpp
+    src/core/runtime_profile.cpp
     src/core/runtime_metrics.cpp
     src/lab/traversal_diagnostics.hpp
     src/lab/traversal_diagnostics.cpp
+    tests/m06_tests.cpp
     tests/traversal_diagnostics_tests.cpp
     tests/traversal_needs_tests.cpp
     src/lab/traversal_needs.cpp
@@ -372,14 +376,22 @@ if(BUILD_TESTING)
     foreach(case IN ITEMS interruption exhaustion safe_step safe_transport running_action manual_override unavailable_need persistence finish_expiry legacy_fixture safe_queue)
         add_test(NAME needs.${case} COMMAND reality_traversal_needs_tests ${case})
     endforeach()
+    add_executable(reality_m06_tests tests/m06_tests.cpp)
+    target_link_libraries(reality_m06_tests PRIVATE reality_lab_model)
+    reality_deploy_diagnostics(reality_m06_tests)
+    add_test(NAME m06.foundation COMMAND reality_m06_tests)
+    add_test(NAME m06.completed_target COMMAND reality_m06_tests --completed-target)
     add_executable(reality_traversal_diagnostics_tests tests/traversal_diagnostics_tests.cpp)
     target_link_libraries(reality_traversal_diagnostics_tests PRIVATE reality_lab_model)
     reality_deploy_diagnostics(reality_traversal_diagnostics_tests)
-    foreach(case IN ITEMS progress waiting reset snapshot timings invalid_sample plan_churn independent_alarms service_progress batch_transaction live_view trace_format trace_invalid trace_capacity trace_observer)
+    foreach(case IN ITEMS profile_costs progress waiting reset snapshot timings invalid_sample plan_churn independent_alarms service_progress batch_transaction live_view trace_format trace_invalid trace_capacity trace_observer)
         add_test(NAME traversal.diagnostics_${case} COMMAND reality_traversal_diagnostics_tests ${case})
     endforeach()
     add_test(NAME traversal.native_diagnostics
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
+                --exe "$<TARGET_FILE:reality_traversal>")
+    add_test(NAME traversal.native_runtime_profile
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_runtime_profile.py"
                 --exe "$<TARGET_FILE:reality_traversal>")
     add_test(NAME traversal.native_measurement_trace
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"

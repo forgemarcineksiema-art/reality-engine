@@ -185,7 +185,13 @@ void TraversalSession::decide(std::size_t index) {
         observe_station(index, actor.station);
         if (station.kind == TraversalTask::Maintain && station.wear == 0) {
             actor.station_retry[actor.station] = now + 200;
+            release_navigation(index);
             actor.goal.reset();
+            actor.requested_goal.reset();
+            actor.requested_reach = 0;
+            actor.route = {};
+            actor.leg = 0;
+            actor.step_point = 0;
             actor.state = TraversalState::Idle;
             actor.task = TraversalTask::None;
             return;
