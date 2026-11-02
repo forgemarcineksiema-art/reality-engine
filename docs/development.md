@@ -217,7 +217,7 @@ Test procesu `python tools/test_traversal_diagnostics.py --exe ./build/msvc/Debu
 
 ### Eksport przebiegu pomiaru
 
-Opcjonalne `--measurement-trace DIR` zachowuje rozgrzewkę i okres właściwy w `DIR/samples.csv`. Rodzic katalogu musi istnieć, a sam katalog musi być nowy. Przykład krótkiej próby z istniejącego katalogu głównego:
+Opcjonalne `--measurement-trace DIR` zachowuje rozgrzewkę i okres właściwy w `DIR/samples.csv`, a niezależny wynik eksportu w `DIR/status.txt`. Rodzic katalogu musi istnieć, a sam katalog musi być nowy. Przykład krótkiej próby z istniejącego katalogu głównego:
 
 ```powershell
 ./build/msvc/RelWithDebInfo/reality_traversal.exe --community --learning --measure-seconds 10 --warmup-seconds 2 --measurement-trace ./build/trace-probe --report ./build/trace-probe.log --save ./build/trace-probe.save
@@ -227,7 +227,9 @@ CSV wersji 1 ma kolumny `elapsed_ms,tick,phase,frame_ms,simulation_ms,backlog_ms
 
 Eksport po zakończeniu buforowania nie wchodzi do czasów klatek. Log podaje `measurement_trace_samples`, `measurement_trace_exported`, `measurement_trace_complete`, `measurement_trace_export_ms` i `measurement_trace_observer_ms`. Ten ostatni licznik mierzy sekcję odczytu pamięci i dodania do bufora, także wspólny odczyt używany przez stare statystyki; nie jest izolowanym narzutem względem wyłączonego eksportu. Koszt sekcji obserwatora trafia do następnego odstępu między końcami klatek. Końcowy eksport i zapis świata wymagają osobnej interpretacji. Sam szereg nie rozdziela GPU, uczenia i nawigacji.
 
-Limit wynosi 1 000 000 próbek całego przebiegu; jego przekroczenie jest błędem, bez usuwania wolnych lub najstarszych klatek. Wcześniejsze zamknięcie okna lub obsłużony błąd zachowuje dostępne próbki z `measurement_trace_complete=0` i kodem 1. Istniejący CSV nie jest nadpisywany nawet wtedy, gdy pojawi się podczas działania. Częściowy plik po błędzie zapisu pozostaje dowodem nieudanego eksportu. Nagłe zabicie procesu lub utrata zasilania nie gwarantują zapisania bufora. Ścieżki z końcową kropką/spacją są odrzucane jako niejednoznaczne w Win32.
+Limit wynosi 1 000 000 próbek całego przebiegu; jego przekroczenie jest błędem, bez usuwania wolnych lub najstarszych klatek. Wcześniejsze zamknięcie okna lub obsłużony błąd zachowuje dostępne próbki z `measurement_trace_complete=0` i kodem 1. Istniejące CSV i status nie są nadpisywane nawet wtedy, gdy pojawią się podczas działania. Częściowy plik po błędzie zapisu pozostaje dowodem nieudanego eksportu. Nagłe zabicie procesu lub utrata zasilania nie gwarantują zapisania bufora. Ścieżki z końcową kropką/spacją są odrzucane jako niejednoznaczne w Win32; zwykły końcowy separator katalogu jest obsługiwany.
+
+Awaria raportu nie blokuje zapisu danych i statusu do sprawnego katalogu eksportu. `status.txt` zawiera pary klucz=wartość: wersję schematu, liczbę próbek, czas sekcji obserwatora, wynik zapisu i kompletność zarejestrowanego przebiegu. Nie zastępuje kodu wyjścia procesu ani `normal_shutdown`. Późniejszy błąd logowania może dać kod 1 również po zachowaniu całego CSV. Raport jest jawnie opróżniany przed zwróceniem sukcesu; zapis CSV i statusu nie zależy od tej operacji.
 
 Nowe próby: `ctest --preset windows-release -R '^traversal\.(diagnostics_trace_|native_measurement_trace|native_trace_)'`. Natywne przypadki sprawdzają dane, zgodność podsumowań, odmowy, konkurencyjny plik i przedwczesne WM_CLOSE. [Raport przyrostu](verification/m06-measurement-export.md) oddziela te kontrole od docelowych prób M06.
 

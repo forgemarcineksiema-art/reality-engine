@@ -13,6 +13,7 @@
 #include <climits>
 #include <exception>
 #include <fstream>
+#include <locale>
 #include <memory>
 #include <sstream>
 #include <stdexcept>
@@ -81,19 +82,21 @@ void validate_trace_paths(const Options& options) {
     require(std::filesystem::is_directory(directory.parent_path()),
             "measurement trace parent directory must exist");
     const auto csv = directory / L"samples.csv";
+    const auto status = directory / L"status.txt";
     auto final_save = options.save;
     final_save += L".final.save";
     for (const auto& path :
          {options.save, final_save, options.report, options.capture, options.diagnostics}) {
         const auto normalized = output_path(path);
-        require(!same_path(normalized, csv) && !same_path(normalized, directory),
+        require(!same_path(normalized, csv) && !same_path(normalized, status) &&
+                    !same_path(normalized, directory),
                 "measurement trace conflicts with another output");
     }
 }
-void write_new_csv(const std::filesystem::path& path, std::string_view bytes) {
+void write_new_trace_file(const std::filesystem::path& path, std::string_view bytes) {
     const auto handle = CreateFileW(path.c_str(), GENERIC_WRITE, FILE_SHARE_READ, nullptr,
                                     CREATE_NEW, FILE_ATTRIBUTE_NORMAL, nullptr);
-    require(handle != INVALID_HANDLE_VALUE, "cannot create new measurement trace CSV");
+    require(handle != INVALID_HANDLE_VALUE, "cannot create new measurement trace file");
     struct Close {
         HANDLE handle;
         ~Close() { CloseHandle(handle); }
@@ -102,10 +105,10 @@ void write_new_csv(const std::filesystem::path& path, std::string_view bytes) {
         const auto chunk = static_cast<DWORD>(std::min(bytes.size(), std::size_t{MAXDWORD}));
         DWORD written = 0;
         require(WriteFile(handle, bytes.data(), chunk, &written, nullptr) && written > 0,
-                "cannot write measurement trace CSV");
+                "cannot write measurement trace file");
         bytes.remove_prefix(written);
     }
-    require(FlushFileBuffers(handle) != 0, "cannot flush measurement trace CSV");
+    require(FlushFileBuffers(handle) != 0, "cannot flush measurement trace file");
 }
 void read_options(Options& options) {
     int count = 0;
@@ -309,6 +312,7 @@ class TraversalWindow final {
             run_loop();
             export_trace(true);
             log_ << "normal_shutdown=1\n";
+            log_.flush();
             return 0;
         } catch (...) {
             const auto original = std::current_exception();
@@ -510,7 +514,7 @@ class TraversalWindow final {
                     peak_private_bytes_ = std::max(peak_private_bytes_, *private_bytes);
                     next_memory_sample_ = frame_end + 1s;
                 }
-                if (trace_memory)
+                if (trace_enabled)
                     next_trace_memory_sample_ = frame_end + 1s;
             }
             if (trace_enabled) {
@@ -604,18 +608,28 @@ class TraversalWindow final {
                                                              start}
                 .count();
         };
-        log_ << "measurement_trace_schema=1\nmeasurement_trace_samples=" << trace_.size()
-             << "\nmeasurement_trace_observer_ms=" << trace_observer_ms_ << '\n';
+        const auto metadata = [&](bool exported, bool finished) {
+            std::ostringstream out;
+            out.exceptions(std::ios::badbit | std::ios::failbit);
+            out.imbue(std::locale::classic());
+            out << "measurement_trace_schema=1\nmeasurement_trace_samples=" << trace_.size()
+                << "\nmeasurement_trace_observer_ms=" << trace_observer_ms_
+                << "\nmeasurement_trace_exported=" << exported
+                << "\nmeasurement_trace_complete=" << finished << '\n';
+            return out.str();
+        };
         try {
-            write_new_csv(options_.measurement_trace / L"samples.csv", trace_.csv());
+            // Saving the buffer and its status must not depend on a working report stream.
+            write_new_trace_file(options_.measurement_trace / L"samples.csv", trace_.csv());
+            write_new_trace_file(options_.measurement_trace / L"status.txt",
+                                 metadata(true, complete));
         } catch (const std::exception& error) {
-            log_ << "measurement_trace_exported=0\nmeasurement_trace_complete=0\n"
-                 << "measurement_trace_export_ms=" << elapsed()
+            log_ << metadata(false, false) << "measurement_trace_export_ms=" << elapsed()
                  << "\nmeasurement_trace_error=" << error.what() << '\n';
             throw;
         }
-        log_ << "measurement_trace_exported=1\nmeasurement_trace_complete=" << complete
-             << "\nmeasurement_trace_export_ms=" << elapsed() << '\n';
+        log_ << metadata(true, complete) << "measurement_trace_export_ms=" << elapsed() << '\n';
+        log_.flush();
     }
     void capture_diagnostic(std::string_view reason) {
         last_diagnostic_.reset();

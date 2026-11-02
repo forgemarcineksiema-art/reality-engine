@@ -280,7 +280,7 @@ if(BUILD_TESTING)
     add_executable(reality_contrast_tests tests/contrast_tests.cpp)
     target_link_libraries(reality_contrast_tests PRIVATE reality_contrast_model)
     reality_deploy_diagnostics(reality_contrast_tests)
-    foreach(case IN ITEMS agent model_order physical work pending depleted boundary)
+    foreach(case IN ITEMS agent model_order initial_state physical work pending depleted boundary)
         add_test(NAME contrast.${case} COMMAND reality_contrast_tests ${case})
     endforeach()
     add_executable(reality_hypothesis_tests tests/hypothesis_tests.cpp)
@@ -384,7 +384,7 @@ if(BUILD_TESTING)
     add_test(NAME traversal.native_measurement_trace
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
                 --exe "$<TARGET_FILE:reality_traversal>" --trace-only)
-    foreach(case IN ITEMS paths interrupted collision)
+    foreach(case IN ITEMS paths interrupted collision status-collision report-failure)
         add_test(NAME traversal.native_trace_${case}
             COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/test_traversal_diagnostics.py"
                 --exe "$<TARGET_FILE:reality_traversal>" --trace-case ${case})

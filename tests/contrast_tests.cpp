@@ -1,3 +1,4 @@
+#include "persistence/world_snapshot.hpp"
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -75,6 +76,28 @@ void model_order() {
             require(limited.models()[1].program == HypothesisProgram{{HypothesisKind::Loss, 1}},
                     "first charged model changed");
     }
+}
+void initial_state() {
+    // Captured from the accepted set-based constructor before changing initialization.
+    const std::array<std::pair<std::uint64_t, std::uint64_t>, 6> expected{{
+        {0, 3588343014218061398ULL},
+        {128, 251453272354494697ULL},
+        {129, 16613408650787494864ULL},
+        {1000, 10845589545690041621ULL},
+        {100000, 12968137195473856209ULL},
+        {10000000, 11451656008292934549ULL},
+    }};
+    for (const auto& [budget, checksum] : expected) {
+        ContrastAgent agent{EntityId{10}, true, {budget, 300000000}};
+        require(snapshot_checksum(agent.state()) == checksum,
+                "initial model order, budget, exhaustion or serialized state changed");
+    }
+    ContrastAgent first{EntityId{1}, true}, second{EntityId{2}, true};
+    const auto before = second.state();
+    require(first.observe({{1, 1, 0, {1}, 2, {0}, 96, 36}, {1}, 2}), "local evidence missing");
+    first.freeze();
+    require(second.state() == before && second.evidence().empty() && !second.frozen(),
+            "initial syntax sharing leaked another mind's observation, budget or freeze");
 }
 void physical() {
     ContrastSession s{example(), true, 1};
@@ -196,6 +219,8 @@ int main(int argc, char** argv) {
             agent();
         else if (name == "model_order")
             model_order();
+        else if (name == "initial_state")
+            initial_state();
         else if (name == "physical")
             physical();
         else if (name == "work")

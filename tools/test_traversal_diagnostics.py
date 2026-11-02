@@ -58,8 +58,29 @@ def check_trace(exe: pathlib.Path, output: pathlib.Path) -> None:
                   if "=" in line)
     if memory_samples < 2 or int(values["frame_samples"]) != len(measured):
         raise AssertionError("trace lost memory history or changed measured summary membership")
+    measured_memory = [row for row in measured if row["working_set_bytes"]]
+    if not measured[0]["working_set_bytes"]:
+        raise AssertionError("trace lost the first legacy memory observation")
+    for previous_row, current_row in zip(measured_memory, measured_memory[1:]):
+        # CSV rounds wall time to one nanosecond; retain the nominal one-second cadence.
+        if float(current_row["elapsed_ms"]) - float(previous_row["elapsed_ms"]) < 999.999999:
+            raise AssertionError("two memory sampling clocks interleaved inside the measured phase")
+    expected_memory = {
+        "working_set_first_bytes": int(measured_memory[0]["working_set_bytes"]),
+        "working_set_last_bytes": int(measured_memory[-1]["working_set_bytes"]),
+        "working_set_peak_sampled_bytes": max(int(row["working_set_bytes"]) for row in measured_memory),
+        "private_peak_sampled_bytes": max(int(row["private_bytes"]) for row in measured_memory),
+    }
+    if any(int(values[key]) != expected for key, expected in expected_memory.items()):
+        raise AssertionError("legacy memory summary differs from measured trace observations")
     if values.get("measurement_trace_complete") != "1" or values.get("normal_shutdown") != "1":
         raise AssertionError("trace did not report successful capture and shutdown")
+    status = dict(line.split("=", 1) for line in (trace / "status.txt").read_text(encoding="utf-8").splitlines()
+                  if "=" in line)
+    for key in ("measurement_trace_schema", "measurement_trace_samples",
+                "measurement_trace_exported", "measurement_trace_complete"):
+        if status.get(key) != values.get(key):
+            raise AssertionError(f"independent trace status disagrees with report: {key}")
     for key in ("measurement_trace_observer_ms", "measurement_trace_export_ms"):
         value = float(values[key])
         if not math.isfinite(value) or value < 0:
@@ -104,6 +125,8 @@ def check_trace_paths(exe: pathlib.Path, output: pathlib.Path) -> None:
         [*base, "--measurement-trace", str(trace), "--report", str(trace / "samples.csv.")],
         [*base, "--measurement-trace", str(trace), "--save", str(trace)],
         [*base, "--measurement-trace", str(trace), "--save", "\\\\?\\" + str(trace / "samples.csv")],
+        [*base, "--measurement-trace", str(trace), "--save", str(trace / "STATUS.TXT")],
+        [*base, "--measurement-trace", str(trace), "--report", str(trace / "status.txt")],
     ]
     for args in cases:
         result = subprocess.run([str(exe), *args], timeout=3, startupinfo=startup, check=False)
@@ -116,7 +139,8 @@ def check_trace_paths(exe: pathlib.Path, output: pathlib.Path) -> None:
     print("PASS trace path refusals and preserved evidence")
 
 
-def check_trace_interruption(exe: pathlib.Path, output: pathlib.Path, collision: bool) -> None:
+def check_trace_interruption(exe: pathlib.Path, output: pathlib.Path, collision: bool,
+                             status_collision: bool = False) -> None:
     startup = subprocess.STARTUPINFO()
     startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
     startup.wShowWindow = 0
@@ -139,7 +163,7 @@ def check_trace_interruption(exe: pathlib.Path, output: pathlib.Path, collision:
                 time.sleep(.02)
             initial = save.read_bytes()
             if collision:
-                (trace / "samples.csv").write_bytes(b"preserve competing writer")
+                (trace / ("status.txt" if status_collision else "samples.csv")).write_bytes(b"preserve competing writer")
             else:
                 # Send WM_CLOSE to this process's own main window after completed frames.
                 user32 = ctypes.WinDLL("user32", use_last_error=True)
@@ -178,9 +202,12 @@ def check_trace_interruption(exe: pathlib.Path, output: pathlib.Path, collision:
         raise AssertionError("failed/interrupted trace damaged the saved world")
     csv_path = trace / "samples.csv"
     if collision:
-        if (csv_path.read_bytes() != b"preserve competing writer" or
+        competing_path = trace / "status.txt" if status_collision else csv_path
+        if (competing_path.read_bytes() != b"preserve competing writer" or
                 values.get("measurement_trace_exported") != "0" or "measurement_trace_error=" not in text):
             raise AssertionError("failed export overwrote evidence or hid its error")
+        if status_collision and not csv_path.is_file():
+            raise AssertionError("status collision lost the already written CSV")
     else:
         with csv_path.open(encoding="utf-8", newline="") as stream:
             rows = list(csv.DictReader(stream))
@@ -189,6 +216,70 @@ def check_trace_interruption(exe: pathlib.Path, output: pathlib.Path, collision:
                 values.get("measurement_finished") != "0"):
             raise AssertionError("early close lost buffered frames or claimed a complete run")
     print("PASS trace export collision" if collision else "PASS trace orderly interruption")
+
+
+def check_trace_report_failure(exe: pathlib.Path, output: pathlib.Path) -> None:
+    startup = subprocess.STARTUPINFO()
+    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    startup.wShowWindow = 0
+    report, trace, save = output / "run.log", output / "trace", output / "world.save"
+    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+
+    class Overlapped(ctypes.Structure):
+        _fields_ = [("Internal", ctypes.c_size_t), ("InternalHigh", ctypes.c_size_t),
+                    ("Offset", wintypes.DWORD), ("OffsetHigh", wintypes.DWORD),
+                    ("hEvent", wintypes.HANDLE)]
+
+    kernel32.CreateFileW.argtypes = [wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD,
+                                     ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, wintypes.HANDLE]
+    kernel32.CreateFileW.restype = wintypes.HANDLE
+    kernel32.LockFileEx.argtypes = [wintypes.HANDLE, wintypes.DWORD, wintypes.DWORD,
+                                   wintypes.DWORD, wintypes.DWORD, ctypes.POINTER(Overlapped)]
+    kernel32.UnlockFileEx.argtypes = [wintypes.HANDLE, wintypes.DWORD, wintypes.DWORD,
+                                     wintypes.DWORD, ctypes.POINTER(Overlapped)]
+    kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
+    handle = None
+    overlapped = Overlapped()
+    with subprocess.Popen([
+        str(exe), "--community", "--learning", "--gpu-debug", "--measure-seconds", "2",
+        "--warmup-seconds", "1", "--measurement-trace", str(trace),
+        "--save", str(save), "--report", str(report),
+    ], startupinfo=startup) as process:
+        try:
+            deadline = time.monotonic() + 6
+            while not (report.exists() and "measurement_initial_checksum=" in report.read_text(encoding="utf-8")):
+                if process.poll() is not None or time.monotonic() >= deadline:
+                    raise AssertionError("report-failure process did not initialize")
+                time.sleep(.02)
+            initial = save.read_bytes()
+            handle = kernel32.CreateFileW(str(report), 0xC0000000, 3, None, 3, 0x80, None)
+            if handle == ctypes.c_void_p(-1).value:
+                handle = None
+                raise ctypes.WinError(ctypes.get_last_error())
+            if not kernel32.LockFileEx(handle, 3, 0, 0xFFFFFFFF, 0xFFFFFFFF, ctypes.byref(overlapped)):
+                raise ctypes.WinError(ctypes.get_last_error())
+            result = process.wait(timeout=8)
+        finally:
+            if process.poll() is None:
+                process.kill()
+                process.wait(timeout=3)
+            if handle is not None:
+                kernel32.UnlockFileEx(handle, 0, 0xFFFFFFFF, 0xFFFFFFFF, ctypes.byref(overlapped))
+                kernel32.CloseHandle(handle)
+    if result != 1 or save.read_bytes() != initial:
+        raise AssertionError("failed report was accepted as success or damaged the initial world")
+    if not (trace / "samples.csv").is_file():
+        raise AssertionError("failed report prevented salvage of the available CSV buffer")
+    with (trace / "samples.csv").open(encoding="utf-8", newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    status = dict(line.split("=", 1) for line in (trace / "status.txt").read_text(encoding="utf-8").splitlines()
+                  if "=" in line)
+    if (not rows or len(rows) != int(status["measurement_trace_samples"]) or
+            status.get("measurement_trace_exported") != "1" or status.get("measurement_trace_complete") != "0"):
+        raise AssertionError("failed report lost trace rows or an independent incomplete status")
+    if "normal_shutdown=1" in report.read_text(encoding="utf-8"):
+        raise AssertionError("broken report claimed a successful shutdown")
+    print("PASS CSV and incomplete status survive a real report write failure")
 
 
 def check(exe: pathlib.Path, output: pathlib.Path, delivery_only: bool = False) -> None:
@@ -290,14 +381,17 @@ def main() -> None:
     parser.add_argument("--output", type=pathlib.Path)
     parser.add_argument("--delivery-only", action="store_true")
     parser.add_argument("--trace-only", action="store_true")
-    parser.add_argument("--trace-case", choices=("paths", "interrupted", "collision"))
+    parser.add_argument("--trace-case", choices=("paths", "interrupted", "collision", "status-collision", "report-failure"))
     args = parser.parse_args()
 
     def execute(output: pathlib.Path) -> None:
         if args.trace_case == "paths":
             check_trace_paths(args.exe.resolve(), output)
-        elif args.trace_case in ("interrupted", "collision"):
-            check_trace_interruption(args.exe.resolve(), output, args.trace_case == "collision")
+        elif args.trace_case == "report-failure":
+            check_trace_report_failure(args.exe.resolve(), output)
+        elif args.trace_case in ("interrupted", "collision", "status-collision"):
+            check_trace_interruption(args.exe.resolve(), output, args.trace_case != "interrupted",
+                                     args.trace_case == "status-collision")
         elif args.trace_only:
             check_trace(args.exe.resolve(), output)
         else:

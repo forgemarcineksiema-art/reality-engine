@@ -115,7 +115,7 @@ void checkpoint(bool repair, const std::filesystem::path& path,
     const auto timing = [&](const char* stage) {
         std::cout << stage << "="
                   << std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count()
-                  << '\n';
+                  << std::endl;
     };
     TraversalSession s{make_two_methods_course()};
     timing("constructed");
@@ -150,10 +150,21 @@ int main(int argc, char** argv) {
         if (argc == 5 && name == "checkpoint")
             checkpoint(std::string(argv[2]) == "repair", argv[3], argv[4]);
         else if (argc == 5 && name == "continue") {
+            const auto start = std::chrono::steady_clock::now();
+            const auto timing = [&](const char* stage) {
+                std::cout << stage << "="
+                          << std::chrono::duration<double>(std::chrono::steady_clock::now() - start)
+                                 .count()
+                          << std::endl;
+            };
             TraversalSession s;
+            timing("continue_constructed");
             s.load(argv[3]);
+            timing("continue_loaded");
             static_cast<void>(finish(s, std::string(argv[2]) == "repair"));
+            timing("continue_finished");
             s.save(argv[4]);
+            timing("continue_saved");
         } else if (name == "choice")
             choice();
         else if (name == "repair" || name == "detour")
