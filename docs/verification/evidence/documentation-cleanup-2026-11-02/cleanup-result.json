@@ -1,0 +1,30 @@
+{
+  "published_main": "ae091b3b94abecdf0d1a8621ca9b5a8d04ac6955",
+  "local_branches": [
+    "refs/heads/main"
+  ],
+  "remote_branches": {
+    "refs/heads/main": "ae091b3b94abecdf0d1a8621ca9b5a8d04ac6955"
+  },
+  "retained_internal_refs": [
+    "refs/codex/turn-diffs/captures/1793626857136/319595ba-5308-4af2-93b3-4d4b56732463/base f7af82a7570b05c8bf9e65128992455e8a25fe9a",
+    "refs/codex/turn-diffs/checkpoints/01b1ebdfa3b7ffc47e11fa1665f4f948/02df714228f920181a68215290e37917/1793209676741/dc591a01-c428-4601-8815-38370e840908 505f6324feaf4fb8d1009e36dd72633ddb4190ad",
+    "refs/codex/turn-diffs/checkpoints/0c43d78265ed3c58540464b818a23f4c/7fac8f0a65c92a783806a9755dc1b267/1793026434910/683ba156-1383-4219-bf01-39994067c805 98cbcf4937bc56b0d031f8a936520cb13d02bd56",
+    "refs/codex/turn-diffs/checkpoints/1633074d76a44d263af22fca513d7e48/3b03f48404d030fa2e9f0c8adfd7062c/1793085418803/c465eb09-0e8e-4e05-b6f5-c66de86f1148 f41644548d6432720b0e49a7aaa06632e160d314",
+    "refs/codex/turn-diffs/checkpoints/5ac3f424169ba236ff81c86ea2478e01/4bbdea55ea3cc36561525a8847f073ef/1793282149195/918c79ec-e13a-474d-8f53-5fed653ccc4a 29150715fabae69de63eafe4c2c6fb537e0c6c0a",
+    "refs/codex/turn-diffs/checkpoints/8297e76f8f79ea761dc8319fe81c47ff/d34afce151e8d4610dae6f76d496c3be/1793545102962/aeacded1-708c-451f-84d4-fff4a321ba24 dba0135a42eaf14c92bbdad851541ea55e2776f5",
+    "refs/codex/turn-diffs/checkpoints/9de4442d62b7e737162cc7ff5e0694bf/39814c337b1c4efb0de046ddf126e617/1793626681714/71a82a0e-4fb6-495f-b5b9-ca6832f3ef11 f7af82a7570b05c8bf9e65128992455e8a25fe9a",
+    "refs/codex/turn-diffs/checkpoints/b2a69d0cbc2be2e20461dccf0b827e27/ab7d5ce374587c582e3387f7aea7588e/1793214632001/4712178d-3b4d-43bb-b741-4d4cf85b3332 926dd3b8626853cf8e26b36319a46ce7cd0e9d53",
+    "refs/codex/turn-diffs/checkpoints/d9d7d3aef9d24275ba1154e9511590f8/f49adee1f4c49bb68ec21e2ec94562e3/1793096362069/9fa27e95-665d-4aae-961a-fb311a4b3b8a 45a4f29fa40a11ee4a48b4aab5fe16bc98c29279",
+    "refs/t3/orchestration-v2/checkpoints/MGJhOGNiZjY5YTU0NDNkYTFhYmY4YzliMGNmNmRjZDQ/ordinal/0 a87469ab50e09773f0d0f13d8a00fbb86c3f9141",
+    "refs/t3/orchestration-v2/checkpoints/MGJhOGNiZjY5YTU0NDNkYTFhYmY4YzliMGNmNmRjZDQ/ordinal/1 7b04572933aab1e34c7dec81e701ec051b70d2eb",
+    "refs/t3/orchestration-v2/checkpoints/MGJhOGNiZjY5YTU0NDNkYTFhYmY4YzliMGNmNmRjZDQ/ordinal/2 58a9bf7fede2fd5efb80f9a69500f395aa8d389d",
+    "refs/t3/orchestration-v2/checkpoints/MGJhOGNiZjY5YTU0NDNkYTFhYmY4YzliMGNmNmRjZDQ/ordinal/3 b0109d52aa2449303301221511abec6aafd03954",
+    "refs/t3/orchestration-v2/checkpoints/OTI3MzA1MzA1YmM4Nzg1MzUyOWZiYzI4NWNlMmVhYjU/ordinal/0 33f0ae923acd3eedccc1553d2e1de22843706b02",
+    "refs/t3/orchestration-v2/checkpoints/OTI3MzA1MzA1YmM4Nzg1MzUyOWZiYzI4NWNlMmVhYjU/ordinal/1 71d2a5c9492790bcbbffdbc64837b708a1ab8873",
+    "refs/t3/orchestration-v2/checkpoints/ZmUwZTBlY2RkNTMyNDYxNmIyNmIyMmE1MzczMmI3ZGY/ordinal/0 3c1f52573204cccc42653b0267ef38065ae08fd1",
+    "refs/t3/orchestration-v2/checkpoints/ZmUwZTBlY2RkNTMyNDYxNmIyNmIyMmE1MzczMmI3ZGY/ordinal/1 2aa71d5827356c0573e049f90c09eed78fe5f34b"
+  ],
+  "deleted_local_branches": 6,
+  "deleted_remote_branches": 6
+}

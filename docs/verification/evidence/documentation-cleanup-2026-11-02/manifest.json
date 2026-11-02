@@ -4,13 +4,17 @@
   "documents": 212,
   "historical_zip_members": 917,
   "files": {
+    "branch-deletion-proof.json": "2dfcf9f1a01611ba355bfdd6da60a7a8590a8a9180d50d8a93dbcbdcd8cffb2e",
     "branches-before.json": "7e8780e8f1b7edd150b55cc685bb81141f2f1a1fedb3b216294aee597127f921",
     "build-identity-asan.log": "a7c5ed9c4d577c6ca852e21b9953701cad649fd5953edb44cc98b2206af2a5c6",
     "build-identity-debug.log": "5a189bc4fcec1ff534e6dda3ccfc1f287cf28361c56f4f653b0bc91b576be029",
     "build-identity-release.log": "f4f8b9469aba14774baa3b7f046f8ab56cb8bd2d315046ec472ddb1433d322e8",
+    "cleanup-result.json": "bca14c88f3f3b7a5389c5d01335ddc178aa5d822f45a9c57194858702c18ecc7",
+    "commit-docs.log": "e6d6a018cd6799393c6feea1d78de0a07f67eebc2be3330da399eda05022b24f",
     "configure-asan.log": "ae8527bdcd650d48b10f48e6c2dda87887657a7b45ac6eec80a20ab9fa52e9d4",
     "configure-msvc.log": "afae5c95cdae492fc0685fd016f6286d398db261f08badeeb3e400850a87d76c",
     "context-edits.json": "832cb3c4dbb1c073d8479443f57be596623ff1b6952213065262c9d143daac49",
+    "docs-final.log": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775",
     "docs-first.log": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775",
     "docs-pre-review.log": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775",
     "docs-review-fixed.log": "e4e95467c438a22efaf65507db034fbbbd3476996bedc63792ae786a4c094775",
@@ -25,15 +29,22 @@
     "identity-windows-release.log": "4c61d8f3b9ca664fba7649789a847ae2dee0edaf426f31b67ec72e6842f8866e",
     "inventory-before.json": "bbaf781a107020bd99da870be907ba023ba4cc6e12917ab628cd10684ace69c7",
     "inventory.json": "1e3431d552beed433046a3b1a210349150b663af13634200eab2d5bfb55dfde3",
+    "local-cleanup.log": "f6ed92a0cda66467f268219a568f9f0837f2efd25c4eafd29335a77cf6eb5f69",
     "plan.txt": "1ad7315e84321abf9e83a2f8e3b25063ccbabb1aa2d7bedc487fd74517917741",
     "post-scan.json": "13c5d4e5210c5bc0112b7e0e61f5e40b55f69b1d0479570c8f26b7071b1a1a6a",
-    "progress.txt": "800233d0fc3273a21f535c5c17a81dd2d249e24fdc8ed80402e88ac82d928dd7",
+    "progress.txt": "839edd25ab997ba9173b8fa0f57523e5134a4122a41b13deadf23026e7508d2e",
     "python-first.log": "47c1853812e00dc92280d5aa8a7617fbbd627b0179b8cba1c36d43ff4d5ce575",
     "python-review-fixed.log": "1b0922c93e197c088d7306f63880740b529e4b2dea63755f14dbf500ec026073",
     "red-archive-attributes.json": "0a08ab54817456f791833dd98fe9be2ed2590f541bbb265685b1ac1334100b44",
+    "remote-cleanup.log": "cf8bd5fb111f6babb4a8e438ac4d0fa4129788ba376a6924df04874e6d5a1dbf",
     "review-package.txt": "18d303414b33da2e176ecc655746852cb3ecc30db7aa531023aa93e3d98eb6cf",
     "review.txt": "0c3c80483413064fa312497fd6cdb378aab927809737e7183adffd795586552b",
+    "stage-warnings.log": "f9961041ef932317e9a382e86ffd1935df29127f3f5313bdb9ad5df8d99618d8",
+    "staged-diff-check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "staged-source-proof.json": "affbcd71b80b26518d3e20ed0b9289ca46081fa817c126ef17c92749e29cca50",
     "statuses.log": "902e0baa8049d3244cdc4c3c4c964e8dd2083edc9bde39db76eda12627c266a7",
-    "zip-documents.json": "66513c87c395092b90db24f6e562225ba49c3ee60543bb8ab47162ef5b5575fe"
-  }
+    "zip-documents.json": "66513c87c395092b90db24f6e562225ba49c3ee60543bb8ab47162ef5b5575fe",
+    "python-final.log": "e42029440fa2057fa169a6b80a4d927e9b774c8d91cc73f24de4ec5e94f23418"
+  },
+  "documentation_commit": "ae091b3b94abecdf0d1a8621ca9b5a8d04ac6955"
 }

@@ -1,0 +1,41 @@
+{
+  "published_main": "ae091b3b94abecdf0d1a8621ca9b5a8d04ac6955",
+  "branches": [
+    {
+      "name": "codex/m05-continuity-audit",
+      "local_sha": "82395a34b8e354962dcb4eebfeaf5e3ce1d84a03",
+      "remote_sha": "82395a34b8e354962dcb4eebfeaf5e3ce1d84a03",
+      "ancestor_of_published_main": true
+    },
+    {
+      "name": "codex/m05-distant-delivery",
+      "local_sha": "f9fe6d78ac1d7214ca537df5e9fc17dda630d840",
+      "remote_sha": "f9fe6d78ac1d7214ca537df5e9fc17dda630d840",
+      "ancestor_of_published_main": true
+    },
+    {
+      "name": "codex/m05-learning-cost",
+      "local_sha": "5462279b951ab51b58b438cff45095cb9e092cfd",
+      "remote_sha": "5462279b951ab51b58b438cff45095cb9e092cfd",
+      "ancestor_of_published_main": true
+    },
+    {
+      "name": "codex/m05-story-design",
+      "local_sha": "1f620fc54b0db36dcb891c059a1975ed431250e1",
+      "remote_sha": "1f620fc54b0db36dcb891c059a1975ed431250e1",
+      "ancestor_of_published_main": true
+    },
+    {
+      "name": "codex/m05-two-methods",
+      "local_sha": "2e096b081c9677a7c55472f18f8533af823dbf74",
+      "remote_sha": "2e096b081c9677a7c55472f18f8533af823dbf74",
+      "ancestor_of_published_main": true
+    },
+    {
+      "name": "codex/verified-capabilities-plan",
+      "local_sha": "ae091b3b94abecdf0d1a8621ca9b5a8d04ac6955",
+      "remote_sha": "ae091b3b94abecdf0d1a8621ca9b5a8d04ac6955",
+      "ancestor_of_published_main": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "path": "docs/research/sources/project-documents-2026-11-02/opinion-project-assessment.md.txt",
+    "sha256": "8c58247397a3a0f626e1f7a76776581c5c8be71d20cdab5fed55973a8ab592c7",
+    "staged_exact": true
+  },
+  {
+    "path": "docs/research/sources/project-documents-2026-11-02/maxing.md.txt",
+    "sha256": "5c6b476552a015f851ed72c6793aae374ea117c00932f88c8824837d69fb7924",
+    "staged_exact": true
+  },
+  {
+    "path": "docs/research/sources/project-documents-2026-11-02/argon-analize.md.txt",
+    "sha256": "77026357ec020e10b0a1fb14af68b825b5ca0f6780c28a1c7a63952ecb3a1473",
+    "staged_exact": true
+  },
+  {
+    "path": "docs/research/sources/project-documents-2026-11-02/argon-specyfikacja-domkniecia.md.txt",
+    "sha256": "e6d67d5a5e992cbb0cc860b5d83284d01d0804b346fe6da0249e7b2f56457165",
+    "staged_exact": true
+  },
+  {
+    "path": "docs/research/sources/project-documents-2026-11-02/traversal-multi-actor-audit.md.txt",
+    "sha256": "96cd07799e63ca3c0279ca02b92596a75a1fd924870a3930c176f5d103ae5982",
+    "staged_exact": true
+  }
+]

@@ -1,6 +1,6 @@
 # Audyt aktualności dokumentacji i porządkowanie repozytorium
 
-**Status: audyt i korekty zweryfikowane, 02.11.2026; porządkowanie publikacji opisane niżej.** Zakres zlecił użytkownik po wykryciu starego statusu w AGENTS.md. Punktem odniesienia jest ukończony prototyp techniczny M00–M06 oraz wyjaśnienie, że dalszy kierunek nie został wybrany. Nowej funkcji silnika ani następnego projektu nie wdrażano.
+**Status: audyt, korekty i bezpieczne porządkowanie wykonane, 02.11.2026.** Zakres zlecił użytkownik po wykryciu starego statusu w AGENTS.md. Punktem odniesienia jest ukończony prototyp techniczny M00–M06 oraz wyjaśnienie, że dalszy kierunek nie został wybrany. Nowej funkcji silnika ani następnego projektu nie wdrażano.
 
 ## Co było nieaktualne
 
@@ -38,4 +38,16 @@ Niezależny recenzent sprawdził 579 lokalnych odsyłaczy/kotwic bez błędów, 
 
 ## Porządkowanie publikacji
 
-Wszystkie 14 zastanych lokalnych/zdalnych tipów gałęzi były przodkami opublikowanego prototypu 228ec17. Publikacja zmian w main i usuwanie zbędnych gałęzi wymagają jeszcze ponownej kontroli dokładnych refów. Wynik operacji oraz zachowane wewnętrzne refy Codex zostaną dopisane po wykonaniu; same dane audytu nie są dowodem publikacji.
+Wszystkie 14 zastanych lokalnych/zdalnych tipów były przodkami opublikowanego prototypu 228ec17. Commit `ae091b3b94abecdf0d1a8621ca9b5a8d04ac6955` scala stan dokumentacji z całą wcześniejszą historią M05/M06. Main przesunięto wyłącznie do przodu, po dowodzie osiągalności i porównaniu starego refa; przełączenie na identyczne drzewo zachowało zweryfikowane bajty workspace. Wypchnięcie main i gałęzi roboczej było atomowe.
+
+Następnie potwierdzono zgodność lokalnego HEAD, origin/main i rzeczywistego zdalnego main. Wszystkie sześć gałęzi roboczych ponownie sprawdzono względem opublikowanego main. Zdalne refs usunięto atomowo z dokładnym `--force-with-lease=ref:SHA`, a lokalne przez `git branch -d`. [Dowód przed usunięciem](evidence/documentation-cleanup-2026-11-02/branch-deletion-proof.json) i [wynik](evidence/documentation-cleanup-2026-11-02/cleanup-result.json) zachowują SHAs. Pozostało wyłącznie main lokalnie i na GitHubie. Wewnętrzne refy narzędziowe Codex zachowano (17); nie są gałęziami projektu ani przedmiotem usuwania.
+
+Nie usuwano starszych niewersjonowanych danych z build ani działających cache kompilacji. Usunięcie dotyczyło połączonych refs i, po sprawdzeniu archiwum, wyłącznie katalogu roboczego tego audytu. Historię oraz wyniki można odtworzyć z main i wersjonowanych dowodów. Końcowy commit raportu/dowodów jest kolejnym potomkiem opublikowanego stanu, bez zmiany kodu.
+
+## Decyzje i granice audytu
+
+- Aktualna instrukcja użytkownika pozostawia dalszy kierunek otwarty; nie wybierano nowego projektu za niego.
+- Weryfikację dobrano do dokumentacji: kontrola plików/odnośników, Python i podpisu binarium, bez pozornego ponawiania benchmarku silnika.
+- Dawne propozycje i wyniki zachowano jako źródła historyczne, a nie aktualne polecenia. Hashe „przed” opisują bajty zastanego workspace; cztery źródła miały CRLF, niezależnie od normalizacji ich dawnych blobów Git.
+- Brak nowej weryfikacji zewnętrznych publikacji/ofert AI lub pełnej prawdziwości wszystkich twierdzeń archiwalnych pozostaje jawny; ich treść nie została zamieniona w potwierdzone wyniki.
+- Każda skasowana gałąź ma zachowaną osiągalność z main. Nie nadpisywano niepołączonej pracy, nie usuwano wewnętrznych refs ani danych build w celu uzyskania czystego stanu.
