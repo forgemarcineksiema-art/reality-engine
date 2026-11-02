@@ -1,5 +1,7 @@
 # Weryfikacja lokalnej wiedzy o stanowiskach
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Status: **ograniczony zakres techniczny zweryfikowany**, z pełnymi przebiegami Debug/Release/ASan, diagnostyką D3D11 na MX330 i niezależnym przeglądem. [Brief](../work-items/local-station-knowledge.md) określa zakres. To część INV-08, SC-05 i SC-14, bez pełnego odbioru M04.
 
 ## Czerwony dowód

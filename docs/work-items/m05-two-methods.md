@@ -1,6 +1,6 @@
 # Dostawa przez naprawione przejście albo objazdem w M05
 
-**Status: technicznie ukończone i zweryfikowane 29.10.2026; odbiór użytkownika nowej sytuacji niewykonany.** Użytkownik polecił rozpocząć ten przyrost po akceptacji obecnego uczenia 28.10.2026. Właścicielem kolejności i pełnego zakresu M05 pozostaje [jeden plan](../prototype-plan.md). Wyniki i ograniczenia podaje [raport](../verification/m05-two-methods.md).
+**Status: technicznie ukończone i zweryfikowane 29.10.2026; użytkownik zaakceptował zakres wraz z M05 bez osobnego playtestu.** Użytkownik polecił rozpocząć ten przyrost po akceptacji obecnego uczenia 28.10.2026. Właścicielem kolejności i pełnego zakresu M05 pozostaje [jeden plan](../prototype-plan.md). Wyniki i ograniczenia podaje [raport](../verification/m05-two-methods.md).
 
 ## Cel i granica
 

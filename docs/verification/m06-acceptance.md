@@ -87,7 +87,7 @@ Decyzje wykonawcy i koszt błędnej interpretacji:
 
 7. Odroczenia recenzenta rozstrzygnięto dowodami: pełne profile, finalny pomiar, kontrola postępu i osobny świeży proces kontynuacji. Wymuszone disjoint, awaria GPU, utrata zasilania i uniwersalna odporność sprzętowa nie zostały wykazane. Zapis buffered trace nie gwarantuje przetrwania twardego zakończenia procesu.
 
-Wynik zamyka M06 w zakresie fundamentu obecnego prototypu. Nie jest akceptacją przyszłej gry, większej populacji, pełnej fizyki 3D ani nieograniczonej historii. [Plan nadrzędny](../prototype-plan.md) zachowuje osobny następny projekt 3D.
+Wynik zamyka M06 w zakresie fundamentu obecnego prototypu. Nie jest akceptacją przyszłej gry, większej populacji, pełnej fizyki 3D ani nieograniczonej historii. [Plan prototypu](../prototype-plan.md) został zamknięty; decyzją użytkownika dalszy kierunek jest otwarty (DEC-019 w [rejestrze](../decisions.md)).
 
 ## Powtórzenie pomiaru
 

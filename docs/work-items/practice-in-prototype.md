@@ -1,6 +1,6 @@
 # Odkrywanie i przekazywanie praktyk w prototypie
 
-**Status: zakres techniczny ukończony i zweryfikowany; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Użytkownik ustalił 28.10.2026 kolejność: wykorzystać eksperymenty w prototypie, ukończyć M05 i M06, następnie osobno zaprojektować przejście do pełnego 3D. Kolejność obowiązuje w [jednym planie](../prototype-plan.md); szczegóły poniżej są specyfikacją przyrostu, a rzeczywisty stan, wypowiedź użytkownika i ograniczenia podaje [raport integracji](../verification/practice-in-prototype.md). Wyniki badań pozostają w [raporcie](../verification/discriminating-experiment.md), bez zmiany ich kryteriów ani przypisywania im odbioru gry.
+**Status: zakres techniczny ukończony i zweryfikowany; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Integrację wykonano przed M05/M06, które również ukończono w opisanym zakresie. Użytkownik 02.11.2026 pozostawił dalszy kierunek otwarty; pełne 3D nie jest ustalonym następnym projektem. Statusy podaje [plan](../prototype-plan.md), a rzeczywisty zakres przyrostu [raport integracji](../verification/practice-in-prototype.md). Wyniki badań pozostają w [raporcie](../verification/discriminating-experiment.md), bez zmiany ich kryteriów ani przypisywania im odbioru gry.
 
 ## Co użytkownik ma zobaczyć
 
@@ -8,7 +8,7 @@ W tej samej społeczności mieszkaniec ma rzeczywistą pracę do wykonania, ale 
 
 Gracz może to obserwować, podejść do urządzenia, dostarczyć części, użyć tych samych czynności albo przeszkodzić przez istniejące działania. Po odejściu, powrocie i zapisie postęp nadal istnieje. Zwykły widok pokazuje próby, pracę i skutki; nie wymaga czytania raportu naukowego ani konsoli.
 
-Pierwszy przyrost kończy się na jednym typie urządzenia i jednym rodzaju pracy. Nie dodajemy zarazem magii, życia od podstaw, nowych rodzin praw, walki ani większej populacji. M00–M04 pozostają odebrane w dotychczasowym zakresie. Nie wymuszamy przewagi nauczania tam, gdzie samodzielne próby wystarczają: negatywny wynik T nadal obowiązuje.
+Pierwszy przyrost kończy się na jednym typie urządzenia i jednym rodzaju pracy. Nie dodajemy zarazem magii, życia od podstaw, nowych rodzin praw, walki ani większej populacji. Dotychczasowych odbiorów nie rozszerza ten przyrost; obecnie M00–M06 są zamknięte w opisanym zakresie według planu. Nie wymuszamy przewagi nauczania tam, gdzie samodzielne próby wystarczają: negatywny wynik T nadal obowiązuje.
 
 ## Podejścia i wybór autora
 

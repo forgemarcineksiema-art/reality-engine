@@ -62,7 +62,7 @@ Laboratorium startuje w pauzie, minimalizacja i interaktywna zmiana rozmiaru zaw
 
 **USTALONE, użytkownik, 25.10.2026.** Zachowujemy Reality Engine, ukończone fundamenty i jeden plan M00–M06. Silnik pozostaje niezależny od konkretnych elementów fikcji tam, gdzie ma to uzasadnienie; zasady gry mogą zależeć od fikcji, lecz ich skutki przechodzą przez jawne kontrakty. Pierwszy prototyp nie wymaga magii, potworów ani rozbudowanej walki. Nie rozpoczynamy wielkiej produkcji zawartości fantasy przed sprawdzeniem autonomii, przyczynowości, fizyki, nawigacji i trwałości.
 
-Scenę dwóch osad i mostu adaptujemy do nowego kontekstu, zachowując wymagania symulacyjne oraz testy. Projekt bezpośredniej rozgrywki Action RPG rozwijamy równolegle w [projekcie gry](game-design.md); jego odbiór włączamy do istniejących etapów. Laboratorium nie staje się zamiennikiem gry ani dowodem jej atrakcyjności. Szczegóły mechanik i fikcji w tym dokumencie pozostają propozycjami do sprawdzenia.
+Scenę dwóch osad i mostu adaptujemy do nowego kontekstu, zachowując wymagania symulacyjne oraz testy. Projekt bezpośredniej rozgrywki Action RPG rozwijamy równolegle w [projekcie gry](game-design.md); wcześniejszą propozycję odbioru aktualizuje DEC-019: M06 odbierał fundament techniczny, a dalsza ocena gry nie jest jego otwartą bramką. Laboratorium nie staje się zamiennikiem gry ani dowodem jej atrakcyjności. Szczegóły mechanik i fikcji w tym dokumencie pozostają propozycjami do sprawdzenia.
 
 ### DEC-012 — Pierwszy konsument ruchu
 
@@ -98,19 +98,23 @@ Aktywne zgody wymagają zewnętrznego formatu 3; czytelnicy wersji 1/2 zachowuj�
 
 `GENESIS_WORK_WORLD 3` zapisuje typ i transfery; `GENESIS_TRAVERSAL 4` zapisuje ładunek, kurs i stanowisko zwrotu. Późniejszy przyrost dodaje autonomiczne odłożenie nieprzypisanego ładunku w znanym zgodnym stanowisku bez nowej wersji formatu; dawne wersje pozostają czytelne, a nieokreślony historyczny materiał nie jest reinterpretowany. Sam przyrost nie rozstrzyga praw własności, recept ani zakończenia M04. Limit historii nadal wymaga osobnego rozwiązania.
 
-## DEC-017 — Badania w prototypie, pełne M05/M06, następnie projekt 3D
+## DEC-017 — Integracja badań i ukończenie pierwszego prototypu
 
-**USTALONA kolejność, użytkownik, 28.10.2026.** Najpierw wykorzystać ukończone eksperymenty w działającym prototypie, następnie w pełni ukończyć M05 i M06, a dopiero później przekształcić obecny zakres 2,5D w pełne 3D w osobnym projekcie. Rozwinięcie należy do [jednego planu](prototype-plan.md), a pierwszy konkretny przyrost do [projektu integracji praktyk](work-items/practice-in-prototype.md).
+**ZREALIZOWANE w opisanym zakresie.** Uczenie wykorzystano we wspólnej scenie, M05 i M06 ukończono według [planu prototypu](prototype-plan.md). [Integracja praktyk](work-items/practice-in-prototype.md) zachowuje swój zakres i odbiór z 28.10.2026. Pozostają DEC-011, własny silnik i wymagania ciągłości świata.
 
-Zachowuje DEC-011, własny silnik, odebrane fundamenty i wymagania ciągłości, migracji reprezentacji oraz odbioru. Nie zmienia historycznej akceptacji M04. Nowy konsument badawczy nie jest automatycznie funkcją zwykłej gry; potrzebne są wspólny świat, widok, wejście i próba użytkownika. Szczegóły urządzenia, techniczne API integracji, liczby nowego pomiaru i zakres pełnego 3D pozostają propozycjami autora do osobnego dopracowania, nie dodatkowymi decyzjami przypisanymi użytkownikowi. Nie tworzymy drugiego backlogu etapów ani nie odraczamy braków M05/M06 do projektu 3D.
-
-Ta decyzja dotyczy planowania. Nie zmienia formatu zapisu ani zachowania kodu; migracje wymagają własnych projektów i weryfikacji.
+**Korekta 02.11.2026:** wycofano wcześniejszą interpretację, że następnym zatwierdzonym projektem ma być pełne 3D. Użytkownik pozostawił wybór dalszego kierunku otwarty; obowiązuje DEC-019. Dawna notatka nie autoryzuje nowej fizyki, migracji zapisów lub innego nowego systemu. Nie zmieniono wyników prób ani historycznej akceptacji M04.
 
 ## DEC-018 — Ograniczona zmiana reprezentacji kuriera
 
 **Źródło:** użytkownik zatwierdził rozpoczęcie SC-09 po sytuacji dwóch metod, 29.10.2026. **Wybór inżynierski:** opcjonalny stan podróży w tej samej sesji, pomiędzy dwoma statycznymi terminalami. Zajmuje miejsce lokalnego wykonawcy, zachowując osobę/partię/zlecenie i wspólny zegar. Czas wynika z autorskiej długości i prędkości do 3 m/s; po 1200 krokach najpóźniej osiąga się fazę powrotu, która może czekać na rzeczywistą wolną przestrzeń.
 
 Alternatywy odrzucone: sama flaga renderowania pozostawiałaby lokalną kapsułę i świadków; druga gospodarka lub kopia kuriera łamałyby własność. Pełny streaming, pojazdy i ogólny graf odległych tras przekraczają ten przyrost. Dane wymagają opcjonalnej otoczki 9, bez zmiany WorkWorld i historycznych światów 1–8. Konsumenci fizyki, wiedzy, prawa i obrazu wymagają lokalnej reprezentacji. Szczegóły, odmowy i granice określają [model](traversal-autonomy.md#podróż-poza-lokalną-reprezentacją) oraz [brief](work-items/m05-distant-delivery.md); wyniki należą do [raportu](verification/m05-distant-delivery.md). Nie jest to ukończenie całego M05 ani zgoda użytkownika na odbiór nowego kursu.
+
+## DEC-019 — Ukończony prototyp techniczny i otwarty dalszy kierunek
+
+**USTALONE, użytkownik, 02.11.2026.** Pierwszy prototyp M00–M06 jest ukończony i odebrany w opisanym zakresie fundamentu technicznego. [M06](verification/m06-acceptance.md) posiada rzeczywiste testy, zamrożony dłuższy pomiar oraz kontynuację końcowego świata. Użytkownik wyłączył próbę grywalności i udział uczestników z tego etapu. Zaliczenie nie oznacza ukończenia docelowej gry, całej cywilizacji ani potwierdzenia zainteresowania odbiorców.
+
+Użytkownik wyjaśnił, że nie podjął jeszcze najlepszej decyzji, co robić dalej. Usunięto pełne 3D jako przesądzony następny lub nadrzędny projekt; ta część wcześniejszego zapisu DEC-017 nie obowiązuje. Pełne 3D może być rozważane tak jak inne propozycje, ale nie jest zadaniem do rozpoczęcia. Nie wybieramy za użytkownika nowego kierunku. Aktualizacja dotyczy dokumentacji i planowania, bez zmiany modelu świata lub zapisów.
 
 ## Jak dopisać decyzję
 

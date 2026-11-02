@@ -1,11 +1,12 @@
 {
   "version": 1,
   "documents": [
+    {"path": "docs/verification/documentation-audit-2026-11-02.md", "role": "verification", "topic": "documentation-currency-cleanup-2026-11-02"},
     {"path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/review.md", "role": "verification", "topic": "m06-technical-review"},
     {"path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/progress.md", "role": "verification", "topic": "m06-technical-execution-ledger"},
 
     {"path": "docs/verification/m06-acceptance.md", "role": "verification", "topic": "m06-technical-acceptance"},
-    {"path": "docs/work-items/m06-technical-acceptance.md", "role": "planned", "topic": "m06-technical-execution"},
+    {"path": "docs/work-items/m06-technical-acceptance.md", "role": "current-state", "topic": "m06-technical-execution"},
     {
       "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/review.md",
       "role": "verification",
@@ -23,12 +24,12 @@
     },
     {
       "path": "docs/work-items/m06-measurement-export.md",
-      "role": "planned",
+      "role": "current-state",
       "topic": "m06-measurement-export-implementation"
     },
     {
       "path": "docs/work-items/m06-acceptance.md",
-      "role": "planned",
+      "role": "current-state",
       "topic": "m06-acceptance-preparation"
     },
     {
@@ -63,12 +64,12 @@
     {"path": "docs/verification/practice-in-prototype.md", "role": "verification", "topic": "practice-in-prototype-verification"},
     {
       "path": "docs/work-items/practice-in-prototype-implementation.md",
-      "role": "planned",
+      "role": "current-state",
       "topic": "practice-in-prototype-implementation"
     },
     {
       "path": "docs/work-items/practice-in-prototype.md",
-      "role": "planned",
+      "role": "current-state",
       "topic": "practice-in-prototype-design"
     },
     {
@@ -93,7 +94,7 @@
     },
     {
       "path": "docs/work-items/discriminating-implementation.md",
-      "role": "planned",
+      "role": "current-state",
       "topic": "discriminating-implementation"
     },
     {
@@ -113,7 +114,7 @@
     },
     {
       "path": "docs/work-items/hypothesis-building-implementation.md",
-      "role": "planned",
+      "role": "current-state",
       "topic": "hypothesis-building-implementation"
     },
     {
@@ -143,7 +144,7 @@
     },
     {
       "path": "docs/work-items/discovery-learning-implementation.md",
-      "role": "planned",
+      "role": "current-state",
       "topic": "discovery-learning-implementation"
     },
     {
@@ -253,7 +254,7 @@
     },
     {
       "path": "docs/prototype-plan.md",
-      "role": "planned",
+      "role": "current-state",
       "topic": "milestones"
     },
     {
@@ -358,22 +359,22 @@
     },
     {
       "path": "opinion-project-assessment.md",
-      "role": "research",
+      "role": "archive-index",
       "topic": "user-supplied-external-assessment"
     },
     {
       "path": "maxing.md",
-      "role": "proposal",
+      "role": "archive-index",
       "topic": "user-supplied-quality-aspiration"
     },
     {
       "path": "argon-analize.md",
-      "role": "research",
+      "role": "archive-index",
       "topic": "user-supplied-argon-analysis"
     },
     {
       "path": "argon-specyfikacja-domkniecia.md",
-      "role": "proposal",
+      "role": "archive-index",
       "topic": "user-supplied-argon-specification"
     },
     {
@@ -483,7 +484,7 @@
     },
     {
       "path": "traversal-multi-actor-audit.md",
-      "role": "proposal",
+      "role": "archive-index",
       "topic": "traversal-multi-actor-audit"
     },
     {
@@ -543,7 +544,7 @@
     },
     {
       "path": "docs/work-items/retained-world-navigation-stall.md",
-      "role": "open",
+      "role": "current-state",
       "topic": "retained-world-stagnation"
     },
     {

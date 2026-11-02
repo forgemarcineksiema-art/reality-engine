@@ -1,5 +1,7 @@
 # Historia SC-13 — plan wykonania
 
+**Status: wykonany plan przyrostu, nie otwarte zlecenie.** [Raport](../verification/m05-story.md) rozlicza zakres, próby i ograniczenia; aktualny status całego prototypu wskazuje [jeden plan](../prototype-plan.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox syntax for tracking.
 
 **Goal:** jedna rzeczywista historia dostawy, która reaguje na usunięcie rozmówcy/miejsca i przeniesienie zapasu.

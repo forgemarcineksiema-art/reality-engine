@@ -1,0 +1,28 @@
+Test project C:/Users/Marcin/Documents/new/build/msvc
+    Start 87: contrast.native_case
+1/1 Test #87: contrast.native_case .............***Failed    2.53 sec
+Traceback (most recent call last):
+  File "C:\Users\Marcin\Documents\new\tests\contrast_case_integration.py", line 15, in <module>
+    validate_native_identity(identity,hashes(ROOT,source_files()),native_provenance(Path(sys.argv[1])))
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\run_contrast_experiment.py", line 67, in validate_native_identity
+    j.check(identity['sources']==sources and identity['configuration']==provenance['configuration']
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            and identity['pointer_bits']==64 and identity['asan']==int(provenance['address_sanitizer']=='ON')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            and identity['msvc_full_ver']==(major*100+minor)*100000+patch,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'binary identity differs from sources, compiler or build configuration')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marcin\Documents\new\tools\contrast_judge.py", line 67, in check
+    raise ValueError(message)
+ValueError: binary identity differs from sources, compiler or build configuration
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   2.58 sec
+
+The following tests FAILED:
+	 87 - contrast.native_case (Failed)
+Errors while running CTest

@@ -1,6 +1,6 @@
 # Rozszerzenie ruchu, geometrii i autonomicznego planowania
 
-Status: w realizacji na zlecenie użytkownika. Użytkownik zaakceptował płynność poprzedniej wersji i wyjaśnił, że platformy oznaczają podesty, kładki, poziomy i ruchome konstrukcje, nie porty na inne systemy operacyjne.
+Status: historyczny zakres rozszerzenia zrealizowany w opisanych przyrostach; jego zintegrowany fundament należy do ukończonego prototypu M00–M06. [Raport M04](../verification/m04-acceptance.md) i [raport M06](../verification/m06-acceptance.md) określają odbiór. Poniższa kolejność opisuje plan pierwotnego rozszerzenia, nie otwarty backlog. Użytkownik zaakceptował płynność poprzedniej wersji i wyjaśnił, że platformy oznaczają podesty, kładki, poziomy i ruchome konstrukcje, nie porty na inne systemy operacyjne.
 
 ## Cel i kolejność
 

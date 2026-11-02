@@ -1,5 +1,7 @@
 # Plan implementacji eksportu próbek pomiarowych
 
+**Status: wykonany plan przyrostu, nie otwarte zlecenie.** [Raport](../verification/m06-measurement-export.md) rozlicza zakres, próby i ograniczenia; aktualny status całego prototypu wskazuje [jeden plan](../prototype-plan.md).
+
 > Wykonanie: `executing-plans` i TDD, samodzielna implementacja oraz jeden niezależny przegląd całej zmiany.
 
 **Cel:** eksportować próbki czasu i pamięci z rozgrzewki oraz właściwego pomiaru, zachowując dotychczasowy raport i semantykę świata.
@@ -12,7 +14,7 @@
 
 ## Kontrakt
 
-- Plan dotyczy pierwszego przyrostu eksportu. Oddzielne pomiary GPU, uczenia, tras i zapisu oraz długi benchmark pozostają dalszym zakresem M06.
+- Plan dotyczy pierwszego przyrostu eksportu. Pomiary GPU, uczenia, tras i zapisu oraz długi benchmark wykonano później w [odbiorze M06](../verification/m06-acceptance.md); nie są otwartym zakresem tego planu.
 - Nowa opcja `--measurement-trace DIR` jest dozwolona tylko z pomiarem. Katalog nie może istnieć; jego rodzic musi istnieć. Błąd powoduje kod wyjścia 1, bez uznania eksportu za wykonany.
 - `DIR/samples.csv` i `DIR/status.txt` są tworzone bez nadpisywania. Zarezerwowanych ścieżek nie można jednocześnie wskazać jako raportu, zapisu, końcowego zapisu, zrzutu lub katalogu diagnostyki. Status jest osobnym dowodem również wtedy, gdy raport nie działa.
 - CSV wersji 1 ma nagłówek `elapsed_ms,tick,phase,frame_ms,simulation_ms,backlog_ms,working_set_bytes,private_bytes`. `elapsed_ms` oznacza koniec klatki względem początku pracy pętli; faza wynika z początku klatki, zgodnie z dotychczasowym kryterium okresu mierzonego.

@@ -53,7 +53,7 @@ Przyjęte rozstrzygnięcia wykonawcze:
 | Istniejąca gałąź robocza i buildy | Zachowanie przygotowania oraz cache na laptopie 8 GB; koszt: wspólna historia przygotowania i implementacji, wymagająca rozdzielenia commitami |
 | Dziennik w ignorowanym build | Zgodność z układem repozytorium; koszt: mógł zniknąć podczas czyszczenia, dlatego przed porządkowaniem zachowano pełną kopię |
 | Gwarancja eksportu obejmuje obsłużone błędy | Bufor nie jest dziennikiem odpornym na twarde zakończenie; koszt: utrata nieeksportowanych próbek w takim zdarzeniu |
-| Długi pomiar, izolowany narzut i odbiór ludzi pozostają w M06 | Krótka próba potwierdza zachowanie eksportu; koszt: wydajność i użyteczność projektu nadal wymagają odbioru |
+| Przyrost eksportu nie obejmował jeszcze długiego pomiaru i pełnego profilu | Późniejszy [odbiór M06](m06-acceptance.md) zawiera długi pomiar; uczestników wyłączono z bramek decyzją użytkownika. Izolowany narzut nadal ma opisane ograniczenia |
 | Wąskie usprawnienie inicjalizacji | Usunięcie powtarzanego kosztu przy zachowaniu limitów; ryzyko zmiany kolejności modeli, kosztów lub izolacji pokryto niezależną referencją, sześcioma hashami i identycznymi bajtami świata |
 
 Nie odłożono uwag Minor z przeglądu. Zmienność czasów pod obciążeniem pozostaje jawnym ryzykiem, mimo zielonej końcowej macierzy.

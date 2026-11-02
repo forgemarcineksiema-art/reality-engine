@@ -1,5 +1,7 @@
 # Przygotowanie transferu materiału dla dostawy
 
+**Kontekst: historyczna propozycja przygotowania przyrostu.** Późniejszy [raport](../verification/material-delivery.md) wskazuje rzeczywiście wykonany zakres, a [plan prototypu](../prototype-plan.md) zamknięte etapy. Propozycja nie jest nowym zadaniem po M06 i nie potwierdza automatycznie wykonania każdego rozważanego wariantu.
+
 Status: historyczna propozycja techniczna sprzed implementacji. Bieżącą realizację i aktualne ograniczenia opisuje [material-delivery](material-delivery.md); poniższy opis stanu odnosi się do chwili przygotowania projektu. Nie jest alternatywnym planem etapów.
 
 ## Co rzeczywiście jest w kodzie

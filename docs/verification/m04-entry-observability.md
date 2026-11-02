@@ -1,5 +1,7 @@
 # Odbiór pierwszego przyrostu przed dostawą
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Status: ZALICZONE w opisanym zakresie diagnostyki, zapisu reprodukcji i pomiaru małej sceny. [Projekt](../work-items/m04-entry-design.md), [plan](../work-items/m04-entry-observability.md). Dostawa, transfer materiału i współpraca społeczna nie są zaimplementowane w tym przyroście. Nie jest to odbiór całego M04 ani docelowej autonomii.
 
 ## Dostarczony zakres

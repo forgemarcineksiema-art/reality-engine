@@ -1,0 +1,62 @@
+[
+  {
+    "path": "docs/prototype-plan.md",
+    "reason": "**Status: M00–M05 zaliczone w opisanym zakresie; M06 pozostaje planem.**"
+  },
+  {
+    "path": "docs/prototype-plan.md",
+    "reason": "Odbiór M04 został potwierdzony przez użytkownika; szersze badanie graczy i pomiar długiego obciążeni"
+  },
+  {
+    "path": "docs/project-charter.md",
+    "reason": "- Kolejność dalszych prac ustalona 28.10.2026: zastosować wyniki eksperymentów w działającym prototy"
+  },
+  {
+    "path": "docs/traversal-autonomy.md",
+    "reason": "Status: ograniczona implementacja w `TraversalSession`, rozwijana w ramach [rozszerzenia](work-items"
+  },
+  {
+    "path": "docs/traversal-autonomy.md",
+    "reason": "W realizowanym [przyroście dostawy]"
+  },
+  {
+    "path": "docs/window-laboratory.md",
+    "reason": "aktualne wyniki są w [raporcie M03](verification/m03-motion-navigation.md)."
+  },
+  {
+    "path": "docs/work-domain.md",
+    "reason": "[Zakres i obecny odbiór](work-items/material-delivery.md) są oddzielone od pełnego M04."
+  },
+  {
+    "path": "docs/verification/m06-acceptance.md",
+    "reason": "[Plan nadrzędny](../prototype-plan.md) zachowuje osobny następny projekt 3D."
+  },
+  {
+    "path": "docs/research/emergent-world-2026-10-28.md",
+    "reason": "Własny ograniczony ruch 2,5D; osobny projekt pełnego 3D pozostaje późniejszym kierunkiem"
+  },
+  {
+    "path": "docs/research/emergent-world-2026-10-28.md",
+    "reason": "Kolejność integracji, pełnego M05, pełnego M06 i osobnego projektu 3D pozostaje u właściciela planu."
+  },
+  {
+    "path": "docs/risks-and-open-questions.md",
+    "reason": "| Główna rola, kamera i szczegóły świata |"
+  },
+  {
+    "path": "docs/risks-and-open-questions.md",
+    "reason": "Próby ruchu, wyboru metody i konsekwencji w M03–M06 według projektu gry"
+  },
+  {
+    "path": "docs/research-agenda.md",
+    "reason": "przegląd, hipotezy i dwa wykonane eksperymenty odkrywania"
+  },
+  {
+    "path": "docs/research-agenda.md",
+    "reason": "## Następny kierunek: budowanie wyjaśnień"
+  },
+  {
+    "path": "docs/research-agenda.md",
+    "reason": "## Co badać po fundamentach"
+  }
+]

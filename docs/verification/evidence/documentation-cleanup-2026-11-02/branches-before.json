@@ -1,0 +1,72 @@
+[
+  {
+    "ref": "refs/heads/codex/m05-continuity-audit",
+    "sha": "82395a34b8e354962dcb4eebfeaf5e3ce1d84a03",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/heads/codex/m05-distant-delivery",
+    "sha": "f9fe6d78ac1d7214ca537df5e9fc17dda630d840",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/heads/codex/m05-learning-cost",
+    "sha": "5462279b951ab51b58b438cff45095cb9e092cfd",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/heads/codex/m05-story-design",
+    "sha": "1f620fc54b0db36dcb891c059a1975ed431250e1",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/heads/codex/m05-two-methods",
+    "sha": "2e096b081c9677a7c55472f18f8533af823dbf74",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/heads/codex/verified-capabilities-plan",
+    "sha": "228ec17aebeab5c63b8c86d5f14f617f8a863a5f",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/heads/main",
+    "sha": "952c8c755403eb809dd94d39b86738505b90eb9c",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/remotes/origin/codex/m05-continuity-audit",
+    "sha": "82395a34b8e354962dcb4eebfeaf5e3ce1d84a03",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/remotes/origin/codex/m05-distant-delivery",
+    "sha": "f9fe6d78ac1d7214ca537df5e9fc17dda630d840",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/remotes/origin/codex/m05-learning-cost",
+    "sha": "5462279b951ab51b58b438cff45095cb9e092cfd",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/remotes/origin/codex/m05-story-design",
+    "sha": "1f620fc54b0db36dcb891c059a1975ed431250e1",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/remotes/origin/codex/m05-two-methods",
+    "sha": "2e096b081c9677a7c55472f18f8533af823dbf74",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/remotes/origin/codex/verified-capabilities-plan",
+    "sha": "228ec17aebeab5c63b8c86d5f14f617f8a863a5f",
+    "ancestor_of_228ec17": true
+  },
+  {
+    "ref": "refs/remotes/origin/main",
+    "sha": "952c8c755403eb809dd94d39b86738505b90eb9c",
+    "ancestor_of_228ec17": true
+  }
+]

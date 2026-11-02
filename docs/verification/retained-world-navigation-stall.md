@@ -1,5 +1,7 @@
 # Naprawa odzyskiwania dojścia przy blokadzie
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Status: naprawa nieaktualnej trasy i ponowień ZALICZONA technicznie. Pełne profile i końcowa kontrola okna przeszły. Zakres określa [zlecenie](../work-items/retained-world-navigation-stall.md). Naprawa nie oznacza zakończenia M04 ani rozwiązania społecznego konfliktu przy rampie.
 
 ## Przyczyna i zmiana

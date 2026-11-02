@@ -1,5 +1,7 @@
 # Przejście, objazd i materialna naprawa — weryfikacja
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Status: **ograniczony zakres techniczny zweryfikowany** w pełnych konfiguracjach Debug/RelWithDebInfo/ASan, z natywną próbą D3D11 na MX330. [Brief](../work-items/passage-logistics.md) określa zakres SC-10 i części SC-14. Nie jest to odbiór M04 ani fizycznego rozpadu brył.
 
 ## Wykonanie i dowody przed naprawami

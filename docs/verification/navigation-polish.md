@@ -1,6 +1,6 @@
 # Weryfikacja dopracowania prowadzenia do celu
 
-**Status: zakres techniczny ZALICZONY, 25.10.2026.** [Brief](../work-items/navigation-polish.md) określa zakres. Osobista ocena nowego odczucia przez użytkownika pozostaje otwarta; jego wcześniejsza akceptacja dotyczy bazowego M03.
+**Status: zakres techniczny ZALICZONY, 25.10.2026.** [Brief](../work-items/navigation-polish.md) określa zakres. W tej próbie nie zarejestrowano osobnej oceny odczucia; nie rozszerzamy wcześniejszej akceptacji bazowego M03. To ograniczenie historycznego raportu, nie otwarta bramka ukończonego M06.
 
 ## Końcowy odbiór techniczny
 

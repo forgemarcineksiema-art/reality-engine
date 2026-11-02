@@ -1,6 +1,6 @@
 # Okno i laboratorium świata
 
-**Status: M02 zaimplementowany i zaliczony.** Ten dokument opisuje zachowany domyślny statyczny tryb. Nowy tryb `--motion` i zmiany współdzielonego czasu/I/O opisuje [model ruchu M03](motion-navigation.md). [Raport M02](verification/m02-window-laboratory.md) obejmuje wcześniejszy odbiór sprzętowy; aktualne wyniki są w [raporcie M03](verification/m03-motion-navigation.md). Komendy są w [środowisku pracy](development.md).
+**Status: M02 zaimplementowany i zaliczony.** Ten dokument opisuje zachowany domyślny statyczny tryb. Nowy tryb `--motion` i zmiany współdzielonego czasu/I/O opisuje [model ruchu M03](motion-navigation.md). [Raport M02](verification/m02-window-laboratory.md) obejmuje wcześniejszy odbiór sprzętowy; wyniki późniejszego toru wskazuje [raport M03](verification/m03-motion-navigation.md), a zamknięcie całego prototypu [raport M06](verification/m06-acceptance.md). Komendy są w [środowisku pracy](development.md).
 
 ## Granice i własność
 

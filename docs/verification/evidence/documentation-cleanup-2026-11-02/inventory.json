@@ -1,0 +1,2125 @@
+{
+  "base_commit": "228ec17aebeab5c63b8c86d5f14f617f8a863a5f",
+  "documents": [
+    {
+      "path": ".opencode/agents/architect.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 849,
+      "bytes_after": 849,
+      "sha256_before": "085d03043522fe0acb7b19e5701e31af575ef731a922ad25903a1ae42a9a52b4",
+      "sha256_after": "085d03043522fe0acb7b19e5701e31af575ef731a922ad25903a1ae42a9a52b4",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": ".opencode/agents/engineer.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 661,
+      "bytes_after": 661,
+      "sha256_before": "1936d3b3f674105603bc4beba8c2571b5063eb57f772a8853c1827fbd95cafaa",
+      "sha256_after": "1936d3b3f674105603bc4beba8c2571b5063eb57f772a8853c1827fbd95cafaa",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": ".opencode/agents/lead-engineer.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 876,
+      "bytes_after": 876,
+      "sha256_before": "c24dd59d5a342f1c4ecbdb8d4c197437e7f5dd923c64cf55387d421ad40ad0f3",
+      "sha256_after": "c24dd59d5a342f1c4ecbdb8d4c197437e7f5dd923c64cf55387d421ad40ad0f3",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "AGENTS.md",
+      "role_before": "normative",
+      "role_after": "normative",
+      "bytes_before": 13782,
+      "bytes_after": 8097,
+      "sha256_before": "099a47abe9d429538d9ab62e607978dc37db2120789d8f863923df34fe63db99",
+      "sha256_after": "8f8312ce729b6e058e7af203f02a4b6ad4832fd18a031422a8d1f49a22c0deba",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "README.md",
+      "role_before": "entry",
+      "role_after": "entry",
+      "bytes_before": 14068,
+      "bytes_after": 5510,
+      "sha256_before": "f28260b471c4cacb1f3355873fa6d18b507cbd8a583f08523f0d8f8fee96c98c",
+      "sha256_after": "853fbbbcf573e1baa5ded8f1bb597c70b11d245b68827434950bd71526cfde6a",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "argon-analize.md",
+      "role_before": "research",
+      "role_after": "archive-index",
+      "bytes_before": 34760,
+      "bytes_after": 1107,
+      "sha256_before": "77026357ec020e10b0a1fb14af68b825b5ca0f6780c28a1c7a63952ecb3a1473",
+      "sha256_after": "8b5ff6fe9ecb5990af528817f8399b563f34bad065d8cea40b0a2e45d04d54b0",
+      "outcome": "source moved byte-for-byte to raw archive; original path now current context/index"
+    },
+    {
+      "path": "argon-specyfikacja-domkniecia.md",
+      "role_before": "proposal",
+      "role_after": "archive-index",
+      "bytes_before": 25490,
+      "bytes_after": 1184,
+      "sha256_before": "e6d67d5a5e992cbb0cc860b5d83284d01d0804b346fe6da0249e7b2f56457165",
+      "sha256_after": "7a0fc1325b3685e507d865ea4c9eab852b6db0c3fe4a297110befd74e6f1382e",
+      "outcome": "source moved byte-for-byte to raw archive; original path now current context/index"
+    },
+    {
+      "path": "docs/architecture.md",
+      "role_before": "normative",
+      "role_after": "normative",
+      "bytes_before": 8723,
+      "bytes_after": 9503,
+      "sha256_before": "9ccd242709835b054825f3cbe506a40ffe2df2aa4212efebb45fb974f4a36d6e",
+      "sha256_after": "a19124c53298adf94dbd8e64a1bad336d4dedb49a8a39deeb41c809e8ded478c",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/archive/2026-10-25/GENESIS_ANALIZA_I_PROGRAM_BADAN.md",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 20874,
+      "bytes_after": 20874,
+      "sha256_before": "d707747ff93dcd4591c376a974596344645a5b067aa57ecd5d6ef2432410df71",
+      "sha256_after": "d707747ff93dcd4591c376a974596344645a5b067aa57ecd5d6ef2432410df71",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/archive/2026-10-25/GENESIS_ARCHITEKTURA_TECHNICZNA.md",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 28297,
+      "bytes_after": 28297,
+      "sha256_before": "8e5f1fcf6b470d73ae49ee1167083f3e9da9b3c1dbb48cf49f631fc1a7c5c668",
+      "sha256_after": "8e5f1fcf6b470d73ae49ee1167083f3e9da9b3c1dbb48cf49f631fc1a7c5c668",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/archive/2026-10-25/GENESIS_DECYZJE_I_OTWARTE_PYTANIA.md",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 7317,
+      "bytes_after": 7317,
+      "sha256_before": "20460d588d71abb1356be2c1a273a1c3d9fcd6ccb7f772cf89f4bf0cfad8126c",
+      "sha256_after": "20460d588d71abb1356be2c1a273a1c3d9fcd6ccb7f772cf89f4bf0cfad8126c",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/archive/2026-10-25/GENESIS_PLAN_PRAC.md",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 11624,
+      "bytes_after": 11624,
+      "sha256_before": "917b6580fa555fdf499841552b3866db2c73ea0ede4daf7960c0f2d939055d8a",
+      "sha256_after": "917b6580fa555fdf499841552b3866db2c73ea0ede4daf7960c0f2d939055d8a",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/archive/2026-10-25/PROJEKT_GENESIS.md",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 31058,
+      "bytes_after": 31058,
+      "sha256_before": "88be2d7888bf03bd8355b8f27f92032e33a719bf0da2c89ca0dc46d5d39ce64c",
+      "sha256_after": "88be2d7888bf03bd8355b8f27f92032e33a719bf0da2c89ca0dc46d5d39ce64c",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/archive/2026-10-25/REALITY_ENGINE_WLASNY_SILNIK.md",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 16359,
+      "bytes_after": 16359,
+      "sha256_before": "77c9b2ff9162fb884a3a4e00a531920d2ed8be8c2de7a4170a764d46df9cac78",
+      "sha256_after": "77c9b2ff9162fb884a3a4e00a531920d2ed8be8c2de7a4170a764d46df9cac78",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/archive/README.md",
+      "role_before": "archive-index",
+      "role_after": "archive-index",
+      "bytes_before": 1137,
+      "bytes_after": 1137,
+      "sha256_before": "3e492ad0c4787d488504e1c0fa82ab672a7cbbbbaccd3040dcebcb3223692a09",
+      "sha256_after": "3e492ad0c4787d488504e1c0fa82ab672a7cbbbbaccd3040dcebcb3223692a09",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/decisions.md",
+      "role_before": "decision-register",
+      "role_after": "decision-register",
+      "bytes_before": 17721,
+      "bytes_after": 18328,
+      "sha256_before": "c5eaf6ae887b8fdbb9e505e3b127456ad56923818a0f2da249b7defe0033d4ea",
+      "sha256_after": "7bae4cf72e4bb7ce4a9f4a54163341f5e8d52c608f5f388c43e563730170582b",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/development.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 31428,
+      "bytes_after": 31451,
+      "sha256_before": "71555ebddb497d8efa4775304d944c8542f670a0f326e9aa778e2eb495a717ac",
+      "sha256_after": "e48c3a20cc1d2a614f44a8b61e1226b4fae12673268da497731a33507e58452c",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/discovery-learning.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 5228,
+      "bytes_after": 5228,
+      "sha256_before": "772aad4abaab120b7fdbc752d434265c8ee66c8bc332b459c6b5f7e09bf24030",
+      "sha256_after": "772aad4abaab120b7fdbc752d434265c8ee66c8bc332b459c6b5f7e09bf24030",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/discriminating-learning.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 5788,
+      "bytes_after": 5788,
+      "sha256_before": "8274620cca9ef475349fd47f178d4d96ac4bbaf9e0a007aebcc27c94b95b8ca2",
+      "sha256_after": "8274620cca9ef475349fd47f178d4d96ac4bbaf9e0a007aebcc27c94b95b8ca2",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/game-design.md",
+      "role_before": "proposal",
+      "role_after": "proposal",
+      "bytes_before": 16271,
+      "bytes_after": 16271,
+      "sha256_before": "19663ea147cd4f895930139ee006371dbd9325e17d9c2ee62d3e547cc6095105",
+      "sha256_after": "19663ea147cd4f895930139ee006371dbd9325e17d9c2ee62d3e547cc6095105",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/hypothesis-building.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 5998,
+      "bytes_after": 5998,
+      "sha256_before": "d48defc18102532b5b1b5e2204837421514a818df4046ab8e8bc648eb9f82b41",
+      "sha256_after": "d48defc18102532b5b1b5e2204837421514a818df4046ab8e8bc648eb9f82b41",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/motion-navigation.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 15223,
+      "bytes_after": 15223,
+      "sha256_before": "bba9cd2bfbb4187fa0d907191e6a45103b08238cc149f858a29449021c724b3d",
+      "sha256_after": "bba9cd2bfbb4187fa0d907191e6a45103b08238cc149f858a29449021c724b3d",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/performance-budget.md",
+      "role_before": "proposal",
+      "role_after": "proposal",
+      "bytes_before": 3787,
+      "bytes_after": 3787,
+      "sha256_before": "34e2b39f28e86bf04563b113abe3c7d7e8313a051b8c48208a1fd23b5e221968",
+      "sha256_after": "34e2b39f28e86bf04563b113abe3c7d7e8313a051b8c48208a1fd23b5e221968",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/project-charter.md",
+      "role_before": "normative",
+      "role_after": "normative",
+      "bytes_before": 4810,
+      "bytes_after": 4968,
+      "sha256_before": "b802acfcec64daa647e6590e1ff768ba0062d18ed954ad2cc8221f193825511e",
+      "sha256_after": "1ac0f5df5d6462d45252dea715a8c4efb9259aa9dfd27b70769f8f5190591111",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/prototype-plan.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 17839,
+      "bytes_after": 17569,
+      "sha256_before": "6d9eb1bd49e73988759eace1614cad9c60c9580f1677ac8af206987358b7a1c2",
+      "sha256_after": "0f3ec635fb7fb87275c78583ce6fa548ee753662c902480e6a9279c55ce0e07b",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/research-agenda.md",
+      "role_before": "research",
+      "role_after": "research",
+      "bytes_before": 9119,
+      "bytes_after": 9801,
+      "sha256_before": "0c1d2b1c2f98f9054de9a67cdb1e346e34e45c4d24b4f3f63ff19018a8a53c4b",
+      "sha256_after": "9f8f836cfb8db65d2ca64c3737038570529d311bfea94176fa3d0cae56c9aa92",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/research/capabilities-product-direction-2026-10-29.md",
+      "role_before": "research",
+      "role_after": "research",
+      "bytes_before": 17931,
+      "bytes_after": 17687,
+      "sha256_before": "7581328834af813f63b8b85f4323337924744be731709479d8cfe40af102c7b5",
+      "sha256_after": "db9f3c55719bf7668e3c6e45d2abcdbdb363100a85a71edc7d2a83649866e7cb",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/research/emergent-world-2026-10-28.md",
+      "role_before": "research",
+      "role_after": "research",
+      "bytes_before": 20938,
+      "bytes_after": 21217,
+      "sha256_before": "0e6052006c13af376151a4e44cdbc0409bb67fff1a07906ad8c4d81b0e1f01ec",
+      "sha256_after": "3b7e7a8797b1b0522370e0f9e277e72406eb6203df24aedf322a711060e1eefa",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/research/sources/universe-discussion-2026-10-28/games-and-artificial-life.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 10224,
+      "bytes_after": 10224,
+      "sha256_before": "a909a905b5161ce8996c7aea415ccfc51da7d5d50a89266d43fb19edbc4eb1e7",
+      "sha256_after": "a909a905b5161ce8996c7aea415ccfc51da7d5d50a89266d43fb19edbc4eb1e7",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/research/sources/universe-discussion-2026-10-28/universe-principles.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 9419,
+      "bytes_after": 9419,
+      "sha256_before": "69f20a748701812e4948da0ea9d11a77df2fc3db3a927bccf1405955657cbc1c",
+      "sha256_after": "69f20a748701812e4948da0ea9d11a77df2fc3db3a927bccf1405955657cbc1c",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/risks-and-open-questions.md",
+      "role_before": "open",
+      "role_after": "open",
+      "bytes_before": 3155,
+      "bytes_after": 3507,
+      "sha256_before": "85f3728cfcdcd2d72694cab01a427b81062fb6bea28fbd14d116687ad5a5c850",
+      "sha256_after": "3a9c70f9f3fc5f6b669872c69a4a0ebb0dc25c6817fb5d801b13ed5503cbb2b5",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/story-scene.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 6471,
+      "bytes_after": 6471,
+      "sha256_before": "e186ecf792189ed4d33e7a3b9f508a506ffcd18c39434d59ab75b5b2854aeeab",
+      "sha256_after": "e186ecf792189ed4d33e7a3b9f508a506ffcd18c39434d59ab75b5b2854aeeab",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/subsystem-contracts.md",
+      "role_before": "normative",
+      "role_after": "normative",
+      "bytes_before": 10784,
+      "bytes_after": 10784,
+      "sha256_before": "3336d1ae4abe3c225477a8c86f9ec77ac847744abf1ed10c69c7e56e50ccb6fb",
+      "sha256_after": "3336d1ae4abe3c225477a8c86f9ec77ac847744abf1ed10c69c7e56e50ccb6fb",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/templates/change-brief.md",
+      "role_before": "template",
+      "role_after": "template",
+      "bytes_before": 1073,
+      "bytes_after": 1073,
+      "sha256_before": "959b0f1ddb5713cd247a36248876ee03aad93e0be8a83491c7331cd9558ae56d",
+      "sha256_after": "959b0f1ddb5713cd247a36248876ee03aad93e0be8a83491c7331cd9558ae56d",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/templates/experiment-record.md",
+      "role_before": "template",
+      "role_after": "template",
+      "bytes_before": 808,
+      "bytes_after": 808,
+      "sha256_before": "979b91927c2c6e265090ddc353508d156797dddd0170304563d8f0f93d5c4a72",
+      "sha256_after": "979b91927c2c6e265090ddc353508d156797dddd0170304563d8f0f93d5c4a72",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/templates/verification-report.md",
+      "role_before": "template",
+      "role_after": "template",
+      "bytes_before": 1141,
+      "bytes_after": 1141,
+      "sha256_before": "46b480e56bbcc3fb333243cf671fbf25e868e56eaf695ceee0b5fc93bc3c3c8e",
+      "sha256_after": "46b480e56bbcc3fb333243cf671fbf25e868e56eaf695ceee0b5fc93bc3c3c8e",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/testing-strategy.md",
+      "role_before": "normative",
+      "role_after": "normative",
+      "bytes_before": 26622,
+      "bytes_after": 27280,
+      "sha256_before": "be32e9f7286c3ad4b303700faa0668f0e16ffcd193ae0f1d7cfe733d4abd4d24",
+      "sha256_after": "0eb186ff7576e60d89a80763ec72f7bc5ec5ab9b39c93fbcb02fd78ab2a34d01",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/traversal-autonomy.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 39941,
+      "bytes_after": 40048,
+      "sha256_before": "ee80399d5a4c3c323628752b5fca334267684410027092d6378b143bac3bbc96",
+      "sha256_after": "4896e3b6de4aee066542a4a1e58ab15a923b74ad6cf4127b6b2b0bbebeffa64c",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/autonomy-need-fallback.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 4463,
+      "bytes_after": 4463,
+      "sha256_before": "9545b7ec7d9d19cc5b010dc2e41e86ef0e9ee4928ac7818ee4b98b8191afc08d",
+      "sha256_after": "9545b7ec7d9d19cc5b010dc2e41e86ef0e9ee4928ac7818ee4b98b8191afc08d",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/diagnostics-needs-hardening.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 8116,
+      "bytes_after": 8365,
+      "sha256_before": "e7a5fa298e8387899438d779b52ec44c62307f243721b84d08eae60c216b3d5e",
+      "sha256_after": "e70bec8dcc7a992891b483d23664315a7a4c7d5be7f05c1eacead446b427b6d4",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/discovery-learning-design.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 3979,
+      "bytes_after": 4184,
+      "sha256_before": "16ac4805d4ba63d92e7ab34c047050f72ded188672db1a33b2427dbcbae43b95",
+      "sha256_after": "d9680e27b4ef61d23f211bffc4bf9097ad6d533f07912b0755a3f0670738eeae",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/discovery-learning-experiment.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 13460,
+      "bytes_after": 13460,
+      "sha256_before": "f26e93c77e68fa66cd361c823ba2c3121f132aee34cb749a1a1a9fafc5d83597",
+      "sha256_after": "f26e93c77e68fa66cd361c823ba2c3121f132aee34cb749a1a1a9fafc5d83597",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/discriminating-experiment.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 16558,
+      "bytes_after": 16558,
+      "sha256_before": "15099b9737379e9fd334e5506b9c3d448666db9071ae45b5db475551e826cab2",
+      "sha256_after": "15099b9737379e9fd334e5506b9c3d448666db9071ae45b5db475551e826cab2",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/documentation-baseline.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 3092,
+      "bytes_after": 3201,
+      "sha256_before": "de3b8516807a50eecd480bfe6884be99fbd9007dac95ab1d45f50246aa9b5a2c",
+      "sha256_after": "725ba32a8d49b50fcccce656a11dc93201c1156bb4f437ab2f04affaf8391d01",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/evidence/discovery-learning-2026-10-27/confirmatory/frozen/protocol.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 27983,
+      "bytes_after": 27983,
+      "sha256_before": "96de70f9bb52f52c0608048204870c6c0ec3bd94006dd88a28d258d9d34fc979",
+      "sha256_after": "96de70f9bb52f52c0608048204870c6c0ec3bd94006dd88a28d258d9d34fc979",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/discovery-learning-2026-10-27/development/frozen/protocol.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 27983,
+      "bytes_after": 27983,
+      "sha256_before": "96de70f9bb52f52c0608048204870c6c0ec3bd94006dd88a28d258d9d34fc979",
+      "sha256_after": "96de70f9bb52f52c0608048204870c6c0ec3bd94006dd88a28d258d9d34fc979",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/discovery-learning-2026-10-27/review.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 3512,
+      "bytes_after": 3512,
+      "sha256_before": "e5df4fbab16cd3947bd5270d6ff9be5b05c86366ff075c55f1a52fe08c641e6f",
+      "sha256_after": "e5df4fbab16cd3947bd5270d6ff9be5b05c86366ff075c55f1a52fe08c641e6f",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/discovery-learning-2026-10-27/technical/progress.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3042,
+      "bytes_after": 3042,
+      "sha256_before": "4b544d0f16a2b643c54f7f59fc68f73f05340f00a2eda708f112cee84b481c2d",
+      "sha256_after": "4b544d0f16a2b643c54f7f59fc68f73f05340f00a2eda708f112cee84b481c2d",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/discriminating-2026-10-28/review.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 2109,
+      "bytes_after": 2109,
+      "sha256_before": "324f5a0c7418cc409cded20e4e66f09a72ceef3f832ca0ece26a29912701513b",
+      "sha256_after": "324f5a0c7418cc409cded20e4e66f09a72ceef3f832ca0ece26a29912701513b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/discriminating-2026-10-28/technical/admin-source-order-error.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 431,
+      "bytes_after": 431,
+      "sha256_before": "fcc1c8ee34041226e30bf3a99286fec839f64c742ac31217cec64386fa816740",
+      "sha256_after": "fcc1c8ee34041226e30bf3a99286fec839f64c742ac31217cec64386fa816740",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/discriminating-2026-10-28/technical/plan-plan-path.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 49,
+      "bytes_after": 49,
+      "sha256_before": "6880d95f85047733ee59d07723ed330e554a68930af6643489014ebb4c38c89e",
+      "sha256_after": "6880d95f85047733ee59d07723ed330e554a68930af6643489014ebb4c38c89e",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/discriminating-2026-10-28/technical/plan-progress.txt.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3582,
+      "bytes_after": 3582,
+      "sha256_before": "b3ec8b75cc2b33c48177528ac0144ff141a960e52b9d4f25347b19f6d68f63f0",
+      "sha256_after": "b3ec8b75cc2b33c48177528ac0144ff141a960e52b9d4f25347b19f6d68f63f0",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/discriminating-2026-10-28/technical/plan-task-1-brief.txt.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 652,
+      "bytes_after": 652,
+      "sha256_before": "1133eb21518582e9e67cf8a7fc530b12e964bf8defbf194ac60ef18e3b7a29f4",
+      "sha256_after": "1133eb21518582e9e67cf8a7fc530b12e964bf8defbf194ac60ef18e3b7a29f4",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/clearance-progress.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 673,
+      "bytes_after": 673,
+      "sha256_before": "cc23de2a7ea6bcb1aa6d68f195be37191b91f72940ef39ed913351ce1db57a34",
+      "sha256_after": "cc23de2a7ea6bcb1aa6d68f195be37191b91f72940ef39ed913351ce1db57a34",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/clearance-ui-captures/case-160885953-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4527,
+      "bytes_after": 4527,
+      "sha256_before": "cf3323eda4874e9df6f647c286450711b4796fb218889caf9de2c6ee0d941853",
+      "sha256_after": "cf3323eda4874e9df6f647c286450711b4796fb218889caf9de2c6ee0d941853",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/clearance-ui-captures/case-160936890-2/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4438,
+      "bytes_after": 4438,
+      "sha256_before": "1607944286c1337d64d49c33dc02e524263e93ff8599230ce4eefd880f088e42",
+      "sha256_after": "1607944286c1337d64d49c33dc02e524263e93ff8599230ce4eefd880f088e42",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/clearance-v3-native-captures/case-160960296-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4412,
+      "bytes_after": 4412,
+      "sha256_before": "4b1df9c26f38dc732223f53f79462734c21cc406cc49f847031888f2710e616c",
+      "sha256_after": "4b1df9c26f38dc732223f53f79462734c21cc406cc49f847031888f2710e616c",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/cpu-samples-idle.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 710,
+      "bytes_after": 710,
+      "sha256_before": "0d569f7241306228683ed11d9c2f7560602d591b18ed794b84e2c2ccf0b58343",
+      "sha256_after": "0d569f7241306228683ed11d9c2f7560602d591b18ed794b84e2c2ccf0b58343",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/delivery-cpu-fullsuite.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 2708,
+      "bytes_after": 2708,
+      "sha256_before": "155341ef3be091c612f825b88004dad63e5ec3836221a12d6de4272d952d1a96",
+      "sha256_after": "155341ef3be091c612f825b88004dad63e5ec3836221a12d6de4272d952d1a96",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/delivery-native-diagnostics/case-176726968-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4586,
+      "bytes_after": 4586,
+      "sha256_before": "ad7427d3f1404d7b0bf6c5e643157ce5ad712e300d77e3852dca02b9a56e805b",
+      "sha256_after": "ad7427d3f1404d7b0bf6c5e643157ce5ad712e300d77e3852dca02b9a56e805b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/delivery-return-native-diagnostics-2/case-187804265-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4585,
+      "bytes_after": 4585,
+      "sha256_before": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4",
+      "sha256_after": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/delivery-return-native-diagnostics-final/case-188814859-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4585,
+      "bytes_after": 4585,
+      "sha256_before": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4",
+      "sha256_after": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/delivery-return-native-diagnostics-final2/case-189673437-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4585,
+      "bytes_after": 4585,
+      "sha256_before": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4",
+      "sha256_after": "d7340c2c13d837c1f80020e0e8ec34bb9f8be9ef933fb6d89f92bb290a9967d4",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-baseline/CMakeLists.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 16237,
+      "bytes_after": 16237,
+      "sha256_before": "65ea59d5d8f818682bdf7100e2d01decc3a589d8098649bd7f8f0439329d41a3",
+      "sha256_after": "65ea59d5d8f818682bdf7100e2d01decc3a589d8098649bd7f8f0439329d41a3",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-progress.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 555,
+      "bytes_after": 555,
+      "sha256_before": "a83c9917bfe76d9f4239102c0eee7c021512a21f9c82d3c77017939d996ef2e9",
+      "sha256_after": "a83c9917bfe76d9f4239102c0eee7c021512a21f9c82d3c77017939d996ef2e9",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-retained-captures/6885-2/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4464,
+      "bytes_after": 4464,
+      "sha256_before": "1b06275fbfd0f5f0e01e3769b108c5cc9031650dc70eb6d622b8da25ae3b64b7",
+      "sha256_after": "1b06275fbfd0f5f0e01e3769b108c5cc9031650dc70eb6d622b8da25ae3b64b7",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-retained-captures/6938-6/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4479,
+      "bytes_after": 4479,
+      "sha256_before": "301d91f6bd6518e64ef12efa81521a57f0a78c1fb546cebbc70bdeb69ddcf84b",
+      "sha256_after": "301d91f6bd6518e64ef12efa81521a57f0a78c1fb546cebbc70bdeb69ddcf84b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-retained-captures/6938-7/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4479,
+      "bytes_after": 4479,
+      "sha256_before": "301d91f6bd6518e64ef12efa81521a57f0a78c1fb546cebbc70bdeb69ddcf84b",
+      "sha256_after": "301d91f6bd6518e64ef12efa81521a57f0a78c1fb546cebbc70bdeb69ddcf84b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-retained-captures/7352-8/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4410,
+      "bytes_after": 4410,
+      "sha256_before": "45959ebd26ce20d379641dd35afabccd7b55b43bbeb35e756564f330850a5286",
+      "sha256_after": "45959ebd26ce20d379641dd35afabccd7b55b43bbeb35e756564f330850a5286",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-retained-captures/7567-6/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4399,
+      "bytes_after": 4399,
+      "sha256_before": "afe567e260ab72961e61d432c2b0c92abb07db308d3312b86dbcbc3408fd0ea1",
+      "sha256_after": "afe567e260ab72961e61d432c2b0c92abb07db308d3312b86dbcbc3408fd0ea1",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-ui-captures/case-156245921-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4442,
+      "bytes_after": 4442,
+      "sha256_before": "1761c59392cf9cdb7da52bd61f5b95e9ee8a7c3e30cf1c6016e6bf471bb09f7d",
+      "sha256_after": "1761c59392cf9cdb7da52bd61f5b95e9ee8a7c3e30cf1c6016e6bf471bb09f7d",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/diagnostics-needs-v2-native-captures/case-156306125-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4438,
+      "bytes_after": 4438,
+      "sha256_before": "21f2d7943ccaa1b46a099da599a0ec8ff682b536efacb1a5a8ec6c332bb7e38f",
+      "sha256_after": "21f2d7943ccaa1b46a099da599a0ec8ff682b536efacb1a5a8ec6c332bb7e38f",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/knowledge-native-continuation/delivery-diagnostics/case-208777484-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 5597,
+      "bytes_after": 5597,
+      "sha256_before": "76d44a0aa8eefcdb8b193ae9d7a682590aa2977614f62e6237bc00319f9b0d73",
+      "sha256_after": "76d44a0aa8eefcdb8b193ae9d7a682590aa2977614f62e6237bc00319f9b0d73",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/knowledge-native-continuation/delivery-resume/case-208778078-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 5690,
+      "bytes_after": 5690,
+      "sha256_before": "aa62ad99aa6d7837d23c165fd8dfc426a7e6eb52f1b1df9a68adecda4d656cee",
+      "sha256_after": "aa62ad99aa6d7837d23c165fd8dfc426a7e6eb52f1b1df9a68adecda4d656cee",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/knowledge-native-diagnostics/case-208770109-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 5597,
+      "bytes_after": 5597,
+      "sha256_before": "76d44a0aa8eefcdb8b193ae9d7a682590aa2977614f62e6237bc00319f9b0d73",
+      "sha256_after": "76d44a0aa8eefcdb8b193ae9d7a682590aa2977614f62e6237bc00319f9b0d73",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-baseline/CMakeLists.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 15314,
+      "bytes_after": 15314,
+      "sha256_before": "dadd7ff2035b427280e52e6670ed878a397eec3e4a66f3f2a68546a126e1a091",
+      "sha256_after": "dadd7ff2035b427280e52e6670ed878a397eec3e4a66f3f2a68546a126e1a091",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3164,
+      "bytes_after": 3164,
+      "sha256_before": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa",
+      "sha256_after": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-cli-red/traversal-diagnostics/case-150424046-1/traversal-diagnostics/case-150425281-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3251,
+      "bytes_after": 3251,
+      "sha256_before": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f",
+      "sha256_after": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-measure-start.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 35,
+      "bytes_after": 35,
+      "sha256_before": "b4e6665e85c0f474abdf3efdbf044a65685f188afe70a70f158d41edef6cc313",
+      "sha256_after": "b4e6665e85c0f474abdf3efdbf044a65685f188afe70a70f158d41edef6cc313",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3164,
+      "bytes_after": 3164,
+      "sha256_before": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa",
+      "sha256_after": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-native-asan/traversal-diagnostics/case-152299390-1/traversal-diagnostics/case-152306031-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3251,
+      "bytes_after": 3251,
+      "sha256_before": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f",
+      "sha256_after": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3164,
+      "bytes_after": 3164,
+      "sha256_before": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa",
+      "sha256_after": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-native-debug/traversal-diagnostics/case-152277734-1/traversal-diagnostics/case-152279468-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3251,
+      "bytes_after": 3251,
+      "sha256_before": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f",
+      "sha256_after": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3164,
+      "bytes_after": 3164,
+      "sha256_before": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa",
+      "sha256_after": "659e26a2c19f1760c81996255462d3aab4cc0dfa67ef0a4ab4ee5f30f2e519fa",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-native-release/traversal-diagnostics/case-152285828-1/traversal-diagnostics/case-152287421-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3251,
+      "bytes_after": 3251,
+      "sha256_before": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f",
+      "sha256_after": "3e7a9e437d382e392f024d55dc442fa0ac9450146b7ad232bf613e3b8bede60f",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-progress.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 1153,
+      "bytes_after": 1153,
+      "sha256_before": "4fc1d65e1fcbca0479cf33e73c9d2d40435e93f421ffb1bbdb785e4d6021995a",
+      "sha256_after": "4fc1d65e1fcbca0479cf33e73c9d2d40435e93f421ffb1bbdb785e4d6021995a",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/m04-entry-ui-diagnostics/case-150934968-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 3204,
+      "bytes_after": 3204,
+      "sha256_before": "953e02dcc2e552804f5d350ebd878a8736d9a0e9ef7b598cb9300fef350f9cfc",
+      "sha256_after": "953e02dcc2e552804f5d350ebd878a8736d9a0e9ef7b598cb9300fef350f9cfc",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/material-delivery-progress.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 1692,
+      "bytes_after": 1692,
+      "sha256_before": "4ccf06ca270b9f54d7404639ee391e4ec59f0b0fc52f4d320687b1e69328e7c2",
+      "sha256_after": "4ccf06ca270b9f54d7404639ee391e4ec59f0b0fc52f4d320687b1e69328e7c2",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/multi-audit-baseline/CMakeLists.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 670,
+      "bytes_after": 670,
+      "sha256_before": "78e3df13c8c968f64b5b5a07bffb602635b608d22e17ff82bbf95357026dd7b6",
+      "sha256_after": "78e3df13c8c968f64b5b5a07bffb602635b608d22e17ff82bbf95357026dd7b6",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/multi-audit-baseline/out/CMakeCache.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 14116,
+      "bytes_after": 14116,
+      "sha256_before": "26f8c99b8b7aa0c1ded57a635210062e65cc05fa35e47f615d99d2fb5eeb819c",
+      "sha256_after": "26f8c99b8b7aa0c1ded57a635210062e65cc05fa35e47f615d99d2fb5eeb819c",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/navigation-oscillation-baseline/CMakeLists.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 642,
+      "bytes_after": 642,
+      "sha256_before": "145dc2790bc7254b54b49fed5d95170ba1fd7ee3c16b538afb01369fee51babf",
+      "sha256_after": "145dc2790bc7254b54b49fed5d95170ba1fd7ee3c16b538afb01369fee51babf",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/navigation-oscillation-baseline/out/CMakeCache.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 14212,
+      "bytes_after": 14212,
+      "sha256_before": "be473d505e1861ce87b6ac6f521d54e0121fd2b51e90d2cd2e6f0a0bf3e21882",
+      "sha256_after": "be473d505e1861ce87b6ac6f521d54e0121fd2b51e90d2cd2e6f0a0bf3e21882",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/perf-fullsuite.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 970,
+      "bytes_after": 970,
+      "sha256_before": "6687516dbcf269e4ee4c77dfa5cae3852e993e44c0d8ee300a887fa96a2e3475",
+      "sha256_after": "6687516dbcf269e4ee4c77dfa5cae3852e993e44c0d8ee300a887fa96a2e3475",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/perf-isolated.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 470,
+      "bytes_after": 470,
+      "sha256_before": "6bf0fafec4c8020f9b97651ea002d481560f7039cecac8aa30a2faa3be8c7398",
+      "sha256_after": "6bf0fafec4c8020f9b97651ea002d481560f7039cecac8aa30a2faa3be8c7398",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/stall-progress.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 556,
+      "bytes_after": 556,
+      "sha256_before": "0eb6cfd13a1d2376d8da33f6434752e3ae5b42f09bab26cbfc7cb39d3388597b",
+      "sha256_after": "0eb6cfd13a1d2376d8da33f6434752e3ae5b42f09bab26cbfc7cb39d3388597b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/stall-ui-captures/case-157948015-1/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4143,
+      "bytes_after": 4143,
+      "sha256_before": "eb099e8b10959d34704b9c6ba4e12b0b70f4225358f67a1137b5b6f1c33c8cc7",
+      "sha256_after": "eb099e8b10959d34704b9c6ba4e12b0b70f4225358f67a1137b5b6f1c33c8cc7",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/stall-ui-captures/case-157989078-2/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4057,
+      "bytes_after": 4057,
+      "sha256_before": "5ad4f191995176b9cde0714ea5862dec633fef8b5dd84f38c8d524b127040144",
+      "sha256_after": "5ad4f191995176b9cde0714ea5862dec633fef8b5dd84f38c8d524b127040144",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/git-baseline-2026-10-27/build/stall-ui-captures/case-158013765-3/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4058,
+      "bytes_after": 4058,
+      "sha256_before": "297b334622a1c70986e319db39360dd0f945110dbda91fd11112c1e293a4042d",
+      "sha256_after": "297b334622a1c70986e319db39360dd0f945110dbda91fd11112c1e293a4042d",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/hypothesis-building-2026-10-27/review.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 4673,
+      "bytes_after": 4673,
+      "sha256_before": "573292759ca70f2cba9609f4b0caf05dc835a4f21449f7fc0a46bea823af1883",
+      "sha256_after": "573292759ca70f2cba9609f4b0caf05dc835a4f21449f7fc0a46bea823af1883",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/hypothesis-building-2026-10-27/technical/sdd/progress.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 5232,
+      "bytes_after": 5232,
+      "sha256_before": "485b8ab2f9a30be73e721563986fd6a57266a09b09c5e7adce6086278c03aae0",
+      "sha256_after": "485b8ab2f9a30be73e721563986fd6a57266a09b09c5e7adce6086278c03aae0",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/hypothesis-building-2026-10-27/technical/sdd/task-2-brief.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 895,
+      "bytes_after": 895,
+      "sha256_before": "cba392df286ebb475dcf3dd22be013ee46dff535bcb0e5ea3437d3de3f34d758",
+      "sha256_after": "cba392df286ebb475dcf3dd22be013ee46dff535bcb0e5ea3437d3de3f34d758",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/hypothesis-building-2026-10-27/technical/sdd/task-3-brief.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 1196,
+      "bytes_after": 1196,
+      "sha256_before": "c79c1b9d2256eeb5ae9339137789eb0e0aedfb479168e7fe66cefa7430d21040",
+      "sha256_after": "c79c1b9d2256eeb5ae9339137789eb0e0aedfb479168e7fe66cefa7430d21040",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/hypothesis-building-2026-10-27/technical/sdd/task-4-brief.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 1196,
+      "bytes_after": 1196,
+      "sha256_before": "d1347a903e8a093d7f9d6f9095ae873dd5d4c2e2b54e5d1934458ad3666ff848",
+      "sha256_after": "d1347a903e8a093d7f9d6f9095ae873dd5d4c2e2b54e5d1934458ad3666ff848",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/hypothesis-building-2026-10-27/technical/sdd/task-5-brief.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 652,
+      "bytes_after": 652,
+      "sha256_before": "5186b0d7ddf2da37ead305612786076e39286002a8e38cf9fd1d93857222c4cb",
+      "sha256_after": "5186b0d7ddf2da37ead305612786076e39286002a8e38cf9fd1d93857222c4cb",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/hypothesis-building-2026-10-27/technical/sdd/task-6-brief.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 1011,
+      "bytes_after": 1011,
+      "sha256_before": "4d7118a375b7d3191e34b69c1d2c8588b2988d2caeb78e095b1121fe8c6fc085",
+      "sha256_after": "4d7118a375b7d3191e34b69c1d2c8588b2988d2caeb78e095b1121fe8c6fc085",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m04-acceptance-2026-10-27/review.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 1822,
+      "bytes_after": 1822,
+      "sha256_before": "0884a40e3069eb30e10b78154547e78bd7396c8c5c825d550b0e4db91088a1c0",
+      "sha256_after": "0884a40e3069eb30e10b78154547e78bd7396c8c5c825d550b0e4db91088a1c0",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/final-baseline/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 153,
+      "bytes_after": 153,
+      "sha256_before": "c50e3f4f53fc492ec4de65fc5a2f8f985a82faf3f1f893675db3b049714438b5",
+      "sha256_after": "c50e3f4f53fc492ec4de65fc5a2f8f985a82faf3f1f893675db3b049714438b5",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/final-pilot/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 408,
+      "bytes_after": 408,
+      "sha256_before": "833e13ab0b2144cb0fd01e22d8d13bd80fccbf9c4d1697063e9c0baadaf5af15",
+      "sha256_after": "833e13ab0b2144cb0fd01e22d8d13bd80fccbf9c4d1697063e9c0baadaf5af15",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/green-initial/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 403,
+      "bytes_after": 403,
+      "sha256_before": "f6b66621dc5de830468e8b337af4b0dfe8cc579f93a23fa9daf743352e03c46f",
+      "sha256_after": "f6b66621dc5de830468e8b337af4b0dfe8cc579f93a23fa9daf743352e03c46f",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/green-native/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 376,
+      "bytes_after": 376,
+      "sha256_before": "b3623329176fb689e0514f3d35a29ecf2f2d660f6a29bd87b290ba711cd72a12",
+      "sha256_after": "b3623329176fb689e0514f3d35a29ecf2f2d660f6a29bd87b290ba711cd72a12",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/long/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 418,
+      "bytes_after": 418,
+      "sha256_before": "348717f9fe0548b873179350ee0be259517fbee4cf95fd8265832bebdcb1e243",
+      "sha256_after": "348717f9fe0548b873179350ee0be259517fbee4cf95fd8265832bebdcb1e243",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/pilot-baseline/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 153,
+      "bytes_after": 153,
+      "sha256_before": "daca7c41806593f2780c8004107b2cef37843f700518f403c1f24845155e39ac",
+      "sha256_after": "daca7c41806593f2780c8004107b2cef37843f700518f403c1f24845155e39ac",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/pilot-profile-repeat/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 408,
+      "bytes_after": 408,
+      "sha256_before": "124f0bf903340b6924ed93cbc79b3a1c0ebe77ba5894dd2b6e6b4c41f7d37230",
+      "sha256_after": "124f0bf903340b6924ed93cbc79b3a1c0ebe77ba5894dd2b6e6b4c41f7d37230",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/pilot-profile/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 407,
+      "bytes_after": 407,
+      "sha256_before": "57cf19622a594a5d205446bcae67357a88b53ca981d2d2bbdd76e43fb80aff12",
+      "sha256_after": "57cf19622a594a5d205446bcae67357a88b53ca981d2d2bbdd76e43fb80aff12",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/progress.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7625,
+      "bytes_after": 7625,
+      "sha256_before": "0e955f1ba10d715c2bf093bc935180b77959f51d64d9f2bc9222a1153c868631",
+      "sha256_after": "0e955f1ba10d715c2bf093bc935180b77959f51d64d9f2bc9222a1153c868631",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/red-hardlink/result.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 62,
+      "bytes_after": 62,
+      "sha256_before": "ef1f607778a9671ef92f2c2fcb1c3022703c74b51eec29917c9317d08de6926b",
+      "sha256_after": "ef1f607778a9671ef92f2c2fcb1c3022703c74b51eec29917c9317d08de6926b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/review-package.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 2635,
+      "bytes_after": 2635,
+      "sha256_before": "c4335334170e2ecb6796c9c8f3aefcfcf18029c59ffd7201515f8157709342e4",
+      "sha256_after": "c4335334170e2ecb6796c9c8f3aefcfcf18029c59ffd7201515f8157709342e4",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-acceptance-2026-11-02/workspace/review.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 2216,
+      "bytes_after": 2216,
+      "sha256_before": "5a26f055ad1cda919baaf7bac98168ba6d929ccdd15149f0e5fd16e9cf8e500b",
+      "sha256_after": "5a26f055ad1cda919baaf7bac98168ba6d929ccdd15149f0e5fd16e9cf8e500b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/constructor-probe/CMakeLists.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 949,
+      "bytes_after": 949,
+      "sha256_before": "9e33655ddc4e4d87bb87334cd4b11eddf71cc5cd145f8bcadf610619bdc1b28b",
+      "sha256_after": "9e33655ddc4e4d87bb87334cd4b11eddf71cc5cd145f8bcadf610619bdc1b28b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-cadence/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 152,
+      "bytes_after": 152,
+      "sha256_before": "13bf27ed6a8eb7f9d8993f5b13b847295781f271d419392c868c49f343828083",
+      "sha256_after": "13bf27ed6a8eb7f9d8993f5b13b847295781f271d419392c868c49f343828083",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-final/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 152,
+      "bytes_after": 152,
+      "sha256_before": "920fca02c6fee213d0c5413e97c61224e641f1e411cf4785f88cfd500e8e69b0",
+      "sha256_after": "920fca02c6fee213d0c5413e97c61224e641f1e411cf4785f88cfd500e8e69b0",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-report-failure/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 152,
+      "bytes_after": 152,
+      "sha256_before": "5a85bb558fe32e82e56495a79ccf60cb42e62e103baa3d0a041ead39b52e9de9",
+      "sha256_after": "5a85bb558fe32e82e56495a79ccf60cb42e62e103baa3d0a041ead39b52e9de9",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/green-status-collision/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 25,
+      "bytes_after": 25,
+      "sha256_before": "e54deb4ade3e7ccba438df7daf2367a1a987ca2e93547b7ed0822a38dec5253d",
+      "sha256_after": "e54deb4ade3e7ccba438df7daf2367a1a987ca2e93547b7ed0822a38dec5253d",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/progress.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7891,
+      "bytes_after": 7891,
+      "sha256_before": "bed344fa0e37889b5e7614aed82528e88833d47f7de48b6b0d8919afc412f33c",
+      "sha256_after": "bed344fa0e37889b5e7614aed82528e88833d47f7de48b6b0d8919afc412f33c",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-memory-cadence/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 152,
+      "bytes_after": 152,
+      "sha256_before": "fc57f7b81b7b058922cc3a7d519e3555cb406aeec501b5ea877b53830dfa1f39",
+      "sha256_after": "fc57f7b81b7b058922cc3a7d519e3555cb406aeec501b5ea877b53830dfa1f39",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/red-status-collision/trace/status.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 25,
+      "bytes_after": 25,
+      "sha256_before": "e54deb4ade3e7ccba438df7daf2367a1a987ca2e93547b7ed0822a38dec5253d",
+      "sha256_after": "e54deb4ade3e7ccba438df7daf2367a1a987ca2e93547b7ed0822a38dec5253d",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/m06-measurement-export-2026-11-01/workspace/review.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 3064,
+      "bytes_after": 3064,
+      "sha256_before": "e59109f358f0f006288be7921fab92fd4d8cbfaa3acd191e7b2cc247a7951253",
+      "sha256_after": "e59109f358f0f006288be7921fab92fd4d8cbfaa3acd191e7b2cc247a7951253",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/practice-2026-10-28/execution.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 13738,
+      "bytes_after": 13738,
+      "sha256_before": "15082bb7677d168e4c6a22bd76ac98b0b8f6f48c716c2b03f90faba7c192e827",
+      "sha256_after": "15082bb7677d168e4c6a22bd76ac98b0b8f6f48c716c2b03f90faba7c192e827",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/practice-2026-10-28/review.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 2845,
+      "bytes_after": 2845,
+      "sha256_before": "22bcedd1e583a779349cd467867cc9578c387c233db95f6b7a5a488ab10444d3",
+      "sha256_after": "22bcedd1e583a779349cd467867cc9578c387c233db95f6b7a5a488ab10444d3",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/retained-world-stall-6938/diagnostic.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 4479,
+      "bytes_after": 4479,
+      "sha256_before": "301d91f6bd6518e64ef12efa81521a57f0a78c1fb546cebbc70bdeb69ddcf84b",
+      "sha256_after": "301d91f6bd6518e64ef12efa81521a57f0a78c1fb546cebbc70bdeb69ddcf84b",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/sc13-design-2026-10-29/builder-check.txt",
+      "role_before": "unregistered",
+      "role_after": "unregistered",
+      "bytes_before": 24,
+      "bytes_after": 24,
+      "sha256_before": "3dfe5438b32acab3f30a7bbb46ad6beb303668d5dcdf693defd8ee9bb812d44a",
+      "sha256_after": "3dfe5438b32acab3f30a7bbb46ad6beb303668d5dcdf693defd8ee9bb812d44a",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/evidence/witness-property-law-2026-10-27/review.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 2400,
+      "bytes_after": 2400,
+      "sha256_before": "5e1d6cac3be1075c1b320e423541b26456f67a2d3326d5af77bf1764f8024e7a",
+      "sha256_after": "5e1d6cac3be1075c1b320e423541b26456f67a2d3326d5af77bf1764f8024e7a",
+      "outcome": "historical raw document preserved byte-for-byte"
+    },
+    {
+      "path": "docs/verification/hypothesis-building-design.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 2273,
+      "bytes_after": 2273,
+      "sha256_before": "4ed1d5a67b933cffdd206532d8b9bcbde505d37abc17eb8d4ec8a40add6a5113",
+      "sha256_after": "4ed1d5a67b933cffdd206532d8b9bcbde505d37abc17eb8d4ec8a40add6a5113",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/hypothesis-building-experiment.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 17315,
+      "bytes_after": 17315,
+      "sha256_before": "62dd45c96865c6fcfe039eead24927c97ac6dbb752821078b2678f0dc50181b1",
+      "sha256_after": "62dd45c96865c6fcfe039eead24927c97ac6dbb752821078b2678f0dc50181b1",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/identity-fantasy-and-assessment.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7338,
+      "bytes_after": 7338,
+      "sha256_before": "00ba79440fbd2477a5a5706ccba93edc2cf95c588466873e6427f03d529e9102",
+      "sha256_after": "00ba79440fbd2477a5a5706ccba93edc2cf95c588466873e6427f03d529e9102",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/learning-cost.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 6101,
+      "bytes_after": 6101,
+      "sha256_before": "db21096ee353fb1800075c51a8ec18a49ceef4deb06fa332bcca935890becf9a",
+      "sha256_after": "db21096ee353fb1800075c51a8ec18a49ceef4deb06fa332bcca935890becf9a",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/local-clearance.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7372,
+      "bytes_after": 7770,
+      "sha256_before": "c76f8728871628631840b195c61713731007a96d280c9fc20e85b84ce387a965",
+      "sha256_after": "468dfda3c0bd9a550f652d4d533e8f95f6b8eff589f4dcff6fa2198732e8b59f",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/local-station-knowledge.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 10083,
+      "bytes_after": 10546,
+      "sha256_before": "0485b38090bbfaf0dee2ca3ce39f5b874da93c18dd9ae0923a257597d38824b8",
+      "sha256_after": "344cc81098868969d2306368f3d67aa70e591dbe2019bdec130c991d34c7c126",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m00-build-and-diagnostics.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 4265,
+      "bytes_after": 4713,
+      "sha256_before": "e40238996027c35cf4e0dbae51c97728fb4814e33a32a4f9f85c6e03360fc995",
+      "sha256_after": "773b742c357cf0f549be1aec4e149f99383e640df57ccb000fac90f335d09c50",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m01-identity-actions-reservations.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 5372,
+      "bytes_after": 5819,
+      "sha256_before": "3a8e9dc44c52d1bd5da8f456a32d3e938b131b4c6119f87232d79df643e9c91d",
+      "sha256_after": "dae579b99b3a9ff1b608a2090052c9f07999a3919ffaa25131d3f275f4b24f36",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m02-window-laboratory.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7617,
+      "bytes_after": 7617,
+      "sha256_before": "764523ee3ed2dcb73e7d581decff43533ea6786d06d56e9b63c97c770740266b",
+      "sha256_after": "764523ee3ed2dcb73e7d581decff43533ea6786d06d56e9b63c97c770740266b",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/m03-motion-navigation.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7787,
+      "bytes_after": 7787,
+      "sha256_before": "ba79dc681abeeda5f7a689c927c39121b8d3e7644e9b170d84416c3eb5faa4a5",
+      "sha256_after": "ba79dc681abeeda5f7a689c927c39121b8d3e7644e9b170d84416c3eb5faa4a5",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/m04-acceptance.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 12254,
+      "bytes_after": 12447,
+      "sha256_before": "c09dd8569779117a591727917de466136cf4425b64ed02798b51034d2b1f26d5",
+      "sha256_after": "3792d1e72e8ab1524aa970d40f54acc51b01047057df4c8487566dbeaa72babc",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m04-entry-observability.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 12242,
+      "bytes_after": 12728,
+      "sha256_before": "9ae642cb6fc87030bfb7f5d611836a219a1a2aac3e66fcfca72417912132e7db",
+      "sha256_after": "f65710d92e288ab3dc3675f8d897f1bc0e31720ef5a8681e706f210c0cae122e",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m04-playtest.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 4165,
+      "bytes_after": 4165,
+      "sha256_before": "9ec5d81e7f47684e32f8288cd49133ded9327c1030c00ade81cce486af8ec61c",
+      "sha256_after": "9ec5d81e7f47684e32f8288cd49133ded9327c1030c00ade81cce486af8ec61c",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/m05-acceptance.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 5354,
+      "bytes_after": 5376,
+      "sha256_before": "30f5e6f264fefc3a183ae6a06dfdc2f71e0903ace6bbcb9f516b0aa8647b676d",
+      "sha256_after": "5e604222ab0561c4084f3c1ee0a49da7cc91a34c6dda59d14579601fd29e2323",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m05-distant-delivery.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 9544,
+      "bytes_after": 9544,
+      "sha256_before": "9b3ea4d79e04ba1e11b18fcf3a2f1d82a3a2bf428cb4e7f80125e2c004579503",
+      "sha256_after": "9b3ea4d79e04ba1e11b18fcf3a2f1d82a3a2bf428cb4e7f80125e2c004579503",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/m05-story.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7585,
+      "bytes_after": 7585,
+      "sha256_before": "95b97334d3ea3a6825f1c91feaf4307d53aa262c386ce9eb14dca40a80d91a3f",
+      "sha256_after": "95b97334d3ea3a6825f1c91feaf4307d53aa262c386ce9eb14dca40a80d91a3f",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/m05-two-methods.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 12309,
+      "bytes_after": 12319,
+      "sha256_before": "621ae28f2110506edb622e9f5f7256e9fabf8d8aac11558523104dd394290394",
+      "sha256_after": "142d030374ac7eeeaf2335bf942b7b54d9556fc7c9f330c83a598b358de2ff55",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m06-acceptance.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 14982,
+      "bytes_after": 15055,
+      "sha256_before": "8bdd841d56adb48d085385256fe0f62713af9a247baa20a251a47f8e8f9f4a67",
+      "sha256_after": "11e3f13e6e9952427187809a8e888913097b8aa4d136655d00a6f9689479e880",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m06-measurement-export.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 12552,
+      "bytes_after": 12715,
+      "sha256_before": "26b52cad579ad62982579ed600f870ccde1c0516d528b276f1f2f53a78077581",
+      "sha256_after": "250f20221b7bedba5912acfef3bd7a5ceed97a29476e38a051b03dabcdea6dd7",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/m06-preflight.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 4703,
+      "bytes_after": 4812,
+      "sha256_before": "a43034e6a3b4165917167dadee8daad905fa4e032182cacbb9e1201514f48f3a",
+      "sha256_after": "5fb967ae8818752662216ddeca2d8ff13a15922fe4e3edb42990a1eac1d57f41",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/material-delivery.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 13943,
+      "bytes_after": 14433,
+      "sha256_before": "cfd98e9000b959ab3dabf904d087f183df8ea56a41106c135df508e24c7006f5",
+      "sha256_after": "ea8c749ddc73113554a8290e23cf10773092a354575deb94166aacee4b10674e",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/motion-adversarial-audit.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 13837,
+      "bytes_after": 14330,
+      "sha256_before": "8991f742d6a0efc5235a7d22677743256e9703d4f1e866e6d27e87acb7e157c6",
+      "sha256_after": "b59c9442970d20d2b3148266dc166578f704922b956e2ed8d63cd4d176ce5641",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/navigation-obstruction-recovery.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7885,
+      "bytes_after": 7885,
+      "sha256_before": "757bbe13b3723d206691fea9e2c4f5c5292c4a05a17ea4db97d121cc22044023",
+      "sha256_after": "757bbe13b3723d206691fea9e2c4f5c5292c4a05a17ea4db97d121cc22044023",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/navigation-polish.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 6156,
+      "bytes_after": 6276,
+      "sha256_before": "1c15907cd82bcf54ffc3ad6722c51795747e02692effd426744ff1ab2ea1b58c",
+      "sha256_after": "cd6eab461e6afd871a9d386ff7c96a58dca6c31f368e4c43ff9012b28821888c",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/passage-logistics.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 9762,
+      "bytes_after": 10223,
+      "sha256_before": "fdd34df3d85ee41ac075e4d0d552b7c83ddbcbc4e2ae5288abf1290c52d0746f",
+      "sha256_after": "96d3250e0c1b200a8d162d956bb84418075dd93788fd74af4ab84642d6dba5d1",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/practice-in-prototype-review.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 2845,
+      "bytes_after": 2845,
+      "sha256_before": "22bcedd1e583a779349cd467867cc9578c387c233db95f6b7a5a488ab10444d3",
+      "sha256_after": "22bcedd1e583a779349cd467867cc9578c387c233db95f6b7a5a488ab10444d3",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/practice-in-prototype.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 9279,
+      "bytes_after": 9759,
+      "sha256_before": "548558b4ecd84d4db7b0eccc18de1d67d026c6f2172e199a611c65960ec15206",
+      "sha256_after": "3ac1879c2cbc240dc4ff49d78bf0c039addf84d8f1578d0c7ea3f9809ef120fc",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/retained-world-navigation-stall.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 7304,
+      "bytes_after": 7702,
+      "sha256_before": "51c67995bf5d41f76bbed1d70e560652cbadc796a6f710ab63c6c85693fbf068",
+      "sha256_after": "6bc431a1a79bf179aaa7a177b8079b706b822b75969dff63f1a8a57efe743e69",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/reusable-capacity.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 4972,
+      "bytes_after": 5409,
+      "sha256_before": "4a8ec02158081264e624b0ac27402b1a857181588ab3ace19c697d3025b82a21",
+      "sha256_after": "87a189b554c38523ed8a46b286c00bae0ef92201b76cf40070981c24de04021d",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/sc08-continuity-audit.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 6701,
+      "bytes_after": 6701,
+      "sha256_before": "546d88051ed49e8b7e044539cab8fea5fc3f8cc3d94600f9e239bf30cfb1a0d2",
+      "sha256_after": "546d88051ed49e8b7e044539cab8fea5fc3f8cc3d94600f9e239bf30cfb1a0d2",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/verification/traversal-command-hardening.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 6608,
+      "bytes_after": 7052,
+      "sha256_before": "1b8d4368553a3def577f039e5aab8bf23219db65f2645b471b95119498ed361d",
+      "sha256_after": "fa20e34dd99c936743e223eae22118a2d7d54c39aa2a6e161b0d5d040d7a5a52",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/traversal-multi-actor.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 11507,
+      "bytes_after": 11964,
+      "sha256_before": "963bf4aa70d42548eac0529d687e02010bccafaeb9cab1a3dd74d7e0710de5c5",
+      "sha256_after": "44fa0789000e35d178cd422bdc48b55762d2a3d1ffdf743c2598018e58e4ad9d",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/verification/witness-property-law.md",
+      "role_before": "verification",
+      "role_after": "verification",
+      "bytes_before": 11134,
+      "bytes_after": 11134,
+      "sha256_before": "554ffc1f68e98d2d29991cfc7f27a08794d4a6c4f2055688f5eeb041c006ca86",
+      "sha256_after": "554ffc1f68e98d2d29991cfc7f27a08794d4a6c4f2055688f5eeb041c006ca86",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/window-laboratory.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 6930,
+      "bytes_after": 7063,
+      "sha256_before": "0bf08e871d463b3948d386913f50923c2d67932d6a4e0456afb05bff4ec833e7",
+      "sha256_after": "408f77399ca8fc50c69229f12051cf5a1a48d1d01960ee60a00022d48b80e7ee",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-domain.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 12012,
+      "bytes_after": 12234,
+      "sha256_before": "045e82a6128196d070258f9b2e25ee6e90c6340f15a90037415e5e6376cc71ff",
+      "sha256_after": "0cdf069a167b3d202d6a398a1a5227a831fd04e05b9fb84262204c2610919122",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/advanced-traversal.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 4742,
+      "bytes_after": 5078,
+      "sha256_before": "926cb3d190740ed8c7ba97dc6dfc80015e1c60e586a9d65a192d76aabbb02312",
+      "sha256_after": "1ca026fd071dc5d4039a9c0a543cf68455bda04541ac1d35e1ff98da4401fc0a",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/autonomy-need-fallback.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 2194,
+      "bytes_after": 2194,
+      "sha256_before": "3e62a13ca14af9df96e207032e5b746f53745d57ea3749c9a25cd0fbd055a6a5",
+      "sha256_after": "3e62a13ca14af9df96e207032e5b746f53745d57ea3749c9a25cd0fbd055a6a5",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/diagnostics-needs-hardening.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 6583,
+      "bytes_after": 6583,
+      "sha256_before": "f288ea883d4d2a134f0e129294dbc134b62dd7c3fac2c6a2061163fa8c5fa0c7",
+      "sha256_after": "f288ea883d4d2a134f0e129294dbc134b62dd7c3fac2c6a2061163fa8c5fa0c7",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/discovery-learning-experiment.md",
+      "role_before": "research",
+      "role_after": "research",
+      "bytes_before": 27983,
+      "bytes_after": 27983,
+      "sha256_before": "96de70f9bb52f52c0608048204870c6c0ec3bd94006dd88a28d258d9d34fc979",
+      "sha256_after": "96de70f9bb52f52c0608048204870c6c0ec3bd94006dd88a28d258d9d34fc979",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/discovery-learning-implementation.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 7748,
+      "bytes_after": 8072,
+      "sha256_before": "5bc9e035b8faf1ad9030fda56e35a13d2c657225c644d72aaf5d34d9a798804a",
+      "sha256_after": "769f252bd2206486cc0d06ebef43d8abd127abcb7bbda86b73fe90d9ee0a9017",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/discriminating-experiment.md",
+      "role_before": "research",
+      "role_after": "research",
+      "bytes_before": 10040,
+      "bytes_after": 10040,
+      "sha256_before": "addfdee303cde98233ad3dfaf8c04c6677dcf7e199fc708a91bcfe6d81b09578",
+      "sha256_after": "addfdee303cde98233ad3dfaf8c04c6677dcf7e199fc708a91bcfe6d81b09578",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/discriminating-implementation.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 4683,
+      "bytes_after": 4683,
+      "sha256_before": "e09ffa801efcee767068ce89fd89bdb8df1713f75edba25080c0478490756207",
+      "sha256_after": "e09ffa801efcee767068ce89fd89bdb8df1713f75edba25080c0478490756207",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/hypothesis-building-experiment.md",
+      "role_before": "research",
+      "role_after": "research",
+      "bytes_before": 22255,
+      "bytes_after": 22255,
+      "sha256_before": "13bffa893b6cd4b993cd56bf309207ec2a7f605c661e55b13d2e7f837d2f5f95",
+      "sha256_after": "13bffa893b6cd4b993cd56bf309207ec2a7f605c661e55b13d2e7f837d2f5f95",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/hypothesis-building-implementation.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 9421,
+      "bytes_after": 9421,
+      "sha256_before": "31225f8a261e8febb1d617110d8835ce129f7fa473dc90c0e4942c1046e1fba9",
+      "sha256_after": "31225f8a261e8febb1d617110d8835ce129f7fa473dc90c0e4942c1046e1fba9",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/learning-cost.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 1695,
+      "bytes_after": 1695,
+      "sha256_before": "9e82f61ec250fc8c023e1adeb1f2ad0a22db71803d3e5e215db0bf10409e9d2c",
+      "sha256_after": "9e82f61ec250fc8c023e1adeb1f2ad0a22db71803d3e5e215db0bf10409e9d2c",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/local-clearance.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 4692,
+      "bytes_after": 4692,
+      "sha256_before": "1f7bec1cf93acadb4140be37ee8c165757f8785887b9f7d41787276228717920",
+      "sha256_after": "1f7bec1cf93acadb4140be37ee8c165757f8785887b9f7d41787276228717920",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/local-station-knowledge.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 4208,
+      "bytes_after": 4208,
+      "sha256_before": "82edadb1d1e4ceb290df0a64895278b503316d69f377967ebbdda16928bf4df4",
+      "sha256_after": "82edadb1d1e4ceb290df0a64895278b503316d69f377967ebbdda16928bf4df4",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m00-build-and-diagnostics.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 2342,
+      "bytes_after": 2342,
+      "sha256_before": "8cc472252bb50e32e11f5d5f140bcc5cb21a95d4b8634ce43b7262ef504ad780",
+      "sha256_after": "8cc472252bb50e32e11f5d5f140bcc5cb21a95d4b8634ce43b7262ef504ad780",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m01-identity-actions-reservations.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 2783,
+      "bytes_after": 2783,
+      "sha256_before": "a93e62ac0f979259f8e15308069a6ab1cc091db107a4aba0010d0d62a7a170fb",
+      "sha256_after": "a93e62ac0f979259f8e15308069a6ab1cc091db107a4aba0010d0d62a7a170fb",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m02-window-laboratory.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 3128,
+      "bytes_after": 3128,
+      "sha256_before": "2e129140be15e851b2fa5f2fe71a4a8be63afe3765b246afd3cfa9bb0af693d1",
+      "sha256_after": "2e129140be15e851b2fa5f2fe71a4a8be63afe3765b246afd3cfa9bb0af693d1",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m03-motion-navigation.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 5515,
+      "bytes_after": 5515,
+      "sha256_before": "69aee174cd5183477be4c0b21d118bc612ca27ac6c03339e698defe879583af8",
+      "sha256_after": "69aee174cd5183477be4c0b21d118bc612ca27ac6c03339e698defe879583af8",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m04-acceptance.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 4022,
+      "bytes_after": 4095,
+      "sha256_before": "706656e384b8c69294b2ddd5fdac389b4273b05c8f84c0f944593009414a6ecf",
+      "sha256_after": "a1b18e60e8323b80fc2a009824751525b148e61c0dc8273bc09f1398cd56cd2a",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/m04-entry-design.md",
+      "role_before": "proposal",
+      "role_after": "proposal",
+      "bytes_before": 4317,
+      "bytes_after": 4653,
+      "sha256_before": "b7a9a558d88feccd2a1637b8751064658fa4d204e2f29db0e58f7ca83b22e756",
+      "sha256_after": "6bfe81fceddca2309e0f0ac34e2d1fea74c550fb95df1bdc85ee32c7c6e1f5df",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/m04-entry-observability.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 4966,
+      "bytes_after": 4966,
+      "sha256_before": "af5442fcaba52af5f3749b133ca0831e6276ae5a0f5c36d69d457a2b1b0db36d",
+      "sha256_after": "af5442fcaba52af5f3749b133ca0831e6276ae5a0f5c36d69d457a2b1b0db36d",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m05-continuity-audit.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 2746,
+      "bytes_after": 2746,
+      "sha256_before": "1ecf3835dfe1fcc1a2d64c39bf3044f63630d74430555ff7b57a4efd017ed375",
+      "sha256_after": "1ecf3835dfe1fcc1a2d64c39bf3044f63630d74430555ff7b57a4efd017ed375",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m05-distant-delivery.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 8776,
+      "bytes_after": 8776,
+      "sha256_before": "c655eb21a4a57ea269a9e97c3567d495e1eb5359ef3d214ecba4d0aa21bb4d25",
+      "sha256_after": "c655eb21a4a57ea269a9e97c3567d495e1eb5359ef3d214ecba4d0aa21bb4d25",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m05-story-design.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 11741,
+      "bytes_after": 11741,
+      "sha256_before": "cf8de3972d0adf3d76db4e9a34074085d0571cb3a2e5796edfee56800b9a2bd6",
+      "sha256_after": "cf8de3972d0adf3d76db4e9a34074085d0571cb3a2e5796edfee56800b9a2bd6",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/m05-story-implementation.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 6477,
+      "bytes_after": 6697,
+      "sha256_before": "c0c24648c92cedcf3c8e14922c728e9378ac327cff12ffbbe6c1ba855e383fa6",
+      "sha256_after": "bdf9ce429e5629f2d5add2ccb5aa3f69a1aac007982e7d8263012beea2fbf9b0",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/m05-two-methods.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 7479,
+      "bytes_after": 7543,
+      "sha256_before": "b3d99edbb07370c3786e519c4ea07bfa9ba0dfbec67de1859a0f4ccf1bf66cec",
+      "sha256_after": "fd33508f2b2b3f0482aeca4faa9059e3a49c2529f6612e83a380359db324c11f",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/m06-acceptance.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 7328,
+      "bytes_after": 7445,
+      "sha256_before": "895c4b0a19fdb396cfce8e32b1c6d7ad6290716d88be69357230135d7af326c8",
+      "sha256_after": "c4b699e6c02bd846cb257afe8bf4210bb2f72d71f0e6dfcb0387bdf1d8c868dd",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/m06-measurement-export.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 6473,
+      "bytes_after": 6826,
+      "sha256_before": "e6d8513e681873160f3a1e1f8b9dc6fc0de5354d64e345f5732cbc4bbb25b5d6",
+      "sha256_after": "8a38cb99f2a10b9c4d4c6027705ecbc0300ac5e1ade3fc0c75f4a575ff9733b5",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/m06-technical-acceptance.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 4796,
+      "bytes_after": 4796,
+      "sha256_before": "edd2b31432919a358dd7268147fed434e0cd8d9e4fb8fd505e4227de3c77b535",
+      "sha256_after": "edd2b31432919a358dd7268147fed434e0cd8d9e4fb8fd505e4227de3c77b535",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/material-delivery.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 9981,
+      "bytes_after": 10060,
+      "sha256_before": "71907ac6b62f2090298d33fab3902e690b9b4a9359bc0b80cb946dc676c9676e",
+      "sha256_after": "b0eab12341a290dc02993bf59973c19af30cc7e54df033d21b49a6a1ca8025cc",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/material-transfer-design.md",
+      "role_before": "proposal",
+      "role_after": "proposal",
+      "bytes_before": 5836,
+      "bytes_after": 6216,
+      "sha256_before": "b661b70f0d1d61ffd8ad411781f4840dd198ed38a57a41b268fe73d6eb4dff9c",
+      "sha256_after": "fc6d4a7885a92cff12550570e250b3098f9ac2013a2fc098c700bcbb9dc161e7",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/motion-adversarial-audit.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 3788,
+      "bytes_after": 3788,
+      "sha256_before": "c7ca36cf4684ccfca7fd30abc6bee5ab250458e2836b85277f49b96d14ab3d5f",
+      "sha256_after": "c7ca36cf4684ccfca7fd30abc6bee5ab250458e2836b85277f49b96d14ab3d5f",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/navigation-obstruction-recovery.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 2756,
+      "bytes_after": 2756,
+      "sha256_before": "811dad7e9b804dcefbef59cc8cb59204df92efa9a5392b6b08454ad7cd439ad0",
+      "sha256_after": "811dad7e9b804dcefbef59cc8cb59204df92efa9a5392b6b08454ad7cd439ad0",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/navigation-polish.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 3353,
+      "bytes_after": 3353,
+      "sha256_before": "c5bc2d4128a86428d95ab95b88c4905c2b3e247dadfcf761ab1224db9ed76fbd",
+      "sha256_after": "c5bc2d4128a86428d95ab95b88c4905c2b3e247dadfcf761ab1224db9ed76fbd",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/passage-logistics.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 4543,
+      "bytes_after": 4631,
+      "sha256_before": "3aead977e881d4e4631a71003780bf417da1fe9356a9c44e617549a92c40a740",
+      "sha256_after": "6541b092cd3a7e7a8a02dfcf91e7a639c208b2b46d93c7b70f70989cc77dcca7",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/practice-in-prototype-implementation.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 11945,
+      "bytes_after": 11145,
+      "sha256_before": "a6243c83942b10a66192585b2ac8fcc58d6a9c041e45b69d9cabb76ab240346c",
+      "sha256_after": "1915c02fdca8ba634ba7bc476f07f4af13188da8485aa72064fe554b55e8cbb8",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/practice-in-prototype.md",
+      "role_before": "planned",
+      "role_after": "current-state",
+      "bytes_before": 14445,
+      "bytes_after": 14534,
+      "sha256_before": "350bf28a29fd13696442217a759a061b4b39432b80cd5cffa86ce6aebf8aebf9",
+      "sha256_after": "d352ccf3fb9404a636d97eb57f5da3e555ca2d5fbd728287c708a78dc01c3269",
+      "outcome": "current status/context, completed plan, open future direction or encoding corrected; historic results retained"
+    },
+    {
+      "path": "docs/work-items/retained-world-navigation-stall.md",
+      "role_before": "open",
+      "role_after": "current-state",
+      "bytes_before": 3852,
+      "bytes_after": 3852,
+      "sha256_before": "94ec83767907f2942eb8470a12fe2d0d3af5a225ffd191ca9f280748b61baa4f",
+      "sha256_after": "94ec83767907f2942eb8470a12fe2d0d3af5a225ffd191ca9f280748b61baa4f",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/reusable-capacity.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 2111,
+      "bytes_after": 2111,
+      "sha256_before": "6a343d6d78b39727eb7cdcc2bebfff593608189d3dfce556fd2bb1982960207d",
+      "sha256_after": "6a343d6d78b39727eb7cdcc2bebfff593608189d3dfce556fd2bb1982960207d",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/traversal-command-hardening.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 2260,
+      "bytes_after": 2260,
+      "sha256_before": "5c8b471d0d57541bae5a93b686eeb3b5c1c6137a6b17b2a3cc7212674a2009d8",
+      "sha256_after": "5c8b471d0d57541bae5a93b686eeb3b5c1c6137a6b17b2a3cc7212674a2009d8",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/traversal-multi-actor.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 2171,
+      "bytes_after": 2171,
+      "sha256_before": "1411ef3a7cbb991ad87d1577a765cfd642e69d0ee808584fdd84a0934785cc96",
+      "sha256_after": "1411ef3a7cbb991ad87d1577a765cfd642e69d0ee808584fdd84a0934785cc96",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/work-items/witness-property-law.md",
+      "role_before": "current-state",
+      "role_after": "current-state",
+      "bytes_before": 3883,
+      "bytes_after": 3883,
+      "sha256_before": "556dfee72a21f019e75168d25f9c84e1d0d006d78f6819876fcf754a7390c358",
+      "sha256_after": "556dfee72a21f019e75168d25f9c84e1d0d006d78f6819876fcf754a7390c358",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "docs/workflow.md",
+      "role_before": "normative",
+      "role_after": "normative",
+      "bytes_before": 5647,
+      "bytes_after": 5647,
+      "sha256_before": "433c147572900bd6e4200a464a2262472aefd53ee3c718f0227e747cafa15935",
+      "sha256_after": "433c147572900bd6e4200a464a2262472aefd53ee3c718f0227e747cafa15935",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "engineering-rules.md",
+      "role_before": "normative",
+      "role_after": "normative",
+      "bytes_before": 9279,
+      "bytes_after": 9279,
+      "sha256_before": "3d9f2735130490a835e8b2f553a388b513a6b47deed6873ed54d133e4aa9d4e5",
+      "sha256_after": "3d9f2735130490a835e8b2f553a388b513a6b47deed6873ed54d133e4aa9d4e5",
+      "outcome": "scanned current document; no correction needed; scope/proposal/dated result remains explicit"
+    },
+    {
+      "path": "maxing.md",
+      "role_before": "proposal",
+      "role_after": "archive-index",
+      "bytes_before": 6337,
+      "bytes_after": 1078,
+      "sha256_before": "5c6b476552a015f851ed72c6793aae374ea117c00932f88c8824837d69fb7924",
+      "sha256_after": "36714d4366d60a5719b7cfcc35134860adf86caf897328eb05d3199e87fd0f25",
+      "outcome": "source moved byte-for-byte to raw archive; original path now current context/index"
+    },
+    {
+      "path": "opinion-project-assessment.md",
+      "role_before": "research",
+      "role_after": "archive-index",
+      "bytes_before": 18742,
+      "bytes_after": 1106,
+      "sha256_before": "8c58247397a3a0f626e1f7a76776581c5c8be71d20cdab5fed55973a8ab592c7",
+      "sha256_after": "8af7958e59e5784ec79ad67a90e22945ffb053b87ccf9468175d1d102224d8ca",
+      "outcome": "source moved byte-for-byte to raw archive; original path now current context/index"
+    },
+    {
+      "path": "traversal-multi-actor-audit.md",
+      "role_before": "proposal",
+      "role_after": "archive-index",
+      "bytes_before": 31703,
+      "bytes_after": 1129,
+      "sha256_before": "96cd07799e63ca3c0279ca02b92596a75a1fd924870a3930c176f5d103ae5982",
+      "sha256_after": "e4f3567c90f0c5e09ea7cce85ec2304d64f8bc4dca6b659036e68def25b1e485",
+      "outcome": "source moved byte-for-byte to raw archive; original path now current context/index"
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+[
+  {
+    "path": "AGENTS.md",
+    "matches": [
+      {
+        "line": 5,
+        "text": "Projekt ma zaliczone M00–M04 w opisanym zakresie: ruch kinematyczny 2,5D, wspólną geometrię kolizji/A*, zmienne przejścia oraz zapis podróży w `reality_lab --motion`. [Raport M03](docs/verification/m03-motion-navigation.md#ocena-użytkownika) określa dowody i akceptację obecnego sterowania przez użytkownika, z uwagami do reakcji na cel, płynności trasy, szybkości i naturalności ruchu. Zachowaj te uwagi przy dalszych pracach; nie przedstawiaj odbioru prototypu jako akceptacji docelowej lokomocji. [Model domeny](docs/work-domain.md), [laboratorium](docs/window-laboratory.md) i [model ruchu](docs/motion-navigation.md) określają API. Rozwijany tor przestrzenny ma ograniczoną [autonomię potrzeb](docs/traversal-autonomy.md) i [transfer oraz pierwszą dostawę](docs/verification/material-delivery.md); aktualny [odbiór małej społeczności M04](docs/verification/m04-acceptance.md) łączy te systemy i został zaakceptowany przez użytkownika 27.10.2026. Pełny solver brył nie istnieje. Lokalny Git wersjonuje projekt na gałęzi `main` i publikuje ją w publicznym `origin` (GitHub). Zasady repozytorium, gałęzi tematycznych i zachowania dowodów opisuje [przepływ pracy](docs/workflow.md#repozytorium-git). Nie przedstawiaj planów jako implementacji."
+      },
+      {
+        "line": 7,
+        "text": "W transferze zachowaj niezmienny typ materiału, bilans chronologiczny, wspólne ID komend, fizyczną partię ładunku i zgodność historycznych formatów. Anulowanie zachowuje materiał; autonomiczna postać odkłada go w znanym, zgodnym typem stanowisku po tych samych progach potrzeb, a ręczne przejęcie lub `stop()` nie teleportują partii. Stan zwrotu mieści się w `GENESIS_TRAVERSAL 4`; wersje 1–3 pozostają czytelne. Test długiej dostawy pod ASan jest dwuetapowy (checkpoint po 300 krokach) i ma zmierzony margines poniżej niezmienionego limitu 20 s; łączna liczba kroków i asercji się nie zmienia. [Raport](docs/verification/material-delivery.md) nadal oddziela wyniki od ograniczeń i nie zamyka M04."
+      },
+      {
+        "line": 31,
+        "text": "Wykonano [wielorazową pojemność stanowiska](docs/work-items/reusable-capacity.md). Nowe sesje używają pojemności dla odpoczynku; materiały nadal są zużywane. [Model domeny](docs/work-domain.md) określa niezmienny rodzaj zasobu oraz zapis wersji 2. Wersję 1 zachowujemy jako materiałową, bez reinterpretacji historycznych kosztów; [raport](docs/verification/reusable-capacity.md) dokumentuje odbiór i zgodność. Jedna czynność nadal rezerwuje jeden zasób. To fundament przed pełnym M04."
+      },
+      {
+        "line": 43,
+        "text": "DEC-008 zatwierdza realistyczne, brutalne fantasy z systemową magią i autonomiczną cywilizacją; szczegóły nadal są otwarte. DEC-011 zachowuje M00–M06 i fundamenty. Nie wdrażaj magii, potworów ani rozbudowanej walki jako warunku pierwszej sceny. Wolne Dorzecze jest historyczną inspiracją mechanik, nie obowiązującą fikcją. Rozwijaj projekt Action RPG obok symulacji."
+      },
+      {
+        "line": 47,
+        "text": "Po zgłoszeniu utknięcia i skoków obrazu wdrożono [audyt praktyczny](docs/verification/motion-adversarial-audit.md). Własne A* ma lokalne przyłącza końców 3×3, komórki od 1 mm i BFS dla centrów. `Waiting` może okresowo planować obejście aktualnego obrysu sąsiada; to nie pełne planowanie tłumu. `presentation_positions` jest pochodnym widokiem rzeczywistego przebiegu ostatniego kroku, bez zmiany świata i bez zapisu tej historii. Nie zastępuj go cięciwą przez narożnik. Zegar pozostaje 50 ms, prędkość 3 m/s, format zapisu 1. Odbiór techniczny nie oznacza oceny odczucia przez użytkownika."
+      }
+    ]
+  },
+  {
+    "path": "README.md",
+    "matches": [
+      {
+        "line": 17,
+        "text": "**Stan:** zaliczono M00–M05 w opisanym zakresie: fundament, czynności oraz własny ruch kinematyczny 2,5D, kolizje, A*, zmienne przejścia i zapis podróży. Tryb `--motion` działa w oknie Win32/D3D11 na MX330. [Raport M03](docs/verification/m03-motion-navigation.md) obejmuje akceptację obecnego sterowania przez użytkownika, z uwagami do płynności prowadzenia do celu, szybkości i naturalności ruchu. Istnieje ograniczona autonomia potrzeb, pierwszy zakres dostaw w laboratorium przestrzennym oraz autonomiczny zwrot nieprzypisanego ładunku; wspólna mała społeczność ma [zaliczony odbiór M04](docs/verification/m04-acceptance.md), potwierdzony przez użytkownika 27.10.2026. Git używa gałęzi `main`, publikowanej w publicznym `origin` na GitHubie, i wersjonuje punkt wyjścia projektu. Zasady pracy, gałęzi tematycznych i zakres archiwum opisuje [przepływ pracy](docs/workflow.md#repozytorium-git)."
+      },
+      {
+        "line": 23,
+        "text": "[Późniejszy audyt praktyczny](docs/verification/motion-adversarial-audit.md) odtworzył i naprawił utknięcie na kontakcie przy ścianie, bezterminowe czekanie za osobą na otwartej podłodze i walidację skrajnych danych. Obraz jest teraz interpolowany po rzeczywistej drodze ostatniego kroku, także przez zakręty. Zakres nadal jest 2,5D; trwa etapowe przygotowanie wejścia w M04."
+      },
+      {
+        "line": 59,
+        "text": "W rozwijanym torze przestrzennym `reality_traversal` [raport napraw poleceń i przejść](docs/verification/traversal-command-hardening.md) opisuje odrębny odbiór regresji: odroczone cele, ręczne wyjście z przejścia i ciągłe podparcie między sąsiednimi płytami. Pełne rozszerzenie geometrii/autonomii pozostaje w realizacji; nie zmienia to statusu M04."
+      },
+      {
+        "line": 103,
+        "text": "[Naprawa odzyskiwania dojścia](docs/verification/retained-world-navigation-stall.md) usuwa wykonywanie starej trasy przy blokadzie i poprawia ponowienia punktów w zasięgu. Późniejszy przyrost lokalnej współpracy poniżej rozwiązuje zachowany konflikt przy Step; ogólne konflikty tłumu pozostają poza tym zakresem. M04 pozostaje nieukończone."
+      }
+    ]
+  },
+  {
+    "path": "docs/decisions.md",
+    "matches": [
+      {
+        "line": 101,
+        "text": "## DEC-017 — Badania w prototypie, pełne M05/M06, następnie projekt 3D"
+      },
+      {
+        "line": 105,
+        "text": "Zachowuje DEC-011, własny silnik, odebrane fundamenty i wymagania ciągłości, migracji reprezentacji oraz odbioru. Nie zmienia historycznej akceptacji M04. Nowy konsument badawczy nie jest automatycznie funkcją zwykłej gry; potrzebne są wspólny świat, widok, wejście i próba użytkownika. Szczegóły urządzenia, techniczne API integracji, liczby nowego pomiaru i zakres pełnego 3D pozostają propozycjami autora do osobnego dopracowania, nie dodatkowymi decyzjami przypisanymi użytkownikowi. Nie tworzymy drugiego backlogu etapów ani nie odraczamy braków M05/M06 do projektu 3D."
+      }
+    ]
+  },
+  {
+    "path": "docs/development.md",
+    "matches": [
+      {
+        "line": 7,
+        "text": "Zaliczono M00–M04 w opisanym zakresie: kinematykę 2,5D, kolizje, A*, przejścia i zapis podróży w oknie Win32/D3D11 na MX330. Istnieją również zegar, ID, czynności, rezerwacje, ograniczona autonomia potrzeb i inspektor. [Raport M03](verification/m03-motion-navigation.md#ocena-użytkownika) wskazuje wyniki oraz akceptację obecnego sterowania przez użytkownika, z zachowanymi uwagami do dalszego dopracowania. Ograniczona wspólna społeczność ma [odbiór M04](verification/m04-acceptance.md), potwierdzony przez użytkownika 27.10.2026; nie jest to pełna docelowa autonomia cywilizacji. Lokalny Git wersjonuje punkt wyjścia na gałęzi `main`, publikowanej w publicznym `origin`; zasady opisuje [przepływ pracy](workflow.md#repozytorium-git)."
+      },
+      {
+        "line": 119,
+        "text": "M03 zaliczono w obsługiwanym zakresie po ocenie użytkownika, z zachowaniem uwag do prowadzenia do celu, szybkości i naturalności ruchu. M04–M06 są planem. Wcześniejsze wyniki opisują [raport M00](verification/m00-build-and-diagnostics.md), [raport M01](verification/m01-identity-actions-reservations.md) i [raport M02](verification/m02-window-laboratory.md). Pełny odbiór M02 zaliczono po rzeczywistym wykonaniu wcześniej zablokowanej diagnostyki GPU, bez zmiany wymagania."
+      }
+    ]
+  },
+  {
+    "path": "docs/project-charter.md",
+    "matches": [
+      {
+        "line": 15,
+        "text": "- Kolejność dalszych prac ustalona 28.10.2026: zastosować wyniki eksperymentów w działającym prototypie, ukończyć całe M05 i M06, następnie osobno zaprojektować przekształcenie zakresu 2,5D w pełne 3D. Szczegóły i dowody etapów należą do [jednego planu](prototype-plan.md)."
+      }
+    ]
+  },
+  {
+    "path": "docs/prototype-plan.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: M00–M05 zaliczone w opisanym zakresie; M06 pozostaje planem.** Użytkownik zaakceptował obecne sterowanie M03 z uwagami rozwojowymi dotyczącymi reakcji na cel, płynności trasy, szybkości i naturalności ruchu. Nie ma harmonogramu tygodniowego. Zakres produktu wynika z [karty](project-charter.md), a parametry z [budżetów](performance-budget.md)."
+      },
+      {
+        "line": 51,
+        "text": "Warstwa gry: gracz osobiście wpływa na dostawę albo pracę i potrafi odczytać skutek. Sprawdzamy również spokojny wariant bez katastrofy: mieszkańcy pracują i współpracują bez rozkazów. Nie uznajemy samej liczby NPC za wartość gry. Odbiór M04 został potwierdzony przez użytkownika; szersze badanie graczy i pomiar długiego obciążenia pozostają w M06."
+      },
+      {
+        "line": 55,
+        "text": "**Status: technicznie wdrożone i zweryfikowane; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Treść i zakres odbioru zapisano w [raporcie](verification/practice-in-prototype.md#ocena-użytkownika). Wymaga odebranego M04 i ukończonego [badania odkrywania](verification/discriminating-experiment.md). Uzasadnienie kolejności: zdolność należy najpierw zastosować w żywym świecie i uczynić czytelną dla gracza, a następnie objąć całą trwałością i historią M05. Dotychczasowych wyników I/A/T nie zmieniamy pod potrzeby pokazu."
+      },
+      {
+        "line": 100,
+        "text": "### Po M06 — osobny projekt pełnego 3D"
+      },
+      {
+        "line": 104,
+        "text": "Nowy projekt rozpoczyna się od audytu tego, co zachowujemy z silnika i domen, oraz planu migracji zapisów i odbioru tych samych sytuacji. Nie zakładamy napisania całości od zera ani prostego podmienienia grafiki. M05/M06 nie mogą przenosić swoich braków do tego projektu tylko po to, aby uznać prototyp za zakończony. Projekt 3D nie staje się teraz dodatkową bramką M06, a jego techniczne szczegóły nie są dziś zatwierdzoną implementacją."
+      }
+    ]
+  },
+  {
+    "path": "docs/research/capabilities-product-direction-2026-10-29.md",
+    "matches": [
+      {
+        "line": 5,
+        "text": "Statusy M00–M06 i ich zależności pozostają wyłącznie w [jednym planie](../prototype-plan.md). M00–M05 są zaliczone w opisanym zakresie; M06 jest planem. Ustalona kolejność to M06, a następnie osobny projekt pełnego 3D. Dalsze propozycje z tego dokumentu wymagają własnych projektów i briefów przed implementacją; nie są drugim obowiązującym backlogiem ani nowymi bramkami M06. Projekt gry fantasy i Action RPG zachowuje status z [karty projektu](../project-charter.md)."
+      },
+      {
+        "line": 22,
+        "text": "| 2. Projekt podłoża dla nowej zdolności | Po M06 rozpocząć ustalony projekt 3D. Wybrać najmniejszy zakres fizyki i reprezentacji, w którym złożenie elementów zmienia ich rzeczywiste możliwości | Projekt z jednym właścicielem stanu, kontraktem percepcji/działania, testami i kosztem. Wybrać jeden mechanizm do pierwszej próby; pozostawić resztę 3D jako dalszy zakres projektu |"
+      },
+      {
+        "line": 33,
+        "text": "Najbliższy przyrost powinien mieć brief `docs/work-items/m06-acceptance.md` oraz późniejszy raport `docs/verification/m06-acceptance.md`. To proponowane ścieżki przyszłych dokumentów, nie deklaracja ich istnienia. Właścicielem kryteriów etapu pozostaje [M06](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali), metody pomiaru [budżety](../performance-budget.md), a próby odbioru [projekt gry](../game-design.md#ocena-gry)."
+      }
+    ]
+  },
+  {
+    "path": "docs/research/emergent-world-2026-10-28.md",
+    "matches": [
+      {
+        "line": 40,
+        "text": "| Przestrzeń | Odległości, geometria, podparcie, kontakt i dostęp | Własny ograniczony ruch 2,5D; osobny projekt pełnego 3D pozostaje późniejszym kierunkiem |"
+      },
+      {
+        "line": 139,
+        "text": "To wnioski interpretacyjne, nie nowe zadania wdrożeniowe. Kolejność integracji, pełnego M05, pełnego M06 i osobnego projektu 3D pozostaje u właściciela planu. Ta notatka nie otwiera dodatkowych bramek M04, nie wybiera nowej fizyki i nie zatwierdza systemu magii ani biologii. Propozycja asystenta o szczególnej wartości wiedzy zmieniającej działania mieszkańców pozostaje oceną projektową; pytanie użytkownika rozszerza perspektywę także na powstawanie materialnej postaci świata."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/learning-cost.md",
+    "matches": [
+      {
+        "line": 7,
+        "text": "Poprzednie pelne Debug/ASan mialy powtarzalne timeouty two_methods.fresh_repair/native_repair/fresh_detour/native_detour, a czesc przebiegow takze practice.native. Release raz przekroczyl limit tooling.tests; pozniejsza oddzielna proba 58/58 przeszla. Porażki pozostaja w [raporcie kuriera](m05-distant-delivery.md), bez przypisywania wszystkim timeoutom jednej udowodnionej przyczyny."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/m01-identity-actions-reservations.md",
+    "matches": [
+      {
+        "line": 49,
+        "text": "Zakres scenariuszy i brakujące części są jawne w [strategii testów](../testing-strategy.md#obecny-zakres-domenowy). Nie ma autonomii, GPU, fizyki, nawigacji, produkcji, transportu ani biologicznej śmierci. Nie wykonano benchmarku, próby długotrwałej ani akceptacji gry przez człowieka. Nie sprawdzono awarii sprzętu, odcięcia zasilania ani nagłego zakończenia procesu w środku zapisu. Limit kolekcji jest zabezpieczeniem prototypu, nie polityką retencji wieloletniej cywilizacji."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/m04-acceptance.md",
+    "matches": [
+      {
+        "line": 98,
+        "text": "Nie wykonano nowego długiego benchmarku ani szerszego badania graczy M06. Historia opiekuna po niewidzianej spłacie ma udokumentowane granice wcześniejszego przyrostu prawa. Skończone zapasy, ograniczony kontakt i jawne limity historii pozostają właściwościami tego prototypu; zaliczenie nie jest deklaracją pełnej symulacji cywilizacji. M05 i M06 pozostają kolejnymi etapami planu, bez automatycznego rozpoczęcia nowej implementacji."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/m04-entry-observability.md",
+    "matches": [
+      {
+        "line": 36,
+        "text": "Końcowe próby procesu powtórzono z trwałymi logami dla wszystkich trzech konfiguracji: `build/m04-entry-native-{debug,release,asan}/`. Każda zawiera dwa udane procesy diagnostyki GPU z MX330, migawkę, kontynuację i krótki pomiar. Po dodaniu wyłącznie obserwacyjnego polecenia runnera zbudowano go także w Debug i ASan oraz wykonano tę samą kontynuację końcowego pliku w trzech konfiguracjach; wszystkie walidacje przeszły, a liczniki ukończeń były zgodne. Dowody `build/m04-entry-measure-continuation*.log`, hashe runnera `build/m04-entry-observation-tool-hashes.json`. Nie zmieniano po pomiarze kodu produkcyjnego ani mierzonego exe."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/m05-acceptance.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: M05 zaliczone w zatwierdzonym zakresie prototypu, 29.10.2026.** Podstawa: dowody techniczne poniżej i bezpośrednia deklaracja użytkownika bez oddzielnego playtestu. [Jeden plan](../prototype-plan.md) pozostaje właścicielem statusu etapów; M06 nie jest przez to wykonane."
+      },
+      {
+        "line": 34,
+        "text": "W zatwierdzonym zakresie M05 nie pozostała otwarta bramka implementacji lub odbioru. M06 pozostaje planem: zamrożony protokół dłuższej próby aplikacji, pomiar na wskazanym sprzęcie, odbiór i decyzja o skali według jednego planu. Obecne polecenie nie wykonuje ani nie znosi wymagań M06. Pełne 3D, ogólny streaming, dynamiczne zawalenia, pełne instytucje i rozbudowana walka pozostają poza tym zaliczeniem."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/m05-two-methods.md",
+    "matches": [
+      {
+        "line": 24,
+        "text": "Logi bieżącej pracy pozostają w `build/m05-two-methods/`, w tym `baseline-release.log`, `red-native.log` oraz `red-build.log`. Końcowe wyniki i ograniczenia zostaną dopisane po sprawdzeniach."
+      },
+      {
+        "line": 28,
+        "text": "Audyt istniejących dowodów przed zmianą: `practice.*` i format 8 już obejmowały działające uczenie, płatną konserwację, korupcję i kontynuację; `passage.*` oraz `community.*` obejmowały most, prom, fizyczne partie, wiedzę i potrzeby. Przyrost wykorzystuje te implementacje. Nowy dowód łączy je w jedną sytuację startową i dwie metody oraz checkpointy pełnych przebiegów. Migracja reprezentacji SC-09 i historia reagująca na zmienionych uczestników SC-13 nadal wymagają osobnych przyrostów M05."
+      },
+      {
+        "line": 89,
+        "text": "[Manifest SHA-256](evidence/m05-two-methods-2026-10-28/manifest.json) opisuje [archiwum 237 artefaktów i plików źródłowych](evidence/m05-two-methods-2026-10-28/runs.zip), rozpoczęte 28.10 i zweryfikowane 29.10.2026. Zachowano porażki, diagnostykę, pełne logi profili, checkpointy, obrazy, zapis review i samodzielnego przeglądu oraz dokładne bajty źródeł związanych z metadanymi natywnego runnera. Skrypt pakowania sprawdził CRC archiwum i rozmiar/hash każdego wpisu. Manifest zawiera hashe użytych programów Release; binariów nie skopiowano do archiwum i nie budowano archiwalnego checkoutu ponownie. Oryginały pozostają w `build/m05-two-methods/`."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/m06-acceptance.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: technicznie ukończone i zweryfikowane, 02.11.2026; odebrane przez użytkownika w opisanym zakresie fundamentu.** Właścicielem statusu etapu pozostaje [jeden plan](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali); wykonanie określa [plan techniczny](../work-items/m06-technical-acceptance.md)."
+      },
+      {
+        "line": 11,
+        "text": "Obecny świat 2,5D: osiem trwałych osób, siedem autonomicznych i jedna ręczna; wspólne ruch/kolizja/nawigacja, potrzeby, fizyczna dostawa, konserwacja, lokalna wiedza, ograniczone praktyki badawcze oraz zapis. Bez nowych reguł gospodarki, pełnej fizyki 3D i zwiększania populacji. Przygotowany świat ma 10000 jednostek w każdym z trzech stanowisk materiałowych; dwa stanowiska odpoczynku zachowują pojemność 2. W trakcie prób niczego nie uzupełniamy."
+      },
+      {
+        "line": 26,
+        "text": "Kod pomiaru: `3b95471b682d0b00af40423859ba38c5318544eb`. Release SHA-256: `548d66e694f517dc2216876a4bb272c2a911da213751ec263e7dd275e71132f1`. Wszystkie zamrożone hashe źródeł nadal zgadzały się po próbie. [Manifest](evidence/m06-acceptance-2026-11-02/manifest.json) obejmuje dokładne bajty dowodów i binaria identyfikuje hashami, bez kopiowania exe do repozytorium."
+      },
+      {
+        "line": 90,
+        "text": "Wynik zamyka M06 w zakresie fundamentu obecnego prototypu. Nie jest akceptacją przyszłej gry, większej populacji, pełnej fizyki 3D ani nieograniczonej historii. [Plan nadrzędny](../prototype-plan.md) zachowuje osobny następny projekt 3D."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/m06-measurement-export.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: opisany zakres techniczny wykonany i sprawdzony 02.11.2026; rozpoczęty 01.11.2026.** To ograniczony zakres [briefu](../work-items/m06-acceptance.md) i [planu wykonawczego](../work-items/m06-measurement-export.md). Status całego etapu pozostaje u [jednego właściciela](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali); ten przyrost nie zamyka M06."
+      },
+      {
+        "line": 56,
+        "text": "| Długi pomiar, izolowany narzut i odbiór ludzi pozostają w M06 | Krótka próba potwierdza zachowanie eksportu; koszt: wydajność i użyteczność projektu nadal wymagają odbioru |"
+      },
+      {
+        "line": 93,
+        "text": "Sonda po usprawnieniu dała 3,627 s / CPU 3,609 s przy 17,22% zajętości, wobec 4,956 s / CPU 4,922 s przy 17,00% przed zmianą. To pojedyncze porównanie inicjalizacji i scenariusza, bez gwarancji stałego przyspieszenia i bez wniosku o FPS. SHA-256 obu plików przed/po jest identyczny: checkpoint `9d1b0f7a5d3bc6177187640ec7164d24bfcadcf403fc8d5133a0a57e064d610d`, wynik `e9c24d7db5c28d0352737e9254327a8bce6e1f6570e01004cab7d73aacb5b768`. Kontynuacja starego checkpointu z nową inicjalizacją dała również identyczny plik wynikowy. Końcowa pełna macierz jest zielona; przyczyna zmienności czasów pod obciążeniem pozostaje nieustalona i jest otwartym ryzykiem M06."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/m06-preflight.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: wykonano ograniczony audyt źródeł i wybrane testy Release, 01.11.2026.** Długiego pomiaru, prób natywnych Win32/D3D11 i prób z ludźmi w tym audycie nie wykonano. M06 pozostaje planem według [jednego właściciela statusu](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). Następny ograniczony zakres opisuje [brief przygotowania](../work-items/m06-acceptance.md)."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/navigation-polish.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: zakres techniczny ZALICZONY, 25.10.2026.** [Brief](../work-items/navigation-polish.md) określa zakres. Osobista ocena nowego odczucia przez użytkownika pozostaje otwarta; jego wcześniejsza akceptacja dotyczy bazowego M03."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/practice-in-prototype.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: zakres techniczny ukończony i zweryfikowany; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Nie zamyka M05 ani M06. Kierunek i kolejność określa [jeden plan](../prototype-plan.md), zakres [projekt przyrostu](../work-items/practice-in-prototype.md)."
+      }
+    ]
+  },
+  {
+    "path": "docs/verification/retained-world-navigation-stall.md",
+    "matches": [
+      {
+        "line": 35,
+        "text": "Nie twierdzimy, że scena odzyskała sprawną komunikację wszystkich mieszkańców. Prośby o ustąpienie, zgoda/odmowa i bezpieczne rozwiązanie wzajemnej blokady pozostają osobnym przyrostem M04. Sam brak alarmu osoby 7 nie dowodzi dostawy, gospodarki ani społecznej inteligencji. Zachowanej migawki nie zmieniano."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-domain.md",
+    "matches": [
+      {
+        "line": 13,
+        "text": "`MaterialTypeId` jest niezmienny; zero oznacza historyczny nieokreślony materiał, który nie może być transferowany. `transfer(TransferRequest)` przenosi dodatnią ilość między różnymi aktywnymi partiami tego samego niezerowego typu, sprawdzając wolną ilość po rezerwacjach i przepełnienie. Pojemność nie jest materiałem. Wynik i komenda są zapisywane, również dla odmów; wspólna z `reserve` przestrzeń `CommandId` zapewnia identyczny wynik ponowienia i odrzuca inne dane pod zajętym ID. Dwie sąsiadujące pozycje dziennika księgują odpływ i wpływ. Chronologiczny audyt odtwarza także rezerwacje, zużycie i usunięcie bez narastającej sumy obrotu podatnej na overflow. `GENESIS_WORK_WORLD 3` dodaje typ i rejestr transferów; wersje 1 i 2 pozostają czytelne. [Zakres i obecny odbiór](work-items/material-delivery.md) są oddzielone od pełnego M04."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/advanced-traversal.md",
+    "matches": [
+      {
+        "line": 7,
+        "text": "Rozszerzamy fundament M03 i wdrażamy rzeczywistego konsumenta autonomicznego wyboru zadań. Plan M00–M06 pozostaje; odbiór małej sceny autonomii nie oznacza zaliczenia całej społeczności M04. Kolejność zależności:"
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/local-station-knowledge.md",
+    "matches": [
+      {
+        "line": 29,
+        "text": "Testy wymagają fizycznego dojścia i odmowy, przekazu od świadka wyczerpania i zmiany planu, dostawy oraz rzeczywistego posiłku przed dawnym terminem retry, błędnej nieaktualnej wiedzy i jej lokalnej korekty, odmowy przez ścianę/odległość/podporę, zachowania rozpoczętych działań, kontynuacji 1–5 i transakcyjnej odmowy uszkodzonych rekordów z poprawnym checksumem. Starsze regresje i limity czasu pozostają. Raport oddzieli testy modelu, próbę okna, przegląd oraz nadal niewykonany odbiór całej społeczności i komfortu przez człowieka."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/m04-acceptance.md",
+    "matches": [
+      {
+        "line": 19,
+        "text": "5. Uaktualnić stan M04 w jednym planie, README, AGENTS i mapie dokumentacji. Raport macierzy kryteriów oddziela zaliczenie techniczne, nierozwiązane defekty i oczekującą ocenę człowieka. Długi benchmark i szersze badanie graczy pozostają w M06; brak pełnych instytucji nie blokuje ograniczonego M04."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/m05-story-implementation.md",
+    "matches": [
+      {
+        "line": 49,
+        "text": "- [x] Przeczytać diff i zlecić jeden niezależny przegląd całego pionu. Ważne znalezione błędy utrwalić RED→GREEN; bez wymyślania ponownej niezależnej akceptacji."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/m06-acceptance.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: zakres techniczny wykonany i zweryfikowany 02.11.2026; [raport końcowy](../verification/m06-acceptance.md).** Użytkownik odebrał fundament i wyłączył uczestników/grywalność z bramek M06. Etap i jego zależności określa [jeden plan](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). [Audyt gotowości](../verification/m06-preflight.md) wskazuje istniejące pomiary, wybrane sprawdzenia i konkretne braki. Dokument nie zmienia zakresu odbioru M05."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/m06-measurement-export.md",
+    "matches": [
+      {
+        "line": 15,
+        "text": "- Plan dotyczy pierwszego przyrostu eksportu. Oddzielne pomiary GPU, uczenia, tras i zapisu oraz długi benchmark pozostają dalszym zakresem M06."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/m06-technical-acceptance.md",
+    "matches": [
+      {
+        "line": 9,
+        "text": "**Specyfikacja:** [brief M06](m06-acceptance.md), [plan nadrzędny](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali), [budżety](../performance-budget.md). Decyzja użytkownika z 02.11.2026 usuwa uczestników i ocenę zainteresowania grą z bramek M06. Odbiór użytkownika jest zadeklarowany; wyniki techniczne muszą zostać rzeczywiście uzyskane, a porażki zachowane."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/material-delivery.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "Status: ograniczony zakres techniczny zrealizowany i zweryfikowany, w tym autonomiczny zwrot nieprzypisanego ładunku i dwuetapowy test dostawy pod ASan; pozostają jawne ograniczenia produktu i brak pełnego M04 opisane w [raporcie](../verification/material-delivery.md). Realizacja na bezpośrednie polecenie użytkownika, bez commitów, resetów lub nowych zależności. Plan według writing-plans, testy przed implementacją według TDD."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/passage-logistics.md",
+    "matches": [
+      {
+        "line": 27,
+        "text": "Własny C++20/Win32/D3D11, bez nowych zależności. Nie podnosimy limitów ani nie skracamy starych scenariuszy. Raport rozdzieli rzeczywiste dostawy i koszty, działanie okna, granice fizyki, komfort człowieka i nadal nieukończone M04. Zamknięcie po zużyciu odrzucone na człowieku pozostawia wear==1000 i otwarte przejście do następnej bezpiecznej próby; taki stan jest poprawny także po zapisie."
+      }
+    ]
+  },
+  {
+    "path": "docs/work-items/practice-in-prototype.md",
+    "matches": [
+      {
+        "line": 3,
+        "text": "**Status: zakres techniczny ukończony i zweryfikowany; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Użytkownik ustalił 28.10.2026 kolejność: wykorzystać eksperymenty w prototypie, ukończyć M05 i M06, następnie osobno zaprojektować przejście do pełnego 3D. Kolejność obowiązuje w [jednym planie](../prototype-plan.md); szczegóły poniżej są specyfikacją przyrostu, a rzeczywisty stan, wypowiedź użytkownika i ograniczenia podaje [raport integracji](../verification/practice-in-prototype.md). Wyniki badań pozostają w [raporcie](../verification/discriminating-experiment.md), bez zmiany ich kryteriów ani przypisywania im odbioru gry."
+      },
+      {
+        "line": 11,
+        "text": "Pierwszy przyrost kończy się na jednym typie urządzenia i jednym rodzaju pracy. Nie dodajemy zarazem magii, życia od podstaw, nowych rodzin praw, walki ani większej populacji. M00–M04 pozostają odebrane w dotychczasowym zakresie. Nie wymuszamy przewagi nauczania tam, gdzie samodzielne próby wystarczają: negatywny wynik T nadal obowiązuje."
+      }
+    ]
+  },
+  {
+    "path": "maxing.md",
+    "matches": [
+      {
+        "line": 47,
+        "text": "Obecne M00–M06 są dobrze zaplanowane. Nie tworzyłbym drugiego, wielkiego planu. Rozwinąłbym istniejący o jeszcze dokładniejsze kryteria odbioru, zależności i bramki decyzyjne."
+      }
+    ]
+  }
+]

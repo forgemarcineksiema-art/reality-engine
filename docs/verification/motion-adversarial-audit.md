@@ -1,5 +1,7 @@
 # Audyt praktycznych przypadków nawigacji, kolizji i obrazu
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Aktualizacja po odbiorze: użytkownik potwierdził „Płynność teraz jest okej”. To akceptacja płynności tej wersji. Następnie zlecił [rozszerzenie ruchu i autonomii](../work-items/advanced-traversal.md); jego przyszłe zachowanie wymaga osobnej oceny, a poniższy raport zachowuje zapis wcześniejszego odbioru technicznego.
 
 Werdykt dla poprzedniej implementacji: **REQUEST CHANGES**, pewność **HIGH** dla odtworzonych przypadków. Po poprawkach: **APPROVE w opisanym zakresie technicznym**; ocena odczuć nowej wersji przez użytkownika pozostaje niewykonana. [Brief](../work-items/motion-adversarial-audit.md) określa zakres; poprzednie zaliczenie testów nie stanowiło pokrycia wszystkich praktycznych scenariuszy. Audyt całego wskazanego subsystemu i poprawki wykonano na zlecenie użytkownika. Użyto umiejętności code-review; nie wykonano niezależnej recenzji drugiego autora.

@@ -9,3 +9,6 @@
 /docs/research/sources/universe-discussion-2026-10-28/** -text
 
 *.png binary
+
+# Raw project conversations and external proposals retain exact source bytes.
+/docs/research/sources/project-documents-2026-11-02/** -text

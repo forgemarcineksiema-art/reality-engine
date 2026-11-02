@@ -1,6 +1,6 @@
 # Rzeczywisty transfer i pierwsza dostawa
 
-Status: ograniczony zakres techniczny zrealizowany i zweryfikowany, w tym autonomiczny zwrot nieprzypisanego ładunku i dwuetapowy test dostawy pod ASan; pozostają jawne ograniczenia produktu i brak pełnego M04 opisane w [raporcie](../verification/material-delivery.md). Realizacja na bezpośrednie polecenie użytkownika, bez commitów, resetów lub nowych zależności. Plan według writing-plans, testy przed implementacją według TDD.
+Status: ograniczony zakres techniczny zrealizowany i zweryfikowany, w tym autonomiczny zwrot nieprzypisanego ładunku i dwuetapowy test dostawy pod ASan; [raport](../verification/material-delivery.md) zachowuje historyczne ograniczenia tego przyrostu przed zintegrowanym odbiorem M04. Aktualne zaliczenia M00–M06 podaje [plan](../prototype-plan.md). Realizacja na bezpośrednie polecenie użytkownika, bez commitów, resetów lub nowych zależności. Plan według writing-plans, testy przed implementacją według TDD.
 
 ## 1. Własność i transfer
 

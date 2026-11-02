@@ -1,5 +1,7 @@
 # Uczenie i konserwacja w prototypie
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 **Status: zakres techniczny ukończony i zweryfikowany; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Nie zamyka M05 ani M06. Kierunek i kolejność określa [jeden plan](../prototype-plan.md), zakres [projekt przyrostu](../work-items/practice-in-prototype.md).
 
 ## Co działa

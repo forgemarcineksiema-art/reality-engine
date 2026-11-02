@@ -1,5 +1,7 @@
 # Weryfikacja transferu i pierwszej dostawy
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Status: **ograniczony zakres techniczny zweryfikowany, z autonomicznym zwrotem nieprzypisanego ładunku i zmierzonym marginesem ASan; ograniczenia produktu pozostają**. Zakres, umowa i ograniczenia są w [planie przyrostu](../work-items/material-delivery.md). Nie jest to odbiór M04 ani ocena wygody przez człowieka.
 
 ## Odtworzone problemy i przegląd

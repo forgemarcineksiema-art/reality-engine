@@ -1,5 +1,7 @@
 # Lokalna współpraca przy zablokowanym Step
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Status: ZALICZONE technicznie w opisanym zakresie, z pełnymi profilami, rzeczywistym oknem i oddzielnym review. [Plan](../work-items/local-clearance.md) określa zakres. To ograniczona współpraca przy rozpoczętym kroku, bez pełnego modelu społecznego i bez odbioru M04.
 
 ## Wykonane

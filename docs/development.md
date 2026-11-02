@@ -4,11 +4,11 @@
 
 ## Stan projektu
 
-Zaliczono M00–M04 w opisanym zakresie: kinematykę 2,5D, kolizje, A*, przejścia i zapis podróży w oknie Win32/D3D11 na MX330. Istnieją również zegar, ID, czynności, rezerwacje, ograniczona autonomia potrzeb i inspektor. [Raport M03](verification/m03-motion-navigation.md#ocena-użytkownika) wskazuje wyniki oraz akceptację obecnego sterowania przez użytkownika, z zachowanymi uwagami do dalszego dopracowania. Ograniczona wspólna społeczność ma [odbiór M04](verification/m04-acceptance.md), potwierdzony przez użytkownika 27.10.2026; nie jest to pełna docelowa autonomia cywilizacji. Lokalny Git wersjonuje punkt wyjścia na gałęzi `main`, publikowanej w publicznym `origin`; zasady opisuje [przepływ pracy](workflow.md#repozytorium-git).
+Pierwszy prototyp techniczny M00–M06 jest ukończony i odebrany w opisanym zakresie. [Plan](prototype-plan.md) jest właścicielem statusów, a [raport M06](verification/m06-acceptance.md) dokumentuje pełne profile i długi przebieg. Zakres pozostaje 2,5D, bez pełnego solvera brył i bez gotowej docelowej gry. Uwagi do naturalności ruchu zachowuje [odbiór M03](verification/m03-motion-navigation.md#ocena-użytkownika). Dalszy kierunek nie został wybrany; pełne 3D nie jest obowiązującym następnym etapem. `main` jest linią integracyjną, `codex/<temat>` gałęziami pracy; rzeczywisty stan sprawdzaj Git-em według [workflow](workflow.md#repozytorium-git).
 
-Osobna scena dostawy jest w realizacji i uruchamia się poleceniem `build/msvc/Debug/reality_traversal.exe --delivery`. Po przejęciu postaci przez F2 klawisz F4 pobiera lub odkłada materiał na pobliskim dostępnym stanowisku. Testy wybranego przyrostu: `ctest --preset windows-debug -R "^(transfer|delivery)[.]" --output-on-failure`. Status i granice są w [planie przyrostu](work-items/material-delivery.md).
+Osobna scena dostawy jest zaimplementowana i uruchamia się poleceniem `build/msvc/Debug/reality_traversal.exe --delivery`. Po przejęciu postaci przez F2 klawisz F4 pobiera lub odkłada materiał na pobliskim dostępnym stanowisku. Testy wybranego przyrostu: `ctest --preset windows-debug -R "^(transfer|delivery)[.]" --output-on-failure`. Status i granice są w [planie przyrostu](work-items/material-delivery.md).
 
-Sześć oryginalnych dokumentów zachowano bajtowo; lista i SHA-256 znajdują się w [manifeście archiwum](archive/manifest.json). Do wykonania M00 nie instalowano nowych pakietów ani bibliotek gry.
+Pierwszych sześć oryginalnych dokumentów oraz późniejsze źródła rozmów zachowano bajtowo; lista i SHA-256 znajdują się w [manifeście archiwum](archive/manifest.json). Do wykonania M00 nie instalowano nowych pakietów ani bibliotek gry.
 
 ## Odczytane narzędzia
 
@@ -116,7 +116,7 @@ Scena przeprawy: `build/msvc/Debug/reality_traversal.exe --crossing`. F8 zamyka/
 
 Lokalna wiedza: `ctest --preset windows-debug -R '^knowledge[.]' --output-on-failure`. F7 w `reality_traversal` przekazuje obserwacje wybranej postaci najbliższej osobie w zasięgu kontaktu. Inspektor odróżnia przekonania `belief` od faktycznych `station`. Model, format 5 i zgodność 1–4 opisuje [autonomia](traversal-autonomy.md#lokalna-wiedza-i-przekaz), wyniki [raport](verification/local-station-knowledge.md).
 
-M03 zaliczono w obsługiwanym zakresie po ocenie użytkownika, z zachowaniem uwag do prowadzenia do celu, szybkości i naturalności ruchu. M04–M06 są planem. Wcześniejsze wyniki opisują [raport M00](verification/m00-build-and-diagnostics.md), [raport M01](verification/m01-identity-actions-reservations.md) i [raport M02](verification/m02-window-laboratory.md). Pełny odbiór M02 zaliczono po rzeczywistym wykonaniu wcześniej zablokowanej diagnostyki GPU, bez zmiany wymagania.
+M03 zaliczono w obsługiwanym zakresie po ocenie użytkownika, z zachowaniem uwag do prowadzenia do celu, szybkości i naturalności ruchu. M04–M06 również zostały zamknięte w zakresie opisanym w planie i raportach. Wcześniejsze wyniki opisują [raport M00](verification/m00-build-and-diagnostics.md), [raport M01](verification/m01-identity-actions-reservations.md) i [raport M02](verification/m02-window-laboratory.md). Pełny odbiór M02 zaliczono po rzeczywistym wykonaniu wcześniej zablokowanej diagnostyki GPU, bez zmiany wymagania.
 
 ## Laboratorium ruchu
 

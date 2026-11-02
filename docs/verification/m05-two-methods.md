@@ -2,7 +2,7 @@
 
 **Aktualizacja odbioru 29.10.2026:** użytkownik zaakceptował opisany zakres bez osobnego playtestu. [Zbiorczy raport M05](m05-acceptance.md#decyzja-użytkownika) zachowuje dosłowną deklarację i oddziela ją od obserwacji; wcześniejsze wzmianki o oczekującym odbiorze opisują stan przed tą decyzją.
 
-**Status: technicznie ukończone i zweryfikowane 29.10.2026. Odbiór użytkownika tej sytuacji niewykonany.** Zakres określa [brief](../work-items/m05-two-methods.md), a pełne wymagania M05 [jeden plan](../prototype-plan.md). Akceptacja poprzedniego uczenia pozostaje w [jego raporcie](practice-in-prototype.md#ocena-użytkownika). Ten przyrost nie zamyka całego M05 ani M06.
+**Status: technicznie ukończone, zweryfikowane i zaakceptowane przez użytkownika w zakresie M05, 29.10.2026.** Zakres określa [brief](../work-items/m05-two-methods.md), a pełne wymagania M05 [jeden plan](../prototype-plan.md). Akceptacja poprzedniego uczenia pozostaje w [jego raporcie](practice-in-prototype.md#ocena-użytkownika). Ten przyrost nie zamyka całego M05 ani M06.
 
 ## Uruchomienie
 
@@ -21,7 +21,7 @@ Ten sam program można uruchomić z `--two-methods`. Wariant zawiera osiem osób
 
 Przed zmianą wykonano `ctest --preset windows-release -R '^(community|practice)[.]' --output-on-failure`: 36/36 PASS, 11,64 s. Nowy test natywny wywołujący stare okno z `--two-methods` zakończył się kodem 1, przed powstaniem nowej sceny. Kompilacja napisanych testów C++ następnie odtworzyła brak `make_two_methods_course` (C3861). To dowody braku funkcji, nie porażka istniejącego scenariusza ani ukończony wynik integracji.
 
-Logi bieżącej pracy pozostają w `build/m05-two-methods/`, w tym `baseline-release.log`, `red-native.log` oraz `red-build.log`. Końcowe wyniki i ograniczenia zostaną dopisane po sprawdzeniach.
+Logi bieżącej pracy pozostają w `build/m05-two-methods/`, w tym `baseline-release.log`, `red-native.log` oraz `red-build.log`. Końcowe wyniki i ograniczenia zapisano w dalszych sekcjach tego raportu.
 
 ## Zachowana porażka i korekta planu
 

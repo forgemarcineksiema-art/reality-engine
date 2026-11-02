@@ -1,5 +1,7 @@
 # Discovery learning implementation plan
 
+**Status: wykonany plan przyrostu, nie otwarte zlecenie.** [Raport](../verification/discovery-learning-experiment.md) rozlicza zakres, próby i ograniczenia; aktualny status całego prototypu wskazuje [jeden plan](../prototype-plan.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox syntax for tracking. Implementacja w bieżącej gałęzi jest autoryzowana zatwierdzeniem protokołu przez użytkownika; nie wymaga ponownego wyboru metody wykonania.
 
 **Goal:** Wykonać zatwierdzony eksperyment D/G/S, zachowując również wynik negatywny.

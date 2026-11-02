@@ -1,6 +1,6 @@
 # Audyt gotowości pomiaru przed odbiorem M06
 
-**Status: wykonano ograniczony audyt źródeł i wybrane testy Release, 01.11.2026.** Długiego pomiaru, prób natywnych Win32/D3D11 i prób z ludźmi w tym audycie nie wykonano. M06 pozostaje planem według [jednego właściciela statusu](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). Następny ograniczony zakres opisuje [brief przygotowania](../work-items/m06-acceptance.md).
+**Status: wykonano ograniczony audyt źródeł i wybrane testy Release, 01.11.2026.** Długiego pomiaru, prób natywnych Win32/D3D11 i prób z ludźmi w tym audycie nie wykonano. W dniu tego przeglądu M06 był planem; późniejszy [odbiór M06](m06-acceptance.md) zamknął etap. Aktualny status podaje [plan](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). Następny ograniczony zakres opisuje [brief przygotowania](../work-items/m06-acceptance.md).
 
 ## Wersja i dowody
 

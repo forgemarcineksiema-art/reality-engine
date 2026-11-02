@@ -37,7 +37,7 @@ Lista z rozmowy jest mapą tematów, nie oficjalną klasyfikacją ani nakazem ut
 
 | Aspekt rozmowy | Odniesienie do Genesis | Granica obecnego zakresu |
 | --- | --- | --- |
-| Przestrzeń | Odległości, geometria, podparcie, kontakt i dostęp | Własny ograniczony ruch 2,5D; osobny projekt pełnego 3D pozostaje późniejszym kierunkiem |
+| Przestrzeń | Odległości, geometria, podparcie, kontakt i dostęp | Własny ograniczony ruch 2,5D; pełne 3D pozostaje rozważaną możliwością, bez zatwierdzonego następnego projektu |
 | Czas | Kolejność skutków, trwanie pracy i wiek wiadomości | Wspólny stały krok i kontynuacja, bez modelowania kosmologii |
 | Materia | Typ, ilość, własność i położenie zasobu | Fizyczne partie i transfer; bez symulacji atomowej |
 | Energia | Koszt, dopływ, zużycie i straty | Aparatura rozlicza własną energię; nie jest to energia całego świata |
@@ -136,7 +136,7 @@ Przykłady pomagają wybierać pytania. Nie dowodzą wykonalności połączenia 
 6. Zachowywać niepewność naukową: zmiana stanu, prawa efektywne i pochodzenie fundamentalnych praw są odrębnymi zagadnieniami.
 7. Zdolność zademonstrowana w badaniu nie jest automatycznie dowodem grywalności ani skalowalności. Krótkie próby ośmiu osób na MX330 nie uzasadniają przewidywań o całej cywilizacji.
 
-To wnioski interpretacyjne, nie nowe zadania wdrożeniowe. Kolejność integracji, pełnego M05, pełnego M06 i osobnego projektu 3D pozostaje u właściciela planu. Ta notatka nie otwiera dodatkowych bramek M04, nie wybiera nowej fizyki i nie zatwierdza systemu magii ani biologii. Propozycja asystenta o szczególnej wartości wiedzy zmieniającej działania mieszkańców pozostaje oceną projektową; pytanie użytkownika rozszerza perspektywę także na powstawanie materialnej postaci świata.
+To wnioski interpretacyjne, nie nowe zadania wdrożeniowe. Integrację, M05 i M06 ukończono według [planu prototypu](../prototype-plan.md); 02.11.2026 użytkownik pozostawił dalszy kierunek otwarty. Pełne 3D nie jest zatwierdzonym następnym projektem. Ta notatka nie otwiera dodatkowych bramek M04, nie wybiera nowej fizyki i nie zatwierdza systemu magii ani biologii. Propozycja asystenta o szczególnej wartości wiedzy zmieniającej działania mieszkańców pozostaje oceną projektową; pytanie użytkownika rozszerza perspektywę także na powstawanie materialnej postaci świata.
 
 ## Źródła sprawdzone podczas rozmowy
 

@@ -1,0 +1,475 @@
+
+docs/verification/autonomy-need-fallback.md
+# Weryfikacja wyboru potrzeby po niedostępności celu
+Data: 2026-10-26. Zakres: [brief](../work-items/autonomy-need-fallback.md); aktualna semantyka: [autonomia laboratorium](../traversal-autonomy.md). Odbiór techniczny tego przyrostu: zaliczony.
+## Dowód przed i po
+Przed zmianą produkcyjną `traversal.need_fallback_empty` i `traversal.need_fallback_unreachable` dawały porażkę. W obu przypadkach po 361 krokach nie ukończono żadnego odpoczynku. Wariant pustego magazynu zakończył się energią 66, a wariant niepołączonej powierzchni energią 100; głód doszedł do limitu 1000. Dowód: `build/need-fallback-before-tests.log`.
+
+docs/verification/diagnostics-needs-hardening.md
+# Diagnostyka i bezpieczne przerywanie potrzeb
+Status: zakres diagnostyki i bezpiecznych potrzeb ZALICZONY technicznie; pozostała stagnacja nawigacji ma osobne otwarte zgłoszenie i blokuje uznanie sceny za domkniętą przed dostawami. Zakres określa [plan](../work-items/diagnostics-needs-hardening.md). Bez commitów i delegowania, zachowano poprzednie zmiany oraz formaty WorkWorld/MotionSession.
+## Zachowanie
+Inspektor oddziela rekordy CRLF wyłącznie w widoku Win32, zachowuje przewijanie i zaznaczenie. Nowe alarmy są przypisane do trwałego ID i nie giną podczas trwającego alarmu innej osoby. Limit ośmiu automatycznych prób pozostaje, ręczne F6 jest niezależne.
+
+docs/verification/discovery-learning-design.md
+# Przegląd projektu eksperymentu odkrywania
+**Status: projekt protokołu przygotowany i przejrzany; implementacja oraz D/G/S niewykonane.** Data: 27.10.2026. Właścicielem szczegółów pozostaje [projekt eksperymentu](../work-items/discovery-learning-experiment.md). Ten raport dotyczy wyłącznie przygotowania projektu przed próbą, bez zmiany statusu M04 lub przypisywania akceptacji metodzie badawczej przez użytkownika.
+## Wykonane rozpoznanie
+Odczytano README, reguły inżynierskie, kartę projektu, mapę dokumentacji, program badań, kontrakty i rzeczywiste API `SimulationClock`, `WorkWorld`, `TraversalSession`, obserwacji oraz kontaktu. Nowe pomiary i kontroler uczący się nie istnieją w tym kodzie. Stan wyjściowy: czyste `main`, commit `96e6c11`; dokumenty przygotowano na gałęzi `codex/discovery-experiment-design`. Nie wykonywano push.
+
+docs/verification/discovery-learning-experiment.md
+# Eksperyment odkrywania zależności i przekazu — raport
+**Status: eksperyment wykonany; wynik wspierający D, G i S w zatwierdzonym zakresie.** Użytkownik zatwierdził implementację i wykonanie próby 27.10.2026. Właścicielem kryteriów pozostaje [protokół discovery-v1](../work-items/discovery-learning-experiment.md); [API](../discovery-learning.md) opisuje działający konsument headless. Próbę potwierdzającą wykonano raz po kontrolach, review i zamrożeniu artefaktów. Nie zmieniano progów, seedów, kosztów ani budżetów po odczycie wyniku.
+## Wynik potwierdzający
+64 niezależnie generowane przypadki według protokołu, seedy `0xD15C1000`–`0xD15C103F`. Jednostką porównania jest świat, nie pojedyncze zadanie. Wszystkie przypadki przeszły kontrolę integralności C++ oraz niezależne przeliczenie reguł, bilansu i metryk w Pythonie.
+
+docs/verification/discriminating-experiment.md
+# Doświadczenia rozdzielające — wynik discrimination-v1
+**Status: UKOŃCZONE w zakresie protokołu.** Audyt, implementacja, uwagi review, pełne profile i jednorazowa próba potwierdzająca zostały wykonane. Kryteria [protokołu](../work-items/discriminating-experiment.md) pozostały bez zmian. [API](../discriminating-learning.md) opisuje istniejący konsument C++; [plan wykonania](../work-items/discriminating-implementation.md) rozlicza zakres. To osobne laboratorium z rzeczywistą pracą mieszkańców, bez zmiany odbioru M04, ogólnej autonomii potrzeb ani prezentacji gry.
+## Wynik i jego znaczenie
+Agent A zachowuje konkurencyjne wyjaśnienia, wybiera fizyczne doświadczenie rozdzielające ich przewidywania i poprawnie identyfikuje zachowanie aparatu w skończonym języku. W 64 światach końcowe prognozy i 1280 dodatnich zadań były poprawne. Przewaga uczenia aktywnego nad losowym spełniła zapisane kryterium A.
+
+docs/verification/documentation-baseline.md
+# Weryfikacja uporządkowanej dokumentacji
+Data: 25.10.2026. Zakres: dokumentacja, archiwizacja oraz walidator dokumentów. Workspace bez historii Git; raport nie podaje identyfikatora commitu.
+To historyczny raport stanu sprzed implementacji M00. Aktualny stan i późniejszą weryfikację przedstawia [raport fundamentu C++](m00-build-and-diagnostics.md).
+## Wykonane zmiany
+
+docs/verification/hypothesis-building-design.md
+# Przegląd projektu drugiego eksperymentu
+**Status: przegląd projektu ukończony.** Data: 27.10.2026. Po tym przeglądzie użytkownik zatwierdził [protokół hypothesis-v1](../work-items/hypothesis-building-experiment.md) do implementacji i wykonania. Poniższy zapis dotyczy projektu, nie odbioru implementacji lub wyniku badania.
+## Zakres przeglądu
+Osobny agent `hypothesis_builder_check`, bez historii rozmowy autora, otrzymał dokument i zadanie wskazania wyłącznie istotnych pytań blokujących sensowny plan implementacji. Czytał również powiązany kontrakt pierwszego laboratorium. Nie edytował plików i nie wykonywał generatora światów ani próby potwierdzającej. Autor przejrzał uwagi i sam zaktualizował protokół.
+
+docs/verification/hypothesis-building-experiment.md
+# Budowanie wyjaśnień — wykonanie hypothesis-v1
+**Status: implementacja i jednorazowa próba wykonane. Pełne kryteria H i A nie zostały spełnione.** Data: 27.10.2026. To prawidłowy negatywny wynik badania, z działającym mechanizmem syntezy i rzeczywistymi pomiarami. Techniczny odbiór kodu nie jest potwierdzeniem hipotez naukowych. M04 oraz plan M05/M06 zachowują swój odrębny zakres.
+[Zatwierdzony protokół](../work-items/hypothesis-building-experiment.md) pozostaje właścicielem metody i progów. [API](../hypothesis-building.md) opisuje implementację, [plan](../work-items/hypothesis-building-implementation.md) wykonanie, a [review](evidence/hypothesis-building-2026-10-27/review.md) uwagi niezależnego recenzenta i poprawki autora. Nie zmieniano gramatyki, progów, wejść 1–64, seedów ani zasad oceny po obejrzeniu wyników.
+## Co wykonano i co dostarczyliśmy
+
+docs/verification/identity-fantasy-and-assessment.md
+# Kierunek fantasy i odpowiedź na ocenę projektu
+Data: 25.10.2026. Zakres: analiza dostarczonych [opinii o projekcie](../../opinion-project-assessment.md) i [celów jakości](../../maxing.md), następnie wprowadzenie doprecyzowania użytkownika do dokumentacji oraz sprawdzenie konkretnej implementacji M02. Oba pliki użytkownika pozostają zachowane bez zmiany treści; są opiniami i propozycjami, nie nadrzędną specyfikacją ani niezależnym dowodem testów.
+[Snapshot materiałów wejściowych](evidence/assessment-sources.json) zawiera ich SHA-256. Kontrola rejestru, odnośników, identyfikatorów i bajtowej integralności archiwum przeszła po zmianach. Dotychczasowe scenariusze pozostają w zestawach. Po instalacji Narzędzi grafiki zaliczono pełny Debug 45/45, RelWithDebInfo 45/45 i ASan 47/47, z warstwą diagnostyczną GPU, bez filtrów ani pominięć. Wcześniejsze podzbiory oraz porażki zachowano w [raporcie M02](m02-window-laboratory.md), wraz z granicami pełnego odbioru tego etapu.
+## Co przyjmujemy z oceny
+
+docs/verification/learning-cost.md
+# Koszt tworzenia i odtwarzania umyslow
+**Status: naprawa zweryfikowana technicznie, 29.10.2026.** Baza f9fe6d7, [brief](../work-items/learning-cost.md). Przyrost usuwa wykazany koszt CPU, zachowujac historyczne limity, kroki i asercje. Nie zmienia wynikow badan, kosztow logicznych ani protokolow.
+## Przyczyna i pomiar
+Poprzednie pelne Debug/ASan mialy powtarzalne timeouty two_methods.fresh_repair/native_repair/fresh_detour/native_detour, a czesc przebiegow takze practice.native. Release raz przekroczyl limit tooling.tests; pozniejsza oddzielna proba 58/58 przeszla. Porażki pozostaja w [raporcie kuriera](m05-distant-delivery.md), bez przypisywania wszystkim timeoutom jednej udowodnionej przyczyny.
+
+docs/verification/local-clearance.md
+# Lokalna współpraca przy zablokowanym Step
+Status: ZALICZONE technicznie w opisanym zakresie, z pełnymi profilami, rzeczywistym oknem i oddzielnym review. [Plan](../work-items/local-clearance.md) określa zakres. To ograniczona współpraca przy rozpoczętym kroku, bez pełnego modelu społecznego i bez odbioru M04.
+## Wykonane
+Wspólne API prośby, dobrowolny ruch autonomicznego odbiorcy, odmowy controlled/busy/no_space, ochrona rozpoczętej pracy i kroku, zachowanie zamiaru, wygaśnięcie i ręczne przejęcie. Istniejąca fizyka i nawigacja wykonują manewr Walk. F3 zgłasza tę samą prośbę; feedback i inspektor oddzielają zgodę od faktycznego udostępnienia przejścia. Zapis zewnętrzny 3 zachowuje aktywne uzgodnienie. Wersje 1/2, WorkWorld i MotionSession pozostają czytelne.
+
+docs/verification/local-station-knowledge.md
+# Weryfikacja lokalnej wiedzy o stanowiskach
+Status: **ograniczony zakres techniczny zweryfikowany**, z pełnymi przebiegami Debug/Release/ASan, diagnostyką D3D11 na MX330 i niezależnym przeglądem. [Brief](../work-items/local-station-knowledge.md) określa zakres. To część INV-08, SC-05 i SC-14, bez pełnego odbioru M04.
+## Czerwony dowód
+Przed implementacją uruchomiono `cmake --preset windows-msvc`, build targetu `reality_knowledge_tests`, następnie `ctest --preset windows-debug -R '^knowledge[.]' --output-on-failure`. Wszystkie cztery początkowe przypadki nie przeszły na poprzednim kodzie (`build/knowledge-red.log`): brak własnej obserwacji na miejscu, brak zmiany planu po świadku wyczerpania, brak obudzenia po dostawie i brak wersjonowania wiedzy. Zapas rzeczywiście opróżniono przez `interact_cargo`, nie przez atrapy.
+
+docs/verification/m00-build-and-diagnostics.md
+# Raport fundamentu C++ — etap M00
+Data: 25.10.2026. Zakres: rzeczywisty build C++20, zegar symulacji, runner i diagnostyka. Git zainicjalizowano lokalnie; nie ma commitu ani remote. [Brief](../work-items/m00-build-and-diagnostics.md) określał kryteria przed implementacją.
+## Wykonane
+- Biblioteka `reality_core` ze stałym, dodatnim krokiem zegara i kontrolą przepełnienia przed zmianą stanu.
+
+docs/verification/m01-identity-actions-reservations.md
+# Raport tożsamości, czynności i zasobów — etap M01
+Data: 25.10.2026. Status: **ZALICZONE w zakresie M01.** Zakres określał [brief](../work-items/m01-identity-actions-reservations.md); konkretne API i ograniczenia opisuje [model domeny](../work-domain.md). Lokalny Git nadal nie ma commitu ani remote.
+## Wykonany przyrost
+- Trwałe ID, osobne uchwyty z generacją i bezpieczne ponowne użycie slotu.
+
+docs/verification/m02-window-laboratory.md
+# Raport okna i laboratorium — etap M02
+Data: 25.10.2026. Status: **ZALICZONE — pełny odbiór M02 w zakresie briefu.** Instalacja Narzędzi grafiki została ukończona i zweryfikowana. Test D3D11 z warstwą diagnostyczną oraz wszystkie pełne zestawy przeszły: Debug 45/45, RelWithDebInfo 45/45, ASan 47/47. Nie użyto filtrów ani pominięć. [Brief](../work-items/m02-window-laboratory.md) określał zakres przed kodem, [model laboratorium](../window-laboratory.md) opisuje konkretne API.
+## Wykonane
+Okno Win32, renderer D3D11, statyczna proceduralna scena, własna kamera i wybór obiektu po trójkątach, standardowe kontrolki i inspektor. Rezerwacja, rozpoczęcie, przerwanie i zużycie przechodzą przez rzeczywisty M01. Zapis zachowuje świat, odczyt pracy przywraca ją z pauzą. Nowy konsument obsługuje numerację komend na podstawie utrwalonej historii. Format M01 pozostał bez zmiany.
+
+docs/verification/m03-motion-navigation.md
+# Weryfikacja ruchu i nawigacji — etap M03
+**Status: M03 ZALICZONY w obsługiwanym zakresie, z uwagami rozwojowymi, 25.10.2026.** Zakres techniczny przeszedł testy, a użytkownik po uruchomieniu prototypu zaakceptował obecne sterowanie, komfort i czytelność. Naturalność ruchu, reakcja na cel i prowadzenie trasy wymagają dalszego dopracowania opisanego poniżej. Zakres określa [model](../motion-navigation.md), a cel [brief](../work-items/m03-motion-navigation.md). Nie zaliczamy planowanej pełnej fizyki, autonomii ani atrakcyjności Action RPG.
+## Końcowe sprawdzenia
+Po ostatniej zmianie kodu przebudowano wszystkie trzy konfiguracje. Pełne zestawy uruchomiono bez filtrów i pominięć. [Manifest 39 plików źródłowych i konfiguracji](evidence/m03-sources.json) obejmuje również testy i narzędzia; zgodność SHA-256 sprawdzono ponownie po testach.
+
+docs/verification/m04-acceptance.md
+# Audyt domknięcia M04
+Stan na 27.10.2026: **M04 ZALICZONE w opisanym zakresie technicznym i przez użytkownika**. [Brief](../work-items/m04-acceptance.md) zamyka zakres obecnego zadania; [instrukcja próby gry](m04-playtest.md) wskazuje czynności człowieka. Użytkownik 27.10.2026 potwierdził odbiór po uruchomieniu sceny; [zapis akceptacji](m04-playtest.md) zachowuje jego wypowiedź bez dopisywania szczegółowych ocen.
+## Bilans kryteriów
+| Kryterium M04 | Rzeczywista implementacja i dowód | Granica |
+
+docs/verification/m04-entry-observability.md
+# Odbiór pierwszego przyrostu przed dostawą
+Status: ZALICZONE w opisanym zakresie diagnostyki, zapisu reprodukcji i pomiaru małej sceny. [Projekt](../work-items/m04-entry-design.md), [plan](../work-items/m04-entry-observability.md). Dostawa, transfer materiału i współpraca społeczna nie są zaimplementowane w tym przyroście. Nie jest to odbiór całego M04 ani docelowej autonomii.
+## Dostarczony zakres
+`NavigationProgressWatch` i `TraversalDiagnostics` odczytują sesję bez mutacji świata. Rozpoznają brak poprawy o 0,1 m do tego samego końca Walk przez 100 kroków. Drobna oscylacja nie jest postępem. Zmiana celu odcinka i przerwa obserwacji większa niż 40 kroków rozpoczynają nowe okno. Bezczynność, oczekiwanie, rozpoczęte przejście/przejazd, brak drogi, odmowa celu, budżet i dojście są osobnymi klasyfikacjami. To podejrzenie diagnostyczne dla określonej klasy ruchu, bez prawa do automatycznego zmieniania celu NPC.
+
+docs/verification/m04-playtest.md
+# Krótka próba społeczności dla użytkownika
+Status: **ZALICZONE przez użytkownika 27.10.2026**. Po uruchomieniu przygotowanej sceny użytkownik przekazał: „M04 Zaliczone”. To bezpośrednia akceptacja etapu, odrębna od [raportu technicznego](m04-acceptance.md). Nie dopisujemy niewypowiedzianych ocen szczegółowych ani potwierdzenia wykonania każdego kroku instrukcji. Poniżej zachowano instrukcję przygotowanej próby. Około 5–10 minut, cztery świeże uruchomienia tej samej sceny, bez cudzych zapisów. Nie trzeba czytać technicznego inspektora ani sterować mieszkańcami.
+## Uruchomienie
+Z katalogu projektu: `python tools/start_m04_playtest.py`. Launcher uruchamia Release `reality_traversal --community` i tworzy odrębny katalog `build/m04-playtest-DATA-ID` na zapis F5, log i diagnostykę. Nie wczytuje istniejącego świata. Jeśli exe brakuje: `cmake --build --preset windows-release`. Sam launcher nie jest wykonaniem testu człowieka. Zamknij okno przed następną próbą i ponownie uruchom to samo polecenie.
+
+docs/verification/m05-acceptance.md
+# Zbiorczy raport M05 — ciągłość, przejście i historia
+**Status: M05 zaliczone w zatwierdzonym zakresie prototypu, 29.10.2026.** Podstawa: dowody techniczne poniżej i bezpośrednia deklaracja użytkownika bez oddzielnego playtestu. [Jeden plan](../prototype-plan.md) pozostaje właścicielem statusu etapów; M06 nie jest przez to wykonane.
+## Zakres i dowody zamknięcia
+| Wymaganie | Wynik i granica |
+
+docs/verification/m05-distant-delivery.md
+# Jeden kurier poza lokalnym obszarem
+**Aktualizacja odbioru 29.10.2026:** użytkownik zaakceptował opisany zakres bez osobnego playtestu. [Zbiorczy raport M05](m05-acceptance.md#decyzja-użytkownika) zachowuje dosłowną deklarację i oddziela ją od obserwacji; wcześniejsze wzmianki o oczekującym odbiorze opisują stan przed tą decyzją.
+**Status: ograniczony kurs zweryfikowany technicznie po [naprawie kosztu uczenia](learning-cost.md), 29.10.2026.** [Brief](../work-items/m05-distant-delivery.md) określa zakres. Ten raport dotyczy ograniczonego kursu SC-09 i kontynuacji SC-08; nie zalicza całego M05/M06, pełnego 3D ani odbioru użytkownika.
+## Model i wykonanie
+
+docs/verification/m05-story.md
+# Historia po zmianie świata — dowody SC-13
+**Aktualizacja odbioru 29.10.2026:** użytkownik zaakceptował opisany zakres bez osobnego playtestu. [Zbiorczy raport M05](m05-acceptance.md#decyzja-użytkownika) zachowuje dosłowną deklarację i oddziela ją od obserwacji; wcześniejsze wzmianki o oczekującym odbiorze opisują stan przed tą decyzją.
+**Status: zatwierdzony zakres techniczny wdrożony i zweryfikowany, 29.10.2026.** [Projekt](../work-items/m05-story-design.md), [plan wykonania](../work-items/m05-story-implementation.md), [API](../story-scene.md). Odbiór przez użytkownika oraz zakończenie całego M05/M06 pozostają osobne.
+## Zachowanie i granice
+
+docs/verification/m05-two-methods.md
+# Dwie metody rzeczywistej dostawy w M05
+**Aktualizacja odbioru 29.10.2026:** użytkownik zaakceptował opisany zakres bez osobnego playtestu. [Zbiorczy raport M05](m05-acceptance.md#decyzja-użytkownika) zachowuje dosłowną deklarację i oddziela ją od obserwacji; wcześniejsze wzmianki o oczekującym odbiorze opisują stan przed tą decyzją.
+**Status: technicznie ukończone i zweryfikowane 29.10.2026. Odbiór użytkownika tej sytuacji niewykonany.** Zakres określa [brief](../work-items/m05-two-methods.md), a pełne wymagania M05 [jeden plan](../prototype-plan.md). Akceptacja poprzedniego uczenia pozostaje w [jego raporcie](practice-in-prototype.md#ocena-użytkownika). Ten przyrost nie zamyka całego M05 ani M06.
+## Uruchomienie
+
+docs/verification/m06-acceptance.md
+# Odbiór techniczny M06
+**Status: technicznie ukończone i zweryfikowane, 02.11.2026; odebrane przez użytkownika w opisanym zakresie fundamentu.** Właścicielem statusu etapu pozostaje [jeden plan](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali); wykonanie określa [plan techniczny](../work-items/m06-technical-acceptance.md).
+## Decyzja użytkownika
+02.11.2026 użytkownik wyłączył próbę grywalności i uczestników z M06, deklarując odbiór i zlecając kontrolę solidności oraz wiarygodności fundamentu: „Zrób kurwa swoje i M06 jest odebrany. Fundament ma być kurwa solidny i wiarygodny.” Deklaracja użytkownika i wykonane kontrole techniczne są oddzielnymi dowodami. Nie przypisujemy tej decyzji automatycznym testom i nie ogłaszamy potwierdzenia atrakcyjności przyszłej gry.
+
+docs/verification/m06-measurement-export.md
+# Eksport przebiegu pomiaru — pierwszy przyrost przygotowania
+**Status: opisany zakres techniczny wykonany i sprawdzony 02.11.2026; rozpoczęty 01.11.2026.** To ograniczony zakres [briefu](../work-items/m06-acceptance.md) i [planu wykonawczego](../work-items/m06-measurement-export.md). Status całego etapu pozostaje u [jednego właściciela](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali); ten przyrost nie zamyka M06.
+## Zachowanie
+`--measurement-trace DIR` eksportuje rzeczywiste czasy klatek, aktualizacji, zaległości i odczyty pamięci procesu do nowego `samples.csv`. Zachowuje również rozgrzewkę. Dotychczasowy raport nadal obejmuje okres właściwy. Obserwator nie trafia do zapisu świata ani do wiedzy mieszkańców. [Instrukcja](../development.md#eksport-przebiegu-pomiaru) określa format, opcje, koszty i granice.
+
+docs/verification/m06-preflight.md
+# Audyt gotowości pomiaru przed odbiorem M06
+**Status: wykonano ograniczony audyt źródeł i wybrane testy Release, 01.11.2026.** Długiego pomiaru, prób natywnych Win32/D3D11 i prób z ludźmi w tym audycie nie wykonano. M06 pozostaje planem według [jednego właściciela statusu](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). Następny ograniczony zakres opisuje [brief przygotowania](../work-items/m06-acceptance.md).
+## Wersja i dowody
+Badany kod: `82395a3` na gałęzi `codex/verified-capabilities-plan`. Istniejące niezacommitowane zmiany dotyczyły dokumentacji kierunku projektu; audyt nie zmienia C++ ani formatów świata. Zachowano [log budowania](evidence/m06-preflight-2026-11-01/build-release.log), [log wybranych testów](evidence/m06-preflight-2026-11-01/ctest-release.log) i [manifest dowodów](evidence/m06-preflight-2026-11-01/manifest.json).
+
+docs/verification/material-delivery.md
+# Weryfikacja transferu i pierwszej dostawy
+Status: **ograniczony zakres techniczny zweryfikowany, z autonomicznym zwrotem nieprzypisanego ładunku i zmierzonym marginesem ASan; ograniczenia produktu pozostają**. Zakres, umowa i ograniczenia są w [planie przyrostu](../work-items/material-delivery.md). Nie jest to odbiór M04 ani ocena wygody przez człowieka.
+## Odtworzone problemy i przegląd
+Późniejszy [przyrost lokalnej wiedzy](local-station-knowledge.md) ma odrębny odbiór. Poniższe opisy braku komunikacji zachowują historyczny stan weryfikacji dostawy; nie zastępują nowszego modelu obserwacji i przekazu.
+
+docs/verification/motion-adversarial-audit.md
+# Audyt praktycznych przypadków nawigacji, kolizji i obrazu
+Aktualizacja po odbiorze: użytkownik potwierdził „Płynność teraz jest okej”. To akceptacja płynności tej wersji. Następnie zlecił [rozszerzenie ruchu i autonomii](../work-items/advanced-traversal.md); jego przyszłe zachowanie wymaga osobnej oceny, a poniższy raport zachowuje zapis wcześniejszego odbioru technicznego.
+Werdykt dla poprzedniej implementacji: **REQUEST CHANGES**, pewność **HIGH** dla odtworzonych przypadków. Po poprawkach: **APPROVE w opisanym zakresie technicznym**; ocena odczuć nowej wersji przez użytkownika pozostaje niewykonana. [Brief](../work-items/motion-adversarial-audit.md) określa zakres; poprzednie zaliczenie testów nie stanowiło pokrycia wszystkich praktycznych scenariuszy. Audyt całego wskazanego subsystemu i poprawki wykonano na zlecenie użytkownika. Użyto umiejętności code-review; nie wykonano niezależnej recenzji drugiego autora.
+## Wyniki przeglądu
+
+docs/verification/navigation-obstruction-recovery.md
+# Odbiór reakcji na blokadę ruchu
+Status: ZALICZONE w opisanym zakresie technicznym, 26 października 2026. [Zakres i dalsze zachowania społeczne](../work-items/navigation-obstruction-recovery.md). Nie jest to odbiór dowolnego tłumu, ocena komfortu przez użytkownika ani otwarcie M04.
+## Obserwacja i potwierdzone przyczyny
+Użytkownik przekazał trzy zrzuty postaci zmieniającej kierunek bez dojścia do celu, obok innego człowieka i kładki. Poprzednie okno zostało zamknięte bez zapisu; log `build/play-20261026-100025.log` zawiera normalne zakończenie, ale nie stan postaci. Nie odtworzono dokładnie tej sesji. Sama obecność człowieka na kładce może legalnie uniemożliwiać przejście; bezcelowe krążenie nie jest oczekiwanym ograniczeniem produktu.
+
+docs/verification/navigation-polish.md
+# Weryfikacja dopracowania prowadzenia do celu
+**Status: zakres techniczny ZALICZONY, 25.10.2026.** [Brief](../work-items/navigation-polish.md) określa zakres. Osobista ocena nowego odczucia przez użytkownika pozostaje otwarta; jego wcześniejsza akceptacja dotyczy bazowego M03.
+## Końcowy odbiór techniczny
+Przebudowano i sprawdzono wszystkie trzy konfiguracje, bez filtrów i pominięć w pełnych zestawach. [Manifest 40 plików](evidence/navigation-polish-sources.json) obejmuje źródła, konfigurację, testy, narzędzia i stary plik podróży. Zgodność SHA-256 sprawdzono po zakończeniu testów. Nie zmieniano potem kodu ani fixture.
+
+docs/verification/passage-logistics.md
+# Przejście, objazd i materialna naprawa — weryfikacja
+Status: **ograniczony zakres techniczny zweryfikowany** w pełnych konfiguracjach Debug/RelWithDebInfo/ASan, z natywną próbą D3D11 na MX330. [Brief](../work-items/passage-logistics.md) określa zakres SC-10 i części SC-14. Nie jest to odbiór M04 ani fizycznego rozpadu brył.
+## Wykonanie i dowody przed naprawami
+Testy C++ zapisano przed implementacją API. `evidence/passage-logistics/red-build.log` zachowuje oczekiwane błędy braku PassageOutcome, make_crossing_course i metod sesji; to czerwony dowód kompilacyjny, nie wykonana reprodukcja ruchu na dawnym kodzie. Pierwsze budowanie integracji odrzuciło również przypadkową deklarację w złym miejscu oraz shadowing przy /W4 /WX (`first-build.log`), bez wyciszania ostrzeżeń. Pierwszy runtime dał 8/9 (`first-runtime.log`): fixture step_refusal miała dwie osoby w tym samym miejscu. Poprawiono wyłącznie położenie nieuczestniczącej osoby; kryteria odmowy i ruchu pozostały.
+
+docs/verification/practice-in-prototype-review.md
+# Przegląd integracji praktyk
+Niezależny przegląd całego zakresu7f4aa87..198c30f, świeży kontekst GPT-6 Astra: **REQUEST CHANGES**, cztery Important, bez Critical i bez odłożonych Minor. Reviewer nie zmieniał źródeł ani nie uruchamiał pełnych zestawów testów.
+1. Własna próba przy24 otrzymanych obserwacjach była przyjmowana, a dopisanie wyniku przekraczało pojemność pamięci. Regresja `practice.evidence_capacity` odtwarza trzech świadków po8 pomiarów, fizyczne przekazy i odmowę25. wyniku bez zużycia energii ani konfiguracji.
+2. Zapis pozwalał usunąć WORKING z trwającej konserwacji. `practice.forged_work` zmienia wyłącznie ten rekord i checksum; odczyt musi transakcyjnie odmówić, zachowując ochronę wykonawcy i zajętość urządzenia.
+3. Rozmowa mogła zakończyć się na innej podporze niż zapisana na początku i stworzyć stan nieczytelny po odtworzeniu. `practice.contact_support` naprawdę przeprowadza dwie osoby przez dwa równoległe przejścia i rozpoczyna przekaz przed wspólną zmianą podparcia. Pierwszy zakres wymaga utrzymania zapisanej nieruchomej podpory; zmiana przerywa przekaz.
+
+docs/verification/practice-in-prototype.md
+# Uczenie i konserwacja w prototypie
+**Status: zakres techniczny ukończony i zweryfikowany; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Nie zamyka M05 ani M06. Kierunek i kolejność określa [jeden plan](../prototype-plan.md), zakres [projekt przyrostu](../work-items/practice-in-prototype.md).
+## Co działa
+W `reality_traversal --community --learning` działa osiem dotychczasowych osób, te same dostawy, potrzeby, geometria i zegar. Dwie osoby mają dodatkowe zadanie: przy konserwacji muszą poznać użyteczne ustawienie aparatu. Własny pomiar ogranicza konkurencyjne wyjaśnienia. Mieszkaniec wybiera kolejną próbę i może użyć metody, gdy pozostałe modele zgodnie przewidują potrzebny wynik. Nie czeka obowiązkowo na osiem prób.
+
+docs/verification/retained-world-navigation-stall.md
+# Naprawa odzyskiwania dojścia przy blokadzie
+Status: naprawa nieaktualnej trasy i ponowień ZALICZONA technicznie. Pełne profile i końcowa kontrola okna przeszły. Zakres określa [zlecenie](../work-items/retained-world-navigation-stall.md). Naprawa nie oznacza zakończenia M04 ani rozwiązania społecznego konfliktu przy rampie.
+## Przyczyna i zmiana
+Zachowana migawka przy 6938 odtwarza krążenie osoby 7. Ślad przed naprawą (`build/stall-before-trace.log`) pokazuje ruch i wzrost `plans` z 29 do 33, 37 i dalej przy tym samym odcinku. Odzyskiwanie jednak się uruchamiało; początkowa hipoteza, że nie może się uruchomić przez zerowane `blocked_ticks`, nie wyjaśniała całego przypadku. Po nieudanym `choose_approach` pozostawała stara trasa Found. To jest potwierdzony defekt.
+
+docs/verification/reusable-capacity.md
+# Odbiór wielorazowej pojemności
+Data: 2026-10-26. Zakres: [brief](../work-items/reusable-capacity.md). Odbiór techniczny tego przyrostu: zaliczony. Nie jest to odbiór M04.
+## Reprodukcja i implementacja
+Przed zmianą test `traversal.reusable_rest` odtworzył brak ponownego wykorzystania miejsca odpoczynku po zapisie: `rest place was not reusable after load`. Dowód: `build/capacity-before-tests.log`. Nie zmieniono kryterium dwóch kolejnych ukończeń ani bilansu.
+
+docs/verification/sc08-continuity-audit.md
+# Audyt ciągłości i błędów zapisu SC-08
+**Status: aktualny zakres SC-08 dla prototypu zweryfikowany, 29.10.2026.** Baza 1f620fc. [Plan audytu](../work-items/m05-continuity-audit.md), [zbiorczy wynik M05](m05-acceptance.md). Audyt nie zmienia kodu C++, formatów ani progów. Nie stwierdzono luki wymagającej naprawy silnika.
+## Kontrakt i przypisanie dowodów
+Właścicielem stanu fizycznego, zasobów i dziennika komend pozostaje WorkWorld; TraversalSession posiada ruch, wiedzę, praktyki, zlecenia i historię. INV-05 chroni skutek najwyżej raz, INV-12 spójną kontynuację i ostatni poprawny świat. Porównujemy pełne bajty na tym samym stosie Windows/MSVC, bez obietnicy bitowej identyczności innych platform.
+
+docs/verification/traversal-command-hardening.md
+# Naprawa poleceń i przejść w torze przestrzennym
+Data: 2026-10-26. Zakres: [zatwierdzony brief](../work-items/traversal-command-hardening.md). Odbiór techniczny tego zakresu: zaliczony. Wszystkie poniższe wyniki pochodzą z wykonanych prób na bieżącym repozytorium.
+## Reprodukcje i implementacja
+Zachowano poprzedni raport `build/GENESIS-HARDENING-001.md` oraz jego logi. Przed poprawką cztery testy dawały porażkę: `supersede_pending_goal`, `supersede_pending_stop`, `release_passage_ownership` i nowy `manual_touching_departure`. Dowód: `build/traversal-hardening-fixes-before.log`. Pierwsze dwa pozostawiały stare odroczone polecenie, trzeci pozostawiał właściciela mimo rzeczywistego wyjścia, czwarty zatrzymywał ręczny ruch przed stykiem współpłaszczyznowych płyt.
+
+docs/verification/traversal-multi-actor.md
+# Praktyczny audyt toru przestrzennego wielu postaci
+Data: 2026-10-26. Zakres: [zatwierdzony brief](../work-items/traversal-multi-actor.md), na podstawie [propozycji użytkownika](../../traversal-multi-actor-audit.md). Odbiór techniczny opisanego zakresu: zaliczony. Dostarczona specyfikacja pozostaje zachowana; poniżej rozdzielamy wykonane próby, korekty założeń i granice dowodu.
+## Reprodukcje
+Na kodzie sprzed napraw nowy zestaw 11 przypadków dał 4 PASS i 7 FAIL: przeciwne kierunki na kładce, wymiana pasażerów, powtarzanie podejścia, ręczne hamowanie, obracająca się podpora, stan zajętego celu i uszkodzony zapis. Dowody: `build/multi-audit-before-tests.log`, `build/multi-audit-before-console.log`. Przechodziły pierwsze próby pojedynczego stoku, czterech mijających się postaci, 400 kroków sceny oraz podziału czasu. Przejście tych prostszych prób nie dowodziło braku błędów.
+
+docs/verification/witness-property-law.md
+# Weryfikacja świadka, informacji i prawa
+Status: **ograniczony zakres techniczny ZALICZONY** — Debug/Release/ASan, D3D11 na MX330, format, dokumentacja i niezależny review. Stan na 27.10.2026. [Projekt przyrostu](../work-items/witness-property-law.md) i [model](../traversal-autonomy.md#świadek-własność-i-legalna-obsługa) określają ograniczony zakres SC-05, INV-07, INV-08 i INV-06. Nie jest to odbiór całego M04.
+## Rzeczywisty przyrost
+Nieautoryzowane pobranie na miejscu wykonuje tę samą operację WorkWorld::transfer i zasila prawdziwe actor.cargo. Chroniona partia należy do opiekuna w WorkWorld; reguła sesji odróżnia opiekuna, mieszkańców i przypisanego kuriera Deliver. Brak legalności nie jest błędem integralności ani fizyczną odmową transferu. Nie zmieniono formatu WorkWorld, kosztów, typów materiałów, wspólnych ID komend ani dwuetapowego testu dawnej dostawy.
+
+docs/work-items/advanced-traversal.md
+# Rozszerzenie ruchu, geometrii i autonomicznego planowania
+Status: w realizacji na zlecenie użytkownika. Użytkownik zaakceptował płynność poprzedniej wersji i wyjaśnił, że platformy oznaczają podesty, kładki, poziomy i ruchome konstrukcje, nie porty na inne systemy operacyjne.
+## Cel i kolejność
+Rozszerzamy fundament M03 i wdrażamy rzeczywistego konsumenta autonomicznego wyboru zadań. Plan M00–M06 pozostaje; odbiór małej sceny autonomii nie oznacza zaliczenia całej społeczności M04. Kolejność zależności:
+
+docs/work-items/autonomy-need-fallback.md
+# Autonomia po niedostępności pilnego celu
+Status: wykonano i zweryfikowano ograniczony zakres; [raport](../verification/autonomy-need-fallback.md). Kontynuacja zatwierdzonego rozszerzenia ruchu i autonomii, bez odbioru całej społeczności.
+## Cel i zakres
+Wyboru zadania w `TraversalSession` nie może blokować jeden rodzaj potrzeby, którego znane cele są chwilowo niedostępne. Głód zachowuje pierwszeństwo przed zmęczeniem, ale po fizycznym stwierdzeniu braku jedzenia i w czasie zapamiętanego terminu ponowienia postać może wybrać potrzebny odpoczynek. Tak samo brak fizycznej trasy do jedzenia pozwala rozważyć odpoczynek. Nie tworzymy żywności, nie odczytujemy zapasów na odległość i nie przerywamy rozpoczętego kroku, przejazdu ani czynności dla tego wyboru.
+
+docs/work-items/diagnostics-needs-hardening.md
+# Domknięcie diagnostyki i bezpieczne przerywanie potrzeb
+Status: zakres zrealizowany i zweryfikowany według [raportu](../verification/diagnostics-needs-hardening.md). Otwarta [stagnacja w zachowanym świecie](retained-world-navigation-stall.md) wymaga rozstrzygnięcia przed dostawami. Praca na polecenie użytkownika „Rozpocznij”, po rekomendacji domknięcia znanych zaległości przed transferem i dostawą. Zachowujemy własny silnik, dotychczasowe testy, zapis WorkWorld i kontrolę gracza. Bez commitów, resetów i delegowania pracy.
+## Projekt i kontrakt
+Inspektor Win32 ma rozdzielać rekordy CRLF na granicy widoku, bez zmiany tekstu świata. Migawka alarmu ma reagować na nowo podejrzaną postać, niezależnie od alarmu innej; globalny limit ośmiu automatycznych prób na uruchomienie i niezależny F6 zostają.
+
+docs/work-items/discovery-learning-experiment.md
+# Odkrycie zależności, generalizacja i przekaz — projekt pierwszego eksperymentu
+**Status: protokół ZATWIERDZONY przez użytkownika, zapisany przed implementacją i próbą.** Data zatwierdzenia: 27.10.2026. Po przedstawieniu projektu użytkownik odpowiedział „Tak” na zatwierdzenie protokołu jako podstawy implementacji i wykonania próby. Poniższe szczegóły są wyborami inżynierskimi autora zatwierdzonymi do realizacji, a nie uzyskanymi wynikami. [Plan wykonania](discovery-learning-implementation.md) i [raport](../verification/discovery-learning-experiment.md) wskazują bieżący stan bez zmiany kryteriów.
+Dokument jest właścicielem protokołu `discovery-v1`, zatwierdzonego przed implementacją. Kontekst i źródła posiada [program badań](../research-agenda.md), a sposób rozdzielenia planu i wyniku wskazuje [szablon eksperymentu](../templates/experiment-record.md). Nie zastępuje [planu etapów](../prototype-plan.md) ani historycznych raportów. Nie jest nową bramką zaliczonego M04. Bieżący zakres kodu opisuje [API](../discovery-learning.md), a rzeczywiste kontrole i wyniki [raport](../verification/discovery-learning-experiment.md); poniższy opis pozostaje kryteriami zapisanymi przed próbą.
+## Pytanie i zakres twierdzenia
+
+docs/work-items/discovery-learning-implementation.md
+# Discovery learning implementation plan
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox syntax for tracking. Implementacja w bieżącej gałęzi jest autoryzowana zatwierdzeniem protokołu przez użytkownika; nie wymaga ponownego wyboru metody wykonania.
+**Goal:** Wykonać zatwierdzony eksperyment D/G/S, zachowując również wynik negatywny.
+**Architecture:** Aparatura posiada energię i skutki impulsów; agent posiada wyłącznie pomiary i hipotezy; sesja komponuje je z rzeczywistą TraversalSession. Konsument C++ wykonuje przypadek, a narzędzie Python tworzy/zamraża manifest i analizuje porównania parami. Sędzia i generator pozostają poza interfejsem agenta.
+
+docs/work-items/discriminating-experiment.md
+# Doświadczenie rozdzielające wyjaśnienia — protokół discrimination-v1
+**Status: zakres wykonania zlecony przez użytkownika 28.10.2026; szczegóły poniżej są decyzjami autora zapisanymi przed nową próbą.** Audyt starej aparatury jest analizą skończonego języka, nie wynikiem nowego zbioru potwierdzającego. [Plan wykonania](discriminating-implementation.md) i późniejszy raport oddzielają implementację od wyników. Dawne protokoły i ich negatywne wyniki pozostają bez zmian.
+## Cel i podejścia
+Użytkownik zlecił audyt rozróżnialności, następny eksperyment z konkurencyjnymi wyjaśnieniami i samodzielnym wyborem interwencji, równe możliwości/budżety, oddzielną ocenę oraz zastosowanie i przekaz zdolności w jednym zadaniu mieszkańca.
+
+docs/work-items/discriminating-implementation.md
+# Wykonanie discrimination-v1
+**Status: UKOŃCZONE; wynik I/A dodatni, T negatywny opisuje [raport](../verification/discriminating-experiment.md).**
+**Spec:** [protokół](discriminating-experiment.md). **Cel:** audyt, uczciwa próba A/R i jedna konserwacja przejmowana przez drugiego mieszkańca. Wykonanie w obecnym checkout na gałęzi `codex/discriminating-experiments`; bez nowej fizyki, zależności i zmiany starych protokołów. Zlecenie użytkownika obejmuje wykonanie; parametry są decyzjami autora.
+## Global constraints
+
+docs/work-items/hypothesis-building-experiment.md
+# Budowanie i sprawdzanie wyjaśnień — projekt drugiego eksperymentu
+**Status: protokół ZATWIERDZONY do implementacji i wykonania; kryteria zapisane przed próbą.** 27.10.2026 użytkownik napisał: „Tak, zatwierdzam ten protokół do implementacji i wykonania”. Szczegóły poniżej są zatwierdzonymi wyborami autora, a nie wynikami. Identyfikator protokołu: `hypothesis-v1`. [Plan implementacji](hypothesis-building-implementation.md) śledzi wykonanie bez zmiany kryteriów, a [bieżące API](../hypothesis-building.md) wskazuje stan i dowody.
+Dokument jest właścicielem proponowanej metody. [Program badań](../research-agenda.md) wskazuje kontekst, [pierwszy protokół](discovery-learning-experiment.md) pozostaje zamrożony, a jego [raport](../verification/discovery-learning-experiment.md) zachowuje wyniki i ograniczenia. [Przegląd projektu](../verification/hypothesis-building-design.md) zapisuje pytania recenzenta i rozstrzygnięcia autora. To osobny przyrost badawczy, bez zmiany odbioru M04 i bez otwierania całego M05/M06.
+## Pytanie i możliwe odpowiedzi
+
+docs/work-items/hypothesis-building-implementation.md
+# Implementacja hypothesis-v1
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
+**Goal:** Wykonać zatwierdzony eksperyment budowania wyjaśnień, zachowując prawdziwe pomiary i wszystkie wyniki.
+**Status: wykonano.** [Raport](../verification/hypothesis-building-experiment.md) zachowuje niespełnione kryteria H/A, pełne kontrole, dane i historyczne porażki. Techniczna gotowość nie zastępuje wyniku naukowego.
+
+docs/work-items/learning-cost.md
+# Koszt konstrukcji i odtwarzania uczenia
+Status: naprawa zweryfikowana technicznie, 29.10.2026; baza f9fe6d7.
+Cel: usunac wykazana przyczyne przekroczen czasu two_methods.fresh/native i practice.native. Zachowac wszystkie kroki, asercje, limity procesu 8/18 s i CTest 20 s. WorkWorld, ruch, wiedza, liczba modeli, kolejnosc kanoniczna, koszty badawcze i historyczne bajty pozostaja niezmienne.
+Zakres po diagnozie: rzeczywisty goracy kod research/contrast_agent, hypothesis_program albo konsumenci PracticeState; testy roznicowe i regresje budzetow, raport oraz jeden plan. Bez nowej bramki M04 i bez zmiany protokolow badan.
+
+docs/work-items/local-clearance.md
+# Lokalna prośba o ustąpienie przy rozpoczętym Step
+Status: ZALICZONE technicznie według [raportu](../verification/local-clearance.md); zakres nie kończy M04. Użytkownik polecił kontynuować po wskazaniu rzeczywistej blokady osoby 6. Zachowujemy dotychczasowe prace, bez commitów i nowych zależności. Stosujemy brainstorming/writing-plans, TDD i osobny review. To mała współpraca, bez reputacji, agresji lub dowolnego planowania tłumu.
+## Cel i granice
+Postać z fizycznie rozpoczętym i blokowanym Step może lokalnie poprosić blokującego o miejsce. Odbiorca odpowiada sam: zgoda tylko dla autonomicznego, stojącego NPC bez rozpoczętej czynności, Step, transportu, manewru lub własności wąskiego przejścia. Postać sterowana ręcznie odmawia i nie otrzymuje obcego celu. Brak bezpiecznej trasy na bok jest odrębną odmową. Prośba nie upoważnia do kolizji, teleportacji lub odwołania rozpoczętej czynności.
+
+docs/work-items/local-station-knowledge.md
+# Lokalna wiedza o stanowiskach
+Status: ograniczony przyrost techniczny zrealizowany i zweryfikowany 27.10.2026. Poniżej zachowano projekt i kolejność wykonania; rzeczywiste wyniki oraz ograniczenia są w [raporcie](../verification/local-station-knowledge.md). To część wejścia w M04, nie odbiór etapu.
+## Cel, kontrakty i wybór rozwiązania
+INV-08, SC-05 i część SC-14: postać wybiera według lokalnej wiedzy, może się mylić i weryfikuje ją fizycznie. Zachowujemy INV-01–INV-06, INV-09–INV-12, ENG-03, ENG-09 oraz istniejące reguły dostawy i bezpiecznych przerwań.
+
+docs/work-items/m00-build-and-diagnostics.md
+# Brief pierwszego przyrostu C++ — etap M00
+Status: wykonane w opisanym zakresie; [dowód](../verification/m00-build-and-diagnostics.md). Cel: wykonać M00 z [planu](../prototype-plan.md) i rozpocząć implementację, bez udawania gotowego świata.
+## Zakres
+CMake, presety MSVC x64, ostrzeżenia, kontrola stylu, build zwykły i AddressSanitizer. Minimalnym rzeczywistym konsumentem rdzenia jest program konsolowy wykonujący jawnie zadaną liczbę kroków zegara. Nie powstają puste moduły renderera, populacji, fizyki ani nawigacji.
+
+docs/work-items/m01-identity-actions-reservations.md
+# Brief tożsamości, czynności i zasobów — etap M01
+Status: wykonane w opisanym zakresie; [raport weryfikacji](../verification/m01-identity-actions-reservations.md). Zakres wynika z M01 oraz INV-01, INV-03, INV-04, INV-05, INV-06, INV-11 i INV-12.
+## Kontrakt przed implementacją
+- ID są monotoniczne w obrębie kontynuowanego świata, nigdy ponownie wydawane. Nie są globalnymi GUID między niezależnymi światami. Uchwyty zawierają slot i generację; usunięcie i ponowne użycie slotu unieważnia stary uchwyt.
+
+docs/work-items/m02-window-laboratory.md
+# Brief okna i sceny laboratoryjnej — etap M02
+Status: wykonane i zaliczone, autoryzowane przez użytkownika po propozycji M02. [Raport końcowy](../verification/m02-window-laboratory.md) obejmuje pełne testy oraz diagnostykę GPU. Kontrakty: INV-02, INV-03, INV-04, INV-05, INV-11, INV-12 i INV-16; odbiór obsługiwanego zakresu SC-11 oraz regresji M01.
+## Zakres przed kodem
+Własne okno Win32, renderer D3D11, proceduralna statyczna scena, kamera orbitalna, zaznaczanie, standardowe kontrolki Windows i inspektor. Dwa znaczniki wykonawców i jedna partia są prezentacją domeny M01. Ich rozmieszczenie nie jest jeszcze pozycją fizyczną w świecie. Rezerwacja, rozpoczęcie, przerwanie, zużycie i zapis przechodzą przez rzeczywisty WorkWorld; renderer nie mutuje domeny.
+
+docs/work-items/m03-motion-navigation.md
+# Brief ruchu, kolizji i nawigacji — etap M03
+Status: implementacja, odbiór techniczny i ocena użytkownika wykonane; M03 zaliczony w obsługiwanym zakresie z uwagami rozwojowymi dotyczącymi reakcji na cel, płynności, szybkości i naturalności ruchu. [Raport](../verification/m03-motion-navigation.md#ocena-użytkownika) zawiera wyniki, dowody i granice akceptacji. Zależności M01 i M02 są zaliczone. Kontrakty: INV-01, INV-02, INV-03, INV-09, INV-10, INV-11, INV-12 i INV-16. Odbiór: SC-06, SC-07, ruch i wejście z SC-11, kontynuacja z SC-08 w obsługiwanym zakresie oraz regresje wcześniejszych etapów.
+## Zakres przed implementacją
+Własny kontroler kinematyczny na płaskim podłożu y=0, prostokątny obrys osiowo ustawionej postaci, jawna wysokość, nieruchome bryły osiowo ustawione i ograniczenia obszaru. Ciągły sweep punktu przeciw bryle rozszerzonej o obrys wykonawcy zapobiega przeskakiwaniu przez cienkie przeszkody. Do czterech kontaktów na ruch, zatrzymanie i ślizg; jawny wynik po wyczerpaniu budżetu. Początkowe nałożenie lub pozycja poza obszarem jest odrzucana, bez automatycznego przenoszenia. Kontakt ma margines 0,000001 m; testy pozycji używają tolerancji 0,000002 m. Wartości niefinitywne i niedozwolone rozmiary są błędem.
+
+docs/work-items/m04-acceptance.md
+# Audyt i odbiór istniejącego M04
+Zlecenie użytkownika 27.10.2026: domknąć techniczne sprawdzenia istniejącej całości, naprawić wykazane defekty i przygotować próbę człowieka. Bez automatycznego odbioru przez człowieka, bez rozszerzania etapu o całe sądownictwo, nowe AI, solver lub produkcję. Zmiany pozostają bez commitu do osobnego polecenia.
+## Wybór i kontrakt
+Rozszerzenie istniejącej sceny przeprawy o osiem osób, odpoczynek i regułę własności pozwala połączyć już istniejące subsystemy w jednej sesji. Osobne kolejne dema nie dowodzą tej integracji; projekt nowej gospodarki wykracza poza zlecony odbiór. Używamy wspólnego WorkWorld/TraversalSession, tej samej fizyki i zapisu wersji 7, bez nowego stanu symulacji lub bibliotek.
+
+docs/work-items/m04-entry-design.md
+# Wejście w M04: zakres zatwierdzonego kierunku
+Użytkownik 26.10.2026 polecił rozpocząć pracę według rekomendacji: ograniczone domknięcie ruchu, rzeczywista dostawa między osadami, minimalne rozwiązywanie konfliktu i osobisty udział gracza. To zgoda na ten kierunek i jego wykonanie etapami, bez zmiany planu M00–M06. Ten dokument nie stwierdza implementacji przyszłych części.
+Rozważone kierunki: dalsza samodzielna rozbudowa fizyki daje większy zakres geometrii, lecz odkłada sprawdzenie gry; samodzielna rozbudowa negocjacji daje zachowania społeczne bez realnego celu; wybrany mały fragment dostawy wiąże technologię z konsekwencją dla mieszkańców. Rozwój pozostaje na własnym C++20/Win32/D3D11, bez nowych bibliotek fizyki lub AI.
+## Pierwszy przyrost: obserwacja postępu i odbiór ruchu
+
+docs/work-items/m04-entry-observability.md
+# Obserwacja ruchu przed dostawą — plan wykonania
+Status: wykonano pierwszy przyrost; [raport wyników i ograniczeń](../verification/m04-entry-observability.md). Użytkownik zatwierdził kierunek i polecił rozpocząć realizację; wykonanie samodzielne w dotychczasowym katalogu. Przygotowanie dostawy ma osobny [projekt transferu materiału](material-transfer-design.md), bez deklaracji wdrożenia.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
+**Goal:** rzeczywista diagnostyka postępu i lokalne reprodukcje oraz pomiar pracy obecnej sceny przed rozbudową dostawy.
+
+docs/work-items/m05-continuity-audit.md
+# Audyt SC-08 i zamknięcie M05 — plan wykonania
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+**Goal:** przypisać dowody SC-08 i sporządzić zbiorczy raport M05 z rzeczywistą deklaracją użytkownika.
+**Architecture:** audyt istniejących WorkWorld/TraversalSession i wspólnego write_snapshot_atomic, bez zmiany formatu, zachowania silnika lub progów. Istniejące runnery i systemowy uchwyt Windows służą do zachowanej próby odmowy podmiany pełnego zapisu.
+
+docs/work-items/m05-distant-delivery.md
+# Jeden przewóz w dwóch reprezentacjach
+**Status: kurs zweryfikowany technicznie po [naprawie kosztu uczenia](../verification/learning-cost.md), 29.10.2026.** Użytkownik zatwierdził rozpoczęcie SC-09 po sytuacji dwóch metod. To przyrost [M05](../prototype-plan.md), bez zamknięcia całego etapu. Punkt wyjścia: `2e096b0`. [Raport](../verification/m05-distant-delivery.md) zachowuje wcześniejsze wyniki i przekroczenia czasu.
+## Cel i kontrakt
+Jeden rzeczywisty kurier i jego fizyczna partia opuszczają aktywny obszar. W dalekiej reprezentacji upływa czas i postępuje podróż; lokalny kontroler nie wykonuje ruchu tej samej osoby. Powrót zachowuje ID, ładunek, wiedzę i zobowiązania, a dostawę wykonuje zwykły fizyczny transfer. Kamera poza ekranem nie jest migracją.
+
+docs/work-items/m05-story-design.md
+# Historia zaopatrzenia po zmianie świata
+**Status: projekt zatwierdzony 29.10.2026; zakres techniczny wdrożony i zweryfikowany — [raport](../verification/m05-story.md).** Baza: `5462279`. Zakres realizuje SC-13 i INV-15 w [jednym planie](../prototype-plan.md) oraz [strategii testów](../testing-strategy.md#sc-13--historia-po-zmianie-świata). Odbiór całego M05 pozostaje osobny.
+## Cel i wybór podejścia
+Jedna autorska historia w obecnej aplikacji ma respektować rzeczywiste osoby, geometrię i materiał. Zmiana świata przed rozpoczęciem rozmowy daje określoną odmowę lub zakończenie. Zwykły wariant kończy się dopiero po fizycznej dostawie i posiłku. Nie przywracamy oczekiwanej osoby, miejsca lub zapasu.
+
+docs/work-items/m05-story-implementation.md
+# Historia SC-13 — plan wykonania
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox syntax for tracking.
+**Goal:** jedna rzeczywista historia dostawy, która reaguje na usunięcie rozmówcy/miejsca i przeniesienie zapasu.
+**Architecture:** opcjonalny StoryState w TraversalSession. Historia posiada role po ID i postęp; WorkWorld zachowuje materiał/komendy, geometria zachowuje miejsca, istniejące kontrolery wykonują ruch i potrzeby. Jeden pion integracyjny obejmuje domenę, kodek i aplikację, ponieważ ich kontrakty muszą zostać odebrane razem.
+
+docs/work-items/m05-two-methods.md
+# Dostawa przez naprawione przejście albo objazdem w M05
+**Status: technicznie ukończone i zweryfikowane 29.10.2026; odbiór użytkownika nowej sytuacji niewykonany.** Użytkownik polecił rozpocząć ten przyrost po akceptacji obecnego uczenia 28.10.2026. Właścicielem kolejności i pełnego zakresu M05 pozostaje [jeden plan](../prototype-plan.md). Wyniki i ograniczenia podaje [raport](../verification/m05-two-methods.md).
+## Cel i granica
+W istniejącej społeczności ośmiu osób dostarczyć osiem jednostek żywności na drugi brzeg: po poznaniu metody i rzeczywistej naprawie mostu albo istniejącym promem. Obie metody muszą działać fizycznie, mieć koszt i czas oraz zostawiać różny stan świata. To ograniczony zakres SC-10 oraz kontynuacji SC-08, bez migracji reprezentacji SC-09 i pełnej historii SC-13.
+
+docs/work-items/m06-acceptance.md
+# Przygotowanie odbioru M06
+**Status: zakres techniczny wykonany i zweryfikowany 02.11.2026; [raport końcowy](../verification/m06-acceptance.md).** Użytkownik odebrał fundament i wyłączył uczestników/grywalność z bramek M06. Etap i jego zależności określa [jeden plan](../prototype-plan.md#m06--odbiór-i-decyzja-o-skali). [Audyt gotowości](../verification/m06-preflight.md) wskazuje istniejące pomiary, wybrane sprawdzenia i konkretne braki. Dokument nie zmienia zakresu odbioru M05.
+## Cel najbliższego przyrostu
+Uzyskać porównywalny zapis zachowania i kosztu obecnej społeczności, pozwalający odróżnić sprawne działanie od bezczynności, niedoboru, utknięcia i narastającej zaległości. Kryteria interpretujemy według [strategii testów](../testing-strategy.md) i [budżetów](../performance-budget.md). Nowe możliwości konstrukcji, autonomiczne tworzenie zabaw i pełne 3D należą do późniejszego projektu.
+
+docs/work-items/m06-measurement-export.md
+# Plan implementacji eksportu próbek pomiarowych
+> Wykonanie: `executing-plans` i TDD, samodzielna implementacja oraz jeden niezależny przegląd całej zmiany.
+**Cel:** eksportować próbki czasu i pamięci z rozgrzewki oraz właściwego pomiaru, zachowując dotychczasowy raport i semantykę świata.
+**Architektura:** aplikacja posiada opcjonalny `MeasurementTrace`, niezależny od `RuntimeMetrics` obsługującego istniejące podsumowania. Eksport powstaje wyłącznie w nowym, jawnie wskazanym katalogu. Obserwator nie jest częścią zapisu świata i nie steruje mieszkańcami.
+
+docs/work-items/m06-technical-acceptance.md
+# Wykonanie odbioru technicznego etapu M06
+> Wykonanie: `superpowers:executing-plans`, zadania kolejno, jedna niezależna kontrola kodu na końcu.
+**Aktualizacja 02.11.2026:** Debug/Release 435/435, ASan 437/437 po jednej kontroli niezależnej i naprawach. Długi pomiar 120+1800 s oraz kontynuacja headless/natywna przeszły; [raport](../verification/m06-acceptance.md).
+**Cel:** wiarygodny fundament: poprawność, ciągłość świata, rzeczywisty postęp i kontrolowane dłuższe działanie aplikacji na laptopie użytkownika.
+
+docs/work-items/material-delivery.md
+# Rzeczywisty transfer i pierwsza dostawa
+Status: ograniczony zakres techniczny zrealizowany i zweryfikowany, w tym autonomiczny zwrot nieprzypisanego ładunku i dwuetapowy test dostawy pod ASan; pozostają jawne ograniczenia produktu i brak pełnego M04 opisane w [raporcie](../verification/material-delivery.md). Realizacja na bezpośrednie polecenie użytkownika, bez commitów, resetów lub nowych zależności. Plan według writing-plans, testy przed implementacją według TDD.
+## 1. Własność i transfer
+WorkWorld otrzymuje niezmienny MaterialTypeId (0 historycznie nieokreślony). Typowane materiały tego samego niezerowego typu można przekazać pomiędzy różnymi aktywnymi partiami; pojemność i nieokreślone typy są odmawiane. TransferRequest: wspólne CommandId, inicjator, źródło, cel, dodatnia ilość. Przyjęcie odejmuje i dodaje jednocześnie; odmowy obejmują niepoprawny payload, brak uczestnika, niedobór po rezerwacjach, typ i przepełnienie. Identyczne ponowienie zwraca pierwotny wynik, również odmowę, a inny payload lub kolizja z rezerwacją rzuca błąd bez mutacji.
+
+docs/work-items/material-transfer-design.md
+# Przygotowanie transferu materiału dla dostawy
+Status: historyczna propozycja techniczna sprzed implementacji. Bieżącą realizację i aktualne ograniczenia opisuje [material-delivery](material-delivery.md); poniższy opis stanu odnosi się do chwili przygotowania projektu. Nie jest alternatywnym planem etapów.
+## Co rzeczywiście jest w kodzie
+`WorkWorld` tworzy partię z niezmiennym właścicielem, ilością początkową, bieżącą ilością, stratą oraz rodzajem materiał/pojemność. Rezerwacja jest wyliczana z aktywnych czynności. Dla partii obowiązuje bilans początkowa = pozostała + zużyta + utracona. Nie ma transferu między partiami ani identyfikatora rodzaju materiału: żywność i materiał konserwacyjny są obecnie rozróżnione przez stanowisko konsumenta, nie typ zasobu domenowego.
+
+docs/work-items/motion-adversarial-audit.md
+# Audyt praktycznych przypadków ruchu i obrazu
+Status: zrealizowany technicznie, na zlecenie użytkownika po próbie dopracowania nawigacji. [Raport](../verification/motion-adversarial-audit.md) zachowuje odtworzone błędy, poprawki, pełne testy i ograniczenia; nowa ocena odczuć użytkownika pozostaje niewykonana. Cel: odtworzyć utknięcie po szybkiej zmianie celu, sprawdzić granice kolizji i usunąć skokowe wyświetlanie ruchu przed M04. Stosujemy przegląd całej wskazanej implementacji, nie fikcyjny diff repozytorium bez commitów.
+## Hipotezy do reprodukcji
+Poprawna pozycja przy ścianie może leżeć w komórce o zablokowanym centrum. Po nieudanym bezpośrednim odcinku dotychczasowy planer odrzuca wtedy cały cel. Podobny problem dotyczy celu blisko ściany. Druga postać nie należy do mapy A*, więc samo oczekiwanie może trwać bez końca mimo wolnego miejsca obok. Pozycje rysowane prosto ze stałego kroku 50 ms mogą wyglądać skokowo, niezależnie od płynności GPU. Skrajne współrzędne wymagają sprawdzenia różnicy dwóch poprawnych punktów, a nie walidacji wektora jak położenia.
+
+docs/work-items/navigation-obstruction-recovery.md
+# Odzyskiwanie ruchu po blokadzie
+Status: wykonano opisany zakres techniczny; [raport i granice odbioru](../verification/navigation-obstruction-recovery.md). Zlecenie po zgłoszeniu użytkownika z trzema zrzutami z 26 października 2026. Sesja została zamknięta bez zapisu, więc zrzuty są obserwacją objawu, nie dokładną reprodukcją stanu ani dowodem przyczyny.
+Cel: postać ma omijać nieruchomego sąsiada tam, gdzie istnieje dostępna trasa, a przy rzeczywistej blokadzie stabilnie oczekiwać i ponowić planowanie po jej zwolnieniu. Obracanie i drobny ruch bez postępu nie stanowią zaliczenia. Zachować cel gracza, fizyczną kolizję, kolejki, ograniczenie wiedzy do otoczenia i deterministyczną kontynuację.
+Zakres: sesja przestrzenna, jej planer powierzchniowy i diagnostyka, regresje w `tests/traversal_audit_tests.cpp`, rejestracja CTest oraz aktualna dokumentacja. Kontrakty INV-09, INV-10, INV-11, INV-12 i INV-16; scenariusze SC-06, SC-07, SC-08 i SC-11. Bez przebudowy fizyki, gotowej biblioteki tłumu i otwierania M04. Przed zmianą produkcji zachować kod bazowy oraz czerwony wynik.
+
+docs/work-items/navigation-polish.md
+# Dopracowanie prowadzenia do celu
+Status: implementacja i zakres techniczny ZALICZONE; [raport](../verification/navigation-polish.md) zawiera dowody i osobno otwartą ocenę nowego odczucia przez użytkownika. Przyrost po odbiorze M03 został zatwierdzony przez użytkownika. Cel: bezpośredniejsze trasy, przejmowanie nowego celu od bieżącej pozycji i stabilne zakończenie ruchu. M04 pozostaje następnym etapem. Nie zmieniamy prędkości 3 m/s, kroku 50 ms, zakresu fizyki, kamery ani autonomii.
+## Zakres i kontrakty
+Własne A* pozostaje czterokierunkową referencją najkrótszej drogi po siatce. Nowy rzeczywisty konsument planowania ruchu najpierw sprawdza bezpośredni odcinek; po wyszukiwaniu usuwa zbędne punkty tylko przez sweep całego obrysu i wysokości. Skracanie ma limit sprawdzeń, po którym zachowuje poprawny pozostały odcinek trasy. Nie obiecujemy najkrótszej drogi w przestrzeni ciągłej ani wygładzania krzywymi.
+
+docs/work-items/passage-logistics.md
+# Przejście, lokalna wiedza i odtworzenie logistyki
+Status: przyrost zrealizowany i zweryfikowany 27.10.2026; wyniki i ograniczenia są w [raporcie](../verification/passage-logistics.md). To kontrolowany zakres SC-10 i części SC-14, bez odbioru M04 ani fizycznego zawalenia konstrukcji.
+## Cel i wybór architektury
+Łańcuch: miejscowe zamknięcie lub zużycie konstrukcji → lokalne odkrycie/przekaz → rzeczywisty objazd promem z partią żywności → posiłek → materialna naprawa → ponowne korzystanie z kładki. INV-08/09/10/12/14/16 oraz wspólne reguły materiału i czynności pozostają wiążące.
+
+docs/work-items/practice-in-prototype-implementation.md
+# Plan wykonania praktyk w prototypie
+> **Dla wykonawcy:** uĹĽyj `superpowers:executing-plans`, wykonuj zadania po kolei, zapisuj dowody REDâ†’GREEN i postÄ™p. Realizacja bezpoĹ›rednio w tej sesji; jeden koĹ„cowy niezaleĹĽny przeglÄ…d.
+**Cel:** dziaĹ‚ajÄ…cy wariant wspĂłlnej spoĹ‚ecznoĹ›ci w oknie, z uczeniem, przekazem, konserwacjÄ…, obsĹ‚ugÄ… gracza i kompletnym zapisem.
+**Spec:** [projekt przyrostu](practice-in-prototype.md); kolejnoĹ›Ä‡ ustalona w [jednym planie](../prototype-plan.md). Polecenie uĹĽytkownika â€žKontynuujâ€ť rozpoczyna wykonanie pierwszego przyrostu, nie automatyczny odbiĂłr gry i nie implementacjÄ™ caĹ‚ego M05/M06 w jednym kroku.
+
+docs/work-items/practice-in-prototype.md
+# Odkrywanie i przekazywanie praktyk w prototypie
+**Status: zakres techniczny ukończony i zweryfikowany; obecne uczenie w prototypie zaakceptowane przez użytkownika 28.10.2026.** Użytkownik ustalił 28.10.2026 kolejność: wykorzystać eksperymenty w prototypie, ukończyć M05 i M06, następnie osobno zaprojektować przejście do pełnego 3D. Kolejność obowiązuje w [jednym planie](../prototype-plan.md); szczegóły poniżej są specyfikacją przyrostu, a rzeczywisty stan, wypowiedź użytkownika i ograniczenia podaje [raport integracji](../verification/practice-in-prototype.md). Wyniki badań pozostają w [raporcie](../verification/discriminating-experiment.md), bez zmiany ich kryteriów ani przypisywania im odbioru gry.
+## Co użytkownik ma zobaczyć
+W tej samej społeczności mieszkaniec ma rzeczywistą pracę do wykonania, ale nie zna potrzebnego ustawienia urządzenia. Podchodzi, próbuje, zapamiętuje wyniki i dobiera skuteczną konfigurację. Poprawny wynik pozwala rozpocząć konserwację, zużyć część i ukończyć pracę. Druga osoba zdobywa wiedzę przy spotkaniu i później potrafi użyć jej samodzielnie.
+
+docs/work-items/retained-world-navigation-stall.md
+# Stagnacja po kontynuacji długiego świata
+Status: naprawiono defekt wykonywania starej trasy; końcowa weryfikacja opisana w [raporcie](../verification/retained-world-navigation-stall.md). Ten przyrost oddzielił rzeczywistą blokadę Step od defektu starej trasy. Późniejsza [lokalna współpraca](../verification/local-clearance.md) odblokowuje ten zachowany przypadek. Ogólne konflikty tłumu i pełny odbiór przed dostawami pozostają osobnym zakresem. Nie jest dowodem matematycznej nieosiągalności celu ani dowolnego zakleszczenia.
+## Dowód
+Zapis końca wcześniejszego pomiaru przy kroku 6599 kontynuowano o 1000 kroków aktualną polityką potrzeb. Obserwator zgłosił osoby 2 (6885), 6 i 7 (6938), 8 (7352), ponownie 6 (7567). Większość później wykazała postęp. Dla osoby 7 końcowy raport przy 7599 nadal podaje ostatni postęp 6838 i 761 kroków stagnacji zamiaru, mimo chwilowej prędkości około 0,81 m/s. Nie przypisujemy przyczyny samemu głodowi, promowi ani lokalnemu omijaniu bez reprodukcji.
+
+docs/work-items/reusable-capacity.md
+# Wielorazowa pojemność stanowiska
+Status: wykonano i zweryfikowano ograniczony zakres; [raport odbioru](../verification/reusable-capacity.md). Kontynuacja fundamentu przed pełnym M04.
+Cel: odpoczynek zajmuje miejsce, nie zużywa go jak materiał. `WorkWorld` otrzymuje niezmienny rodzaj zasobu: materiał albo pojemność. Aktywna czynność rezerwuje wymaganą pojemność do zakończenia lub anulowania; nie może jej zużywać. Zniszczenie obiektu i usunięcie wykonawcy przerywają czynności istniejącą ścieżką. Bez osobnego mutowalnego licznika zajętości, replenishmentu i obejścia bilansów. Jedna czynność nadal używa jednego zasobu; jednoczesne wymaganie materiału i stanowiska pozostaje poza tym przyrostem.
+Zakres: domena `WorkWorld`, jej codec, konsument odpoczynku w `TraversalSession`, testy domeny i sesji oraz aktualna dokumentacja. Chronione kontrakty: INV-03, INV-04, INV-05, INV-06, INV-10, INV-12 i INV-16. API tworzenia zasobu zachowuje domyślny rodzaj materiału dla obecnych konsumentów. Rodzaj nie jest zmieniany po utworzeniu.
+
+docs/work-items/traversal-command-hardening.md
+# Naprawa odroczonych poleceń i własności przejść
+Status: wykonano i zweryfikowano ograniczony zakres naprawy na zlecenie użytkownika po GENESIS-HARDENING-001; [raport odbioru](../verification/traversal-command-hardening.md). Zakres obejmuje naprawę B i C, osobną reprodukcję blokady ręcznego przechodzenia między stykającymi się płytami oraz kontynuację po zapisie. Wcześniejsze dowody porażek pozostają zachowane.
+## Zasady zmiany
+- Najnowsza przyjęta komenda zastępuje poprzednią odroczoną komendę. Ponowienie bieżącego dokładnego celu usuwa odroczony cel/podejście/stop, zachowując bieżącą trasę, licznik planowań, prędkość i bezpieczne dokończenie kroku lub transferu.
+
+docs/work-items/traversal-multi-actor.md
+# Praktyczny odbiór toru przestrzennego wielu postaci
+Status: wykonano i zweryfikowano techniczny zakres po wyraźnej zgodzie użytkownika; [raport odbioru](../verification/traversal-multi-actor.md). Podstawa: weryfikacja i wdrożenie potwierdzonych napraw z [dostarczonego audytu](../../traversal-multi-actor-audit.md). Nie jest to odbiór M04 ani ocena komfortu przez użytkownika.
+Audyt pozostaje propozycją diagnoz i algorytmów, nie dowodem działania ani automatycznie normatywną implementacją. Najpierw zachowujemy reprodukcje. Zakres: kolejki kładki i promu, sterowanie i hamowanie, podparcie przy ruchu/obrocie, komendy, spójność zapisu i diagnostyka. Pliki produkcyjne zgodnie z audytem, a nowe przypadki w osobnym `tests/traversal_audit_tests.cpp`, by nie powiększać dotychczasowego runnera. Kontrakty: INV-02, INV-03, INV-09, INV-10, INV-11, INV-12 i INV-16; scenariusze SC-06, SC-07, SC-08, SC-11.
+Wspólne zapytanie lokalnego podparcia wymagało również `src/physics/spatial_geometry.hpp/.cpp`; współdzieli ono istniejący wzór zamiast tworzyć inną geometrię w module platform. Nawigacja przyjmuje opcjonalny widok stojących kapsuł, a sesja wyznacza kandydatów z lokalnego otoczenia. Bez nowego stanu zapisu i zależności.
+
+docs/work-items/witness-property-law.md
+# Świadek, informacja i prawo
+Zakres zlecony 27.10.2026: SC-05, INV-06, INV-07, INV-08 i INV-12. Przyrost nie kończy M04. Bez commitów.
+## Projekt i wybór
+Rozszerzamy istniejącą sesję, transfer, pamięć i kontakt F7. Alternatywa z kontrolą własności w WorkWorld blokowałaby fizyczną kradzież; globalna lista przestępców dla NPC łamałaby ograniczoną wiedzę. Wybrana reguła stanowiska wskazuje opiekuna, mieszkańców uprawnionych do pobrania i opcjonalnego kuriera (autoryzacja kuriera tylko podczas aktywnego Deliver z tego źródła). Jest to konfiguracja sceny, nie uprawnienie gracza do zmiany prawa.

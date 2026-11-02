@@ -1,0 +1,8 @@
+Independent read-only review: gpt-6-astra, base228ec17 current documentation tree. Verdict REQUEST CHANGES, high confidence. No mutation/build/native run/delegation.
+Critical:none.
+Important1: prototype-plan.md line5 retained a mandatory next3D project despite revised header/DEC019.
+Important2: missing -text for new raw-source directory; Git would normalize4 source files (CRLF counts299/296/122/342), breaking staged source hashes after checkout.
+Important3: testing-strategy.md line165 still included human ActionRPG observations in M03–M06.
+Minor temporal leftovers: development delivery in-progress; m05-two-methods brief pending user acceptance; M06 brief later3D project/next instrumentation already complete. Executor treats these as core consistency fixes requested by user, no deferred issue.
+Verified:97 old immutable document hashes unchanged,5 copied sources match original workspace/manifest hashes,579 changed Markdown local links/anchors checked with0 failures; essential AGENTS rules retained through explicit owners; architecture/testing first-line boundaries and research proposal conditionality correct; numerical historical results/negative outcomes preserved.
+Declined: engine behavior/re-running old benchmark, external paper/provider currency, full semantic truth of all917 ZIP text members, future publication/deletion results. Executor must verify live main equality, ancestry and exact remote leases; reviewer did not validate future operations.

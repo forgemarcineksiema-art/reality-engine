@@ -1,12 +1,14 @@
 # Architektura Reality Engine
 
-**Status: granice docelowe; wdrożono fundament M00, model M01, laboratorium M02 i ograniczony ruch M03.** Dowody oraz granice odbioru są w raportach etapów; kierunki produktu wynikają z [karty](project-charter.md), a status technologii z [decyzji](decisions.md).
+**Status: architektura wdrożonego fundamentu M00–M06 oraz odrębnie oznaczone docelowe odpowiedzialności.** [Raport M06](verification/m06-acceptance.md) zamyka pierwszy prototyp techniczny; dalszy kierunek pozostaje otwarty według DEC-019. Dowody oraz granice odbioru są w raportach etapów; kierunki produktu wynikają z [karty](project-charter.md), a status technologii z [decyzji](decisions.md).
 
 ## Wdrożony fundament
 
 [SimulationClock](../src/core/simulation_clock.hpp) jest małym współdzielonym modułem C++20. Ma dodatni stały krok w nanosekundach i jawny postęp. Odrzuca niedozwolony krok oraz przepełnienie przed zmianą stanu. Korzystają z niego [program konsolowy](../src/headless/main.cpp) i [testy](../tests/clock_tests.cpp). Nie jest schedulerem ani symulacją mieszkańców; nie zapisuje świata i nie korzysta z zegara ściennego.
 
 [Model czynności](work-domain.md) opisuje rzeczywiste `EntityRegistry`, `WorkWorld`, codec oraz zapis pliku. Domenowy świat jest jedynym właścicielem rezerwacji, czasu i skutków. Codec buduje osobnego kandydata przy odczycie; warstwa pliku izoluje Windows API. Konsumentem jest demo konsolowe i testy, w tym kontynuacja między procesami. Nie powstały jeszcze niezależne moduły EARTH, EVOLUTION ani pełny World.
+
+Wspólna `TraversalSession` łączy przestrzeń, potrzeby, fizyczny transfer, lokalną wiedzę, świadków i ograniczone prawo, praktyki, opcjonalną podróż daleką i historię. Jej aktualny kontrakt opisuje [model autonomii](traversal-autonomy.md), a [historia](story-scene.md) własny ograniczony stan. WorkWorld zachowuje własność zasobów i skutków. Diagnostyka oraz profil wykonania są obserwatorami bez prawa sterowania mieszkańcami. Odbiory M04–M06 nie dowodzą pełnego docelowego World, ogólnego streamingu lub większej skali.
 
 Pozostałe odpowiedzialności w tabeli są wymaganiami architektonicznymi, nie deklaracją implementacji. Narzędzia diagnostyczne oraz rzeczywiste komendy wskazuje [środowisko pracy](development.md).
 

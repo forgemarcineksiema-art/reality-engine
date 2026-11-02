@@ -4,9 +4,10 @@
 
 | Ryzyko / pytanie | Dlaczego ma znaczenie | Najbliższy sposób rozstrzygnięcia |
 | --- | --- | --- |
+| Kierunek po ukończonym prototypie | M00–M06 zamknięto; użytkownik nie wybrał następnego kroku, a pełne 3D nie jest ustalonym następnym projektem | Odrębna decyzja użytkownika według DEC-019; propozycje badań nie są automatycznie backlogiem |
 | Główna rola, kamera i szczegóły świata | Kierunek fantasy jest zatwierdzony; te szczegóły nadal określają treści i interakcje | Mała próba doświadczenia; granice w DEC-008 i DEC-011 |
 | Reguły magii i ekologia istot | Niespójne wyjątki mogą zniszczyć gospodarkę, wiedzę i trwałość | Najpierw określić warunki, koszt, ograniczenia i skutki; nie wdrażać jako warunku pierwszego prototypu |
-| Symulator bez dobrej przygody | Poprawna autonomia nie gwarantuje dobrego Action RPG | Próby ruchu, wyboru metody i konsekwencji w M03–M06 według projektu gry |
+| Symulator bez dobrej przygody | Poprawna autonomia nie gwarantuje dobrego Action RPG | Techniczny prototyp M00–M06 jest odebrany; atrakcyjność docelowej gry pozostaje osobnym przyszłym zagadnieniem, bez otwartej bramki M06 |
 | Częsta przemoc kontra trwała populacja | Utrata ludzi może usunąć gospodarkę i historie | Zaprojektować rytm, poddanie, leczenie oraz zastępowanie funkcji przed rozbudową walki |
 | Czas przygody kontra czas cywilizacji | Zbyt szybkie starzenie osłabia relacje, zbyt wolne ukrywa zmiany | Eksperyment z horyzontami i przyspieszaniem czasu |
 | Autonomia kontra stały obowiązek ratowania | Świat ma działać sam, a gracz potrzebuje przestrzeni | SC-14 oraz obserwacja doświadczenia |

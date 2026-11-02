@@ -2,7 +2,7 @@
 
 Data: 25.10.2026. Zakres: dokumentacja, archiwizacja oraz walidator dokumentów. Workspace bez historii Git; raport nie podaje identyfikatora commitu.
 
-To historyczny raport stanu sprzed implementacji M00. Aktualny stan i późniejszą weryfikację przedstawia [raport fundamentu C++](m00-build-and-diagnostics.md).
+To historyczny raport stanu sprzed implementacji M00. Późniejszy fundament opisuje [raport M00](m00-build-and-diagnostics.md), a aktualny status ukończonego prototypu [plan](../prototype-plan.md) i [raport M06](m06-acceptance.md).
 
 ## Wykonane zmiany
 

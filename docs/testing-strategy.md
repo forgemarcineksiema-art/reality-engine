@@ -1,28 +1,28 @@
 # Strategia testów i odbioru
 
-**Status:** normatywne wymagania oraz katalog rozwoju. M00 obejmuje zegar, CLI, narzędzia i początkowy zakres SC-15. M01 pokrywa SC-01 i SC-02 dla modelu wykonawca/partia/czynność oraz ograniczone części SC-03, SC-04 i SC-08 opisane niżej. M02 dodaje aplikację, a M03 geometrię, ruch, trasy i kontynuację podróży w opisanym zakresie. Aktualny odbiór ograniczonego M04 opisuje [audyt](verification/m04-acceptance.md); zakres M05 i jego akceptację opisuje [raport zbiorczy](verification/m05-acceptance.md). Pozostałe niezrealizowane części katalogu pozostają planem. Rzeczywiste komendy wskazuje [środowisko pracy](development.md).
+**Status:** normatywne wymagania oraz katalog rozwoju. M00 obejmuje zegar, CLI, narzędzia i początkowy zakres SC-15. M01 pokrywa SC-01 i SC-02 dla modelu wykonawca/partia/czynność oraz ograniczone części SC-03, SC-04 i SC-08 opisane niżej. M02 dodaje aplikację, a M03 geometrię, ruch, trasy i kontynuację podróży w opisanym zakresie. Aktualny odbiór ograniczonego M04 opisuje [audyt](verification/m04-acceptance.md); zakres M05 i jego akceptację opisuje [raport zbiorczy](verification/m05-acceptance.md). Techniczny M06 również ukończono: [raport](verification/m06-acceptance.md) zawiera SC-11/SC-12 i pełne profile. Cały pierwszy prototyp M00–M06 jest odebrany w opisanym zakresie. Niezrealizowane szersze warianty katalogu nie są zaległymi bramkami zamkniętego prototypu ani zatwierdzonym nowym backlogiem. Rzeczywiste komendy wskazuje [środowisko pracy](development.md).
 
 ## Obecny zakres domenowy
 
-Poniższa tabela zachowuje zakres fundamentu M01; późniejsze podróże, wiedza i integracja mają własne dowody niżej oraz w aktualnym audycie M04.
+Poniższa tabela zachowuje zakres fundamentu M01; późniejsze podróże, wiedza i integracja mają własne dowody niżej oraz w raportach M04, M05 i M06.
 
 [Testy C++](../tests/work_world_tests.cpp) i [integracja procesu](../tests/work_demo_integration.py) sprawdzają [model czynności](work-domain.md). [Raport M01](verification/m01-identity-actions-reservations.md) zawiera wykonane konfiguracje i dowody.
 
 | Scenariusz | Wdrożony zakres | Nadal niewykonane |
 | --- | --- | --- |
-| SC-01 | Recykling slotów, nieaktualny uchwyt, granice generacji/ID, zachowanie ID i liczników po zapisie | Streaming i zmiana reprezentacji |
+| SC-01 | Recykling slotów, nieaktualny uchwyt, granice generacji/ID, zachowanie ID i liczników po zapisie | Ogólny streaming; ograniczoną zmianę reprezentacji dodano później w SC-09 |
 | SC-02 | Konkurencja wykonawców, pełna partia, utrwalone sukcesy i odmowy, konflikt payloadu, skutek najwyżej raz | Pieniądze i płatności |
 | SC-03 | Przed rozpoczęciem i po zużyciu, usunięcie wykonawcy i partii, powtarzane przerwanie | Narzędzia i biologiczna śmierć; przed rezerwacją brak czynności do anulowania |
 | SC-04 | Zużycie, strata, niedobór, transfer typowanego materiału, kontrola bilansów, seria 100 operacji z seedem `0x4d3031` | Recepty i produkcja |
 | SC-08 | Rezerwacja/praca, uczenie, podróż/ładunek i oczekiwanie; nowe procesy, korupcja, wersje, dziennik i rzeczywista odmowa podmiany pełnego pliku; [audyt](verification/sc08-continuity-audit.md) | Awaria sprzętu, utrata zasilania i nagłe przerwanie procesu w trakcie zapisu |
 
-Są też granice czasu, limitów kolekcji i dziennika, kolejność równoczesnych terminów oraz porównanie skoku czasu z pojedynczymi krokami. Nie zaliczają pełnych przyszłych subsystemów. Nie wykonano testów współbieżności ani pomiaru wydajności symulacji.
+Są też granice czasu, limitów kolekcji i dziennika, kolejność równoczesnych terminów oraz porównanie skoku czasu z pojedynczymi krokami. Nie zaliczają pełnych przyszłych subsystemów. Nie wykonano testów współbieżności. Późniejszy pomiar aplikacji i aktualizacji symulacji opisuje odbiór M06.
 
 ## Obecny zakres okna i prezentacji
 
 M02 dodaje [testy laboratorium](../tests/lab_tests.cpp) i [test sprzętowy](../tests/lab_gpu_integration.py). Pokrywają część SC-11: rzeczywiste urządzenie, obraz, zmianę rozmiaru, minimalizację/powrót, komendy i zakończenie. Zapis i odczyt kontrolują również bilans M01. Własna kamera i wybór są sprawdzane niezależnie od rendererowego odczytu pikseli. Ruch oraz kolizje dodaje M03 opisany poniżej.
 
-Odczyt pikseli nie potwierdza rzeczywistego wejścia myszy: osobna próba Computer Use sprawdza kontrolki, scenę i skróty. Nie jest to ludzka ocena wygody gry. Nie ma benchmarku wydajności. Test `lab.hardware_gpu_integration` wymaga debug layer; po zainstalowaniu składnika Windows został zaliczony na MX330 w każdej konfiguracji. Zwykły `lab.hardware_gpu_standard` pozostaje odrębną próbą. Pełny Debug 45/45, RelWithDebInfo 45/45 i ASan 47/47 zaliczono bez wykluczania testów. Dowody zawiera [raport M02](verification/m02-window-laboratory.md).
+Odczyt pikseli nie potwierdza rzeczywistego wejścia myszy: osobna próba Computer Use sprawdza kontrolki, scenę i skróty. Nie jest to ludzka ocena wygody gry. Ten odbiór M02 nie zawierał benchmarku; późniejszy dłuższy pomiar jest w raporcie M06. Test `lab.hardware_gpu_integration` wymaga debug layer; po zainstalowaniu składnika Windows został zaliczony na MX330 w każdej konfiguracji. Zwykły `lab.hardware_gpu_standard` pozostaje odrębną próbą. Pełny Debug 45/45, RelWithDebInfo 45/45 i ASan 47/47 zaliczono bez wykluczania testów. Dowody zawiera [raport M02](verification/m02-window-laboratory.md).
 
 ## Obecny zakres ruchu
 
@@ -30,7 +30,7 @@ Odczyt pikseli nie potwierdza rzeczywistego wejścia myszy: osobna próba Comput
 
 Konsument sprawdza dojście objazdem, zmianę geometrii podczas ruchu, odmowę zamknięcia na postaci, lokalną blokadę przez drugiego wykonawcę, wznowienie po odblokowaniu, krótki impuls klawiatury, przekątną i wspólny czas. SC-08 rozszerzono o podróż z pracą M01, starą trasę, `NoPath` i `Waiting`, niepoprawną wersję oraz semantycznie sprzeczny plik z poprawną sumą kontrolną. Test akumulatora wstrzykuje błąd między krokami i sprawdza zachowanie nierozliczonego czasu.
 
-[Integracja sprzętowa M03](../tests/motion_gpu_integration.py) dodaje do SC-11 natywne krótkie/przytrzymane wejście, utratę aktywacji, ruch, wybór, resize i minimalizację. Dwa rzeczywiste procesy D3D11 kontynuują ten sam zapis i porównują wynik ruchu oraz pracy. Próbę rzeczywistego wejścia myszy i klawiatury przez Computer Use oraz wszystkie konfiguracje opisuje [raport M03](verification/m03-motion-navigation.md). [Ocena użytkownika](verification/m03-motion-navigation.md#ocena-użytkownika) akceptuje sterowanie, komfort i czytelność obecnego prototypu z uwagami do prowadzenia do celu oraz naturalności. Szersza próba graczy, SC-12 i autonomia SC-14 nadal pozostają niewykonane.
+[Integracja sprzętowa M03](../tests/motion_gpu_integration.py) dodaje do SC-11 natywne krótkie/przytrzymane wejście, utratę aktywacji, ruch, wybór, resize i minimalizację. Dwa rzeczywiste procesy D3D11 kontynuują ten sam zapis i porównują wynik ruchu oraz pracy. Próbę rzeczywistego wejścia myszy i klawiatury przez Computer Use oraz wszystkie konfiguracje opisuje [raport M03](verification/m03-motion-navigation.md). [Ocena użytkownika](verification/m03-motion-navigation.md#ocena-użytkownika) akceptuje sterowanie, komfort i czytelność obecnego prototypu z uwagami do prowadzenia do celu oraz naturalności. Ograniczoną autonomię SC-14 odebrano później w M04, a SC-12 w M06. Szerszej próby graczy nie wykonywano; decyzją użytkownika nie była bramką technicznego M06.
 
 Przyrost [prowadzenia do celu](verification/navigation-polish.md) zachowuje test BFS surowego A*, a oddzielnie sprawdza skróty: bezpośredni odcinek, znaną ścianę, szerokość, prześwit, budżet skracania i poprawny ogon trasy. Reprodukcje resetu identycznego celu i cofania do centrum po zmianie geometrii przed naprawą dawały porażkę. Testy dojścia i blokady chronią brak dryfu oraz kontynuację po odczycie. Sprzętowy test uruchamia także trzeci proces z rzeczywistym, chronionym SHA-256 zapisem podróży ze starego programu; nie generuje tego pliku nową implementacją.
 
@@ -162,7 +162,7 @@ Przed testem ustal asercje, tolerancje i warunek zakończenia. Zmiana tolerancji
 
 ## Status wyniku i raport
 
-Zmiana fikcji według DEC-008 nie kasuje scenariuszy technicznych. Magia, potwory i rozbudowana walka nie są wymagane w pierwszym prototypie; ich przyszłe testy powstają wraz z właściwymi kontraktami. Projekt Action RPG wymaga osobnych obserwacji człowieka wskazanych w [projekcie gry](game-design.md#ocena-gry), włączonych w M03–M06. Wynik obrazu, bilansów albo autonomii nie dowodzi sam w sobie satysfakcji z przygody.
+Zmiana fikcji według DEC-008 nie kasuje scenariuszy technicznych. Magia, potwory i rozbudowana walka nie są wymagane w pierwszym prototypie; ich przyszłe testy powstają wraz z właściwymi kontraktami. Historyczne oceny użytkownika M03–M05 pozostają zapisane w raportach. M06 odebrano jako fundament techniczny, bez bramki uczestników i grywalności. Ewentualne przyszłe obserwacje dla Action RPG opisuje [projekt gry](game-design.md#ocena-gry); nie są zaległym wymaganiem zamkniętego prototypu. Wynik obrazu, bilansów albo autonomii nie dowodzi sam w sobie satysfakcji z przygody.
 
 Dozwolone statusy: ZALICZONE, NIEZALICZONE, NIEWYKONANE, ZABLOKOWANE, NIE DOTYCZY z uzasadnieniem. Obowiązkowego testu nie można oznaczyć NIE DOTYCZY tylko dlatego, że brakuje narzędzia. Skorzystaj z [raportu](templates/verification-report.md).
 

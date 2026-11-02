@@ -1,6 +1,6 @@
 # Program badań i źródła
 
-**Status:** przegląd, hipotezy i dwa wykonane eksperymenty odkrywania. [Pierwszy raport](verification/discovery-learning-experiment.md) zachowuje identyfikację i przekaz, a [drugi](verification/hypothesis-building-experiment.md) syntezę wyjaśnień oraz niespełnione kryteria H/A. Oba mają wcześniej zatwierdzone protokoły, dane, porównania i granice. Podstawą wcześniejszej części źródłowej jest przegląd z rozmowy z 24–25.10.2026; to nie wyczerpujący przegląd stanu nauki. Techniczny odbiór społeczności M04 pozostaje odrębnym wynikiem.
+**Status:** przegląd, hipotezy i trzy wykonane eksperymenty odkrywania. [Pierwszy raport](verification/discovery-learning-experiment.md) zachowuje identyfikację i przekaz, a [drugi](verification/hypothesis-building-experiment.md) syntezę wyjaśnień oraz niespełnione kryteria H/A. [Trzeci raport](verification/discriminating-experiment.md) zachowuje doświadczenia rozdzielające i wyniki I/A/T. Wszystkie trzy mają wcześniej zatwierdzone protokoły, dane, porównania i granice. Podstawą wcześniejszej części źródłowej jest przegląd z rozmowy z 24–25.10.2026; to nie wyczerpujący przegląd stanu nauki. Techniczny odbiór społeczności M04 pozostaje odrębnym wynikiem.
 
 ## Pierwszy eksperyment zlecony przez użytkownika
 
@@ -8,11 +8,15 @@
 
 [Protokół odkrywania i przekazu](work-items/discovery-learning-experiment.md) jest jednym właścicielem szczegółowej metody: opisuje wyposażenie, nieznane parametry, kanał obserwacji, kontrole, budżety, seedy i kryteria zapisane przed próbą. Użytkownik zatwierdził go do implementacji i wykonania. [API](discovery-learning.md) opisuje nowy konsument headless; bieżące kontrole i wyniki wskazuje [raport](verification/discovery-learning-experiment.md). Odkrywanie reguł podłoża, replikacja i świadomość pozostają oddzielnymi pytaniami, bez automatycznego rozpoczęcia ich implementacji.
 
-## Następny kierunek: budowanie wyjaśnień
+## Drugi wykonany eksperyment: budowanie wyjaśnień
 
 27.10.2026 użytkownik zatwierdził [protokół drugiego eksperymentu](work-items/hypothesis-building-experiment.md) do implementacji i wykonania: po wykryciu nieadekwatności dotychczasowego katalogu agent buduje i sprawdza nowe wyjaśnienia. [Raport wykonania](verification/hypothesis-building-experiment.md) zachowuje jednorazową próbę 64 światów, kontrole i dane. Pełne kryterium H nie zostało spełnione przez niedostateczną dokładność ekstrapolacji; A nie wykazało wymaganej przewagi aktywnego wyboru. Zachowano jednocześnie działanie syntezy i wysoką skuteczność zadań praktycznych oraz konkretny dowód niejednoznaczności praw w ograniczonym zakresie pomiarów. [Plan](work-items/hypothesis-building-implementation.md) śledzi wykonanie, bez zmiany progów po wynikach. Wyniki pierwszej próby pozostają odrębnym dowodem.
 
-## Co badać po fundamentach
+## Trzeci wykonany eksperyment i integracja
+
+[Doświadczenia rozdzielające](verification/discriminating-experiment.md) dały dodatnie wyniki I/A i negatywny T według zachowanego protokołu. Następnie [praktyki włączono do prototypu](verification/practice-in-prototype.md), a M00–M06 ukończono w opisanym zakresie. Użytkownik 02.11.2026 pozostawił dalszy kierunek otwarty; poniższe pytania są możliwościami badawczymi, nie wybranym planem lub zleceniem projektu 3D.
+
+## Co można badać po fundamentach
 
 | Pytanie | Dowód potrzebny | Co nie wystarcza |
 | --- | --- | --- |

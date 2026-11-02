@@ -1,5 +1,7 @@
 # Raport fundamentu C++ — etap M00
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Data: 25.10.2026. Zakres: rzeczywisty build C++20, zegar symulacji, runner i diagnostyka. Git zainicjalizowano lokalnie; nie ma commitu ani remote. [Brief](../work-items/m00-build-and-diagnostics.md) określał kryteria przed implementacją.
 
 ## Wykonane

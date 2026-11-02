@@ -1,5 +1,7 @@
 # Praktyczny audyt toru przestrzennego wielu postaci
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Data: 2026-10-26. Zakres: [zatwierdzony brief](../work-items/traversal-multi-actor.md), na podstawie [propozycji użytkownika](../../traversal-multi-actor-audit.md). Odbiór techniczny opisanego zakresu: zaliczony. Dostarczona specyfikacja pozostaje zachowana; poniżej rozdzielamy wykonane próby, korekty założeń i granice dowodu.
 
 ## Reprodukcje

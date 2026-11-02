@@ -1,5 +1,7 @@
 # Wejście w M04: zakres zatwierdzonego kierunku
 
+**Kontekst: historyczna propozycja przygotowania przyrostu.** Późniejszy [raport](../verification/m04-acceptance.md) wskazuje rzeczywiście wykonany zakres, a [plan prototypu](../prototype-plan.md) zamknięte etapy. Propozycja nie jest nowym zadaniem po M06 i nie potwierdza automatycznie wykonania każdego rozważanego wariantu.
+
 Użytkownik 26.10.2026 polecił rozpocząć pracę według rekomendacji: ograniczone domknięcie ruchu, rzeczywista dostawa między osadami, minimalne rozwiązywanie konfliktu i osobisty udział gracza. To zgoda na ten kierunek i jego wykonanie etapami, bez zmiany planu M00–M06. Ten dokument nie stwierdza implementacji przyszłych części.
 
 Rozważone kierunki: dalsza samodzielna rozbudowa fizyki daje większy zakres geometrii, lecz odkłada sprawdzenie gry; samodzielna rozbudowa negocjacji daje zachowania społeczne bez realnego celu; wybrany mały fragment dostawy wiąże technologię z konsekwencją dla mieszkańców. Rozwój pozostaje na własnym C++20/Win32/D3D11, bez nowych bibliotek fizyki lub AI.

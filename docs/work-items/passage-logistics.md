@@ -24,4 +24,4 @@ Zamknięcie odmawia na kapsule przy powierzchni przejścia, rozpoczętym Step i 
 
 ## Granice odbioru
 
-Własny C++20/Win32/D3D11, bez nowych zależności. Nie podnosimy limitów ani nie skracamy starych scenariuszy. Raport rozdzieli rzeczywiste dostawy i koszty, działanie okna, granice fizyki, komfort człowieka i nadal nieukończone M04. Zamknięcie po zużyciu odrzucone na człowieku pozostawia wear==1000 i otwarte przejście do następnej bezpiecznej próby; taki stan jest poprawny także po zapisie.
+Własny C++20/Win32/D3D11, bez nowych zależności. Nie podnosimy limitów ani nie skracamy starych scenariuszy. [Raport](../verification/passage-logistics.md) rozdziela wyniki i granice tego przyrostu. Późniejszy odbiór M04 oraz całego prototypu M00–M06 wskazuje [plan](../prototype-plan.md). Zamknięcie po zużyciu odrzucone na człowieku pozostawia wear==1000 i otwarte przejście do następnej bezpiecznej próby; taki stan jest poprawny także po zapisie.

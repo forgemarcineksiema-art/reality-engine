@@ -12,7 +12,7 @@
 - Silnik, fizyka i nawigacja są własne. Unreal Engine został odrzucony. Zależności ograniczamy do minimum.
 - Pierwszy rezultat łączy grywalny fragment i laboratorium małej autonomicznej społeczności. Grafika ma najmniejszy priorytet.
 - Projekt realizuje użytkownik ze swoimi agentami AI. Nie ma narzuconego terminu.
-- Kolejność dalszych prac ustalona 28.10.2026: zastosować wyniki eksperymentów w działającym prototypie, ukończyć całe M05 i M06, następnie osobno zaprojektować przekształcenie zakresu 2,5D w pełne 3D. Szczegóły i dowody etapów należą do [jednego planu](prototype-plan.md).
+- Pierwszy prototyp techniczny M00–M06 został ukończony i odebrany w opisanym zakresie; [plan](prototype-plan.md) i [raport M06](verification/m06-acceptance.md) wskazują dowody. Decyzją użytkownika z 02.11.2026 dalszy kierunek pozostaje otwarty. Pełne 3D nie jest zatwierdzonym następnym ani nadrzędnym projektem; aktualną granicę zapisuje DEC-019 w [rejestrze decyzji](decisions.md).
 - Punktem odniesienia jest laptop użytkownika i5/MX330/8 GB RAM. Dokładny odczyt i proponowane budżety są w [budżetach](performance-budget.md).
 
 ## Hierarchia wartości

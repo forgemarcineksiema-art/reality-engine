@@ -1,6 +1,6 @@
 # Zbiorczy raport M05 — ciągłość, przejście i historia
 
-**Status: M05 zaliczone w zatwierdzonym zakresie prototypu, 29.10.2026.** Podstawa: dowody techniczne poniżej i bezpośrednia deklaracja użytkownika bez oddzielnego playtestu. [Jeden plan](../prototype-plan.md) pozostaje właścicielem statusu etapów; M06 nie jest przez to wykonane.
+**Status: M05 zaliczone w zatwierdzonym zakresie prototypu, 29.10.2026.** Podstawa: dowody techniczne poniżej i bezpośrednia deklaracja użytkownika bez oddzielnego playtestu. [Jeden plan](../prototype-plan.md) pozostaje właścicielem statusu etapów; późniejszy [M06](m06-acceptance.md) ma osobny odbiór i własne dowody.
 
 ## Zakres i dowody zamknięcia
 
@@ -31,7 +31,7 @@ To bezpośrednia akceptacja przedstawionego zakresu M05 i odstąpienie od osobne
 
 ## Pozostały zakres i następny etap
 
-W zatwierdzonym zakresie M05 nie pozostała otwarta bramka implementacji lub odbioru. M06 pozostaje planem: zamrożony protokół dłuższej próby aplikacji, pomiar na wskazanym sprzęcie, odbiór i decyzja o skali według jednego planu. Obecne polecenie nie wykonuje ani nie znosi wymagań M06. Pełne 3D, ogólny streaming, dynamiczne zawalenia, pełne instytucje i rozbudowana walka pozostają poza tym zaliczeniem.
+W zatwierdzonym zakresie M05 nie pozostała otwarta bramka implementacji lub odbioru. Później wykonano i odebrano techniczny [M06](m06-acceptance.md), zamykając pierwszy prototyp. Pełne 3D, ogólny streaming, dynamiczne zawalenia, pełne instytucje i rozbudowana walka pozostają poza tym zaliczeniem. Następny kierunek nie został wybrany; obowiązuje DEC-019, bez obligatoryjnego projektu 3D.
 
 ## Dowody i sposób wykonania
 

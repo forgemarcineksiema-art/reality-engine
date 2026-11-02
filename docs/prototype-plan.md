@@ -1,8 +1,8 @@
 # Jeden plan pierwszego prototypu
 
-**Status: M00–M05 zaliczone w opisanym zakresie; M06 pozostaje planem.** Użytkownik zaakceptował obecne sterowanie M03 z uwagami rozwojowymi dotyczącymi reakcji na cel, płynności trasy, szybkości i naturalności ruchu. Nie ma harmonogramu tygodniowego. Zakres produktu wynika z [karty](project-charter.md), a parametry z [budżetów](performance-budget.md).
+**Status: pierwszy prototyp techniczny M00–M06 ukończony i odebrany w opisanym zakresie, 02.11.2026.** Dalszy kierunek nie został wybrany; ustala to DEC-019 w [rejestrze decyzji](decisions.md). Użytkownik zaakceptował obecne sterowanie M03 z uwagami rozwojowymi dotyczącymi reakcji na cel, płynności trasy, szybkości i naturalności ruchu. Nie ma harmonogramu tygodniowego. Zakres produktu wynika z [karty](project-charter.md), a parametry z [budżetów](performance-budget.md).
 
-**Ustalona kolejność dalszej pracy, 28.10.2026:** wykorzystanie ukończonych eksperymentów w okienkowym prototypie → pełne M05 → pełne M06 → osobny projekt przejścia do pełnego 3D. Zapis decyzji: DEC-017. [Integracja w oknie](verification/practice-in-prototype.md) jest technicznie ukończona i zweryfikowana; użytkownik zaakceptował obecne uczenie w prototypie 28.10.2026. Zakres integracji opisuje [projekt integracji praktyk](work-items/practice-in-prototype.md); nie jest to drugi plan etapów ani ponowne otwarcie M04.
+**Zrealizowana kolejność:** integracja ukończonych eksperymentów w okienkowym prototypie → M05 → M06. [Integracja w oknie](verification/practice-in-prototype.md) została technicznie zweryfikowana i zaakceptowana 28.10.2026; jej [projekt](work-items/practice-in-prototype.md) nie jest drugim planem etapów. Dalszy projekt nie został wybrany. Wcześniejszą interpretację o obowiązkowym przejściu do pełnego 3D wycofano w DEC-019.
 
 Etapy są uporządkowane zależnościami. Nie tworzymy drugiego równoległego backlogu E/P ani nie traktujemy większej populacji jako automatycznego następnego zadania. Dopuszczalne są niezależne małe próby, ale zaliczenie etapu wymaga pełnego wskazanego dowodu.
 
@@ -48,7 +48,7 @@ Wdrożone fundamenty mają wcześniejsze raporty: [potrzeby](verification/autono
 
 Kierunek wejścia w M04 z 26.10.2026 obejmował istniejący ruch, prawdziwą dostawę, minimalną współpracę i ingerencję gracza. Bieżący odbiór łączy te elementy; nie rozszerza zakresu na pełne instytucje, nowe solverowe bryły, nieskończoną gospodarkę lub całe M06. M03 zachowuje wcześniejszą ocenę użytkownika i jej uwagi do reakcji na cel, płynności oraz naturalności; automat nie potwierdza nowego komfortu.
 
-Warstwa gry: gracz osobiście wpływa na dostawę albo pracę i potrafi odczytać skutek. Sprawdzamy również spokojny wariant bez katastrofy: mieszkańcy pracują i współpracują bez rozkazów. Nie uznajemy samej liczby NPC za wartość gry. Odbiór M04 został potwierdzony przez użytkownika; szersze badanie graczy i pomiar długiego obciążenia pozostają w M06.
+Warstwa gry: gracz osobiście wpływa na dostawę albo pracę i potrafi odczytać skutek. Sprawdzamy również spokojny wariant bez katastrofy: mieszkańcy pracują i współpracują bez rozkazów. Nie uznajemy samej liczby NPC za wartość gry. Odbiór M04 został potwierdzony przez użytkownika; dłuższy pomiar wykonano w technicznym M06. Szersze badanie graczy nie było jego bramką i pozostaje zagadnieniem przyszłego produktu.
 
 ### Przyrost po M04 — wykorzystanie badań w istniejącym prototypie
 
@@ -97,11 +97,9 @@ Decyzja użytkownika z 02.11.2026: M06 ma potwierdzić solidność i wiarygodno�
 
 Dopiero ten etap uzasadnia wybór następnego kierunku: większa populacja, głębsza fizyka, lepsza historia albo poprawa istniejącego zachowania. Hipoteza kolejnej liczebności znajduje się w budżetach. Nie rozwijamy wszystkich wymiarów jednocześnie.
 
-### Po M06 — osobny projekt pełnego 3D
+### Po prototypie — kierunek otwarty
 
-**KIERUNEK USTALONY PRZEZ UŻYTKOWNIKA, szczegóły nadal otwarte.** Po zamknięciu całego prototypu następuje osobny projekt przekształcenia obecnego zakresu 2,5D w pełne 3D. Obecne renderowanie brył nie jest dowodem pełnej fizyki/nawigacji 3D. Granice nowej geometrii, ruchu, kamery, interakcji i ewentualnej dynamiki muszą zostać opisane oraz przyjęte przed implementacją.
-
-Nowy projekt rozpoczyna się od audytu tego, co zachowujemy z silnika i domen, oraz planu migracji zapisów i odbioru tych samych sytuacji. Nie zakładamy napisania całości od zera ani prostego podmienienia grafiki. M05/M06 nie mogą przenosić swoich braków do tego projektu tylko po to, aby uznać prototyp za zakończony. Projekt 3D nie staje się teraz dodatkową bramką M06, a jego techniczne szczegóły nie są dziś zatwierdzoną implementacją.
+**DECYZJA UŻYTKOWNIKA, 02.11.2026.** Plan pierwszego prototypu M00–M06 jest zamknięty w opisanym zakresie. Użytkownik nie wybrał jeszcze najlepszego kierunku dalszych prac. Pełne 3D nie jest zatwierdzonym następnym projektem ani nadrzędną migracją. Wcześniejszy zapis przypisujący taką kolejność został wycofany w DEC-019. Dalsze propozycje badawcze i techniczne wymagają wyboru celu oraz osobnego zakresu przed wdrażaniem. Ten dokument nie ustanawia nowego backlogu.
 
 ## Zasada aktualizacji
 

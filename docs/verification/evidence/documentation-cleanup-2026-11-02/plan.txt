@@ -1,0 +1,9 @@
+# Documentation consistency and cleanup execution plan
+Goal: all current documentation reflects completed bounded prototype M00–M06; no chosen next 3D project. No engine behavior change.
+Spec: current user's explicit correction, existing engineering rules, charter, prototype plan and document map. Latest user instruction supersedes prior future-roadmap attribution.
+Architecture: one milestone owner, one decision register; dated reports retain measured results; raw archived sources/evidence stay byte-identical. Audit every tracked document, including transcripts and agent instructions, with per-file outcome inventory.
+Review focus: hidden 3D mandates, stale global milestone statements, historical evidence rewritten as current success, broken links/anchors, branch cleanup losing unpublished work.
+Task1: read/hash/classify every document and raw source, verify all links and identifier owners; identify live stale statements versus historical scope. Correct AGENTS/README/charter/plan/decisions/development/research and misleading status paragraphs. Keep API limitations and negative experiments.
+Task2: reconcile completed work-item roles; annotate historical reports without replacing original measured results. Publish an audit report and per-file inventory with before/after hashes. Preserve exact evidence/source archives. No invented assertion-content tests for prose.
+Task3: one fresh read-only review, fix real findings; check docs, Python tooling and documentation-bound binary identities after rebuilding only affected identity targets. Existing C++ milestone matrix stays historical, not rerun for prose.
+Task4: commit corrections, synchronize main by fast-forward only if ancestry is proven; clean only safely merged task branches and disposable task-owned scratch. Verify remote state and archive hashes before any deletion. No rewrite of history or unmerged work.

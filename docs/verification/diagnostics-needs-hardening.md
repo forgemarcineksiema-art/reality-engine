@@ -1,6 +1,6 @@
 # Diagnostyka i bezpieczne przerywanie potrzeb
 
-Status: zakres diagnostyki i bezpiecznych potrzeb ZALICZONY technicznie; pozostała stagnacja nawigacji ma osobne otwarte zgłoszenie i blokuje uznanie sceny za domkniętą przed dostawami. Zakres określa [plan](../work-items/diagnostics-needs-hardening.md). Bez commitów i delegowania, zachowano poprzednie zmiany oraz formaty WorkWorld/MotionSession.
+Status: zakres diagnostyki i bezpiecznych potrzeb ZALICZONY technicznie; stagnację opisaną w tej próbie naprawiono później w [odzyskiwaniu ruchu](retained-world-navigation-stall.md) i [lokalnej współpracy](local-clearance.md). Globalny status ukończonego prototypu podaje [plan](../prototype-plan.md). Zakres określa [plan](../work-items/diagnostics-needs-hardening.md). Bez commitów i delegowania, zachowano poprzednie zmiany oraz formaty WorkWorld/MotionSession.
 
 ## Zachowanie
 
@@ -53,6 +53,6 @@ Nowy detektor zgłosił 5 epizodów dla czterech osób. Przy końcu dla osoby 7 
 
 Przegląd autora, bez niezależnego review: własność stanu, zwalnianie nieprzydzielonych kolejek, ochrona zajętej kładki, brak zdalnego odczytu zapasów, koszty rozpoczętej czynności, walidacja stosu/referencji, transakcyjny odczyt i stabilne ID obserwacji. Finalne kontrole integracji opisano powyżej; ograniczenie braku niezależnego review pozostaje jawne.
 
-Detektor nadal może nie rozpoznać wielkiej pętli przestrzennej i nie dowodzi kompletności nawigacji. Legalne oczekiwanie na właściciela nie jest samo alarmem; raport umożliwia powiązanie go z obserwacją właściciela, bez pełnej analizy cykli zależności. Skończone zapasy, ograniczona wiedza i istniejące miejsca pracy nie tworzą gospodarki. Nie ma jeszcze transferu materiału, dostaw ani negocjacji. Nie zmieniano ruchu i fizyki w celu udawania ich realizacji.
+Detektor nadal może nie rozpoznać wielkiej pętli przestrzennej i nie dowodzi kompletności nawigacji. Legalne oczekiwanie na właściciela nie jest samo alarmem; raport umożliwia powiązanie go z obserwacją właściciela, bez pełnej analizy cykli zależności. Skończone zapasy, ograniczona wiedza i istniejące miejsca pracy nie tworzą gospodarki. W tym historycznym przyroście nie implementowano jeszcze transferu, dostaw ani lokalnego protokołu ustępowania; ich późniejsze wykonanie wskazuje plan i raporty kolejnych przyrostów. Nie zmieniano ruchu i fizyki w celu udawania ich realizacji.
 
 Dawne 300 s pomiaru dotyczy poprzedniego programu. Ta zmiana wymaga własnych danych dla nowego twierdzenia o wydajności; krótkie kontrole GPU i headless go nie zastępują. Odbiór techniczny nie jest oceną komfortu przez użytkownika ani zakończeniem M04.

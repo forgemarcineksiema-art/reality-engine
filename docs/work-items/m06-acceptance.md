@@ -4,7 +4,7 @@
 
 ## Cel najbliższego przyrostu
 
-Uzyskać porównywalny zapis zachowania i kosztu obecnej społeczności, pozwalający odróżnić sprawne działanie od bezczynności, niedoboru, utknięcia i narastającej zaległości. Kryteria interpretujemy według [strategii testów](../testing-strategy.md) i [budżetów](../performance-budget.md). Nowe możliwości konstrukcji, autonomiczne tworzenie zabaw i pełne 3D należą do późniejszego projektu.
+Uzyskać porównywalny zapis zachowania i kosztu obecnej społeczności, pozwalający odróżnić sprawne działanie od bezczynności, niedoboru, utknięcia i narastającej zaległości. Kryteria interpretujemy według [strategii testów](../testing-strategy.md) i [budżetów](../performance-budget.md). Nowe możliwości konstrukcji, autonomiczne tworzenie zabaw i pełne 3D wykraczają poza wykonany M06; użytkownik nie wybrał dalszego kierunku ani kolejnego projektu.
 
 Pierwszy przyrost: **eksport próbek w czasie oraz oznaczenie rozgrzewki i faz pomiaru**, opisany w [planie wykonawczym](m06-measurement-export.md) i [raporcie](../verification/m06-measurement-export.md). Reguły mieszkańców, zapasów, uczenia i formaty świata zachowują dotychczasową semantykę. To ograniczony zakres przygotowania, nie cała instrumentacja M06.
 
@@ -30,7 +30,7 @@ Wymagania dla eksportu:
 5. Eksport nie może zmieniać stanu symulacji. Koszt samego zbierania i zapisu próbek należy ujawnić w pilotażu; błąd pliku nie może zostać zamieniony w fikcyjny poprawny pomiar.
 6. Przypadki odbioru: rozgrzewka i okres właściwy; niepoprawna próbka; błąd eksportu; pełny okres bez zgubienia końcowych danych; zgodność dotychczasowego raportu i zapisu świata. Testy dotyczą danych i skutków, nie tylko komunikatu sukcesu.
 
-Oddzielny następny zakres instrumentacji ma rozdzielić CPU/GPU oraz koszt uczenia, nawigacji i zapisu. Obecny `simulation_*` obejmuje całe `SimulationPacer::update`; czas klatki zawiera także oczekiwanie prezentacji. Nie wolno przypisać różnicy GPU bez pomiaru. Rozszerzenie GPU potrzebuje własnej próby natywnej i kontroli kosztu pomiaru.
+Późniejszy zakres instrumentacji rozdzielił CPU/GPU oraz koszt uczenia, nawigacji i zapisu; wykonanie oraz natywną kontrolę opisuje [odbiór M06](../verification/m06-acceptance.md). Sam historyczny licznik `simulation_*` nadal obejmuje całe `SimulationPacer::update`, a czas klatki także oczekiwanie prezentacji. Różnic nie przypisujemy GPU bez danych; ograniczenia narzutu pozostają w raporcie.
 
 ## Przygotowanie właściwych prób
 

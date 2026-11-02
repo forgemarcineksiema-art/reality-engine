@@ -1,5 +1,7 @@
 # Raport tożsamości, czynności i zasobów — etap M01
 
+**Kontekst raportu:** poniżej zachowano zakres, wyniki i ograniczenia konkretnego historycznego przyrostu. Późniejsze M00–M06 są ukończone w opisanym zakresie według [planu prototypu](../prototype-plan.md) i [odbioru M06](m06-acceptance.md). Dawne braki lub stwierdzenia o niezamknięciu etapu nie są dzisiejszym statusem projektu; nie rozszerzamy dawnych wyników na późniejszy kod.
+
 Data: 25.10.2026. Status: **ZALICZONE w zakresie M01.** Zakres określał [brief](../work-items/m01-identity-actions-reservations.md); konkretne API i ograniczenia opisuje [model domeny](../work-domain.md). Lokalny Git nadal nie ma commitu ani remote.
 
 ## Wykonany przyrost

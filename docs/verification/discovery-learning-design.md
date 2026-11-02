@@ -1,10 +1,10 @@
 # Przegląd projektu eksperymentu odkrywania
 
-**Status: projekt protokołu przygotowany i przejrzany; implementacja oraz D/G/S niewykonane.** Data: 27.10.2026. Właścicielem szczegółów pozostaje [projekt eksperymentu](../work-items/discovery-learning-experiment.md). Ten raport dotyczy wyłącznie przygotowania projektu przed próbą, bez zmiany statusu M04 lub przypisywania akceptacji metodzie badawczej przez użytkownika.
+**Status historycznego przeglądu: projekt protokołu przygotowany i przejrzany przed implementacją.** Późniejsze wykonanie D/G/S opisuje [raport eksperymentu](discovery-learning-experiment.md). Data: 27.10.2026. Właścicielem szczegółów pozostaje [projekt eksperymentu](../work-items/discovery-learning-experiment.md). Ten raport dotyczy wyłącznie przygotowania projektu przed próbą, bez zmiany statusu M04 lub przypisywania akceptacji metodzie badawczej przez użytkownika.
 
 ## Wykonane rozpoznanie
 
-Odczytano README, reguły inżynierskie, kartę projektu, mapę dokumentacji, program badań, kontrakty i rzeczywiste API `SimulationClock`, `WorkWorld`, `TraversalSession`, obserwacji oraz kontaktu. Nowe pomiary i kontroler uczący się nie istnieją w tym kodzie. Stan wyjściowy: czyste `main`, commit `96e6c11`; dokumenty przygotowano na gałęzi `codex/discovery-experiment-design`. Nie wykonywano push.
+Odczytano README, reguły inżynierskie, kartę projektu, mapę dokumentacji, program badań, kontrakty i rzeczywiste API `SimulationClock`, `WorkWorld`, `TraversalSession`, obserwacji oraz kontaktu. W badanym wówczas kodzie nie istniały jeszcze nowe pomiary i kontroler uczący się; zdanie opisuje stan wyjściowy przeglądu. Stan wyjściowy: czyste `main`, commit `96e6c11`; dokumenty przygotowano na gałęzi `codex/discovery-experiment-design`. Nie wykonywano push.
 
 Zakres dokumentacyjny: nowy protokół, niniejszy raport, odnośnik w programie badań i rejestracja obu dokumentów w mapie. Nie zmieniono kodu produkcyjnego, testów silnika, formatów ani historycznych dowodów.
 
